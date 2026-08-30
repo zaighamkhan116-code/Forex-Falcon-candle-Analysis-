@@ -8,46 +8,17 @@ const app=express(),__dirname=path.dirname(fileURLToPath(import.meta.url)),PORT=
 const pairs=['EURUSD','EURJPY','GBPUSD','CADCHF','USDJPY','NZDCHF','USDPKR','USDINR','BTCUSD','XAUUSD'],horizons=[1,2,3,5,15];
 const TARGET_SIGNALS=20;
 
-const engine={
- running:false,phase:'IDLE',pair:'EURUSD',horizon:1,runId:0,runSignals:0,targetSignals:TARGET_SIGNALS,
- history:[],lastAnalysis:null,lastError:null,startedAt:null,pausedAt:null,nextRunAt:null,timer:null,busy:false
-};
+const engine={running:false,phase:'IDLE',pair:'EURUSD',horizon:1,runId:0,runSignals:0,targetSignals:TARGET_SIGNALS,history:[],lastAnalysis:null,lastError:null,startedAt:null,pausedAt:null,nextRunAt:null,timer:null,busy:false};
+app.use(express.json());app.use(express.static(path.join(__dirname,'public')));app.use((req,res,next)=>{res.set('Cache-Control','no-store');next();});
 
-app.use(express.json());
-app.use(express.static(path.join(__dirname,'public')));
-app.use((req,res,next)=>{res.set('Cache-Control','no-store');next();});
-
-function publicState(){return{
- running:engine.running,phase:engine.phase,pair:engine.pair,horizon:engine.horizon,runId:engine.runId,
- runSignals:engine.runSignals,targetSignals:engine.targetSignals,history:engine.history,lastAnalysis:engine.lastAnalysis,
- lastError:engine.lastError,startedAt:engine.startedAt,pausedAt:engine.pausedAt,nextRunAt:engine.nextRunAt,
- serverTime:Date.now(),budget:getBudget()
-};}
+function publicState(){return{running:engine.running,phase:engine.phase,pair:engine.pair,horizon:engine.horizon,runId:engine.runId,runSignals:engine.runSignals,targetSignals:engine.targetSignals,history:engine.history,lastAnalysis:engine.lastAnalysis,lastError:engine.lastError,startedAt:engine.startedAt,pausedAt:engine.pausedAt,nextRunAt:engine.nextRunAt,serverTime:Date.now(),budget:getBudget()};}
 function clearTimer(){if(engine.timer){clearTimeout(engine.timer);engine.timer=null;}}
-function nextBoundary(horizon){const span=horizon*60_000;return Math.ceil((Date.now()+300)/span)*span;}
+function nextBoundary(h){const span=h*60_000;return Math.ceil((Date.now()+300)/span)*span;}
 function schedule(){clearTimer();if(!engine.running)return;engine.nextRunAt=nextBoundary(engine.horizon);const delay=Math.max(250,engine.nextRunAt-Date.now()+900);engine.timer=setTimeout(()=>runCycle(engine.nextRunAt),delay);}
 function resolvePending(price,now){for(const s of engine.history){if(s.result==='PENDING'&&now>=s.expiry){const d=price-s.entry;s.exit=price;s.result=d===0?'TIE':(s.direction==='BUY'?d>0:d<0)?'WIN':'LOSS';s.resolvedAt=now;}}}
-async function runCycle(boundaryTime){
- if(!engine.running||engine.busy)return;engine.busy=true;engine.phase='ANALYZING';engine.lastError=null;
- try{
-   const bundle=await getPredictionBundle(engine.pair),result=analyze(bundle,engine.horizon,engine.pair),last=bundle.m1.at(-1),now=Date.now();
-   resolvePending(result.price,now);
-   engine.lastAnalysis={...result,pair:engine.pair,symbol:marketSymbol(engine.pair),candleTime:last?.time,generatedAt:now,serverTime:now,budget:bundle.budget};
-   if(result.qualified&&engine.runSignals<TARGET_SIGNALS){
-     const duplicate=engine.history.some(s=>s.runId===engine.runId&&s.pair===engine.pair&&s.horizon===engine.horizon&&s.candleTime===last?.time);
-     if(!duplicate){
-       engine.history.unshift({id:`${engine.runId}-${last?.time}-${engine.runSignals+1}`,runId:engine.runId,runNumber:engine.runSignals+1,pair:engine.pair,horizon:engine.horizon,direction:result.direction,probability:result.confidence,time:boundaryTime,candleTime:last?.time,entry:result.price,expiry:boundaryTime+engine.horizon*60_000,result:'PENDING',regime:result.regime,engine:result.engine||'TECHNICAL'});
-       engine.history=engine.history.slice(0,20);engine.runSignals+=1;
-     }
-   }
-   if(engine.runSignals>=TARGET_SIGNALS){engine.running=false;engine.phase='PAUSED_20';engine.pausedAt=Date.now();engine.nextRunAt=null;clearTimer();}
-   else {engine.phase='RUNNING';schedule();}
- }catch(e){engine.lastError=e.message;engine.phase='ERROR';if(getBudget().predictionsRemaining<=0){engine.running=false;engine.nextRunAt=null;}else schedule();}
- finally{engine.busy=false;}
-}
-function startEngine(pair,horizon){
- clearTimer();engine.runId+=1;engine.runSignals=0;engine.pair=pair;engine.horizon=horizon;engine.running=true;engine.phase='RUNNING';engine.lastError=null;engine.startedAt=Date.now();engine.pausedAt=null;engine.nextRunAt=null;schedule();
-}
+function scheduleFinalSettlement(){const pending=engine.history.filter(s=>s.runId===engine.runId&&s.result==='PENDING');if(!pending.length)return;const due=Math.max(...pending.map(s=>s.expiry));const delay=Math.max(1000,due-Date.now()+1000);engine.timer=setTimeout(async()=>{if(engine.running)return;try{engine.phase='SETTLING';const bundle=await getPredictionBundle(engine.pair),result=analyze(bundle,engine.horizon,engine.pair),last=bundle.m1.at(-1),now=Date.now();resolvePending(result.price,now);engine.lastAnalysis={...result,pair:engine.pair,symbol:marketSymbol(engine.pair),candleTime:last?.time,generatedAt:now,serverTime:now,budget:bundle.budget};engine.phase='PAUSED_20';}catch(e){engine.lastError=e.message;engine.phase='PAUSED_20';}finally{engine.timer=null;}},delay);}
+async function runCycle(boundaryTime){if(!engine.running||engine.busy)return;engine.busy=true;engine.phase='ANALYZING';engine.lastError=null;try{const bundle=await getPredictionBundle(engine.pair),result=analyze(bundle,engine.horizon,engine.pair),last=bundle.m1.at(-1),now=Date.now();resolvePending(result.price,now);engine.lastAnalysis={...result,pair:engine.pair,symbol:marketSymbol(engine.pair),candleTime:last?.time,generatedAt:now,serverTime:now,budget:bundle.budget};if(result.qualified&&engine.runSignals<TARGET_SIGNALS){const duplicate=engine.history.some(s=>s.runId===engine.runId&&s.pair===engine.pair&&s.horizon===engine.horizon&&s.candleTime===last?.time);if(!duplicate){engine.history.unshift({id:`${engine.runId}-${last?.time}-${engine.runSignals+1}`,runId:engine.runId,runNumber:engine.runSignals+1,pair:engine.pair,horizon:engine.horizon,direction:result.direction,probability:result.confidence,time:boundaryTime,candleTime:last?.time,entry:result.price,expiry:boundaryTime+engine.horizon*60_000,result:'PENDING',regime:result.regime,engine:result.engine||'TECHNICAL'});engine.history=engine.history.slice(0,20);engine.runSignals+=1;}}if(engine.runSignals>=TARGET_SIGNALS){engine.running=false;engine.phase='PAUSED_20';engine.pausedAt=Date.now();engine.nextRunAt=null;clearTimer();scheduleFinalSettlement();}else{engine.phase='RUNNING';schedule();}}catch(e){engine.lastError=e.message;engine.phase='ERROR';if(getBudget().predictionsRemaining<=0){engine.running=false;engine.nextRunAt=null;}else schedule();}finally{engine.busy=false;}}
+function startEngine(pair,horizon){clearTimer();engine.runId+=1;engine.runSignals=0;engine.pair=pair;engine.horizon=horizon;engine.running=true;engine.phase='RUNNING';engine.lastError=null;engine.startedAt=Date.now();engine.pausedAt=null;engine.nextRunAt=null;schedule();}
 function stopEngine(){clearTimer();engine.running=false;engine.phase='STOPPED';engine.nextRunAt=null;}
 
 app.get('/api/health',(_q,r)=>r.json({ok:true,service:'Forex Falcon',marketDataConfigured:Boolean(process.env.TWELVE_DATA_API_KEY),timestamp:new Date().toISOString(),serverTime:Date.now(),budget:getBudget(),engine:publicState()}));
@@ -58,5 +29,4 @@ app.get('/api/engine/state',(_q,r)=>r.json(publicState()));
 app.post('/api/engine/start',(q,r)=>{const pair=String(q.body?.pair||'').toUpperCase(),horizon=Number(q.body?.horizon);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});if(getBudget().predictionsRemaining<=0)return r.status(429).json({error:'Daily API budget exhausted',...publicState()});startEngine(pair,horizon);r.json(publicState());});
 app.post('/api/engine/stop',(_q,r)=>{stopEngine();r.json(publicState());});
 app.get('/api/analyze/:pair',async(q,r)=>{try{const pair=q.params.pair.toUpperCase(),horizon=Number(q.query.horizon||1);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});const bundle=await getPredictionBundle(pair),result=analyze(bundle,horizon,pair),last=bundle.m1.at(-1);r.json({...result,pair,symbol:marketSymbol(pair),candleTime:last?.time,dataPoints:bundle.m1.length,generatedAt:Date.now(),serverTime:Date.now(),budget:bundle.budget});}catch(e){r.status(503).json({error:e.message,serverTime:Date.now(),budget:getBudget()});}});
-app.get('*',(_q,r)=>r.sendFile(path.join(__dirname,'public','index.html')));
-app.listen(PORT,()=>console.log(`Forex Falcon running on port ${PORT}`));
+app.get('*',(_q,r)=>r.sendFile(path.join(__dirname,'public','index.html')));app.listen(PORT,()=>console.log(`Forex Falcon running on port ${PORT}`));
