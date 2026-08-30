@@ -23,7 +23,7 @@ function stopEngine(){clearTimer();engine.running=false;engine.phase='STOPPED';e
 
 app.get('/api/health',(_q,r)=>r.json({ok:true,service:'Forex Falcon',marketDataConfigured:Boolean(process.env.TWELVE_DATA_API_KEY),timestamp:new Date().toISOString(),serverTime:Date.now(),budget:getBudget(),engine:publicState()}));
 app.get('/api/time',(_q,r)=>r.json({serverTime:Date.now(),iso:new Date().toISOString()}));
-app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,confidenceType:'mixed-model-and-forward-test',creditsPerPrediction:4,dailyCreditLimit:800,targetSignals:TARGET_SIGNALS}));
+app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,confidenceType:'mixed-model-and-forward-test',creditsPerPrediction:4,minuteCreditLimit:8,dailyCreditLimit:800,targetSignals:TARGET_SIGNALS}));
 app.get('/api/budget',(_q,r)=>r.json(getBudget()));
 app.get('/api/engine/state',(_q,r)=>r.json(publicState()));
 app.post('/api/engine/start',(q,r)=>{const pair=String(q.body?.pair||'').toUpperCase(),horizon=Number(q.body?.horizon);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});if(getBudget().predictionsRemaining<=0)return r.status(429).json({error:'Daily API budget exhausted',...publicState()});startEngine(pair,horizon);r.json(publicState());});
