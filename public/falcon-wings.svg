@@ -1,33 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" fill="none">
 <defs>
-  <linearGradient id="wingFill" x1="500" y1="190" x2="80" y2="70" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#FFFFFF" stop-opacity=".58"/>
-    <stop offset=".38" stop-color="#E9F2FF" stop-opacity=".40"/>
-    <stop offset=".72" stop-color="#C9DEFF" stop-opacity=".22"/>
-    <stop offset="1" stop-color="#A9C8FF" stop-opacity=".05"/>
+  <linearGradient id="f" x1="500" y1="330" x2="70" y2="40" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FFFDF8" stop-opacity=".76"/><stop offset=".38" stop-color="#F6F3EA" stop-opacity=".56"/><stop offset=".7" stop-color="#E7EEF9" stop-opacity=".34"/><stop offset="1" stop-color="#D6E4FA" stop-opacity=".12"/>
   </linearGradient>
-  <linearGradient id="edge" x1="500" y1="180" x2="70" y2="30" gradientUnits="userSpaceOnUse">
-    <stop stop-color="#FFFFFF" stop-opacity=".72"/>
-    <stop offset="1" stop-color="#C7DDFF" stop-opacity=".08"/>
+  <linearGradient id="s" x1="500" y1="330" x2="100" y2="40" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FFFFFF" stop-opacity=".62"/><stop offset="1" stop-color="#DCE9FB" stop-opacity=".12"/>
   </linearGradient>
-  <filter id="softGlow" x="-20%" y="-30%" width="140%" height="170%">
-    <feGaussianBlur stdDeviation="8" result="blur"/>
-    <feColorMatrix in="blur" type="matrix" values="0.8 0 0 0 0.12  0 0.9 0 0 0.2  0 0 1 0 0.35  0 0 0 .75 0"/>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
+  <filter id="g" x="-15%" y="-15%" width="130%" height="140%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 </defs>
-<g filter="url(#softGlow)">
-  <g id="L">
-    <path d="M500 198C452 180 427 157 398 124C351 70 281 35 190 31C124 28 73 43 36 62C132 66 206 87 270 124C323 155 370 183 422 201C448 210 474 208 500 198Z" fill="url(#wingFill)" opacity=".62"/>
-    <path d="M474 185C416 144 381 92 323 55C273 23 214 12 143 20C217 43 277 77 333 132C374 172 415 193 474 185Z" fill="url(#wingFill)" opacity=".72"/>
-    <path d="M452 192C390 158 350 113 297 82C248 53 192 45 122 55C198 75 260 106 319 151C360 182 400 199 452 192Z" fill="url(#wingFill)" opacity=".62"/>
-    <path d="M433 202C371 177 323 143 270 121C215 98 159 98 91 112C167 121 232 146 294 179C338 202 382 211 433 202Z" fill="url(#wingFill)" opacity=".54"/>
-    <path d="M416 214C351 199 302 181 247 175C190 169 136 182 78 207C154 196 222 203 291 222C337 234 378 231 416 214Z" fill="url(#wingFill)" opacity=".48"/>
-    <path d="M401 226C341 221 291 221 241 235C188 249 144 278 98 318C165 283 226 266 291 260C334 256 370 245 401 226Z" fill="url(#wingFill)" opacity=".40"/>
-    <path d="M387 237C335 243 292 254 252 277C213 299 184 326 158 354C204 327 253 309 304 296C338 287 365 268 387 237Z" fill="url(#wingFill)" opacity=".34"/>
-    <path d="M500 198C438 180 394 139 353 94C299 35 224 17 132 27" fill="none" stroke="url(#edge)" stroke-width="5" stroke-linecap="round" opacity=".65"/>
-    <path d="M491 202C428 195 376 171 324 135C269 97 211 78 143 81" fill="none" stroke="url(#edge)" stroke-width="3.5" stroke-linecap="round" opacity=".38"/>
-  </g>
-  <g transform="translate(1000 0) scale(-1 1)"><use href="#L"/></g>
+<g filter="url(#g)">
+<g id="wingL">
+  <path d="M500 318C450 308 420 288 390 253C353 210 326 155 299 96C278 51 248 22 211 17C226 67 229 113 225 157C221 204 230 246 255 281C296 338 360 360 500 318Z" fill="url(#f)" opacity=".48"/>
+  <path d="M456 294C418 248 401 193 389 124C381 76 364 37 338 17C337 77 326 131 307 184C289 235 310 279 356 319Z" fill="url(#f)" opacity=".78"/>
+  <path d="M432 297C389 252 365 203 346 142C330 91 308 50 278 28C287 86 281 141 263 196C247 246 277 292 327 327Z" fill="url(#f)" opacity=".73"/>
+  <path d="M407 303C360 266 328 220 297 166C271 120 240 85 203 67C225 116 229 165 219 216C210 261 247 302 300 335Z" fill="url(#f)" opacity=".69"/>
+  <path d="M384 311C332 282 294 244 254 200C220 163 182 136 139 126C171 165 185 207 182 253C180 292 224 325 281 345Z" fill="url(#f)" opacity=".64"/>
+  <path d="M364 321C311 301 267 274 220 240C178 211 136 195 88 196C128 224 151 259 160 299C168 334 218 354 274 361Z" fill="url(#f)" opacity=".59"/>
+  <path d="M346 334C293 325 246 309 196 287C151 267 106 260 60 270C106 288 136 316 154 351C169 381 220 386 276 379Z" fill="url(#f)" opacity=".54"/>
+  <path d="M336 347C287 347 240 341 193 328C151 316 110 319 69 337C112 346 146 368 171 399C193 425 240 418 291 396Z" fill="url(#f)" opacity=".50"/>
+  <path d="M333 360C289 369 250 373 209 369C173 366 138 377 106 400C144 401 177 416 203 441C226 463 266 446 307 416Z" fill="url(#f)" opacity=".45"/>
+  <path d="M341 370C303 388 272 402 239 407C208 412 180 427 156 451C187 444 216 451 241 470C263 487 292 462 322 429Z" fill="url(#f)" opacity=".40"/>
+  <path d="M500 319C463 314 439 300 419 279C398 257 386 229 376 199C405 213 431 235 449 263C464 285 479 304 500 319Z" fill="url(#f)" opacity=".88"/>
+  <path d="M482 326C446 328 417 321 392 305C370 291 355 272 344 249C373 254 400 266 422 284C445 302 462 317 482 326Z" fill="url(#f)" opacity=".84"/>
+  <path d="M462 337C428 345 399 343 372 334C348 326 328 311 311 292C339 291 366 298 390 311C416 325 439 334 462 337Z" fill="url(#f)" opacity=".80"/>
+  <path d="M438 349C407 361 378 365 350 361C325 358 303 348 282 333C309 327 337 328 363 337C391 346 414 350 438 349Z" fill="url(#f)" opacity=".75"/>
+  <path d="M414 360C385 376 358 384 329 384C304 384 280 378 257 366C282 357 309 353 336 358C365 363 389 363 414 360Z" fill="url(#f)" opacity=".70"/>
+  <path d="M500 318C455 304 427 274 405 235C379 188 366 127 355 56" stroke="url(#s)" stroke-width="3.5" stroke-linecap="round" opacity=".58"/>
+  <path d="M478 329C428 321 389 300 354 266C317 230 286 180 258 119" stroke="url(#s)" stroke-width="2.5" stroke-linecap="round" opacity=".40"/>
+</g>
+<g transform="translate(1000 0) scale(-1 1)"><use href="#wingL"/></g>
 </g>
 </svg>
