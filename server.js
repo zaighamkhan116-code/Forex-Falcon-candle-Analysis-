@@ -5,7 +5,7 @@ import {getStagedSnapshot,getSettlementPrice,getBudget,marketSymbol} from './lib
 import {analyze} from './lib/analysis.js';
 import {diagnoseLoss,applyLossContext,getLossContext} from './lib/lossLearning.js';
 import {microstructureSupported,getMicrostructureSnapshot,getMicrostructureResearch,applyMicrostructure} from './lib/microstructure.js';
-import {startBackgroundResearch,getBackgroundResearch,getAllBackgroundResearch} from './lib/backgroundResearch.js';
+import {startBackgroundResearch,getBackgroundResearch,getAllBackgroundResearch,setBackgroundHorizon} from './lib/backgroundResearch.js';
 const app=express(),__dirname=path.dirname(fileURLToPath(import.meta.url)),PORT=process.env.PORT||3000;
 const pairs=['EURUSD','EURJPY','GBPUSD','CADCHF','USDJPY','NZDCHF','USDPKR','USDINR','BTCUSD','XAUUSD'],horizons=[1,2,3,5,15],TARGET_SIGNALS=20;
 const sampleOffsets={1:[30000,20000,10000],2:[45000,30000,15000],3:[45000,30000,15000],5:[20000,10000,4000],15:[30000,15000,4000]};
@@ -30,11 +30,12 @@ function stopEngine(){clearTimer();engine.running=false;engine.phase='STOPPED'}
 async function runBtcResearch(){try{await getMicrostructureSnapshot('BTCUSD');researchRunner.lastRunAt=Date.now();researchRunner.lastError=null}catch(e){researchRunner.lastError=e.message}}
 function startBtcResearch(){const delay=Math.max(1000,60000-Date.now()%60000+1200);researchRunner.timer=setTimeout(()=>{runBtcResearch();researchRunner.timer=setInterval(runBtcResearch,60000)},delay)}
 app.get('/api/health',(_q,r)=>r.json({ok:true,service:'Forex Falcon',serverTime:Date.now(),budget:getBudget(),engine:publicState()}));
-app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,targetSignals:TARGET_SIGNALS,backgroundResearch:{automatic:true,cadenceMinutes:3,horizonMinutes:1,recordsAllConfidence:true}}));
+app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,targetSignals:TARGET_SIGNALS,backgroundResearch:{automatic:true,cadenceMinutes:3,defaultHorizonMinutes:1,perPairSelection:true,recordsAllConfidence:true}}));
 app.get('/api/budget',(_q,r)=>r.json(getBudget()));app.get('/api/engine/state',(_q,r)=>r.json(publicState()));
 app.get('/api/research/background',(_q,r)=>r.json(getAllBackgroundResearch()));app.get('/api/research/background/:pair',(q,r)=>r.json(getBackgroundResearch(q.params.pair)));
+app.post('/api/research/background/:pair/horizon',(q,r)=>{try{const p=String(q.params.pair||'').toUpperCase(),h=Number(q.body?.horizon);if(!horizons.includes(h))return r.status(400).json({error:'Invalid horizon'});r.json(setBackgroundHorizon(p,h))}catch(e){r.status(400).json({error:e.message})}});
 app.get('/api/research/btc',(_q,r)=>r.json({stats:getMicrostructureResearch('BTCUSD'),runner:researchRunner}));
-app.post('/api/engine/start',(q,r)=>{const pair=String(q.body?.pair||'').toUpperCase(),h=Number(q.body?.horizon);if(!pairs.includes(pair)||!horizons.includes(h))return r.status(400).json({error:'Invalid pair or horizon'});startEngine(pair,h);r.json(publicState())});
+app.post('/api/engine/start',(q,r)=>{const pair=String(q.body?.pair||'').toUpperCase(),h=Number(q.body?.horizon);if(!pairs.includes(pair)||!horizons.includes(h))return r.status(400).json({error:'Invalid pair or horizon'});try{setBackgroundHorizon(pair,h)}catch{}startEngine(pair,h);r.json(publicState())});
 app.post('/api/engine/stop',(_q,r)=>{stopEngine();r.json(publicState())});
 app.get('/api/analyze/:pair',async(q,r)=>{try{const pair=q.params.pair.toUpperCase(),h=Number(q.query.horizon||1),bundle=await getStagedSnapshot(pair);r.json(await enrichMicrostructure(analyze(bundle,h,pair),pair))}catch(e){r.status(503).json({error:e.message})}});
 app.get('*',(_q,r)=>r.sendFile(path.join(__dirname,'public','index.html')));
