@@ -4,6 +4,7 @@ import {fileURLToPath} from 'url';
 import {getStagedSnapshot,getSettlementPrice,getBudget,marketSymbol} from './lib/marketData.js';
 import {analyze} from './lib/analysis.js';
 import {diagnoseLoss,applyLossContext,getLossContext} from './lib/lossLearning.js';
+import {microstructureSupported,getMicrostructureSnapshot,applyMicrostructure} from './lib/microstructure.js';
 
 const app=express(),__dirname=path.dirname(fileURLToPath(import.meta.url)),PORT=process.env.PORT||3000;
 const pairs=['EURUSD','EURJPY','GBPUSD','CADCHF','USDJPY','NZDCHF','USDPKR','USDINR','BTCUSD','XAUUSD'],horizons=[1,2,3,5,15];
@@ -13,13 +14,14 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const engine={running:false,phase:'IDLE',pair:'EURUSD',horizon:1,runId:0,runSignals:0,targetSignals:TARGET_SIGNALS,history:[],lastAnalysis:null,lastError:null,lastLossReview:null,startedAt:null,pausedAt:null,nextRunAt:null,sampleNextAt:null,sampleStage:0,targetBoundary:null,snapshots:[],timer:null,busy:false};
 app.use(express.json());app.use(express.static(path.join(__dirname,'public')));app.use((req,res,next)=>{res.set('Cache-Control','no-store');next();});
 
-function publicState(){return{running:engine.running,phase:engine.phase,pair:engine.pair,horizon:engine.horizon,runId:engine.runId,runSignals:engine.runSignals,targetSignals:engine.targetSignals,history:engine.history,lastAnalysis:engine.lastAnalysis,lastError:engine.lastError,lastLossReview:engine.lastLossReview,adaptiveContext:getLossContext(engine.pair,engine.horizon),startedAt:engine.startedAt,pausedAt:engine.pausedAt,nextRunAt:engine.nextRunAt,sampleNextAt:engine.sampleNextAt,sampleStage:engine.sampleStage,targetBoundary:engine.targetBoundary,serverTime:Date.now(),budget:getBudget()};}
+function publicState(){return{running:engine.running,phase:engine.phase,pair:engine.pair,horizon:engine.horizon,runId:engine.runId,runSignals:engine.runSignals,targetSignals:engine.targetSignals,history:engine.history,lastAnalysis:engine.lastAnalysis,lastError:engine.lastError,lastLossReview:engine.lastLossReview,adaptiveContext:getLossContext(engine.pair,engine.horizon),startedAt:engine.startedAt,pausedAt:engine.pausedAt,nextRunAt:engine.nextRunAt,sampleNextAt:engine.sampleNextAt,sampleStage:engine.sampleStage,targetBoundary:engine.targetBoundary,serverTime:Date.now(),budget:getBudget(),microstructureEnabled:microstructureSupported(engine.pair)};}
 function clearTimer(){if(engine.timer){clearTimeout(engine.timer);engine.timer=null;}}
 function nextFullBoundary(h){const span=h*60_000,maxOffset=(sampleOffsets[h]||sampleOffsets[1])[0];return Math.ceil((Date.now()+maxOffset+500)/span)*span;}
 function resolvePending(price,now,currentAnalysis=null){for(const s of engine.history){if(s.result==='PENDING'&&now>=s.expiry){const d=price-s.entry;s.exit=price;s.result=d===0?'TIE':(s.direction==='BUY'?d>0:d<0)?'WIN':'LOSS';s.resolvedAt=now;if(s.result==='LOSS'){engine.lastLossReview=diagnoseLoss(s,currentAnalysis);}}}}
+async function enrichMicrostructure(result,pair){if(!microstructureSupported(pair))return result;try{return applyMicrostructure(result,await getMicrostructureSnapshot(pair));}catch(e){return{...result,engine:`${result.engine||'TECHNICAL'}+ORDER_FLOW_FALLBACK`,features:{...(result.features||{}),orderFlowStatus:'UNAVAILABLE'}};}}
 function scheduleCycle(){clearTimer();if(!engine.running)return;const offsets=sampleOffsets[engine.horizon]||sampleOffsets[1],boundary=nextFullBoundary(engine.horizon);engine.targetBoundary=boundary;engine.nextRunAt=boundary;engine.snapshots=[];engine.sampleStage=0;engine.phase='WAITING_SAMPLE';engine.sampleNextAt=boundary-offsets[0];const delay=Math.max(100,engine.sampleNextAt-Date.now());engine.timer=setTimeout(takeSample,delay);}
 function scheduleNextSample(){const offsets=sampleOffsets[engine.horizon]||sampleOffsets[1];if(engine.sampleStage>=offsets.length)return finalizeCycle();engine.sampleNextAt=engine.targetBoundary-offsets[engine.sampleStage];engine.phase=`SAMPLING_${engine.sampleStage+1}_OF_3`;const delay=Math.max(100,engine.sampleNextAt-Date.now());engine.timer=setTimeout(takeSample,delay);}
-async function takeSample(){if(!engine.running||engine.busy)return;engine.busy=true;engine.phase=`ANALYZING_${engine.sampleStage+1}_OF_3`;engine.lastError=null;let failed=false;try{const bundle=await getStagedSnapshot(engine.pair),result=analyze(bundle,engine.horizon,engine.pair),last=bundle.m1.at(-1),now=Date.now();resolvePending(result.price,now,result);const snap={...result,pair:engine.pair,symbol:marketSymbol(engine.pair),candleTime:last?.time,generatedAt:now,serverTime:now,budget:bundle.budget,sampleNumber:engine.sampleStage+1,snapshotAt:bundle.snapshotAt};engine.snapshots.push(snap);engine.lastAnalysis=snap;engine.sampleStage+=1;}catch(e){failed=true;engine.lastError=e.message;engine.phase='ERROR';}finally{engine.busy=false;if(engine.running){if(failed){engine.sampleNextAt=null;engine.snapshots=[];engine.sampleStage=0;setTimeout(()=>{if(engine.running)scheduleCycle();},3000);}else if(engine.sampleStage>=3)finalizeCycle();else scheduleNextSample();}}}
+async function takeSample(){if(!engine.running||engine.busy)return;engine.busy=true;engine.phase=`ANALYZING_${engine.sampleStage+1}_OF_3`;engine.lastError=null;let failed=false;try{const bundle=await getStagedSnapshot(engine.pair),baseResult=analyze(bundle,engine.horizon,engine.pair),result=await enrichMicrostructure(baseResult,engine.pair),last=bundle.m1.at(-1),now=Date.now();resolvePending(result.price,now,result);const snap={...result,pair:engine.pair,symbol:marketSymbol(engine.pair),candleTime:last?.time,generatedAt:now,serverTime:now,budget:bundle.budget,sampleNumber:engine.sampleStage+1,snapshotAt:bundle.snapshotAt};engine.snapshots.push(snap);engine.lastAnalysis=snap;engine.sampleStage+=1;}catch(e){failed=true;engine.lastError=e.message;engine.phase='ERROR';}finally{engine.busy=false;if(engine.running){if(failed){engine.sampleNextAt=null;engine.snapshots=[];engine.sampleStage=0;setTimeout(()=>{if(engine.running)scheduleCycle();},3000);}else if(engine.sampleStage>=3)finalizeCycle();else scheduleNextSample();}}}
 
 function blendedDecision(snaps){
   const final=snaps.at(-1);if(!final)return null;
@@ -27,9 +29,12 @@ function blendedDecision(snaps){
   for(let i=0;i<snaps.length;i++){const s=snaps[i],signed=(s.direction==='BUY'?1:-1)*clamp((s.confidence-50)/40,0,1);evidence+=signed*(weights[i]||0);}
   const first=snaps[0],atr=Math.max(Number(final.features?.atr)||Math.abs(final.price)*.0001,1e-12),evolution=clamp((final.price-first.price)/atr,-1,1);
   evidence=clamp(evidence+evolution*.10,-1,1);
+  // For supported markets, preserve cross-snapshot order-flow pressure instead of treating it as a one-off indicator.
+  const flow=snaps.map(s=>Number(s.features?.orderFlow)).filter(Number.isFinite);
+  if(flow.length){const flowWeighted=flow.reduce((a,v,i)=>a+v*(weights[i]||.3),0);evidence=clamp(evidence+flowWeighted*.14,-1,1);}
   const direction=evidence>=0?'BUY':'SELL',dirs=snaps.map(s=>s.direction),trend=dirs.every(d=>d===direction)?'CONSISTENT':dirs.at(-1)!==dirs[0]?'REVERSING':'MIXED';
-  const isModel=String(final.probabilityType||'').includes('model');
-  let confidence=50+Math.abs(evidence)*(isModel?30:26);
+  const isModel=String(final.probabilityType||'').includes('model')||String(final.probabilityType||'').includes('microstructure');
+  let confidence=50+Math.abs(evidence)*(isModel?24:22);
   let calibrationPenalty=0;
   if(final.regime==='CHOPPY')calibrationPenalty+=4;else if(final.regime==='MIXED')calibrationPenalty+=1.5;
   if(trend==='REVERSING')calibrationPenalty+=5;else if(trend==='MIXED')calibrationPenalty+=3;
@@ -42,11 +47,14 @@ function blendedDecision(snaps){
   if(direction==='SELL'&&f.sr==='AT SUPPORT')calibrationPenalty+=2.5;
   if(direction==='BUY'&&(f.liquidity==='BUY-SIDE SWEEP'||f.breakout==='FAILED BULL BREAK'))calibrationPenalty+=2;
   if(direction==='SELL'&&(f.liquidity==='SELL-SIDE SWEEP'||f.breakout==='FAILED BEAR BREAK'))calibrationPenalty+=2;
+  const orderFlow=Number(f.orderFlow),orderFlowQuality=Number(f.orderFlowQuality);
+  if(Number.isFinite(orderFlow)&&Math.sign(orderFlow)!==sgn&&Math.abs(orderFlow)>.35)calibrationPenalty+=2.5;
+  if(Number.isFinite(orderFlow)&&Math.sign(orderFlow)===sgn&&Math.abs(orderFlow)>.35&&orderFlowQuality>.35)confidence+=1.5;
   if(trend==='CONSISTENT'&&final.regime==='TRENDING')confidence+=1.5;
   confidence-=calibrationPenalty;
-  confidence=clamp(confidence,50,isModel?84:78);
+  confidence=clamp(confidence,50,isModel?70:76);
   const minimumConfidence=60;
-  return{...final,direction,confidence:Number(confidence.toFixed(1)),qualified:confidence>=minimumConfidence,minimumConfidence,calibrationPenalty:Number(calibrationPenalty.toFixed(1)),engine:`${final.engine||'TECHNICAL'}+3_STAGE_CAL`,features:{...(final.features||{}),snapshotEvolution:trend,snapshotDirections:dirs.join('>'),snapshotPriceChange:Number((final.price-first.price).toFixed(6))}};
+  return{...final,direction,confidence:Number(confidence.toFixed(1)),qualified:confidence>=minimumConfidence,minimumConfidence,calibrationPenalty:Number(calibrationPenalty.toFixed(1)),engine:`${final.engine||'TECHNICAL'}+3_STAGE_CAL`,features:{...(final.features||{}),snapshotEvolution:trend,snapshotDirections:dirs.join('>'),snapshotPriceChange:Number((final.price-first.price).toFixed(6)),orderFlowEvolution:flow.length?flow.map(v=>v.toFixed(3)).join('>'):null}};
 }
 
 function finalizeCycle(){
@@ -60,7 +68,7 @@ function finalizeCycle(){
   if(result.qualified&&engine.runSignals<TARGET_SIGNALS){
     const duplicate=engine.history.some(s=>s.runId===engine.runId&&s.pair===engine.pair&&s.horizon===engine.horizon&&s.signalBoundary===boundary);
     if(!duplicate){
-      engine.history.unshift({id:`${engine.runId}-${boundary}-${engine.runSignals+1}`,runId:engine.runId,runNumber:engine.runSignals+1,pair:engine.pair,horizon:engine.horizon,direction:result.direction,probability:result.confidence,time:boundary,candleTime:last,signalBoundary:boundary,entry:result.price,expiry:boundary+engine.horizon*60_000,result:'PENDING',regime:result.regime,engine:result.engine||'TECHNICAL',snapshotEvolution:result.features?.snapshotEvolution,features:result.features,minimumConfidence:result.minimumConfidence,adaptiveContext:result.adaptiveContext||null,calibrationPenalty:result.calibrationPenalty||0});
+      engine.history.unshift({id:`${engine.runId}-${boundary}-${engine.runSignals+1}`,runId:engine.runId,runNumber:engine.runSignals+1,pair:engine.pair,horizon:engine.horizon,direction:result.direction,probability:result.confidence,time:boundary,candleTime:last,signalBoundary:boundary,entry:result.price,expiry:boundary+engine.horizon*60_000,result:'PENDING',regime:result.regime,engine:result.engine||'TECHNICAL',snapshotEvolution:result.features?.snapshotEvolution,features:result.features,minimumConfidence:result.minimumConfidence,adaptiveContext:result.adaptiveContext||null,calibrationPenalty:result.calibrationPenalty||0,microstructure:result.microstructure||null});
       engine.history=engine.history.slice(0,20);engine.runSignals+=1;
     }
   }
@@ -74,10 +82,11 @@ function stopEngine(){clearTimer();engine.running=false;engine.phase='STOPPED';e
 
 app.get('/api/health',(_q,r)=>r.json({ok:true,service:'Forex Falcon',marketDataConfigured:Boolean(process.env.TWELVE_DATA_API_KEY),timestamp:new Date().toISOString(),serverTime:Date.now(),budget:getBudget(),engine:publicState()}));
 app.get('/api/time',(_q,r)=>r.json({serverTime:Date.now(),iso:new Date().toISOString()}));
-app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,confidenceType:'recalibrated-forward-test',liveM1ReadsPerCycle:3,minuteCreditLimit:8,dailyCreditLimit:800,targetSignals:TARGET_SIGNALS,sampleOffsetsMs:sampleOffsets,lossLearningCycles:3}));
+app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,confidenceType:'recalibrated-forward-test',liveM1ReadsPerCycle:3,minuteCreditLimit:8,dailyCreditLimit:800,targetSignals:TARGET_SIGNALS,sampleOffsetsMs:sampleOffsets,lossLearningCycles:3,orderFlow:{BTCUSD:'Binance spot L2 + trades',others:'technical feed only'}}));
 app.get('/api/budget',(_q,r)=>r.json(getBudget()));
 app.get('/api/engine/state',(_q,r)=>r.json(publicState()));
+app.get('/api/microstructure/:pair',async(q,r)=>{try{const pair=String(q.params.pair||'').toUpperCase();if(!microstructureSupported(pair))return r.status(400).json({error:'Live order-flow source is currently enabled for BTCUSD only'});r.json(await getMicrostructureSnapshot(pair));}catch(e){r.status(503).json({error:e.message});}});
 app.post('/api/engine/start',(q,r)=>{const pair=String(q.body?.pair||'').toUpperCase(),horizon=Number(q.body?.horizon);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});if(getBudget().creditsRemaining<3)return r.status(429).json({error:'Daily API budget nearly exhausted',...publicState()});startEngine(pair,horizon);r.json(publicState());});
 app.post('/api/engine/stop',(_q,r)=>{stopEngine();r.json(publicState());});
-app.get('/api/analyze/:pair',async(q,r)=>{try{const pair=q.params.pair.toUpperCase(),horizon=Number(q.query.horizon||1);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});const bundle=await getStagedSnapshot(pair),result=analyze(bundle,horizon,pair),last=bundle.m1.at(-1);r.json({...result,pair,symbol:marketSymbol(pair),candleTime:last?.time,dataPoints:bundle.m1.length,generatedAt:Date.now(),serverTime:Date.now(),budget:bundle.budget});}catch(e){r.status(503).json({error:e.message,serverTime:Date.now(),budget:getBudget()});}});
+app.get('/api/analyze/:pair',async(q,r)=>{try{const pair=q.params.pair.toUpperCase(),horizon=Number(q.query.horizon||1);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});const bundle=await getStagedSnapshot(pair),base=analyze(bundle,horizon,pair),result=await enrichMicrostructure(base,pair),last=bundle.m1.at(-1);r.json({...result,pair,symbol:marketSymbol(pair),candleTime:last?.time,dataPoints:bundle.m1.length,generatedAt:Date.now(),serverTime:Date.now(),budget:bundle.budget});}catch(e){r.status(503).json({error:e.message,serverTime:Date.now(),budget:getBudget()});}});
 app.get('*',(_q,r)=>r.sendFile(path.join(__dirname,'public','index.html')));app.listen(PORT,()=>console.log(`Forex Falcon running on port ${PORT}`));
