@@ -4,7 +4,7 @@ import {fileURLToPath} from 'url';
 import {getStagedSnapshot,getSettlementPrice,getBudget,marketSymbol} from './lib/marketData.js';
 import {analyze} from './lib/analysis.js';
 import {diagnoseLoss,applyLossContext,getLossContext} from './lib/lossLearning.js';
-import {microstructureSupported,getMicrostructureSnapshot,applyMicrostructure} from './lib/microstructure.js';
+import {microstructureSupported,getMicrostructureSnapshot,getMicrostructureResearch,applyMicrostructure} from './lib/microstructure.js';
 
 const app=express(),__dirname=path.dirname(fileURLToPath(import.meta.url)),PORT=process.env.PORT||3000;
 const pairs=['EURUSD','EURJPY','GBPUSD','CADCHF','USDJPY','NZDCHF','USDPKR','USDINR','BTCUSD','XAUUSD'],horizons=[1,2,3,5,15];
@@ -12,9 +12,10 @@ const TARGET_SIGNALS=20;
 const sampleOffsets={1:[30_000,20_000,10_000],2:[45_000,30_000,15_000],3:[45_000,30_000,15_000],5:[20_000,10_000,4_000],15:[30_000,15_000,4_000]};
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const engine={running:false,phase:'IDLE',pair:'EURUSD',horizon:1,runId:0,runSignals:0,targetSignals:TARGET_SIGNALS,history:[],lastAnalysis:null,lastError:null,lastLossReview:null,startedAt:null,pausedAt:null,nextRunAt:null,sampleNextAt:null,sampleStage:0,targetBoundary:null,snapshots:[],timer:null,busy:false};
+const researchRunner={timer:null,lastError:null,lastRunAt:null};
 app.use(express.json());app.use(express.static(path.join(__dirname,'public')));app.use((req,res,next)=>{res.set('Cache-Control','no-store');next();});
 
-function publicState(){return{running:engine.running,phase:engine.phase,pair:engine.pair,horizon:engine.horizon,runId:engine.runId,runSignals:engine.runSignals,targetSignals:engine.targetSignals,history:engine.history,lastAnalysis:engine.lastAnalysis,lastError:engine.lastError,lastLossReview:engine.lastLossReview,adaptiveContext:getLossContext(engine.pair,engine.horizon),startedAt:engine.startedAt,pausedAt:engine.pausedAt,nextRunAt:engine.nextRunAt,sampleNextAt:engine.sampleNextAt,sampleStage:engine.sampleStage,targetBoundary:engine.targetBoundary,serverTime:Date.now(),budget:getBudget(),microstructureEnabled:microstructureSupported(engine.pair)};}
+function publicState(){return{running:engine.running,phase:engine.phase,pair:engine.pair,horizon:engine.horizon,runId:engine.runId,runSignals:engine.runSignals,targetSignals:engine.targetSignals,history:engine.history,lastAnalysis:engine.lastAnalysis,lastError:engine.lastError,lastLossReview:engine.lastLossReview,adaptiveContext:getLossContext(engine.pair,engine.horizon),startedAt:engine.startedAt,pausedAt:engine.pausedAt,nextRunAt:engine.nextRunAt,sampleNextAt:engine.sampleNextAt,sampleStage:engine.sampleStage,targetBoundary:engine.targetBoundary,serverTime:Date.now(),budget:getBudget(),microstructureEnabled:microstructureSupported(engine.pair),btcResearch:getMicrostructureResearch('BTCUSD'),btcResearchRunner:{lastRunAt:researchRunner.lastRunAt,lastError:researchRunner.lastError}};}
 function clearTimer(){if(engine.timer){clearTimeout(engine.timer);engine.timer=null;}}
 function nextFullBoundary(h){const span=h*60_000,maxOffset=(sampleOffsets[h]||sampleOffsets[1])[0];return Math.ceil((Date.now()+maxOffset+500)/span)*span;}
 function resolvePending(price,now,currentAnalysis=null){for(const s of engine.history){if(s.result==='PENDING'&&now>=s.expiry){const d=price-s.entry;s.exit=price;s.result=d===0?'TIE':(s.direction==='BUY'?d>0:d<0)?'WIN':'LOSS';s.resolvedAt=now;if(s.result==='LOSS'){engine.lastLossReview=diagnoseLoss(s,currentAnalysis);}}}}
@@ -29,7 +30,6 @@ function blendedDecision(snaps){
   for(let i=0;i<snaps.length;i++){const s=snaps[i],signed=(s.direction==='BUY'?1:-1)*clamp((s.confidence-50)/40,0,1);evidence+=signed*(weights[i]||0);}
   const first=snaps[0],atr=Math.max(Number(final.features?.atr)||Math.abs(final.price)*.0001,1e-12),evolution=clamp((final.price-first.price)/atr,-1,1);
   evidence=clamp(evidence+evolution*.10,-1,1);
-  // For supported markets, preserve cross-snapshot order-flow pressure instead of treating it as a one-off indicator.
   const flow=snaps.map(s=>Number(s.features?.orderFlow)).filter(Number.isFinite);
   if(flow.length){const flowWeighted=flow.reduce((a,v,i)=>a+v*(weights[i]||.3),0);evidence=clamp(evidence+flowWeighted*.14,-1,1);}
   const direction=evidence>=0?'BUY':'SELL',dirs=snaps.map(s=>s.direction),trend=dirs.every(d=>d===direction)?'CONSISTENT':dirs.at(-1)!==dirs[0]?'REVERSING':'MIXED';
@@ -80,13 +80,21 @@ function scheduleFinalSettlement(){const pending=engine.history.filter(s=>s.runI
 function startEngine(pair,horizon){clearTimer();engine.runId+=1;engine.runSignals=0;engine.pair=pair;engine.horizon=horizon;engine.running=true;engine.phase='RUNNING';engine.lastError=null;engine.lastLossReview=null;engine.startedAt=Date.now();engine.pausedAt=null;engine.nextRunAt=null;engine.sampleStage=0;engine.snapshots=[];scheduleCycle();}
 function stopEngine(){clearTimer();engine.running=false;engine.phase='STOPPED';engine.nextRunAt=null;engine.sampleNextAt=null;engine.targetBoundary=null;}
 
+// Independent BTC order-flow forward recorder. It samples once per minute even when the UI is closed.
+// microstructure.js itself records at most one prediction per 3-minute bucket and resolves it after >=1 minute.
+async function runBtcResearch(){try{await getMicrostructureSnapshot('BTCUSD');researchRunner.lastRunAt=Date.now();researchRunner.lastError=null;}catch(e){researchRunner.lastError=e.message;}}
+function startBtcResearch(){const delay=Math.max(1000,60000-(Date.now()%60000)+1200);researchRunner.timer=setTimeout(()=>{runBtcResearch();researchRunner.timer=setInterval(runBtcResearch,60000);},delay);}
+
 app.get('/api/health',(_q,r)=>r.json({ok:true,service:'Forex Falcon',marketDataConfigured:Boolean(process.env.TWELVE_DATA_API_KEY),timestamp:new Date().toISOString(),serverTime:Date.now(),budget:getBudget(),engine:publicState()}));
 app.get('/api/time',(_q,r)=>r.json({serverTime:Date.now(),iso:new Date().toISOString()}));
-app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,confidenceType:'recalibrated-forward-test',liveM1ReadsPerCycle:3,minuteCreditLimit:8,dailyCreditLimit:800,targetSignals:TARGET_SIGNALS,sampleOffsetsMs:sampleOffsets,lossLearningCycles:3,orderFlow:{BTCUSD:'Binance spot L2 + trades',others:'technical feed only'}}));
+app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,confidenceType:'recalibrated-forward-test',liveM1ReadsPerCycle:3,minuteCreditLimit:8,dailyCreditLimit:800,targetSignals:TARGET_SIGNALS,sampleOffsetsMs:sampleOffsets,lossLearningCycles:3,orderFlow:{BTCUSD:'Binance spot L2 + trades',others:'technical feed only'},btcResearch:{predictionCadenceMinutes:3,settlementMinutes:1,minimumSamplesBeforeRecalibration:300}}));
 app.get('/api/budget',(_q,r)=>r.json(getBudget()));
 app.get('/api/engine/state',(_q,r)=>r.json(publicState()));
+app.get('/api/research/btc',(_q,r)=>r.json({pair:'BTCUSD',source:'BINANCE_SPOT',cadenceMinutes:3,settlementMinutes:1,minimumSamplesBeforeRecalibration:300,weightsLocked:true,stats:getMicrostructureResearch('BTCUSD'),runner:{lastRunAt:researchRunner.lastRunAt,lastError:researchRunner.lastError}}));
 app.get('/api/microstructure/:pair',async(q,r)=>{try{const pair=String(q.params.pair||'').toUpperCase();if(!microstructureSupported(pair))return r.status(400).json({error:'Live order-flow source is currently enabled for BTCUSD only'});r.json(await getMicrostructureSnapshot(pair));}catch(e){r.status(503).json({error:e.message});}});
 app.post('/api/engine/start',(q,r)=>{const pair=String(q.body?.pair||'').toUpperCase(),horizon=Number(q.body?.horizon);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});if(getBudget().creditsRemaining<3)return r.status(429).json({error:'Daily API budget nearly exhausted',...publicState()});startEngine(pair,horizon);r.json(publicState());});
 app.post('/api/engine/stop',(_q,r)=>{stopEngine();r.json(publicState());});
 app.get('/api/analyze/:pair',async(q,r)=>{try{const pair=q.params.pair.toUpperCase(),horizon=Number(q.query.horizon||1);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});const bundle=await getStagedSnapshot(pair),base=analyze(bundle,horizon,pair),result=await enrichMicrostructure(base,pair),last=bundle.m1.at(-1);r.json({...result,pair,symbol:marketSymbol(pair),candleTime:last?.time,dataPoints:bundle.m1.length,generatedAt:Date.now(),serverTime:Date.now(),budget:bundle.budget});}catch(e){r.status(503).json({error:e.message,serverTime:Date.now(),budget:getBudget()});}});
-app.get('*',(_q,r)=>r.sendFile(path.join(__dirname,'public','index.html')));app.listen(PORT,()=>console.log(`Forex Falcon running on port ${PORT}`));
+app.get('*',(_q,r)=>r.sendFile(path.join(__dirname,'public','index.html')));
+startBtcResearch();
+app.listen(PORT,()=>console.log(`Forex Falcon running on port ${PORT}`));
