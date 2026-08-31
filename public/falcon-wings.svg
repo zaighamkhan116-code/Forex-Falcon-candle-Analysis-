@@ -1,14 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" fill="none">
-<defs><filter id="glow" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="feather" x1="450" y1="170" x2="20" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#F8FBFF" stop-opacity=".52"/><stop offset=".5" stop-color="#DCEAFF" stop-opacity=".28"/><stop offset="1" stop-color="#BFD7FF" stop-opacity=".06"/></linearGradient></defs>
-<g filter="url(#glow)" stroke="url(#feather)" stroke-linecap="round" stroke-linejoin="round">
-<g id="left">
-<path d="M450 170C397 150 359 119 319 83C260 31 185 20 72 45C167 67 230 94 285 139C331 176 379 187 450 170Z" fill="url(#feather)" fill-opacity=".10" stroke-width="3"/>
-<path d="M438 165C376 136 333 92 280 57C225 21 159 20 83 39C179 52 244 81 313 137" stroke-width="8" opacity=".72"/>
-<path d="M420 161C352 122 302 78 239 51C188 29 133 32 70 49C162 57 229 88 292 139" stroke-width="7" opacity=".64"/>
-<path d="M399 161C326 128 271 96 205 79C153 66 105 73 52 94C139 91 207 108 276 148" stroke-width="7" opacity=".57"/>
-<path d="M380 167C307 144 249 126 181 124C126 123 82 137 39 164C126 146 196 150 265 166" stroke-width="7" opacity=".50"/>
-<path d="M365 176C294 166 238 164 174 178C124 189 87 211 52 243C130 209 197 195 263 194" stroke-width="7" opacity=".43"/>
-<path d="M350 184C290 186 242 197 190 222C150 242 119 268 92 300C153 260 211 236 273 221" stroke-width="6" opacity=".36"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380">
+<defs>
+  <linearGradient id="wingFill" x1="500" y1="190" x2="80" y2="70" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#FFFFFF" stop-opacity=".58"/>
+    <stop offset=".38" stop-color="#E9F2FF" stop-opacity=".40"/>
+    <stop offset=".72" stop-color="#C9DEFF" stop-opacity=".22"/>
+    <stop offset="1" stop-color="#A9C8FF" stop-opacity=".05"/>
+  </linearGradient>
+  <linearGradient id="edge" x1="500" y1="180" x2="70" y2="30" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FFFFFF" stop-opacity=".72"/>
+    <stop offset="1" stop-color="#C7DDFF" stop-opacity=".08"/>
+  </linearGradient>
+  <filter id="softGlow" x="-20%" y="-30%" width="140%" height="170%">
+    <feGaussianBlur stdDeviation="8" result="blur"/>
+    <feColorMatrix in="blur" type="matrix" values="0.8 0 0 0 0.12  0 0.9 0 0 0.2  0 0 1 0 0.35  0 0 0 .75 0"/>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<g filter="url(#softGlow)">
+  <g id="L">
+    <path d="M500 198C452 180 427 157 398 124C351 70 281 35 190 31C124 28 73 43 36 62C132 66 206 87 270 124C323 155 370 183 422 201C448 210 474 208 500 198Z" fill="url(#wingFill)" opacity=".62"/>
+    <path d="M474 185C416 144 381 92 323 55C273 23 214 12 143 20C217 43 277 77 333 132C374 172 415 193 474 185Z" fill="url(#wingFill)" opacity=".72"/>
+    <path d="M452 192C390 158 350 113 297 82C248 53 192 45 122 55C198 75 260 106 319 151C360 182 400 199 452 192Z" fill="url(#wingFill)" opacity=".62"/>
+    <path d="M433 202C371 177 323 143 270 121C215 98 159 98 91 112C167 121 232 146 294 179C338 202 382 211 433 202Z" fill="url(#wingFill)" opacity=".54"/>
+    <path d="M416 214C351 199 302 181 247 175C190 169 136 182 78 207C154 196 222 203 291 222C337 234 378 231 416 214Z" fill="url(#wingFill)" opacity=".48"/>
+    <path d="M401 226C341 221 291 221 241 235C188 249 144 278 98 318C165 283 226 266 291 260C334 256 370 245 401 226Z" fill="url(#wingFill)" opacity=".40"/>
+    <path d="M387 237C335 243 292 254 252 277C213 299 184 326 158 354C204 327 253 309 304 296C338 287 365 268 387 237Z" fill="url(#wingFill)" opacity=".34"/>
+    <path d="M500 198C438 180 394 139 353 94C299 35 224 17 132 27" fill="none" stroke="url(#edge)" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+    <path d="M491 202C428 195 376 171 324 135C269 97 211 78 143 81" fill="none" stroke="url(#edge)" stroke-width="3.5" stroke-linecap="round" opacity=".38"/>
+  </g>
+  <g transform="translate(1000 0) scale(-1 1)"><use href="#L"/></g>
 </g>
-<g transform="translate(900 0) scale(-1 1)"><use href="#left"/></g>
-</g></svg>
+</svg>
