@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" fill="none">
+<defs><filter id="glow" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="feather" x1="450" y1="170" x2="20" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#F8FBFF" stop-opacity=".52"/><stop offset=".5" stop-color="#DCEAFF" stop-opacity=".28"/><stop offset="1" stop-color="#BFD7FF" stop-opacity=".06"/></linearGradient></defs>
+<g filter="url(#glow)" stroke="url(#feather)" stroke-linecap="round" stroke-linejoin="round">
+<g id="left">
+<path d="M450 170C397 150 359 119 319 83C260 31 185 20 72 45C167 67 230 94 285 139C331 176 379 187 450 170Z" fill="url(#feather)" fill-opacity=".10" stroke-width="3"/>
+<path d="M438 165C376 136 333 92 280 57C225 21 159 20 83 39C179 52 244 81 313 137" stroke-width="8" opacity=".72"/>
+<path d="M420 161C352 122 302 78 239 51C188 29 133 32 70 49C162 57 229 88 292 139" stroke-width="7" opacity=".64"/>
+<path d="M399 161C326 128 271 96 205 79C153 66 105 73 52 94C139 91 207 108 276 148" stroke-width="7" opacity=".57"/>
+<path d="M380 167C307 144 249 126 181 124C126 123 82 137 39 164C126 146 196 150 265 166" stroke-width="7" opacity=".50"/>
+<path d="M365 176C294 166 238 164 174 178C124 189 87 211 52 243C130 209 197 195 263 194" stroke-width="7" opacity=".43"/>
+<path d="M350 184C290 186 242 197 190 222C150 242 119 268 92 300C153 260 211 236 273 221" stroke-width="6" opacity=".36"/>
+</g>
+<g transform="translate(900 0) scale(-1 1)"><use href="#left"/></g>
+</g></svg>
