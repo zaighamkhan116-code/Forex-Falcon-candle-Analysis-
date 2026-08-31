@@ -3,32 +3,78 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 import {getStagedSnapshot,getSettlementPrice,getBudget,marketSymbol} from './lib/marketData.js';
 import {analyze} from './lib/analysis.js';
+import {diagnoseLoss,applyLossContext,getLossContext} from './lib/lossLearning.js';
 
 const app=express(),__dirname=path.dirname(fileURLToPath(import.meta.url)),PORT=process.env.PORT||3000;
 const pairs=['EURUSD','EURJPY','GBPUSD','CADCHF','USDJPY','NZDCHF','USDPKR','USDINR','BTCUSD','XAUUSD'],horizons=[1,2,3,5,15];
 const TARGET_SIGNALS=20;
 const sampleOffsets={1:[30_000,20_000,10_000],2:[45_000,30_000,15_000],3:[45_000,30_000,15_000],5:[20_000,10_000,4_000],15:[30_000,15_000,4_000]};
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-const engine={running:false,phase:'IDLE',pair:'EURUSD',horizon:1,runId:0,runSignals:0,targetSignals:TARGET_SIGNALS,history:[],lastAnalysis:null,lastError:null,startedAt:null,pausedAt:null,nextRunAt:null,sampleNextAt:null,sampleStage:0,targetBoundary:null,snapshots:[],timer:null,busy:false};
+const engine={running:false,phase:'IDLE',pair:'EURUSD',horizon:1,runId:0,runSignals:0,targetSignals:TARGET_SIGNALS,history:[],lastAnalysis:null,lastError:null,lastLossReview:null,startedAt:null,pausedAt:null,nextRunAt:null,sampleNextAt:null,sampleStage:0,targetBoundary:null,snapshots:[],timer:null,busy:false};
 app.use(express.json());app.use(express.static(path.join(__dirname,'public')));app.use((req,res,next)=>{res.set('Cache-Control','no-store');next();});
 
-function publicState(){return{running:engine.running,phase:engine.phase,pair:engine.pair,horizon:engine.horizon,runId:engine.runId,runSignals:engine.runSignals,targetSignals:engine.targetSignals,history:engine.history,lastAnalysis:engine.lastAnalysis,lastError:engine.lastError,startedAt:engine.startedAt,pausedAt:engine.pausedAt,nextRunAt:engine.nextRunAt,sampleNextAt:engine.sampleNextAt,sampleStage:engine.sampleStage,targetBoundary:engine.targetBoundary,serverTime:Date.now(),budget:getBudget()};}
+function publicState(){return{running:engine.running,phase:engine.phase,pair:engine.pair,horizon:engine.horizon,runId:engine.runId,runSignals:engine.runSignals,targetSignals:engine.targetSignals,history:engine.history,lastAnalysis:engine.lastAnalysis,lastError:engine.lastError,lastLossReview:engine.lastLossReview,adaptiveContext:getLossContext(engine.pair,engine.horizon),startedAt:engine.startedAt,pausedAt:engine.pausedAt,nextRunAt:engine.nextRunAt,sampleNextAt:engine.sampleNextAt,sampleStage:engine.sampleStage,targetBoundary:engine.targetBoundary,serverTime:Date.now(),budget:getBudget()};}
 function clearTimer(){if(engine.timer){clearTimeout(engine.timer);engine.timer=null;}}
 function nextFullBoundary(h){const span=h*60_000,maxOffset=(sampleOffsets[h]||sampleOffsets[1])[0];return Math.ceil((Date.now()+maxOffset+500)/span)*span;}
-function resolvePending(price,now){for(const s of engine.history){if(s.result==='PENDING'&&now>=s.expiry){const d=price-s.entry;s.exit=price;s.result=d===0?'TIE':(s.direction==='BUY'?d>0:d<0)?'WIN':'LOSS';s.resolvedAt=now;}}}
+function resolvePending(price,now,currentAnalysis=null){for(const s of engine.history){if(s.result==='PENDING'&&now>=s.expiry){const d=price-s.entry;s.exit=price;s.result=d===0?'TIE':(s.direction==='BUY'?d>0:d<0)?'WIN':'LOSS';s.resolvedAt=now;if(s.result==='LOSS'){engine.lastLossReview=diagnoseLoss(s,currentAnalysis);}}}}
 function scheduleCycle(){clearTimer();if(!engine.running)return;const offsets=sampleOffsets[engine.horizon]||sampleOffsets[1],boundary=nextFullBoundary(engine.horizon);engine.targetBoundary=boundary;engine.nextRunAt=boundary;engine.snapshots=[];engine.sampleStage=0;engine.phase='WAITING_SAMPLE';engine.sampleNextAt=boundary-offsets[0];const delay=Math.max(100,engine.sampleNextAt-Date.now());engine.timer=setTimeout(takeSample,delay);}
 function scheduleNextSample(){const offsets=sampleOffsets[engine.horizon]||sampleOffsets[1];if(engine.sampleStage>=offsets.length)return finalizeCycle();engine.sampleNextAt=engine.targetBoundary-offsets[engine.sampleStage];engine.phase=`SAMPLING_${engine.sampleStage+1}_OF_3`;const delay=Math.max(100,engine.sampleNextAt-Date.now());engine.timer=setTimeout(takeSample,delay);}
-async function takeSample(){if(!engine.running||engine.busy)return;engine.busy=true;engine.phase=`ANALYZING_${engine.sampleStage+1}_OF_3`;engine.lastError=null;let failed=false;try{const bundle=await getStagedSnapshot(engine.pair),result=analyze(bundle,engine.horizon,engine.pair),last=bundle.m1.at(-1),now=Date.now();resolvePending(result.price,now);const snap={...result,pair:engine.pair,symbol:marketSymbol(engine.pair),candleTime:last?.time,generatedAt:now,serverTime:now,budget:bundle.budget,sampleNumber:engine.sampleStage+1,snapshotAt:bundle.snapshotAt};engine.snapshots.push(snap);engine.lastAnalysis=snap;engine.sampleStage+=1;}catch(e){failed=true;engine.lastError=e.message;engine.phase='ERROR';}finally{engine.busy=false;if(engine.running){if(failed){engine.sampleNextAt=null;engine.snapshots=[];engine.sampleStage=0;setTimeout(()=>{if(engine.running)scheduleCycle();},3000);}else if(engine.sampleStage>=3)finalizeCycle();else scheduleNextSample();}}}
-function blendedDecision(snaps){const final=snaps.at(-1);if(!final)return null;const weights=[.2,.3,.5];let evidence=0;for(let i=0;i<snaps.length;i++){const s=snaps[i],signed=(s.direction==='BUY'?1:-1)*clamp((s.confidence-50)/40,0,1);evidence+=signed*(weights[i]||0);}const first=snaps[0],atr=Math.max(Number(final.features?.atr)||Math.abs(final.price)*.0001,1e-12),evolution=clamp((final.price-first.price)/atr,-1,1);evidence=clamp(evidence+evolution*.15,-1,1);const direction=evidence>=0?'BUY':'SELL',confidence=clamp(50+Math.abs(evidence)*40,50,90),dirs=snaps.map(s=>s.direction),trend=dirs.every(d=>d===direction)?'CONSISTENT':dirs.at(-1)!==dirs[0]?'REVERSING':'MIXED';return{...final,direction,confidence:Number(confidence.toFixed(1)),qualified:confidence>=60,engine:`${final.engine||'TECHNICAL'}+3_STAGE`,features:{...(final.features||{}),snapshotEvolution:trend,snapshotDirections:dirs.join('>'),snapshotPriceChange:Number((final.price-first.price).toFixed(6))}};}
-function finalizeCycle(){if(!engine.running)return;const result=blendedDecision(engine.snapshots);engine.sampleNextAt=null;if(!result){engine.phase='ERROR';engine.lastError=engine.lastError||'Three-stage analysis incomplete';return scheduleCycle();}engine.lastAnalysis=result;const boundary=engine.targetBoundary,last=result.candleTime;if(result.qualified&&engine.runSignals<TARGET_SIGNALS){const duplicate=engine.history.some(s=>s.runId===engine.runId&&s.pair===engine.pair&&s.horizon===engine.horizon&&s.signalBoundary===boundary);if(!duplicate){engine.history.unshift({id:`${engine.runId}-${boundary}-${engine.runSignals+1}`,runId:engine.runId,runNumber:engine.runSignals+1,pair:engine.pair,horizon:engine.horizon,direction:result.direction,probability:result.confidence,time:boundary,candleTime:last,signalBoundary:boundary,entry:result.price,expiry:boundary+engine.horizon*60_000,result:'PENDING',regime:result.regime,engine:result.engine||'TECHNICAL',snapshotEvolution:result.features?.snapshotEvolution});engine.history=engine.history.slice(0,20);engine.runSignals+=1;}}
-if(engine.runSignals>=TARGET_SIGNALS){engine.running=false;engine.phase='PAUSED_20';engine.pausedAt=Date.now();engine.nextRunAt=null;engine.targetBoundary=null;clearTimer();scheduleFinalSettlement();}else{engine.phase='RUNNING';scheduleCycle();}}
-function scheduleFinalSettlement(){const pending=engine.history.filter(s=>s.runId===engine.runId&&s.result==='PENDING');if(!pending.length)return;const due=Math.max(...pending.map(s=>s.expiry)),delay=Math.max(1000,due-Date.now()+1200);engine.timer=setTimeout(async()=>{if(engine.running)return;try{engine.phase='SETTLING';const x=await getSettlementPrice(engine.pair),now=Date.now();resolvePending(x.price,now);engine.phase='PAUSED_20';}catch(e){engine.lastError=e.message;engine.phase='PAUSED_20';}finally{engine.timer=null;}},delay);}
-function startEngine(pair,horizon){clearTimer();engine.runId+=1;engine.runSignals=0;engine.pair=pair;engine.horizon=horizon;engine.running=true;engine.phase='RUNNING';engine.lastError=null;engine.startedAt=Date.now();engine.pausedAt=null;engine.nextRunAt=null;engine.sampleStage=0;engine.snapshots=[];scheduleCycle();}
+async function takeSample(){if(!engine.running||engine.busy)return;engine.busy=true;engine.phase=`ANALYZING_${engine.sampleStage+1}_OF_3`;engine.lastError=null;let failed=false;try{const bundle=await getStagedSnapshot(engine.pair),result=analyze(bundle,engine.horizon,engine.pair),last=bundle.m1.at(-1),now=Date.now();resolvePending(result.price,now,result);const snap={...result,pair:engine.pair,symbol:marketSymbol(engine.pair),candleTime:last?.time,generatedAt:now,serverTime:now,budget:bundle.budget,sampleNumber:engine.sampleStage+1,snapshotAt:bundle.snapshotAt};engine.snapshots.push(snap);engine.lastAnalysis=snap;engine.sampleStage+=1;}catch(e){failed=true;engine.lastError=e.message;engine.phase='ERROR';}finally{engine.busy=false;if(engine.running){if(failed){engine.sampleNextAt=null;engine.snapshots=[];engine.sampleStage=0;setTimeout(()=>{if(engine.running)scheduleCycle();},3000);}else if(engine.sampleStage>=3)finalizeCycle();else scheduleNextSample();}}}
+
+function blendedDecision(snaps){
+  const final=snaps.at(-1);if(!final)return null;
+  const weights=[.2,.3,.5];let evidence=0;
+  for(let i=0;i<snaps.length;i++){const s=snaps[i],signed=(s.direction==='BUY'?1:-1)*clamp((s.confidence-50)/40,0,1);evidence+=signed*(weights[i]||0);}
+  const first=snaps[0],atr=Math.max(Number(final.features?.atr)||Math.abs(final.price)*.0001,1e-12),evolution=clamp((final.price-first.price)/atr,-1,1);
+  evidence=clamp(evidence+evolution*.10,-1,1);
+  const direction=evidence>=0?'BUY':'SELL',dirs=snaps.map(s=>s.direction),trend=dirs.every(d=>d===direction)?'CONSISTENT':dirs.at(-1)!==dirs[0]?'REVERSING':'MIXED';
+  const isModel=String(final.probabilityType||'').includes('model');
+  let confidence=50+Math.abs(evidence)*(isModel?30:26);
+  let calibrationPenalty=0;
+  if(final.regime==='CHOPPY')calibrationPenalty+=4;else if(final.regime==='MIXED')calibrationPenalty+=1.5;
+  if(trend==='REVERSING')calibrationPenalty+=5;else if(trend==='MIXED')calibrationPenalty+=3;
+  const f=final.features||{},sgn=direction==='BUY'?1:-1;
+  const m15=Number(f.m15Context||0),h1=Number(f.h1Context||0),m5=Number(f.m5Context||0);
+  if(sgn*m15<-.12)calibrationPenalty+=2.5;
+  if(sgn*h1<-.12)calibrationPenalty+=3;
+  if(sgn*m5<-.12)calibrationPenalty+=1.5;
+  if(direction==='BUY'&&f.sr==='AT RESISTANCE')calibrationPenalty+=2.5;
+  if(direction==='SELL'&&f.sr==='AT SUPPORT')calibrationPenalty+=2.5;
+  if(direction==='BUY'&&(f.liquidity==='BUY-SIDE SWEEP'||f.breakout==='FAILED BULL BREAK'))calibrationPenalty+=2;
+  if(direction==='SELL'&&(f.liquidity==='SELL-SIDE SWEEP'||f.breakout==='FAILED BEAR BREAK'))calibrationPenalty+=2;
+  if(trend==='CONSISTENT'&&final.regime==='TRENDING')confidence+=1.5;
+  confidence-=calibrationPenalty;
+  confidence=clamp(confidence,50,isModel?84:78);
+  const minimumConfidence=60;
+  return{...final,direction,confidence:Number(confidence.toFixed(1)),qualified:confidence>=minimumConfidence,minimumConfidence,calibrationPenalty:Number(calibrationPenalty.toFixed(1)),engine:`${final.engine||'TECHNICAL'}+3_STAGE_CAL`,features:{...(final.features||{}),snapshotEvolution:trend,snapshotDirections:dirs.join('>'),snapshotPriceChange:Number((final.price-first.price).toFixed(6))}};
+}
+
+function finalizeCycle(){
+  if(!engine.running)return;
+  const blended=blendedDecision(engine.snapshots);engine.sampleNextAt=null;
+  if(!blended){engine.phase='ERROR';engine.lastError=engine.lastError||'Three-stage analysis incomplete';return scheduleCycle();}
+  const adapted=applyLossContext(blended,engine.pair,engine.horizon),result=adapted.result;
+  result.minimumConfidence=adapted.minimumConfidence;
+  engine.lastAnalysis=result;
+  const boundary=engine.targetBoundary,last=result.candleTime;
+  if(result.qualified&&engine.runSignals<TARGET_SIGNALS){
+    const duplicate=engine.history.some(s=>s.runId===engine.runId&&s.pair===engine.pair&&s.horizon===engine.horizon&&s.signalBoundary===boundary);
+    if(!duplicate){
+      engine.history.unshift({id:`${engine.runId}-${boundary}-${engine.runSignals+1}`,runId:engine.runId,runNumber:engine.runSignals+1,pair:engine.pair,horizon:engine.horizon,direction:result.direction,probability:result.confidence,time:boundary,candleTime:last,signalBoundary:boundary,entry:result.price,expiry:boundary+engine.horizon*60_000,result:'PENDING',regime:result.regime,engine:result.engine||'TECHNICAL',snapshotEvolution:result.features?.snapshotEvolution,features:result.features,minimumConfidence:result.minimumConfidence,adaptiveContext:result.adaptiveContext||null,calibrationPenalty:result.calibrationPenalty||0});
+      engine.history=engine.history.slice(0,20);engine.runSignals+=1;
+    }
+  }
+  if(engine.runSignals>=TARGET_SIGNALS){engine.running=false;engine.phase='PAUSED_20';engine.pausedAt=Date.now();engine.nextRunAt=null;engine.targetBoundary=null;clearTimer();scheduleFinalSettlement();}
+  else{engine.phase='RUNNING';scheduleCycle();}
+}
+
+function scheduleFinalSettlement(){const pending=engine.history.filter(s=>s.runId===engine.runId&&s.result==='PENDING');if(!pending.length)return;const due=Math.max(...pending.map(s=>s.expiry)),delay=Math.max(1000,due-Date.now()+1200);engine.timer=setTimeout(async()=>{if(engine.running)return;try{engine.phase='SETTLING';const x=await getSettlementPrice(engine.pair),now=Date.now();resolvePending(x.price,now,null);engine.phase='PAUSED_20';}catch(e){engine.lastError=e.message;engine.phase='PAUSED_20';}finally{engine.timer=null;}},delay);}
+function startEngine(pair,horizon){clearTimer();engine.runId+=1;engine.runSignals=0;engine.pair=pair;engine.horizon=horizon;engine.running=true;engine.phase='RUNNING';engine.lastError=null;engine.lastLossReview=null;engine.startedAt=Date.now();engine.pausedAt=null;engine.nextRunAt=null;engine.sampleStage=0;engine.snapshots=[];scheduleCycle();}
 function stopEngine(){clearTimer();engine.running=false;engine.phase='STOPPED';engine.nextRunAt=null;engine.sampleNextAt=null;engine.targetBoundary=null;}
 
 app.get('/api/health',(_q,r)=>r.json({ok:true,service:'Forex Falcon',marketDataConfigured:Boolean(process.env.TWELVE_DATA_API_KEY),timestamp:new Date().toISOString(),serverTime:Date.now(),budget:getBudget(),engine:publicState()}));
 app.get('/api/time',(_q,r)=>r.json({serverTime:Date.now(),iso:new Date().toISOString()}));
-app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,confidenceType:'mixed-model-and-forward-test',liveM1ReadsPerCycle:3,minuteCreditLimit:8,dailyCreditLimit:800,targetSignals:TARGET_SIGNALS,sampleOffsetsMs:sampleOffsets}));
+app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,horizons,minimumProbability:60,confidenceType:'recalibrated-forward-test',liveM1ReadsPerCycle:3,minuteCreditLimit:8,dailyCreditLimit:800,targetSignals:TARGET_SIGNALS,sampleOffsetsMs:sampleOffsets,lossLearningCycles:3}));
 app.get('/api/budget',(_q,r)=>r.json(getBudget()));
 app.get('/api/engine/state',(_q,r)=>r.json(publicState()));
 app.post('/api/engine/start',(q,r)=>{const pair=String(q.body?.pair||'').toUpperCase(),horizon=Number(q.body?.horizon);if(!pairs.includes(pair)||!horizons.includes(horizon))return r.status(400).json({error:'Invalid pair or horizon'});if(getBudget().creditsRemaining<3)return r.status(429).json({error:'Daily API budget nearly exhausted',...publicState()});startEngine(pair,horizon);r.json(publicState());});
