@@ -1,18 +1,27 @@
 {
   "name": "forex-falcon-next-candle-intelligence",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Forex Falcon - Next Candle Intelligence PWA and server",
+  "description": "Forex Falcon - Next Candle Intelligence web, PWA and iOS app",
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "ios:add": "npx cap add ios",
+    "ios:sync": "npx cap sync ios",
+    "ios:open": "npx cap open ios",
+    "ios:run": "npx cap run ios"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
+    "@capacitor/core": "^7.4.3",
     "@microsoft/signalr": "^8.0.7",
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/ios": "^7.4.3"
   }
 }
