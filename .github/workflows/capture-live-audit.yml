@@ -1,4 +1,4 @@
-name: Capture Live EURUSD Audit
+name: Capture Live Core FX Audit
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: capture-live-eurusd-audit
+  group: capture-live-core-fx-audit
   cancel-in-progress: false
 
 jobs:
@@ -22,40 +22,47 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch live EURUSD forward-test state
+      - name: Fetch live forward-test state for core FX markets
         env:
-          AUDIT_URL: https://forex-falcon-candle-analysis-production.up.railway.app/api/research/background/EURUSD
+          BASE_URL: https://forex-falcon-candle-analysis-production.up.railway.app/api/research/background
+          PAIRS: EURUSD GBPUSD EURJPY USDJPY AUDUSD
         run: |
           set -euo pipefail
-          mkdir -p audit
-          curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 15 --max-time 60 \
-            "$AUDIT_URL" -o audit/live-eurusd.tmp.json
-          jq -e '.pair == "EURUSD" and (.horizons | type == "object")' audit/live-eurusd.tmp.json >/dev/null
-          jq '.' audit/live-eurusd.tmp.json > audit/live-eurusd.json
-          rm -f audit/live-eurusd.tmp.json
+          mkdir -p audit/live audit/resolved audit/pending
+          for pair in $PAIRS; do
+            slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
+            url="$BASE_URL/$pair"
+            echo "Capturing $pair"
+            curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 15 --max-time 60 \
+              "$url" -o "/tmp/$slug.json"
+            jq -e --arg pair "$pair" '.pair == $pair and (.horizons | type == "object")' "/tmp/$slug.json" >/dev/null
+            jq '.' "/tmp/$slug.json" > "audit/live/$slug.json"
 
-      - name: Merge newly resolved trades into durable history
-        run: |
-          set -euo pipefail
-          [ -f audit/resolved-eurusd.json ] || echo '[]' > audit/resolved-eurusd.json
-          jq '[.horizons[]?.recent[]?]' audit/live-eurusd.json > /tmp/new-resolved.json
-          jq -s '
-            (.[0] + .[1])
-            | unique_by(.id // ((.pair // "EURUSD") + "-" + ((.horizon // 0)|tostring) + "-" + ((.signalBoundary // .predictedAt // .resolvedAt // 0)|tostring)))
-            | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)
-          ' audit/resolved-eurusd.json /tmp/new-resolved.json > /tmp/resolved-merged.json
-          mv /tmp/resolved-merged.json audit/resolved-eurusd.json
+            [ -f "audit/resolved/$slug.json" ] || echo '[]' > "audit/resolved/$slug.json"
+            jq '[.horizons[]?.recent[]?]' "audit/live/$slug.json" > "/tmp/$slug-new-resolved.json"
+            jq -s --arg pair "$pair" '
+              (.[0] + .[1])
+              | unique_by(.id // ((.pair // $pair) + "-" + ((.horizon // 0)|tostring) + "-" + ((.signalBoundary // .predictedAt // .resolvedAt // 0)|tostring)))
+              | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)
+            ' "audit/resolved/$slug.json" "/tmp/$slug-new-resolved.json" > "/tmp/$slug-merged.json"
+            mv "/tmp/$slug-merged.json" "audit/resolved/$slug.json"
 
-      - name: Save current pending trades and capture metadata
+            jq '[.horizons[]?.pendingRecent[]?] | sort_by(.signalBoundary // .predictedAt // 0)' \
+              "audit/live/$slug.json" > "audit/pending/$slug.json"
+          done
+
+      - name: Build combined audit snapshot
         run: |
           set -euo pipefail
-          jq '[.horizons[]?.pendingRecent[]?] | sort_by(.signalBoundary // .predictedAt // 0)' audit/live-eurusd.json > audit/pending-eurusd.json
+          jq -s 'map({key:.pair,value:.}) | from_entries' audit/live/*.json > audit/live-core-fx.json
+          jq -s 'add | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)' audit/resolved/*.json > audit/resolved-core-fx.json
+          jq -s 'add | sort_by(.signalBoundary // .predictedAt // 0)' audit/pending/*.json > audit/pending-core-fx.json
           jq -n \
             --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            --arg source "https://forex-falcon-candle-analysis-production.up.railway.app/api/research/background/EURUSD" \
-            --argjson resolvedCount "$(jq 'length' audit/resolved-eurusd.json)" \
-            --argjson pendingCount "$(jq 'length' audit/pending-eurusd.json)" \
-            '{capturedAt:$capturedAt,source:$source,resolvedCount:$resolvedCount,pendingCount:$pendingCount}' \
+            --arg pairs "EURUSD GBPUSD EURJPY USDJPY AUDUSD" \
+            --argjson resolvedCount "$(jq 'length' audit/resolved-core-fx.json)" \
+            --argjson pendingCount "$(jq 'length' audit/pending-core-fx.json)" \
+            '{capturedAt:$capturedAt,pairs:($pairs|split(" ")),timeframes:[1,2,3,5,15],resolvedCount:$resolvedCount,pendingCount:$pendingCount}' \
             > audit/capture-status.json
 
       - name: Commit changed audit data
@@ -63,10 +70,10 @@ jobs:
           set -euo pipefail
           git config user.name "Forex Falcon Audit Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add audit/live-eurusd.json audit/resolved-eurusd.json audit/pending-eurusd.json audit/capture-status.json
+          git add audit/live audit/resolved audit/pending audit/live-core-fx.json audit/resolved-core-fx.json audit/pending-core-fx.json audit/capture-status.json
           if git diff --cached --quiet; then
             echo "No audit changes"
             exit 0
           fi
-          git commit -m "audit: capture live EURUSD forward-test data"
+          git commit -m "audit: capture live core FX forward-test data"
           git push
