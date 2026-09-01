@@ -29,7 +29,7 @@
     return`<div class="tf-analysis-stack"><section class="tf-analysis-block tf-primary"><div class="tf-analysis-head"><strong>${primary} ANALYSIS</strong></div><ul class="falcon-analysis-list">${items.join('')}</ul></section>${ctx}</div>`;
   }
 
-  function selectedSignal(x,p,h){const pr=(x.backgroundResearch||[]).find(r=>r.pair===p);const hr=pr?.horizons?.[h]||pr?.horizons?.[String(h)]||(Number(pr?.horizon)===Number(h)?pr:null);return{signal:hr?.displaySignal||hr?.currentCandidate||hr?.last||null,research:hr}}
+  function selectedSignal(x,p,h){const pr=(x.backgroundResearch||[]).find(r=>r.pair===p);const hr=pr?.horizons?.[h]||pr?.horizons?.[String(h)]||(Number(pr?.horizon)===Number(h)?pr:null);return{signal:hr?.displaySignal||hr?.currentCandidate||null,research:hr}}
   function apply(html,p,h,meta=''){const el=host();if(!el)return;writing=true;lastHtml=html;lastKey=`${p}:${h}`;el.innerHTML=html;el.dataset.tfFormatted='1';const t=$('analysisTime');if(t)t.textContent=meta||`${p} ${h}M independent timeframe analysis`;queueMicrotask(()=>writing=false)}
   function loading(){const p=pairEl()?.value||'PAIR',h=horizon();lastHtml='';lastKey='';apply(`<ul class="falcon-analysis-list"><li><b>Falcon status:</b> Analyzing ${p} ${h}M independently…</li><li><b>Timeframe isolation:</b> Waiting for the fresh ${h}M boundary analysis.</li></ul>`,p,h,`Waiting for fresh ${p} ${h}M analysis`)}
 
