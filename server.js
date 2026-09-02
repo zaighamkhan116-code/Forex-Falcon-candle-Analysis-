@@ -10,7 +10,7 @@ import {startForexTickStream,getForexTickConfirmation,applyForexTickConfirmation
 import {startBackgroundResearch,getBackgroundResearch,getAllBackgroundResearch,setBackgroundHorizon,primeAllPairs,timeframeBundle} from './lib/backgroundResearch.js';
 
 const app=express(),__dirname=path.dirname(fileURLToPath(import.meta.url)),PORT=process.env.PORT||3000;
-const pairs=['EURUSD','EURJPY','GBPUSD','AUDJPY','AUDUSD','USDJPY','NZDCHF','USDPKR','USDINR','BTCUSD','XAUUSD'],horizons=[1,2,3,5,15],TARGET_SIGNALS=20,MIN_CONFIDENCE=57;
+const pairs=['EURUSD','EURJPY','GBPUSD','AUDJPY','AUDUSD','USDJPY','NZDCHF','GBPCAD','AUDCHF','AUDNZD'],horizons=[1,2,3,5,15],TARGET_SIGNALS=20,MIN_CONFIDENCE=57;
 const sampleOffsets={1:[30000,20000,10000],2:[45000,30000,15000],3:[45000,30000,15000],5:[20000,10000,4000],15:[30000,15000,4000]};
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const engine={running:false,phase:'IDLE',pair:'EURUSD',horizon:1,runId:0,runSignals:0,targetSignals:TARGET_SIGNALS,history:[],lastAnalysis:null,lastError:null,lastLossReview:null,startedAt:null,pausedAt:null,nextRunAt:null,sampleNextAt:null,sampleStage:0,targetBoundary:null,snapshots:[],timer:null,busy:false,recoveryPending:null};
@@ -49,6 +49,29 @@ app.get('/api/config',(_q,r)=>r.json({title:'Next Candle Intelligence',pairs,hor
 app.get('/api/budget',(_q,r)=>r.json(getBudget()));
 app.get('/api/engine/state',(_q,r)=>r.json(publicState()));
 app.get('/api/research/background',(_q,r)=>r.json(getAllBackgroundResearch()));
+app.get('/api/execution/signals',(_q,r)=>{
+  const now=Date.now(),signals=[];
+  for(const pairState of getAllBackgroundResearch()){
+    for(const timeframe of Object.values(pairState.horizons||{})){
+      for(const signal of timeframe.pendingRecent||[]){
+        if(signal?.qualified!==true||signal?.result!=='PENDING')continue;
+        if(Number(signal.expiry||0)<=now-5000)continue;
+        const f=signal.features||{};
+        signals.push({
+          id:signal.id,pair:signal.pair,symbol:signal.symbol,horizon:Number(signal.horizon),
+          analysisTimeframe:signal.analysisTimeframe,direction:signal.direction,
+          confidence:Number(signal.confidence),qualified:true,entryLane:f.entryLane||signal.entryLane||null,
+          signalBoundary:Number(signal.signalBoundary),expiry:Number(signal.expiry),predictedAt:Number(signal.predictedAt||0),
+          gates:{fusion:f.fusionQualityGate!==false,transition:f.transitionGate!==false,
+            lateContinuation:f.lateContinuationGate!==false,breakoutMaturity:f.breakoutMaturityGate!==false,
+            continuationReset:f.continuationResetGate!==false,entryLane:f.entryLaneQualified!==false}
+        });
+      }
+    }
+  }
+  signals.sort((a,b)=>a.signalBoundary-b.signalBoundary||b.confidence-a.confidence||a.id.localeCompare(b.id));
+  r.json({serverTime:now,minimumConfidence:MIN_CONFIDENCE,signals});
+});
 app.get('/api/research/background/:pair',(q,r)=>r.json(getBackgroundResearch(q.params.pair,q.query.horizon??null)));
 app.post('/api/research/background/:pair/horizon',(q,r)=>{try{const p=String(q.params.pair||'').toUpperCase(),h=Number(q.body?.horizon);if(!horizons.includes(h))return r.status(400).json({error:'Invalid horizon'});r.json(setBackgroundHorizon(p,h))}catch(e){r.status(400).json({error:e.message})}});
 app.get('/api/research/btc',(_q,r)=>r.json({stats:getMicrostructureResearch('BTCUSD'),runner:researchRunner}));
