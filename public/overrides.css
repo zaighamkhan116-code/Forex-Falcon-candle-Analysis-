@@ -3,3 +3,8 @@
 .market-rating.green{color:#8fb99f!important;text-shadow:none!important}
 .market-rating.yellow{color:#c8b982!important;text-shadow:none!important}
 .market-rating.red{color:#c79298!important;text-shadow:none!important}
+@media(max-width:650px){
+  .market-rating.green{color:#8fb99f!important;text-shadow:none!important}
+  .market-rating.yellow{color:#c8b982!important;text-shadow:none!important}
+  .market-rating.red{color:#c79298!important;text-shadow:none!important}
+}
