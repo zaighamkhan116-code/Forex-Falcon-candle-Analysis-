@@ -51,6 +51,27 @@ jobs:
               "audit/live/$slug.json" > "audit/pending/$slug.json"
           done
 
+      - name: Capture visible app forward-test history
+        env:
+          HEALTH_URL: https://forex-falcon-candle-analysis-production.up.railway.app/api/health
+          CONFIG_URL: https://forex-falcon-candle-analysis-production.up.railway.app/api/config
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 15 --max-time 60 "$HEALTH_URL" -o /tmp/app-health.json
+          curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 15 --max-time 60 "$CONFIG_URL" -o /tmp/app-config.json
+          jq -e '.engine and (.engine.history | type == "array")' /tmp/app-health.json >/dev/null
+          jq '{capturedAt:(now*1000|floor),serverTime,engine:.engine}' /tmp/app-health.json > audit/live-app.json
+          [ -f audit/resolved-app.json ] || echo '[]' > audit/resolved-app.json
+          jq '[.engine.history[]? | select(.result != "PENDING")]' /tmp/app-health.json > /tmp/app-new-resolved.json
+          jq -s '
+            (.[0] + .[1])
+            | unique_by(.id // ((.pair // "UNKNOWN") + "-" + ((.horizon // 0)|tostring) + "-" + ((.signalBoundary // .resolvedAt // 0)|tostring)))
+            | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)
+          ' audit/resolved-app.json /tmp/app-new-resolved.json > /tmp/app-resolved-merged.json
+          mv /tmp/app-resolved-merged.json audit/resolved-app.json
+          jq '[.engine.history[]? | select(.result == "PENDING")] | sort_by(.signalBoundary // 0)' /tmp/app-health.json > audit/pending-app.json
+          jq '{minimumProbability,targetSignals,thresholdValidation,settlement,recovery}' /tmp/app-config.json > audit/app-config.json
+
       - name: Build combined audit snapshot
         run: |
           set -euo pipefail
@@ -62,7 +83,10 @@ jobs:
             --arg pairs "EURUSD GBPUSD EURJPY USDJPY AUDUSD" \
             --argjson resolvedCount "$(jq 'length' audit/resolved-core-fx.json)" \
             --argjson pendingCount "$(jq 'length' audit/pending-core-fx.json)" \
-            '{capturedAt:$capturedAt,pairs:($pairs|split(" ")),timeframes:[1,2,3,5,15],resolvedCount:$resolvedCount,pendingCount:$pendingCount}' \
+            --argjson appResolvedCount "$(jq 'length' audit/resolved-app.json)" \
+            --argjson appPendingCount "$(jq 'length' audit/pending-app.json)" \
+            --argjson minimumConfidence "$(jq '.minimumProbability // 57' audit/app-config.json)" \
+            '{capturedAt:$capturedAt,pairs:($pairs|split(" ")),timeframes:[1,2,3,5,15],resolvedCount:$resolvedCount,pendingCount:$pendingCount,visibleAppResolvedCount:$appResolvedCount,visibleAppPendingCount:$appPendingCount,minimumConfidence:$minimumConfidence,visibleAppCapture:true}' \
             > audit/capture-status.json
 
       - name: Commit changed audit data
@@ -70,7 +94,7 @@ jobs:
           set -euo pipefail
           git config user.name "Forex Falcon Audit Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add audit/live audit/resolved audit/pending audit/live-core-fx.json audit/resolved-core-fx.json audit/pending-core-fx.json audit/capture-status.json
+          git add audit/live audit/resolved audit/pending audit/live-core-fx.json audit/resolved-core-fx.json audit/pending-core-fx.json audit/live-app.json audit/resolved-app.json audit/pending-app.json audit/app-config.json audit/capture-status.json
           if git diff --cached --quiet; then
             echo "No audit changes"
             exit 0
