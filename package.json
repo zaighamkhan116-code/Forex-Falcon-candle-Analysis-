@@ -10,7 +10,8 @@
     "ios:add": "npx cap add ios",
     "ios:sync": "npx cap sync ios",
     "ios:open": "npx cap open ios",
-    "ios:run": "npx cap run ios"
+    "ios:run": "npx cap run ios",
+    "test": "node --test"
   },
   "engines": {
     "node": ">=20"
