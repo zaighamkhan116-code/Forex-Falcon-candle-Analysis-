@@ -3,7 +3,7 @@ const state={pair:'EURUSD',horizon:Number(savedHorizons.EURUSD)||1,pairHorizons:
 const $=id=>document.getElementById(id),pair=$('pair'),horizons=$('horizons'),orb=$('signalButton'),direction=$('direction'),prob=$('probability'),status=$('status'),countdown=$('countdown'),body=$('historyBody'),serverNow=()=>Date.now()+state.serverOffset;
 const localTimeZone=(()=>{try{return Intl.DateTimeFormat().resolvedOptions().timeZone||'Etc/UTC'}catch{return'Etc/UTC'}})();
 const localTimeString=(ts,withSeconds=false)=>new Date(ts).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',...(withSeconds?{second:'2-digit'}:{}),timeZone:localTimeZone});
-const tvSymbols={EURUSD:'OANDA:EURUSD',EURJPY:'OANDA:EURJPY',GBPUSD:'OANDA:GBPUSD',AUDJPY:'OANDA:AUDJPY',AUDUSD:'OANDA:AUDUSD',USDJPY:'OANDA:USDJPY',NZDCHF:'OANDA:NZDCHF',USDPKR:'FX_IDC:USDPKR',USDINR:'FX_IDC:USDINR',BTCUSD:'COINBASE:BTCUSD',XAUUSD:'OANDA:XAUUSD'},tvIntervals={1:'1',2:'1',3:'3',5:'5',15:'15'};
+const tvSymbols={EURUSD:'OANDA:EURUSD',EURJPY:'OANDA:EURJPY',GBPUSD:'OANDA:GBPUSD',AUDJPY:'OANDA:AUDJPY',AUDUSD:'OANDA:AUDUSD',USDJPY:'OANDA:USDJPY',NZDCHF:'OANDA:NZDCHF',GBPCAD:'OANDA:GBPCAD',AUDCHF:'OANDA:AUDCHF',AUDNZD:'OANDA:AUDNZD'},tvIntervals={1:'1',2:'1',3:'3',5:'5',15:'15'};
 function batchMeta(sample=0){const n=Math.max(0,Number(sample)||0),completed=Math.floor(n/20),progress=n%20,current=completed+1;return{label:`Batch #${current} · ${progress}/20`}}
 function savePairHorizon(){state.pairHorizons[state.pair]=state.horizon;localStorage.setItem('ffPairHorizons',JSON.stringify(state.pairHorizons))}
 function markHorizon(){[...horizons.children].forEach(b=>b.classList.toggle('active',Number(b.dataset.m)===state.horizon))}
