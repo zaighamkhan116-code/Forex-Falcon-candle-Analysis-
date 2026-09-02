@@ -1,0 +1,11 @@
+{
+  "initializedAt": "2026-09-02T23:32:46Z",
+  "baselineCaptureCommit": "73ed749d7f34d220f0bbbd2256d4f50987f53534",
+  "baselineCapturedAt": "2026-09-02T22:35:09Z",
+  "baselineResolvedCount": 1611,
+  "pairs": ["EURUSD","GBPUSD","EURJPY","USDJPY","AUDUSD"],
+  "timeframes": [1,2,3,5,15],
+  "thresholdEpochCommit": "f68d3e177da03bfcbf0add98ad3d23c818efab75",
+  "minimumConfidence": 57,
+  "note": "First automation baseline. Future runs compare audit capture commits after this SHA and only report when a pair-timeframe accumulates a newly completed 20-result block beyond the baseline. No historical backlog is re-reported by this automation."
+}
