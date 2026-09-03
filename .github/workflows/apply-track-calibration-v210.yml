@@ -1,0 +1,55 @@
+name: Apply V2.10 track calibration
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-track-calibration-v210.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply evidence-backed track calibration
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('lib/decisionFusion.js')
+          s=p.read_text()
+          old="export function fuseDecision(result,bundle,pair,horizon=1,minimumConfidence=57){const core="
+          new="export function fuseDecision(result,bundle,pair,horizon=1,minimumConfidence=57){const requestedMinimumConfidence=Number(minimumConfidence||57),pairCode=String(pair||'').toUpperCase(),trackMinimumConfidence=(Number(horizon)===1&&['EURUSD','GBPUSD'].includes(pairCode))?Math.max(62,requestedMinimumConfidence):requestedMinimumConfidence;minimumConfidence=trackMinimumConfidence;const core="
+          if old not in s: raise SystemExit('fuseDecision signature body not found')
+          s=s.replace(old,new,1)
+          oldq=",qualified=core.qualified===true&&confidence>=minimumConfidence&&baseSafeguards&&lane.laneQualified,features={"
+          newq=",gbpusd2mSellFreshBreakoutGate=!(pairCode==='GBPUSD'&&Number(horizon)===2&&direction==='SELL')||f.breakoutAccepted===true,qualified=core.qualified===true&&confidence>=minimumConfidence&&baseSafeguards&&lane.laneQualified&&gbpusd2mSellFreshBreakoutGate,features={"
+          if oldq not in s: raise SystemExit('qualified expression not found')
+          s=s.replace(oldq,newq,1)
+          oldf="multiLaneEntryV29:true}"
+          newf="multiLaneEntryV29:true,trackCalibrationV210:true,requestedMinimumConfidence,trackMinimumConfidence,trackMinimumOverride:trackMinimumConfidence>requestedMinimumConfidence,gbpusd2mSellFreshBreakoutGate}"
+          if oldf not in s: raise SystemExit('feature tail not found')
+          s=s.replace(oldf,newf,1)
+          s=s.replace('TRANSITION_V2_9','TRANSITION_V2_10')
+          p.write_text(s)
+          PY
+      - name: Record evidence note
+        run: |
+          mkdir -p audit/research-log
+          cat > audit/research-log/2026-09-03-v210-track-calibration.md <<'EOF'
+          # V2.10 track-specific forward calibration
+
+          Evidence source: clean exact-boundary post-baseline forward results after the 57% threshold epoch.
+
+          - EURUSD 1M, 40 results: 57.0–61.9% = 4W/10L (28.6%); >=62% = 15W/10L/1T (60.0%). Action: restore 62% floor only for EURUSD 1M.
+          - GBPUSD 1M, 40 results: 57.0–61.9% = 8W/15L (34.8%); >=62% = 9W/7L/1T (56.2%). Action: restore 62% floor only for GBPUSD 1M.
+          - USDJPY 1M was not changed: 57.0–61.9% = 5W/3L (62.5%), so evidence does not support a global rollback.
+          - GBPUSD 2M, 32 results: SELL = 1W/10L (9.1%), while BUY = 10W/11L (47.6%); both confidence buckets were poor, so threshold was not the main issue. Action: require accepted fresh breakout for GBPUSD 2M SELL signals; do not globally suppress the track.
+
+          Methodology: changes are exact pair×timeframe/condition scoped, reversible, use only information available at signal time, and preserve transition/FVG/continuation safeguards. No calibration is transferred between markets.
+          EOF
+      - name: Commit
+        run: |
+          git config user.name "Forex Falcon Audit Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add lib/decisionFusion.js audit/research-log/2026-09-03-v210-track-calibration.md
+          git commit -m "V2.10: calibrate weak 1M thresholds and GBPUSD 2M sells"
+          git push
