@@ -1,0 +1,23 @@
+{
+  "minimumProbability": 57,
+  "targetSignals": 20,
+  "thresholdValidation": {
+    "active": true,
+    "baseline": 62,
+    "test": 57,
+    "hypothesis": "Earlier qualifying entries may avoid late-move exhaustion while V2.5 invalidation guards remain active."
+  },
+  "settlement": {
+    "mode": "EXACT_BOUNDARY_OPEN_TO_EXPIRY_CLOSE",
+    "authoritativeSource": "TARGET_CANDLE_OHLC",
+    "tieRule": "EXACT_EQUALITY_ONLY",
+    "retryWithoutFallback": true
+  },
+  "recovery": {
+    "enabled": true,
+    "maxSteps": 1,
+    "sameDirection": true,
+    "immediateNextCandle": true,
+    "recursive": false
+  }
+}
