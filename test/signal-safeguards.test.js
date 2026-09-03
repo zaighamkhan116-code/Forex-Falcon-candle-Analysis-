@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {qualificationSummary} from '../lib/decisionFusion.js';
 import {diagnoseLoss,applyLossContext} from '../lib/lossLearning.js';
-import {tuneFrequencyScore} from '../lib/frequencyScoring.js';
+import {rerankDirection,tuneFrequencyScore} from '../lib/frequencyScoring.js';
 
 test('qualification defaults to 57 percent and exposes contradiction veto',()=>{
   const ok=qualificationSummary({confidence:57,qualified:true,features:{} });
@@ -36,5 +36,25 @@ test('frequency scoring keeps a rejected setup available without hiding its diag
   assert.ok(tuned.confidence>=57);
   assert.deepEqual(tuned.vetoReasons,[]);
   assert.deepEqual(tuned.features.scoreOnlyWarnings,['TRANSITION_GATE','ENTRY_LANE_GATE']);
+  assert.equal(tuned.features.frequencyPreserved,true);
+});
+
+test('targeted weak track reranks a strongly contradicted direction without removing the signal',()=>{
+  const signal={pair:'EURUSD',horizon:1,direction:'BUY',confidence:76,qualified:false,tradeQualified:false,vetoReasons:['LATE_CONTINUATION_GATE'],evidenceScore:-.7,features:{horizon:1,evidenceScore:-.7,progressScore:-6,groupBullStrength:.1,groupBearStrength:1.1,groupConsensusDirection:'SELL',groupDominance:.7,dynamicZoneSide:'RESISTANCE',bullExtended:true,lastUpperWickRatio:.44,failureToProgress:true,mtfOppositionCount:2,moveQualityScore:5.2,tickReliabilityScore:5}};
+  const rank=rerankDirection(signal),tuned=tuneFrequencyScore(signal);
+  assert.equal(rank.reranked,true);
+  assert.equal(tuned.direction,'SELL');
+  assert.equal(tuned.features.originalDirection,'BUY');
+  assert.equal(tuned.tradeQualified,true);
+  assert.equal(tuned.features.quotaPreserved,true);
+  assert.ok(tuned.confidence>=57);
+});
+
+test('non-target track preserves direction and every boundary remains qualified',()=>{
+  const signal={pair:'AUDUSD',horizon:2,direction:'BUY',confidence:52,qualified:false,tradeQualified:false,vetoReasons:['FUSION_QUALITY_GATE'],evidenceScore:-1,features:{horizon:2,evidenceScore:-1,progressScore:-8,groupConsensusDirection:'SELL',groupBearStrength:2,groupBullStrength:0,groupDominance:1,moveQualityScore:4}};
+  const tuned=tuneFrequencyScore(signal);
+  assert.equal(tuned.direction,'BUY');
+  assert.equal(tuned.features.directionRerankEligible,false);
+  assert.equal(tuned.tradeQualified,true);
   assert.equal(tuned.features.frequencyPreserved,true);
 });
