@@ -1,135 +1,90 @@
 {
-  "capturedAt": "2026-09-03T13:55:17Z",
+  "capturedAt": "2026-09-03T16:21:54Z",
   "baselineCommit": "73ed749d7f34d220f0bbbd2256d4f50987f53534",
   "tracks": {
     "EURUSD-1M": {
       "pair": "EURUSD",
       "horizon": 1,
       "baselineCount": 0,
-      "currentCount": 222,
-      "newSinceBaseline": 222,
-      "completed20Batches": 11,
+      "currentCount": 242,
+      "newSinceBaseline": 242,
+      "completed20Batches": 12,
       "remainder": 2
     },
     "EURUSD-2M": {
       "pair": "EURUSD",
       "horizon": 2,
       "baselineCount": 0,
-      "currentCount": 193,
-      "newSinceBaseline": 193,
-      "completed20Batches": 9,
+      "currentCount": 213,
+      "newSinceBaseline": 213,
+      "completed20Batches": 10,
       "remainder": 13
     },
     "EURUSD-3M": {
       "pair": "EURUSD",
       "horizon": 3,
       "baselineCount": 0,
-      "currentCount": 159,
-      "newSinceBaseline": 159,
-      "completed20Batches": 7,
+      "currentCount": 179,
+      "newSinceBaseline": 179,
+      "completed20Batches": 8,
       "remainder": 19
     },
     "EURUSD-5M": {
       "pair": "EURUSD",
       "horizon": 5,
       "baselineCount": 0,
-      "currentCount": 104,
-      "newSinceBaseline": 104,
-      "completed20Batches": 5,
-      "remainder": 4
+      "currentCount": 123,
+      "newSinceBaseline": 123,
+      "completed20Batches": 6,
+      "remainder": 3
     },
     "EURUSD-15M": {
       "pair": "EURUSD",
       "horizon": 15,
       "baselineCount": 0,
-      "currentCount": 37,
-      "newSinceBaseline": 37,
-      "completed20Batches": 1,
-      "remainder": 17
+      "currentCount": 43,
+      "newSinceBaseline": 43,
+      "completed20Batches": 2,
+      "remainder": 3
     },
     "GBPUSD-1M": {
       "pair": "GBPUSD",
       "horizon": 1,
       "baselineCount": 0,
-      "currentCount": 224,
-      "newSinceBaseline": 224,
-      "completed20Batches": 11,
+      "currentCount": 244,
+      "newSinceBaseline": 244,
+      "completed20Batches": 12,
       "remainder": 4
     },
     "GBPUSD-2M": {
       "pair": "GBPUSD",
       "horizon": 2,
       "baselineCount": 0,
-      "currentCount": 182,
-      "newSinceBaseline": 182,
-      "completed20Batches": 9,
+      "currentCount": 202,
+      "newSinceBaseline": 202,
+      "completed20Batches": 10,
       "remainder": 2
     },
     "GBPUSD-3M": {
       "pair": "GBPUSD",
       "horizon": 3,
       "baselineCount": 0,
-      "currentCount": 143,
-      "newSinceBaseline": 143,
-      "completed20Batches": 7,
+      "currentCount": 163,
+      "newSinceBaseline": 163,
+      "completed20Batches": 8,
       "remainder": 3
     },
     "GBPUSD-5M": {
       "pair": "GBPUSD",
       "horizon": 5,
       "baselineCount": 0,
-      "currentCount": 95,
-      "newSinceBaseline": 95,
-      "completed20Batches": 4,
-      "remainder": 15
+      "currentCount": 114,
+      "newSinceBaseline": 114,
+      "completed20Batches": 5,
+      "remainder": 14
     },
     "GBPUSD-15M": {
       "pair": "GBPUSD",
-      "horizon": 15,
-      "baselineCount": 0,
-      "currentCount": 35,
-      "newSinceBaseline": 35,
-      "completed20Batches": 1,
-      "remainder": 15
-    },
-    "EURJPY-1M": {
-      "pair": "EURJPY",
-      "horizon": 1,
-      "baselineCount": 0,
-      "currentCount": 219,
-      "newSinceBaseline": 219,
-      "completed20Batches": 10,
-      "remainder": 19
-    },
-    "EURJPY-2M": {
-      "pair": "EURJPY",
-      "horizon": 2,
-      "baselineCount": 0,
-      "currentCount": 167,
-      "newSinceBaseline": 167,
-      "completed20Batches": 8,
-      "remainder": 7
-    },
-    "EURJPY-3M": {
-      "pair": "EURJPY",
-      "horizon": 3,
-      "baselineCount": 0,
-      "currentCount": 139,
-      "newSinceBaseline": 139,
-      "completed20Batches": 6,
-      "remainder": 19
-    },
-    "EURJPY-5M": {
-      "pair": "EURJPY",
-      "horizon": 5,
-      "baselineCount": 0,
-      "currentCount": 97,
-      "newSinceBaseline": 97,
-      "completed20Batches": 4,
-      "remainder": 17
-    },
-    "EURJPY-15M": {
-      "pair": "EURJPY",
       "horizon": 15,
       "baselineCount": 0,
       "currentCount": 41,
@@ -137,95 +92,140 @@
       "completed20Batches": 2,
       "remainder": 1
     },
+    "EURJPY-1M": {
+      "pair": "EURJPY",
+      "horizon": 1,
+      "baselineCount": 0,
+      "currentCount": 239,
+      "newSinceBaseline": 239,
+      "completed20Batches": 11,
+      "remainder": 19
+    },
+    "EURJPY-2M": {
+      "pair": "EURJPY",
+      "horizon": 2,
+      "baselineCount": 0,
+      "currentCount": 187,
+      "newSinceBaseline": 187,
+      "completed20Batches": 9,
+      "remainder": 7
+    },
+    "EURJPY-3M": {
+      "pair": "EURJPY",
+      "horizon": 3,
+      "baselineCount": 0,
+      "currentCount": 159,
+      "newSinceBaseline": 159,
+      "completed20Batches": 7,
+      "remainder": 19
+    },
+    "EURJPY-5M": {
+      "pair": "EURJPY",
+      "horizon": 5,
+      "baselineCount": 0,
+      "currentCount": 116,
+      "newSinceBaseline": 116,
+      "completed20Batches": 5,
+      "remainder": 16
+    },
+    "EURJPY-15M": {
+      "pair": "EURJPY",
+      "horizon": 15,
+      "baselineCount": 0,
+      "currentCount": 47,
+      "newSinceBaseline": 47,
+      "completed20Batches": 2,
+      "remainder": 7
+    },
     "USDJPY-1M": {
       "pair": "USDJPY",
       "horizon": 1,
       "baselineCount": 0,
-      "currentCount": 220,
-      "newSinceBaseline": 220,
-      "completed20Batches": 11,
+      "currentCount": 240,
+      "newSinceBaseline": 240,
+      "completed20Batches": 12,
       "remainder": 0
     },
     "USDJPY-2M": {
       "pair": "USDJPY",
       "horizon": 2,
       "baselineCount": 0,
-      "currentCount": 173,
-      "newSinceBaseline": 173,
-      "completed20Batches": 8,
+      "currentCount": 193,
+      "newSinceBaseline": 193,
+      "completed20Batches": 9,
       "remainder": 13
     },
     "USDJPY-3M": {
       "pair": "USDJPY",
       "horizon": 3,
       "baselineCount": 0,
-      "currentCount": 147,
-      "newSinceBaseline": 147,
-      "completed20Batches": 7,
+      "currentCount": 167,
+      "newSinceBaseline": 167,
+      "completed20Batches": 8,
       "remainder": 7
     },
     "USDJPY-5M": {
       "pair": "USDJPY",
       "horizon": 5,
       "baselineCount": 0,
-      "currentCount": 97,
-      "newSinceBaseline": 97,
-      "completed20Batches": 4,
-      "remainder": 17
+      "currentCount": 116,
+      "newSinceBaseline": 116,
+      "completed20Batches": 5,
+      "remainder": 16
     },
     "USDJPY-15M": {
       "pair": "USDJPY",
       "horizon": 15,
       "baselineCount": 0,
-      "currentCount": 38,
-      "newSinceBaseline": 38,
-      "completed20Batches": 1,
-      "remainder": 18
+      "currentCount": 44,
+      "newSinceBaseline": 44,
+      "completed20Batches": 2,
+      "remainder": 4
     },
     "AUDUSD-1M": {
       "pair": "AUDUSD",
       "horizon": 1,
       "baselineCount": 0,
-      "currentCount": 224,
-      "newSinceBaseline": 224,
-      "completed20Batches": 11,
+      "currentCount": 244,
+      "newSinceBaseline": 244,
+      "completed20Batches": 12,
       "remainder": 4
     },
     "AUDUSD-2M": {
       "pair": "AUDUSD",
       "horizon": 2,
       "baselineCount": 0,
-      "currentCount": 164,
-      "newSinceBaseline": 164,
-      "completed20Batches": 8,
+      "currentCount": 184,
+      "newSinceBaseline": 184,
+      "completed20Batches": 9,
       "remainder": 4
     },
     "AUDUSD-3M": {
       "pair": "AUDUSD",
       "horizon": 3,
       "baselineCount": 0,
-      "currentCount": 149,
-      "newSinceBaseline": 149,
-      "completed20Batches": 7,
+      "currentCount": 169,
+      "newSinceBaseline": 169,
+      "completed20Batches": 8,
       "remainder": 9
     },
     "AUDUSD-5M": {
       "pair": "AUDUSD",
       "horizon": 5,
       "baselineCount": 0,
-      "currentCount": 101,
-      "newSinceBaseline": 101,
-      "completed20Batches": 5,
-      "remainder": 1
+      "currentCount": 120,
+      "newSinceBaseline": 120,
+      "completed20Batches": 6,
+      "remainder": 0
     },
     "AUDUSD-15M": {
       "pair": "AUDUSD",
       "horizon": 15,
       "baselineCount": 0,
-      "currentCount": 39,
-      "newSinceBaseline": 39,
-      "completed20Batches": 1,
-      "remainder": 19
+      "currentCount": 45,
+      "newSinceBaseline": 45,
+      "completed20Batches": 2,
+      "remainder": 5
     }
   }
 }
