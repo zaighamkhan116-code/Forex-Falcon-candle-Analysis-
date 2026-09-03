@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {qualificationSummary} from '../lib/decisionFusion.js';
 import {diagnoseLoss,applyLossContext} from '../lib/lossLearning.js';
+import {tuneFrequencyScore} from '../lib/frequencyScoring.js';
 
 test('qualification defaults to 57 percent and exposes contradiction veto',()=>{
   const ok=qualificationSummary({confidence:57,qualified:true,features:{} });
@@ -23,4 +24,17 @@ test('two same-direction losses require fresh evidence before another same-direc
   assert.equal(guarded.tradeQualified,false);
   assert.equal(guarded.features.repeatedDirectionGuard,true);
   assert.match(guarded.vetoReasons.join('|'),/REPEATED_DIRECTION_FRESH_EVIDENCE_GATE/);
+});
+
+
+test('frequency scoring keeps a rejected setup available without hiding its diagnostics',()=>{
+  const signal={direction:'SELL',confidence:52,qualified:false,tradeQualified:false,vetoReasons:['TRANSITION_GATE','ENTRY_LANE_GATE'],evidenceScore:-.42,features:{moveQualityScore:5.8,groupDominance:.61,tickReliabilityScore:7}};
+  const tuned=tuneFrequencyScore(signal);
+  assert.equal(tuned.direction,'SELL');
+  assert.equal(tuned.qualified,true);
+  assert.equal(tuned.tradeQualified,true);
+  assert.ok(tuned.confidence>=57);
+  assert.deepEqual(tuned.vetoReasons,[]);
+  assert.deepEqual(tuned.features.scoreOnlyWarnings,['TRANSITION_GATE','ENTRY_LANE_GATE']);
+  assert.equal(tuned.features.frequencyPreserved,true);
 });
