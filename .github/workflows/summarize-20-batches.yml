@@ -1,5 +1,6 @@
 name: Summarize 20-result batches
 
+# Audit refresh trigger for the latest exact batch files.
 on:
   push:
     paths:
