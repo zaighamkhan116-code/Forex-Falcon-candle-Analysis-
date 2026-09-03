@@ -1,5 +1,6 @@
 name: Build 20-result batch summary
 
+# Audit refresh trigger: keep this workflow manually rerunnable and push-triggered on its own file.
 on:
   push:
     paths:
