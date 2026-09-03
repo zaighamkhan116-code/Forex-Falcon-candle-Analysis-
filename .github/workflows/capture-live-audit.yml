@@ -89,12 +89,46 @@ jobs:
             '{capturedAt:$capturedAt,pairs:($pairs|split(" ")),timeframes:[1,2,3,5,15],resolvedCount:$resolvedCount,pendingCount:$pendingCount,visibleAppResolvedCount:$appResolvedCount,visibleAppPendingCount:$appPendingCount,minimumConfidence:$minimumConfidence,visibleAppCapture:true}' \
             > audit/capture-status.json
 
+      - name: Build compact pair-timeframe batch audit snapshot
+        env:
+          BASELINE_COMMIT: 73ed749d7f34d220f0bbbd2256d4f50987f53534
+          PAIRS: EURUSD GBPUSD EURJPY USDJPY AUDUSD
+          HORIZONS: 1 2 3 5 15
+        run: |
+          set -euo pipefail
+          mkdir -p audit/track-tail
+          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg baseline "$BASELINE_COMMIT" \
+            '{capturedAt:$capturedAt,baselineCommit:$baseline,tracks:{}}' > /tmp/track-status.json
+          for pair in $PAIRS; do
+            slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
+            for horizon in $HORIZONS; do
+              key="${pair}-${horizon}M"
+              current=$(jq --argjson h "$horizon" '[.[] | select((.horizon|tonumber) == $h)] | length' "audit/resolved/$slug.json")
+              baseline=0
+              if git cat-file -e "$BASELINE_COMMIT:audit/resolved/$slug.json" 2>/dev/null; then
+                baseline=$(git show "$BASELINE_COMMIT:audit/resolved/$slug.json" | jq --argjson h "$horizon" '[.[] | select((.horizon|tonumber) == $h)] | length')
+              fi
+              delta=$((current-baseline))
+              completed=$((delta/20))
+              remainder=$((delta%20))
+              jq --arg key "$key" --arg pair "$pair" --argjson horizon "$horizon" \
+                 --argjson baseline "$baseline" --argjson current "$current" --argjson delta "$delta" \
+                 --argjson completed "$completed" --argjson remainder "$remainder" \
+                 '.tracks[$key]={pair:$pair,horizon:$horizon,baselineCount:$baseline,currentCount:$current,newSinceBaseline:$delta,completed20Batches:$completed,remainder:$remainder}' \
+                 /tmp/track-status.json > /tmp/track-status-next.json
+              mv /tmp/track-status-next.json /tmp/track-status.json
+              jq --argjson h "$horizon" '[.[] | select((.horizon|tonumber) == $h)] | sort_by(.resolvedAt // .expiry // .signalBoundary // 0) | .[-60:]' \
+                "audit/resolved/$slug.json" > "audit/track-tail/$slug-${horizon}m.json"
+            done
+          done
+          mv /tmp/track-status.json audit/track-status.json
+
       - name: Commit changed audit data
         run: |
           set -euo pipefail
           git config user.name "Forex Falcon Audit Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add audit/live audit/resolved audit/pending audit/live-core-fx.json audit/resolved-core-fx.json audit/pending-core-fx.json audit/live-app.json audit/resolved-app.json audit/pending-app.json audit/app-config.json audit/capture-status.json
+          git add audit/live audit/resolved audit/pending audit/live-core-fx.json audit/resolved-core-fx.json audit/pending-core-fx.json audit/live-app.json audit/resolved-app.json audit/pending-app.json audit/app-config.json audit/capture-status.json audit/track-status.json audit/track-tail
           if git diff --cached --quiet; then
             echo "No audit changes"
             exit 0
