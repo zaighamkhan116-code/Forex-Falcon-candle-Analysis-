@@ -1,4 +1,5 @@
 name: Compact batch scorecard
+# Audit refresh trigger for latest diagnostics.
 on:
   push:
     paths:
