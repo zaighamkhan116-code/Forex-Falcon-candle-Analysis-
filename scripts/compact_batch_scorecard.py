@@ -23,14 +23,28 @@ all_batches={k:compact(v) for k,v in src['batches'].items()}
 out={'generatedAt':src.get('generatedAt'),'batches':all_batches,'tracks':{k:compact(v) for k,v in src['cumulativePostBaseline'].items()}}
 json.dump(out,open('audit/new-batch-scorecard.json','w'),separators=(',',':'))
 reported=state.get('reportedBatches',{})
-unreported={}; unreported_brief={}
+unreported={}; unreported_brief={}; table=[]
 for k,v in src['batches'].items():
     m=re.match(r'^([A-Z]+)-(\d+)M-B(\d+)$',k)
     if not m: continue
     track=f'{m.group(1)}-{m.group(2)}M'; batch=int(m.group(3))
     if batch>int(reported.get(track,0) or 0):
         unreported[k]=compact(v); unreported_brief[k]=brief(v)
+        cum=src.get('cumulativePostBaseline',{}).get(track,{})
+        table.append({
+          'track':track,'batch':batch,'results':pick(v['results'])|{'n':v.get('n')},
+          'low57_61_9':pick(v['thresholdBuckets']['57_61_9']),'gte62':pick(v['thresholdBuckets']['gte62']),
+          'cumulative':pick(cum.get('results',{}))|{'n':cum.get('n')},
+          'maxLoss':(v.get('streaks') or {}).get('maxLoss'),
+          'direction':v.get('direction'),'regime':v.get('regime'),
+          'adverseZone':v.get('adverseZone'),'mtf2plus':v.get('mtfOpposition2Plus'),
+          'transitionRisk':v.get('transitionRisk'),'lateCounterTrendRisk':v.get('lateCounterTrendRisk'),
+          'continuationResetRequired':v.get('continuationResetRequired'),'breakoutAccepted':v.get('breakoutAccepted'),
+          'tickAgreement':v.get('tickAgreement'),'maBbPositive':v.get('maBbPositive'),
+          'lossFailureCombos':v.get('lossFailureCombos')
+        })
 tracks={track:compact(src['cumulativePostBaseline'][track]) for track in sorted({re.sub(r'-B\d+$','',k) for k in unreported}) if track in src['cumulativePostBaseline']}
 track_brief={track:brief(src['cumulativePostBaseline'][track]) for track in tracks}
 json.dump({'generatedAt':src.get('generatedAt'),'batches':unreported,'tracks':tracks},open('audit/unreported-batch-scorecard.json','w'),indent=2)
 json.dump({'generatedAt':src.get('generatedAt'),'batches':unreported_brief,'tracks':track_brief},open('audit/unreported-batch-brief.json','w'),indent=2)
+json.dump({'generatedAt':src.get('generatedAt'),'rows':sorted(table,key=lambda x:(x['track'],x['batch']))},open('audit/unreported-batch-table.json','w'),indent=2)
