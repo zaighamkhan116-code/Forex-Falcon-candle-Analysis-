@@ -1,0 +1,27 @@
+name: Summarize 20-result batches
+
+on:
+  push:
+    paths:
+      - '.github/workflows/summarize-20-batches.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build diagnostics
+        run: python3 scripts/summarize_20_batches.py
+      - name: Commit metrics
+        run: |
+          set -euo pipefail
+          git config user.name "Forex Falcon Audit Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add audit/new-batch-metrics.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "audit: summarize new 20-result batches"
+          git push
