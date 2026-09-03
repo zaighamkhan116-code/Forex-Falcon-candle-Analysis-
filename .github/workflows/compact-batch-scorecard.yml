@@ -1,5 +1,5 @@
 name: Compact batch scorecard
-# Audit refresh trigger: 2026-09-03T10:35Z after latest diagnostics, unreported scorecard, concise brief, JSON table, and text table.
+# Audit refresh trigger: 2026-09-03T10:37Z after latest diagnostics, unreported scorecard, concise brief, tables, and feature summary.
 on:
   push:
     paths:
@@ -16,7 +16,7 @@ jobs:
       - run: |
           git config user.name "Forex Falcon Audit Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add audit/new-batch-scorecard.json audit/unreported-batch-scorecard.json audit/unreported-batch-brief.json audit/unreported-batch-table.json audit/unreported-batch-table.txt
+          git add audit/new-batch-scorecard.json audit/unreported-batch-scorecard.json audit/unreported-batch-brief.json audit/unreported-batch-table.json audit/unreported-batch-table.txt audit/unreported-batch-diagnostics.txt
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "audit: compact 20-result batch scorecard"
           git push
