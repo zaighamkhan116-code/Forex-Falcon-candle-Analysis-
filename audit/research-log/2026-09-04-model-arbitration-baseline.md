@@ -74,7 +74,14 @@ The handoff does not include the fitted RF/ExtraTrees/HGB model objects or exact
 - July unseen: 336 signals (exact historical count), ~63.99% raw.
 - Historical July benchmark: 63.39% raw.
 
-This is promising but not parity. Promotion requires timestamp + direction comparison against the saved signal-level record, not merely similar aggregate accuracy.
+### July timestamp/direction parity check
+- Saved original July selections: 336.
+- Rebuild candidate July selections: 336.
+- Exact selected timestamps shared by both: 123 / 336 = 36.61%.
+- Direction agreement on those exact shared timestamps: 123 / 123 = 100%.
+- On saved July timestamps where the rebuilt feature row was available, rebuilt majority direction agreed with the saved Independent direction about 85.12%.
+
+Conclusion: the candidate has substantial directional similarity and reproduces the historical signal count and aggregate accuracy closely, but it does **not** reproduce the original ranking/selection timestamps closely enough to be called the original NY Independent V2. Keep model version `NY_INDEPENDENT_V2_REBUILD_CANDIDATE_1`; do not promote it or assign it live weight. Continue searching for exact artifacts or improve reproduction only through May/June development evidence while preserving July as validation.
 
 ## Arbitration policy
 - Shadow model cannot influence live signal yet.
