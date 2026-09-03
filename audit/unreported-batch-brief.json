@@ -1,358 +1,98 @@
 {
-  "generatedAt": "2026-09-03T17:18:06.905600Z",
+  "generatedAt": "2026-09-03T18:24:16.137238Z",
   "batches": {
-    "AUDUSD-1M-B6": {
+    "AUDUSD-5M-B4": {
       "results": {
-        "W": 12,
-        "L": 8,
+        "W": 10,
+        "L": 10,
         "T": 0,
-        "accuracy": 60.0,
+        "accuracy": 50.0,
         "n": 20
       },
       "exactBoundaryN": 20,
-      "confidenceMean": 68.7,
+      "confidenceMean": 68.1,
       "streaks": {
-        "maxWin": 4,
-        "maxLoss": 3
+        "maxWin": 7,
+        "maxLoss": 5
       },
       "low57_61_9": {
         "W": 1,
-        "L": 0,
+        "L": 2,
         "T": 0,
-        "accuracy": 100.0,
-        "n": 1
+        "accuracy": 33.3,
+        "n": 3
       },
       "gte62": {
-        "W": 11,
+        "W": 9,
         "L": 8,
         "T": 0,
-        "accuracy": 57.9,
-        "n": 19
+        "accuracy": 52.9,
+        "n": 17
       },
       "direction": {
         "BUY": {
-          "W": 12,
-          "L": 7,
+          "W": 10,
+          "L": 6,
           "T": 0,
-          "accuracy": 63.2
+          "accuracy": 62.5
         },
         "SELL": {
+          "W": 0,
+          "L": 4,
+          "T": 0,
+          "accuracy": 0.0
+        }
+      },
+      "regime": {
+        "CHOPPY": {
+          "W": 2,
+          "L": 3,
+          "T": 0,
+          "accuracy": 40.0
+        },
+        "MIXED": {
+          "W": 8,
+          "L": 6,
+          "T": 0,
+          "accuracy": 57.1
+        },
+        "TRENDING": {
           "W": 0,
           "L": 1,
           "T": 0,
           "accuracy": 0.0
         }
       },
-      "regime": {
-        "MIXED": {
-          "W": 4,
-          "L": 1,
-          "T": 0,
-          "accuracy": 80.0
-        },
-        "TRENDING": {
-          "W": 8,
-          "L": 7,
-          "T": 0,
-          "accuracy": 53.3
-        }
-      },
       "entryLane": {
         "CONFIRMED_ENTRY": {
-          "W": 12,
-          "L": 8,
-          "T": 0,
-          "accuracy": 60.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 1,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0,
-          "n": 1
-        },
-        "no": {
-          "W": 11,
-          "L": 8,
-          "T": 0,
-          "accuracy": 57.9,
-          "n": 19
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 5,
-          "L": 2,
-          "T": 0,
-          "accuracy": 71.4,
-          "n": 7
-        },
-        "false": {
-          "W": 7,
-          "L": 6,
-          "T": 0,
-          "accuracy": 53.8,
-          "n": 13
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 2,
-          "L": 1,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 3
-        },
-        "false": {
           "W": 10,
-          "L": 7,
-          "T": 0,
-          "accuracy": 58.8,
-          "n": 17
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 4,
-          "L": 2,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 6
-        },
-        "false": {
-          "W": 8,
-          "L": 6,
-          "T": 0,
-          "accuracy": 57.1,
-          "n": 14
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 9,
-          "L": 6,
-          "T": 0,
-          "accuracy": 60.0,
-          "n": 15
-        },
-        "false": {
-          "W": 3,
-          "L": 2,
-          "T": 0,
-          "accuracy": 60.0,
-          "n": 5
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 6,
-          "L": 3,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 9
-        },
-        "false": {
-          "W": 6,
-          "L": 5,
-          "T": 0,
-          "accuracy": 54.5,
-          "n": 11
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 8,
-          "L": 4,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 12
-        },
-        "false": {
-          "W": 4,
-          "L": 4,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 8
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 12,
-          "L": 7,
-          "T": 0,
-          "accuracy": 63.2,
-          "n": 19
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "FAIL_PROGRESS",
-          "n": 2
-        },
-        {
-          "combo": "TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "OTHER",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
-          "n": 1
-        },
-        {
-          "combo": "EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 1
-        }
-      ]
-    },
-    "AUDUSD-2M-B5": {
-      "results": {
-        "W": 13,
-        "L": 7,
-        "T": 0,
-        "accuracy": 65.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 64.5,
-      "streaks": {
-        "maxWin": 5,
-        "maxLoss": 5
-      },
-      "low57_61_9": {
-        "W": 2,
-        "L": 4,
-        "T": 0,
-        "accuracy": 33.3,
-        "n": 6
-      },
-      "gte62": {
-        "W": 11,
-        "L": 3,
-        "T": 0,
-        "accuracy": 78.6,
-        "n": 14
-      },
-      "direction": {
-        "BUY": {
-          "W": 4,
-          "L": 3,
-          "T": 0,
-          "accuracy": 57.1
-        },
-        "SELL": {
-          "W": 9,
-          "L": 4,
-          "T": 0,
-          "accuracy": 69.2
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 4,
-          "L": 4,
+          "L": 10,
           "T": 0,
           "accuracy": 50.0
-        },
-        "MIXED": {
-          "W": 3,
-          "L": 1,
-          "T": 0,
-          "accuracy": 75.0
-        },
-        "TRENDING": {
-          "W": 6,
-          "L": 2,
-          "T": 0,
-          "accuracy": 75.0
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 13,
-          "L": 7,
-          "T": 0,
-          "accuracy": 65.0
         }
       },
       "mtf2plus": {
         "yes": {
-          "W": 9,
-          "L": 5,
+          "W": 0,
+          "L": 0,
           "T": 0,
-          "accuracy": 64.3,
-          "n": 14
+          "accuracy": null,
+          "n": 0
         },
         "no": {
-          "W": 4,
-          "L": 2,
+          "W": 10,
+          "L": 10,
           "T": 0,
-          "accuracy": 66.7,
-          "n": 6
+          "accuracy": 50.0,
+          "n": 20
         }
       },
       "adverseZone": {
         "true": {
-          "W": 2,
-          "L": 4,
+          "W": 8,
+          "L": 10,
           "T": 0,
-          "accuracy": 33.3,
-          "n": 6
-        },
-        "false": {
-          "W": 11,
-          "L": 3,
-          "T": 0,
-          "accuracy": 78.6,
-          "n": 14
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 3,
-          "L": 3,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 6
-        },
-        "false": {
-          "W": 10,
-          "L": 4,
-          "T": 0,
-          "accuracy": 71.4,
-          "n": 14
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 7,
-          "L": 5,
-          "T": 0,
-          "accuracy": 58.3,
-          "n": 12
-        },
-        "false": {
-          "W": 6,
-          "L": 2,
-          "T": 0,
-          "accuracy": 75.0,
-          "n": 8
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 11,
-          "L": 7,
-          "T": 0,
-          "accuracy": 61.1,
+          "accuracy": 44.4,
           "n": 18
         },
         "false": {
@@ -363,426 +103,44 @@
           "n": 2
         }
       },
-      "breakoutAccepted": {
+      "transitionRisk": {
         "true": {
+          "W": 2,
+          "L": 4,
+          "T": 0,
+          "accuracy": 33.3,
+          "n": 6
+        },
+        "false": {
+          "W": 8,
+          "L": 6,
+          "T": 0,
+          "accuracy": 57.1,
+          "n": 14
+        }
+      },
+      "lateCounterTrendRisk": {
+        "true": {
+          "W": 7,
+          "L": 9,
+          "T": 0,
+          "accuracy": 43.8,
+          "n": 16
+        },
+        "false": {
           "W": 3,
           "L": 1,
           "T": 0,
           "accuracy": 75.0,
           "n": 4
-        },
-        "false": {
-          "W": 10,
-          "L": 6,
-          "T": 0,
-          "accuracy": 62.5,
-          "n": 16
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 7,
-          "L": 1,
-          "T": 0,
-          "accuracy": 87.5,
-          "n": 8
-        },
-        "false": {
-          "W": 6,
-          "L": 6,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 12
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 1,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0,
-          "n": 1
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "MTF_CONFLICT+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+TRANSITION_RISK",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "UNRESOLVED_FVG+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+TRANSITION_RISK+CHOP",
-          "n": 1
-        }
-      ]
-    },
-    "AUDUSD-3M-B5": {
-      "results": {
-        "W": 11,
-        "L": 9,
-        "T": 0,
-        "accuracy": 55.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 67.0,
-      "streaks": {
-        "maxWin": 4,
-        "maxLoss": 3
-      },
-      "low57_61_9": {
-        "W": 1,
-        "L": 3,
-        "T": 0,
-        "accuracy": 25.0,
-        "n": 4
-      },
-      "gte62": {
-        "W": 10,
-        "L": 6,
-        "T": 0,
-        "accuracy": 62.5,
-        "n": 16
-      },
-      "direction": {
-        "BUY": {
-          "W": 11,
-          "L": 8,
-          "T": 0,
-          "accuracy": 57.9
-        },
-        "SELL": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 6,
-          "L": 3,
-          "T": 0,
-          "accuracy": 66.7
-        },
-        "MIXED": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0
-        },
-        "TRENDING": {
-          "W": 3,
-          "L": 4,
-          "T": 0,
-          "accuracy": 42.9
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 11,
-          "L": 9,
-          "T": 0,
-          "accuracy": 55.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 1
-        },
-        "no": {
-          "W": 11,
-          "L": 8,
-          "T": 0,
-          "accuracy": 57.9,
-          "n": 19
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 7,
-          "L": 5,
-          "T": 0,
-          "accuracy": 58.3,
-          "n": 12
-        },
-        "false": {
-          "W": 4,
-          "L": 4,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 8
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 3,
-          "L": 4,
-          "T": 0,
-          "accuracy": 42.9,
-          "n": 7
-        },
-        "false": {
-          "W": 8,
-          "L": 5,
-          "T": 0,
-          "accuracy": 61.5,
-          "n": 13
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 7,
-          "L": 4,
-          "T": 0,
-          "accuracy": 63.6,
-          "n": 11
-        },
-        "false": {
-          "W": 4,
-          "L": 5,
-          "T": 0,
-          "accuracy": 44.4,
-          "n": 9
         }
       },
       "continuationResetRequired": {
         "true": {
           "W": 10,
-          "L": 6,
-          "T": 0,
-          "accuracy": 62.5,
-          "n": 16
-        },
-        "false": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0,
-          "n": 4
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 1,
-          "L": 4,
-          "T": 0,
-          "accuracy": 20.0,
-          "n": 5
-        },
-        "false": {
-          "W": 10,
-          "L": 5,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 15
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 7,
-          "L": 4,
-          "T": 0,
-          "accuracy": 63.6,
-          "n": 11
-        },
-        "false": {
-          "W": 4,
-          "L": 5,
-          "T": 0,
-          "accuracy": 44.4,
-          "n": 9
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 8,
-          "L": 5,
-          "T": 0,
-          "accuracy": 61.5,
-          "n": 13
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 2
-        },
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 2
-        },
-        {
-          "combo": "ADVERSE_ZONE",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+UNRESOLVED_FVG+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 1
-        },
-        {
-          "combo": "FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 1
-        }
-      ]
-    },
-    "EURJPY-1M-B6": {
-      "results": {
-        "W": 11,
-        "L": 9,
-        "T": 0,
-        "accuracy": 55.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 65.2,
-      "streaks": {
-        "maxWin": 3,
-        "maxLoss": 2
-      },
-      "low57_61_9": {
-        "W": 4,
-        "L": 1,
-        "T": 0,
-        "accuracy": 80.0,
-        "n": 5
-      },
-      "gte62": {
-        "W": 7,
-        "L": 8,
-        "T": 0,
-        "accuracy": 46.7,
-        "n": 15
-      },
-      "direction": {
-        "BUY": {
-          "W": 5,
-          "L": 5,
-          "T": 0,
-          "accuracy": 50.0
-        },
-        "SELL": {
-          "W": 6,
-          "L": 4,
-          "T": 0,
-          "accuracy": 60.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 10,
-          "L": 6,
-          "T": 0,
-          "accuracy": 62.5
-        },
-        "MIXED": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 11,
-          "L": 9,
-          "T": 0,
-          "accuracy": 55.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 7,
-          "L": 4,
-          "T": 0,
-          "accuracy": 63.6,
-          "n": 11
-        },
-        "no": {
-          "W": 4,
-          "L": 5,
-          "T": 0,
-          "accuracy": 44.4,
-          "n": 9
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 9,
-          "L": 7,
-          "T": 0,
-          "accuracy": 56.2,
-          "n": 16
-        },
-        "false": {
-          "W": 2,
-          "L": 2,
+          "L": 10,
           "T": 0,
           "accuracy": 50.0,
-          "n": 4
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 5,
-          "L": 3,
-          "T": 0,
-          "accuracy": 62.5,
-          "n": 8
-        },
-        "false": {
-          "W": 6,
-          "L": 6,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 12
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 9,
-          "L": 7,
-          "T": 0,
-          "accuracy": 56.2,
-          "n": 16
-        },
-        "false": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 4
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 11,
-          "L": 9,
-          "T": 0,
-          "accuracy": 55.0,
           "n": 20
         },
         "false": {
@@ -795,134 +153,140 @@
       },
       "breakoutAccepted": {
         "true": {
-          "W": 0,
-          "L": 2,
+          "W": 3,
+          "L": 1,
           "T": 0,
-          "accuracy": 0.0,
-          "n": 2
+          "accuracy": 75.0,
+          "n": 4
         },
         "false": {
-          "W": 11,
-          "L": 7,
+          "W": 7,
+          "L": 9,
           "T": 0,
-          "accuracy": 61.1,
-          "n": 18
+          "accuracy": 43.8,
+          "n": 16
         }
       },
       "tickAgreement": {
         "true": {
-          "W": 7,
-          "L": 6,
+          "W": 5,
+          "L": 5,
           "T": 0,
-          "accuracy": 53.8,
-          "n": 13
+          "accuracy": 50.0,
+          "n": 10
         },
         "false": {
-          "W": 4,
-          "L": 3,
+          "W": 5,
+          "L": 5,
           "T": 0,
-          "accuracy": 57.1,
-          "n": 7
+          "accuracy": 50.0,
+          "n": 10
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 3,
-          "L": 2,
+          "W": 4,
+          "L": 5,
           "T": 0,
-          "accuracy": 60.0,
-          "n": 5
+          "accuracy": 44.4,
+          "n": 9
         }
       },
       "lossFailureCombos": [
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+UNRESOLVED_FVG",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+          "n": 3
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG+CHOP",
           "n": 1
         },
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
           "n": 1
         },
         {
-          "combo": "FAIL_PROGRESS+UNRESOLVED_FVG",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
           "n": 1
         },
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+UNRESOLVED_FVG",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
           "n": 1
         },
         {
-          "combo": "FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+CHOP",
           "n": 1
         }
       ]
     },
-    "EURJPY-2M-B5": {
+    "EURJPY-2M-B6": {
       "results": {
-        "W": 11,
-        "L": 9,
+        "W": 8,
+        "L": 12,
         "T": 0,
-        "accuracy": 55.0,
+        "accuracy": 40.0,
         "n": 20
       },
       "exactBoundaryN": 20,
-      "confidenceMean": 65.4,
+      "confidenceMean": 66.7,
       "streaks": {
-        "maxWin": 7,
-        "maxLoss": 5
+        "maxWin": 3,
+        "maxLoss": 4
       },
       "low57_61_9": {
-        "W": 2,
-        "L": 2,
+        "W": 3,
+        "L": 1,
         "T": 0,
-        "accuracy": 50.0,
+        "accuracy": 75.0,
         "n": 4
       },
       "gte62": {
-        "W": 9,
-        "L": 7,
+        "W": 5,
+        "L": 11,
         "T": 0,
-        "accuracy": 56.2,
+        "accuracy": 31.2,
         "n": 16
       },
       "direction": {
         "BUY": {
-          "W": 1,
-          "L": 3,
+          "W": 3,
+          "L": 5,
           "T": 0,
-          "accuracy": 25.0
+          "accuracy": 37.5
         },
         "SELL": {
-          "W": 10,
-          "L": 6,
+          "W": 5,
+          "L": 7,
           "T": 0,
-          "accuracy": 62.5
+          "accuracy": 41.7
         }
       },
       "regime": {
         "CHOPPY": {
-          "W": 8,
-          "L": 7,
+          "W": 3,
+          "L": 4,
           "T": 0,
-          "accuracy": 53.3
+          "accuracy": 42.9
         },
         "MIXED": {
-          "W": 3,
-          "L": 2,
+          "W": 1,
+          "L": 1,
           "T": 0,
-          "accuracy": 60.0
+          "accuracy": 50.0
+        },
+        "TRENDING": {
+          "W": 4,
+          "L": 7,
+          "T": 0,
+          "accuracy": 36.4
         }
       },
       "entryLane": {
         "CONFIRMED_ENTRY": {
-          "W": 10,
-          "L": 9,
+          "W": 7,
+          "L": 12,
           "T": 0,
-          "accuracy": 52.6
+          "accuracy": 36.8
         },
         "REACTION_ENTRY": {
           "W": 1,
@@ -933,290 +297,66 @@
       },
       "mtf2plus": {
         "yes": {
-          "W": 1,
-          "L": 2,
+          "W": 3,
+          "L": 5,
           "T": 0,
-          "accuracy": 33.3,
-          "n": 3
+          "accuracy": 37.5,
+          "n": 8
         },
         "no": {
-          "W": 10,
+          "W": 5,
           "L": 7,
           "T": 0,
-          "accuracy": 58.8,
-          "n": 17
+          "accuracy": 41.7,
+          "n": 12
         }
       },
       "adverseZone": {
         "true": {
-          "W": 9,
+          "W": 4,
           "L": 6,
-          "T": 0,
-          "accuracy": 60.0,
-          "n": 15
-        },
-        "false": {
-          "W": 2,
-          "L": 3,
           "T": 0,
           "accuracy": 40.0,
-          "n": 5
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 3,
-          "L": 4,
-          "T": 0,
-          "accuracy": 42.9,
-          "n": 7
+          "n": 10
         },
         "false": {
-          "W": 8,
-          "L": 5,
-          "T": 0,
-          "accuracy": 61.5,
-          "n": 13
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 8,
+          "W": 4,
           "L": 6,
           "T": 0,
-          "accuracy": 57.1,
-          "n": 14
-        },
-        "false": {
-          "W": 3,
-          "L": 3,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 6
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 11,
-          "L": 9,
-          "T": 0,
-          "accuracy": 55.0,
-          "n": 20
-        },
-        "false": {
-          "W": 0,
-          "L": 0,
-          "T": 0,
-          "accuracy": null,
-          "n": 0
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 1,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0,
-          "n": 1
-        },
-        "false": {
-          "W": 10,
-          "L": 9,
-          "T": 0,
-          "accuracy": 52.6,
-          "n": 19
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 5,
-          "L": 4,
-          "T": 0,
-          "accuracy": 55.6,
-          "n": 9
-        },
-        "false": {
-          "W": 6,
-          "L": 5,
-          "T": 0,
-          "accuracy": 54.5,
-          "n": 11
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 1
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "TRANSITION_RISK+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 1
-        }
-      ]
-    },
-    "EURJPY-3M-B5": {
-      "results": {
-        "W": 9,
-        "L": 11,
-        "T": 0,
-        "accuracy": 45.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 67.4,
-      "streaks": {
-        "maxWin": 4,
-        "maxLoss": 4
-      },
-      "low57_61_9": {
-        "W": 0,
-        "L": 1,
-        "T": 0,
-        "accuracy": 0.0,
-        "n": 1
-      },
-      "gte62": {
-        "W": 9,
-        "L": 10,
-        "T": 0,
-        "accuracy": 47.4,
-        "n": 19
-      },
-      "direction": {
-        "BUY": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0
-        },
-        "SELL": {
-          "W": 8,
-          "L": 8,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 5,
-          "L": 7,
-          "T": 0,
-          "accuracy": 41.7
-        },
-        "MIXED": {
-          "W": 4,
-          "L": 2,
-          "T": 0,
-          "accuracy": 66.7
-        },
-        "TRENDING": {
-          "W": 0,
-          "L": 2,
-          "T": 0,
-          "accuracy": 0.0
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 8,
-          "L": 10,
-          "T": 0,
-          "accuracy": 44.4
-        },
-        "REACTION_ENTRY": {
-          "W": 1,
-          "L": 1,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0,
-          "n": 4
-        },
-        "no": {
-          "W": 8,
-          "L": 8,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 16
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 4,
-          "L": 9,
-          "T": 0,
-          "accuracy": 30.8,
-          "n": 13
-        },
-        "false": {
-          "W": 5,
-          "L": 2,
-          "T": 0,
-          "accuracy": 71.4,
-          "n": 7
+          "accuracy": 40.0,
+          "n": 10
         }
       },
       "transitionRisk": {
         "true": {
           "W": 3,
-          "L": 3,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 6
-        },
-        "false": {
-          "W": 6,
-          "L": 8,
+          "L": 4,
           "T": 0,
           "accuracy": 42.9,
-          "n": 14
+          "n": 7
+        },
+        "false": {
+          "W": 5,
+          "L": 8,
+          "T": 0,
+          "accuracy": 38.5,
+          "n": 13
         }
       },
       "lateCounterTrendRisk": {
         "true": {
-          "W": 4,
-          "L": 8,
+          "W": 5,
+          "L": 5,
           "T": 0,
-          "accuracy": 33.3,
-          "n": 12
+          "accuracy": 50.0,
+          "n": 10
         },
         "false": {
-          "W": 5,
-          "L": 3,
+          "W": 3,
+          "L": 7,
           "T": 0,
-          "accuracy": 62.5,
-          "n": 8
+          "accuracy": 30.0,
+          "n": 10
         }
       },
       "continuationResetRequired": {
@@ -1228,2016 +368,82 @@
           "n": 19
         },
         "false": {
-          "W": 1,
-          "L": 0,
+          "W": 0,
+          "L": 1,
           "T": 0,
-          "accuracy": 100.0,
+          "accuracy": 0.0,
           "n": 1
         }
       },
       "breakoutAccepted": {
         "true": {
           "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0,
-          "n": 4
-        },
-        "false": {
-          "W": 8,
-          "L": 8,
+          "L": 1,
           "T": 0,
           "accuracy": 50.0,
-          "n": 16
+          "n": 2
+        },
+        "false": {
+          "W": 7,
+          "L": 11,
+          "T": 0,
+          "accuracy": 38.9,
+          "n": 18
         }
       },
       "tickAgreement": {
         "true": {
-          "W": 5,
-          "L": 7,
-          "T": 0,
-          "accuracy": 41.7,
-          "n": 12
-        },
-        "false": {
-          "W": 4,
-          "L": 4,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 8
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 0,
-          "L": 4,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 4
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "ADVERSE_ZONE",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "ADVERSE_ZONE+MTF_CONFLICT",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+UNRESOLVED_FVG",
-          "n": 1
-        }
-      ]
-    },
-    "EURJPY-5M-B4": {
-      "results": {
-        "W": 9,
-        "L": 11,
-        "T": 0,
-        "accuracy": 45.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 67.5,
-      "streaks": {
-        "maxWin": 2,
-        "maxLoss": 4
-      },
-      "low57_61_9": {
-        "W": 1,
-        "L": 1,
-        "T": 0,
-        "accuracy": 50.0,
-        "n": 2
-      },
-      "gte62": {
-        "W": 8,
-        "L": 10,
-        "T": 0,
-        "accuracy": 44.4,
-        "n": 18
-      },
-      "direction": {
-        "BUY": {
-          "W": 1,
-          "L": 5,
-          "T": 0,
-          "accuracy": 16.7
-        },
-        "SELL": {
-          "W": 8,
-          "L": 6,
-          "T": 0,
-          "accuracy": 57.1
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 7,
-          "L": 9,
-          "T": 0,
-          "accuracy": 43.8
-        },
-        "MIXED": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 9,
-          "L": 11,
-          "T": 0,
-          "accuracy": 45.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 1,
-          "L": 5,
-          "T": 0,
-          "accuracy": 16.7,
-          "n": 6
-        },
-        "no": {
-          "W": 8,
-          "L": 6,
-          "T": 0,
-          "accuracy": 57.1,
-          "n": 14
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 8,
-          "L": 8,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 16
-        },
-        "false": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0,
-          "n": 4
-        }
-      },
-      "transitionRisk": {
-        "true": {
           "W": 3,
-          "L": 5,
-          "T": 0,
-          "accuracy": 37.5,
-          "n": 8
-        },
-        "false": {
-          "W": 6,
           "L": 6,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 12
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 6,
-          "L": 10,
-          "T": 0,
-          "accuracy": 37.5,
-          "n": 16
-        },
-        "false": {
-          "W": 3,
-          "L": 1,
-          "T": 0,
-          "accuracy": 75.0,
-          "n": 4
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 9,
-          "L": 11,
-          "T": 0,
-          "accuracy": 45.0,
-          "n": 20
-        },
-        "false": {
-          "W": 0,
-          "L": 0,
-          "T": 0,
-          "accuracy": null,
-          "n": 0
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 2,
-          "L": 4,
           "T": 0,
           "accuracy": 33.3,
-          "n": 6
+          "n": 9
         },
         "false": {
-          "W": 7,
-          "L": 7,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 14
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 6,
-          "L": 7,
-          "T": 0,
-          "accuracy": 46.2,
-          "n": 13
-        },
-        "false": {
-          "W": 3,
-          "L": 4,
-          "T": 0,
-          "accuracy": 42.9,
-          "n": 7
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 1
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED+FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+EXTENDED+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 1
-        }
-      ]
-    },
-    "EURUSD-1M-B6": {
-      "results": {
-        "W": 14,
-        "L": 5,
-        "T": 1,
-        "accuracy": 73.7,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 69.9,
-      "streaks": {
-        "maxWin": 5,
-        "maxLoss": 1
-      },
-      "low57_61_9": {
-        "W": 0,
-        "L": 0,
-        "T": 0,
-        "accuracy": null,
-        "n": 0
-      },
-      "gte62": {
-        "W": 14,
-        "L": 5,
-        "T": 1,
-        "accuracy": 73.7,
-        "n": 20
-      },
-      "direction": {
-        "BUY": {
-          "W": 14,
-          "L": 5,
-          "T": 1,
-          "accuracy": 73.7
-        }
-      },
-      "regime": {
-        "MIXED": {
-          "W": 6,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0
-        },
-        "TRENDING": {
-          "W": 8,
-          "L": 5,
-          "T": 1,
-          "accuracy": 61.5
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 14,
-          "L": 5,
-          "T": 1,
-          "accuracy": 73.7
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 1,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0,
-          "n": 1
-        },
-        "no": {
-          "W": 13,
-          "L": 5,
-          "T": 1,
-          "accuracy": 72.2,
-          "n": 19
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 11,
-          "L": 3,
-          "T": 0,
-          "accuracy": 78.6,
-          "n": 14
-        },
-        "false": {
-          "W": 3,
-          "L": 2,
-          "T": 1,
-          "accuracy": 60.0,
-          "n": 6
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 1,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0,
-          "n": 1
-        },
-        "false": {
-          "W": 13,
-          "L": 5,
-          "T": 1,
-          "accuracy": 72.2,
-          "n": 19
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 11,
-          "L": 3,
-          "T": 0,
-          "accuracy": 78.6,
-          "n": 14
-        },
-        "false": {
-          "W": 3,
-          "L": 2,
-          "T": 1,
-          "accuracy": 60.0,
-          "n": 6
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 13,
-          "L": 3,
-          "T": 1,
-          "accuracy": 81.2,
-          "n": 17
-        },
-        "false": {
-          "W": 1,
-          "L": 2,
-          "T": 0,
-          "accuracy": 33.3,
-          "n": 3
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 4,
-          "L": 3,
-          "T": 0,
-          "accuracy": 57.1,
-          "n": 7
-        },
-        "false": {
-          "W": 10,
-          "L": 2,
-          "T": 1,
-          "accuracy": 83.3,
-          "n": 13
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 12,
-          "L": 4,
-          "T": 1,
-          "accuracy": 75.0,
-          "n": 17
-        },
-        "false": {
-          "W": 2,
-          "L": 1,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 3
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 14,
-          "L": 5,
-          "T": 1,
-          "accuracy": 73.7,
-          "n": 20
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+UNRESOLVED_FVG+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "EXTENDED",
-          "n": 1
-        },
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 1
-        }
-      ]
-    },
-    "EURUSD-2M-B5": {
-      "results": {
-        "W": 10,
-        "L": 9,
-        "T": 1,
-        "accuracy": 52.6,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 65.7,
-      "streaks": {
-        "maxWin": 3,
-        "maxLoss": 3
-      },
-      "low57_61_9": {
-        "W": 1,
-        "L": 1,
-        "T": 0,
-        "accuracy": 50.0,
-        "n": 2
-      },
-      "gte62": {
-        "W": 9,
-        "L": 8,
-        "T": 1,
-        "accuracy": 52.9,
-        "n": 18
-      },
-      "direction": {
-        "BUY": {
-          "W": 5,
-          "L": 3,
-          "T": 0,
-          "accuracy": 62.5
-        },
-        "SELL": {
-          "W": 5,
-          "L": 6,
-          "T": 1,
-          "accuracy": 45.5
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 4,
-          "L": 5,
-          "T": 1,
-          "accuracy": 44.4
-        },
-        "MIXED": {
-          "W": 6,
-          "L": 4,
-          "T": 0,
-          "accuracy": 60.0
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 10,
-          "L": 9,
-          "T": 1,
-          "accuracy": 52.6
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 9,
-          "L": 6,
-          "T": 1,
-          "accuracy": 60.0,
-          "n": 16
-        },
-        "no": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0,
-          "n": 4
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 8,
-          "L": 8,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 16
-        },
-        "false": {
-          "W": 2,
-          "L": 1,
-          "T": 1,
-          "accuracy": 66.7,
-          "n": 4
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 4,
-          "L": 2,
-          "T": 1,
-          "accuracy": 66.7,
-          "n": 7
-        },
-        "false": {
-          "W": 6,
-          "L": 7,
-          "T": 0,
-          "accuracy": 46.2,
-          "n": 13
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 10,
-          "L": 7,
-          "T": 1,
-          "accuracy": 58.8,
-          "n": 18
-        },
-        "false": {
-          "W": 0,
-          "L": 2,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 2
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 10,
-          "L": 9,
-          "T": 1,
-          "accuracy": 52.6,
-          "n": 20
-        },
-        "false": {
-          "W": 0,
-          "L": 0,
-          "T": 0,
-          "accuracy": null,
-          "n": 0
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 1,
-          "L": 1,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 2
-        },
-        "false": {
-          "W": 9,
-          "L": 8,
-          "T": 1,
-          "accuracy": 52.9,
-          "n": 18
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 6,
-          "L": 5,
-          "T": 1,
-          "accuracy": 54.5,
-          "n": 12
-        },
-        "false": {
-          "W": 4,
-          "L": 4,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 8
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 1,
-          "L": 1,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 2
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+CHOP",
-          "n": 2
-        },
-        {
-          "combo": "ADVERSE_ZONE+MTF_CONFLICT+UNRESOLVED_FVG",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+EXTENDED+UNRESOLVED_FVG",
-          "n": 1
-        }
-      ]
-    },
-    "EURUSD-3M-B5": {
-      "results": {
-        "W": 9,
-        "L": 11,
-        "T": 0,
-        "accuracy": 45.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 66.8,
-      "streaks": {
-        "maxWin": 4,
-        "maxLoss": 4
-      },
-      "low57_61_9": {
-        "W": 0,
-        "L": 2,
-        "T": 0,
-        "accuracy": 0.0,
-        "n": 2
-      },
-      "gte62": {
-        "W": 9,
-        "L": 9,
-        "T": 0,
-        "accuracy": 50.0,
-        "n": 18
-      },
-      "direction": {
-        "BUY": {
-          "W": 7,
-          "L": 6,
-          "T": 0,
-          "accuracy": 53.8
-        },
-        "SELL": {
-          "W": 2,
-          "L": 5,
-          "T": 0,
-          "accuracy": 28.6
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 5,
-          "L": 2,
-          "T": 0,
-          "accuracy": 71.4
-        },
-        "MIXED": {
-          "W": 1,
-          "L": 4,
-          "T": 0,
-          "accuracy": 20.0
-        },
-        "TRENDING": {
-          "W": 3,
-          "L": 5,
-          "T": 0,
-          "accuracy": 37.5
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 9,
-          "L": 11,
-          "T": 0,
-          "accuracy": 45.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 2,
-          "L": 6,
-          "T": 0,
-          "accuracy": 25.0,
-          "n": 8
-        },
-        "no": {
-          "W": 7,
-          "L": 5,
-          "T": 0,
-          "accuracy": 58.3,
-          "n": 12
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 9,
-          "L": 9,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 18
-        },
-        "false": {
-          "W": 0,
-          "L": 2,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 2
-        }
-      },
-      "transitionRisk": {
-        "true": {
           "W": 5,
           "L": 6,
           "T": 0,
           "accuracy": 45.5,
           "n": 11
-        },
-        "false": {
-          "W": 4,
-          "L": 5,
-          "T": 0,
-          "accuracy": 44.4,
-          "n": 9
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 9,
-          "L": 10,
-          "T": 0,
-          "accuracy": 47.4,
-          "n": 19
-        },
-        "false": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 1
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 9,
-          "L": 11,
-          "T": 0,
-          "accuracy": 45.0,
-          "n": 20
-        },
-        "false": {
-          "W": 0,
-          "L": 0,
-          "T": 0,
-          "accuracy": null,
-          "n": 0
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 2,
-          "L": 3,
-          "T": 0,
-          "accuracy": 40.0,
-          "n": 5
-        },
-        "false": {
-          "W": 7,
-          "L": 8,
-          "T": 0,
-          "accuracy": 46.7,
-          "n": 15
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 6,
-          "L": 5,
-          "T": 0,
-          "accuracy": 54.5,
-          "n": 11
-        },
-        "false": {
-          "W": 3,
-          "L": 6,
-          "T": 0,
-          "accuracy": 33.3,
-          "n": 9
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 6,
-          "L": 4,
-          "T": 0,
-          "accuracy": 60.0,
-          "n": 10
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 1
-        }
-      ]
-    },
-    "GBPUSD-1M-B6": {
-      "results": {
-        "W": 12,
-        "L": 8,
-        "T": 0,
-        "accuracy": 60.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 69.4,
-      "streaks": {
-        "maxWin": 3,
-        "maxLoss": 1
-      },
-      "low57_61_9": {
-        "W": 0,
-        "L": 0,
-        "T": 0,
-        "accuracy": null,
-        "n": 0
-      },
-      "gte62": {
-        "W": 12,
-        "L": 8,
-        "T": 0,
-        "accuracy": 60.0,
-        "n": 20
-      },
-      "direction": {
-        "BUY": {
-          "W": 12,
-          "L": 8,
-          "T": 0,
-          "accuracy": 60.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
           "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0
-        },
-        "MIXED": {
-          "W": 4,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0
-        },
-        "TRENDING": {
-          "W": 8,
-          "L": 7,
-          "T": 0,
-          "accuracy": 53.3
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 12,
-          "L": 7,
-          "T": 0,
-          "accuracy": 63.2
-        },
-        "REACTION_ENTRY": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 1,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0,
-          "n": 1
-        },
-        "no": {
-          "W": 11,
-          "L": 8,
-          "T": 0,
-          "accuracy": 57.9,
-          "n": 19
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 8,
           "L": 4,
           "T": 0,
-          "accuracy": 66.7,
-          "n": 12
-        },
-        "false": {
-          "W": 4,
-          "L": 4,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 8
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 1,
-          "L": 1,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 2
-        },
-        "false": {
-          "W": 11,
-          "L": 7,
-          "T": 0,
-          "accuracy": 61.1,
-          "n": 18
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 8,
-          "L": 4,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 12
-        },
-        "false": {
-          "W": 4,
-          "L": 4,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 8
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 10,
-          "L": 8,
-          "T": 0,
-          "accuracy": 55.6,
-          "n": 18
-        },
-        "false": {
-          "W": 2,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0,
-          "n": 2
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 4,
-          "L": 4,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 8
-        },
-        "false": {
-          "W": 8,
-          "L": 4,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 12
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 11,
-          "L": 5,
-          "T": 0,
-          "accuracy": 68.8,
-          "n": 16
-        },
-        "false": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0,
+          "accuracy": 0.0,
           "n": 4
         }
       },
-      "maBbPositive": {
-        "yes": {
-          "W": 11,
-          "L": 7,
-          "T": 0,
-          "accuracy": 61.1,
-          "n": 18
-        }
-      },
       "lossFailureCombos": [
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "CHOP",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "EXTENDED",
-          "n": 1
-        },
-        {
-          "combo": "EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 1
-        }
-      ]
-    },
-    "GBPUSD-2M-B5": {
-      "results": {
-        "W": 9,
-        "L": 11,
-        "T": 0,
-        "accuracy": 45.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 64.7,
-      "streaks": {
-        "maxWin": 3,
-        "maxLoss": 4
-      },
-      "low57_61_9": {
-        "W": 3,
-        "L": 3,
-        "T": 0,
-        "accuracy": 50.0,
-        "n": 6
-      },
-      "gte62": {
-        "W": 6,
-        "L": 8,
-        "T": 0,
-        "accuracy": 42.9,
-        "n": 14
-      },
-      "direction": {
-        "BUY": {
-          "W": 2,
-          "L": 4,
-          "T": 0,
-          "accuracy": 33.3
-        },
-        "SELL": {
-          "W": 7,
-          "L": 7,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 3,
-          "L": 2,
-          "T": 0,
-          "accuracy": 60.0
-        },
-        "MIXED": {
-          "W": 3,
-          "L": 3,
-          "T": 0,
-          "accuracy": 50.0
-        },
-        "TRENDING": {
-          "W": 3,
-          "L": 6,
-          "T": 0,
-          "accuracy": 33.3
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 9,
-          "L": 11,
-          "T": 0,
-          "accuracy": 45.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 9,
-          "L": 9,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 18
-        },
-        "no": {
-          "W": 0,
-          "L": 2,
-          "T": 0,
-          "accuracy": 0.0,
+          "combo": "FAIL_PROGRESS",
           "n": 2
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 6,
-          "L": 8,
-          "T": 0,
-          "accuracy": 42.9,
-          "n": 14
-        },
-        "false": {
-          "W": 3,
-          "L": 3,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 6
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 5,
-          "L": 6,
-          "T": 0,
-          "accuracy": 45.5,
-          "n": 11
-        },
-        "false": {
-          "W": 4,
-          "L": 5,
-          "T": 0,
-          "accuracy": 44.4,
-          "n": 9
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 9,
-          "L": 8,
-          "T": 0,
-          "accuracy": 52.9,
-          "n": 17
-        },
-        "false": {
-          "W": 0,
-          "L": 3,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 3
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 9,
-          "L": 11,
-          "T": 0,
-          "accuracy": 45.0,
-          "n": 20
-        },
-        "false": {
-          "W": 0,
-          "L": 0,
-          "T": 0,
-          "accuracy": null,
-          "n": 0
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 4
-        },
-        "false": {
-          "W": 7,
-          "L": 9,
-          "T": 0,
-          "accuracy": 43.8,
-          "n": 16
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 8,
-          "L": 6,
-          "T": 0,
-          "accuracy": 57.1,
-          "n": 14
-        },
-        "false": {
-          "W": 1,
-          "L": 5,
-          "T": 0,
-          "accuracy": 16.7,
-          "n": 6
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 1
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS",
-          "n": 1
-        }
-      ]
-    },
-    "GBPUSD-3M-B4": {
-      "results": {
-        "W": 9,
-        "L": 11,
-        "T": 0,
-        "accuracy": 45.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 65.0,
-      "streaks": {
-        "maxWin": 2,
-        "maxLoss": 3
-      },
-      "low57_61_9": {
-        "W": 2,
-        "L": 2,
-        "T": 0,
-        "accuracy": 50.0,
-        "n": 4
-      },
-      "gte62": {
-        "W": 7,
-        "L": 9,
-        "T": 0,
-        "accuracy": 43.8,
-        "n": 16
-      },
-      "direction": {
-        "BUY": {
-          "W": 7,
-          "L": 8,
-          "T": 0,
-          "accuracy": 46.7
-        },
-        "SELL": {
-          "W": 2,
-          "L": 3,
-          "T": 0,
-          "accuracy": 40.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 3,
-          "L": 4,
-          "T": 0,
-          "accuracy": 42.9
-        },
-        "MIXED": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0
-        },
-        "TRENDING": {
-          "W": 6,
-          "L": 6,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 9,
-          "L": 11,
-          "T": 0,
-          "accuracy": 45.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 3,
-          "L": 4,
-          "T": 0,
-          "accuracy": 42.9,
-          "n": 7
-        },
-        "no": {
-          "W": 6,
-          "L": 7,
-          "T": 0,
-          "accuracy": 46.2,
-          "n": 13
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 5,
-          "L": 6,
-          "T": 0,
-          "accuracy": 45.5,
-          "n": 11
-        },
-        "false": {
-          "W": 4,
-          "L": 5,
-          "T": 0,
-          "accuracy": 44.4,
-          "n": 9
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 6,
-          "L": 5,
-          "T": 0,
-          "accuracy": 54.5,
-          "n": 11
-        },
-        "false": {
-          "W": 3,
-          "L": 6,
-          "T": 0,
-          "accuracy": 33.3,
-          "n": 9
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 6,
-          "L": 7,
-          "T": 0,
-          "accuracy": 46.2,
-          "n": 13
-        },
-        "false": {
-          "W": 3,
-          "L": 4,
-          "T": 0,
-          "accuracy": 42.9,
-          "n": 7
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 9,
-          "L": 9,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 18
-        },
-        "false": {
-          "W": 0,
-          "L": 2,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 2
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0,
-          "n": 4
-        },
-        "false": {
-          "W": 8,
-          "L": 8,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 16
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 3,
-          "L": 2,
-          "T": 0,
-          "accuracy": 60.0,
-          "n": 5
-        },
-        "false": {
-          "W": 6,
-          "L": 9,
-          "T": 0,
-          "accuracy": 40.0,
-          "n": 15
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 2,
-          "L": 5,
-          "T": 0,
-          "accuracy": 28.6,
-          "n": 7
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 2
-        },
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 1
-        },
-        {
-          "combo": "MTF_CONFLICT",
-          "n": 1
-        }
-      ]
-    },
-    "GBPUSD-5M-B3": {
-      "results": {
-        "W": 8,
-        "L": 12,
-        "T": 0,
-        "accuracy": 40.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 67.9,
-      "streaks": {
-        "maxWin": 3,
-        "maxLoss": 5
-      },
-      "low57_61_9": {
-        "W": 0,
-        "L": 3,
-        "T": 0,
-        "accuracy": 0.0,
-        "n": 3
-      },
-      "gte62": {
-        "W": 8,
-        "L": 9,
-        "T": 0,
-        "accuracy": 47.1,
-        "n": 17
-      },
-      "direction": {
-        "BUY": {
-          "W": 5,
-          "L": 10,
-          "T": 0,
-          "accuracy": 33.3
-        },
-        "SELL": {
-          "W": 3,
-          "L": 2,
-          "T": 0,
-          "accuracy": 60.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 6,
-          "L": 4,
-          "T": 0,
-          "accuracy": 60.0
-        },
-        "MIXED": {
-          "W": 1,
-          "L": 5,
-          "T": 0,
-          "accuracy": 16.7
-        },
-        "TRENDING": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 8,
-          "L": 12,
-          "T": 0,
-          "accuracy": 40.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 0,
-          "L": 3,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 3
-        },
-        "no": {
-          "W": 8,
-          "L": 9,
-          "T": 0,
-          "accuracy": 47.1,
-          "n": 17
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 5,
-          "L": 6,
-          "T": 0,
-          "accuracy": 45.5,
-          "n": 11
-        },
-        "false": {
-          "W": 3,
-          "L": 6,
-          "T": 0,
-          "accuracy": 33.3,
-          "n": 9
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 0,
-          "L": 3,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 3
-        },
-        "false": {
-          "W": 8,
-          "L": 9,
-          "T": 0,
-          "accuracy": 47.1,
-          "n": 17
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 3,
-          "L": 7,
-          "T": 0,
-          "accuracy": 30.0,
-          "n": 10
-        },
-        "false": {
-          "W": 5,
-          "L": 5,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 10
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 8,
-          "L": 10,
-          "T": 0,
-          "accuracy": 44.4,
-          "n": 18
-        },
-        "false": {
-          "W": 0,
-          "L": 2,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 2
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 2,
-          "L": 5,
-          "T": 0,
-          "accuracy": 28.6,
-          "n": 7
-        },
-        "false": {
-          "W": 6,
-          "L": 7,
-          "T": 0,
-          "accuracy": 46.2,
-          "n": 13
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 2,
-          "L": 3,
-          "T": 0,
-          "accuracy": 40.0,
-          "n": 5
-        },
-        "false": {
-          "W": 6,
-          "L": 9,
-          "T": 0,
-          "accuracy": 40.0,
-          "n": 15
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 3,
-          "L": 5,
-          "T": 0,
-          "accuracy": 37.5,
-          "n": 8
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 3
-        },
-        {
-          "combo": "EXTENDED",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED+UNRESOLVED_FVG",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED",
-          "n": 1
         },
         {
           "combo": "FAIL_PROGRESS+UNRESOLVED_FVG",
           "n": 1
         },
         {
-          "combo": "FAIL_PROGRESS+TRANSITION_RISK",
+          "combo": "FAIL_PROGRESS+TRANSITION_RISK+CHOP",
           "n": 1
-        }
-      ]
-    },
-    "USDJPY-1M-B6": {
-      "results": {
-        "W": 9,
-        "L": 11,
-        "T": 0,
-        "accuracy": 45.0,
-        "n": 20
-      },
-      "exactBoundaryN": 20,
-      "confidenceMean": 66.5,
-      "streaks": {
-        "maxWin": 3,
-        "maxLoss": 5
-      },
-      "low57_61_9": {
-        "W": 2,
-        "L": 3,
-        "T": 0,
-        "accuracy": 40.0,
-        "n": 5
-      },
-      "gte62": {
-        "W": 7,
-        "L": 8,
-        "T": 0,
-        "accuracy": 46.7,
-        "n": 15
-      },
-      "direction": {
-        "BUY": {
-          "W": 1,
-          "L": 4,
-          "T": 0,
-          "accuracy": 20.0
         },
-        "SELL": {
-          "W": 8,
-          "L": 7,
-          "T": 0,
-          "accuracy": 53.3
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 5,
-          "L": 8,
-          "T": 0,
-          "accuracy": 38.5
+        {
+          "combo": "TRANSITION_RISK+CHOP",
+          "n": 1
         },
-        "MIXED": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
+          "n": 1
         },
-        "TRENDING": {
-          "W": 2,
-          "L": 1,
-          "T": 0,
-          "accuracy": 66.7
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 9,
-          "L": 11,
-          "T": 0,
-          "accuracy": 45.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 0,
-          "L": 5,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 5
-        },
-        "no": {
-          "W": 9,
-          "L": 6,
-          "T": 0,
-          "accuracy": 60.0,
-          "n": 15
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 7,
-          "L": 7,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 14
-        },
-        "false": {
-          "W": 2,
-          "L": 4,
-          "T": 0,
-          "accuracy": 33.3,
-          "n": 6
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 4
-        },
-        "false": {
-          "W": 7,
-          "L": 9,
-          "T": 0,
-          "accuracy": 43.8,
-          "n": 16
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 6,
-          "L": 9,
-          "T": 0,
-          "accuracy": 40.0,
-          "n": 15
-        },
-        "false": {
-          "W": 3,
-          "L": 2,
-          "T": 0,
-          "accuracy": 60.0,
-          "n": 5
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 8,
-          "L": 9,
-          "T": 0,
-          "accuracy": 47.1,
-          "n": 17
-        },
-        "false": {
-          "W": 1,
-          "L": 2,
-          "T": 0,
-          "accuracy": 33.3,
-          "n": 3
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 1,
-          "L": 2,
-          "T": 0,
-          "accuracy": 33.3,
-          "n": 3
-        },
-        "false": {
-          "W": 8,
-          "L": 9,
-          "T": 0,
-          "accuracy": 47.1,
-          "n": 17
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 5,
-          "L": 9,
-          "T": 0,
-          "accuracy": 35.7,
-          "n": 14
-        },
-        "false": {
-          "W": 4,
-          "L": 2,
-          "T": 0,
-          "accuracy": 66.7,
-          "n": 6
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 0,
-          "L": 0,
-          "T": 0,
-          "accuracy": null,
-          "n": 0
-        }
-      },
-      "lossFailureCombos": [
         {
           "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+UNRESOLVED_FVG",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 2
-        },
-        {
-          "combo": "UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "ADVERSE_ZONE",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+UNRESOLVED_FVG",
           "n": 1
         }
       ]
     },
-    "USDJPY-2M-B5": {
+    "EURUSD-5M-B4": {
       "results": {
         "W": 8,
         "L": 11,
@@ -3246,57 +452,57 @@
         "n": 20
       },
       "exactBoundaryN": 20,
-      "confidenceMean": 64.1,
+      "confidenceMean": 62.8,
       "streaks": {
-        "maxWin": 3,
+        "maxWin": 2,
         "maxLoss": 3
       },
       "low57_61_9": {
-        "W": 3,
-        "L": 4,
-        "T": 0,
-        "accuracy": 42.9,
-        "n": 7
+        "W": 5,
+        "L": 6,
+        "T": 1,
+        "accuracy": 45.5,
+        "n": 12
       },
       "gte62": {
-        "W": 5,
-        "L": 7,
-        "T": 1,
-        "accuracy": 41.7,
-        "n": 13
+        "W": 3,
+        "L": 5,
+        "T": 0,
+        "accuracy": 37.5,
+        "n": 8
       },
       "direction": {
         "BUY": {
-          "W": 1,
+          "W": 5,
           "L": 4,
           "T": 0,
-          "accuracy": 20.0
+          "accuracy": 55.6
         },
         "SELL": {
-          "W": 7,
+          "W": 3,
           "L": 7,
           "T": 1,
-          "accuracy": 50.0
+          "accuracy": 30.0
         }
       },
       "regime": {
         "CHOPPY": {
           "W": 7,
-          "L": 7,
-          "T": 0,
-          "accuracy": 50.0
+          "L": 9,
+          "T": 1,
+          "accuracy": 43.8
         },
         "MIXED": {
-          "W": 1,
-          "L": 3,
-          "T": 1,
-          "accuracy": 25.0
-        },
-        "TRENDING": {
           "W": 0,
-          "L": 1,
+          "L": 2,
           "T": 0,
           "accuracy": 0.0
+        },
+        "TRENDING": {
+          "W": 1,
+          "L": 0,
+          "T": 0,
+          "accuracy": 100.0
         }
       },
       "entryLane": {
@@ -3309,220 +515,444 @@
       },
       "mtf2plus": {
         "yes": {
-          "W": 1,
-          "L": 5,
+          "W": 7,
+          "L": 8,
           "T": 0,
-          "accuracy": 16.7,
-          "n": 6
+          "accuracy": 46.7,
+          "n": 15
         },
         "no": {
-          "W": 7,
-          "L": 6,
+          "W": 1,
+          "L": 3,
           "T": 1,
-          "accuracy": 53.8,
-          "n": 14
+          "accuracy": 25.0,
+          "n": 5
         }
       },
       "adverseZone": {
         "true": {
-          "W": 5,
-          "L": 8,
+          "W": 6,
+          "L": 7,
           "T": 1,
-          "accuracy": 38.5,
+          "accuracy": 46.2,
           "n": 14
         },
         "false": {
-          "W": 3,
-          "L": 3,
+          "W": 2,
+          "L": 4,
           "T": 0,
-          "accuracy": 50.0,
+          "accuracy": 33.3,
           "n": 6
         }
       },
       "transitionRisk": {
         "true": {
           "W": 5,
-          "L": 7,
+          "L": 2,
           "T": 0,
-          "accuracy": 41.7,
-          "n": 12
+          "accuracy": 71.4,
+          "n": 7
         },
         "false": {
           "W": 3,
-          "L": 4,
+          "L": 9,
           "T": 1,
-          "accuracy": 42.9,
-          "n": 8
+          "accuracy": 25.0,
+          "n": 13
         }
       },
       "lateCounterTrendRisk": {
         "true": {
-          "W": 5,
-          "L": 9,
-          "T": 1,
-          "accuracy": 35.7,
-          "n": 15
-        },
-        "false": {
-          "W": 3,
-          "L": 2,
-          "T": 0,
-          "accuracy": 60.0,
-          "n": 5
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 8,
-          "L": 9,
-          "T": 1,
-          "accuracy": 47.1,
-          "n": 18
-        },
-        "false": {
-          "W": 0,
-          "L": 2,
-          "T": 0,
-          "accuracy": 0.0,
-          "n": 2
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 0,
-          "L": 0,
-          "T": 0,
-          "accuracy": null,
-          "n": 0
-        },
-        "false": {
           "W": 8,
           "L": 11,
           "T": 1,
           "accuracy": 42.1,
           "n": 20
+        },
+        "false": {
+          "W": 0,
+          "L": 0,
+          "T": 0,
+          "accuracy": null,
+          "n": 0
+        }
+      },
+      "continuationResetRequired": {
+        "true": {
+          "W": 8,
+          "L": 11,
+          "T": 1,
+          "accuracy": 42.1,
+          "n": 20
+        },
+        "false": {
+          "W": 0,
+          "L": 0,
+          "T": 0,
+          "accuracy": null,
+          "n": 0
+        }
+      },
+      "breakoutAccepted": {
+        "true": {
+          "W": 1,
+          "L": 4,
+          "T": 0,
+          "accuracy": 20.0,
+          "n": 5
+        },
+        "false": {
+          "W": 7,
+          "L": 7,
+          "T": 1,
+          "accuracy": 50.0,
+          "n": 15
         }
       },
       "tickAgreement": {
         "true": {
+          "W": 5,
+          "L": 6,
+          "T": 0,
+          "accuracy": 45.5,
+          "n": 11
+        },
+        "false": {
+          "W": 3,
+          "L": 5,
+          "T": 1,
+          "accuracy": 37.5,
+          "n": 9
+        }
+      },
+      "maBbPositive": {
+        "yes": {
+          "W": 3,
+          "L": 5,
+          "T": 0,
+          "accuracy": 37.5,
+          "n": 8
+        }
+      },
+      "lossFailureCombos": [
+        {
+          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+EXTENDED+UNRESOLVED_FVG",
+          "n": 2
+        },
+        {
+          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS",
+          "n": 2
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+          "n": 1
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
+          "n": 1
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+UNRESOLVED_FVG",
+          "n": 1
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+          "n": 1
+        }
+      ]
+    },
+    "GBPUSD-3M-B5": {
+      "results": {
+        "W": 9,
+        "L": 11,
+        "T": 0,
+        "accuracy": 45.0,
+        "n": 20
+      },
+      "exactBoundaryN": 20,
+      "confidenceMean": 65.9,
+      "streaks": {
+        "maxWin": 6,
+        "maxLoss": 7
+      },
+      "low57_61_9": {
+        "W": 1,
+        "L": 3,
+        "T": 0,
+        "accuracy": 25.0,
+        "n": 4
+      },
+      "gte62": {
+        "W": 8,
+        "L": 8,
+        "T": 0,
+        "accuracy": 50.0,
+        "n": 16
+      },
+      "direction": {
+        "BUY": {
+          "W": 9,
+          "L": 8,
+          "T": 0,
+          "accuracy": 52.9
+        },
+        "SELL": {
+          "W": 0,
+          "L": 3,
+          "T": 0,
+          "accuracy": 0.0
+        }
+      },
+      "regime": {
+        "CHOPPY": {
+          "W": 4,
+          "L": 1,
+          "T": 0,
+          "accuracy": 80.0
+        },
+        "MIXED": {
+          "W": 3,
+          "L": 6,
+          "T": 0,
+          "accuracy": 33.3
+        },
+        "TRENDING": {
+          "W": 2,
+          "L": 4,
+          "T": 0,
+          "accuracy": 33.3
+        }
+      },
+      "entryLane": {
+        "CONFIRMED_ENTRY": {
+          "W": 8,
+          "L": 9,
+          "T": 0,
+          "accuracy": 47.1
+        },
+        "REACTION_ENTRY": {
+          "W": 1,
+          "L": 2,
+          "T": 0,
+          "accuracy": 33.3
+        }
+      },
+      "mtf2plus": {
+        "yes": {
+          "W": 0,
+          "L": 4,
+          "T": 0,
+          "accuracy": 0.0,
+          "n": 4
+        },
+        "no": {
+          "W": 9,
+          "L": 7,
+          "T": 0,
+          "accuracy": 56.2,
+          "n": 16
+        }
+      },
+      "adverseZone": {
+        "true": {
+          "W": 7,
+          "L": 6,
+          "T": 0,
+          "accuracy": 53.8,
+          "n": 13
+        },
+        "false": {
+          "W": 2,
+          "L": 5,
+          "T": 0,
+          "accuracy": 28.6,
+          "n": 7
+        }
+      },
+      "transitionRisk": {
+        "true": {
+          "W": 1,
+          "L": 5,
+          "T": 0,
+          "accuracy": 16.7,
+          "n": 6
+        },
+        "false": {
+          "W": 8,
+          "L": 6,
+          "T": 0,
+          "accuracy": 57.1,
+          "n": 14
+        }
+      },
+      "lateCounterTrendRisk": {
+        "true": {
+          "W": 6,
+          "L": 7,
+          "T": 0,
+          "accuracy": 46.2,
+          "n": 13
+        },
+        "false": {
           "W": 3,
           "L": 4,
           "T": 0,
           "accuracy": 42.9,
           "n": 7
+        }
+      },
+      "continuationResetRequired": {
+        "true": {
+          "W": 9,
+          "L": 10,
+          "T": 0,
+          "accuracy": 47.4,
+          "n": 19
+        },
+        "false": {
+          "W": 0,
+          "L": 1,
+          "T": 0,
+          "accuracy": 0.0,
+          "n": 1
+        }
+      },
+      "breakoutAccepted": {
+        "true": {
+          "W": 4,
+          "L": 0,
+          "T": 0,
+          "accuracy": 100.0,
+          "n": 4
         },
         "false": {
           "W": 5,
-          "L": 7,
-          "T": 1,
-          "accuracy": 41.7,
-          "n": 13
+          "L": 11,
+          "T": 0,
+          "accuracy": 31.2,
+          "n": 16
+        }
+      },
+      "tickAgreement": {
+        "true": {
+          "W": 3,
+          "L": 5,
+          "T": 0,
+          "accuracy": 37.5,
+          "n": 8
+        },
+        "false": {
+          "W": 6,
+          "L": 6,
+          "T": 0,
+          "accuracy": 50.0,
+          "n": 12
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 0,
-          "L": 2,
+          "W": 6,
+          "L": 4,
           "T": 0,
-          "accuracy": 0.0,
-          "n": 2
+          "accuracy": 60.0,
+          "n": 10
         }
       },
       "lossFailureCombos": [
         {
-          "combo": "OTHER",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+UNRESOLVED_FVG",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+UNRESOLVED_FVG+CHOP",
           "n": 1
         },
         {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+          "combo": "ADVERSE_ZONE+UNRESOLVED_FVG",
           "n": 1
         },
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+TRANSITION_RISK",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
           "n": 1
         },
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+UNRESOLVED_FVG+CHOP",
+          "n": 1
+        },
+        {
+          "combo": "EXTENDED+FAIL_PROGRESS+TRANSITION_RISK",
+          "n": 1
+        },
+        {
+          "combo": "FAIL_PROGRESS",
           "n": 1
         }
       ]
     },
-    "USDJPY-3M-B5": {
+    "GBPUSD-5M-B4": {
       "results": {
         "W": 11,
-        "L": 9,
-        "T": 0,
-        "accuracy": 55.0,
+        "L": 8,
+        "T": 1,
+        "accuracy": 57.9,
         "n": 20
       },
       "exactBoundaryN": 20,
-      "confidenceMean": 66.3,
+      "confidenceMean": 68.7,
       "streaks": {
-        "maxWin": 3,
-        "maxLoss": 3
+        "maxWin": 5,
+        "maxLoss": 2
       },
       "low57_61_9": {
-        "W": 1,
-        "L": 1,
+        "W": 0,
+        "L": 0,
         "T": 0,
-        "accuracy": 50.0,
-        "n": 2
+        "accuracy": null,
+        "n": 0
       },
       "gte62": {
-        "W": 10,
+        "W": 11,
         "L": 8,
-        "T": 0,
-        "accuracy": 55.6,
-        "n": 18
+        "T": 1,
+        "accuracy": 57.9,
+        "n": 20
       },
       "direction": {
         "BUY": {
-          "W": 2,
-          "L": 3,
-          "T": 0,
-          "accuracy": 40.0
+          "W": 11,
+          "L": 7,
+          "T": 1,
+          "accuracy": 61.1
         },
         "SELL": {
-          "W": 9,
-          "L": 6,
-          "T": 0,
-          "accuracy": 60.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 8,
-          "L": 8,
-          "T": 0,
-          "accuracy": 50.0
-        },
-        "MIXED": {
-          "W": 3,
-          "L": 0,
-          "T": 0,
-          "accuracy": 100.0
-        },
-        "TRENDING": {
           "W": 0,
           "L": 1,
           "T": 0,
           "accuracy": 0.0
         }
       },
+      "regime": {
+        "CHOPPY": {
+          "W": 3,
+          "L": 3,
+          "T": 0,
+          "accuracy": 50.0
+        },
+        "MIXED": {
+          "W": 5,
+          "L": 0,
+          "T": 0,
+          "accuracy": 100.0
+        },
+        "TRENDING": {
+          "W": 3,
+          "L": 5,
+          "T": 1,
+          "accuracy": 37.5
+        }
+      },
       "entryLane": {
         "CONFIRMED_ENTRY": {
           "W": 10,
-          "L": 9,
-          "T": 0,
-          "accuracy": 52.6
+          "L": 8,
+          "T": 1,
+          "accuracy": 55.6
         },
         "REACTION_ENTRY": {
           "W": 1,
@@ -3533,42 +963,260 @@
       },
       "mtf2plus": {
         "yes": {
-          "W": 1,
-          "L": 3,
+          "W": 0,
+          "L": 1,
           "T": 0,
-          "accuracy": 25.0,
-          "n": 4
+          "accuracy": 0.0,
+          "n": 1
         },
         "no": {
-          "W": 10,
-          "L": 6,
-          "T": 0,
-          "accuracy": 62.5,
-          "n": 16
+          "W": 11,
+          "L": 7,
+          "T": 1,
+          "accuracy": 61.1,
+          "n": 19
         }
       },
       "adverseZone": {
         "true": {
           "W": 6,
-          "L": 6,
+          "L": 4,
           "T": 0,
-          "accuracy": 50.0,
-          "n": 12
+          "accuracy": 60.0,
+          "n": 10
         },
         "false": {
+          "W": 5,
+          "L": 4,
+          "T": 1,
+          "accuracy": 55.6,
+          "n": 10
+        }
+      },
+      "transitionRisk": {
+        "true": {
+          "W": 2,
+          "L": 4,
+          "T": 0,
+          "accuracy": 33.3,
+          "n": 6
+        },
+        "false": {
+          "W": 9,
+          "L": 4,
+          "T": 1,
+          "accuracy": 69.2,
+          "n": 14
+        }
+      },
+      "lateCounterTrendRisk": {
+        "true": {
+          "W": 5,
+          "L": 4,
+          "T": 0,
+          "accuracy": 55.6,
+          "n": 9
+        },
+        "false": {
+          "W": 6,
+          "L": 4,
+          "T": 1,
+          "accuracy": 60.0,
+          "n": 11
+        }
+      },
+      "continuationResetRequired": {
+        "true": {
+          "W": 10,
+          "L": 8,
+          "T": 1,
+          "accuracy": 55.6,
+          "n": 19
+        },
+        "false": {
+          "W": 1,
+          "L": 0,
+          "T": 0,
+          "accuracy": 100.0,
+          "n": 1
+        }
+      },
+      "breakoutAccepted": {
+        "true": {
+          "W": 4,
+          "L": 2,
+          "T": 0,
+          "accuracy": 66.7,
+          "n": 6
+        },
+        "false": {
+          "W": 7,
+          "L": 6,
+          "T": 1,
+          "accuracy": 53.8,
+          "n": 14
+        }
+      },
+      "tickAgreement": {
+        "true": {
           "W": 5,
           "L": 3,
           "T": 0,
           "accuracy": 62.5,
           "n": 8
+        },
+        "false": {
+          "W": 6,
+          "L": 5,
+          "T": 1,
+          "accuracy": 54.5,
+          "n": 12
+        }
+      },
+      "maBbPositive": {
+        "yes": {
+          "W": 8,
+          "L": 6,
+          "T": 0,
+          "accuracy": 57.1,
+          "n": 14
+        }
+      },
+      "lossFailureCombos": [
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG+CHOP",
+          "n": 2
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+TRANSITION_RISK+UNRESOLVED_FVG",
+          "n": 1
+        },
+        {
+          "combo": "EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+          "n": 1
+        },
+        {
+          "combo": "FAIL_PROGRESS+UNRESOLVED_FVG",
+          "n": 1
+        },
+        {
+          "combo": "FAIL_PROGRESS",
+          "n": 1
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
+          "n": 1
+        }
+      ]
+    },
+    "USDJPY-2M-B6": {
+      "results": {
+        "W": 10,
+        "L": 10,
+        "T": 0,
+        "accuracy": 50.0,
+        "n": 20
+      },
+      "exactBoundaryN": 20,
+      "confidenceMean": 65.6,
+      "streaks": {
+        "maxWin": 2,
+        "maxLoss": 2
+      },
+      "low57_61_9": {
+        "W": 2,
+        "L": 1,
+        "T": 0,
+        "accuracy": 66.7,
+        "n": 3
+      },
+      "gte62": {
+        "W": 8,
+        "L": 9,
+        "T": 0,
+        "accuracy": 47.1,
+        "n": 17
+      },
+      "direction": {
+        "BUY": {
+          "W": 3,
+          "L": 1,
+          "T": 0,
+          "accuracy": 75.0
+        },
+        "SELL": {
+          "W": 7,
+          "L": 9,
+          "T": 0,
+          "accuracy": 43.8
+        }
+      },
+      "regime": {
+        "CHOPPY": {
+          "W": 1,
+          "L": 2,
+          "T": 0,
+          "accuracy": 33.3
+        },
+        "MIXED": {
+          "W": 7,
+          "L": 6,
+          "T": 0,
+          "accuracy": 53.8
+        },
+        "TRENDING": {
+          "W": 2,
+          "L": 2,
+          "T": 0,
+          "accuracy": 50.0
+        }
+      },
+      "entryLane": {
+        "CONFIRMED_ENTRY": {
+          "W": 10,
+          "L": 10,
+          "T": 0,
+          "accuracy": 50.0
+        }
+      },
+      "mtf2plus": {
+        "yes": {
+          "W": 3,
+          "L": 1,
+          "T": 0,
+          "accuracy": 75.0,
+          "n": 4
+        },
+        "no": {
+          "W": 7,
+          "L": 9,
+          "T": 0,
+          "accuracy": 43.8,
+          "n": 16
+        }
+      },
+      "adverseZone": {
+        "true": {
+          "W": 10,
+          "L": 8,
+          "T": 0,
+          "accuracy": 55.6,
+          "n": 18
+        },
+        "false": {
+          "W": 0,
+          "L": 2,
+          "T": 0,
+          "accuracy": 0.0,
+          "n": 2
         }
       },
       "transitionRisk": {
         "true": {
-          "W": 5,
-          "L": 2,
+          "W": 4,
+          "L": 3,
           "T": 0,
-          "accuracy": 71.4,
+          "accuracy": 57.1,
           "n": 7
         },
         "false": {
@@ -3581,608 +1229,372 @@
       },
       "lateCounterTrendRisk": {
         "true": {
-          "W": 7,
-          "L": 4,
+          "W": 8,
+          "L": 8,
           "T": 0,
-          "accuracy": 63.6,
-          "n": 11
+          "accuracy": 50.0,
+          "n": 16
         },
         "false": {
-          "W": 4,
-          "L": 5,
+          "W": 2,
+          "L": 2,
           "T": 0,
-          "accuracy": 44.4,
-          "n": 9
+          "accuracy": 50.0,
+          "n": 4
         }
       },
       "continuationResetRequired": {
         "true": {
+          "W": 10,
+          "L": 10,
+          "T": 0,
+          "accuracy": 50.0,
+          "n": 20
+        },
+        "false": {
+          "W": 0,
+          "L": 0,
+          "T": 0,
+          "accuracy": null,
+          "n": 0
+        }
+      },
+      "breakoutAccepted": {
+        "true": {
+          "W": 2,
+          "L": 1,
+          "T": 0,
+          "accuracy": 66.7,
+          "n": 3
+        },
+        "false": {
           "W": 8,
           "L": 9,
           "T": 0,
           "accuracy": 47.1,
           "n": 17
+        }
+      },
+      "tickAgreement": {
+        "true": {
+          "W": 3,
+          "L": 5,
+          "T": 0,
+          "accuracy": 37.5,
+          "n": 8
         },
         "false": {
+          "W": 7,
+          "L": 5,
+          "T": 0,
+          "accuracy": 58.3,
+          "n": 12
+        }
+      },
+      "maBbPositive": {
+        "yes": {
+          "W": 1,
+          "L": 2,
+          "T": 0,
+          "accuracy": 33.3,
+          "n": 3
+        }
+      },
+      "lossFailureCombos": [
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+UNRESOLVED_FVG",
+          "n": 3
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+          "n": 1
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
+          "n": 1
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+          "n": 1
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+          "n": 1
+        },
+        {
+          "combo": "UNRESOLVED_FVG",
+          "n": 1
+        }
+      ]
+    },
+    "USDJPY-5M-B4": {
+      "results": {
+        "W": 8,
+        "L": 12,
+        "T": 0,
+        "accuracy": 40.0,
+        "n": 20
+      },
+      "exactBoundaryN": 20,
+      "confidenceMean": 66.1,
+      "streaks": {
+        "maxWin": 2,
+        "maxLoss": 4
+      },
+      "low57_61_9": {
+        "W": 1,
+        "L": 3,
+        "T": 0,
+        "accuracy": 25.0,
+        "n": 4
+      },
+      "gte62": {
+        "W": 7,
+        "L": 9,
+        "T": 0,
+        "accuracy": 43.8,
+        "n": 16
+      },
+      "direction": {
+        "BUY": {
+          "W": 1,
+          "L": 3,
+          "T": 0,
+          "accuracy": 25.0
+        },
+        "SELL": {
+          "W": 7,
+          "L": 9,
+          "T": 0,
+          "accuracy": 43.8
+        }
+      },
+      "regime": {
+        "CHOPPY": {
+          "W": 6,
+          "L": 11,
+          "T": 0,
+          "accuracy": 35.3
+        },
+        "MIXED": {
+          "W": 2,
+          "L": 1,
+          "T": 0,
+          "accuracy": 66.7
+        }
+      },
+      "entryLane": {
+        "CONFIRMED_ENTRY": {
+          "W": 8,
+          "L": 12,
+          "T": 0,
+          "accuracy": 40.0
+        }
+      },
+      "mtf2plus": {
+        "yes": {
           "W": 3,
+          "L": 3,
+          "T": 0,
+          "accuracy": 50.0,
+          "n": 6
+        },
+        "no": {
+          "W": 5,
+          "L": 9,
+          "T": 0,
+          "accuracy": 35.7,
+          "n": 14
+        }
+      },
+      "adverseZone": {
+        "true": {
+          "W": 7,
+          "L": 10,
+          "T": 0,
+          "accuracy": 41.2,
+          "n": 17
+        },
+        "false": {
+          "W": 1,
+          "L": 2,
+          "T": 0,
+          "accuracy": 33.3,
+          "n": 3
+        }
+      },
+      "transitionRisk": {
+        "true": {
+          "W": 1,
+          "L": 4,
+          "T": 0,
+          "accuracy": 20.0,
+          "n": 5
+        },
+        "false": {
+          "W": 7,
+          "L": 8,
+          "T": 0,
+          "accuracy": 46.7,
+          "n": 15
+        }
+      },
+      "lateCounterTrendRisk": {
+        "true": {
+          "W": 7,
+          "L": 12,
+          "T": 0,
+          "accuracy": 36.8,
+          "n": 19
+        },
+        "false": {
+          "W": 1,
           "L": 0,
           "T": 0,
           "accuracy": 100.0,
-          "n": 3
+          "n": 1
+        }
+      },
+      "continuationResetRequired": {
+        "true": {
+          "W": 8,
+          "L": 12,
+          "T": 0,
+          "accuracy": 40.0,
+          "n": 20
+        },
+        "false": {
+          "W": 0,
+          "L": 0,
+          "T": 0,
+          "accuracy": null,
+          "n": 0
         }
       },
       "breakoutAccepted": {
         "true": {
-          "W": 0,
-          "L": 4,
+          "W": 2,
+          "L": 2,
           "T": 0,
-          "accuracy": 0.0,
+          "accuracy": 50.0,
           "n": 4
         },
         "false": {
-          "W": 11,
-          "L": 5,
+          "W": 6,
+          "L": 10,
           "T": 0,
-          "accuracy": 68.8,
+          "accuracy": 37.5,
           "n": 16
         }
       },
       "tickAgreement": {
         "true": {
-          "W": 5,
-          "L": 5,
+          "W": 3,
+          "L": 6,
           "T": 0,
-          "accuracy": 50.0,
-          "n": 10
+          "accuracy": 33.3,
+          "n": 9
         },
         "false": {
-          "W": 6,
-          "L": 4,
+          "W": 5,
+          "L": 6,
           "T": 0,
-          "accuracy": 60.0,
-          "n": 10
+          "accuracy": 45.5,
+          "n": 11
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 3,
-          "L": 1,
+          "W": 0,
+          "L": 0,
           "T": 0,
-          "accuracy": 75.0,
-          "n": 4
+          "accuracy": null,
+          "n": 0
         }
       },
       "lossFailureCombos": [
         {
-          "combo": "ADVERSE_ZONE",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+          "n": 3
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
           "n": 2
         },
         {
-          "combo": "FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED+UNRESOLVED_FVG",
           "n": 1
         },
         {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED",
           "n": 1
         },
         {
-          "combo": "ADVERSE_ZONE+MTF_CONFLICT",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
           "n": 1
         },
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+UNRESOLVED_FVG",
-          "n": 1
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+UNRESOLVED_FVG",
+          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
           "n": 1
         }
       ]
     }
   },
   "tracks": {
-    "AUDUSD-1M": {
+    "AUDUSD-5M": {
       "results": {
-        "W": 65,
-        "L": 51,
-        "T": 4,
-        "accuracy": 56.0,
-        "n": 120
+        "W": 47,
+        "L": 32,
+        "T": 2,
+        "accuracy": 59.5,
+        "n": 81
       },
-      "exactBoundaryN": 120,
-      "confidenceMean": 67.5,
+      "exactBoundaryN": 81,
+      "confidenceMean": 68.6,
       "streaks": {
-        "maxWin": 4,
-        "maxLoss": 6
-      },
-      "low57_61_9": {
-        "W": 14,
-        "L": 9,
-        "T": 0,
-        "accuracy": 60.9,
-        "n": 23
-      },
-      "gte62": {
-        "W": 51,
-        "L": 42,
-        "T": 4,
-        "accuracy": 54.8,
-        "n": 97
-      },
-      "direction": {
-        "BUY": {
-          "W": 36,
-          "L": 25,
-          "T": 2,
-          "accuracy": 59.0
-        },
-        "SELL": {
-          "W": 29,
-          "L": 26,
-          "T": 2,
-          "accuracy": 52.7
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 20,
-          "L": 22,
-          "T": 2,
-          "accuracy": 47.6
-        },
-        "MIXED": {
-          "W": 25,
-          "L": 17,
-          "T": 2,
-          "accuracy": 59.5
-        },
-        "TRENDING": {
-          "W": 20,
-          "L": 12,
-          "T": 0,
-          "accuracy": 62.5
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 63,
-          "L": 49,
-          "T": 4,
-          "accuracy": 56.2
-        },
-        "REACTION_ENTRY": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 29,
-          "L": 23,
-          "T": 1,
-          "accuracy": 55.8,
-          "n": 53
-        },
-        "no": {
-          "W": 36,
-          "L": 28,
-          "T": 3,
-          "accuracy": 56.2,
-          "n": 67
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 31,
-          "L": 17,
-          "T": 3,
-          "accuracy": 64.6,
-          "n": 51
-        },
-        "false": {
-          "W": 34,
-          "L": 34,
-          "T": 1,
-          "accuracy": 50.0,
-          "n": 69
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 8,
-          "L": 5,
-          "T": 1,
-          "accuracy": 61.5,
-          "n": 14
-        },
-        "false": {
-          "W": 57,
-          "L": 46,
-          "T": 3,
-          "accuracy": 55.3,
-          "n": 106
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 39,
-          "L": 27,
-          "T": 2,
-          "accuracy": 59.1,
-          "n": 68
-        },
-        "false": {
-          "W": 26,
-          "L": 24,
-          "T": 2,
-          "accuracy": 52.0,
-          "n": 52
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 55,
-          "L": 45,
-          "T": 3,
-          "accuracy": 55.0,
-          "n": 103
-        },
-        "false": {
-          "W": 10,
-          "L": 6,
-          "T": 1,
-          "accuracy": 62.5,
-          "n": 17
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 21,
-          "L": 21,
-          "T": 1,
-          "accuracy": 50.0,
-          "n": 43
-        },
-        "false": {
-          "W": 44,
-          "L": 30,
-          "T": 3,
-          "accuracy": 59.5,
-          "n": 77
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 45,
-          "L": 35,
-          "T": 1,
-          "accuracy": 56.2,
-          "n": 81
-        },
-        "false": {
-          "W": 20,
-          "L": 16,
-          "T": 3,
-          "accuracy": 55.6,
-          "n": 39
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 30,
-          "L": 18,
-          "T": 2,
-          "accuracy": 62.5,
-          "n": 50
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "FAIL_PROGRESS",
-          "n": 5
-        },
-        {
-          "combo": "OTHER",
-          "n": 4
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS",
-          "n": 4
-        },
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 4
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
-          "n": 3
-        },
-        {
-          "combo": "MTF_CONFLICT+UNRESOLVED_FVG",
-          "n": 3
-        }
-      ]
-    },
-    "AUDUSD-2M": {
-      "results": {
-        "W": 58,
-        "L": 51,
-        "T": 1,
-        "accuracy": 53.2,
-        "n": 110
-      },
-      "exactBoundaryN": 110,
-      "confidenceMean": 67.1,
-      "streaks": {
-        "maxWin": 6,
-        "maxLoss": 6
-      },
-      "low57_61_9": {
-        "W": 9,
-        "L": 16,
-        "T": 0,
-        "accuracy": 36.0,
-        "n": 25
-      },
-      "gte62": {
-        "W": 49,
-        "L": 35,
-        "T": 1,
-        "accuracy": 58.3,
-        "n": 85
-      },
-      "direction": {
-        "BUY": {
-          "W": 30,
-          "L": 29,
-          "T": 1,
-          "accuracy": 50.8
-        },
-        "SELL": {
-          "W": 28,
-          "L": 22,
-          "T": 0,
-          "accuracy": 56.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 29,
-          "L": 27,
-          "T": 1,
-          "accuracy": 51.8
-        },
-        "MIXED": {
-          "W": 19,
-          "L": 18,
-          "T": 0,
-          "accuracy": 51.4
-        },
-        "TRENDING": {
-          "W": 10,
-          "L": 6,
-          "T": 0,
-          "accuracy": 62.5
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 58,
-          "L": 50,
-          "T": 1,
-          "accuracy": 53.7
-        },
-        "REACTION_ENTRY": {
-          "W": 0,
-          "L": 1,
-          "T": 0,
-          "accuracy": 0.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 21,
-          "L": 15,
-          "T": 0,
-          "accuracy": 58.3,
-          "n": 36
-        },
-        "no": {
-          "W": 37,
-          "L": 36,
-          "T": 1,
-          "accuracy": 50.7,
-          "n": 74
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 25,
-          "L": 30,
-          "T": 1,
-          "accuracy": 45.5,
-          "n": 56
-        },
-        "false": {
-          "W": 33,
-          "L": 21,
-          "T": 0,
-          "accuracy": 61.1,
-          "n": 54
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 11,
-          "L": 11,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 22
-        },
-        "false": {
-          "W": 47,
-          "L": 40,
-          "T": 1,
-          "accuracy": 54.0,
-          "n": 88
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 33,
-          "L": 28,
-          "T": 1,
-          "accuracy": 54.1,
-          "n": 62
-        },
-        "false": {
-          "W": 25,
-          "L": 23,
-          "T": 0,
-          "accuracy": 52.1,
-          "n": 48
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 49,
-          "L": 48,
-          "T": 1,
-          "accuracy": 50.5,
-          "n": 98
-        },
-        "false": {
-          "W": 9,
-          "L": 3,
-          "T": 0,
-          "accuracy": 75.0,
-          "n": 12
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 17,
-          "L": 12,
-          "T": 0,
-          "accuracy": 58.6,
-          "n": 29
-        },
-        "false": {
-          "W": 41,
-          "L": 39,
-          "T": 1,
-          "accuracy": 51.2,
-          "n": 81
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 26,
-          "L": 23,
-          "T": 1,
-          "accuracy": 53.1,
-          "n": 50
-        },
-        "false": {
-          "W": 32,
-          "L": 28,
-          "T": 0,
-          "accuracy": 53.3,
-          "n": 60
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 21,
-          "L": 24,
-          "T": 1,
-          "accuracy": 46.7,
-          "n": 46
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 6
-        },
-        {
-          "combo": "FAIL_PROGRESS",
-          "n": 4
-        },
-        {
-          "combo": "ADVERSE_ZONE",
-          "n": 4
-        },
-        {
-          "combo": "OTHER",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 2
-        }
-      ]
-    },
-    "AUDUSD-3M": {
-      "results": {
-        "W": 46,
-        "L": 49,
-        "T": 5,
-        "accuracy": 48.4,
-        "n": 100
-      },
-      "exactBoundaryN": 100,
-      "confidenceMean": 66.8,
-      "streaks": {
-        "maxWin": 5,
-        "maxLoss": 8
+        "maxWin": 8,
+        "maxLoss": 5
       },
       "low57_61_9": {
         "W": 8,
-        "L": 13,
+        "L": 4,
         "T": 1,
-        "accuracy": 38.1,
-        "n": 22
+        "accuracy": 66.7,
+        "n": 13
       },
       "gte62": {
-        "W": 38,
-        "L": 36,
-        "T": 4,
-        "accuracy": 51.4,
-        "n": 78
+        "W": 39,
+        "L": 28,
+        "T": 1,
+        "accuracy": 58.2,
+        "n": 68
       },
       "direction": {
         "BUY": {
-          "W": 35,
-          "L": 37,
-          "T": 5,
-          "accuracy": 48.6
+          "W": 39,
+          "L": 23,
+          "T": 2,
+          "accuracy": 62.9
         },
         "SELL": {
-          "W": 11,
-          "L": 12,
+          "W": 8,
+          "L": 9,
           "T": 0,
-          "accuracy": 47.8
+          "accuracy": 47.1
         }
       },
       "regime": {
         "CHOPPY": {
-          "W": 19,
-          "L": 23,
-          "T": 3,
-          "accuracy": 45.2
+          "W": 16,
+          "L": 9,
+          "T": 1,
+          "accuracy": 64.0
         },
         "MIXED": {
-          "W": 20,
-          "L": 18,
-          "T": 1,
-          "accuracy": 52.6
+          "W": 24,
+          "L": 15,
+          "T": 0,
+          "accuracy": 61.5
         },
         "TRENDING": {
           "W": 7,
@@ -4193,1934 +1605,588 @@
       },
       "entryLane": {
         "CONFIRMED_ENTRY": {
-          "W": 44,
-          "L": 47,
-          "T": 5,
-          "accuracy": 48.4
-        },
-        "REACTION_ENTRY": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 7,
-          "L": 8,
-          "T": 0,
-          "accuracy": 46.7,
-          "n": 15
-        },
-        "no": {
-          "W": 39,
-          "L": 41,
-          "T": 5,
-          "accuracy": 48.8,
-          "n": 85
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 27,
-          "L": 31,
-          "T": 5,
-          "accuracy": 46.6,
-          "n": 63
-        },
-        "false": {
-          "W": 19,
-          "L": 18,
-          "T": 0,
-          "accuracy": 51.4,
-          "n": 37
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 14,
-          "L": 15,
-          "T": 1,
-          "accuracy": 48.3,
-          "n": 30
-        },
-        "false": {
-          "W": 32,
-          "L": 34,
-          "T": 4,
-          "accuracy": 48.5,
-          "n": 70
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 28,
-          "L": 31,
-          "T": 4,
-          "accuracy": 47.5,
-          "n": 63
-        },
-        "false": {
-          "W": 18,
-          "L": 18,
-          "T": 1,
-          "accuracy": 50.0,
-          "n": 37
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 43,
-          "L": 44,
-          "T": 5,
-          "accuracy": 49.4,
-          "n": 92
-        },
-        "false": {
-          "W": 3,
-          "L": 5,
-          "T": 0,
-          "accuracy": 37.5,
-          "n": 8
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 8,
-          "L": 10,
+          "W": 46,
+          "L": 32,
           "T": 2,
-          "accuracy": 44.4,
-          "n": 20
-        },
-        "false": {
-          "W": 38,
-          "L": 39,
-          "T": 3,
-          "accuracy": 49.4,
-          "n": 80
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 24,
-          "L": 27,
-          "T": 3,
-          "accuracy": 47.1,
-          "n": 54
-        },
-        "false": {
-          "W": 22,
-          "L": 22,
-          "T": 2,
-          "accuracy": 50.0,
-          "n": 46
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 27,
-          "L": 29,
-          "T": 4,
-          "accuracy": 48.2,
-          "n": 60
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 6
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 3
-        },
-        {
-          "combo": "ADVERSE_ZONE",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 3
-        },
-        {
-          "combo": "FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 2
-        }
-      ]
-    },
-    "EURJPY-1M": {
-      "results": {
-        "W": 52,
-        "L": 65,
-        "T": 3,
-        "accuracy": 44.4,
-        "n": 120
-      },
-      "exactBoundaryN": 120,
-      "confidenceMean": 68.2,
-      "streaks": {
-        "maxWin": 5,
-        "maxLoss": 6
-      },
-      "low57_61_9": {
-        "W": 13,
-        "L": 15,
-        "T": 0,
-        "accuracy": 46.4,
-        "n": 28
-      },
-      "gte62": {
-        "W": 39,
-        "L": 50,
-        "T": 3,
-        "accuracy": 43.8,
-        "n": 92
-      },
-      "direction": {
-        "BUY": {
-          "W": 14,
-          "L": 24,
-          "T": 1,
-          "accuracy": 36.8
-        },
-        "SELL": {
-          "W": 38,
-          "L": 41,
-          "T": 2,
-          "accuracy": 48.1
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 26,
-          "L": 35,
-          "T": 1,
-          "accuracy": 42.6
-        },
-        "MIXED": {
-          "W": 19,
-          "L": 17,
-          "T": 1,
-          "accuracy": 52.8
-        },
-        "TRENDING": {
-          "W": 7,
-          "L": 13,
-          "T": 1,
-          "accuracy": 35.0
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 51,
-          "L": 64,
-          "T": 3,
-          "accuracy": 44.3
+          "accuracy": 59.0
         },
         "REACTION_ENTRY": {
           "W": 1,
-          "L": 1,
+          "L": 0,
           "T": 0,
-          "accuracy": 50.0
+          "accuracy": 100.0
         }
       },
       "mtf2plus": {
         "yes": {
-          "W": 17,
-          "L": 21,
-          "T": 1,
-          "accuracy": 44.7,
-          "n": 39
+          "W": 3,
+          "L": 2,
+          "T": 0,
+          "accuracy": 60.0,
+          "n": 5
         },
         "no": {
-          "W": 35,
-          "L": 44,
+          "W": 44,
+          "L": 30,
           "T": 2,
-          "accuracy": 44.3,
-          "n": 81
+          "accuracy": 59.5,
+          "n": 76
         }
       },
       "adverseZone": {
         "true": {
-          "W": 31,
-          "L": 33,
-          "T": 1,
-          "accuracy": 48.4,
-          "n": 65
-        },
-        "false": {
-          "W": 21,
-          "L": 32,
-          "T": 2,
-          "accuracy": 39.6,
-          "n": 55
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 15,
-          "L": 14,
-          "T": 0,
-          "accuracy": 51.7,
-          "n": 29
-        },
-        "false": {
-          "W": 37,
-          "L": 51,
-          "T": 3,
-          "accuracy": 42.0,
-          "n": 91
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 34,
-          "L": 37,
-          "T": 2,
-          "accuracy": 47.9,
-          "n": 73
-        },
-        "false": {
-          "W": 18,
-          "L": 28,
-          "T": 1,
-          "accuracy": 39.1,
-          "n": 47
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 44,
-          "L": 53,
-          "T": 2,
-          "accuracy": 45.4,
-          "n": 99
-        },
-        "false": {
-          "W": 8,
-          "L": 12,
-          "T": 1,
-          "accuracy": 40.0,
-          "n": 21
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 13,
+          "W": 36,
           "L": 20,
           "T": 2,
-          "accuracy": 39.4,
-          "n": 35
-        },
-        "false": {
-          "W": 39,
-          "L": 45,
-          "T": 1,
-          "accuracy": 46.4,
-          "n": 85
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 35,
-          "L": 47,
-          "T": 1,
-          "accuracy": 42.7,
-          "n": 83
-        },
-        "false": {
-          "W": 17,
-          "L": 18,
-          "T": 2,
-          "accuracy": 48.6,
-          "n": 37
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 10,
-          "L": 16,
-          "T": 0,
-          "accuracy": 38.5,
-          "n": 26
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "EXTENDED",
-          "n": 6
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 4
-        },
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 4
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 4
-        },
-        {
-          "combo": "FAIL_PROGRESS",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS",
-          "n": 3
-        }
-      ]
-    },
-    "EURJPY-2M": {
-      "results": {
-        "W": 58,
-        "L": 57,
-        "T": 0,
-        "accuracy": 50.4,
-        "n": 115
-      },
-      "exactBoundaryN": 115,
-      "confidenceMean": 68.7,
-      "streaks": {
-        "maxWin": 7,
-        "maxLoss": 6
-      },
-      "low57_61_9": {
-        "W": 11,
-        "L": 10,
-        "T": 0,
-        "accuracy": 52.4,
-        "n": 21
-      },
-      "gte62": {
-        "W": 47,
-        "L": 47,
-        "T": 0,
-        "accuracy": 50.0,
-        "n": 94
-      },
-      "direction": {
-        "BUY": {
-          "W": 12,
-          "L": 18,
-          "T": 0,
-          "accuracy": 40.0
-        },
-        "SELL": {
-          "W": 46,
-          "L": 39,
-          "T": 0,
-          "accuracy": 54.1
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 31,
-          "L": 27,
-          "T": 0,
-          "accuracy": 53.4
-        },
-        "MIXED": {
-          "W": 13,
-          "L": 12,
-          "T": 0,
-          "accuracy": 52.0
-        },
-        "TRENDING": {
-          "W": 14,
-          "L": 18,
-          "T": 0,
-          "accuracy": 43.8
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 56,
-          "L": 53,
-          "T": 0,
-          "accuracy": 51.4
-        },
-        "REACTION_ENTRY": {
-          "W": 2,
-          "L": 4,
-          "T": 0,
-          "accuracy": 33.3
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 9,
-          "L": 14,
-          "T": 0,
-          "accuracy": 39.1,
-          "n": 23
-        },
-        "no": {
-          "W": 49,
-          "L": 43,
-          "T": 0,
-          "accuracy": 53.3,
-          "n": 92
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 35,
-          "L": 27,
-          "T": 0,
-          "accuracy": 56.5,
-          "n": 62
-        },
-        "false": {
-          "W": 23,
-          "L": 30,
-          "T": 0,
-          "accuracy": 43.4,
-          "n": 53
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 15,
-          "L": 11,
-          "T": 0,
-          "accuracy": 57.7,
-          "n": 26
-        },
-        "false": {
-          "W": 43,
-          "L": 46,
-          "T": 0,
-          "accuracy": 48.3,
-          "n": 89
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 32,
-          "L": 26,
-          "T": 0,
-          "accuracy": 55.2,
+          "accuracy": 64.3,
           "n": 58
         },
         "false": {
-          "W": 26,
-          "L": 31,
+          "W": 11,
+          "L": 12,
           "T": 0,
-          "accuracy": 45.6,
-          "n": 57
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 52,
-          "L": 48,
-          "T": 0,
-          "accuracy": 52.0,
-          "n": 100
-        },
-        "false": {
-          "W": 6,
-          "L": 9,
-          "T": 0,
-          "accuracy": 40.0,
-          "n": 15
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 12,
-          "L": 13,
-          "T": 0,
-          "accuracy": 48.0,
-          "n": 25
-        },
-        "false": {
-          "W": 46,
-          "L": 44,
-          "T": 0,
-          "accuracy": 51.1,
-          "n": 90
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 33,
-          "L": 29,
-          "T": 0,
-          "accuracy": 53.2,
-          "n": 62
-        },
-        "false": {
-          "W": 25,
-          "L": 28,
-          "T": 0,
-          "accuracy": 47.2,
-          "n": 53
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 5,
-          "L": 11,
-          "T": 0,
-          "accuracy": 31.2,
-          "n": 16
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "FAIL_PROGRESS",
-          "n": 8
-        },
-        {
-          "combo": "OTHER",
-          "n": 5
-        },
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 4
-        },
-        {
-          "combo": "EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 2
-        }
-      ]
-    },
-    "EURJPY-3M": {
-      "results": {
-        "W": 52,
-        "L": 51,
-        "T": 0,
-        "accuracy": 50.5,
-        "n": 103
-      },
-      "exactBoundaryN": 103,
-      "confidenceMean": 70.3,
-      "streaks": {
-        "maxWin": 5,
-        "maxLoss": 5
-      },
-      "low57_61_9": {
-        "W": 6,
-        "L": 4,
-        "T": 0,
-        "accuracy": 60.0,
-        "n": 10
-      },
-      "gte62": {
-        "W": 46,
-        "L": 47,
-        "T": 0,
-        "accuracy": 49.5,
-        "n": 93
-      },
-      "direction": {
-        "BUY": {
-          "W": 9,
-          "L": 13,
-          "T": 0,
-          "accuracy": 40.9
-        },
-        "SELL": {
-          "W": 43,
-          "L": 38,
-          "T": 0,
-          "accuracy": 53.1
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 17,
-          "L": 23,
-          "T": 0,
-          "accuracy": 42.5
-        },
-        "MIXED": {
-          "W": 34,
-          "L": 20,
-          "T": 0,
-          "accuracy": 63.0
-        },
-        "TRENDING": {
-          "W": 1,
-          "L": 8,
-          "T": 0,
-          "accuracy": 11.1
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 48,
-          "L": 50,
-          "T": 0,
-          "accuracy": 49.0
-        },
-        "REACTION_ENTRY": {
-          "W": 4,
-          "L": 1,
-          "T": 0,
-          "accuracy": 80.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 6,
-          "L": 11,
-          "T": 0,
-          "accuracy": 35.3,
-          "n": 17
-        },
-        "no": {
-          "W": 46,
-          "L": 40,
-          "T": 0,
-          "accuracy": 53.5,
-          "n": 86
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 26,
-          "L": 30,
-          "T": 0,
-          "accuracy": 46.4,
-          "n": 56
-        },
-        "false": {
-          "W": 26,
-          "L": 21,
-          "T": 0,
-          "accuracy": 55.3,
-          "n": 47
+          "accuracy": 47.8,
+          "n": 23
         }
       },
       "transitionRisk": {
         "true": {
-          "W": 15,
-          "L": 13,
-          "T": 0,
-          "accuracy": 53.6,
-          "n": 28
+          "W": 9,
+          "L": 10,
+          "T": 2,
+          "accuracy": 47.4,
+          "n": 21
         },
         "false": {
-          "W": 37,
-          "L": 38,
+          "W": 38,
+          "L": 22,
           "T": 0,
-          "accuracy": 49.3,
-          "n": 75
+          "accuracy": 63.3,
+          "n": 60
         }
       },
       "lateCounterTrendRisk": {
         "true": {
-          "W": 25,
-          "L": 29,
-          "T": 0,
-          "accuracy": 46.3,
+          "W": 33,
+          "L": 19,
+          "T": 2,
+          "accuracy": 63.5,
           "n": 54
         },
         "false": {
-          "W": 27,
-          "L": 22,
+          "W": 14,
+          "L": 13,
           "T": 0,
-          "accuracy": 55.1,
-          "n": 49
+          "accuracy": 51.9,
+          "n": 27
         }
       },
       "continuationResetRequired": {
         "true": {
           "W": 45,
-          "L": 43,
-          "T": 0,
-          "accuracy": 51.1,
-          "n": 88
-        },
-        "false": {
-          "W": 7,
-          "L": 8,
-          "T": 0,
-          "accuracy": 46.7,
-          "n": 15
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 10,
-          "L": 17,
-          "T": 0,
-          "accuracy": 37.0,
-          "n": 27
-        },
-        "false": {
-          "W": 42,
-          "L": 34,
-          "T": 0,
-          "accuracy": 55.3,
-          "n": 76
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 27,
-          "L": 24,
-          "T": 0,
-          "accuracy": 52.9,
-          "n": 51
-        },
-        "false": {
-          "W": 25,
-          "L": 27,
-          "T": 0,
-          "accuracy": 48.1,
-          "n": 52
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 5,
-          "L": 9,
-          "T": 0,
-          "accuracy": 35.7,
-          "n": 14
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "EXTENDED",
-          "n": 4
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 4
-        },
-        {
-          "combo": "FAIL_PROGRESS",
-          "n": 3
-        },
-        {
-          "combo": "FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 3
-        }
-      ]
-    },
-    "EURJPY-5M": {
-      "results": {
-        "W": 43,
-        "L": 37,
-        "T": 1,
-        "accuracy": 53.8,
-        "n": 81
-      },
-      "exactBoundaryN": 81,
-      "confidenceMean": 71.3,
-      "streaks": {
-        "maxWin": 4,
-        "maxLoss": 4
-      },
-      "low57_61_9": {
-        "W": 1,
-        "L": 1,
-        "T": 0,
-        "accuracy": 50.0,
-        "n": 2
-      },
-      "gte62": {
-        "W": 42,
-        "L": 36,
-        "T": 1,
-        "accuracy": 53.8,
-        "n": 79
-      },
-      "direction": {
-        "BUY": {
-          "W": 4,
-          "L": 9,
-          "T": 0,
-          "accuracy": 30.8
-        },
-        "SELL": {
-          "W": 39,
           "L": 28,
-          "T": 1,
-          "accuracy": 58.2
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 21,
-          "L": 16,
-          "T": 0,
-          "accuracy": 56.8
-        },
-        "MIXED": {
-          "W": 18,
-          "L": 14,
-          "T": 1,
-          "accuracy": 56.2
-        },
-        "TRENDING": {
-          "W": 4,
-          "L": 7,
-          "T": 0,
-          "accuracy": 36.4
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 42,
-          "L": 36,
-          "T": 1,
-          "accuracy": 53.8
-        },
-        "REACTION_ENTRY": {
-          "W": 1,
-          "L": 1,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 1,
-          "L": 6,
-          "T": 0,
-          "accuracy": 14.3,
-          "n": 7
-        },
-        "no": {
-          "W": 42,
-          "L": 31,
-          "T": 1,
-          "accuracy": 57.5,
-          "n": 74
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 29,
-          "L": 15,
-          "T": 0,
-          "accuracy": 65.9,
-          "n": 44
+          "T": 2,
+          "accuracy": 61.6,
+          "n": 75
         },
         "false": {
-          "W": 14,
-          "L": 22,
-          "T": 1,
-          "accuracy": 38.9,
-          "n": 37
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 9,
-          "L": 13,
-          "T": 0,
-          "accuracy": 40.9,
-          "n": 22
-        },
-        "false": {
-          "W": 34,
-          "L": 24,
-          "T": 1,
-          "accuracy": 58.6,
-          "n": 59
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 25,
-          "L": 17,
-          "T": 0,
-          "accuracy": 59.5,
-          "n": 42
-        },
-        "false": {
-          "W": 18,
-          "L": 20,
-          "T": 1,
-          "accuracy": 47.4,
-          "n": 39
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 38,
-          "L": 33,
-          "T": 0,
-          "accuracy": 53.5,
-          "n": 71
-        },
-        "false": {
-          "W": 5,
+          "W": 2,
           "L": 4,
-          "T": 1,
-          "accuracy": 55.6,
-          "n": 10
+          "T": 0,
+          "accuracy": 33.3,
+          "n": 6
         }
       },
       "breakoutAccepted": {
         "true": {
-          "W": 10,
-          "L": 14,
-          "T": 0,
-          "accuracy": 41.7,
-          "n": 24
-        },
-        "false": {
-          "W": 33,
-          "L": 23,
-          "T": 1,
-          "accuracy": 58.9,
-          "n": 57
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 21,
-          "L": 22,
-          "T": 1,
-          "accuracy": 48.8,
-          "n": 44
-        },
-        "false": {
-          "W": 22,
-          "L": 15,
-          "T": 0,
-          "accuracy": 59.5,
-          "n": 37
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 3,
-          "L": 4,
-          "T": 0,
-          "accuracy": 42.9,
-          "n": 7
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 4
-        },
-        {
-          "combo": "OTHER",
-          "n": 3
-        },
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 3
-        },
-        {
-          "combo": "EXTENDED",
-          "n": 2
-        },
-        {
-          "combo": "FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 2
-        }
-      ]
-    },
-    "EURUSD-1M": {
-      "results": {
-        "W": 58,
-        "L": 59,
-        "T": 3,
-        "accuracy": 49.6,
-        "n": 120
-      },
-      "exactBoundaryN": 120,
-      "confidenceMean": 66.7,
-      "streaks": {
-        "maxWin": 5,
-        "maxLoss": 5
-      },
-      "low57_61_9": {
-        "W": 13,
-        "L": 17,
-        "T": 0,
-        "accuracy": 43.3,
-        "n": 30
-      },
-      "gte62": {
-        "W": 45,
-        "L": 42,
-        "T": 3,
-        "accuracy": 51.7,
-        "n": 90
-      },
-      "direction": {
-        "BUY": {
-          "W": 35,
-          "L": 32,
-          "T": 1,
-          "accuracy": 52.2
-        },
-        "SELL": {
-          "W": 23,
-          "L": 27,
-          "T": 2,
-          "accuracy": 46.0
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 26,
-          "L": 30,
-          "T": 0,
-          "accuracy": 46.4
-        },
-        "MIXED": {
-          "W": 15,
-          "L": 13,
-          "T": 1,
-          "accuracy": 53.6
-        },
-        "TRENDING": {
-          "W": 17,
-          "L": 16,
-          "T": 2,
-          "accuracy": 51.5
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 56,
-          "L": 58,
-          "T": 3,
-          "accuracy": 49.1
-        },
-        "REACTION_ENTRY": {
-          "W": 2,
-          "L": 1,
-          "T": 0,
-          "accuracy": 66.7
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 29,
-          "L": 27,
-          "T": 1,
-          "accuracy": 51.8,
-          "n": 57
-        },
-        "no": {
-          "W": 29,
-          "L": 32,
-          "T": 2,
-          "accuracy": 47.5,
-          "n": 63
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 28,
-          "L": 40,
-          "T": 0,
-          "accuracy": 41.2,
-          "n": 68
-        },
-        "false": {
-          "W": 30,
-          "L": 19,
-          "T": 3,
-          "accuracy": 61.2,
-          "n": 52
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 5,
-          "L": 9,
-          "T": 0,
-          "accuracy": 35.7,
-          "n": 14
-        },
-        "false": {
-          "W": 53,
-          "L": 50,
-          "T": 3,
-          "accuracy": 51.5,
-          "n": 106
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 38,
-          "L": 45,
-          "T": 0,
-          "accuracy": 45.8,
-          "n": 83
-        },
-        "false": {
-          "W": 20,
-          "L": 14,
-          "T": 3,
-          "accuracy": 58.8,
-          "n": 37
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 47,
-          "L": 50,
-          "T": 1,
-          "accuracy": 48.5,
-          "n": 98
-        },
-        "false": {
           "W": 11,
           "L": 9,
-          "T": 2,
+          "T": 0,
           "accuracy": 55.0,
-          "n": 22
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 15,
-          "L": 17,
-          "T": 1,
-          "accuracy": 46.9,
-          "n": 33
+          "n": 20
         },
         "false": {
-          "W": 43,
-          "L": 42,
+          "W": 36,
+          "L": 23,
           "T": 2,
-          "accuracy": 50.6,
-          "n": 87
+          "accuracy": 61.0,
+          "n": 61
         }
       },
       "tickAgreement": {
         "true": {
-          "W": 43,
-          "L": 31,
-          "T": 3,
-          "accuracy": 58.1,
-          "n": 77
+          "W": 24,
+          "L": 14,
+          "T": 0,
+          "accuracy": 63.2,
+          "n": 38
         },
         "false": {
-          "W": 15,
-          "L": 28,
-          "T": 0,
-          "accuracy": 34.9,
+          "W": 23,
+          "L": 18,
+          "T": 2,
+          "accuracy": 56.1,
           "n": 43
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 25,
-          "L": 20,
-          "T": 2,
-          "accuracy": 55.6,
-          "n": 47
+          "W": 32,
+          "L": 21,
+          "T": 1,
+          "accuracy": 60.4,
+          "n": 54
         }
       },
       "lossFailureCombos": [
         {
           "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
           "n": 5
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+EXTENDED+UNRESOLVED_FVG",
-          "n": 4
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED+UNRESOLVED_FVG",
-          "n": 3
-        }
-      ]
-    },
-    "EURUSD-2M": {
-      "results": {
-        "W": 54,
-        "L": 52,
-        "T": 5,
-        "accuracy": 50.9,
-        "n": 111
-      },
-      "exactBoundaryN": 111,
-      "confidenceMean": 66.7,
-      "streaks": {
-        "maxWin": 6,
-        "maxLoss": 5
-      },
-      "low57_61_9": {
-        "W": 12,
-        "L": 11,
-        "T": 3,
-        "accuracy": 52.2,
-        "n": 26
-      },
-      "gte62": {
-        "W": 42,
-        "L": 41,
-        "T": 2,
-        "accuracy": 50.6,
-        "n": 85
-      },
-      "direction": {
-        "BUY": {
-          "W": 30,
-          "L": 31,
-          "T": 1,
-          "accuracy": 49.2
-        },
-        "SELL": {
-          "W": 24,
-          "L": 21,
-          "T": 4,
-          "accuracy": 53.3
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 29,
-          "L": 19,
-          "T": 2,
-          "accuracy": 60.4
-        },
-        "MIXED": {
-          "W": 20,
-          "L": 23,
-          "T": 3,
-          "accuracy": 46.5
-        },
-        "TRENDING": {
-          "W": 5,
-          "L": 10,
-          "T": 0,
-          "accuracy": 33.3
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 54,
-          "L": 50,
-          "T": 5,
-          "accuracy": 51.9
-        },
-        "REACTION_ENTRY": {
-          "W": 0,
-          "L": 2,
-          "T": 0,
-          "accuracy": 0.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 23,
-          "L": 21,
-          "T": 3,
-          "accuracy": 52.3,
-          "n": 47
-        },
-        "no": {
-          "W": 31,
-          "L": 31,
-          "T": 2,
-          "accuracy": 50.0,
-          "n": 64
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 33,
-          "L": 33,
-          "T": 1,
-          "accuracy": 50.0,
-          "n": 67
-        },
-        "false": {
-          "W": 21,
-          "L": 19,
-          "T": 4,
-          "accuracy": 52.5,
-          "n": 44
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 18,
-          "L": 13,
-          "T": 2,
-          "accuracy": 58.1,
-          "n": 33
-        },
-        "false": {
-          "W": 36,
-          "L": 39,
-          "T": 3,
-          "accuracy": 48.0,
-          "n": 78
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 38,
-          "L": 33,
-          "T": 3,
-          "accuracy": 53.5,
-          "n": 74
-        },
-        "false": {
-          "W": 16,
-          "L": 19,
-          "T": 2,
-          "accuracy": 45.7,
-          "n": 37
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 52,
-          "L": 44,
-          "T": 3,
-          "accuracy": 54.2,
-          "n": 99
-        },
-        "false": {
-          "W": 2,
-          "L": 8,
-          "T": 2,
-          "accuracy": 20.0,
-          "n": 12
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 12,
-          "L": 13,
-          "T": 0,
-          "accuracy": 48.0,
-          "n": 25
-        },
-        "false": {
-          "W": 42,
-          "L": 39,
-          "T": 5,
-          "accuracy": 51.9,
-          "n": 86
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 27,
-          "L": 23,
-          "T": 1,
-          "accuracy": 54.0,
-          "n": 51
-        },
-        "false": {
-          "W": 27,
-          "L": 29,
-          "T": 4,
-          "accuracy": 48.2,
-          "n": 60
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 21,
-          "L": 24,
-          "T": 1,
-          "accuracy": 46.7,
-          "n": 46
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "OTHER",
-          "n": 6
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 4
-        },
-        {
-          "combo": "ADVERSE_ZONE+MTF_CONFLICT+UNRESOLVED_FVG",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS",
-          "n": 2
-        }
-      ]
-    },
-    "EURUSD-3M": {
-      "results": {
-        "W": 47,
-        "L": 51,
-        "T": 2,
-        "accuracy": 48.0,
-        "n": 100
-      },
-      "exactBoundaryN": 100,
-      "confidenceMean": 67.6,
-      "streaks": {
-        "maxWin": 4,
-        "maxLoss": 7
-      },
-      "low57_61_9": {
-        "W": 7,
-        "L": 9,
-        "T": 0,
-        "accuracy": 43.8,
-        "n": 16
-      },
-      "gte62": {
-        "W": 40,
-        "L": 42,
-        "T": 2,
-        "accuracy": 48.8,
-        "n": 84
-      },
-      "direction": {
-        "BUY": {
-          "W": 39,
-          "L": 31,
-          "T": 1,
-          "accuracy": 55.7
-        },
-        "SELL": {
-          "W": 8,
-          "L": 20,
-          "T": 1,
-          "accuracy": 28.6
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 28,
-          "L": 22,
-          "T": 1,
-          "accuracy": 56.0
-        },
-        "MIXED": {
-          "W": 13,
-          "L": 17,
-          "T": 1,
-          "accuracy": 43.3
-        },
-        "TRENDING": {
-          "W": 6,
-          "L": 12,
-          "T": 0,
-          "accuracy": 33.3
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 46,
-          "L": 50,
-          "T": 2,
-          "accuracy": 47.9
-        },
-        "REACTION_ENTRY": {
-          "W": 1,
-          "L": 1,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 9,
-          "L": 15,
-          "T": 0,
-          "accuracy": 37.5,
-          "n": 24
-        },
-        "no": {
-          "W": 38,
-          "L": 36,
-          "T": 2,
-          "accuracy": 51.4,
-          "n": 76
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 33,
-          "L": 32,
-          "T": 1,
-          "accuracy": 50.8,
-          "n": 66
-        },
-        "false": {
-          "W": 14,
-          "L": 19,
-          "T": 1,
-          "accuracy": 42.4,
-          "n": 34
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 16,
-          "L": 23,
-          "T": 1,
-          "accuracy": 41.0,
-          "n": 40
-        },
-        "false": {
-          "W": 31,
-          "L": 28,
-          "T": 1,
-          "accuracy": 52.5,
-          "n": 60
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 35,
-          "L": 34,
-          "T": 1,
-          "accuracy": 50.7,
-          "n": 70
-        },
-        "false": {
-          "W": 12,
-          "L": 17,
-          "T": 1,
-          "accuracy": 41.4,
-          "n": 30
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 45,
-          "L": 44,
-          "T": 2,
-          "accuracy": 50.6,
-          "n": 91
-        },
-        "false": {
-          "W": 2,
-          "L": 7,
-          "T": 0,
-          "accuracy": 22.2,
-          "n": 9
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 9,
-          "L": 12,
-          "T": 0,
-          "accuracy": 42.9,
-          "n": 21
-        },
-        "false": {
-          "W": 38,
-          "L": 39,
-          "T": 2,
-          "accuracy": 49.4,
-          "n": 79
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 20,
-          "L": 24,
-          "T": 1,
-          "accuracy": 45.5,
-          "n": 45
-        },
-        "false": {
-          "W": 27,
-          "L": 27,
-          "T": 1,
-          "accuracy": 50.0,
-          "n": 55
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 26,
-          "L": 22,
-          "T": 1,
-          "accuracy": 54.2,
-          "n": 49
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 5
-        },
-        {
-          "combo": "OTHER",
-          "n": 4
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 2
         },
         {
           "combo": "EXTENDED",
+          "n": 3
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
           "n": 2
         },
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK",
+          "combo": "MTF_CONFLICT+UNRESOLVED_FVG",
           "n": 2
+        },
+        {
+          "combo": "EXTENDED+FAIL_PROGRESS+TRANSITION_RISK",
+          "n": 1
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED",
+          "n": 1
         }
       ]
     },
-    "GBPUSD-1M": {
+    "EURJPY-2M": {
       "results": {
-        "W": 59,
-        "L": 56,
-        "T": 5,
-        "accuracy": 51.3,
-        "n": 120
+        "W": 60,
+        "L": 62,
+        "T": 0,
+        "accuracy": 49.2,
+        "n": 122
       },
-      "exactBoundaryN": 120,
-      "confidenceMean": 66.3,
+      "exactBoundaryN": 122,
+      "confidenceMean": 68.4,
       "streaks": {
-        "maxWin": 6,
-        "maxLoss": 7
+        "maxWin": 7,
+        "maxLoss": 6
       },
       "low57_61_9": {
-        "W": 14,
-        "L": 19,
+        "W": 13,
+        "L": 10,
         "T": 0,
-        "accuracy": 42.4,
-        "n": 33
+        "accuracy": 56.5,
+        "n": 23
       },
       "gte62": {
-        "W": 45,
-        "L": 37,
-        "T": 5,
-        "accuracy": 54.9,
-        "n": 87
+        "W": 47,
+        "L": 52,
+        "T": 0,
+        "accuracy": 47.5,
+        "n": 99
       },
       "direction": {
         "BUY": {
-          "W": 34,
-          "L": 27,
-          "T": 1,
-          "accuracy": 55.7
+          "W": 14,
+          "L": 21,
+          "T": 0,
+          "accuracy": 40.0
         },
         "SELL": {
-          "W": 25,
-          "L": 29,
-          "T": 4,
-          "accuracy": 46.3
+          "W": 46,
+          "L": 41,
+          "T": 0,
+          "accuracy": 52.9
         }
       },
       "regime": {
         "CHOPPY": {
-          "W": 20,
-          "L": 17,
-          "T": 4,
-          "accuracy": 54.1
-        },
-        "MIXED": {
-          "W": 21,
-          "L": 19,
+          "W": 32,
+          "L": 29,
           "T": 0,
           "accuracy": 52.5
         },
+        "MIXED": {
+          "W": 14,
+          "L": 13,
+          "T": 0,
+          "accuracy": 51.9
+        },
         "TRENDING": {
-          "W": 18,
+          "W": 14,
           "L": 20,
-          "T": 1,
-          "accuracy": 47.4
+          "T": 0,
+          "accuracy": 41.2
         }
       },
       "entryLane": {
         "CONFIRMED_ENTRY": {
-          "W": 56,
-          "L": 53,
-          "T": 5,
-          "accuracy": 51.4
-        },
-        "REACTION_ENTRY": {
-          "W": 3,
-          "L": 3,
+          "W": 58,
+          "L": 58,
           "T": 0,
           "accuracy": 50.0
+        },
+        "REACTION_ENTRY": {
+          "W": 2,
+          "L": 4,
+          "T": 0,
+          "accuracy": 33.3
         }
       },
       "mtf2plus": {
         "yes": {
-          "W": 18,
-          "L": 20,
-          "T": 4,
-          "accuracy": 47.4,
-          "n": 42
-        },
-        "no": {
-          "W": 41,
-          "L": 36,
-          "T": 1,
-          "accuracy": 53.2,
-          "n": 78
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 33,
-          "L": 29,
-          "T": 3,
-          "accuracy": 53.2,
-          "n": 65
-        },
-        "false": {
-          "W": 26,
-          "L": 27,
-          "T": 2,
-          "accuracy": 49.1,
-          "n": 55
-        }
-      },
-      "transitionRisk": {
-        "true": {
           "W": 11,
           "L": 17,
           "T": 0,
           "accuracy": 39.3,
           "n": 28
         },
+        "no": {
+          "W": 49,
+          "L": 45,
+          "T": 0,
+          "accuracy": 52.1,
+          "n": 94
+        }
+      },
+      "adverseZone": {
+        "true": {
+          "W": 35,
+          "L": 31,
+          "T": 0,
+          "accuracy": 53.0,
+          "n": 66
+        },
         "false": {
-          "W": 48,
-          "L": 39,
-          "T": 5,
-          "accuracy": 55.2,
-          "n": 92
+          "W": 25,
+          "L": 31,
+          "T": 0,
+          "accuracy": 44.6,
+          "n": 56
+        }
+      },
+      "transitionRisk": {
+        "true": {
+          "W": 16,
+          "L": 12,
+          "T": 0,
+          "accuracy": 57.1,
+          "n": 28
+        },
+        "false": {
+          "W": 44,
+          "L": 50,
+          "T": 0,
+          "accuracy": 46.8,
+          "n": 94
         }
       },
       "lateCounterTrendRisk": {
         "true": {
           "W": 34,
-          "L": 33,
-          "T": 4,
-          "accuracy": 50.7,
-          "n": 71
+          "L": 29,
+          "T": 0,
+          "accuracy": 54.0,
+          "n": 63
         },
         "false": {
-          "W": 25,
-          "L": 23,
-          "T": 1,
-          "accuracy": 52.1,
-          "n": 49
+          "W": 26,
+          "L": 33,
+          "T": 0,
+          "accuracy": 44.1,
+          "n": 59
         }
       },
       "continuationResetRequired": {
         "true": {
-          "W": 46,
-          "L": 51,
-          "T": 4,
-          "accuracy": 47.4,
-          "n": 101
+          "W": 54,
+          "L": 52,
+          "T": 0,
+          "accuracy": 50.9,
+          "n": 106
         },
         "false": {
-          "W": 13,
-          "L": 5,
-          "T": 1,
-          "accuracy": 72.2,
-          "n": 19
+          "W": 6,
+          "L": 10,
+          "T": 0,
+          "accuracy": 37.5,
+          "n": 16
         }
       },
       "breakoutAccepted": {
         "true": {
-          "W": 14,
+          "W": 12,
           "L": 15,
-          "T": 3,
-          "accuracy": 48.3,
-          "n": 32
+          "T": 0,
+          "accuracy": 44.4,
+          "n": 27
         },
         "false": {
-          "W": 45,
-          "L": 41,
-          "T": 2,
-          "accuracy": 52.3,
-          "n": 88
+          "W": 48,
+          "L": 47,
+          "T": 0,
+          "accuracy": 50.5,
+          "n": 95
         }
       },
       "tickAgreement": {
         "true": {
-          "W": 38,
-          "L": 33,
-          "T": 5,
-          "accuracy": 53.5,
-          "n": 76
+          "W": 34,
+          "L": 29,
+          "T": 0,
+          "accuracy": 54.0,
+          "n": 63
         },
         "false": {
-          "W": 21,
-          "L": 23,
+          "W": 26,
+          "L": 33,
           "T": 0,
-          "accuracy": 47.7,
-          "n": 44
+          "accuracy": 44.1,
+          "n": 59
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 21,
-          "L": 18,
+          "W": 5,
+          "L": 15,
           "T": 0,
-          "accuracy": 53.8,
-          "n": 39
+          "accuracy": 25.0,
+          "n": 20
         }
       },
       "lossFailureCombos": [
         {
-          "combo": "EXTENDED",
+          "combo": "FAIL_PROGRESS",
+          "n": 8
+        },
+        {
+          "combo": "OTHER",
+          "n": 5
+        },
+        {
+          "combo": "EXTENDED+UNRESOLVED_FVG",
+          "n": 4
+        },
+        {
+          "combo": "EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
+          "n": 3
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+UNRESOLVED_FVG",
+          "n": 3
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+UNRESOLVED_FVG",
+          "n": 2
+        }
+      ]
+    },
+    "EURUSD-5M": {
+      "results": {
+        "W": 38,
+        "L": 42,
+        "T": 1,
+        "accuracy": 47.5,
+        "n": 81
+      },
+      "exactBoundaryN": 81,
+      "confidenceMean": 67.7,
+      "streaks": {
+        "maxWin": 4,
+        "maxLoss": 5
+      },
+      "low57_61_9": {
+        "W": 10,
+        "L": 8,
+        "T": 1,
+        "accuracy": 55.6,
+        "n": 19
+      },
+      "gte62": {
+        "W": 28,
+        "L": 34,
+        "T": 0,
+        "accuracy": 45.2,
+        "n": 62
+      },
+      "direction": {
+        "BUY": {
+          "W": 28,
+          "L": 26,
+          "T": 0,
+          "accuracy": 51.9
+        },
+        "SELL": {
+          "W": 10,
+          "L": 16,
+          "T": 1,
+          "accuracy": 38.5
+        }
+      },
+      "regime": {
+        "CHOPPY": {
+          "W": 21,
+          "L": 19,
+          "T": 1,
+          "accuracy": 52.5
+        },
+        "MIXED": {
+          "W": 12,
+          "L": 19,
+          "T": 0,
+          "accuracy": 38.7
+        },
+        "TRENDING": {
+          "W": 5,
+          "L": 4,
+          "T": 0,
+          "accuracy": 55.6
+        }
+      },
+      "entryLane": {
+        "CONFIRMED_ENTRY": {
+          "W": 38,
+          "L": 42,
+          "T": 1,
+          "accuracy": 47.5
+        }
+      },
+      "mtf2plus": {
+        "yes": {
+          "W": 11,
+          "L": 12,
+          "T": 0,
+          "accuracy": 47.8,
+          "n": 23
+        },
+        "no": {
+          "W": 27,
+          "L": 30,
+          "T": 1,
+          "accuracy": 47.4,
+          "n": 58
+        }
+      },
+      "adverseZone": {
+        "true": {
+          "W": 26,
+          "L": 26,
+          "T": 1,
+          "accuracy": 50.0,
+          "n": 53
+        },
+        "false": {
+          "W": 12,
+          "L": 16,
+          "T": 0,
+          "accuracy": 42.9,
+          "n": 28
+        }
+      },
+      "transitionRisk": {
+        "true": {
+          "W": 16,
+          "L": 18,
+          "T": 0,
+          "accuracy": 47.1,
+          "n": 34
+        },
+        "false": {
+          "W": 22,
+          "L": 24,
+          "T": 1,
+          "accuracy": 47.8,
+          "n": 47
+        }
+      },
+      "lateCounterTrendRisk": {
+        "true": {
+          "W": 30,
+          "L": 32,
+          "T": 1,
+          "accuracy": 48.4,
+          "n": 63
+        },
+        "false": {
+          "W": 8,
+          "L": 10,
+          "T": 0,
+          "accuracy": 44.4,
+          "n": 18
+        }
+      },
+      "continuationResetRequired": {
+        "true": {
+          "W": 34,
+          "L": 38,
+          "T": 1,
+          "accuracy": 47.2,
+          "n": 73
+        },
+        "false": {
+          "W": 4,
+          "L": 4,
+          "T": 0,
+          "accuracy": 50.0,
+          "n": 8
+        }
+      },
+      "breakoutAccepted": {
+        "true": {
+          "W": 6,
+          "L": 8,
+          "T": 0,
+          "accuracy": 42.9,
+          "n": 14
+        },
+        "false": {
+          "W": 32,
+          "L": 34,
+          "T": 1,
+          "accuracy": 48.5,
+          "n": 67
+        }
+      },
+      "tickAgreement": {
+        "true": {
+          "W": 22,
+          "L": 24,
+          "T": 0,
+          "accuracy": 47.8,
+          "n": 46
+        },
+        "false": {
+          "W": 16,
+          "L": 18,
+          "T": 1,
+          "accuracy": 47.1,
+          "n": 35
+        }
+      },
+      "maBbPositive": {
+        "yes": {
+          "W": 17,
+          "L": 23,
+          "T": 0,
+          "accuracy": 42.5,
+          "n": 40
+        }
+      },
+      "lossFailureCombos": [
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
+          "n": 4
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
           "n": 4
         },
         {
@@ -6128,281 +2194,53 @@
           "n": 3
         },
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+MTF_CONFLICT+EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED+FAIL_PROGRESS",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+TRANSITION_RISK+CHOP",
-          "n": 2
-        }
-      ]
-    },
-    "GBPUSD-2M": {
-      "results": {
-        "W": 54,
-        "L": 54,
-        "T": 4,
-        "accuracy": 50.0,
-        "n": 112
-      },
-      "exactBoundaryN": 112,
-      "confidenceMean": 66.2,
-      "streaks": {
-        "maxWin": 7,
-        "maxLoss": 4
-      },
-      "low57_61_9": {
-        "W": 17,
-        "L": 16,
-        "T": 0,
-        "accuracy": 51.5,
-        "n": 33
-      },
-      "gte62": {
-        "W": 37,
-        "L": 38,
-        "T": 4,
-        "accuracy": 49.3,
-        "n": 79
-      },
-      "direction": {
-        "BUY": {
-          "W": 30,
-          "L": 26,
-          "T": 3,
-          "accuracy": 53.6
-        },
-        "SELL": {
-          "W": 24,
-          "L": 28,
-          "T": 1,
-          "accuracy": 46.2
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 22,
-          "L": 25,
-          "T": 2,
-          "accuracy": 46.8
-        },
-        "MIXED": {
-          "W": 20,
-          "L": 18,
-          "T": 1,
-          "accuracy": 52.6
-        },
-        "TRENDING": {
-          "W": 12,
-          "L": 11,
-          "T": 1,
-          "accuracy": 52.2
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 53,
-          "L": 51,
-          "T": 4,
-          "accuracy": 51.0
-        },
-        "REACTION_ENTRY": {
-          "W": 1,
-          "L": 3,
-          "T": 0,
-          "accuracy": 25.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 22,
-          "L": 21,
-          "T": 1,
-          "accuracy": 51.2,
-          "n": 44
-        },
-        "no": {
-          "W": 32,
-          "L": 33,
-          "T": 3,
-          "accuracy": 49.2,
-          "n": 68
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 30,
-          "L": 34,
-          "T": 3,
-          "accuracy": 46.9,
-          "n": 67
-        },
-        "false": {
-          "W": 24,
-          "L": 20,
-          "T": 1,
-          "accuracy": 54.5,
-          "n": 45
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 26,
-          "L": 18,
-          "T": 0,
-          "accuracy": 59.1,
-          "n": 44
-        },
-        "false": {
-          "W": 28,
-          "L": 36,
-          "T": 4,
-          "accuracy": 43.8,
-          "n": 68
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 36,
-          "L": 37,
-          "T": 3,
-          "accuracy": 49.3,
-          "n": 76
-        },
-        "false": {
-          "W": 18,
-          "L": 17,
-          "T": 1,
-          "accuracy": 51.4,
-          "n": 36
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 47,
-          "L": 50,
-          "T": 4,
-          "accuracy": 48.5,
-          "n": 101
-        },
-        "false": {
-          "W": 7,
-          "L": 4,
-          "T": 0,
-          "accuracy": 63.6,
-          "n": 11
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 14,
-          "L": 11,
-          "T": 2,
-          "accuracy": 56.0,
-          "n": 27
-        },
-        "false": {
-          "W": 40,
-          "L": 43,
-          "T": 2,
-          "accuracy": 48.2,
-          "n": 85
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 30,
-          "L": 24,
-          "T": 0,
-          "accuracy": 55.6,
-          "n": 54
-        },
-        "false": {
-          "W": 24,
-          "L": 30,
-          "T": 4,
-          "accuracy": 44.4,
-          "n": 58
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 23,
-          "L": 22,
-          "T": 3,
-          "accuracy": 51.1,
-          "n": 48
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 7
-        },
-        {
-          "combo": "FAIL_PROGRESS",
-          "n": 3
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
-          "n": 3
-        },
-        {
-          "combo": "ADVERSE_ZONE",
-          "n": 3
-        },
-        {
           "combo": "OTHER",
-          "n": 3
+          "n": 2
         },
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+          "n": 2
+        },
+        {
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
           "n": 2
         }
       ]
     },
     "GBPUSD-3M": {
       "results": {
-        "W": 44,
-        "L": 52,
-        "T": 3,
-        "accuracy": 45.8,
-        "n": 99
+        "W": 46,
+        "L": 54,
+        "T": 4,
+        "accuracy": 46.0,
+        "n": 104
       },
-      "exactBoundaryN": 99,
-      "confidenceMean": 66.3,
+      "exactBoundaryN": 104,
+      "confidenceMean": 66.4,
       "streaks": {
-        "maxWin": 5,
+        "maxWin": 6,
         "maxLoss": 7
       },
       "low57_61_9": {
-        "W": 7,
+        "W": 8,
         "L": 11,
         "T": 1,
-        "accuracy": 38.9,
-        "n": 19
+        "accuracy": 42.1,
+        "n": 20
       },
       "gte62": {
-        "W": 37,
-        "L": 41,
-        "T": 2,
-        "accuracy": 47.4,
-        "n": 80
+        "W": 38,
+        "L": 43,
+        "T": 3,
+        "accuracy": 46.9,
+        "n": 84
       },
       "direction": {
         "BUY": {
-          "W": 31,
-          "L": 36,
-          "T": 2,
-          "accuracy": 46.3
+          "W": 33,
+          "L": 38,
+          "T": 3,
+          "accuracy": 46.5
         },
         "SELL": {
           "W": 13,
@@ -6413,15 +2251,15 @@
       },
       "regime": {
         "CHOPPY": {
-          "W": 24,
-          "L": 21,
+          "W": 26,
+          "L": 23,
           "T": 3,
-          "accuracy": 53.3
+          "accuracy": 53.1
         },
         "MIXED": {
           "W": 9,
           "L": 16,
-          "T": 0,
+          "T": 1,
           "accuracy": 36.0
         },
         "TRENDING": {
@@ -6433,10 +2271,10 @@
       },
       "entryLane": {
         "CONFIRMED_ENTRY": {
-          "W": 43,
-          "L": 48,
-          "T": 3,
-          "accuracy": 47.3
+          "W": 45,
+          "L": 50,
+          "T": 4,
+          "accuracy": 47.4
         },
         "REACTION_ENTRY": {
           "W": 1,
@@ -6454,20 +2292,20 @@
           "n": 21
         },
         "no": {
-          "W": 36,
-          "L": 39,
-          "T": 3,
-          "accuracy": 48.0,
-          "n": 78
+          "W": 38,
+          "L": 41,
+          "T": 4,
+          "accuracy": 48.1,
+          "n": 83
         }
       },
       "adverseZone": {
         "true": {
-          "W": 30,
-          "L": 34,
-          "T": 3,
-          "accuracy": 46.9,
-          "n": 67
+          "W": 32,
+          "L": 36,
+          "T": 4,
+          "accuracy": 47.1,
+          "n": 72
         },
         "false": {
           "W": 14,
@@ -6486,20 +2324,20 @@
           "n": 39
         },
         "false": {
-          "W": 24,
-          "L": 33,
-          "T": 3,
-          "accuracy": 42.1,
-          "n": 60
+          "W": 26,
+          "L": 35,
+          "T": 4,
+          "accuracy": 42.6,
+          "n": 65
         }
       },
       "lateCounterTrendRisk": {
         "true": {
-          "W": 33,
-          "L": 33,
-          "T": 3,
+          "W": 35,
+          "L": 35,
+          "T": 4,
           "accuracy": 50.0,
-          "n": 69
+          "n": 74
         },
         "false": {
           "W": 11,
@@ -6511,11 +2349,11 @@
       },
       "continuationResetRequired": {
         "true": {
-          "W": 41,
-          "L": 47,
-          "T": 3,
-          "accuracy": 46.6,
-          "n": 91
+          "W": 43,
+          "L": 49,
+          "T": 4,
+          "accuracy": 46.7,
+          "n": 96
         },
         "false": {
           "W": 3,
@@ -6527,49 +2365,49 @@
       },
       "breakoutAccepted": {
         "true": {
-          "W": 8,
+          "W": 9,
           "L": 9,
           "T": 0,
-          "accuracy": 47.1,
-          "n": 17
+          "accuracy": 50.0,
+          "n": 18
         },
         "false": {
-          "W": 36,
-          "L": 43,
-          "T": 3,
-          "accuracy": 45.6,
-          "n": 82
+          "W": 37,
+          "L": 45,
+          "T": 4,
+          "accuracy": 45.1,
+          "n": 86
         }
       },
       "tickAgreement": {
         "true": {
           "W": 14,
-          "L": 21,
-          "T": 0,
-          "accuracy": 40.0,
-          "n": 35
+          "L": 22,
+          "T": 1,
+          "accuracy": 38.9,
+          "n": 37
         },
         "false": {
-          "W": 30,
-          "L": 31,
+          "W": 32,
+          "L": 32,
           "T": 3,
-          "accuracy": 49.2,
-          "n": 64
+          "accuracy": 50.0,
+          "n": 67
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 21,
-          "L": 25,
-          "T": 2,
-          "accuracy": 45.7,
-          "n": 48
+          "W": 22,
+          "L": 27,
+          "T": 3,
+          "accuracy": 44.9,
+          "n": 52
         }
       },
       "lossFailureCombos": [
         {
           "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 5
+          "n": 6
         },
         {
           "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
@@ -6596,13 +2434,13 @@
     "GBPUSD-5M": {
       "results": {
         "W": 36,
-        "L": 40,
+        "L": 42,
         "T": 2,
-        "accuracy": 47.4,
-        "n": 78
+        "accuracy": 46.2,
+        "n": 80
       },
-      "exactBoundaryN": 78,
-      "confidenceMean": 68.1,
+      "exactBoundaryN": 80,
+      "confidenceMean": 68.2,
       "streaks": {
         "maxWin": 5,
         "maxLoss": 5
@@ -6616,17 +2454,17 @@
       },
       "gte62": {
         "W": 34,
-        "L": 34,
+        "L": 36,
         "T": 2,
-        "accuracy": 50.0,
-        "n": 70
+        "accuracy": 48.6,
+        "n": 72
       },
       "direction": {
         "BUY": {
           "W": 31,
-          "L": 33,
+          "L": 35,
           "T": 2,
-          "accuracy": 48.4
+          "accuracy": 47.0
         },
         "SELL": {
           "W": 5,
@@ -6638,9 +2476,9 @@
       "regime": {
         "CHOPPY": {
           "W": 19,
-          "L": 15,
+          "L": 17,
           "T": 1,
-          "accuracy": 55.9
+          "accuracy": 52.8
         },
         "MIXED": {
           "W": 12,
@@ -6658,9 +2496,9 @@
       "entryLane": {
         "CONFIRMED_ENTRY": {
           "W": 35,
-          "L": 40,
+          "L": 42,
           "T": 2,
-          "accuracy": 46.7
+          "accuracy": 45.5
         },
         "REACTION_ENTRY": {
           "W": 1,
@@ -6679,26 +2517,26 @@
         },
         "no": {
           "W": 34,
-          "L": 35,
+          "L": 37,
           "T": 2,
-          "accuracy": 49.3,
-          "n": 71
+          "accuracy": 47.9,
+          "n": 73
         }
       },
       "adverseZone": {
         "true": {
           "W": 24,
-          "L": 24,
+          "L": 25,
           "T": 1,
-          "accuracy": 50.0,
-          "n": 49
+          "accuracy": 49.0,
+          "n": 50
         },
         "false": {
           "W": 12,
-          "L": 16,
+          "L": 17,
           "T": 1,
-          "accuracy": 42.9,
-          "n": 29
+          "accuracy": 41.4,
+          "n": 30
         }
       },
       "transitionRisk": {
@@ -6711,35 +2549,35 @@
         },
         "false": {
           "W": 26,
-          "L": 23,
+          "L": 25,
           "T": 1,
-          "accuracy": 53.1,
-          "n": 50
+          "accuracy": 51.0,
+          "n": 52
         }
       },
       "lateCounterTrendRisk": {
         "true": {
           "W": 22,
-          "L": 24,
+          "L": 25,
           "T": 1,
-          "accuracy": 47.8,
-          "n": 47
+          "accuracy": 46.8,
+          "n": 48
         },
         "false": {
           "W": 14,
-          "L": 16,
+          "L": 17,
           "T": 1,
-          "accuracy": 46.7,
-          "n": 31
+          "accuracy": 45.2,
+          "n": 32
         }
       },
       "continuationResetRequired": {
         "true": {
           "W": 33,
-          "L": 36,
+          "L": 38,
           "T": 2,
-          "accuracy": 47.8,
-          "n": 71
+          "accuracy": 46.5,
+          "n": 73
         },
         "false": {
           "W": 3,
@@ -6752,26 +2590,26 @@
       "breakoutAccepted": {
         "true": {
           "W": 8,
-          "L": 9,
+          "L": 10,
           "T": 0,
-          "accuracy": 47.1,
-          "n": 17
+          "accuracy": 44.4,
+          "n": 18
         },
         "false": {
           "W": 28,
-          "L": 31,
+          "L": 32,
           "T": 2,
-          "accuracy": 47.5,
-          "n": 61
+          "accuracy": 46.7,
+          "n": 62
         }
       },
       "tickAgreement": {
         "true": {
           "W": 15,
-          "L": 15,
+          "L": 17,
           "T": 1,
-          "accuracy": 50.0,
-          "n": 31
+          "accuracy": 46.9,
+          "n": 33
         },
         "false": {
           "W": 21,
@@ -6784,10 +2622,10 @@
       "maBbPositive": {
         "yes": {
           "W": 23,
-          "L": 24,
+          "L": 25,
           "T": 1,
-          "accuracy": 48.9,
-          "n": 48
+          "accuracy": 47.9,
+          "n": 49
         }
       },
       "lossFailureCombos": [
@@ -6808,293 +2646,69 @@
           "n": 3
         },
         {
-          "combo": "EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
-          "n": 2
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
-          "n": 2
-        }
-      ]
-    },
-    "USDJPY-1M": {
-      "results": {
-        "W": 63,
-        "L": 55,
-        "T": 2,
-        "accuracy": 53.4,
-        "n": 120
-      },
-      "exactBoundaryN": 120,
-      "confidenceMean": 68.0,
-      "streaks": {
-        "maxWin": 6,
-        "maxLoss": 7
-      },
-      "low57_61_9": {
-        "W": 13,
-        "L": 11,
-        "T": 0,
-        "accuracy": 54.2,
-        "n": 24
-      },
-      "gte62": {
-        "W": 50,
-        "L": 44,
-        "T": 2,
-        "accuracy": 53.2,
-        "n": 96
-      },
-      "direction": {
-        "BUY": {
-          "W": 19,
-          "L": 25,
-          "T": 0,
-          "accuracy": 43.2
-        },
-        "SELL": {
-          "W": 44,
-          "L": 30,
-          "T": 2,
-          "accuracy": 59.5
-        }
-      },
-      "regime": {
-        "CHOPPY": {
-          "W": 28,
-          "L": 34,
-          "T": 1,
-          "accuracy": 45.2
-        },
-        "MIXED": {
-          "W": 18,
-          "L": 12,
-          "T": 1,
-          "accuracy": 60.0
-        },
-        "TRENDING": {
-          "W": 17,
-          "L": 9,
-          "T": 0,
-          "accuracy": 65.4
-        }
-      },
-      "entryLane": {
-        "CONFIRMED_ENTRY": {
-          "W": 61,
-          "L": 53,
-          "T": 2,
-          "accuracy": 53.5
-        },
-        "REACTION_ENTRY": {
-          "W": 2,
-          "L": 2,
-          "T": 0,
-          "accuracy": 50.0
-        }
-      },
-      "mtf2plus": {
-        "yes": {
-          "W": 21,
-          "L": 19,
-          "T": 1,
-          "accuracy": 52.5,
-          "n": 41
-        },
-        "no": {
-          "W": 42,
-          "L": 36,
-          "T": 1,
-          "accuracy": 53.8,
-          "n": 79
-        }
-      },
-      "adverseZone": {
-        "true": {
-          "W": 37,
-          "L": 33,
-          "T": 2,
-          "accuracy": 52.9,
-          "n": 72
-        },
-        "false": {
-          "W": 26,
-          "L": 22,
-          "T": 0,
-          "accuracy": 54.2,
-          "n": 48
-        }
-      },
-      "transitionRisk": {
-        "true": {
-          "W": 13,
-          "L": 7,
-          "T": 0,
-          "accuracy": 65.0,
-          "n": 20
-        },
-        "false": {
-          "W": 50,
-          "L": 48,
-          "T": 2,
-          "accuracy": 51.0,
-          "n": 100
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 39,
-          "L": 33,
-          "T": 1,
-          "accuracy": 54.2,
-          "n": 73
-        },
-        "false": {
-          "W": 24,
-          "L": 22,
-          "T": 1,
-          "accuracy": 52.2,
-          "n": 47
-        }
-      },
-      "continuationResetRequired": {
-        "true": {
-          "W": 54,
-          "L": 46,
-          "T": 2,
-          "accuracy": 54.0,
-          "n": 102
-        },
-        "false": {
-          "W": 9,
-          "L": 9,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 18
-        }
-      },
-      "breakoutAccepted": {
-        "true": {
-          "W": 17,
-          "L": 17,
-          "T": 1,
-          "accuracy": 50.0,
-          "n": 35
-        },
-        "false": {
-          "W": 46,
-          "L": 38,
-          "T": 1,
-          "accuracy": 54.8,
-          "n": 85
-        }
-      },
-      "tickAgreement": {
-        "true": {
-          "W": 35,
-          "L": 38,
-          "T": 2,
-          "accuracy": 47.9,
-          "n": 75
-        },
-        "false": {
-          "W": 28,
-          "L": 17,
-          "T": 0,
-          "accuracy": 62.2,
-          "n": 45
-        }
-      },
-      "maBbPositive": {
-        "yes": {
-          "W": 13,
-          "L": 15,
-          "T": 0,
-          "accuracy": 46.4,
-          "n": 28
-        }
-      },
-      "lossFailureCombos": [
-        {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
-          "n": 4
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS",
-          "n": 4
-        },
-        {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
-          "n": 4
-        },
-        {
-          "combo": "FAIL_PROGRESS+UNRESOLVED_FVG",
-          "n": 3
-        },
-        {
           "combo": "EXTENDED",
           "n": 3
         },
         {
-          "combo": "ADVERSE_ZONE",
-          "n": 3
+          "combo": "EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+          "n": 2
         }
       ]
     },
     "USDJPY-2M": {
       "results": {
-        "W": 61,
-        "L": 51,
+        "W": 64,
+        "L": 55,
         "T": 2,
-        "accuracy": 54.5,
-        "n": 114
+        "accuracy": 53.8,
+        "n": 121
       },
-      "exactBoundaryN": 114,
-      "confidenceMean": 67.7,
+      "exactBoundaryN": 121,
+      "confidenceMean": 67.5,
       "streaks": {
         "maxWin": 7,
         "maxLoss": 4
       },
       "low57_61_9": {
-        "W": 16,
-        "L": 11,
+        "W": 17,
+        "L": 12,
         "T": 0,
-        "accuracy": 59.3,
-        "n": 27
+        "accuracy": 58.6,
+        "n": 29
       },
       "gte62": {
-        "W": 45,
-        "L": 40,
+        "W": 47,
+        "L": 43,
         "T": 2,
-        "accuracy": 52.9,
-        "n": 87
+        "accuracy": 52.2,
+        "n": 92
       },
       "direction": {
         "BUY": {
-          "W": 13,
-          "L": 16,
+          "W": 16,
+          "L": 17,
           "T": 0,
-          "accuracy": 44.8
+          "accuracy": 48.5
         },
         "SELL": {
           "W": 48,
-          "L": 35,
+          "L": 38,
           "T": 2,
-          "accuracy": 57.8
+          "accuracy": 55.8
         }
       },
       "regime": {
         "CHOPPY": {
           "W": 29,
-          "L": 21,
+          "L": 23,
           "T": 1,
-          "accuracy": 58.0
+          "accuracy": 55.8
         },
         "MIXED": {
-          "W": 20,
-          "L": 16,
+          "W": 23,
+          "L": 18,
           "T": 1,
-          "accuracy": 55.6
+          "accuracy": 56.1
         },
         "TRENDING": {
           "W": 12,
@@ -7105,10 +2719,10 @@
       },
       "entryLane": {
         "CONFIRMED_ENTRY": {
-          "W": 60,
-          "L": 50,
+          "W": 63,
+          "L": 54,
           "T": 2,
-          "accuracy": 54.5
+          "accuracy": 53.8
         },
         "REACTION_ENTRY": {
           "W": 1,
@@ -7119,27 +2733,59 @@
       },
       "mtf2plus": {
         "yes": {
-          "W": 7,
-          "L": 13,
+          "W": 10,
+          "L": 14,
           "T": 0,
-          "accuracy": 35.0,
-          "n": 20
+          "accuracy": 41.7,
+          "n": 24
         },
         "no": {
           "W": 54,
-          "L": 38,
+          "L": 41,
           "T": 2,
-          "accuracy": 58.7,
-          "n": 94
+          "accuracy": 56.8,
+          "n": 97
         }
       },
       "adverseZone": {
         "true": {
-          "W": 40,
-          "L": 28,
+          "W": 43,
+          "L": 29,
           "T": 2,
-          "accuracy": 58.8,
-          "n": 70
+          "accuracy": 59.7,
+          "n": 74
+        },
+        "false": {
+          "W": 21,
+          "L": 26,
+          "T": 0,
+          "accuracy": 44.7,
+          "n": 47
+        }
+      },
+      "transitionRisk": {
+        "true": {
+          "W": 19,
+          "L": 16,
+          "T": 0,
+          "accuracy": 54.3,
+          "n": 35
+        },
+        "false": {
+          "W": 45,
+          "L": 39,
+          "T": 2,
+          "accuracy": 53.6,
+          "n": 86
+        }
+      },
+      "lateCounterTrendRisk": {
+        "true": {
+          "W": 43,
+          "L": 32,
+          "T": 2,
+          "accuracy": 57.3,
+          "n": 77
         },
         "false": {
           "W": 21,
@@ -7149,45 +2795,13 @@
           "n": 44
         }
       },
-      "transitionRisk": {
-        "true": {
-          "W": 18,
-          "L": 16,
-          "T": 0,
-          "accuracy": 52.9,
-          "n": 34
-        },
-        "false": {
-          "W": 43,
-          "L": 35,
-          "T": 2,
-          "accuracy": 55.1,
-          "n": 80
-        }
-      },
-      "lateCounterTrendRisk": {
-        "true": {
-          "W": 41,
-          "L": 31,
-          "T": 2,
-          "accuracy": 56.9,
-          "n": 74
-        },
-        "false": {
-          "W": 20,
-          "L": 20,
-          "T": 0,
-          "accuracy": 50.0,
-          "n": 40
-        }
-      },
       "continuationResetRequired": {
         "true": {
-          "W": 56,
-          "L": 43,
+          "W": 59,
+          "L": 47,
           "T": 2,
-          "accuracy": 56.6,
-          "n": 101
+          "accuracy": 55.7,
+          "n": 108
         },
         "false": {
           "W": 5,
@@ -7200,42 +2814,42 @@
       "breakoutAccepted": {
         "true": {
           "W": 8,
-          "L": 10,
+          "L": 11,
           "T": 1,
-          "accuracy": 44.4,
-          "n": 19
+          "accuracy": 42.1,
+          "n": 20
         },
         "false": {
-          "W": 53,
-          "L": 41,
+          "W": 56,
+          "L": 44,
           "T": 1,
-          "accuracy": 56.4,
-          "n": 95
+          "accuracy": 56.0,
+          "n": 101
         }
       },
       "tickAgreement": {
         "true": {
           "W": 29,
-          "L": 19,
+          "L": 22,
           "T": 0,
-          "accuracy": 60.4,
-          "n": 48
+          "accuracy": 56.9,
+          "n": 51
         },
         "false": {
-          "W": 32,
-          "L": 32,
+          "W": 35,
+          "L": 33,
           "T": 2,
-          "accuracy": 50.0,
-          "n": 66
+          "accuracy": 51.5,
+          "n": 70
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 7,
-          "L": 9,
+          "W": 8,
+          "L": 11,
           "T": 0,
-          "accuracy": 43.8,
-          "n": 16
+          "accuracy": 42.1,
+          "n": 19
         }
       },
       "lossFailureCombos": [
@@ -7265,226 +2879,226 @@
         }
       ]
     },
-    "USDJPY-3M": {
+    "USDJPY-5M": {
       "results": {
-        "W": 51,
-        "L": 50,
-        "T": 2,
-        "accuracy": 50.5,
-        "n": 103
+        "W": 43,
+        "L": 38,
+        "T": 0,
+        "accuracy": 53.1,
+        "n": 81
       },
-      "exactBoundaryN": 103,
-      "confidenceMean": 70.2,
+      "exactBoundaryN": 81,
+      "confidenceMean": 70.5,
       "streaks": {
-        "maxWin": 5,
-        "maxLoss": 6
+        "maxWin": 6,
+        "maxLoss": 4
       },
       "low57_61_9": {
-        "W": 7,
-        "L": 3,
+        "W": 3,
+        "L": 4,
         "T": 0,
-        "accuracy": 70.0,
-        "n": 10
+        "accuracy": 42.9,
+        "n": 7
       },
       "gte62": {
-        "W": 44,
-        "L": 47,
-        "T": 2,
-        "accuracy": 48.4,
-        "n": 93
+        "W": 40,
+        "L": 34,
+        "T": 0,
+        "accuracy": 54.1,
+        "n": 74
       },
       "direction": {
         "BUY": {
-          "W": 9,
-          "L": 13,
+          "W": 4,
+          "L": 7,
           "T": 0,
-          "accuracy": 40.9
+          "accuracy": 36.4
         },
         "SELL": {
-          "W": 42,
-          "L": 37,
-          "T": 2,
-          "accuracy": 53.2
+          "W": 39,
+          "L": 31,
+          "T": 0,
+          "accuracy": 55.7
         }
       },
       "regime": {
         "CHOPPY": {
-          "W": 25,
-          "L": 24,
+          "W": 19,
+          "L": 17,
           "T": 0,
-          "accuracy": 51.0
+          "accuracy": 52.8
         },
         "MIXED": {
-          "W": 23,
-          "L": 18,
-          "T": 2,
-          "accuracy": 56.1
+          "W": 22,
+          "L": 14,
+          "T": 0,
+          "accuracy": 61.1
         },
         "TRENDING": {
-          "W": 3,
-          "L": 8,
+          "W": 2,
+          "L": 7,
           "T": 0,
-          "accuracy": 27.3
+          "accuracy": 22.2
         }
       },
       "entryLane": {
         "CONFIRMED_ENTRY": {
-          "W": 50,
-          "L": 50,
-          "T": 2,
-          "accuracy": 50.0
+          "W": 42,
+          "L": 37,
+          "T": 0,
+          "accuracy": 53.2
         },
         "REACTION_ENTRY": {
           "W": 1,
-          "L": 0,
+          "L": 1,
           "T": 0,
-          "accuracy": 100.0
+          "accuracy": 50.0
         }
       },
       "mtf2plus": {
         "yes": {
-          "W": 6,
-          "L": 10,
+          "W": 5,
+          "L": 4,
           "T": 0,
-          "accuracy": 37.5,
-          "n": 16
+          "accuracy": 55.6,
+          "n": 9
         },
         "no": {
-          "W": 45,
-          "L": 40,
-          "T": 2,
-          "accuracy": 52.9,
-          "n": 87
+          "W": 38,
+          "L": 34,
+          "T": 0,
+          "accuracy": 52.8,
+          "n": 72
         }
       },
       "adverseZone": {
         "true": {
-          "W": 25,
-          "L": 27,
-          "T": 2,
-          "accuracy": 48.1,
-          "n": 54
+          "W": 23,
+          "L": 20,
+          "T": 0,
+          "accuracy": 53.5,
+          "n": 43
         },
         "false": {
-          "W": 26,
-          "L": 23,
+          "W": 20,
+          "L": 18,
           "T": 0,
-          "accuracy": 53.1,
-          "n": 49
+          "accuracy": 52.6,
+          "n": 38
         }
       },
       "transitionRisk": {
         "true": {
-          "W": 15,
-          "L": 12,
-          "T": 1,
-          "accuracy": 55.6,
-          "n": 28
+          "W": 11,
+          "L": 13,
+          "T": 0,
+          "accuracy": 45.8,
+          "n": 24
         },
         "false": {
-          "W": 36,
-          "L": 38,
-          "T": 1,
-          "accuracy": 48.6,
-          "n": 75
+          "W": 32,
+          "L": 25,
+          "T": 0,
+          "accuracy": 56.1,
+          "n": 57
         }
       },
       "lateCounterTrendRisk": {
         "true": {
-          "W": 26,
-          "L": 25,
-          "T": 2,
-          "accuracy": 51.0,
-          "n": 53
+          "W": 24,
+          "L": 21,
+          "T": 0,
+          "accuracy": 53.3,
+          "n": 45
         },
         "false": {
-          "W": 25,
-          "L": 25,
+          "W": 19,
+          "L": 17,
           "T": 0,
-          "accuracy": 50.0,
-          "n": 50
+          "accuracy": 52.8,
+          "n": 36
         }
       },
       "continuationResetRequired": {
         "true": {
-          "W": 38,
-          "L": 41,
-          "T": 2,
-          "accuracy": 48.1,
-          "n": 81
+          "W": 36,
+          "L": 35,
+          "T": 0,
+          "accuracy": 50.7,
+          "n": 71
         },
         "false": {
-          "W": 13,
-          "L": 9,
+          "W": 7,
+          "L": 3,
           "T": 0,
-          "accuracy": 59.1,
-          "n": 22
+          "accuracy": 70.0,
+          "n": 10
         }
       },
       "breakoutAccepted": {
         "true": {
-          "W": 12,
-          "L": 17,
+          "W": 9,
+          "L": 11,
           "T": 0,
-          "accuracy": 41.4,
-          "n": 29
+          "accuracy": 45.0,
+          "n": 20
         },
         "false": {
-          "W": 39,
-          "L": 33,
-          "T": 2,
-          "accuracy": 54.2,
-          "n": 74
+          "W": 34,
+          "L": 27,
+          "T": 0,
+          "accuracy": 55.7,
+          "n": 61
         }
       },
       "tickAgreement": {
         "true": {
-          "W": 25,
-          "L": 22,
-          "T": 1,
-          "accuracy": 53.2,
-          "n": 48
+          "W": 20,
+          "L": 23,
+          "T": 0,
+          "accuracy": 46.5,
+          "n": 43
         },
         "false": {
-          "W": 26,
-          "L": 28,
-          "T": 1,
-          "accuracy": 48.1,
-          "n": 55
+          "W": 23,
+          "L": 15,
+          "T": 0,
+          "accuracy": 60.5,
+          "n": 38
         }
       },
       "maBbPositive": {
         "yes": {
-          "W": 11,
-          "L": 6,
+          "W": 3,
+          "L": 3,
           "T": 0,
-          "accuracy": 64.7,
-          "n": 17
+          "accuracy": 50.0,
+          "n": 6
         }
       },
       "lossFailureCombos": [
         {
-          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
-          "n": 4
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+          "n": 3
         },
         {
-          "combo": "EXTENDED+UNRESOLVED_FVG",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
           "n": 3
+        },
+        {
+          "combo": "EXTENDED+FAIL_PROGRESS+UNRESOLVED_FVG",
+          "n": 2
         },
         {
           "combo": "EXTENDED",
-          "n": 3
+          "n": 2
         },
         {
-          "combo": "OTHER",
-          "n": 3
+          "combo": "FAIL_PROGRESS+TRANSITION_RISK",
+          "n": 2
         },
         {
-          "combo": "ADVERSE_ZONE",
-          "n": 3
-        },
-        {
-          "combo": "FAIL_PROGRESS",
+          "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
           "n": 2
         }
       ]
