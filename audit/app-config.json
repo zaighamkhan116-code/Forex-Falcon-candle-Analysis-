@@ -3,9 +3,9 @@
   "targetSignals": 20,
   "thresholdValidation": {
     "active": true,
-    "baseline": 62,
+    "baseline": 57,
     "test": 57,
-    "hypothesis": "Earlier qualifying entries may avoid late-move exhaustion while V2.5 invalidation guards remain active."
+    "hypothesis": "Score tuning is diagnostic and must not reduce scheduled signal frequency."
   },
   "settlement": {
     "mode": "EXACT_BOUNDARY_OPEN_TO_EXPIRY_CLOSE",
@@ -14,10 +14,10 @@
     "retryWithoutFallback": true
   },
   "recovery": {
-    "enabled": true,
-    "maxSteps": 1,
-    "sameDirection": true,
-    "immediateNextCandle": true,
+    "enabled": false,
+    "maxSteps": 0,
+    "sameDirection": false,
+    "immediateNextCandle": false,
     "recursive": false
   }
 }
