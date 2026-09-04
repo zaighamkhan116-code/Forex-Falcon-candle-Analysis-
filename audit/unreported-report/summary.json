@@ -1,11 +1,11 @@
 {
   "generatedAt": "2026-09-04T02:19:10.495320Z",
-  "previousReportedAt": "2026-09-04T08:59:32Z",
-  "newBatchCount": 7,
+  "previousReportedAt": "2026-09-04T11:49:30Z",
+  "newBatchCount": 14,
   "tracks": {
     "EURUSD-1M": {
-      "previousReportedBatch": 14,
-      "currentCompletedBatch": 15,
+      "previousReportedBatch": 15,
+      "currentCompletedBatch": 16,
       "newBatchCount": 1,
       "cumulative": {
         "W": 120,
@@ -14,9 +14,42 @@
         "accuracy": 51.1
       }
     },
-    "GBPUSD-1M": {
+    "EURUSD-2M": {
       "previousReportedBatch": 13,
       "currentCompletedBatch": 14,
+      "newBatchCount": 1,
+      "cumulative": {
+        "W": 103,
+        "L": 105,
+        "T": 19,
+        "accuracy": 49.5
+      }
+    },
+    "EURUSD-3M": {
+      "previousReportedBatch": 11,
+      "currentCompletedBatch": 12,
+      "newBatchCount": 1,
+      "cumulative": {
+        "W": 84,
+        "L": 105,
+        "T": 8,
+        "accuracy": 44.4
+      }
+    },
+    "EURUSD-5M": {
+      "previousReportedBatch": 7,
+      "currentCompletedBatch": 8,
+      "newBatchCount": 1,
+      "cumulative": {
+        "W": 61,
+        "L": 71,
+        "T": 2,
+        "accuracy": 46.2
+      }
+    },
+    "GBPUSD-1M": {
+      "previousReportedBatch": 14,
+      "currentCompletedBatch": 15,
       "newBatchCount": 1,
       "cumulative": {
         "W": 110,
@@ -25,9 +58,31 @@
         "accuracy": 51.2
       }
     },
+    "GBPUSD-2M": {
+      "previousReportedBatch": 12,
+      "currentCompletedBatch": 13,
+      "newBatchCount": 1,
+      "cumulative": {
+        "W": 95,
+        "L": 104,
+        "T": 9,
+        "accuracy": 47.7
+      }
+    },
+    "GBPUSD-3M": {
+      "previousReportedBatch": 10,
+      "currentCompletedBatch": 11,
+      "newBatchCount": 1,
+      "cumulative": {
+        "W": 78,
+        "L": 99,
+        "T": 4,
+        "accuracy": 44.1
+      }
+    },
     "EURJPY-1M": {
-      "previousReportedBatch": 13,
-      "currentCompletedBatch": 14,
+      "previousReportedBatch": 14,
+      "currentCompletedBatch": 15,
       "newBatchCount": 1,
       "cumulative": {
         "W": 114,
@@ -36,20 +91,20 @@
         "accuracy": 50.0
       }
     },
-    "EURJPY-3M": {
-      "previousReportedBatch": 10,
-      "currentCompletedBatch": 11,
+    "EURJPY-2M": {
+      "previousReportedBatch": 12,
+      "currentCompletedBatch": 13,
       "newBatchCount": 1,
       "cumulative": {
-        "W": 93,
-        "L": 92,
-        "T": 0,
-        "accuracy": 50.3
+        "W": 107,
+        "L": 101,
+        "T": 3,
+        "accuracy": 51.4
       }
     },
     "USDJPY-1M": {
-      "previousReportedBatch": 13,
-      "currentCompletedBatch": 14,
+      "previousReportedBatch": 14,
+      "currentCompletedBatch": 15,
       "newBatchCount": 1,
       "cumulative": {
         "W": 115,
@@ -58,20 +113,20 @@
         "accuracy": 51.1
       }
     },
-    "USDJPY-3M": {
-      "previousReportedBatch": 10,
-      "currentCompletedBatch": 11,
+    "USDJPY-2M": {
+      "previousReportedBatch": 12,
+      "currentCompletedBatch": 13,
       "newBatchCount": 1,
       "cumulative": {
-        "W": 87,
-        "L": 94,
-        "T": 4,
-        "accuracy": 48.1
+        "W": 108,
+        "L": 96,
+        "T": 6,
+        "accuracy": 52.9
       }
     },
     "AUDUSD-1M": {
-      "previousReportedBatch": 13,
-      "currentCompletedBatch": 14,
+      "previousReportedBatch": 14,
+      "currentCompletedBatch": 15,
       "newBatchCount": 1,
       "cumulative": {
         "W": 111,
@@ -79,25 +134,54 @@
         "T": 28,
         "accuracy": 53.4
       }
+    },
+    "AUDUSD-2M": {
+      "previousReportedBatch": 12,
+      "currentCompletedBatch": 13,
+      "newBatchCount": 1,
+      "cumulative": {
+        "W": 101,
+        "L": 97,
+        "T": 8,
+        "accuracy": 51.0
+      }
+    },
+    "AUDUSD-3M": {
+      "previousReportedBatch": 10,
+      "currentCompletedBatch": 11,
+      "newBatchCount": 1,
+      "cumulative": {
+        "W": 82,
+        "L": 89,
+        "T": 11,
+        "accuracy": 48.0
+      }
     }
   },
   "pairs": {
     "EURUSD": [
-      "EURUSD-1M"
+      "EURUSD-1M",
+      "EURUSD-2M",
+      "EURUSD-3M",
+      "EURUSD-5M"
     ],
     "GBPUSD": [
-      "GBPUSD-1M"
+      "GBPUSD-1M",
+      "GBPUSD-2M",
+      "GBPUSD-3M"
     ],
     "EURJPY": [
       "EURJPY-1M",
-      "EURJPY-3M"
+      "EURJPY-2M"
     ],
     "USDJPY": [
       "USDJPY-1M",
-      "USDJPY-3M"
+      "USDJPY-2M"
     ],
     "AUDUSD": [
-      "AUDUSD-1M"
+      "AUDUSD-1M",
+      "AUDUSD-2M",
+      "AUDUSD-3M"
     ]
   }
 }
