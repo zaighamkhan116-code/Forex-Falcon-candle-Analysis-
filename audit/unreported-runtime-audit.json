@@ -1,0 +1,670 @@
+{
+  "rows": 740,
+  "batches": 37,
+  "rerank": {
+    "true": {
+      "n": 10,
+      "W": 6,
+      "L": 4,
+      "T": 0,
+      "accuracy": 60.0
+    },
+    "false": {
+      "n": 730,
+      "W": 337,
+      "L": 326,
+      "T": 67,
+      "accuracy": 50.8
+    }
+  },
+  "shadowStatus": {
+    "MISSING": 700,
+    "DISABLED": 40
+  },
+  "shadowReadyN": 0,
+  "arbitration": {},
+  "bothModelLossN": 0,
+  "deadLowVolume": {
+    "flagged": {
+      "n": 651,
+      "W": 303,
+      "L": 285,
+      "T": 63,
+      "accuracy": 51.5
+    },
+    "other": {
+      "n": 89,
+      "W": 40,
+      "L": 45,
+      "T": 4,
+      "accuracy": 47.1
+    }
+  },
+  "byTrack": {
+    "AUDUSD-15M": {
+      "all": {
+        "n": 20,
+        "W": 9,
+        "L": 10,
+        "T": 1,
+        "accuracy": 47.4
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 16,
+        "W": 9,
+        "L": 7,
+        "T": 0,
+        "accuracy": 56.2
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 16
+    },
+    "AUDUSD-1M": {
+      "all": {
+        "n": 40,
+        "W": 11,
+        "L": 18,
+        "T": 11,
+        "accuracy": 37.9
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 40,
+        "W": 11,
+        "L": 18,
+        "T": 11,
+        "accuracy": 37.9
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 40
+    },
+    "AUDUSD-2M": {
+      "all": {
+        "n": 40,
+        "W": 14,
+        "L": 21,
+        "T": 5,
+        "accuracy": 40.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 38,
+        "W": 14,
+        "L": 19,
+        "T": 5,
+        "accuracy": 42.4
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 38
+    },
+    "AUDUSD-3M": {
+      "all": {
+        "n": 40,
+        "W": 18,
+        "L": 18,
+        "T": 4,
+        "accuracy": 50.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 38,
+        "W": 17,
+        "L": 17,
+        "T": 4,
+        "accuracy": 50.0
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 38
+    },
+    "AUDUSD-5M": {
+      "all": {
+        "n": 20,
+        "W": 9,
+        "L": 9,
+        "T": 2,
+        "accuracy": 50.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 20,
+        "W": 9,
+        "L": 9,
+        "T": 2,
+        "accuracy": 50.0
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 20
+    },
+    "EURJPY-15M": {
+      "all": {
+        "n": 20,
+        "W": 13,
+        "L": 7,
+        "T": 0,
+        "accuracy": 65.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 9,
+        "W": 6,
+        "L": 3,
+        "T": 0,
+        "accuracy": 66.7
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 9
+    },
+    "EURJPY-1M": {
+      "all": {
+        "n": 40,
+        "W": 24,
+        "L": 12,
+        "T": 4,
+        "accuracy": 66.7
+      },
+      "reranked": {
+        "n": 1,
+        "W": 0,
+        "L": 1,
+        "T": 0,
+        "accuracy": 0.0
+      },
+      "deadLowVolume": {
+        "n": 37,
+        "W": 22,
+        "L": 11,
+        "T": 4,
+        "accuracy": 66.7
+      },
+      "rerankN": 1,
+      "deadLowVolumeN": 37
+    },
+    "EURJPY-2M": {
+      "all": {
+        "n": 20,
+        "W": 12,
+        "L": 6,
+        "T": 2,
+        "accuracy": 66.7
+      },
+      "reranked": {
+        "n": 1,
+        "W": 1,
+        "L": 0,
+        "T": 0,
+        "accuracy": 100.0
+      },
+      "deadLowVolume": {
+        "n": 20,
+        "W": 12,
+        "L": 6,
+        "T": 2,
+        "accuracy": 66.7
+      },
+      "rerankN": 1,
+      "deadLowVolumeN": 20
+    },
+    "EURJPY-3M": {
+      "all": {
+        "n": 40,
+        "W": 22,
+        "L": 18,
+        "T": 0,
+        "accuracy": 55.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 39,
+        "W": 21,
+        "L": 18,
+        "T": 0,
+        "accuracy": 53.8
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 39
+    },
+    "EURJPY-5M": {
+      "all": {
+        "n": 20,
+        "W": 12,
+        "L": 8,
+        "T": 0,
+        "accuracy": 60.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 17,
+        "W": 10,
+        "L": 7,
+        "T": 0,
+        "accuracy": 58.8
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 17
+    },
+    "EURUSD-15M": {
+      "all": {
+        "n": 20,
+        "W": 8,
+        "L": 12,
+        "T": 0,
+        "accuracy": 40.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 10,
+        "W": 4,
+        "L": 6,
+        "T": 0,
+        "accuracy": 40.0
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 10
+    },
+    "EURUSD-1M": {
+      "all": {
+        "n": 40,
+        "W": 17,
+        "L": 14,
+        "T": 9,
+        "accuracy": 54.8
+      },
+      "reranked": {
+        "n": 1,
+        "W": 1,
+        "L": 0,
+        "T": 0,
+        "accuracy": 100.0
+      },
+      "deadLowVolume": {
+        "n": 35,
+        "W": 15,
+        "L": 12,
+        "T": 8,
+        "accuracy": 55.6
+      },
+      "rerankN": 1,
+      "deadLowVolumeN": 35
+    },
+    "EURUSD-2M": {
+      "all": {
+        "n": 40,
+        "W": 15,
+        "L": 19,
+        "T": 6,
+        "accuracy": 44.1
+      },
+      "reranked": {
+        "n": 3,
+        "W": 2,
+        "L": 1,
+        "T": 0,
+        "accuracy": 66.7
+      },
+      "deadLowVolume": {
+        "n": 38,
+        "W": 14,
+        "L": 18,
+        "T": 6,
+        "accuracy": 43.8
+      },
+      "rerankN": 3,
+      "deadLowVolumeN": 38
+    },
+    "EURUSD-3M": {
+      "all": {
+        "n": 20,
+        "W": 7,
+        "L": 12,
+        "T": 1,
+        "accuracy": 36.8
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 19,
+        "W": 7,
+        "L": 11,
+        "T": 1,
+        "accuracy": 38.9
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 19
+    },
+    "EURUSD-5M": {
+      "all": {
+        "n": 20,
+        "W": 10,
+        "L": 10,
+        "T": 0,
+        "accuracy": 50.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 17,
+        "W": 8,
+        "L": 9,
+        "T": 0,
+        "accuracy": 47.1
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 17
+    },
+    "GBPUSD-15M": {
+      "all": {
+        "n": 20,
+        "W": 9,
+        "L": 10,
+        "T": 1,
+        "accuracy": 47.4
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 12,
+        "W": 6,
+        "L": 6,
+        "T": 0,
+        "accuracy": 50.0
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 12
+    },
+    "GBPUSD-1M": {
+      "all": {
+        "n": 40,
+        "W": 17,
+        "L": 16,
+        "T": 7,
+        "accuracy": 51.5
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 40,
+        "W": 17,
+        "L": 16,
+        "T": 7,
+        "accuracy": 51.5
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 40
+    },
+    "GBPUSD-2M": {
+      "all": {
+        "n": 40,
+        "W": 18,
+        "L": 18,
+        "T": 4,
+        "accuracy": 50.0
+      },
+      "reranked": {
+        "n": 4,
+        "W": 2,
+        "L": 2,
+        "T": 0,
+        "accuracy": 50.0
+      },
+      "deadLowVolume": {
+        "n": 39,
+        "W": 17,
+        "L": 18,
+        "T": 4,
+        "accuracy": 48.6
+      },
+      "rerankN": 4,
+      "deadLowVolumeN": 39
+    },
+    "GBPUSD-3M": {
+      "all": {
+        "n": 40,
+        "W": 13,
+        "L": 27,
+        "T": 0,
+        "accuracy": 32.5
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 37,
+        "W": 13,
+        "L": 24,
+        "T": 0,
+        "accuracy": 35.1
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 37
+    },
+    "GBPUSD-5M": {
+      "all": {
+        "n": 20,
+        "W": 8,
+        "L": 10,
+        "T": 2,
+        "accuracy": 44.4
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 16,
+        "W": 7,
+        "L": 8,
+        "T": 1,
+        "accuracy": 46.7
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 16
+    },
+    "USDJPY-15M": {
+      "all": {
+        "n": 20,
+        "W": 12,
+        "L": 8,
+        "T": 0,
+        "accuracy": 60.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 8,
+        "W": 5,
+        "L": 3,
+        "T": 0,
+        "accuracy": 62.5
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 8
+    },
+    "USDJPY-1M": {
+      "all": {
+        "n": 40,
+        "W": 20,
+        "L": 15,
+        "T": 5,
+        "accuracy": 57.1
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 35,
+        "W": 17,
+        "L": 13,
+        "T": 5,
+        "accuracy": 56.7
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 35
+    },
+    "USDJPY-2M": {
+      "all": {
+        "n": 20,
+        "W": 14,
+        "L": 6,
+        "T": 0,
+        "accuracy": 70.0
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 20,
+        "W": 14,
+        "L": 6,
+        "T": 0,
+        "accuracy": 70.0
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 20
+    },
+    "USDJPY-3M": {
+      "all": {
+        "n": 40,
+        "W": 17,
+        "L": 21,
+        "T": 2,
+        "accuracy": 44.7
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 36,
+        "W": 16,
+        "L": 18,
+        "T": 2,
+        "accuracy": 47.1
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 36
+    },
+    "USDJPY-5M": {
+      "all": {
+        "n": 20,
+        "W": 14,
+        "L": 5,
+        "T": 1,
+        "accuracy": 73.7
+      },
+      "reranked": {
+        "n": 0,
+        "W": 0,
+        "L": 0,
+        "T": 0,
+        "accuracy": null
+      },
+      "deadLowVolume": {
+        "n": 15,
+        "W": 12,
+        "L": 2,
+        "T": 1,
+        "accuracy": 85.7
+      },
+      "rerankN": 0,
+      "deadLowVolumeN": 15
+    }
+  }
+}
