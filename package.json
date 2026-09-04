@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
+    "quotex:worker": "node quotex_mobile/worker.js",
     "ios:add": "npx cap add ios",
     "ios:sync": "npx cap sync ios",
     "ios:open": "npx cap open ios",
@@ -19,7 +20,8 @@
   "dependencies": {
     "@capacitor/core": "^7.4.3",
     "@microsoft/signalr": "^8.0.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "playwright-core": "^1.55.0"
   },
   "devDependencies": {
     "@capacitor/cli": "^7.4.3",
