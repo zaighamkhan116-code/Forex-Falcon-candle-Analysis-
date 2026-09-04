@@ -3,27 +3,27 @@
   "lines": [
     {
       "track": "EURUSD-1M",
-      "B": 19,
+      "B": 20,
       "R": {
-        "W": 10,
+        "W": 9,
         "L": 9,
-        "T": 1,
+        "T": 2,
         "n": 20,
-        "wr": 52.6
+        "wr": 50.0
       },
       "low": {
-        "W": 6,
-        "L": 5,
-        "T": 0,
-        "n": 11,
-        "wr": 54.5
-      },
-      "high": {
-        "W": 4,
+        "W": 3,
         "L": 4,
         "T": 1,
-        "n": 9,
-        "wr": 50.0
+        "n": 8,
+        "wr": 42.9
+      },
+      "high": {
+        "W": 6,
+        "L": 5,
+        "T": 1,
+        "n": 12,
+        "wr": 54.5
       },
       "cum": {
         "W": 120,
@@ -42,117 +42,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.0001,
-          0.0001,
-          0.0
+          7e-05,
+          6e-05,
+          1e-05
         ],
         "rangeAtr": [
-          0.9161,
-          0.90844,
-          0.00766
+          1.33511,
+          1.03867,
+          0.29644
         ],
         "bodyAtr": [
-          0.284,
-          0.58456,
-          -0.30056
+          0.72456,
+          0.64544,
+          0.07912
         ],
         "vwapDistanceAtr": [
-          3.0982,
-          2.66167,
-          0.43653
+          -2.19711,
+          -1.86533,
+          -0.33178
         ],
         "vwapSlopeAtr": [
-          0.0256,
-          0.02489,
-          0.00071
+          0.02467,
+          -0.00311,
+          0.02778
         ],
         "vsaScore": [
-          0.058,
-          0.01333,
-          0.04467
+          -0.19889,
+          0.05222,
+          -0.25111
         ],
         "relativeVolume": [
-          0.8512,
-          0.93322,
-          -0.08202
+          1.35122,
+          0.97033,
+          0.38089
         ],
         "advancedMomentumScore": [
-          -0.0673,
-          -0.02256,
-          -0.04474
+          -0.02244,
+          0.02767,
+          -0.05011
         ],
         "sequence": [
-          0.1106,
-          0.10778,
-          0.00282
+          -0.36367,
+          -0.23222,
+          -0.13145
         ],
         "efficiency": [
-          0.1694,
-          0.11944,
-          0.04996
+          0.37856,
+          0.21756,
+          0.161
         ],
         "emaCompression": [
-          2e-05,
-          2e-05,
-          0.0
+          7e-05,
+          3e-05,
+          4e-05
         ],
         "bbExpansion": [
-          -0.00619,
-          0.01043,
-          -0.01662
+          0.14764,
+          0.02154,
+          0.1261
         ],
         "maBbConfirmation": [
-          0.232,
-          0.06667,
-          0.16533
+          -0.37556,
+          -0.16667,
+          -0.20889
         ]
       },
       "lowProfile": {
         "latePct": 100.0,
-        "adversePct": 100.0,
-        "mtfOpp2Pct": 9.1,
-        "transitionPct": 54.5,
-        "extendedPct": 18.2,
-        "failProgressPct": 90.9,
-        "avgEfficiency": 0.142,
-        "avgMoveQuality": 4.23636,
-        "avgProgress": 0.63636
+        "adversePct": 87.5,
+        "mtfOpp2Pct": 62.5,
+        "transitionPct": 0.0,
+        "extendedPct": 25.0,
+        "failProgressPct": 75.0,
+        "avgEfficiency": 0.19238,
+        "avgMoveQuality": 4.6625,
+        "avgProgress": -0.125
       },
       "highProfile": {
-        "latePct": 44.4,
-        "adversePct": 55.6,
-        "mtfOpp2Pct": 11.1,
-        "transitionPct": 11.1,
-        "extendedPct": 0.0,
-        "failProgressPct": 44.4,
-        "avgEfficiency": 0.13956,
-        "avgMoveQuality": 4.83333,
-        "avgProgress": -0.66667
+        "latePct": 50.0,
+        "adversePct": 41.7,
+        "mtfOpp2Pct": 66.7,
+        "transitionPct": 0.0,
+        "extendedPct": 33.3,
+        "failProgressPct": 25.0,
+        "avgEfficiency": 0.32492,
+        "avgMoveQuality": 6.375,
+        "avgProgress": -2.08333
       }
     },
     {
       "track": "EURUSD-2M",
-      "B": 17,
+      "B": 18,
       "R": {
-        "W": 9,
+        "W": 6,
         "L": 11,
-        "T": 0,
+        "T": 3,
         "n": 20,
-        "wr": 45.0
+        "wr": 35.3
       },
       "low": {
-        "W": 5,
-        "L": 4,
-        "T": 0,
-        "n": 9,
-        "wr": 55.6
+        "W": 3,
+        "L": 7,
+        "T": 2,
+        "n": 12,
+        "wr": 30.0
       },
       "high": {
-        "W": 4,
-        "L": 7,
-        "T": 0,
-        "n": 11,
-        "wr": 36.4
+        "W": 3,
+        "L": 4,
+        "T": 1,
+        "n": 8,
+        "wr": 42.9
       },
       "cum": {
         "W": 103,
@@ -171,117 +171,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00017,
-          0.00017,
+          0.00011,
+          0.00011,
           0.0
         ],
         "rangeAtr": [
-          0.72433,
-          0.97936,
-          -0.25503
+          0.91667,
+          0.88864,
+          0.02803
         ],
         "bodyAtr": [
-          0.27956,
-          0.55491,
-          -0.27535
+          0.47067,
+          0.23091,
+          0.23976
         ],
         "vwapDistanceAtr": [
-          5.171,
-          5.51155,
-          -0.34055
+          -0.46533,
+          0.03655,
+          -0.50188
         ],
         "vwapSlopeAtr": [
-          0.02556,
-          0.06291,
-          -0.03735
+          0.1035,
+          0.09809,
+          0.00541
         ],
         "vsaScore": [
-          0.14222,
-          -0.04273,
-          0.18495
+          -0.05833,
+          0.00727,
+          -0.0656
         ],
         "relativeVolume": [
-          0.77878,
-          0.88427,
-          -0.10549
+          0.88983,
+          0.909,
+          -0.01917
         ],
         "advancedMomentumScore": [
-          -0.00333,
-          0.05673,
-          -0.06006
+          0.0345,
+          -0.06382,
+          0.09832
         ],
         "sequence": [
-          -0.05178,
-          -0.00682,
-          -0.04496
+          -0.15033,
+          -0.12364,
+          -0.02669
         ],
         "efficiency": [
-          0.21644,
-          0.23855,
-          -0.02211
+          0.18083,
+          0.17355,
+          0.00728
         ],
         "emaCompression": [
-          8e-05,
-          9e-05,
-          -1e-05
+          6e-05,
+          4e-05,
+          2e-05
         ],
         "bbExpansion": [
-          -0.03328,
-          -0.02831,
-          -0.00497
+          -0.02705,
+          -0.03004,
+          0.00299
         ],
         "maBbConfirmation": [
-          0.22667,
-          0.17273,
-          0.05394
+          -0.18667,
+          -0.02727,
+          -0.1594
         ]
       },
       "lowProfile": {
         "latePct": 100.0,
-        "adversePct": 100.0,
-        "mtfOpp2Pct": 0.0,
-        "transitionPct": 33.3,
+        "adversePct": 91.7,
+        "mtfOpp2Pct": 25.0,
+        "transitionPct": 75.0,
         "extendedPct": 0.0,
-        "failProgressPct": 88.9,
-        "avgEfficiency": 0.22822,
-        "avgMoveQuality": 4.26667,
-        "avgProgress": -0.11111
+        "failProgressPct": 58.3,
+        "avgEfficiency": 0.16267,
+        "avgMoveQuality": 3.525,
+        "avgProgress": -0.66667
       },
       "highProfile": {
-        "latePct": 36.4,
-        "adversePct": 45.5,
-        "mtfOpp2Pct": 9.1,
-        "transitionPct": 9.1,
-        "extendedPct": 9.1,
-        "failProgressPct": 63.6,
-        "avgEfficiency": 0.22891,
-        "avgMoveQuality": 4.93636,
-        "avgProgress": -0.18182
+        "latePct": 75.0,
+        "adversePct": 25.0,
+        "mtfOpp2Pct": 50.0,
+        "transitionPct": 12.5,
+        "extendedPct": 12.5,
+        "failProgressPct": 62.5,
+        "avgEfficiency": 0.19187,
+        "avgMoveQuality": 4.6375,
+        "avgProgress": -0.875
       }
     },
     {
       "track": "EURUSD-3M",
-      "B": 15,
+      "B": 16,
       "R": {
-        "W": 9,
-        "L": 10,
+        "W": 12,
+        "L": 7,
         "T": 1,
         "n": 20,
-        "wr": 47.4
+        "wr": 63.2
       },
       "low": {
-        "W": 2,
-        "L": 5,
-        "T": 0,
-        "n": 7,
-        "wr": 28.6
+        "W": 6,
+        "L": 1,
+        "T": 1,
+        "n": 8,
+        "wr": 85.7
       },
       "high": {
-        "W": 7,
-        "L": 5,
-        "T": 1,
-        "n": 13,
-        "wr": 58.3
+        "W": 6,
+        "L": 6,
+        "T": 0,
+        "n": 12,
+        "wr": 50.0
       },
       "cum": {
         "W": 84,
@@ -300,117 +300,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00021,
-          0.0002,
-          1e-05
+          0.00012,
+          0.00013,
+          -1e-05
         ],
         "rangeAtr": [
-          1.043,
-          0.8255,
-          0.2175
+          1.07233,
+          0.89171,
+          0.18062
         ],
         "bodyAtr": [
-          0.45444,
-          0.4059,
-          0.04854
+          0.45783,
+          0.37571,
+          0.08212
         ],
         "vwapDistanceAtr": [
-          3.94911,
-          3.6937,
-          0.25541
+          -2.255,
+          -2.14186,
+          -0.11314
         ],
         "vwapSlopeAtr": [
-          0.02178,
-          0.0222,
-          -0.00042
+          -0.01292,
+          -0.00971,
+          -0.00321
         ],
         "vsaScore": [
-          0.07778,
-          -0.07,
-          0.14778
+          -0.0875,
+          -0.11714,
+          0.02964
         ],
         "relativeVolume": [
-          0.77111,
-          0.8167,
-          -0.04559
+          0.883,
+          0.821,
+          0.062
         ],
         "advancedMomentumScore": [
-          0.02333,
-          -0.0317,
-          0.05503
+          -0.01108,
+          -0.05471,
+          0.04363
         ],
         "sequence": [
-          0.00067,
-          0.0471,
-          -0.04643
+          -0.0995,
+          -0.16343,
+          0.06393
         ],
         "efficiency": [
-          0.15989,
-          0.1155,
-          0.04439
+          0.26133,
+          0.32971,
+          -0.06838
         ],
         "emaCompression": [
-          9e-05,
-          7e-05,
-          2e-05
+          0.00013,
+          0.00013,
+          0.0
         ],
         "bbExpansion": [
-          -0.00324,
-          -0.02462,
-          0.02138
+          -0.06369,
+          -0.04643,
+          -0.01726
         ],
         "maBbConfirmation": [
-          0.26667,
-          0.104,
-          0.16267
+          -0.25,
+          -0.19429,
+          -0.05571
         ]
       },
       "lowProfile": {
-        "latePct": 71.4,
-        "adversePct": 71.4,
-        "mtfOpp2Pct": 14.3,
-        "transitionPct": 57.1,
-        "extendedPct": 28.6,
-        "failProgressPct": 71.4,
-        "avgEfficiency": 0.11957,
-        "avgMoveQuality": 3.71429,
-        "avgProgress": -0.57143
+        "latePct": 100.0,
+        "adversePct": 87.5,
+        "mtfOpp2Pct": 12.5,
+        "transitionPct": 75.0,
+        "extendedPct": 0.0,
+        "failProgressPct": 62.5,
+        "avgEfficiency": 0.20825,
+        "avgMoveQuality": 3.1375,
+        "avgProgress": -0.125
       },
       "highProfile": {
-        "latePct": 61.5,
-        "adversePct": 76.9,
-        "mtfOpp2Pct": 0.0,
+        "latePct": 50.0,
+        "adversePct": 41.7,
+        "mtfOpp2Pct": 8.3,
         "transitionPct": 0.0,
-        "extendedPct": 7.7,
-        "failProgressPct": 46.2,
-        "avgEfficiency": 0.15838,
-        "avgMoveQuality": 4.76923,
-        "avgProgress": 0.53846
+        "extendedPct": 8.3,
+        "failProgressPct": 33.3,
+        "avgEfficiency": 0.31792,
+        "avgMoveQuality": 4.56667,
+        "avgProgress": -0.58333
       }
     },
     {
       "track": "EURUSD-5M",
-      "B": 10,
+      "B": 11,
       "R": {
-        "W": 9,
-        "L": 11,
-        "T": 0,
+        "W": 12,
+        "L": 7,
+        "T": 1,
         "n": 20,
-        "wr": 45.0
+        "wr": 63.2
       },
       "low": {
         "W": 6,
-        "L": 8,
-        "T": 0,
-        "n": 14,
-        "wr": 42.9
+        "L": 2,
+        "T": 1,
+        "n": 9,
+        "wr": 75.0
       },
       "high": {
-        "W": 3,
-        "L": 3,
+        "W": 6,
+        "L": 5,
         "T": 0,
-        "n": 6,
-        "wr": 50.0
+        "n": 11,
+        "wr": 54.5
       },
       "cum": {
         "W": 61,
@@ -429,117 +429,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00031,
-          0.0003,
-          1e-05
+          0.00018,
+          0.00016,
+          2e-05
         ],
         "rangeAtr": [
-          0.784,
-          0.942,
-          -0.158
+          0.7535,
+          0.92486,
+          -0.17136
         ],
         "bodyAtr": [
-          0.37322,
-          0.46745,
-          -0.09423
+          0.29767,
+          0.49543,
+          -0.19776
         ],
         "vwapDistanceAtr": [
-          1.02144,
-          1.42873,
-          -0.40729
+          -0.7525,
+          -1.55114,
+          0.79864
         ],
         "vwapSlopeAtr": [
-          -0.00767,
-          -0.00736,
-          -0.00031
+          -0.02717,
+          -0.03386,
+          0.00669
         ],
         "vsaScore": [
-          0.06556,
-          -0.02091,
-          0.08647
+          -0.00917,
+          -0.05,
+          0.04083
         ],
         "relativeVolume": [
-          0.73356,
-          0.76809,
-          -0.03453
+          0.74742,
+          0.89214,
+          -0.14472
         ],
         "advancedMomentumScore": [
-          -0.03322,
-          -0.06891,
-          0.03569
+          -0.03525,
+          -0.04071,
+          0.00546
         ],
         "sequence": [
-          0.02322,
-          0.09136,
-          -0.06814
+          -0.08367,
+          -0.16157,
+          0.0779
         ],
         "efficiency": [
-          0.15056,
-          0.14373,
-          0.00683
+          0.312,
+          0.39843,
+          -0.08643
         ],
         "emaCompression": [
           0.00017,
-          0.00017,
-          0.0
+          0.00021,
+          -4e-05
         ],
         "bbExpansion": [
-          -0.03151,
-          -0.03296,
-          0.00145
+          -0.05195,
+          -0.04054,
+          -0.01141
         ],
         "maBbConfirmation": [
-          0.18889,
-          0.21818,
-          -0.02929
+          -0.17,
+          -0.29143,
+          0.12143
         ]
       },
       "lowProfile": {
-        "latePct": 85.7,
-        "adversePct": 71.4,
-        "mtfOpp2Pct": 28.6,
-        "transitionPct": 42.9,
-        "extendedPct": 14.3,
-        "failProgressPct": 78.6,
-        "avgEfficiency": 0.12586,
-        "avgMoveQuality": 4.30714,
-        "avgProgress": 0.64286
+        "latePct": 100.0,
+        "adversePct": 66.7,
+        "mtfOpp2Pct": 44.4,
+        "transitionPct": 44.4,
+        "extendedPct": 11.1,
+        "failProgressPct": 66.7,
+        "avgEfficiency": 0.29267,
+        "avgMoveQuality": 4.17778,
+        "avgProgress": -0.22222
       },
       "highProfile": {
-        "latePct": 33.3,
-        "adversePct": 50.0,
-        "mtfOpp2Pct": 0.0,
-        "transitionPct": 0.0,
-        "extendedPct": 16.7,
-        "failProgressPct": 50.0,
-        "avgEfficiency": 0.19567,
-        "avgMoveQuality": 5.28333,
-        "avgProgress": 0.0
+        "latePct": 63.6,
+        "adversePct": 63.6,
+        "mtfOpp2Pct": 18.2,
+        "transitionPct": 27.3,
+        "extendedPct": 27.3,
+        "failProgressPct": 45.5,
+        "avgEfficiency": 0.40382,
+        "avgMoveQuality": 4.93636,
+        "avgProgress": -0.90909
       }
     },
     {
       "track": "GBPUSD-1M",
-      "B": 18,
+      "B": 19,
       "R": {
-        "W": 13,
-        "L": 6,
+        "W": 8,
+        "L": 11,
         "T": 1,
         "n": 20,
-        "wr": 68.4
+        "wr": 42.1
       },
       "low": {
-        "W": 7,
-        "L": 3,
+        "W": 2,
+        "L": 4,
         "T": 1,
-        "n": 11,
-        "wr": 70.0
+        "n": 7,
+        "wr": 33.3
       },
       "high": {
         "W": 6,
-        "L": 3,
+        "L": 7,
         "T": 0,
-        "n": 9,
-        "wr": 66.7
+        "n": 13,
+        "wr": 46.2
       },
       "cum": {
         "W": 110,
@@ -558,117 +558,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00013,
-          0.00013,
-          0.0
+          9e-05,
+          8e-05,
+          1e-05
         ],
         "rangeAtr": [
-          0.98246,
-          0.94767,
-          0.03479
+          1.35925,
+          1.04764,
+          0.31161
         ],
         "bodyAtr": [
-          0.31985,
-          0.3545,
-          -0.03465
+          0.71337,
+          0.54382,
+          0.16955
         ],
         "vwapDistanceAtr": [
-          2.48423,
-          2.6685,
-          -0.18427
+          -2.51162,
+          -2.06536,
+          -0.44626
         ],
         "vwapSlopeAtr": [
-          0.01431,
-          0.01933,
-          -0.00502
+          0.01675,
+          -0.00918,
+          0.02593
         ],
         "vsaScore": [
-          -0.01769,
-          -0.11667,
-          0.09898
+          -0.12,
+          0.09818,
+          -0.21818
         ],
         "relativeVolume": [
-          0.97146,
-          0.91517,
-          0.05629
+          1.32812,
+          1.07609,
+          0.25203
         ],
         "advancedMomentumScore": [
-          -0.00062,
-          0.004,
-          -0.00462
+          0.03475,
+          0.046,
+          -0.01125
         ],
         "sequence": [
-          0.11962,
-          0.2065,
-          -0.08688
+          -0.32512,
+          -0.17091,
+          -0.15421
         ],
         "efficiency": [
-          0.12285,
-          0.176,
-          -0.05315
+          0.32787,
+          0.24464,
+          0.08323
         ],
         "emaCompression": [
+          6e-05,
           4e-05,
-          5e-05,
-          -1e-05
+          2e-05
         ],
         "bbExpansion": [
-          -0.01327,
-          0.04708,
-          -0.06035
+          0.13015,
+          0.02257,
+          0.10758
         ],
         "maBbConfirmation": [
-          0.19385,
-          0.24667,
-          -0.05282
+          -0.4525,
+          -0.26,
+          -0.1925
         ]
       },
       "lowProfile": {
-        "latePct": 90.9,
-        "adversePct": 81.8,
-        "mtfOpp2Pct": 36.4,
-        "transitionPct": 63.6,
-        "extendedPct": 9.1,
-        "failProgressPct": 81.8,
-        "avgEfficiency": 0.12536,
-        "avgMoveQuality": 4.03636,
-        "avgProgress": -0.63636
+        "latePct": 100.0,
+        "adversePct": 85.7,
+        "mtfOpp2Pct": 57.1,
+        "transitionPct": 42.9,
+        "extendedPct": 14.3,
+        "failProgressPct": 28.6,
+        "avgEfficiency": 0.23886,
+        "avgMoveQuality": 4.21429,
+        "avgProgress": -0.14286
       },
       "highProfile": {
-        "latePct": 22.2,
-        "adversePct": 33.3,
-        "mtfOpp2Pct": 11.1,
-        "transitionPct": 11.1,
-        "extendedPct": 0.0,
-        "failProgressPct": 55.6,
-        "avgEfficiency": 0.14311,
-        "avgMoveQuality": 4.55556,
-        "avgProgress": -0.11111
+        "latePct": 23.1,
+        "adversePct": 46.2,
+        "mtfOpp2Pct": 7.7,
+        "transitionPct": 0.0,
+        "extendedPct": 30.8,
+        "failProgressPct": 7.7,
+        "avgEfficiency": 0.29508,
+        "avgMoveQuality": 5.79231,
+        "avgProgress": -2.46154
       }
     },
     {
       "track": "GBPUSD-2M",
-      "B": 16,
+      "B": 17,
       "R": {
-        "W": 10,
-        "L": 10,
-        "T": 0,
+        "W": 4,
+        "L": 15,
+        "T": 1,
         "n": 20,
-        "wr": 50.0
+        "wr": 21.1
       },
       "low": {
-        "W": 5,
-        "L": 4,
-        "T": 0,
-        "n": 9,
-        "wr": 55.6
+        "W": 3,
+        "L": 11,
+        "T": 1,
+        "n": 15,
+        "wr": 21.4
       },
       "high": {
-        "W": 5,
-        "L": 6,
+        "W": 1,
+        "L": 4,
         "T": 0,
-        "n": 11,
-        "wr": 45.5
+        "n": 5,
+        "wr": 20.0
       },
       "cum": {
         "W": 95,
@@ -687,117 +687,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00021,
-          0.0002,
+          0.00014,
+          0.00013,
           1e-05
         ],
         "rangeAtr": [
-          0.976,
-          0.9274,
-          0.0486
+          0.828,
+          0.9448,
+          -0.1168
         ],
         "bodyAtr": [
-          0.4322,
-          0.5569,
-          -0.1247
+          0.21075,
+          0.4512,
+          -0.24045
         ],
         "vwapDistanceAtr": [
-          3.5357,
-          3.9263,
-          -0.3906
+          1.771,
+          0.7082,
+          1.0628
         ],
         "vwapSlopeAtr": [
-          -0.0035,
-          0.034,
-          -0.0375
+          0.11175,
+          0.09967,
+          0.01208
         ],
         "vsaScore": [
-          0.117,
-          -0.024,
-          0.141
+          0.0275,
+          0.028,
+          -0.0005
         ],
         "relativeVolume": [
-          0.8782,
-          0.842,
-          0.0362
+          0.76175,
+          0.97987,
+          -0.21812
         ],
         "advancedMomentumScore": [
-          0.0368,
-          0.0266,
-          0.0102
+          0.07325,
+          0.04973,
+          0.02352
         ],
         "sequence": [
-          -0.0234,
-          0.0253,
-          -0.0487
+          -0.089,
+          -0.07127,
+          -0.01773
         ],
         "efficiency": [
-          0.2294,
-          0.2166,
-          0.0128
+          0.0915,
+          0.16647,
+          -0.07497
         ],
         "emaCompression": [
-          0.00013,
-          0.0001,
-          3e-05
+          3e-05,
+          4e-05,
+          -1e-05
         ],
         "bbExpansion": [
-          0.00079,
-          0.00452,
-          -0.00373
+          -0.0759,
+          -0.02531,
+          -0.05059
         ],
         "maBbConfirmation": [
-          0.1,
-          0.074,
-          0.026
+          -0.215,
+          -0.22267,
+          0.00767
         ]
       },
       "lowProfile": {
-        "latePct": 88.9,
-        "adversePct": 77.8,
-        "mtfOpp2Pct": 22.2,
-        "transitionPct": 44.4,
-        "extendedPct": 11.1,
-        "failProgressPct": 55.6,
-        "avgEfficiency": 0.17189,
-        "avgMoveQuality": 4.17778,
-        "avgProgress": 0.77778
+        "latePct": 100.0,
+        "adversePct": 73.3,
+        "mtfOpp2Pct": 40.0,
+        "transitionPct": 46.7,
+        "extendedPct": 6.7,
+        "failProgressPct": 80.0,
+        "avgEfficiency": 0.13907,
+        "avgMoveQuality": 4.17333,
+        "avgProgress": 0.2
       },
       "highProfile": {
-        "latePct": 63.6,
-        "adversePct": 63.6,
-        "mtfOpp2Pct": 9.1,
-        "transitionPct": 9.1,
-        "extendedPct": 18.2,
-        "failProgressPct": 36.4,
-        "avgEfficiency": 0.26482,
-        "avgMoveQuality": 5.43636,
-        "avgProgress": 0.63636
+        "latePct": 100.0,
+        "adversePct": 60.0,
+        "mtfOpp2Pct": 60.0,
+        "transitionPct": 0.0,
+        "extendedPct": 20.0,
+        "failProgressPct": 20.0,
+        "avgEfficiency": 0.1872,
+        "avgMoveQuality": 5.16,
+        "avgProgress": -3.6
       }
     },
     {
       "track": "GBPUSD-3M",
-      "B": 14,
+      "B": 15,
       "R": {
-        "W": 12,
-        "L": 8,
+        "W": 10,
+        "L": 10,
         "T": 0,
         "n": 20,
-        "wr": 60.0
+        "wr": 50.0
       },
       "low": {
         "W": 8,
-        "L": 5,
+        "L": 7,
         "T": 0,
-        "n": 13,
-        "wr": 61.5
+        "n": 15,
+        "wr": 53.3
       },
       "high": {
-        "W": 4,
+        "W": 2,
         "L": 3,
         "T": 0,
-        "n": 7,
-        "wr": 57.1
+        "n": 5,
+        "wr": 40.0
       },
       "cum": {
         "W": 78,
@@ -816,123 +816,123 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00025,
-          0.00023,
-          2e-05
+          0.00015,
+          0.00016,
+          -1e-05
         ],
         "rangeAtr": [
-          0.89817,
-          0.85075,
-          0.04742
+          1.0467,
+          0.8293,
+          0.2174
         ],
         "bodyAtr": [
-          0.39217,
-          0.41537,
-          -0.0232
+          0.2777,
+          0.3599,
+          -0.0822
         ],
         "vwapDistanceAtr": [
-          2.48175,
-          2.6275,
-          -0.14575
+          0.1272,
+          0.4909,
+          -0.3637
         ],
         "vwapSlopeAtr": [
-          0.01717,
-          0.0135,
-          0.00367
+          0.0002,
+          0.0017,
+          -0.0015
         ],
         "vsaScore": [
-          -0.07833,
-          -0.04375,
-          -0.03458
+          -0.035,
+          -0.012,
+          -0.023
         ],
         "relativeVolume": [
-          0.86042,
-          0.72162,
-          0.1388
+          0.9323,
+          0.7895,
+          0.1428
         ],
         "advancedMomentumScore": [
-          -0.067,
-          -0.0955,
-          0.0285
+          0.0282,
+          -0.0576,
+          0.0858
         ],
         "sequence": [
-          0.0205,
-          -0.00688,
-          0.02738
+          -0.0259,
+          -0.1162,
+          0.0903
         ],
         "efficiency": [
-          0.14842,
-          0.14663,
-          0.00179
+          0.1746,
+          0.1778,
+          -0.0032
         ],
         "emaCompression": [
-          0.00013,
-          9e-05,
-          4e-05
+          7e-05,
+          7e-05,
+          0.0
         ],
         "bbExpansion": [
-          -0.05386,
-          0.01889,
-          -0.07275
+          -0.01602,
+          -0.08694,
+          0.07092
         ],
         "maBbConfirmation": [
-          0.18333,
-          0.205,
-          -0.02167
+          -0.24,
+          -0.186,
+          -0.054
         ]
       },
       "lowProfile": {
-        "latePct": 92.3,
-        "adversePct": 92.3,
-        "mtfOpp2Pct": 7.7,
-        "transitionPct": 30.8,
+        "latePct": 93.3,
+        "adversePct": 80.0,
+        "mtfOpp2Pct": 26.7,
+        "transitionPct": 53.3,
         "extendedPct": 0.0,
-        "failProgressPct": 38.5,
-        "avgEfficiency": 0.111,
-        "avgMoveQuality": 4.07692,
-        "avgProgress": -1.23077
+        "failProgressPct": 46.7,
+        "avgEfficiency": 0.16613,
+        "avgMoveQuality": 3.62,
+        "avgProgress": 0.33333
       },
       "highProfile": {
-        "latePct": 42.9,
-        "adversePct": 71.4,
+        "latePct": 60.0,
+        "adversePct": 80.0,
         "mtfOpp2Pct": 0.0,
         "transitionPct": 0.0,
-        "extendedPct": 14.3,
-        "failProgressPct": 42.9,
-        "avgEfficiency": 0.21586,
-        "avgMoveQuality": 4.78571,
-        "avgProgress": 0.85714
+        "extendedPct": 0.0,
+        "failProgressPct": 20.0,
+        "avgEfficiency": 0.2064,
+        "avgMoveQuality": 5.2,
+        "avgProgress": -1.4
       }
     },
     {
-      "track": "GBPUSD-15M",
-      "B": 3,
+      "track": "GBPUSD-5M",
+      "B": 10,
       "R": {
-        "W": 11,
+        "W": 10,
         "L": 9,
-        "T": 0,
+        "T": 1,
         "n": 20,
-        "wr": 55.0
+        "wr": 52.6
       },
       "low": {
-        "W": 3,
-        "L": 1,
+        "W": 6,
+        "L": 2,
         "T": 0,
-        "n": 4,
+        "n": 8,
         "wr": 75.0
       },
       "high": {
-        "W": 8,
-        "L": 8,
-        "T": 0,
-        "n": 16,
-        "wr": 50.0
+        "W": 4,
+        "L": 7,
+        "T": 1,
+        "n": 12,
+        "wr": 36.4
       },
       "cum": {
-        "W": 23,
-        "L": 20,
-        "T": 1,
-        "accuracy": 53.5
+        "W": 57,
+        "L": 63,
+        "T": 5,
+        "accuracy": 47.5
       },
       "streaks": null,
       "direction": null,
@@ -945,110 +945,110 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00062,
-          0.00057,
-          5e-05
+          0.00027,
+          0.00029,
+          -2e-05
         ],
         "rangeAtr": [
-          1.42218,
-          0.96244,
-          0.45974
+          0.8324,
+          0.84511,
+          -0.01271
         ],
         "bodyAtr": [
-          0.79173,
-          0.46567,
-          0.32606
+          0.456,
+          0.38611,
+          0.06989
         ],
         "vwapDistanceAtr": [
-          2.04464,
-          2.45844,
-          -0.4138
+          -0.6136,
+          -0.37767,
+          -0.23593
         ],
         "vwapSlopeAtr": [
-          0.04355,
-          0.041,
-          0.00255
+          -0.0419,
+          -0.03456,
+          -0.00734
         ],
         "vsaScore": [
-          -0.12091,
-          0.05556,
-          -0.17647
+          0.058,
+          0.01333,
+          0.04467
         ],
         "relativeVolume": [
-          1.59645,
-          1.46556,
-          0.13089
+          0.7714,
+          0.73244,
+          0.03896
         ],
         "advancedMomentumScore": [
-          0.03982,
-          0.00656,
-          0.03326
+          -0.0822,
+          -0.06689,
+          -0.01531
         ],
         "sequence": [
-          0.13109,
-          0.06133,
-          0.06976
+          -0.0314,
+          -0.06889,
+          0.03749
         ],
         "efficiency": [
-          0.21609,
-          0.21633,
-          -0.00024
+          0.1772,
+          0.18956,
+          -0.01236
         ],
         "emaCompression": [
-          0.00023,
-          0.00026,
-          -3e-05
+          0.00012,
+          0.00013,
+          -1e-05
         ],
         "bbExpansion": [
-          0.0594,
-          0.02176,
-          0.03764
+          -0.05079,
+          -0.05023,
+          -0.00056
         ],
         "maBbConfirmation": [
-          -0.03364,
-          -0.06667,
-          0.03303
+          -0.102,
+          0.05333,
+          -0.15533
         ]
       },
       "lowProfile": {
         "latePct": 100.0,
-        "adversePct": 100.0,
-        "mtfOpp2Pct": 25.0,
-        "transitionPct": 75.0,
+        "adversePct": 87.5,
+        "mtfOpp2Pct": 12.5,
+        "transitionPct": 12.5,
         "extendedPct": 0.0,
-        "failProgressPct": 100.0,
-        "avgEfficiency": 0.20575,
-        "avgMoveQuality": 3.575,
-        "avgProgress": 1.25
+        "failProgressPct": 62.5,
+        "avgEfficiency": 0.175,
+        "avgMoveQuality": 4.375,
+        "avgProgress": -0.75
       },
       "highProfile": {
-        "latePct": 37.5,
-        "adversePct": 37.5,
+        "latePct": 25.0,
+        "adversePct": 58.3,
         "mtfOpp2Pct": 0.0,
-        "transitionPct": 37.5,
-        "extendedPct": 12.5,
-        "failProgressPct": 50.0,
-        "avgEfficiency": 0.21881,
-        "avgMoveQuality": 5.16875,
-        "avgProgress": 0.25
+        "transitionPct": 16.7,
+        "extendedPct": 0.0,
+        "failProgressPct": 33.3,
+        "avgEfficiency": 0.20925,
+        "avgMoveQuality": 5.10833,
+        "avgProgress": -1.0
       }
     },
     {
       "track": "EURJPY-1M",
-      "B": 18,
+      "B": 19,
       "R": {
         "W": 8,
-        "L": 12,
-        "T": 0,
+        "L": 11,
+        "T": 1,
         "n": 20,
-        "wr": 40.0
+        "wr": 42.1
       },
       "low": {
         "W": 3,
-        "L": 3,
-        "T": 0,
+        "L": 2,
+        "T": 1,
         "n": 6,
-        "wr": 50.0
+        "wr": 60.0
       },
       "high": {
         "W": 5,
@@ -1074,117 +1074,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00014,
-          0.00014,
-          0.0
+          0.00012,
+          0.00011,
+          1e-05
         ],
         "rangeAtr": [
-          0.8405,
-          1.15375,
-          -0.31325
+          1.18813,
+          1.208,
+          -0.01987
         ],
         "bodyAtr": [
-          0.504,
-          0.8285,
-          -0.3245
+          0.918,
+          0.65264,
+          0.26536
         ],
         "vwapDistanceAtr": [
-          4.25675,
-          4.47242,
-          -0.21567
+          1.91175,
+          1.75773,
+          0.15402
         ],
         "vwapSlopeAtr": [
-          0.13762,
-          0.12842,
-          0.0092
+          0.00363,
+          -0.00091,
+          0.00454
         ],
         "vsaScore": [
-          0.02875,
-          0.03917,
-          -0.01042
+          0.12,
+          -0.14,
+          0.26
         ],
         "relativeVolume": [
-          0.83225,
-          0.92425,
-          -0.092
+          1.14825,
+          1.079,
+          0.06925
         ],
         "advancedMomentumScore": [
-          0.01163,
-          0.09283,
-          -0.0812
+          0.0885,
+          0.10573,
+          -0.01723
         ],
         "sequence": [
-          0.01212,
-          0.09567,
-          -0.08355
+          0.04013,
+          0.10327,
+          -0.06314
         ],
         "efficiency": [
-          0.1825,
-          0.177,
-          0.0055
+          0.2175,
+          0.253,
+          -0.0355
         ],
         "emaCompression": [
-          9e-05,
-          9e-05,
+          6e-05,
+          6e-05,
           0.0
         ],
         "bbExpansion": [
-          -0.03915,
-          -0.02569,
-          -0.01346
+          0.02081,
+          0.06635,
+          -0.04554
         ],
         "maBbConfirmation": [
-          0.1275,
-          0.20167,
-          -0.07417
+          0.1925,
+          0.21909,
+          -0.02659
         ]
       },
       "lowProfile": {
-        "latePct": 83.3,
-        "adversePct": 100.0,
-        "mtfOpp2Pct": 33.3,
-        "transitionPct": 33.3,
+        "latePct": 66.7,
+        "adversePct": 66.7,
+        "mtfOpp2Pct": 50.0,
+        "transitionPct": 83.3,
         "extendedPct": 0.0,
-        "failProgressPct": 33.3,
-        "avgEfficiency": 0.19667,
-        "avgMoveQuality": 4.63333,
-        "avgProgress": -0.66667
+        "failProgressPct": 83.3,
+        "avgEfficiency": 0.212,
+        "avgMoveQuality": 3.96667,
+        "avgProgress": 0.16667
       },
       "highProfile": {
-        "latePct": 57.1,
-        "adversePct": 57.1,
-        "mtfOpp2Pct": 0.0,
+        "latePct": 42.9,
+        "adversePct": 35.7,
+        "mtfOpp2Pct": 42.9,
         "transitionPct": 7.1,
-        "extendedPct": 21.4,
-        "failProgressPct": 50.0,
-        "avgEfficiency": 0.17171,
-        "avgMoveQuality": 5.55,
-        "avgProgress": 1.92857
+        "extendedPct": 28.6,
+        "failProgressPct": 28.6,
+        "avgEfficiency": 0.2375,
+        "avgMoveQuality": 5.85,
+        "avgProgress": 1.14286
       }
     },
     {
       "track": "EURJPY-2M",
-      "B": 16,
+      "B": 17,
       "R": {
-        "W": 8,
-        "L": 12,
+        "W": 6,
+        "L": 14,
         "T": 0,
         "n": 20,
-        "wr": 40.0
+        "wr": 30.0
       },
       "low": {
-        "W": 5,
-        "L": 6,
+        "W": 4,
+        "L": 8,
         "T": 0,
-        "n": 11,
-        "wr": 45.5
+        "n": 12,
+        "wr": 33.3
       },
       "high": {
-        "W": 3,
+        "W": 2,
         "L": 6,
         "T": 0,
-        "n": 9,
-        "wr": 33.3
+        "n": 8,
+        "wr": 25.0
       },
       "cum": {
         "W": 107,
@@ -1203,117 +1203,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00024,
-          0.00024,
+          0.00015,
+          0.00015,
           0.0
         ],
         "rangeAtr": [
-          0.98775,
-          0.74825,
-          0.2395
+          0.85267,
+          1.24979,
+          -0.39712
         ],
         "bodyAtr": [
-          0.51975,
-          0.26508,
-          0.25467
+          0.30833,
+          0.79564,
+          -0.48731
         ],
         "vwapDistanceAtr": [
-          6.07788,
-          5.75925,
-          0.31863
+          10.98883,
+          6.03064,
+          4.95819
         ],
         "vwapSlopeAtr": [
-          -0.01537,
-          -0.04867,
-          0.0333
+          0.15683,
+          0.13629,
+          0.02054
         ],
         "vsaScore": [
-          -0.02875,
-          0.04917,
-          -0.07792
+          0.04,
+          0.06643,
+          -0.02643
         ],
         "relativeVolume": [
-          0.82475,
-          0.80125,
-          0.0235
+          0.88617,
+          0.97036,
+          -0.08419
         ],
         "advancedMomentumScore": [
-          0.0305,
-          -0.07025,
-          0.10075
+          -0.14633,
+          -0.01336,
+          -0.13297
         ],
         "sequence": [
-          0.075,
-          0.09817,
-          -0.02317
+          -0.0265,
+          -0.03621,
+          0.00971
         ],
         "efficiency": [
-          0.2415,
-          0.26767,
-          -0.02617
+          0.17633,
+          0.17236,
+          0.00397
         ],
         "emaCompression": [
-          0.00012,
-          0.00011,
-          1e-05
+          3e-05,
+          3e-05,
+          0.0
         ],
         "bbExpansion": [
-          0.00768,
-          -0.04503,
-          0.05271
+          -0.03602,
+          0.01375,
+          -0.04977
         ],
         "maBbConfirmation": [
-          0.26,
-          0.27833,
-          -0.01833
+          0.13,
+          -0.08643,
+          0.21643
         ]
       },
       "lowProfile": {
         "latePct": 100.0,
-        "adversePct": 100.0,
-        "mtfOpp2Pct": 9.1,
-        "transitionPct": 63.6,
-        "extendedPct": 27.3,
-        "failProgressPct": 72.7,
-        "avgEfficiency": 0.25145,
-        "avgMoveQuality": 4.07273,
-        "avgProgress": -0.54545
+        "adversePct": 66.7,
+        "mtfOpp2Pct": 58.3,
+        "transitionPct": 66.7,
+        "extendedPct": 0.0,
+        "failProgressPct": 58.3,
+        "avgEfficiency": 0.17117,
+        "avgMoveQuality": 4.21667,
+        "avgProgress": 0.08333
       },
       "highProfile": {
-        "latePct": 88.9,
-        "adversePct": 100.0,
-        "mtfOpp2Pct": 33.3,
-        "transitionPct": 22.2,
-        "extendedPct": 11.1,
-        "failProgressPct": 33.3,
-        "avgEfficiency": 0.26422,
-        "avgMoveQuality": 5.13333,
-        "avgProgress": 1.66667
+        "latePct": 62.5,
+        "adversePct": 87.5,
+        "mtfOpp2Pct": 62.5,
+        "transitionPct": 0.0,
+        "extendedPct": 12.5,
+        "failProgressPct": 25.0,
+        "avgEfficiency": 0.17713,
+        "avgMoveQuality": 5.4,
+        "avgProgress": 0.125
       }
     },
     {
       "track": "EURJPY-3M",
-      "B": 14,
+      "B": 15,
       "R": {
         "W": 9,
-        "L": 11,
-        "T": 0,
+        "L": 10,
+        "T": 1,
         "n": 20,
-        "wr": 45.0
+        "wr": 47.4
       },
       "low": {
-        "W": 4,
-        "L": 8,
-        "T": 0,
-        "n": 12,
-        "wr": 33.3
+        "W": 8,
+        "L": 7,
+        "T": 1,
+        "n": 16,
+        "wr": 53.3
       },
       "high": {
-        "W": 5,
+        "W": 1,
         "L": 3,
         "T": 0,
-        "n": 8,
-        "wr": 62.5
+        "n": 4,
+        "wr": 25.0
       },
       "cum": {
         "W": 93,
@@ -1332,123 +1332,123 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00031,
-          0.00034,
-          -3e-05
+          0.00019,
+          0.00021,
+          -2e-05
         ],
         "rangeAtr": [
-          0.74056,
-          0.85573,
-          -0.11517
+          0.83278,
+          0.9513,
+          -0.11852
         ],
         "bodyAtr": [
-          0.354,
-          0.38673,
-          -0.03273
+          0.26222,
+          0.425,
+          -0.16278
         ],
         "vwapDistanceAtr": [
-          3.77656,
-          2.92782,
-          0.84874
+          5.51844,
+          5.1986,
+          0.31984
         ],
         "vwapSlopeAtr": [
-          0.02044,
-          0.01736,
-          0.00308
+          0.02378,
+          0.026,
+          -0.00222
         ],
         "vsaScore": [
           0.09111,
-          -0.03182,
-          0.12293
+          -0.048,
+          0.13911
         ],
         "relativeVolume": [
-          0.79989,
-          0.79273,
-          0.00716
+          0.80556,
+          0.9135,
+          -0.10794
         ],
         "advancedMomentumScore": [
-          -0.02367,
-          -0.098,
-          0.07433
+          -0.06456,
+          -0.0582,
+          -0.00636
         ],
         "sequence": [
-          0.12044,
-          0.08064,
-          0.0398
+          0.06989,
+          -0.0314,
+          0.10129
         ],
         "efficiency": [
-          0.09622,
-          0.18164,
-          -0.08542
+          0.12322,
+          0.1042,
+          0.01902
         ],
         "emaCompression": [
-          0.00018,
-          0.0002,
-          -2e-05
+          7e-05,
+          7e-05,
+          0.0
         ],
         "bbExpansion": [
-          -0.04889,
-          -0.02022,
-          -0.02867
+          -0.08563,
+          0.01931,
+          -0.10494
         ],
         "maBbConfirmation": [
-          0.36,
-          0.22364,
-          0.13636
+          0.09556,
+          0.102,
+          -0.00644
         ]
       },
       "lowProfile": {
-        "latePct": 100.0,
-        "adversePct": 91.7,
-        "mtfOpp2Pct": 16.7,
-        "transitionPct": 41.7,
-        "extendedPct": 8.3,
-        "failProgressPct": 83.3,
-        "avgEfficiency": 0.13842,
-        "avgMoveQuality": 3.99167,
-        "avgProgress": -0.08333
+        "latePct": 93.8,
+        "adversePct": 62.5,
+        "mtfOpp2Pct": 37.5,
+        "transitionPct": 56.2,
+        "extendedPct": 6.2,
+        "failProgressPct": 50.0,
+        "avgEfficiency": 0.10787,
+        "avgMoveQuality": 2.79375,
+        "avgProgress": 0.5
       },
       "highProfile": {
-        "latePct": 62.5,
-        "adversePct": 87.5,
-        "mtfOpp2Pct": 12.5,
+        "latePct": 100.0,
+        "adversePct": 100.0,
+        "mtfOpp2Pct": 50.0,
         "transitionPct": 0.0,
-        "extendedPct": 0.0,
-        "failProgressPct": 25.0,
-        "avgEfficiency": 0.15038,
-        "avgMoveQuality": 4.875,
-        "avgProgress": 1.875
+        "extendedPct": 25.0,
+        "failProgressPct": 0.0,
+        "avgEfficiency": 0.1335,
+        "avgMoveQuality": 4.775,
+        "avgProgress": -0.5
       }
     },
     {
-      "track": "EURJPY-15M",
-      "B": 3,
+      "track": "EURJPY-5M",
+      "B": 10,
       "R": {
-        "W": 10,
-        "L": 9,
-        "T": 1,
-        "n": 20,
-        "wr": 52.6
-      },
-      "low": {
-        "W": 1,
-        "L": 1,
-        "T": 0,
-        "n": 2,
-        "wr": 50.0
-      },
-      "high": {
         "W": 9,
-        "L": 8,
-        "T": 1,
-        "n": 18,
-        "wr": 52.9
-      },
-      "cum": {
-        "W": 33,
         "L": 11,
         "T": 0,
-        "accuracy": 75.0
+        "n": 20,
+        "wr": 45.0
+      },
+      "low": {
+        "W": 7,
+        "L": 8,
+        "T": 0,
+        "n": 15,
+        "wr": 46.7
+      },
+      "high": {
+        "W": 2,
+        "L": 3,
+        "T": 0,
+        "n": 5,
+        "wr": 40.0
+      },
+      "cum": {
+        "W": 68,
+        "L": 59,
+        "T": 1,
+        "accuracy": 53.5
       },
       "streaks": null,
       "direction": null,
@@ -1461,117 +1461,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00106,
-          0.00132,
-          -0.00026
+          0.00035,
+          0.00037,
+          -2e-05
         ],
         "rangeAtr": [
-          1.4212,
-          0.96189,
-          0.45931
+          0.68533,
+          0.69682,
+          -0.01149
         ],
         "bodyAtr": [
-          0.8022,
-          0.25889,
-          0.54331
+          0.239,
+          0.16127,
+          0.07773
         ],
         "vwapDistanceAtr": [
-          -0.8828,
-          -0.12522,
-          -0.75758
+          0.04278,
+          0.06982,
+          -0.02704
         ],
         "vwapSlopeAtr": [
-          -0.08,
-          -0.03211,
-          -0.04789
+          -0.04178,
+          -0.04309,
+          0.00131
         ],
         "vsaScore": [
-          0.09,
-          -0.09556,
-          0.18556
+          0.10444,
+          0.09545,
+          0.00899
         ],
         "relativeVolume": [
-          1.7152,
-          1.29667,
-          0.41853
+          0.74489,
+          0.69564,
+          0.04925
         ],
         "advancedMomentumScore": [
-          -0.0819,
-          0.13867,
-          -0.22057
+          -0.03878,
+          -0.03127,
+          -0.00751
         ],
         "sequence": [
-          -0.0148,
-          0.24378,
-          -0.25858
+          -0.04722,
+          0.00773,
+          -0.05495
         ],
         "efficiency": [
-          0.2453,
-          0.29644,
-          -0.05114
+          0.18056,
+          0.19682,
+          -0.01626
         ],
         "emaCompression": [
-          0.00057,
-          0.00068,
-          -0.00011
+          0.00023,
+          0.00026,
+          -3e-05
         ],
         "bbExpansion": [
-          0.12156,
-          0.03609,
-          0.08547
+          -0.06733,
+          -0.04843,
+          -0.0189
         ],
         "maBbConfirmation": [
-          0.026,
-          0.02,
-          0.006
+          0.11333,
+          0.15455,
+          -0.04122
         ]
       },
       "lowProfile": {
-        "latePct": 50.0,
-        "adversePct": 50.0,
+        "latePct": 86.7,
+        "adversePct": 86.7,
         "mtfOpp2Pct": 0.0,
-        "transitionPct": 50.0,
-        "extendedPct": 50.0,
-        "failProgressPct": 100.0,
-        "avgEfficiency": 0.099,
-        "avgMoveQuality": 3.6,
-        "avgProgress": 1.0
+        "transitionPct": 53.3,
+        "extendedPct": 6.7,
+        "failProgressPct": 73.3,
+        "avgEfficiency": 0.15693,
+        "avgMoveQuality": 3.41333,
+        "avgProgress": -0.2
       },
       "highProfile": {
-        "latePct": 44.4,
-        "adversePct": 44.4,
+        "latePct": 100.0,
+        "adversePct": 100.0,
         "mtfOpp2Pct": 0.0,
-        "transitionPct": 27.8,
-        "extendedPct": 33.3,
-        "failProgressPct": 38.9,
-        "avgEfficiency": 0.28322,
-        "avgMoveQuality": 4.80556,
-        "avgProgress": 0.05556
+        "transitionPct": 40.0,
+        "extendedPct": 0.0,
+        "failProgressPct": 20.0,
+        "avgEfficiency": 0.2872,
+        "avgMoveQuality": 3.62,
+        "avgProgress": 3.0
       }
     },
     {
       "track": "USDJPY-1M",
-      "B": 18,
+      "B": 19,
       "R": {
-        "W": 7,
-        "L": 12,
+        "W": 11,
+        "L": 8,
         "T": 1,
         "n": 20,
-        "wr": 36.8
+        "wr": 57.9
       },
       "low": {
         "W": 4,
-        "L": 6,
-        "T": 0,
-        "n": 10,
-        "wr": 40.0
+        "L": 2,
+        "T": 1,
+        "n": 7,
+        "wr": 66.7
       },
       "high": {
-        "W": 3,
+        "W": 7,
         "L": 6,
-        "T": 1,
-        "n": 10,
-        "wr": 33.3
+        "T": 0,
+        "n": 13,
+        "wr": 53.8
       },
       "cum": {
         "W": 115,
@@ -1590,117 +1590,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00018,
-          0.00019,
-          -1e-05
+          0.00015,
+          0.00015,
+          0.0
         ],
         "rangeAtr": [
-          0.84286,
-          1.02475,
-          -0.18189
+          1.12991,
+          1.52625,
+          -0.39634
         ],
         "bodyAtr": [
-          0.49243,
-          0.55825,
-          -0.06582
+          0.66355,
+          1.14325,
+          -0.4797
         ],
         "vwapDistanceAtr": [
-          1.82986,
-          1.83958,
-          -0.00972
+          2.24118,
+          2.64863,
+          -0.40745
         ],
         "vwapSlopeAtr": [
-          0.08114,
-          0.09475,
-          -0.01361
+          -0.00709,
+          0.00963,
+          -0.01672
         ],
         "vsaScore": [
-          -0.01714,
-          -0.01,
-          -0.00714
+          0.04273,
+          0.04375,
+          -0.00102
         ],
         "relativeVolume": [
-          0.83871,
-          0.91208,
-          -0.07337
+          1.196,
+          1.16625,
+          0.02975
         ],
         "advancedMomentumScore": [
-          0.03529,
-          0.01125,
-          0.02404
+          0.08782,
+          0.02838,
+          0.05944
         ],
         "sequence": [
-          0.144,
-          0.07992,
-          0.06408
+          0.16309,
+          0.2245,
+          -0.06141
         ],
         "efficiency": [
-          0.16486,
-          0.15558,
-          0.00928
+          0.22309,
+          0.30113,
+          -0.07804
         ],
         "emaCompression": [
-          9e-05,
           8e-05,
-          1e-05
+          0.00012,
+          -4e-05
         ],
         "bbExpansion": [
-          -0.05391,
-          -0.01936,
-          -0.03455
+          0.06838,
+          0.19319,
+          -0.12481
         ],
         "maBbConfirmation": [
-          0.14571,
-          0.07,
-          0.07571
+          0.27818,
+          0.30625,
+          -0.02807
         ]
       },
       "lowProfile": {
         "latePct": 100.0,
-        "adversePct": 100.0,
-        "mtfOpp2Pct": 60.0,
-        "transitionPct": 30.0,
+        "adversePct": 71.4,
+        "mtfOpp2Pct": 85.7,
+        "transitionPct": 42.9,
         "extendedPct": 0.0,
-        "failProgressPct": 70.0,
-        "avgEfficiency": 0.185,
-        "avgMoveQuality": 4.38,
-        "avgProgress": -0.1
+        "failProgressPct": 42.9,
+        "avgEfficiency": 0.17443,
+        "avgMoveQuality": 3.88571,
+        "avgProgress": 0.0
       },
       "highProfile": {
-        "latePct": 50.0,
-        "adversePct": 40.0,
-        "mtfOpp2Pct": 30.0,
-        "transitionPct": 0.0,
-        "extendedPct": 20.0,
-        "failProgressPct": 30.0,
-        "avgEfficiency": 0.1216,
-        "avgMoveQuality": 5.14,
-        "avgProgress": 1.3
+        "latePct": 38.5,
+        "adversePct": 38.5,
+        "mtfOpp2Pct": 61.5,
+        "transitionPct": 7.7,
+        "extendedPct": 30.8,
+        "failProgressPct": 23.1,
+        "avgEfficiency": 0.28738,
+        "avgMoveQuality": 5.90769,
+        "avgProgress": 2.46154
       }
     },
     {
       "track": "USDJPY-2M",
-      "B": 16,
+      "B": 17,
       "R": {
-        "W": 8,
-        "L": 11,
+        "W": 9,
+        "L": 10,
         "T": 1,
         "n": 20,
-        "wr": 42.1
+        "wr": 47.4
       },
       "low": {
-        "W": 5,
-        "L": 9,
-        "T": 1,
-        "n": 15,
-        "wr": 35.7
+        "W": 7,
+        "L": 4,
+        "T": 0,
+        "n": 11,
+        "wr": 63.6
       },
       "high": {
-        "W": 3,
-        "L": 2,
-        "T": 0,
-        "n": 5,
-        "wr": 60.0
+        "W": 2,
+        "L": 6,
+        "T": 1,
+        "n": 9,
+        "wr": 25.0
       },
       "cum": {
         "W": 108,
@@ -1719,117 +1719,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00034,
-          0.00031,
-          3e-05
+          0.0002,
+          0.00022,
+          -2e-05
         ],
         "rangeAtr": [
-          0.89238,
-          0.88127,
-          0.01111
+          0.73033,
+          1.3903,
+          -0.65997
         ],
         "bodyAtr": [
-          0.43288,
-          0.47373,
-          -0.04085
+          0.26356,
+          0.7674,
+          -0.50384
         ],
         "vwapDistanceAtr": [
-          1.10862,
-          1.37291,
-          -0.26429
+          3.73456,
+          3.2145,
+          0.52006
         ],
         "vwapSlopeAtr": [
-          -0.01225,
-          -0.05927,
-          0.04702
+          0.04,
+          -0.0161,
+          0.0561
         ],
         "vsaScore": [
-          0.05875,
-          -0.04182,
-          0.10057
+          0.06556,
+          0.059,
+          0.00656
         ],
         "relativeVolume": [
-          0.77163,
-          0.84709,
-          -0.07546
+          0.79167,
+          0.9962,
+          -0.20453
         ],
         "advancedMomentumScore": [
-          -0.0925,
-          -0.02982,
-          -0.06268
+          -0.00111,
+          -0.0796,
+          0.07849
         ],
         "sequence": [
-          0.083,
-          0.108,
-          -0.025
+          0.21444,
+          0.1186,
+          0.09584
         ],
         "efficiency": [
-          0.16887,
-          0.21645,
-          -0.04758
+          0.21667,
+          0.172,
+          0.04467
         ],
         "emaCompression": [
-          8e-05,
-          8e-05,
-          0.0
+          5e-05,
+          6e-05,
+          -1e-05
         ],
         "bbExpansion": [
-          -0.0323,
-          -0.04491,
-          0.01261
+          -0.05587,
+          0.04915,
+          -0.10502
         ],
         "maBbConfirmation": [
-          0.12,
-          0.14545,
-          -0.02545
+          0.05778,
+          -0.104,
+          0.16178
         ]
       },
       "lowProfile": {
-        "latePct": 93.3,
-        "adversePct": 86.7,
-        "mtfOpp2Pct": 46.7,
-        "transitionPct": 80.0,
-        "extendedPct": 20.0,
-        "failProgressPct": 86.7,
-        "avgEfficiency": 0.16,
-        "avgMoveQuality": 4.15333,
-        "avgProgress": 0.73333
+        "latePct": 100.0,
+        "adversePct": 100.0,
+        "mtfOpp2Pct": 45.5,
+        "transitionPct": 36.4,
+        "extendedPct": 0.0,
+        "failProgressPct": 72.7,
+        "avgEfficiency": 0.17891,
+        "avgMoveQuality": 4.29091,
+        "avgProgress": 0.63636
       },
       "highProfile": {
-        "latePct": 40.0,
-        "adversePct": 60.0,
-        "mtfOpp2Pct": 60.0,
+        "latePct": 66.7,
+        "adversePct": 88.9,
+        "mtfOpp2Pct": 22.2,
         "transitionPct": 0.0,
         "extendedPct": 0.0,
-        "failProgressPct": 20.0,
-        "avgEfficiency": 0.2916,
-        "avgMoveQuality": 5.58,
-        "avgProgress": -2.8
+        "failProgressPct": 22.2,
+        "avgEfficiency": 0.22333,
+        "avgMoveQuality": 5.05556,
+        "avgProgress": 4.22222
       }
     },
     {
       "track": "USDJPY-3M",
-      "B": 14,
+      "B": 15,
       "R": {
-        "W": 7,
-        "L": 13,
+        "W": 12,
+        "L": 8,
         "T": 0,
         "n": 20,
-        "wr": 35.0
+        "wr": 60.0
       },
       "low": {
-        "W": 4,
+        "W": 9,
         "L": 4,
         "T": 0,
-        "n": 8,
-        "wr": 50.0
+        "n": 13,
+        "wr": 69.2
       },
       "high": {
         "W": 3,
-        "L": 9,
+        "L": 4,
         "T": 0,
-        "n": 12,
-        "wr": 25.0
+        "n": 7,
+        "wr": 42.9
       },
       "cum": {
         "W": 87,
@@ -1848,97 +1848,97 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00043,
-          0.00046,
+          0.00028,
+          0.00031,
           -3e-05
         ],
         "rangeAtr": [
-          0.75271,
-          0.90854,
-          -0.15583
+          0.75608,
+          1.00737,
+          -0.25129
         ],
         "bodyAtr": [
-          0.41771,
-          0.50423,
-          -0.08652
+          0.247,
+          0.49912,
+          -0.25212
         ],
         "vwapDistanceAtr": [
-          0.712,
-          0.34292,
-          0.36908
+          2.71083,
+          2.05725,
+          0.65358
         ],
         "vwapSlopeAtr": [
-          0.00386,
-          0.00131,
-          0.00255
+          0.01242,
+          0.011,
+          0.00142
         ],
         "vsaScore": [
-          0.03429,
-          0.02692,
-          0.00737
+          0.00917,
+          -0.02875,
+          0.03792
         ],
         "relativeVolume": [
-          0.76586,
-          0.80338,
-          -0.03752
+          0.83475,
+          0.88175,
+          -0.047
         ],
         "advancedMomentumScore": [
-          0.05771,
-          -0.09162,
-          0.14933
+          -0.005,
+          -0.05938,
+          0.05438
         ],
         "sequence": [
-          0.07329,
-          0.00408,
-          0.06921
+          0.11992,
+          0.15063,
+          -0.03071
         ],
         "efficiency": [
-          0.05886,
-          0.11577,
-          -0.05691
+          0.11833,
+          0.1165,
+          0.00183
         ],
         "emaCompression": [
-          0.00011,
-          0.0001,
-          1e-05
+          7e-05,
+          7e-05,
+          0.0
         ],
         "bbExpansion": [
-          -0.04664,
-          -0.02717,
-          -0.01947
+          -0.04275,
+          0.02559,
+          -0.06834
         ],
         "maBbConfirmation": [
-          0.24571,
-          0.18615,
-          0.05956
+          0.22667,
+          0.09125,
+          0.13542
         ]
       },
       "lowProfile": {
-        "latePct": 87.5,
-        "adversePct": 100.0,
-        "mtfOpp2Pct": 37.5,
-        "transitionPct": 25.0,
-        "extendedPct": 25.0,
-        "failProgressPct": 62.5,
-        "avgEfficiency": 0.1055,
-        "avgMoveQuality": 4.4125,
-        "avgProgress": 0.125
+        "latePct": 92.3,
+        "adversePct": 92.3,
+        "mtfOpp2Pct": 15.4,
+        "transitionPct": 76.9,
+        "extendedPct": 0.0,
+        "failProgressPct": 84.6,
+        "avgEfficiency": 0.09862,
+        "avgMoveQuality": 3.12308,
+        "avgProgress": 0.61538
       },
       "highProfile": {
-        "latePct": 83.3,
-        "adversePct": 66.7,
-        "mtfOpp2Pct": 25.0,
-        "transitionPct": 0.0,
-        "extendedPct": 8.3,
-        "failProgressPct": 50.0,
-        "avgEfficiency": 0.08942,
-        "avgMoveQuality": 4.91667,
-        "avgProgress": -0.58333
+        "latePct": 85.7,
+        "adversePct": 100.0,
+        "mtfOpp2Pct": 14.3,
+        "transitionPct": 14.3,
+        "extendedPct": 0.0,
+        "failProgressPct": 14.3,
+        "avgEfficiency": 0.15286,
+        "avgMoveQuality": 4.81429,
+        "avgProgress": 0.28571
       }
     },
     {
-      "track": "USDJPY-15M",
-      "B": 3,
+      "track": "USDJPY-5M",
+      "B": 10,
       "R": {
         "W": 9,
         "L": 11,
@@ -1947,24 +1947,24 @@
         "wr": 45.0
       },
       "low": {
-        "W": 1,
-        "L": 3,
+        "W": 7,
+        "L": 7,
         "T": 0,
-        "n": 4,
-        "wr": 25.0
-      },
-      "high": {
-        "W": 8,
-        "L": 8,
-        "T": 0,
-        "n": 16,
+        "n": 14,
         "wr": 50.0
       },
+      "high": {
+        "W": 2,
+        "L": 4,
+        "T": 0,
+        "n": 6,
+        "wr": 33.3
+      },
       "cum": {
-        "W": 29,
-        "L": 14,
-        "T": 1,
-        "accuracy": 67.4
+        "W": 64,
+        "L": 60,
+        "T": 2,
+        "accuracy": 51.6
       },
       "streaks": null,
       "direction": null,
@@ -1977,117 +1977,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00129,
-          0.00169,
-          -0.0004
+          0.00047,
+          0.0005,
+          -3e-05
         ],
         "rangeAtr": [
-          1.46333,
-          1.05336,
-          0.40997
+          0.68744,
+          0.78536,
+          -0.09792
         ],
         "bodyAtr": [
-          0.82756,
-          0.45864,
-          0.36892
+          0.26867,
+          0.30427,
+          -0.0356
         ],
         "vwapDistanceAtr": [
-          -1.14556,
-          -0.14827,
-          -0.99729
+          -0.41,
+          -0.29645,
+          -0.11355
         ],
         "vwapSlopeAtr": [
-          -0.087,
-          -0.02545,
-          -0.06155
+          -0.01344,
+          -0.019,
+          0.00556
         ],
         "vsaScore": [
-          0.08667,
-          0.03636,
-          0.05031
+          -0.03889,
+          0.03273,
+          -0.07162
         ],
         "relativeVolume": [
-          1.88644,
-          1.34645,
-          0.53999
+          0.69178,
+          0.77191,
+          -0.08013
         ],
         "advancedMomentumScore": [
-          -0.17133,
-          0.09245,
-          -0.26378
+          0.001,
+          -0.00109,
+          0.00209
         ],
         "sequence": [
-          -0.04978,
-          0.19382,
-          -0.2436
+          0.021,
+          0.01391,
+          0.00709
         ],
         "efficiency": [
-          0.16933,
-          0.21382,
-          -0.04449
+          0.113,
+          0.12964,
+          -0.01664
         ],
         "emaCompression": [
-          0.00048,
-          0.00068,
-          -0.0002
+          0.00013,
+          0.00014,
+          -1e-05
         ],
         "bbExpansion": [
-          0.07624,
-          0.02193,
-          0.05431
+          -0.05087,
+          -0.01977,
+          -0.0311
         ],
         "maBbConfirmation": [
-          -0.01111,
-          0.13636,
-          -0.14747
+          0.14,
+          0.20364,
+          -0.06364
         ]
       },
       "lowProfile": {
-        "latePct": 75.0,
-        "adversePct": 75.0,
+        "latePct": 100.0,
+        "adversePct": 100.0,
+        "mtfOpp2Pct": 14.3,
+        "transitionPct": 50.0,
+        "extendedPct": 7.1,
+        "failProgressPct": 71.4,
+        "avgEfficiency": 0.10829,
+        "avgMoveQuality": 3.67857,
+        "avgProgress": 0.35714
+      },
+      "highProfile": {
+        "latePct": 66.7,
+        "adversePct": 66.7,
         "mtfOpp2Pct": 0.0,
         "transitionPct": 50.0,
         "extendedPct": 0.0,
-        "failProgressPct": 75.0,
-        "avgEfficiency": 0.111,
-        "avgMoveQuality": 3.8,
-        "avgProgress": 1.75
-      },
-      "highProfile": {
-        "latePct": 56.2,
-        "adversePct": 56.2,
-        "mtfOpp2Pct": 0.0,
-        "transitionPct": 25.0,
-        "extendedPct": 12.5,
-        "failProgressPct": 37.5,
-        "avgEfficiency": 0.2145,
-        "avgMoveQuality": 5.2375,
-        "avgProgress": -0.4375
+        "failProgressPct": 50.0,
+        "avgEfficiency": 0.1545,
+        "avgMoveQuality": 4.73333,
+        "avgProgress": 0.33333
       }
     },
     {
       "track": "AUDUSD-1M",
-      "B": 18,
+      "B": 19,
       "R": {
-        "W": 11,
-        "L": 7,
-        "T": 2,
+        "W": 9,
+        "L": 10,
+        "T": 1,
         "n": 20,
-        "wr": 61.1
+        "wr": 47.4
       },
       "low": {
-        "W": 6,
-        "L": 4,
-        "T": 2,
-        "n": 12,
-        "wr": 60.0
+        "W": 4,
+        "L": 2,
+        "T": 0,
+        "n": 6,
+        "wr": 66.7
       },
       "high": {
         "W": 5,
-        "L": 3,
-        "T": 0,
-        "n": 8,
-        "wr": 62.5
+        "L": 8,
+        "T": 1,
+        "n": 14,
+        "wr": 38.5
       },
       "cum": {
         "W": 111,
@@ -2106,117 +2106,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00011,
-          0.0001,
-          1e-05
+          7e-05,
+          8e-05,
+          -1e-05
         ],
         "rangeAtr": [
-          0.895,
-          0.92571,
-          -0.03071
+          1.17756,
+          0.9606,
+          0.21696
         ],
         "bodyAtr": [
-          0.46727,
-          0.64443,
-          -0.17716
+          0.77333,
+          0.6612,
+          0.11213
         ],
         "vwapDistanceAtr": [
-          6.25382,
-          5.93914,
-          0.31468
+          -2.10167,
+          0.0589,
+          -2.16057
         ],
         "vwapSlopeAtr": [
-          0.03636,
-          0.04457,
-          -0.00821
+          0.049,
+          0.0935,
+          -0.0445
         ],
         "vsaScore": [
-          0.12455,
-          -0.07857,
-          0.20312
+          -0.11778,
+          0.117,
+          -0.23478
         ],
         "relativeVolume": [
-          0.98236,
-          0.91314,
-          0.06922
+          1.18311,
+          1.1312,
+          0.05191
         ],
         "advancedMomentumScore": [
-          -0.01755,
-          0.00643,
-          -0.02398
+          0.05978,
+          -0.0268,
+          0.08658
         ],
         "sequence": [
-          0.07282,
-          0.24571,
-          -0.17289
+          -0.14189,
+          -0.1649,
+          0.02301
         ],
         "efficiency": [
-          0.16636,
-          0.19114,
-          -0.02478
+          0.20778,
+          0.3062,
+          -0.09842
         ],
         "emaCompression": [
-          6e-05,
-          8e-05,
-          -2e-05
+          4e-05,
+          7e-05,
+          -3e-05
         ],
         "bbExpansion": [
-          0.00371,
-          0.08787,
-          -0.08416
+          0.03229,
+          0.0743,
+          -0.04201
         ],
         "maBbConfirmation": [
-          0.12545,
-          0.27857,
-          -0.15312
+          -0.06,
+          -0.074,
+          0.014
         ]
       },
       "lowProfile": {
-        "latePct": 100.0,
-        "adversePct": 83.3,
+        "latePct": 83.3,
+        "adversePct": 50.0,
         "mtfOpp2Pct": 33.3,
-        "transitionPct": 25.0,
-        "extendedPct": 8.3,
-        "failProgressPct": 66.7,
-        "avgEfficiency": 0.15342,
-        "avgMoveQuality": 4.41667,
-        "avgProgress": -0.16667
+        "transitionPct": 50.0,
+        "extendedPct": 16.7,
+        "failProgressPct": 50.0,
+        "avgEfficiency": 0.24267,
+        "avgMoveQuality": 3.76667,
+        "avgProgress": -1.0
       },
       "highProfile": {
-        "latePct": 75.0,
-        "adversePct": 75.0,
-        "mtfOpp2Pct": 0.0,
+        "latePct": 78.6,
+        "adversePct": 64.3,
+        "mtfOpp2Pct": 50.0,
         "transitionPct": 0.0,
-        "extendedPct": 37.5,
-        "failProgressPct": 37.5,
-        "avgEfficiency": 0.17613,
-        "avgMoveQuality": 5.125,
-        "avgProgress": 2.625
+        "extendedPct": 50.0,
+        "failProgressPct": 21.4,
+        "avgEfficiency": 0.26614,
+        "avgMoveQuality": 5.67143,
+        "avgProgress": -4.0
       }
     },
     {
       "track": "AUDUSD-2M",
-      "B": 16,
+      "B": 17,
       "R": {
-        "W": 10,
-        "L": 9,
-        "T": 1,
+        "W": 5,
+        "L": 10,
+        "T": 5,
         "n": 20,
-        "wr": 52.6
+        "wr": 33.3
       },
       "low": {
-        "W": 4,
-        "L": 7,
-        "T": 0,
+        "W": 3,
+        "L": 5,
+        "T": 3,
         "n": 11,
-        "wr": 36.4
+        "wr": 37.5
       },
       "high": {
-        "W": 6,
-        "L": 2,
-        "T": 1,
+        "W": 2,
+        "L": 5,
+        "T": 2,
         "n": 9,
-        "wr": 75.0
+        "wr": 28.6
       },
       "cum": {
         "W": 101,
@@ -2235,117 +2235,117 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00019,
-          0.00019,
+          0.00012,
+          0.00012,
           0.0
         ],
         "rangeAtr": [
-          0.6604,
-          0.872,
-          -0.2116
+          1.1712,
+          0.9576,
+          0.2136
         ],
         "bodyAtr": [
-          0.342,
-          0.39578,
-          -0.05378
+          0.7534,
+          0.3537,
+          0.3997
         ],
         "vwapDistanceAtr": [
-          7.7094,
-          8.32811,
-          -0.61871
+          2.8836,
+          3.7161,
+          -0.8325
         ],
         "vwapSlopeAtr": [
-          0.1275,
-          0.07967,
-          0.04783
+          0.1734,
+          0.1986,
+          -0.0252
         ],
         "vsaScore": [
-          -0.024,
-          0.15556,
-          -0.17956
+          -0.166,
+          0.161,
+          -0.327
         ],
         "relativeVolume": [
-          0.674,
-          0.75222,
-          -0.07822
+          1.0504,
+          0.9312,
+          0.1192
         ],
         "advancedMomentumScore": [
-          -0.0619,
-          -0.03289,
-          -0.02901
+          -0.05,
+          -0.0436,
+          -0.0064
         ],
         "sequence": [
-          -0.0822,
-          -0.04933,
-          -0.03287
+          -0.1852,
+          -0.0401,
+          -0.1451
         ],
         "efficiency": [
-          0.219,
-          0.20344,
-          0.01556
+          0.2646,
+          0.1934,
+          0.0712
         ],
         "emaCompression": [
-          0.00012,
-          0.00012,
+          7e-05,
+          7e-05,
           0.0
         ],
         "bbExpansion": [
-          -0.04186,
-          -0.02482,
-          -0.01704
+          -0.04532,
+          -0.04613,
+          0.00081
         ],
         "maBbConfirmation": [
-          0.17,
-          0.20889,
-          -0.03889
+          -0.088,
+          0.014,
+          -0.102
         ]
       },
       "lowProfile": {
-        "latePct": 90.9,
-        "adversePct": 63.6,
-        "mtfOpp2Pct": 27.3,
-        "transitionPct": 63.6,
-        "extendedPct": 9.1,
-        "failProgressPct": 72.7,
-        "avgEfficiency": 0.173,
-        "avgMoveQuality": 3.71818,
-        "avgProgress": -0.09091
+        "latePct": 100.0,
+        "adversePct": 90.9,
+        "mtfOpp2Pct": 18.2,
+        "transitionPct": 18.2,
+        "extendedPct": 18.2,
+        "failProgressPct": 63.6,
+        "avgEfficiency": 0.26,
+        "avgMoveQuality": 4.05455,
+        "avgProgress": 0.09091
       },
       "highProfile": {
-        "latePct": 44.4,
-        "adversePct": 33.3,
-        "mtfOpp2Pct": 22.2,
-        "transitionPct": 22.2,
+        "latePct": 55.6,
+        "adversePct": 88.9,
+        "mtfOpp2Pct": 11.1,
+        "transitionPct": 0.0,
         "extendedPct": 0.0,
-        "failProgressPct": 44.4,
-        "avgEfficiency": 0.25511,
+        "failProgressPct": 33.3,
+        "avgEfficiency": 0.19222,
         "avgMoveQuality": 5.2,
-        "avgProgress": -2.0
+        "avgProgress": -0.44444
       }
     },
     {
       "track": "AUDUSD-3M",
-      "B": 14,
+      "B": 15,
       "R": {
-        "W": 8,
-        "L": 11,
-        "T": 1,
+        "W": 13,
+        "L": 7,
+        "T": 0,
         "n": 20,
-        "wr": 42.1
+        "wr": 65.0
       },
       "low": {
-        "W": 5,
-        "L": 4,
+        "W": 4,
+        "L": 1,
         "T": 0,
-        "n": 9,
-        "wr": 55.6
+        "n": 5,
+        "wr": 80.0
       },
       "high": {
-        "W": 3,
-        "L": 7,
-        "T": 1,
-        "n": 11,
-        "wr": 30.0
+        "W": 9,
+        "L": 6,
+        "T": 0,
+        "n": 15,
+        "wr": 60.0
       },
       "cum": {
         "W": 82,
@@ -2364,123 +2364,123 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00026,
-          0.00025,
-          1e-05
+          0.00015,
+          0.00016,
+          -1e-05
         ],
         "rangeAtr": [
-          0.87225,
-          0.84673,
-          0.02552
+          0.93177,
+          0.73986,
+          0.19191
         ],
         "bodyAtr": [
-          0.43012,
-          0.53218,
-          -0.10206
+          0.41315,
+          0.39343,
+          0.01972
         ],
         "vwapDistanceAtr": [
-          5.51588,
-          6.04936,
-          -0.53348
+          2.13323,
+          3.889,
+          -1.75577
         ],
         "vwapSlopeAtr": [
-          0.0315,
-          0.02909,
-          0.00241
+          0.00577,
+          0.01371,
+          -0.00794
         ],
         "vsaScore": [
-          -0.015,
-          -0.02182,
-          0.00682
+          -0.12308,
+          -0.10143,
+          -0.02165
         ],
         "relativeVolume": [
-          0.78387,
-          0.73136,
-          0.05251
+          0.845,
+          0.78214,
+          0.06286
         ],
         "advancedMomentumScore": [
-          -0.00737,
-          -0.00582,
-          -0.00155
+          -0.12362,
+          -0.11829,
+          -0.00533
         ],
         "sequence": [
-          0.01613,
-          0.05818,
-          -0.04205
+          -0.30131,
+          -0.11914,
+          -0.18217
         ],
         "efficiency": [
-          0.22762,
-          0.21836,
-          0.00926
+          0.45946,
+          0.42529,
+          0.03417
         ],
         "emaCompression": [
-          0.00023,
-          0.00021,
-          2e-05
+          0.0002,
+          0.00014,
+          6e-05
         ],
         "bbExpansion": [
-          -0.0356,
-          -0.02475,
-          -0.01085
+          -0.00372,
+          -0.04777,
+          0.04405
         ],
         "maBbConfirmation": [
-          0.3525,
-          0.27455,
-          0.07795
+          -0.22462,
+          0.01714,
+          -0.24176
         ]
       },
       "lowProfile": {
-        "latePct": 88.9,
-        "adversePct": 77.8,
-        "mtfOpp2Pct": 33.3,
-        "transitionPct": 33.3,
-        "extendedPct": 11.1,
-        "failProgressPct": 88.9,
-        "avgEfficiency": 0.16322,
-        "avgMoveQuality": 3.88889,
-        "avgProgress": 0.11111
+        "latePct": 80.0,
+        "adversePct": 80.0,
+        "mtfOpp2Pct": 0.0,
+        "transitionPct": 40.0,
+        "extendedPct": 40.0,
+        "failProgressPct": 80.0,
+        "avgEfficiency": 0.2344,
+        "avgMoveQuality": 3.64,
+        "avgProgress": -0.4
       },
       "highProfile": {
-        "latePct": 63.6,
-        "adversePct": 63.6,
-        "mtfOpp2Pct": 0.0,
-        "transitionPct": 18.2,
-        "extendedPct": 9.1,
-        "failProgressPct": 27.3,
-        "avgEfficiency": 0.25836,
-        "avgMoveQuality": 4.96364,
-        "avgProgress": 1.45455
+        "latePct": 33.3,
+        "adversePct": 46.7,
+        "mtfOpp2Pct": 6.7,
+        "transitionPct": 20.0,
+        "extendedPct": 6.7,
+        "failProgressPct": 53.3,
+        "avgEfficiency": 0.51853,
+        "avgMoveQuality": 5.29333,
+        "avgProgress": -2.46667
       }
     },
     {
-      "track": "AUDUSD-15M",
-      "B": 3,
+      "track": "AUDUSD-5M",
+      "B": 10,
       "R": {
-        "W": 9,
-        "L": 11,
+        "W": 10,
+        "L": 10,
         "T": 0,
         "n": 20,
-        "wr": 45.0
+        "wr": 50.0
       },
       "low": {
-        "W": 0,
-        "L": 3,
+        "W": 7,
+        "L": 7,
         "T": 0,
-        "n": 3,
-        "wr": 0.0
+        "n": 14,
+        "wr": 50.0
       },
       "high": {
-        "W": 9,
-        "L": 8,
+        "W": 3,
+        "L": 3,
         "T": 0,
-        "n": 17,
-        "wr": 52.9
+        "n": 6,
+        "wr": 50.0
       },
       "cum": {
-        "W": 24,
-        "L": 18,
-        "T": 2,
-        "accuracy": 57.1
+        "W": 72,
+        "L": 49,
+        "T": 5,
+        "accuracy": 59.5
       },
       "streaks": null,
       "direction": null,
@@ -2493,92 +2493,92 @@
       "loss": [],
       "features": {
         "atrNormalized": [
-          0.00086,
-          0.00072,
-          0.00014
+          0.00026,
+          0.0003,
+          -4e-05
         ],
         "rangeAtr": [
-          1.69722,
-          1.21827,
-          0.47895
+          0.8643,
+          0.78,
+          0.0843
         ],
         "bodyAtr": [
-          1.06511,
-          0.72827,
-          0.33684
+          0.4673,
+          0.4497,
+          0.0176
         ],
         "vwapDistanceAtr": [
-          3.04178,
-          3.79145,
-          -0.74967
+          3.492,
+          4.1548,
+          -0.6628
         ],
         "vwapSlopeAtr": [
-          0.06022,
-          0.067,
-          -0.00678
+          0.0002,
+          0.0017,
+          -0.0015
         ],
         "vsaScore": [
-          0.20222,
-          0.15818,
-          0.04404
+          -0.094,
+          -0.035,
+          -0.059
         ],
         "relativeVolume": [
-          2.09433,
-          1.49945,
-          0.59488
+          0.7239,
+          0.608,
+          0.1159
         ],
         "advancedMomentumScore": [
-          0.15067,
-          0.06973,
-          0.08094
+          -0.07,
+          -0.0338,
+          -0.0362
         ],
         "sequence": [
-          0.25367,
-          0.10545,
-          0.14822
+          -0.1605,
+          -0.027,
+          -0.1335
         ],
         "efficiency": [
-          0.24233,
-          0.271,
-          -0.02867
+          0.3737,
+          0.2051,
+          0.1686
         ],
         "emaCompression": [
-          0.0003,
-          0.00031,
-          -1e-05
+          0.00027,
+          0.00027,
+          0.0
         ],
         "bbExpansion": [
-          0.15657,
-          0.10594,
-          0.05063
+          -0.01723,
+          -0.04271,
+          0.02548
         ],
         "maBbConfirmation": [
-          0.26333,
-          0.14,
-          0.12333
+          -0.068,
+          0.186,
+          -0.254
         ]
       },
       "lowProfile": {
-        "latePct": 66.7,
-        "adversePct": 66.7,
+        "latePct": 92.9,
+        "adversePct": 92.9,
         "mtfOpp2Pct": 0.0,
-        "transitionPct": 66.7,
-        "extendedPct": 0.0,
-        "failProgressPct": 66.7,
-        "avgEfficiency": 0.173,
-        "avgMoveQuality": 3.86667,
-        "avgProgress": 0.0
+        "transitionPct": 42.9,
+        "extendedPct": 21.4,
+        "failProgressPct": 78.6,
+        "avgEfficiency": 0.25507,
+        "avgMoveQuality": 4.62857,
+        "avgProgress": -1.64286
       },
       "highProfile": {
-        "latePct": 58.8,
-        "adversePct": 70.6,
-        "mtfOpp2Pct": 5.9,
-        "transitionPct": 11.8,
-        "extendedPct": 23.5,
-        "failProgressPct": 35.3,
-        "avgEfficiency": 0.27312,
-        "avgMoveQuality": 5.68235,
-        "avgProgress": 0.23529
+        "latePct": 83.3,
+        "adversePct": 83.3,
+        "mtfOpp2Pct": 0.0,
+        "transitionPct": 0.0,
+        "extendedPct": 33.3,
+        "failProgressPct": 33.3,
+        "avgEfficiency": 0.3695,
+        "avgMoveQuality": 5.61667,
+        "avgProgress": -1.33333
       }
     }
   ]
