@@ -1,0 +1,4 @@
+providers = ["node", "python"]
+
+[start]
+cmd = "bash scripts/start-with-shadow.sh"
