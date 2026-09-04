@@ -1,6 +1,6 @@
 name: Build unreported exact-batch report
 
-# Refresh trigger: 2026-09-04T23:47Z
+# Refresh trigger: 2026-09-04T23:48Z
 on:
   push:
     paths:
@@ -9,6 +9,7 @@ on:
       - 'scripts/build_audit_digest.py'
       - 'scripts/build_line_digest.py'
       - 'scripts/build_automation_batch_digest.py'
+      - 'scripts/build_automation_table.py'
       - '.github/workflows/build-unreported-batch-report.yml'
   workflow_dispatch:
 
@@ -27,6 +28,7 @@ jobs:
           python3 scripts/build_audit_digest.py
           python3 scripts/build_line_digest.py
           python3 scripts/build_automation_batch_digest.py
+          python3 scripts/build_automation_table.py
       - name: Commit report
         run: |
           set -euo pipefail
