@@ -22,7 +22,6 @@ def feature_diff(fo):
     for k in sorted(set(w)&set(l)):
         if any(x in k.lower() for x in ['atr','vwap','vsa','volume','range','wick','body','momentum','sequence','tick','emaslope','emacompression','bbwidth','bbexpansion','mabb','progress','efficiency']):
             keep[k]={'win':w[k],'loss':l[k],'delta':round(w[k]-l[k],6)}
-    # prioritize largest normalized-ish absolute differences, but keep max 14
     return dict(list(keep.items())[:14])
 
 compact={'newBatchCount':0,'batches':[],'tracks':{}}
@@ -43,7 +42,7 @@ for pair in ['eurusd','gbpusd','eurjpy','usdjpy','audusd']:
               'mtfOpposition2Plus':r.get('mtfOpposition2Plus'),
               'groupExtremes':{k:bestworst(r.get(k)) for k in ['emaStack','bbState','fvgState','sr','entryLane']},
               'maBbPositive':r.get('maBbPositive'),'extended':r.get('extended'),
-              'lossFailureCombos':r.get('lossFailureCombos',[])[:4],
+              'lossFailureCombos':(r.get('lossFailureCombos') or [])[:4],
               'featureDiffs':feature_diff(r.get('featureOutcomes'))
             })
             compact['newBatchCount']+=1
