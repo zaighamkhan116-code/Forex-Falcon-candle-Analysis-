@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildShadowPayload,requestShadowPrediction,settleShadowPrediction} from '../lib/shadowEnsemble.js';
+import {buildShadowPayload,requestShadowPrediction,settleShadowPrediction,getShadowHealth} from '../lib/shadowEnsemble.js';
 
 test('shadow payload keeps numeric market-state features and raw candles',()=>{
   const p=buildShadowPayload({pair:'USDJPY',horizon:1,direction:'SELL',confidence:64.2,regime:'CHOPPY',features:{moveQualityScore:3.2,bearExtended:true,label:'ignore'}},{candles:[{time:1,open:1,high:2,low:.5,close:1.5,volume:3}]});
@@ -18,6 +18,17 @@ test('shadow service failure is visible and never silently disabled',async()=>{
   assert.match(x.reason,/offline/);
 });
 
+test('unsupported pair or horizon is explicit and does not overwrite READY health',async()=>{
+  const readyResponse={ok:true,status:200,json:async()=>({model:'RF+EXTRATREES+HISTGB_SHADOW_V1',modelVersion:'REBUILD',direction:'BUY',confidence:62.1,researchOnly:true})};
+  await requestShadowPrediction({pair:'EURUSD',horizon:5,features:{}},{url:'http://shadow',candles:[],fetchImpl:async()=>readyResponse});
+  assert.equal(getShadowHealth().status,'READY');
+  const unsupported={ok:false,status:422,text:async()=>JSON.stringify({detail:'Current validated rebuild is EURUSD-only'})};
+  const x=await requestShadowPrediction({pair:'GBPUSD',horizon:5,features:{}},{url:'http://shadow',candles:[],fetchImpl:async()=>unsupported});
+  assert.equal(x.status,'UNSUPPORTED');
+  assert.match(x.reason,/EURUSD-only/);
+  assert.equal(getShadowHealth().status,'READY');
+});
+
 test('shadow timeout or failure never changes live signal',async()=>{
   const signal={pair:'EURUSD',horizon:5,direction:'BUY',confidence:60,features:{}};
   const x=await requestShadowPrediction(signal,{url:'http://shadow',candles:[],fetchImpl:async()=>{throw new Error('offline')}});
@@ -29,7 +40,7 @@ test('shadow timeout or failure never changes live signal',async()=>{
 
 test('shadow parses READY ensemble response without changing Falcon',async()=>{
   const signal={pair:'EURUSD',horizon:5,direction:'SELL',confidence:61,features:{}};
-  const response={ok:true,json:async()=>({model:'RF+EXTRATREES+HISTGB_SHADOW_V1',modelVersion:'REBUILD',direction:'BUY',confidence:62.1,calibratedProbability:.621,memberProbabilities:{randomForestBuy:.6,extraTreesBuy:.58,histGradientBoostingBuy:.64},researchOnly:true})};
+  const response={ok:true,status:200,json:async()=>({model:'RF+EXTRATREES+HISTGB_SHADOW_V1',modelVersion:'REBUILD',direction:'BUY',confidence:62.1,calibratedProbability:.621,memberProbabilities:{randomForestBuy:.6,extraTreesBuy:.58,histGradientBoostingBuy:.64},researchOnly:true})};
   const x=await requestShadowPrediction(signal,{url:'http://shadow',candles:[],fetchImpl:async()=>response});
   assert.equal(x.status,'READY');
   assert.equal(x.direction,'BUY');
