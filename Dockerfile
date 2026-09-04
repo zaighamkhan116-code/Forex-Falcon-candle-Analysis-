@@ -2,10 +2,11 @@ FROM node:20-bookworm-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PATH="/opt/venv/bin:$PATH"
+    PATH="/opt/venv/bin:$PATH" \
+    CHROMIUM_PATH="/usr/bin/chromium"
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends python3 python3-venv python3-pip ca-certificates bash \
+    && apt-get install -y --no-install-recommends python3 python3-venv python3-pip ca-certificates bash chromium \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
