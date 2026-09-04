@@ -1,0 +1,4811 @@
+{
+  "pair": "GBPUSD",
+  "tracks": {
+    "GBPUSD-1M": {
+      "previousReportedBatch": 10,
+      "currentCompletedBatch": 11,
+      "newBatches": [
+        {
+          "batch": 11,
+          "results": {
+            "W": 11,
+            "L": 6,
+            "T": 3,
+            "n": 20,
+            "wr": 64.7
+          },
+          "exactBoundaryN": 20,
+          "confidenceMean": 68.4,
+          "streaks": {
+            "maxWin": 2,
+            "maxLoss": 2
+          },
+          "threshold": {
+            "57_61_9": {
+              "results": {
+                "W": 0,
+                "L": 0,
+                "T": 0,
+                "n": 0,
+                "wr": null
+              },
+              "avgConfidence": null,
+              "direction": {},
+              "regime": {},
+              "entryLane": {},
+              "sr": {},
+              "fvgState": {},
+              "emaStack": {},
+              "bbState": {},
+              "latePct": null,
+              "adversePct": null,
+              "mtfOpp2Pct": null,
+              "transitionPct": null,
+              "extendedPct": null,
+              "failProgressPct": null,
+              "breakoutAcceptedPct": null,
+              "tickAgreementPct": null,
+              "maBbPositivePct": null,
+              "avgEfficiency": null,
+              "avgMoveQuality": null,
+              "avgProgress": null,
+              "avgEmaCompression": null,
+              "avgBbWidth": null,
+              "avgBbExpansion": null,
+              "avgMaBb": null,
+              "avgAtr": null,
+              "avgVolatility": null
+            },
+            "gte62": {
+              "results": {
+                "W": 11,
+                "L": 6,
+                "T": 3,
+                "n": 20,
+                "wr": 64.7
+              },
+              "avgConfidence": 68.355,
+              "direction": {
+                "BUY": {
+                  "W": 4,
+                  "L": 4,
+                  "T": 1,
+                  "n": 9,
+                  "wr": 50.0
+                },
+                "SELL": {
+                  "W": 7,
+                  "L": 2,
+                  "T": 2,
+                  "n": 11,
+                  "wr": 77.8
+                }
+              },
+              "regime": {
+                "CHOPPY": {
+                  "W": 6,
+                  "L": 1,
+                  "T": 1,
+                  "n": 8,
+                  "wr": 85.7
+                },
+                "MIXED": {
+                  "W": 4,
+                  "L": 4,
+                  "T": 2,
+                  "n": 10,
+                  "wr": 50.0
+                },
+                "TRENDING": {
+                  "W": 1,
+                  "L": 1,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 50.0
+                }
+              },
+              "entryLane": {
+                "CONFIRMED_ENTRY": {
+                  "W": 11,
+                  "L": 6,
+                  "T": 3,
+                  "n": 20,
+                  "wr": 64.7
+                }
+              },
+              "sr": {
+                "AT RESISTANCE": {
+                  "W": 5,
+                  "L": 0,
+                  "T": 0,
+                  "n": 5,
+                  "wr": 100.0
+                },
+                "AT SUPPORT": {
+                  "W": 6,
+                  "L": 4,
+                  "T": 2,
+                  "n": 12,
+                  "wr": 60.0
+                },
+                "CLEAR": {
+                  "W": 0,
+                  "L": 2,
+                  "T": 1,
+                  "n": 3,
+                  "wr": 0.0
+                }
+              },
+              "fvgState": {
+                "ACCEPTED_THROUGH": {
+                  "W": 3,
+                  "L": 1,
+                  "T": 1,
+                  "n": 5,
+                  "wr": 75.0
+                },
+                "FULLY_MITIGATED": {
+                  "W": 4,
+                  "L": 4,
+                  "T": 2,
+                  "n": 10,
+                  "wr": 50.0
+                },
+                "MITIGATING": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "REJECTED": {
+                  "W": 4,
+                  "L": 0,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 100.0
+                }
+              },
+              "emaStack": {
+                "BEAR": {
+                  "W": 4,
+                  "L": 3,
+                  "T": 2,
+                  "n": 9,
+                  "wr": 57.1
+                },
+                "BULL": {
+                  "W": 4,
+                  "L": 2,
+                  "T": 1,
+                  "n": 7,
+                  "wr": 66.7
+                },
+                "MIXED": {
+                  "W": 3,
+                  "L": 1,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 75.0
+                }
+              },
+              "bbState": {
+                "BULL_EXPANSION": {
+                  "W": 2,
+                  "L": 1,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 66.7
+                },
+                "LOWER_REJECTION": {
+                  "W": 1,
+                  "L": 2,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 33.3
+                },
+                "MID_RECLAIM": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                },
+                "MID_REJECT": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                },
+                "NONE": {
+                  "W": 5,
+                  "L": 2,
+                  "T": 3,
+                  "n": 10,
+                  "wr": 71.4
+                },
+                "UPPER_REJECTION": {
+                  "W": 1,
+                  "L": 1,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 50.0
+                }
+              },
+              "latePct": 85.0,
+              "adversePct": 80.0,
+              "mtfOpp2Pct": 60.0,
+              "transitionPct": 20.0,
+              "extendedPct": 25.0,
+              "failProgressPct": 50.0,
+              "breakoutAcceptedPct": 20.0,
+              "tickAgreementPct": 65.0,
+              "maBbPositivePct": 35.0,
+              "avgEfficiency": 0.2524,
+              "avgMoveQuality": 4.9,
+              "avgProgress": -0.6,
+              "avgEmaCompression": 4e-05,
+              "avgBbWidth": 0.00022,
+              "avgBbExpansion": 0.05255,
+              "avgMaBb": 0.001,
+              "avgAtr": 0.00012,
+              "avgVolatility": 9e-05
+            }
+          },
+          "direction": {
+            "BUY": {
+              "W": 4,
+              "L": 4,
+              "T": 1,
+              "accuracy": 50.0
+            },
+            "SELL": {
+              "W": 7,
+              "L": 2,
+              "T": 2,
+              "accuracy": 77.8
+            }
+          },
+          "regime": {
+            "CHOPPY": {
+              "W": 6,
+              "L": 1,
+              "T": 1,
+              "accuracy": 85.7
+            },
+            "MIXED": {
+              "W": 4,
+              "L": 4,
+              "T": 2,
+              "accuracy": 50.0
+            },
+            "TRENDING": {
+              "W": 1,
+              "L": 1,
+              "T": 0,
+              "accuracy": 50.0
+            }
+          },
+          "entryLane": {
+            "CONFIRMED_ENTRY": {
+              "W": 11,
+              "L": 6,
+              "T": 3,
+              "accuracy": 64.7
+            }
+          },
+          "emaStack": {
+            "BEAR": {
+              "W": 4,
+              "L": 3,
+              "T": 2,
+              "accuracy": 57.1
+            },
+            "BULL": {
+              "W": 4,
+              "L": 2,
+              "T": 1,
+              "accuracy": 66.7
+            },
+            "MIXED": {
+              "W": 3,
+              "L": 1,
+              "T": 0,
+              "accuracy": 75.0
+            }
+          },
+          "bbState": {
+            "BULL_EXPANSION": {
+              "W": 2,
+              "L": 1,
+              "T": 0,
+              "accuracy": 66.7
+            },
+            "LOWER_REJECTION": {
+              "W": 1,
+              "L": 2,
+              "T": 0,
+              "accuracy": 33.3
+            },
+            "MID_RECLAIM": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "MID_REJECT": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "NONE": {
+              "W": 5,
+              "L": 2,
+              "T": 3,
+              "accuracy": 71.4
+            },
+            "UPPER_REJECTION": {
+              "W": 1,
+              "L": 1,
+              "T": 0,
+              "accuracy": 50.0
+            }
+          },
+          "fvgState": {
+            "ACCEPTED_THROUGH": {
+              "W": 3,
+              "L": 1,
+              "T": 1,
+              "accuracy": 75.0
+            },
+            "FULLY_MITIGATED": {
+              "W": 4,
+              "L": 4,
+              "T": 2,
+              "accuracy": 50.0
+            },
+            "MITIGATING": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            },
+            "REJECTED": {
+              "W": 4,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            }
+          },
+          "sr": {
+            "AT RESISTANCE": {
+              "W": 5,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "AT SUPPORT": {
+              "W": 6,
+              "L": 4,
+              "T": 2,
+              "accuracy": 60.0
+            },
+            "CLEAR": {
+              "W": 0,
+              "L": 2,
+              "T": 1,
+              "accuracy": 0.0
+            }
+          },
+          "mtfOpposition2Plus": {
+            "yes": {
+              "W": 7,
+              "L": 3,
+              "T": 2,
+              "accuracy": 70.0,
+              "n": 12
+            },
+            "no": {
+              "W": 4,
+              "L": 3,
+              "T": 1,
+              "accuracy": 57.1,
+              "n": 8
+            }
+          },
+          "adverseZone": {
+            "true": {
+              "W": 8,
+              "L": 5,
+              "T": 3,
+              "accuracy": 61.5,
+              "n": 16
+            },
+            "false": {
+              "W": 3,
+              "L": 1,
+              "T": 0,
+              "accuracy": 75.0,
+              "n": 4
+            }
+          },
+          "extended": {
+            "yes": {
+              "W": 3,
+              "L": 2,
+              "T": 0,
+              "accuracy": 60.0,
+              "n": 5
+            }
+          },
+          "failureToProgress": {
+            "true": {
+              "W": 4,
+              "L": 2,
+              "T": 1,
+              "accuracy": 66.7,
+              "n": 7
+            },
+            "false": {
+              "W": 7,
+              "L": 4,
+              "T": 2,
+              "accuracy": 63.6,
+              "n": 13
+            }
+          },
+          "transitionRisk": {
+            "true": {
+              "W": 2,
+              "L": 2,
+              "T": 0,
+              "accuracy": 50.0,
+              "n": 4
+            },
+            "false": {
+              "W": 9,
+              "L": 4,
+              "T": 3,
+              "accuracy": 69.2,
+              "n": 16
+            }
+          },
+          "lateCounterTrendRisk": {
+            "true": {
+              "W": 10,
+              "L": 5,
+              "T": 2,
+              "accuracy": 66.7,
+              "n": 17
+            },
+            "false": {
+              "W": 1,
+              "L": 1,
+              "T": 1,
+              "accuracy": 50.0,
+              "n": 3
+            }
+          },
+          "continuationResetRequired": {
+            "true": {
+              "W": 11,
+              "L": 5,
+              "T": 3,
+              "accuracy": 68.8,
+              "n": 19
+            },
+            "false": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0,
+              "n": 1
+            }
+          },
+          "breakoutAccepted": {
+            "true": {
+              "W": 2,
+              "L": 1,
+              "T": 1,
+              "accuracy": 66.7,
+              "n": 4
+            },
+            "false": {
+              "W": 9,
+              "L": 5,
+              "T": 2,
+              "accuracy": 64.3,
+              "n": 16
+            }
+          },
+          "tickAgreement": {
+            "true": {
+              "W": 7,
+              "L": 4,
+              "T": 2,
+              "accuracy": 63.6,
+              "n": 13
+            },
+            "false": {
+              "W": 4,
+              "L": 2,
+              "T": 1,
+              "accuracy": 66.7,
+              "n": 7
+            }
+          },
+          "maBbPositive": {
+            "yes": {
+              "W": 4,
+              "L": 2,
+              "T": 1,
+              "accuracy": 66.7,
+              "n": 7
+            }
+          },
+          "lossFailureCombos": [
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+EXTENDED",
+              "n": 1
+            },
+            {
+              "combo": "OTHER",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS",
+              "n": 1
+            }
+          ],
+          "topFeatureCombos": [
+            {
+              "combo": "MIXED|BEAR|NONE|SUPPORT|3|CONFIRMED_ENTRY",
+              "n": 3
+            },
+            {
+              "combo": "CHOPPY|BEAR|NONE|SUPPORT|2|CONFIRMED_ENTRY",
+              "n": 2
+            },
+            {
+              "combo": "TRENDING|BULL|BULL_EXPANSION|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 2
+            },
+            {
+              "combo": "MIXED|BULL|UPPER_REJECTION|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 1
+            },
+            {
+              "combo": "CHOPPY|BULL|UPPER_REJECTION|RESISTANCE|2|CONFIRMED_ENTRY",
+              "n": 1
+            }
+          ],
+          "featureOutcomes": {
+            "winNumeric": {
+              "activeFvgDistanceAtr": 0.24091,
+              "advancedMomentumScore": -0.06327,
+              "allTickWindowsAgree": 0.0,
+              "atr": 0.00012,
+              "atr14": 0.00012,
+              "atrNormalized": 9e-05,
+              "atrVwapVsaScoringActive": 1.0,
+              "bbExpansion": 0.03515,
+              "bbWidth": 0.00021,
+              "bodyAtr": 0.43618,
+              "candleBodyRatio": 0.36464,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.221,
+              "emaCompression": 4e-05,
+              "emaSlope13": -1e-05,
+              "emaSlope20": -0.0,
+              "emaSlope5": -1e-05,
+              "emaSlope8": -1e-05,
+              "failureToProgress": 0.36364,
+              "fastTickWindowsAgree": 0.09091,
+              "forexTickAgreement": 0.63636,
+              "forexTickDirectionQuality": 0.315,
+              "forexTickFeedReliability": 0.92064,
+              "forexTickPressure": 0.03091,
+              "forexTickQuality": 0.315,
+              "forexTickWeight": 0.42,
+              "lastBodyRatio": 0.36464,
+              "lastLowerWickRatio": 0.29473,
+              "lastUpperWickRatio": 0.34045,
+              "lowerWickRatioVsa": 0.29473,
+              "maBbConfirmation": 0.03273,
+              "maBbWeight": 0.2,
+              "microRangeChop": 0.18182,
+              "microRangePenalty": 1.27273,
+              "momentum": 0.04836,
+              "progressFailureGate": 0.81818,
+              "progressFailureRecovery": 0.36364,
+              "progressFailureRisk": 0.36364,
+              "progressScore": -0.54545,
+              "rangeAtr": 1.11591,
+              "relativeVolume": 1.04909,
+              "sequence": 0.01773,
+              "tickAcceleration": -0.00645,
+              "tickAdaptiveRateBaseline": 0.60273,
+              "tickAdjustment": -0.45455,
+              "tickContinuityScore": 1.0,
+              "tickDensityScore": 0.98164,
+              "tickDirectionQualityScore": 3.16364,
+              "tickEfficiency": 0.15327,
+              "tickFeedReliabilityScore": 9.20909,
+              "tickFreshnessScore": 0.75055,
+              "tickImbalance": 0.07355,
+              "tickPersistence": 0.29091,
+              "tickPressure10s": 0.01964,
+              "tickPressure20s": 0.03327,
+              "tickPressure30s": 0.05736,
+              "tickPressure5s": 0.04364,
+              "tickPressure60s": 0.00282,
+              "tickRate": 0.60727,
+              "tickReliabilityScore": 5.01818,
+              "tickReversal": 0.0,
+              "tickSpreadHealthScore": 1.0,
+              "transitionFailureToProgress": 0.36364,
+              "universalProgressFailureGuard": 1.0,
+              "upperWickRatioVsa": 0.34045,
+              "vsaHighEffort": 0.09091,
+              "vsaNarrowSpread": 0.09091,
+              "vsaPoorResult": 0.45455,
+              "vsaScore": 0.01818,
+              "vsaWideSpread": 0.45455,
+              "vwap": 1.35278,
+              "vwapDistanceAtr": 1.689,
+              "vwapExtended": 0.36364,
+              "vwapSlopeAtr": 0.02736
+            },
+            "lossNumeric": {
+              "activeFvgDistanceAtr": 0.76167,
+              "advancedMomentumScore": -0.03383,
+              "allTickWindowsAgree": 0.0,
+              "atr": 0.00012,
+              "atr14": 0.00012,
+              "atrNormalized": 9e-05,
+              "atrVwapVsaScoringActive": 1.0,
+              "bbExpansion": 0.0994,
+              "bbWidth": 0.00023,
+              "bodyAtr": 0.4965,
+              "candleBodyRatio": 0.48633,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.3,
+              "emaCompression": 5e-05,
+              "emaSlope13": -0.0,
+              "emaSlope20": -0.0,
+              "emaSlope5": -1e-05,
+              "emaSlope8": -1e-05,
+              "failureToProgress": 0.33333,
+              "fastTickWindowsAgree": 0.16667,
+              "forexTickAgreement": 0.66667,
+              "forexTickDirectionQuality": 0.28033,
+              "forexTickFeedReliability": 0.85933,
+              "forexTickPressure": 0.09333,
+              "forexTickQuality": 0.28033,
+              "forexTickWeight": 0.42,
+              "lastBodyRatio": 0.48633,
+              "lastLowerWickRatio": 0.28617,
+              "lastUpperWickRatio": 0.2275,
+              "lowerWickRatioVsa": 0.28617,
+              "maBbConfirmation": 0.0,
+              "maBbWeight": 0.2,
+              "microRangeChop": 0.16667,
+              "microRangePenalty": 1.16667,
+              "momentum": -0.029,
+              "progressFailureGate": 0.83333,
+              "progressFailureRecovery": 0.16667,
+              "progressFailureRisk": 0.33333,
+              "progressScore": -1.0,
+              "rangeAtr": 1.07067,
+              "relativeVolume": 1.05133,
+              "sequence": 0.01,
+              "tickAcceleration": 0.278,
+              "tickAdaptiveRateBaseline": 0.665,
+              "tickAdjustment": -0.5,
+              "tickContinuityScore": 1.0,
+              "tickDensityScore": 0.947,
+              "tickDirectionQualityScore": 2.81667,
+              "tickEfficiency": 0.10817,
+              "tickFeedReliabilityScore": 8.6,
+              "tickFreshnessScore": 0.57533,
+              "tickImbalance": -0.06233,
+              "tickPersistence": 0.23333,
+              "tickPressure10s": -0.023,
+              "tickPressure20s": -0.12367,
+              "tickPressure30s": -0.02583,
+              "tickPressure5s": 0.30267,
+              "tickPressure60s": 0.00283,
+              "tickRate": 0.53333,
+              "tickReliabilityScore": 4.35,
+              "tickReversal": 0.0,
+              "tickSpreadHealthScore": 1.0,
+              "transitionFailureToProgress": 0.16667,
+              "universalProgressFailureGuard": 1.0,
+              "upperWickRatioVsa": 0.2275,
+              "vsaHighEffort": 0.16667,
+              "vsaNarrowSpread": 0.0,
+              "vsaPoorResult": 0.33333,
+              "vsaScore": -0.09167,
+              "vsaWideSpread": 0.5,
+              "vwap": 1.35275,
+              "vwapDistanceAtr": 1.50283,
+              "vwapExtended": 0.33333,
+              "vwapSlopeAtr": 0.03083
+            },
+            "winCategorical": {
+              "bbState": {
+                "NONE": 5,
+                "BULL_EXPANSION": 2,
+                "UPPER_REJECTION": 1,
+                "MID_REJECT": 1,
+                "LOWER_REJECTION": 1,
+                "MID_RECLAIM": 1
+              },
+              "emaStack": {
+                "BULL": 4,
+                "BEAR": 4,
+                "MIXED": 3
+              },
+              "forexTickDirection": {
+                "BUY": 6,
+                "SELL": 5
+              },
+              "maBbTags": {
+                "BEAR_EMA_STACK": 3,
+                "NONE": 2,
+                "BULL_EMA_STACK|BB_BULL_EXPANSION": 2,
+                "BULL_EMA_STACK|BB_UPPER_REJECTION": 1,
+                "BB_MID_REJECT": 1,
+                "BEAR_EMA_STACK|BB_LOWER_REJECTION": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 6,
+                "USABLE": 5
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 11
+              },
+              "vsaState": {
+                "NEUTRAL": 7,
+                "UPPER_REJECTION": 2,
+                "LOWER_REJECTION": 1,
+                "BULL_ABSORPTION_OR_STOPPING": 1
+              }
+            },
+            "lossCategorical": {
+              "bbState": {
+                "NONE": 2,
+                "LOWER_REJECTION": 2,
+                "UPPER_REJECTION": 1,
+                "BULL_EXPANSION": 1
+              },
+              "emaStack": {
+                "BEAR": 3,
+                "BULL": 2,
+                "MIXED": 1
+              },
+              "forexTickDirection": {
+                "BUY": 5,
+                "SELL": 1
+              },
+              "maBbTags": {
+                "BEAR_EMA_STACK|BB_LOWER_REJECTION": 2,
+                "BULL_EMA_STACK|BB_UPPER_REJECTION": 1,
+                "NONE": 1,
+                "BEAR_EMA_STACK": 1,
+                "BULL_EMA_STACK|BB_BULL_EXPANSION": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 4,
+                "USABLE": 2
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 6
+              },
+              "vsaState": {
+                "NEUTRAL": 5,
+                "BEAR_ABSORPTION_OR_UPTHRUST": 1
+              }
+            }
+          }
+        }
+      ],
+      "cumulative": {
+        "results": {
+          "W": 110,
+          "L": 105,
+          "T": 20,
+          "accuracy": 51.2
+        },
+        "n": 235,
+        "confidenceMean": 66.0,
+        "streaks": {
+          "maxWin": 7,
+          "maxLoss": 7
+        },
+        "thresholdBuckets": {
+          "57_61_9": {
+            "W": 24,
+            "L": 30,
+            "T": 4,
+            "accuracy": 44.4,
+            "n": 58
+          },
+          "gte62": {
+            "W": 86,
+            "L": 75,
+            "T": 16,
+            "accuracy": 53.4,
+            "n": 177
+          }
+        },
+        "direction": {
+          "BUY": {
+            "W": 68,
+            "L": 55,
+            "T": 10,
+            "accuracy": 55.3
+          },
+          "SELL": {
+            "W": 42,
+            "L": 50,
+            "T": 10,
+            "accuracy": 45.7
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "W": 46,
+            "L": 36,
+            "T": 10,
+            "accuracy": 56.1
+          },
+          "MIXED": {
+            "W": 30,
+            "L": 28,
+            "T": 5,
+            "accuracy": 51.7
+          },
+          "TRENDING": {
+            "W": 34,
+            "L": 41,
+            "T": 5,
+            "accuracy": 45.3
+          }
+        },
+        "entryLane": {
+          "CONFIRMED_ENTRY": {
+            "W": 106,
+            "L": 101,
+            "T": 20,
+            "accuracy": 51.2
+          },
+          "REACTION_ENTRY": {
+            "W": 4,
+            "L": 4,
+            "T": 0,
+            "accuracy": 50.0
+          }
+        },
+        "emaStack": {
+          "BEAR": {
+            "W": 37,
+            "L": 38,
+            "T": 8,
+            "accuracy": 49.3
+          },
+          "BULL": {
+            "W": 44,
+            "L": 48,
+            "T": 6,
+            "accuracy": 47.8
+          },
+          "MIXED": {
+            "W": 29,
+            "L": 19,
+            "T": 6,
+            "accuracy": 60.4
+          }
+        },
+        "bbState": {
+          "BEAR_EXPANSION": {
+            "W": 5,
+            "L": 4,
+            "T": 0,
+            "accuracy": 55.6
+          },
+          "BULL_EXPANSION": {
+            "W": 14,
+            "L": 7,
+            "T": 1,
+            "accuracy": 66.7
+          },
+          "LOWER_REJECTION": {
+            "W": 4,
+            "L": 6,
+            "T": 0,
+            "accuracy": 40.0
+          },
+          "MID_RECLAIM": {
+            "W": 4,
+            "L": 1,
+            "T": 0,
+            "accuracy": 80.0
+          },
+          "MID_REJECT": {
+            "W": 4,
+            "L": 2,
+            "T": 0,
+            "accuracy": 66.7
+          },
+          "NONE": {
+            "W": 74,
+            "L": 76,
+            "T": 19,
+            "accuracy": 49.3
+          },
+          "UPPER_REJECTION": {
+            "W": 5,
+            "L": 9,
+            "T": 0,
+            "accuracy": 35.7
+          }
+        },
+        "fvgState": {
+          "ACCEPTED_THROUGH": {
+            "W": 22,
+            "L": 14,
+            "T": 3,
+            "accuracy": 61.1
+          },
+          "APPROACHING": {
+            "W": 4,
+            "L": 5,
+            "T": 0,
+            "accuracy": 44.4
+          },
+          "FULLY_MITIGATED": {
+            "W": 46,
+            "L": 48,
+            "T": 11,
+            "accuracy": 48.9
+          },
+          "MITIGATING": {
+            "W": 24,
+            "L": 27,
+            "T": 6,
+            "accuracy": 47.1
+          },
+          "REJECTED": {
+            "W": 14,
+            "L": 11,
+            "T": 0,
+            "accuracy": 56.0
+          }
+        },
+        "sr": {
+          "AT RESISTANCE": {
+            "W": 22,
+            "L": 22,
+            "T": 4,
+            "accuracy": 50.0
+          },
+          "AT SUPPORT": {
+            "W": 65,
+            "L": 50,
+            "T": 12,
+            "accuracy": 56.5
+          },
+          "CLEAR": {
+            "W": 23,
+            "L": 33,
+            "T": 4,
+            "accuracy": 41.1
+          }
+        },
+        "mtfOpposition2Plus": {
+          "yes": {
+            "W": 31,
+            "L": 31,
+            "T": 9,
+            "accuracy": 50.0,
+            "n": 71
+          },
+          "no": {
+            "W": 79,
+            "L": 74,
+            "T": 11,
+            "accuracy": 51.6,
+            "n": 164
+          }
+        },
+        "adverseZone": {
+          "true": {
+            "W": 61,
+            "L": 52,
+            "T": 14,
+            "accuracy": 54.0,
+            "n": 127
+          },
+          "false": {
+            "W": 49,
+            "L": 53,
+            "T": 6,
+            "accuracy": 48.0,
+            "n": 108
+          }
+        },
+        "extended": {
+          "yes": {
+            "W": 31,
+            "L": 30,
+            "T": 4,
+            "accuracy": 50.8,
+            "n": 65
+          }
+        },
+        "failureToProgress": {
+          "true": {
+            "W": 31,
+            "L": 32,
+            "T": 6,
+            "accuracy": 49.2,
+            "n": 69
+          },
+          "false": {
+            "W": 79,
+            "L": 73,
+            "T": 14,
+            "accuracy": 52.0,
+            "n": 166
+          }
+        },
+        "transitionRisk": {
+          "true": {
+            "W": 22,
+            "L": 31,
+            "T": 2,
+            "accuracy": 41.5,
+            "n": 55
+          },
+          "false": {
+            "W": 88,
+            "L": 74,
+            "T": 18,
+            "accuracy": 54.3,
+            "n": 180
+          }
+        },
+        "lateCounterTrendRisk": {
+          "true": {
+            "W": 68,
+            "L": 60,
+            "T": 14,
+            "accuracy": 53.1,
+            "n": 142
+          },
+          "false": {
+            "W": 42,
+            "L": 45,
+            "T": 6,
+            "accuracy": 48.3,
+            "n": 93
+          }
+        },
+        "continuationResetRequired": {
+          "true": {
+            "W": 92,
+            "L": 93,
+            "T": 19,
+            "accuracy": 49.7,
+            "n": 204
+          },
+          "false": {
+            "W": 18,
+            "L": 12,
+            "T": 1,
+            "accuracy": 60.0,
+            "n": 31
+          }
+        },
+        "breakoutAccepted": {
+          "true": {
+            "W": 24,
+            "L": 23,
+            "T": 5,
+            "accuracy": 51.1,
+            "n": 52
+          },
+          "false": {
+            "W": 86,
+            "L": 82,
+            "T": 15,
+            "accuracy": 51.2,
+            "n": 183
+          }
+        },
+        "tickAgreement": {
+          "true": {
+            "W": 69,
+            "L": 60,
+            "T": 15,
+            "accuracy": 53.5,
+            "n": 144
+          },
+          "false": {
+            "W": 41,
+            "L": 45,
+            "T": 5,
+            "accuracy": 47.7,
+            "n": 91
+          }
+        },
+        "maBbPositive": {
+          "yes": {
+            "W": 43,
+            "L": 40,
+            "T": 3,
+            "accuracy": 51.8,
+            "n": 86
+          }
+        },
+        "lossFailureCombos": [
+          {
+            "combo": "FAIL_PROGRESS",
+            "n": 9
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+            "n": 6
+          },
+          {
+            "combo": "EXTENDED",
+            "n": 5
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
+            "n": 5
+          },
+          {
+            "combo": "UNRESOLVED_FVG",
+            "n": 4
+          },
+          {
+            "combo": "FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+            "n": 4
+          }
+        ]
+      }
+    },
+    "GBPUSD-2M": {
+      "previousReportedBatch": 9,
+      "currentCompletedBatch": 10,
+      "newBatches": [
+        {
+          "batch": 10,
+          "results": {
+            "W": 9,
+            "L": 10,
+            "T": 1,
+            "n": 20,
+            "wr": 47.4
+          },
+          "exactBoundaryN": 20,
+          "confidenceMean": 66.6,
+          "streaks": {
+            "maxWin": 4,
+            "maxLoss": 3
+          },
+          "threshold": {
+            "57_61_9": {
+              "results": {
+                "W": 0,
+                "L": 0,
+                "T": 0,
+                "n": 0,
+                "wr": null
+              },
+              "avgConfidence": null,
+              "direction": {},
+              "regime": {},
+              "entryLane": {},
+              "sr": {},
+              "fvgState": {},
+              "emaStack": {},
+              "bbState": {},
+              "latePct": null,
+              "adversePct": null,
+              "mtfOpp2Pct": null,
+              "transitionPct": null,
+              "extendedPct": null,
+              "failProgressPct": null,
+              "breakoutAcceptedPct": null,
+              "tickAgreementPct": null,
+              "maBbPositivePct": null,
+              "avgEfficiency": null,
+              "avgMoveQuality": null,
+              "avgProgress": null,
+              "avgEmaCompression": null,
+              "avgBbWidth": null,
+              "avgBbExpansion": null,
+              "avgMaBb": null,
+              "avgAtr": null,
+              "avgVolatility": null
+            },
+            "gte62": {
+              "results": {
+                "W": 9,
+                "L": 10,
+                "T": 1,
+                "n": 20,
+                "wr": 47.4
+              },
+              "avgConfidence": 66.575,
+              "direction": {
+                "BUY": {
+                  "W": 7,
+                  "L": 8,
+                  "T": 1,
+                  "n": 16,
+                  "wr": 46.7
+                },
+                "SELL": {
+                  "W": 2,
+                  "L": 2,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 50.0
+                }
+              },
+              "regime": {
+                "CHOPPY": {
+                  "W": 8,
+                  "L": 5,
+                  "T": 1,
+                  "n": 14,
+                  "wr": 61.5
+                },
+                "MIXED": {
+                  "W": 1,
+                  "L": 5,
+                  "T": 0,
+                  "n": 6,
+                  "wr": 16.7
+                }
+              },
+              "entryLane": {
+                "CONFIRMED_ENTRY": {
+                  "W": 9,
+                  "L": 10,
+                  "T": 1,
+                  "n": 20,
+                  "wr": 47.4
+                }
+              },
+              "sr": {
+                "AT RESISTANCE": {
+                  "W": 3,
+                  "L": 5,
+                  "T": 0,
+                  "n": 8,
+                  "wr": 37.5
+                },
+                "AT SUPPORT": {
+                  "W": 6,
+                  "L": 4,
+                  "T": 0,
+                  "n": 10,
+                  "wr": 60.0
+                },
+                "CLEAR": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 1,
+                  "n": 2,
+                  "wr": 0.0
+                }
+              },
+              "fvgState": {
+                "ACCEPTED_THROUGH": {
+                  "W": 7,
+                  "L": 5,
+                  "T": 0,
+                  "n": 12,
+                  "wr": 58.3
+                },
+                "FULLY_MITIGATED": {
+                  "W": 2,
+                  "L": 3,
+                  "T": 0,
+                  "n": 5,
+                  "wr": 40.0
+                },
+                "MITIGATING": {
+                  "W": 0,
+                  "L": 0,
+                  "T": 1,
+                  "n": 1,
+                  "wr": null
+                },
+                "REJECTED": {
+                  "W": 0,
+                  "L": 2,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 0.0
+                }
+              },
+              "emaStack": {
+                "BULL": {
+                  "W": 6,
+                  "L": 8,
+                  "T": 0,
+                  "n": 14,
+                  "wr": 42.9
+                },
+                "MIXED": {
+                  "W": 3,
+                  "L": 2,
+                  "T": 1,
+                  "n": 6,
+                  "wr": 60.0
+                }
+              },
+              "bbState": {
+                "BULL_EXPANSION": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "LOWER_REJECTION": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "MID_RECLAIM": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                },
+                "MID_REJECT": {
+                  "W": 2,
+                  "L": 0,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 100.0
+                },
+                "NONE": {
+                  "W": 6,
+                  "L": 6,
+                  "T": 1,
+                  "n": 13,
+                  "wr": 50.0
+                },
+                "UPPER_REJECTION": {
+                  "W": 0,
+                  "L": 2,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 0.0
+                }
+              },
+              "latePct": 80.0,
+              "adversePct": 70.0,
+              "mtfOpp2Pct": 20.0,
+              "transitionPct": 60.0,
+              "extendedPct": 0.0,
+              "failProgressPct": 70.0,
+              "breakoutAcceptedPct": 5.0,
+              "tickAgreementPct": 35.0,
+              "maBbPositivePct": 70.0,
+              "avgEfficiency": 0.1618,
+              "avgMoveQuality": 3.625,
+              "avgProgress": -0.15,
+              "avgEmaCompression": 5e-05,
+              "avgBbWidth": 0.0003,
+              "avgBbExpansion": -0.02595,
+              "avgMaBb": 0.209,
+              "avgAtr": 0.00017,
+              "avgVolatility": 0.00013
+            }
+          },
+          "direction": {
+            "BUY": {
+              "W": 7,
+              "L": 8,
+              "T": 1,
+              "accuracy": 46.7
+            },
+            "SELL": {
+              "W": 2,
+              "L": 2,
+              "T": 0,
+              "accuracy": 50.0
+            }
+          },
+          "regime": {
+            "CHOPPY": {
+              "W": 8,
+              "L": 5,
+              "T": 1,
+              "accuracy": 61.5
+            },
+            "MIXED": {
+              "W": 1,
+              "L": 5,
+              "T": 0,
+              "accuracy": 16.7
+            }
+          },
+          "entryLane": {
+            "CONFIRMED_ENTRY": {
+              "W": 9,
+              "L": 10,
+              "T": 1,
+              "accuracy": 47.4
+            }
+          },
+          "emaStack": {
+            "BULL": {
+              "W": 6,
+              "L": 8,
+              "T": 0,
+              "accuracy": 42.9
+            },
+            "MIXED": {
+              "W": 3,
+              "L": 2,
+              "T": 1,
+              "accuracy": 60.0
+            }
+          },
+          "bbState": {
+            "BULL_EXPANSION": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            },
+            "LOWER_REJECTION": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            },
+            "MID_RECLAIM": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "MID_REJECT": {
+              "W": 2,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "NONE": {
+              "W": 6,
+              "L": 6,
+              "T": 1,
+              "accuracy": 50.0
+            },
+            "UPPER_REJECTION": {
+              "W": 0,
+              "L": 2,
+              "T": 0,
+              "accuracy": 0.0
+            }
+          },
+          "fvgState": {
+            "ACCEPTED_THROUGH": {
+              "W": 7,
+              "L": 5,
+              "T": 0,
+              "accuracy": 58.3
+            },
+            "FULLY_MITIGATED": {
+              "W": 2,
+              "L": 3,
+              "T": 0,
+              "accuracy": 40.0
+            },
+            "MITIGATING": {
+              "W": 0,
+              "L": 0,
+              "T": 1,
+              "accuracy": null
+            },
+            "REJECTED": {
+              "W": 0,
+              "L": 2,
+              "T": 0,
+              "accuracy": 0.0
+            }
+          },
+          "sr": {
+            "AT RESISTANCE": {
+              "W": 3,
+              "L": 5,
+              "T": 0,
+              "accuracy": 37.5
+            },
+            "AT SUPPORT": {
+              "W": 6,
+              "L": 4,
+              "T": 0,
+              "accuracy": 60.0
+            },
+            "CLEAR": {
+              "W": 0,
+              "L": 1,
+              "T": 1,
+              "accuracy": 0.0
+            }
+          },
+          "mtfOpposition2Plus": {
+            "yes": {
+              "W": 2,
+              "L": 2,
+              "T": 0,
+              "accuracy": 50.0,
+              "n": 4
+            },
+            "no": {
+              "W": 7,
+              "L": 8,
+              "T": 1,
+              "accuracy": 46.7,
+              "n": 16
+            }
+          },
+          "adverseZone": {
+            "true": {
+              "W": 6,
+              "L": 8,
+              "T": 0,
+              "accuracy": 42.9,
+              "n": 14
+            },
+            "false": {
+              "W": 3,
+              "L": 2,
+              "T": 1,
+              "accuracy": 60.0,
+              "n": 6
+            }
+          },
+          "extended": {
+            "yes": {
+              "W": 0,
+              "L": 0,
+              "T": 0,
+              "accuracy": null,
+              "n": 0
+            }
+          },
+          "failureToProgress": {
+            "true": {
+              "W": 3,
+              "L": 2,
+              "T": 0,
+              "accuracy": 60.0,
+              "n": 5
+            },
+            "false": {
+              "W": 6,
+              "L": 8,
+              "T": 1,
+              "accuracy": 42.9,
+              "n": 15
+            }
+          },
+          "transitionRisk": {
+            "true": {
+              "W": 5,
+              "L": 6,
+              "T": 1,
+              "accuracy": 45.5,
+              "n": 12
+            },
+            "false": {
+              "W": 4,
+              "L": 4,
+              "T": 0,
+              "accuracy": 50.0,
+              "n": 8
+            }
+          },
+          "lateCounterTrendRisk": {
+            "true": {
+              "W": 7,
+              "L": 9,
+              "T": 0,
+              "accuracy": 43.8,
+              "n": 16
+            },
+            "false": {
+              "W": 2,
+              "L": 1,
+              "T": 1,
+              "accuracy": 66.7,
+              "n": 4
+            }
+          },
+          "continuationResetRequired": {
+            "true": {
+              "W": 9,
+              "L": 10,
+              "T": 1,
+              "accuracy": 47.4,
+              "n": 20
+            },
+            "false": {
+              "W": 0,
+              "L": 0,
+              "T": 0,
+              "accuracy": null,
+              "n": 0
+            }
+          },
+          "breakoutAccepted": {
+            "true": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0,
+              "n": 1
+            },
+            "false": {
+              "W": 8,
+              "L": 10,
+              "T": 1,
+              "accuracy": 44.4,
+              "n": 19
+            }
+          },
+          "tickAgreement": {
+            "true": {
+              "W": 4,
+              "L": 2,
+              "T": 1,
+              "accuracy": 66.7,
+              "n": 7
+            },
+            "false": {
+              "W": 5,
+              "L": 8,
+              "T": 0,
+              "accuracy": 38.5,
+              "n": 13
+            }
+          },
+          "maBbPositive": {
+            "yes": {
+              "W": 5,
+              "L": 9,
+              "T": 0,
+              "accuracy": 35.7,
+              "n": 14
+            }
+          },
+          "lossFailureCombos": [
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+              "n": 3
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
+              "n": 2
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+              "n": 2
+            },
+            {
+              "combo": "FAIL_PROGRESS+CHOP",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+MTF_CONFLICT+FAIL_PROGRESS+TRANSITION_RISK",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+MTF_CONFLICT",
+              "n": 1
+            }
+          ],
+          "topFeatureCombos": [
+            {
+              "combo": "CHOPPY|BULL|NONE|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 6
+            },
+            {
+              "combo": "MIXED|BULL|NONE|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 3
+            },
+            {
+              "combo": "MIXED|BULL|UPPER_REJECTION|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 1
+            },
+            {
+              "combo": "MIXED|BULL|BULL_EXPANSION|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 1
+            },
+            {
+              "combo": "CHOPPY|BULL|UPPER_REJECTION|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 1
+            }
+          ],
+          "featureOutcomes": {
+            "winNumeric": {
+              "activeFvgDistanceAtr": 0.64,
+              "advancedMomentumScore": -0.05511,
+              "allTickWindowsAgree": 0.0,
+              "atr": 0.00017,
+              "atr14": 0.00017,
+              "atrNormalized": 0.00012,
+              "atrVwapVsaScoringActive": 1.0,
+              "bbExpansion": -0.05907,
+              "bbWidth": 0.0003,
+              "bodyAtr": 0.40811,
+              "candleBodyRatio": 0.47111,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.12078,
+              "emaCompression": 4e-05,
+              "emaSlope13": 1e-05,
+              "emaSlope20": 1e-05,
+              "emaSlope5": -1e-05,
+              "emaSlope8": -0.0,
+              "failureToProgress": 0.33333,
+              "fastTickWindowsAgree": 0.11111,
+              "forexTickAgreement": 0.44444,
+              "forexTickDirectionQuality": 0.27578,
+              "forexTickFeedReliability": 0.89767,
+              "forexTickPressure": -0.06456,
+              "forexTickQuality": 0.27578,
+              "forexTickWeight": 0.36,
+              "lastBodyRatio": 0.47111,
+              "lastLowerWickRatio": 0.23456,
+              "lastUpperWickRatio": 0.29433,
+              "lowerWickRatioVsa": 0.23456,
+              "maBbConfirmation": 0.16,
+              "maBbWeight": 0.19,
+              "microRangeChop": 0.33333,
+              "microRangePenalty": 2.1,
+              "momentum": -0.17478,
+              "progressFailureGate": 1.0,
+              "progressFailureRecovery": 0.55556,
+              "progressFailureRisk": 0.0,
+              "progressScore": -0.33333,
+              "rangeAtr": 0.862,
+              "relativeVolume": 0.89356,
+              "sequence": -0.10511,
+              "tickAcceleration": -0.01,
+              "tickAdaptiveRateBaseline": 0.50889,
+              "tickAdjustment": -0.77778,
+              "tickContinuityScore": 1.0,
+              "tickDensityScore": 0.98322,
+              "tickDirectionQualityScore": 2.75556,
+              "tickEfficiency": 0.142,
+              "tickFeedReliabilityScore": 8.96667,
+              "tickFreshnessScore": 0.673,
+              "tickImbalance": 0.11211,
+              "tickPersistence": 0.2,
+              "tickPressure10s": -0.15756,
+              "tickPressure20s": -0.11033,
+              "tickPressure30s": 0.02556,
+              "tickPressure5s": -0.027,
+              "tickPressure60s": 0.00944,
+              "tickRate": 0.50889,
+              "tickReliabilityScore": 4.48889,
+              "tickReversal": 0.0,
+              "tickSpreadHealthScore": 1.0,
+              "transitionFailureToProgress": 0.66667,
+              "universalProgressFailureGuard": 1.0,
+              "upperWickRatioVsa": 0.29433,
+              "vsaHighEffort": 0.22222,
+              "vsaNarrowSpread": 0.33333,
+              "vsaPoorResult": 0.66667,
+              "vsaScore": -0.03889,
+              "vsaWideSpread": 0.11111,
+              "vwap": 1.35284,
+              "vwapDistanceAtr": 1.75044,
+              "vwapExtended": 0.66667,
+              "vwapSlopeAtr": 0.02222
+            },
+            "lossNumeric": {
+              "activeFvgDistanceAtr": 1.036,
+              "advancedMomentumScore": 0.0119,
+              "allTickWindowsAgree": 0.0,
+              "atr": 0.00017,
+              "atr14": 0.00017,
+              "atrNormalized": 0.00013,
+              "atrVwapVsaScoringActive": 1.0,
+              "bbExpansion": 0.00294,
+              "bbWidth": 0.00031,
+              "bodyAtr": 0.2789,
+              "candleBodyRatio": 0.3124,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.2063,
+              "emaCompression": 5e-05,
+              "emaSlope13": 1e-05,
+              "emaSlope20": 2e-05,
+              "emaSlope5": 0.0,
+              "emaSlope8": 1e-05,
+              "failureToProgress": 0.2,
+              "fastTickWindowsAgree": 0.0,
+              "forexTickAgreement": 0.2,
+              "forexTickDirectionQuality": 0.2247,
+              "forexTickFeedReliability": 0.8833,
+              "forexTickPressure": 0.0166,
+              "forexTickQuality": 0.2247,
+              "forexTickWeight": 0.36,
+              "lastBodyRatio": 0.3124,
+              "lastLowerWickRatio": 0.2586,
+              "lastUpperWickRatio": 0.4289,
+              "lowerWickRatioVsa": 0.2586,
+              "maBbConfirmation": 0.274,
+              "maBbWeight": 0.19,
+              "microRangeChop": 0.6,
+              "microRangePenalty": 3.78,
+              "momentum": -0.0073,
+              "progressFailureGate": 1.0,
+              "progressFailureRecovery": 0.6,
+              "progressFailureRisk": 0.0,
+              "progressScore": 0.0,
+              "rangeAtr": 0.9107,
+              "relativeVolume": 1.2811,
+              "sequence": -0.0972,
+              "tickAcceleration": 0.1021,
+              "tickAdaptiveRateBaseline": 0.631,
+              "tickAdjustment": -0.9,
+              "tickContinuityScore": 0.9964,
+              "tickDensityScore": 0.9695,
+              "tickDirectionQualityScore": 2.25,
+              "tickEfficiency": 0.1269,
+              "tickFeedReliabilityScore": 8.83,
+              "tickFreshnessScore": 0.6396,
+              "tickImbalance": -0.0467,
+              "tickPersistence": 0.04,
+              "tickPressure10s": 0.0371,
+              "tickPressure20s": -0.048,
+              "tickPressure30s": -0.0605,
+              "tickPressure5s": 0.0566,
+              "tickPressure60s": -0.0674,
+              "tickRate": 0.577,
+              "tickReliabilityScore": 3.98,
+              "tickReversal": 0.1,
+              "tickSpreadHealthScore": 1.0,
+              "transitionFailureToProgress": 0.6,
+              "universalProgressFailureGuard": 1.0,
+              "upperWickRatioVsa": 0.4289,
+              "vsaHighEffort": 0.3,
+              "vsaNarrowSpread": 0.3,
+              "vsaPoorResult": 0.7,
+              "vsaScore": -0.109,
+              "vsaWideSpread": 0.3,
+              "vwap": 1.35277,
+              "vwapDistanceAtr": 1.5769,
+              "vwapExtended": 0.6,
+              "vwapSlopeAtr": 0.0276
+            },
+            "winCategorical": {
+              "bbState": {
+                "NONE": 6,
+                "MID_REJECT": 2,
+                "MID_RECLAIM": 1
+              },
+              "emaStack": {
+                "BULL": 6,
+                "MIXED": 3
+              },
+              "forexTickDirection": {
+                "SELL": 7,
+                "BUY": 2
+              },
+              "maBbTags": {
+                "BULL_EMA_STACK": 4,
+                "BB_MID_REJECT": 2,
+                "NONE": 2,
+                "BULL_5_8_CROSS|BB_MID_RECLAIM": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 7,
+                "USABLE": 2
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 9
+              },
+              "vsaState": {
+                "NEUTRAL": 6,
+                "BEAR_EFFORT_RESULT": 1,
+                "HIGH_EFFORT_LOW_RESULT": 1,
+                "LOW_SUPPLY_DEMAND_BEAR": 1
+              }
+            },
+            "lossCategorical": {
+              "bbState": {
+                "NONE": 6,
+                "UPPER_REJECTION": 2,
+                "BULL_EXPANSION": 1,
+                "LOWER_REJECTION": 1
+              },
+              "emaStack": {
+                "BULL": 8,
+                "MIXED": 2
+              },
+              "forexTickDirection": {
+                "SELL": 6,
+                "BUY": 4
+              },
+              "maBbTags": {
+                "BULL_EMA_STACK": 5,
+                "BULL_EMA_STACK|BB_UPPER_REJECTION": 2,
+                "BULL_EMA_STACK|BB_BULL_EXPANSION": 1,
+                "NONE": 1,
+                "BB_LOWER_REJECTION": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 9,
+                "USABLE": 1
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 10
+              },
+              "vsaState": {
+                "NEUTRAL": 3,
+                "BEAR_ABSORPTION_OR_UPTHRUST": 2,
+                "UPPER_REJECTION": 2,
+                "BULL_EFFORT_RESULT": 1,
+                "LOW_SUPPLY_DEMAND_BEAR": 1,
+                "LOWER_REJECTION": 1
+              }
+            }
+          }
+        }
+      ],
+      "cumulative": {
+        "results": {
+          "W": 95,
+          "L": 104,
+          "T": 9,
+          "accuracy": 47.7
+        },
+        "n": 208,
+        "confidenceMean": 65.5,
+        "streaks": {
+          "maxWin": 7,
+          "maxLoss": 4
+        },
+        "thresholdBuckets": {
+          "57_61_9": {
+            "W": 26,
+            "L": 31,
+            "T": 1,
+            "accuracy": 45.6,
+            "n": 58
+          },
+          "gte62": {
+            "W": 69,
+            "L": 73,
+            "T": 8,
+            "accuracy": 48.6,
+            "n": 150
+          }
+        },
+        "direction": {
+          "BUY": {
+            "W": 59,
+            "L": 53,
+            "T": 6,
+            "accuracy": 52.7
+          },
+          "SELL": {
+            "W": 36,
+            "L": 51,
+            "T": 3,
+            "accuracy": 41.4
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "W": 45,
+            "L": 48,
+            "T": 5,
+            "accuracy": 48.4
+          },
+          "MIXED": {
+            "W": 30,
+            "L": 35,
+            "T": 2,
+            "accuracy": 46.2
+          },
+          "TRENDING": {
+            "W": 20,
+            "L": 21,
+            "T": 2,
+            "accuracy": 48.8
+          }
+        },
+        "entryLane": {
+          "CONFIRMED_ENTRY": {
+            "W": 92,
+            "L": 101,
+            "T": 9,
+            "accuracy": 47.7
+          },
+          "REACTION_ENTRY": {
+            "W": 3,
+            "L": 3,
+            "T": 0,
+            "accuracy": 50.0
+          }
+        },
+        "emaStack": {
+          "BEAR": {
+            "W": 26,
+            "L": 38,
+            "T": 2,
+            "accuracy": 40.6
+          },
+          "BULL": {
+            "W": 39,
+            "L": 39,
+            "T": 3,
+            "accuracy": 50.0
+          },
+          "MIXED": {
+            "W": 30,
+            "L": 27,
+            "T": 4,
+            "accuracy": 52.6
+          }
+        },
+        "bbState": {
+          "BEAR_EXPANSION": {
+            "W": 6,
+            "L": 6,
+            "T": 1,
+            "accuracy": 50.0
+          },
+          "BULL_EXPANSION": {
+            "W": 7,
+            "L": 4,
+            "T": 1,
+            "accuracy": 63.6
+          },
+          "LOWER_REJECTION": {
+            "W": 2,
+            "L": 4,
+            "T": 0,
+            "accuracy": 33.3
+          },
+          "MID_RECLAIM": {
+            "W": 4,
+            "L": 5,
+            "T": 0,
+            "accuracy": 44.4
+          },
+          "MID_REJECT": {
+            "W": 3,
+            "L": 4,
+            "T": 0,
+            "accuracy": 42.9
+          },
+          "NONE": {
+            "W": 65,
+            "L": 76,
+            "T": 6,
+            "accuracy": 46.1
+          },
+          "UPPER_REJECTION": {
+            "W": 8,
+            "L": 5,
+            "T": 1,
+            "accuracy": 61.5
+          }
+        },
+        "fvgState": {
+          "ACCEPTED_THROUGH": {
+            "W": 20,
+            "L": 18,
+            "T": 2,
+            "accuracy": 52.6
+          },
+          "APPROACHING": {
+            "W": 10,
+            "L": 10,
+            "T": 0,
+            "accuracy": 50.0
+          },
+          "FULLY_MITIGATED": {
+            "W": 33,
+            "L": 40,
+            "T": 2,
+            "accuracy": 45.2
+          },
+          "MITIGATING": {
+            "W": 27,
+            "L": 23,
+            "T": 5,
+            "accuracy": 54.0
+          },
+          "REJECTED": {
+            "W": 5,
+            "L": 13,
+            "T": 0,
+            "accuracy": 27.8
+          }
+        },
+        "sr": {
+          "AT RESISTANCE": {
+            "W": 16,
+            "L": 20,
+            "T": 2,
+            "accuracy": 44.4
+          },
+          "AT SUPPORT": {
+            "W": 57,
+            "L": 53,
+            "T": 4,
+            "accuracy": 51.8
+          },
+          "CLEAR": {
+            "W": 22,
+            "L": 31,
+            "T": 3,
+            "accuracy": 41.5
+          }
+        },
+        "mtfOpposition2Plus": {
+          "yes": {
+            "W": 30,
+            "L": 25,
+            "T": 3,
+            "accuracy": 54.5,
+            "n": 58
+          },
+          "no": {
+            "W": 65,
+            "L": 79,
+            "T": 6,
+            "accuracy": 45.1,
+            "n": 150
+          }
+        },
+        "adverseZone": {
+          "true": {
+            "W": 57,
+            "L": 64,
+            "T": 6,
+            "accuracy": 47.1,
+            "n": 127
+          },
+          "false": {
+            "W": 38,
+            "L": 40,
+            "T": 3,
+            "accuracy": 48.7,
+            "n": 81
+          }
+        },
+        "extended": {
+          "yes": {
+            "W": 27,
+            "L": 20,
+            "T": 2,
+            "accuracy": 57.4,
+            "n": 49
+          }
+        },
+        "failureToProgress": {
+          "true": {
+            "W": 37,
+            "L": 40,
+            "T": 3,
+            "accuracy": 48.1,
+            "n": 80
+          },
+          "false": {
+            "W": 58,
+            "L": 64,
+            "T": 6,
+            "accuracy": 47.5,
+            "n": 128
+          }
+        },
+        "transitionRisk": {
+          "true": {
+            "W": 41,
+            "L": 37,
+            "T": 1,
+            "accuracy": 52.6,
+            "n": 79
+          },
+          "false": {
+            "W": 54,
+            "L": 67,
+            "T": 8,
+            "accuracy": 44.6,
+            "n": 129
+          }
+        },
+        "lateCounterTrendRisk": {
+          "true": {
+            "W": 63,
+            "L": 67,
+            "T": 6,
+            "accuracy": 48.5,
+            "n": 136
+          },
+          "false": {
+            "W": 32,
+            "L": 37,
+            "T": 3,
+            "accuracy": 46.4,
+            "n": 72
+          }
+        },
+        "continuationResetRequired": {
+          "true": {
+            "W": 86,
+            "L": 99,
+            "T": 8,
+            "accuracy": 46.5,
+            "n": 193
+          },
+          "false": {
+            "W": 9,
+            "L": 5,
+            "T": 1,
+            "accuracy": 64.3,
+            "n": 15
+          }
+        },
+        "breakoutAccepted": {
+          "true": {
+            "W": 23,
+            "L": 16,
+            "T": 3,
+            "accuracy": 59.0,
+            "n": 42
+          },
+          "false": {
+            "W": 72,
+            "L": 88,
+            "T": 6,
+            "accuracy": 45.0,
+            "n": 166
+          }
+        },
+        "tickAgreement": {
+          "true": {
+            "W": 43,
+            "L": 40,
+            "T": 2,
+            "accuracy": 51.8,
+            "n": 85
+          },
+          "false": {
+            "W": 52,
+            "L": 64,
+            "T": 7,
+            "accuracy": 44.8,
+            "n": 123
+          }
+        },
+        "maBbPositive": {
+          "yes": {
+            "W": 36,
+            "L": 42,
+            "T": 3,
+            "accuracy": 46.2,
+            "n": 81
+          }
+        },
+        "lossFailureCombos": [
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+            "n": 19
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+            "n": 5
+          },
+          {
+            "combo": "FAIL_PROGRESS",
+            "n": 4
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
+            "n": 4
+          },
+          {
+            "combo": "ADVERSE_ZONE",
+            "n": 4
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
+            "n": 4
+          }
+        ]
+      }
+    },
+    "GBPUSD-3M": {
+      "previousReportedBatch": 8,
+      "currentCompletedBatch": 9,
+      "newBatches": [
+        {
+          "batch": 9,
+          "results": {
+            "W": 11,
+            "L": 9,
+            "T": 0,
+            "n": 20,
+            "wr": 55.0
+          },
+          "exactBoundaryN": 20,
+          "confidenceMean": 69.5,
+          "streaks": {
+            "maxWin": 4,
+            "maxLoss": 3
+          },
+          "threshold": {
+            "57_61_9": {
+              "results": {
+                "W": 0,
+                "L": 0,
+                "T": 0,
+                "n": 0,
+                "wr": null
+              },
+              "avgConfidence": null,
+              "direction": {},
+              "regime": {},
+              "entryLane": {},
+              "sr": {},
+              "fvgState": {},
+              "emaStack": {},
+              "bbState": {},
+              "latePct": null,
+              "adversePct": null,
+              "mtfOpp2Pct": null,
+              "transitionPct": null,
+              "extendedPct": null,
+              "failProgressPct": null,
+              "breakoutAcceptedPct": null,
+              "tickAgreementPct": null,
+              "maBbPositivePct": null,
+              "avgEfficiency": null,
+              "avgMoveQuality": null,
+              "avgProgress": null,
+              "avgEmaCompression": null,
+              "avgBbWidth": null,
+              "avgBbExpansion": null,
+              "avgMaBb": null,
+              "avgAtr": null,
+              "avgVolatility": null
+            },
+            "gte62": {
+              "results": {
+                "W": 11,
+                "L": 9,
+                "T": 0,
+                "n": 20,
+                "wr": 55.0
+              },
+              "avgConfidence": 69.49,
+              "direction": {
+                "BUY": {
+                  "W": 11,
+                  "L": 8,
+                  "T": 0,
+                  "n": 19,
+                  "wr": 57.9
+                },
+                "SELL": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                }
+              },
+              "regime": {
+                "CHOPPY": {
+                  "W": 6,
+                  "L": 5,
+                  "T": 0,
+                  "n": 11,
+                  "wr": 54.5
+                },
+                "MIXED": {
+                  "W": 5,
+                  "L": 3,
+                  "T": 0,
+                  "n": 8,
+                  "wr": 62.5
+                },
+                "TRENDING": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                }
+              },
+              "entryLane": {
+                "CONFIRMED_ENTRY": {
+                  "W": 11,
+                  "L": 9,
+                  "T": 0,
+                  "n": 20,
+                  "wr": 55.0
+                }
+              },
+              "sr": {
+                "AT RESISTANCE": {
+                  "W": 9,
+                  "L": 4,
+                  "T": 0,
+                  "n": 13,
+                  "wr": 69.2
+                },
+                "AT SUPPORT": {
+                  "W": 2,
+                  "L": 1,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 66.7
+                },
+                "CLEAR": {
+                  "W": 0,
+                  "L": 4,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 0.0
+                }
+              },
+              "fvgState": {
+                "APPROACHING": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "FULLY_MITIGATED": {
+                  "W": 6,
+                  "L": 4,
+                  "T": 0,
+                  "n": 10,
+                  "wr": 60.0
+                },
+                "MITIGATING": {
+                  "W": 2,
+                  "L": 3,
+                  "T": 0,
+                  "n": 5,
+                  "wr": 40.0
+                },
+                "REJECTED": {
+                  "W": 3,
+                  "L": 1,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 75.0
+                }
+              },
+              "emaStack": {
+                "BULL": {
+                  "W": 11,
+                  "L": 8,
+                  "T": 0,
+                  "n": 19,
+                  "wr": 57.9
+                },
+                "MIXED": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                }
+              },
+              "bbState": {
+                "BULL_EXPANSION": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "MID_RECLAIM": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                },
+                "MID_REJECT": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "NONE": {
+                  "W": 10,
+                  "L": 6,
+                  "T": 0,
+                  "n": 16,
+                  "wr": 62.5
+                },
+                "UPPER_REJECTION": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                }
+              },
+              "latePct": 70.0,
+              "adversePct": 75.0,
+              "mtfOpp2Pct": 10.0,
+              "transitionPct": 35.0,
+              "extendedPct": 15.0,
+              "failProgressPct": 60.0,
+              "breakoutAcceptedPct": 30.0,
+              "tickAgreementPct": 40.0,
+              "maBbPositivePct": 75.0,
+              "avgEfficiency": 0.17995,
+              "avgMoveQuality": 4.125,
+              "avgProgress": 2.05,
+              "avgEmaCompression": 0.0001,
+              "avgBbWidth": 0.00056,
+              "avgBbExpansion": -0.01539,
+              "avgMaBb": 0.248,
+              "avgAtr": 0.00023,
+              "avgVolatility": 0.00017
+            }
+          },
+          "direction": {
+            "BUY": {
+              "W": 11,
+              "L": 8,
+              "T": 0,
+              "accuracy": 57.9
+            },
+            "SELL": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            }
+          },
+          "regime": {
+            "CHOPPY": {
+              "W": 6,
+              "L": 5,
+              "T": 0,
+              "accuracy": 54.5
+            },
+            "MIXED": {
+              "W": 5,
+              "L": 3,
+              "T": 0,
+              "accuracy": 62.5
+            },
+            "TRENDING": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            }
+          },
+          "entryLane": {
+            "CONFIRMED_ENTRY": {
+              "W": 11,
+              "L": 9,
+              "T": 0,
+              "accuracy": 55.0
+            }
+          },
+          "emaStack": {
+            "BULL": {
+              "W": 11,
+              "L": 8,
+              "T": 0,
+              "accuracy": 57.9
+            },
+            "MIXED": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            }
+          },
+          "bbState": {
+            "BULL_EXPANSION": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            },
+            "MID_RECLAIM": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "MID_REJECT": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            },
+            "NONE": {
+              "W": 10,
+              "L": 6,
+              "T": 0,
+              "accuracy": 62.5
+            },
+            "UPPER_REJECTION": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            }
+          },
+          "fvgState": {
+            "APPROACHING": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            },
+            "FULLY_MITIGATED": {
+              "W": 6,
+              "L": 4,
+              "T": 0,
+              "accuracy": 60.0
+            },
+            "MITIGATING": {
+              "W": 2,
+              "L": 3,
+              "T": 0,
+              "accuracy": 40.0
+            },
+            "REJECTED": {
+              "W": 3,
+              "L": 1,
+              "T": 0,
+              "accuracy": 75.0
+            }
+          },
+          "sr": {
+            "AT RESISTANCE": {
+              "W": 9,
+              "L": 4,
+              "T": 0,
+              "accuracy": 69.2
+            },
+            "AT SUPPORT": {
+              "W": 2,
+              "L": 1,
+              "T": 0,
+              "accuracy": 66.7
+            },
+            "CLEAR": {
+              "W": 0,
+              "L": 4,
+              "T": 0,
+              "accuracy": 0.0
+            }
+          },
+          "mtfOpposition2Plus": {
+            "yes": {
+              "W": 1,
+              "L": 1,
+              "T": 0,
+              "accuracy": 50.0,
+              "n": 2
+            },
+            "no": {
+              "W": 10,
+              "L": 8,
+              "T": 0,
+              "accuracy": 55.6,
+              "n": 18
+            }
+          },
+          "adverseZone": {
+            "true": {
+              "W": 10,
+              "L": 5,
+              "T": 0,
+              "accuracy": 66.7,
+              "n": 15
+            },
+            "false": {
+              "W": 1,
+              "L": 4,
+              "T": 0,
+              "accuracy": 20.0,
+              "n": 5
+            }
+          },
+          "extended": {
+            "yes": {
+              "W": 0,
+              "L": 3,
+              "T": 0,
+              "accuracy": 0.0,
+              "n": 3
+            }
+          },
+          "failureToProgress": {
+            "true": {
+              "W": 4,
+              "L": 4,
+              "T": 0,
+              "accuracy": 50.0,
+              "n": 8
+            },
+            "false": {
+              "W": 7,
+              "L": 5,
+              "T": 0,
+              "accuracy": 58.3,
+              "n": 12
+            }
+          },
+          "transitionRisk": {
+            "true": {
+              "W": 4,
+              "L": 3,
+              "T": 0,
+              "accuracy": 57.1,
+              "n": 7
+            },
+            "false": {
+              "W": 7,
+              "L": 6,
+              "T": 0,
+              "accuracy": 53.8,
+              "n": 13
+            }
+          },
+          "lateCounterTrendRisk": {
+            "true": {
+              "W": 9,
+              "L": 5,
+              "T": 0,
+              "accuracy": 64.3,
+              "n": 14
+            },
+            "false": {
+              "W": 2,
+              "L": 4,
+              "T": 0,
+              "accuracy": 33.3,
+              "n": 6
+            }
+          },
+          "continuationResetRequired": {
+            "true": {
+              "W": 11,
+              "L": 8,
+              "T": 0,
+              "accuracy": 57.9,
+              "n": 19
+            },
+            "false": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0,
+              "n": 1
+            }
+          },
+          "breakoutAccepted": {
+            "true": {
+              "W": 2,
+              "L": 4,
+              "T": 0,
+              "accuracy": 33.3,
+              "n": 6
+            },
+            "false": {
+              "W": 9,
+              "L": 5,
+              "T": 0,
+              "accuracy": 64.3,
+              "n": 14
+            }
+          },
+          "tickAgreement": {
+            "true": {
+              "W": 4,
+              "L": 4,
+              "T": 0,
+              "accuracy": 50.0,
+              "n": 8
+            },
+            "false": {
+              "W": 7,
+              "L": 5,
+              "T": 0,
+              "accuracy": 58.3,
+              "n": 12
+            }
+          },
+          "maBbPositive": {
+            "yes": {
+              "W": 7,
+              "L": 8,
+              "T": 0,
+              "accuracy": 46.7,
+              "n": 15
+            }
+          },
+          "lossFailureCombos": [
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+              "n": 2
+            },
+            {
+              "combo": "EXTENDED+UNRESOLVED_FVG",
+              "n": 2
+            },
+            {
+              "combo": "MTF_CONFLICT+UNRESOLVED_FVG",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+TRANSITION_RISK+CHOP",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+              "n": 1
+            }
+          ],
+          "topFeatureCombos": [
+            {
+              "combo": "CHOPPY|BULL|NONE|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 8
+            },
+            {
+              "combo": "MIXED|BULL|NONE|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 5
+            },
+            {
+              "combo": "CHOPPY|MIXED|MID_REJECT|RESISTANCE|3|CONFIRMED_ENTRY",
+              "n": 1
+            },
+            {
+              "combo": "MIXED|BULL|MID_RECLAIM|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 1
+            },
+            {
+              "combo": "CHOPPY|BULL|NONE|RESISTANCE|3|CONFIRMED_ENTRY",
+              "n": 1
+            }
+          ],
+          "featureOutcomes": {
+            "winNumeric": {
+              "activeFvgDistanceAtr": 0.37545,
+              "advancedMomentumScore": -0.02191,
+              "allTickWindowsAgree": 0.09091,
+              "atr": 0.00023,
+              "atr14": 0.00023,
+              "atrNormalized": 0.00017,
+              "atrVwapVsaScoringActive": 1.0,
+              "bbExpansion": -0.02486,
+              "bbWidth": 0.00054,
+              "bodyAtr": 0.46918,
+              "candleBodyRatio": 0.51436,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.16645,
+              "emaCompression": 9e-05,
+              "emaSlope13": 3e-05,
+              "emaSlope20": 3e-05,
+              "emaSlope5": 2e-05,
+              "emaSlope8": 3e-05,
+              "failureToProgress": 0.36364,
+              "fastTickWindowsAgree": 0.09091,
+              "forexTickAgreement": 0.36364,
+              "forexTickDirectionQuality": 0.28955,
+              "forexTickFeedReliability": 0.83282,
+              "forexTickPressure": 0.04927,
+              "forexTickQuality": 0.28955,
+              "forexTickWeight": 0.31,
+              "lastBodyRatio": 0.51436,
+              "lastLowerWickRatio": 0.30727,
+              "lastUpperWickRatio": 0.178,
+              "lowerWickRatioVsa": 0.30727,
+              "maBbConfirmation": 0.21091,
+              "maBbWeight": 0.18,
+              "microRangeChop": 0.36364,
+              "microRangePenalty": 2.03636,
+              "momentum": 0.14155,
+              "progressFailureGate": 1.0,
+              "progressFailureRecovery": 0.27273,
+              "progressFailureRisk": 0.0,
+              "progressScore": 1.63636,
+              "rangeAtr": 0.879,
+              "relativeVolume": 0.99782,
+              "sequence": 0.11645,
+              "tickAcceleration": 0.07827,
+              "tickAdaptiveRateBaseline": 0.57455,
+              "tickAdjustment": -0.81818,
+              "tickContinuityScore": 1.0,
+              "tickDensityScore": 0.99427,
+              "tickDirectionQualityScore": 2.89091,
+              "tickEfficiency": 0.13418,
+              "tickFeedReliabilityScore": 8.32727,
+              "tickFreshnessScore": 0.44791,
+              "tickImbalance": -0.05527,
+              "tickPersistence": 0.18182,
+              "tickPressure10s": 0.049,
+              "tickPressure20s": -0.00845,
+              "tickPressure30s": 0.01682,
+              "tickPressure5s": 0.09455,
+              "tickPressure60s": -0.01591,
+              "tickRate": 0.54545,
+              "tickReliabilityScore": 3.98182,
+              "tickReversal": 0.0,
+              "tickSpreadHealthScore": 1.0,
+              "transitionFailureToProgress": 0.54545,
+              "universalProgressFailureGuard": 1.0,
+              "upperWickRatioVsa": 0.178,
+              "vsaHighEffort": 0.18182,
+              "vsaNarrowSpread": 0.18182,
+              "vsaPoorResult": 0.54545,
+              "vsaScore": 0.12545,
+              "vsaWideSpread": 0.18182,
+              "vwap": 1.35282,
+              "vwapDistanceAtr": 1.64791,
+              "vwapExtended": 0.36364,
+              "vwapSlopeAtr": 0.02718
+            },
+            "lossNumeric": {
+              "activeFvgDistanceAtr": 0.51778,
+              "advancedMomentumScore": -0.00311,
+              "allTickWindowsAgree": 0.11111,
+              "atr": 0.00023,
+              "atr14": 0.00023,
+              "atrNormalized": 0.00017,
+              "atrVwapVsaScoringActive": 1.0,
+              "bbExpansion": -0.00381,
+              "bbWidth": 0.00058,
+              "bodyAtr": 0.45522,
+              "candleBodyRatio": 0.43567,
+              "continuationProgressBackedBreakout": 0.11111,
+              "efficiency": 0.19644,
+              "emaCompression": 0.00011,
+              "emaSlope13": 5e-05,
+              "emaSlope20": 4e-05,
+              "emaSlope5": 6e-05,
+              "emaSlope8": 5e-05,
+              "failureToProgress": 0.44444,
+              "fastTickWindowsAgree": 0.11111,
+              "forexTickAgreement": 0.44444,
+              "forexTickDirectionQuality": 0.28544,
+              "forexTickFeedReliability": 0.86444,
+              "forexTickPressure": 0.073,
+              "forexTickQuality": 0.28544,
+              "forexTickWeight": 0.31,
+              "lastBodyRatio": 0.43567,
+              "lastLowerWickRatio": 0.34844,
+              "lastUpperWickRatio": 0.21578,
+              "lowerWickRatioVsa": 0.34844,
+              "maBbConfirmation": 0.29333,
+              "maBbWeight": 0.18,
+              "microRangeChop": 0.22222,
+              "microRangePenalty": 1.24444,
+              "momentum": 0.32956,
+              "progressFailureGate": 1.0,
+              "progressFailureRecovery": 0.22222,
+              "progressFailureRisk": 0.11111,
+              "progressScore": 2.55556,
+              "rangeAtr": 0.92878,
+              "relativeVolume": 0.90544,
+              "sequence": 0.22211,
+              "tickAcceleration": -0.02278,
+              "tickAdaptiveRateBaseline": 0.57889,
+              "tickAdjustment": -0.46667,
+              "tickContinuityScore": 1.0,
+              "tickDensityScore": 0.955,
+              "tickDirectionQualityScore": 2.84444,
+              "tickEfficiency": 0.103,
+              "tickFeedReliabilityScore": 8.64444,
+              "tickFreshnessScore": 0.58589,
+              "tickImbalance": 0.03067,
+              "tickPersistence": 0.24444,
+              "tickPressure10s": 0.04333,
+              "tickPressure20s": 0.13944,
+              "tickPressure30s": 0.04533,
+              "tickPressure5s": 0.10556,
+              "tickPressure60s": 0.02933,
+              "tickRate": 0.52889,
+              "tickReliabilityScore": 4.38889,
+              "tickReversal": 0.0,
+              "tickSpreadHealthScore": 1.0,
+              "transitionFailureToProgress": 0.22222,
+              "universalProgressFailureGuard": 1.0,
+              "upperWickRatioVsa": 0.21578,
+              "vsaHighEffort": 0.0,
+              "vsaNarrowSpread": 0.22222,
+              "vsaPoorResult": 0.55556,
+              "vsaScore": -0.05222,
+              "vsaWideSpread": 0.33333,
+              "vwap": 1.35285,
+              "vwapDistanceAtr": 2.16556,
+              "vwapExtended": 0.44444,
+              "vwapSlopeAtr": 0.03344
+            },
+            "winCategorical": {
+              "bbState": {
+                "NONE": 10,
+                "MID_RECLAIM": 1
+              },
+              "emaStack": {
+                "BULL": 11
+              },
+              "forexTickDirection": {
+                "SELL": 6,
+                "BUY": 5
+              },
+              "maBbTags": {
+                "BULL_EMA_STACK": 6,
+                "NONE": 4,
+                "BULL_5_8_CROSS|BB_MID_RECLAIM": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 9,
+                "USABLE": 1,
+                "RELIABLE": 1
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 11
+              },
+              "vsaState": {
+                "NEUTRAL": 6,
+                "BULL_ABSORPTION_OR_STOPPING": 1,
+                "BULL_EFFORT_RESULT": 1,
+                "LOWER_REJECTION": 1,
+                "LOW_SUPPLY_DEMAND_BULL": 1,
+                "LOW_SUPPLY_DEMAND_BEAR": 1
+              }
+            },
+            "lossCategorical": {
+              "bbState": {
+                "NONE": 6,
+                "MID_REJECT": 1,
+                "BULL_EXPANSION": 1,
+                "UPPER_REJECTION": 1
+              },
+              "emaStack": {
+                "BULL": 8,
+                "MIXED": 1
+              },
+              "forexTickDirection": {
+                "BUY": 5,
+                "SELL": 4
+              },
+              "maBbTags": {
+                "BULL_EMA_STACK": 6,
+                "BB_MID_REJECT": 1,
+                "BULL_EMA_STACK|BB_BULL_EXPANSION": 1,
+                "BULL_EMA_STACK|BB_UPPER_REJECTION": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 6,
+                "USABLE": 2,
+                "RELIABLE": 1
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 9
+              },
+              "vsaState": {
+                "NEUTRAL": 5,
+                "UPPER_REJECTION": 2,
+                "LOWER_REJECTION": 1,
+                "LOW_SUPPLY_DEMAND_BEAR": 1
+              }
+            }
+          }
+        }
+      ],
+      "cumulative": {
+        "results": {
+          "W": 78,
+          "L": 99,
+          "T": 4,
+          "accuracy": 44.1
+        },
+        "n": 181,
+        "confidenceMean": 66.3,
+        "streaks": {
+          "maxWin": 6,
+          "maxLoss": 7
+        },
+        "thresholdBuckets": {
+          "57_61_9": {
+            "W": 13,
+            "L": 22,
+            "T": 1,
+            "accuracy": 37.1,
+            "n": 36
+          },
+          "gte62": {
+            "W": 65,
+            "L": 77,
+            "T": 3,
+            "accuracy": 45.8,
+            "n": 145
+          }
+        },
+        "direction": {
+          "BUY": {
+            "W": 52,
+            "L": 59,
+            "T": 3,
+            "accuracy": 46.8
+          },
+          "SELL": {
+            "W": 26,
+            "L": 40,
+            "T": 1,
+            "accuracy": 39.4
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "W": 40,
+            "L": 46,
+            "T": 3,
+            "accuracy": 46.5
+          },
+          "MIXED": {
+            "W": 21,
+            "L": 24,
+            "T": 1,
+            "accuracy": 46.7
+          },
+          "TRENDING": {
+            "W": 17,
+            "L": 29,
+            "T": 0,
+            "accuracy": 37.0
+          }
+        },
+        "entryLane": {
+          "CONFIRMED_ENTRY": {
+            "W": 76,
+            "L": 94,
+            "T": 4,
+            "accuracy": 44.7
+          },
+          "REACTION_ENTRY": {
+            "W": 2,
+            "L": 5,
+            "T": 0,
+            "accuracy": 28.6
+          }
+        },
+        "emaStack": {
+          "BEAR": {
+            "W": 18,
+            "L": 25,
+            "T": 0,
+            "accuracy": 41.9
+          },
+          "BULL": {
+            "W": 42,
+            "L": 46,
+            "T": 3,
+            "accuracy": 47.7
+          },
+          "MIXED": {
+            "W": 18,
+            "L": 28,
+            "T": 1,
+            "accuracy": 39.1
+          }
+        },
+        "bbState": {
+          "BEAR_EXPANSION": {
+            "W": 6,
+            "L": 4,
+            "T": 0,
+            "accuracy": 60.0
+          },
+          "BULL_EXPANSION": {
+            "W": 3,
+            "L": 5,
+            "T": 0,
+            "accuracy": 37.5
+          },
+          "LOWER_REJECTION": {
+            "W": 0,
+            "L": 4,
+            "T": 0,
+            "accuracy": 0.0
+          },
+          "MID_RECLAIM": {
+            "W": 5,
+            "L": 5,
+            "T": 0,
+            "accuracy": 50.0
+          },
+          "MID_REJECT": {
+            "W": 4,
+            "L": 5,
+            "T": 0,
+            "accuracy": 44.4
+          },
+          "NONE": {
+            "W": 54,
+            "L": 71,
+            "T": 3,
+            "accuracy": 43.2
+          },
+          "UPPER_REJECTION": {
+            "W": 6,
+            "L": 5,
+            "T": 1,
+            "accuracy": 54.5
+          }
+        },
+        "fvgState": {
+          "ACCEPTED_THROUGH": {
+            "W": 6,
+            "L": 16,
+            "T": 0,
+            "accuracy": 27.3
+          },
+          "APPROACHING": {
+            "W": 5,
+            "L": 12,
+            "T": 0,
+            "accuracy": 29.4
+          },
+          "FULLY_MITIGATED": {
+            "W": 29,
+            "L": 33,
+            "T": 2,
+            "accuracy": 46.8
+          },
+          "MITIGATING": {
+            "W": 28,
+            "L": 26,
+            "T": 0,
+            "accuracy": 51.9
+          },
+          "REJECTED": {
+            "W": 10,
+            "L": 12,
+            "T": 2,
+            "accuracy": 45.5
+          }
+        },
+        "sr": {
+          "AT RESISTANCE": {
+            "W": 29,
+            "L": 28,
+            "T": 2,
+            "accuracy": 50.9
+          },
+          "AT SUPPORT": {
+            "W": 33,
+            "L": 46,
+            "T": 1,
+            "accuracy": 41.8
+          },
+          "CLEAR": {
+            "W": 16,
+            "L": 25,
+            "T": 1,
+            "accuracy": 39.0
+          }
+        },
+        "mtfOpposition2Plus": {
+          "yes": {
+            "W": 11,
+            "L": 15,
+            "T": 0,
+            "accuracy": 42.3,
+            "n": 26
+          },
+          "no": {
+            "W": 67,
+            "L": 84,
+            "T": 4,
+            "accuracy": 44.4,
+            "n": 155
+          }
+        },
+        "adverseZone": {
+          "true": {
+            "W": 53,
+            "L": 64,
+            "T": 4,
+            "accuracy": 45.3,
+            "n": 121
+          },
+          "false": {
+            "W": 25,
+            "L": 35,
+            "T": 0,
+            "accuracy": 41.7,
+            "n": 60
+          }
+        },
+        "extended": {
+          "yes": {
+            "W": 14,
+            "L": 21,
+            "T": 0,
+            "accuracy": 40.0,
+            "n": 35
+          }
+        },
+        "failureToProgress": {
+          "true": {
+            "W": 30,
+            "L": 38,
+            "T": 1,
+            "accuracy": 44.1,
+            "n": 69
+          },
+          "false": {
+            "W": 48,
+            "L": 61,
+            "T": 3,
+            "accuracy": 44.0,
+            "n": 112
+          }
+        },
+        "transitionRisk": {
+          "true": {
+            "W": 30,
+            "L": 33,
+            "T": 0,
+            "accuracy": 47.6,
+            "n": 63
+          },
+          "false": {
+            "W": 48,
+            "L": 66,
+            "T": 4,
+            "accuracy": 42.1,
+            "n": 118
+          }
+        },
+        "lateCounterTrendRisk": {
+          "true": {
+            "W": 55,
+            "L": 62,
+            "T": 4,
+            "accuracy": 47.0,
+            "n": 121
+          },
+          "false": {
+            "W": 23,
+            "L": 37,
+            "T": 0,
+            "accuracy": 38.3,
+            "n": 60
+          }
+        },
+        "continuationResetRequired": {
+          "true": {
+            "W": 72,
+            "L": 91,
+            "T": 4,
+            "accuracy": 44.2,
+            "n": 167
+          },
+          "false": {
+            "W": 6,
+            "L": 8,
+            "T": 0,
+            "accuracy": 42.9,
+            "n": 14
+          }
+        },
+        "breakoutAccepted": {
+          "true": {
+            "W": 15,
+            "L": 19,
+            "T": 0,
+            "accuracy": 44.1,
+            "n": 34
+          },
+          "false": {
+            "W": 63,
+            "L": 80,
+            "T": 4,
+            "accuracy": 44.1,
+            "n": 147
+          }
+        },
+        "tickAgreement": {
+          "true": {
+            "W": 26,
+            "L": 41,
+            "T": 1,
+            "accuracy": 38.8,
+            "n": 68
+          },
+          "false": {
+            "W": 52,
+            "L": 58,
+            "T": 3,
+            "accuracy": 47.3,
+            "n": 113
+          }
+        },
+        "maBbPositive": {
+          "yes": {
+            "W": 34,
+            "L": 44,
+            "T": 3,
+            "accuracy": 43.6,
+            "n": 81
+          }
+        },
+        "lossFailureCombos": [
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+            "n": 12
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
+            "n": 6
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+CHOP",
+            "n": 5
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
+            "n": 5
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+            "n": 4
+          },
+          {
+            "combo": "FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+            "n": 3
+          }
+        ]
+      }
+    },
+    "GBPUSD-5M": {
+      "previousReportedBatch": 5,
+      "currentCompletedBatch": 6,
+      "newBatches": [
+        {
+          "batch": 6,
+          "results": {
+            "W": 9,
+            "L": 10,
+            "T": 1,
+            "n": 20,
+            "wr": 47.4
+          },
+          "exactBoundaryN": 20,
+          "confidenceMean": 67.5,
+          "streaks": {
+            "maxWin": 2,
+            "maxLoss": 2
+          },
+          "threshold": {
+            "57_61_9": {
+              "results": {
+                "W": 0,
+                "L": 3,
+                "T": 0,
+                "n": 3,
+                "wr": 0.0
+              },
+              "avgConfidence": 60.13333,
+              "direction": {
+                "BUY": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "SELL": {
+                  "W": 0,
+                  "L": 2,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 0.0
+                }
+              },
+              "regime": {
+                "CHOPPY": {
+                  "W": 0,
+                  "L": 3,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 0.0
+                }
+              },
+              "entryLane": {
+                "CONFIRMED_ENTRY": {
+                  "W": 0,
+                  "L": 3,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 0.0
+                }
+              },
+              "sr": {
+                "AT RESISTANCE": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "AT SUPPORT": {
+                  "W": 0,
+                  "L": 2,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 0.0
+                }
+              },
+              "fvgState": {
+                "APPROACHING": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "FULLY_MITIGATED": {
+                  "W": 0,
+                  "L": 2,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 0.0
+                }
+              },
+              "emaStack": {
+                "BULL": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "MIXED": {
+                  "W": 0,
+                  "L": 2,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 0.0
+                }
+              },
+              "bbState": {
+                "NONE": {
+                  "W": 0,
+                  "L": 3,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 0.0
+                }
+              },
+              "latePct": 66.7,
+              "adversePct": 66.7,
+              "mtfOpp2Pct": 0.0,
+              "transitionPct": 33.3,
+              "extendedPct": 33.3,
+              "failProgressPct": 66.7,
+              "breakoutAcceptedPct": 33.3,
+              "tickAgreementPct": 0.0,
+              "maBbPositivePct": 0.0,
+              "avgEfficiency": 0.073,
+              "avgMoveQuality": 3.53333,
+              "avgProgress": -1.0,
+              "avgEmaCompression": 4e-05,
+              "avgBbWidth": 0.00038,
+              "avgBbExpansion": -0.0137,
+              "avgMaBb": 0.0,
+              "avgAtr": 0.00017,
+              "avgVolatility": 0.00013
+            },
+            "gte62": {
+              "results": {
+                "W": 9,
+                "L": 7,
+                "T": 1,
+                "n": 17,
+                "wr": 56.2
+              },
+              "avgConfidence": 68.85882,
+              "direction": {
+                "BUY": {
+                  "W": 5,
+                  "L": 4,
+                  "T": 1,
+                  "n": 10,
+                  "wr": 55.6
+                },
+                "SELL": {
+                  "W": 4,
+                  "L": 3,
+                  "T": 0,
+                  "n": 7,
+                  "wr": 57.1
+                }
+              },
+              "regime": {
+                "CHOPPY": {
+                  "W": 6,
+                  "L": 3,
+                  "T": 1,
+                  "n": 10,
+                  "wr": 66.7
+                },
+                "MIXED": {
+                  "W": 2,
+                  "L": 3,
+                  "T": 0,
+                  "n": 5,
+                  "wr": 40.0
+                },
+                "TRENDING": {
+                  "W": 1,
+                  "L": 1,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 50.0
+                }
+              },
+              "entryLane": {
+                "CONFIRMED_ENTRY": {
+                  "W": 7,
+                  "L": 7,
+                  "T": 1,
+                  "n": 15,
+                  "wr": 50.0
+                },
+                "REACTION_ENTRY": {
+                  "W": 2,
+                  "L": 0,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 100.0
+                }
+              },
+              "sr": {
+                "AT RESISTANCE": {
+                  "W": 3,
+                  "L": 4,
+                  "T": 0,
+                  "n": 7,
+                  "wr": 42.9
+                },
+                "AT SUPPORT": {
+                  "W": 3,
+                  "L": 3,
+                  "T": 0,
+                  "n": 6,
+                  "wr": 50.0
+                },
+                "CLEAR": {
+                  "W": 3,
+                  "L": 0,
+                  "T": 1,
+                  "n": 4,
+                  "wr": 100.0
+                }
+              },
+              "fvgState": {
+                "ACCEPTED_THROUGH": {
+                  "W": 1,
+                  "L": 2,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 33.3
+                },
+                "FULLY_MITIGATED": {
+                  "W": 6,
+                  "L": 3,
+                  "T": 0,
+                  "n": 9,
+                  "wr": 66.7
+                },
+                "MITIGATING": {
+                  "W": 1,
+                  "L": 2,
+                  "T": 1,
+                  "n": 4,
+                  "wr": 33.3
+                },
+                "REJECTED": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                }
+              },
+              "emaStack": {
+                "BEAR": {
+                  "W": 2,
+                  "L": 2,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 50.0
+                },
+                "BULL": {
+                  "W": 6,
+                  "L": 4,
+                  "T": 1,
+                  "n": 11,
+                  "wr": 60.0
+                },
+                "MIXED": {
+                  "W": 1,
+                  "L": 1,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 50.0
+                }
+              },
+              "bbState": {
+                "BEAR_EXPANSION": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                },
+                "BULL_EXPANSION": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                },
+                "MID_RECLAIM": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                },
+                "MID_REJECT": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "NONE": {
+                  "W": 6,
+                  "L": 2,
+                  "T": 1,
+                  "n": 9,
+                  "wr": 75.0
+                },
+                "UPPER_REJECTION": {
+                  "W": 0,
+                  "L": 4,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 0.0
+                }
+              },
+              "latePct": 70.6,
+              "adversePct": 88.2,
+              "mtfOpp2Pct": 5.9,
+              "transitionPct": 29.4,
+              "extendedPct": 5.9,
+              "failProgressPct": 52.9,
+              "breakoutAcceptedPct": 17.6,
+              "tickAgreementPct": 35.3,
+              "maBbPositivePct": 64.7,
+              "avgEfficiency": 0.19935,
+              "avgMoveQuality": 5.02353,
+              "avgProgress": 0.76471,
+              "avgEmaCompression": 0.0001,
+              "avgBbWidth": 0.00049,
+              "avgBbExpansion": 0.03878,
+              "avgMaBb": 0.09176,
+              "avgAtr": 0.00021,
+              "avgVolatility": 0.00016
+            }
+          },
+          "direction": {
+            "BUY": {
+              "W": 5,
+              "L": 5,
+              "T": 1,
+              "accuracy": 50.0
+            },
+            "SELL": {
+              "W": 4,
+              "L": 5,
+              "T": 0,
+              "accuracy": 44.4
+            }
+          },
+          "regime": {
+            "CHOPPY": {
+              "W": 6,
+              "L": 6,
+              "T": 1,
+              "accuracy": 50.0
+            },
+            "MIXED": {
+              "W": 2,
+              "L": 3,
+              "T": 0,
+              "accuracy": 40.0
+            },
+            "TRENDING": {
+              "W": 1,
+              "L": 1,
+              "T": 0,
+              "accuracy": 50.0
+            }
+          },
+          "entryLane": {
+            "CONFIRMED_ENTRY": {
+              "W": 7,
+              "L": 10,
+              "T": 1,
+              "accuracy": 41.2
+            },
+            "REACTION_ENTRY": {
+              "W": 2,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            }
+          },
+          "emaStack": {
+            "BEAR": {
+              "W": 2,
+              "L": 2,
+              "T": 0,
+              "accuracy": 50.0
+            },
+            "BULL": {
+              "W": 6,
+              "L": 5,
+              "T": 1,
+              "accuracy": 54.5
+            },
+            "MIXED": {
+              "W": 1,
+              "L": 3,
+              "T": 0,
+              "accuracy": 25.0
+            }
+          },
+          "bbState": {
+            "BEAR_EXPANSION": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "BULL_EXPANSION": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "MID_RECLAIM": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            },
+            "MID_REJECT": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            },
+            "NONE": {
+              "W": 6,
+              "L": 5,
+              "T": 1,
+              "accuracy": 54.5
+            },
+            "UPPER_REJECTION": {
+              "W": 0,
+              "L": 4,
+              "T": 0,
+              "accuracy": 0.0
+            }
+          },
+          "fvgState": {
+            "ACCEPTED_THROUGH": {
+              "W": 1,
+              "L": 2,
+              "T": 0,
+              "accuracy": 33.3
+            },
+            "APPROACHING": {
+              "W": 0,
+              "L": 1,
+              "T": 0,
+              "accuracy": 0.0
+            },
+            "FULLY_MITIGATED": {
+              "W": 6,
+              "L": 5,
+              "T": 0,
+              "accuracy": 54.5
+            },
+            "MITIGATING": {
+              "W": 1,
+              "L": 2,
+              "T": 1,
+              "accuracy": 33.3
+            },
+            "REJECTED": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0
+            }
+          },
+          "sr": {
+            "AT RESISTANCE": {
+              "W": 3,
+              "L": 5,
+              "T": 0,
+              "accuracy": 37.5
+            },
+            "AT SUPPORT": {
+              "W": 3,
+              "L": 5,
+              "T": 0,
+              "accuracy": 37.5
+            },
+            "CLEAR": {
+              "W": 3,
+              "L": 0,
+              "T": 1,
+              "accuracy": 100.0
+            }
+          },
+          "mtfOpposition2Plus": {
+            "yes": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0,
+              "n": 1
+            },
+            "no": {
+              "W": 8,
+              "L": 10,
+              "T": 1,
+              "accuracy": 44.4,
+              "n": 19
+            }
+          },
+          "adverseZone": {
+            "true": {
+              "W": 7,
+              "L": 9,
+              "T": 1,
+              "accuracy": 43.8,
+              "n": 17
+            },
+            "false": {
+              "W": 2,
+              "L": 1,
+              "T": 0,
+              "accuracy": 66.7,
+              "n": 3
+            }
+          },
+          "extended": {
+            "yes": {
+              "W": 0,
+              "L": 2,
+              "T": 0,
+              "accuracy": 0.0,
+              "n": 2
+            }
+          },
+          "failureToProgress": {
+            "true": {
+              "W": 2,
+              "L": 4,
+              "T": 1,
+              "accuracy": 33.3,
+              "n": 7
+            },
+            "false": {
+              "W": 7,
+              "L": 6,
+              "T": 0,
+              "accuracy": 53.8,
+              "n": 13
+            }
+          },
+          "transitionRisk": {
+            "true": {
+              "W": 2,
+              "L": 4,
+              "T": 0,
+              "accuracy": 33.3,
+              "n": 6
+            },
+            "false": {
+              "W": 7,
+              "L": 6,
+              "T": 1,
+              "accuracy": 53.8,
+              "n": 14
+            }
+          },
+          "lateCounterTrendRisk": {
+            "true": {
+              "W": 4,
+              "L": 9,
+              "T": 1,
+              "accuracy": 30.8,
+              "n": 14
+            },
+            "false": {
+              "W": 5,
+              "L": 1,
+              "T": 0,
+              "accuracy": 83.3,
+              "n": 6
+            }
+          },
+          "continuationResetRequired": {
+            "true": {
+              "W": 8,
+              "L": 10,
+              "T": 1,
+              "accuracy": 44.4,
+              "n": 19
+            },
+            "false": {
+              "W": 1,
+              "L": 0,
+              "T": 0,
+              "accuracy": 100.0,
+              "n": 1
+            }
+          },
+          "breakoutAccepted": {
+            "true": {
+              "W": 1,
+              "L": 3,
+              "T": 0,
+              "accuracy": 25.0,
+              "n": 4
+            },
+            "false": {
+              "W": 8,
+              "L": 7,
+              "T": 1,
+              "accuracy": 53.3,
+              "n": 16
+            }
+          },
+          "tickAgreement": {
+            "true": {
+              "W": 3,
+              "L": 3,
+              "T": 0,
+              "accuracy": 50.0,
+              "n": 6
+            },
+            "false": {
+              "W": 6,
+              "L": 7,
+              "T": 1,
+              "accuracy": 46.2,
+              "n": 14
+            }
+          },
+          "maBbPositive": {
+            "yes": {
+              "W": 6,
+              "L": 4,
+              "T": 1,
+              "accuracy": 60.0,
+              "n": 11
+            }
+          },
+          "lossFailureCombos": [
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
+              "n": 3
+            },
+            {
+              "combo": "FAIL_PROGRESS",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+UNRESOLVED_FVG",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+              "n": 1
+            },
+            {
+              "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG+CHOP",
+              "n": 1
+            }
+          ],
+          "topFeatureCombos": [
+            {
+              "combo": "CHOPPY|BULL|NONE|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 3
+            },
+            {
+              "combo": "MIXED|BULL|UPPER_REJECTION|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 2
+            },
+            {
+              "combo": "MIXED|BULL|NONE|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 2
+            },
+            {
+              "combo": "CHOPPY|MIXED|NONE|RESISTANCE|0|CONFIRMED_ENTRY",
+              "n": 1
+            },
+            {
+              "combo": "CHOPPY|MIXED|NONE|SUPPORT|1|CONFIRMED_ENTRY",
+              "n": 1
+            }
+          ],
+          "featureOutcomes": {
+            "winNumeric": {
+              "activeFvgDistanceAtr": 0.48444,
+              "advancedMomentumScore": 0.06011,
+              "allTickWindowsAgree": 0.0,
+              "atr": 0.00021,
+              "atr14": 0.00021,
+              "atrNormalized": 0.00016,
+              "atrVwapVsaScoringActive": 1.0,
+              "bbExpansion": 0.05593,
+              "bbWidth": 0.00049,
+              "bodyAtr": 0.719,
+              "candleBodyRatio": 0.53122,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.19156,
+              "emaCompression": 0.0001,
+              "emaSlope13": 3e-05,
+              "emaSlope20": 2e-05,
+              "emaSlope5": 1e-05,
+              "emaSlope8": 2e-05,
+              "failureToProgress": 0.22222,
+              "fastTickWindowsAgree": 0.11111,
+              "forexTickAgreement": 0.33333,
+              "forexTickDirectionQuality": 0.28511,
+              "forexTickFeedReliability": 0.89533,
+              "forexTickPressure": -0.06622,
+              "forexTickQuality": 0.28511,
+              "forexTickWeight": 0.24,
+              "lastBodyRatio": 0.53122,
+              "lastLowerWickRatio": 0.20956,
+              "lastUpperWickRatio": 0.25933,
+              "lowerWickRatioVsa": 0.20956,
+              "maBbConfirmation": 0.16222,
+              "maBbWeight": 0.16,
+              "microRangeChop": 0.11111,
+              "microRangePenalty": 0.5,
+              "momentum": -0.06711,
+              "progressFailureGate": 1.0,
+              "progressFailureRecovery": 0.33333,
+              "progressFailureRisk": 0.0,
+              "progressScore": 1.11111,
+              "rangeAtr": 1.25722,
+              "relativeVolume": 1.553,
+              "sequence": 0.02311,
+              "tickAcceleration": 0.223,
+              "tickAdaptiveRateBaseline": 0.50889,
+              "tickAdjustment": -0.77778,
+              "tickContinuityScore": 1.0,
+              "tickDensityScore": 0.977,
+              "tickDirectionQualityScore": 2.85556,
+              "tickEfficiency": 0.16011,
+              "tickFeedReliabilityScore": 8.94444,
+              "tickFreshnessScore": 0.67022,
+              "tickImbalance": -0.22011,
+              "tickPersistence": 0.15556,
+              "tickPressure10s": -0.07333,
+              "tickPressure20s": -0.27378,
+              "tickPressure30s": -0.17833,
+              "tickPressure5s": 0.01289,
+              "tickPressure60s": -0.07589,
+              "tickRate": 0.45778,
+              "tickReliabilityScore": 4.3,
+              "tickReversal": 0.0,
+              "tickSpreadHealthScore": 1.0,
+              "transitionFailureToProgress": 0.55556,
+              "universalProgressFailureGuard": 1.0,
+              "upperWickRatioVsa": 0.25933,
+              "vsaHighEffort": 0.33333,
+              "vsaNarrowSpread": 0.0,
+              "vsaPoorResult": 0.22222,
+              "vsaScore": -0.06111,
+              "vsaWideSpread": 0.44444,
+              "vwap": 1.35295,
+              "vwapDistanceAtr": -0.05256,
+              "vwapExtended": 0.11111,
+              "vwapSlopeAtr": 0.10033
+            },
+            "lossNumeric": {
+              "activeFvgDistanceAtr": 0.224,
+              "advancedMomentumScore": 0.0495,
+              "allTickWindowsAgree": 0.25,
+              "atr": 0.00019,
+              "atr14": 0.00019,
+              "atrNormalized": 0.00014,
+              "atrVwapVsaScoringActive": 1.0,
+              "bbExpansion": 0.01105,
+              "bbWidth": 0.00044,
+              "bodyAtr": 0.5081,
+              "candleBodyRatio": 0.4286,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.1841,
+              "emaCompression": 8e-05,
+              "emaSlope13": 3e-05,
+              "emaSlope20": 2e-05,
+              "emaSlope5": 2e-05,
+              "emaSlope8": 3e-05,
+              "failureToProgress": 0.4,
+              "fastTickWindowsAgree": 0.25,
+              "forexTickAgreement": 0.375,
+              "forexTickDirectionQuality": 0.36575,
+              "forexTickFeedReliability": 0.8455,
+              "forexTickPressure": -0.02475,
+              "forexTickQuality": 0.36575,
+              "forexTickWeight": 0.24,
+              "lastBodyRatio": 0.4286,
+              "lastLowerWickRatio": 0.11,
+              "lastUpperWickRatio": 0.4613,
+              "lowerWickRatioVsa": 0.11,
+              "maBbConfirmation": -0.024,
+              "maBbWeight": 0.16,
+              "microRangeChop": 0.3,
+              "microRangePenalty": 0.9,
+              "momentum": -0.1596,
+              "progressFailureGate": 0.9,
+              "progressFailureRecovery": 0.4,
+              "progressFailureRisk": 0.1,
+              "progressScore": -0.3,
+              "rangeAtr": 1.1123,
+              "relativeVolume": 1.2854,
+              "sequence": 0.0546,
+              "tickAcceleration": 0.14525,
+              "tickAdaptiveRateBaseline": 0.525,
+              "tickAdjustment": -0.42,
+              "tickContinuityScore": 0.99575,
+              "tickDensityScore": 0.976,
+              "tickDirectionQualityScore": 3.65,
+              "tickEfficiency": 0.18613,
+              "tickFeedReliabilityScore": 8.475,
+              "tickFreshnessScore": 0.5095,
+              "tickImbalance": -0.05325,
+              "tickPersistence": 0.25,
+              "tickPressure10s": -0.06038,
+              "tickPressure20s": -0.16237,
+              "tickPressure30s": -0.062,
+              "tickPressure5s": 0.06,
+              "tickPressure60s": -0.09538,
+              "tickRate": 0.52125,
+              "tickReliabilityScore": 3.51,
+              "tickReversal": 0.0,
+              "tickSpreadHealthScore": 0.99875,
+              "transitionFailureToProgress": 0.3,
+              "universalProgressFailureGuard": 1.0,
+              "upperWickRatioVsa": 0.4613,
+              "vsaHighEffort": 0.4,
+              "vsaNarrowSpread": 0.2,
+              "vsaPoorResult": 0.6,
+              "vsaScore": -0.305,
+              "vsaWideSpread": 0.3,
+              "vwap": 1.35281,
+              "vwapDistanceAtr": 0.746,
+              "vwapExtended": 0.4,
+              "vwapSlopeAtr": 0.1198
+            },
+            "winCategorical": {
+              "bbState": {
+                "NONE": 6,
+                "BEAR_EXPANSION": 1,
+                "BULL_EXPANSION": 1,
+                "MID_RECLAIM": 1
+              },
+              "emaStack": {
+                "BULL": 6,
+                "BEAR": 2,
+                "MIXED": 1
+              },
+              "forexTickDirection": {
+                "SELL": 6,
+                "BUY": 3
+              },
+              "maBbTags": {
+                "BULL_EMA_STACK": 4,
+                "NONE": 1,
+                "BEAR_EMA_STACK|BB_BEAR_EXPANSION": 1,
+                "BEAR_EMA_STACK": 1,
+                "BULL_EMA_STACK|BB_BULL_EXPANSION": 1,
+                "BULL_EMA_STACK|BB_MID_RECLAIM": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 7,
+                "USABLE": 2
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 9
+              },
+              "vsaState": {
+                "NEUTRAL": 6,
+                "BULL_EFFORT_RESULT": 1,
+                "BEAR_EFFORT_RESULT": 1,
+                "BEAR_ABSORPTION_OR_UPTHRUST": 1
+              }
+            },
+            "lossCategorical": {
+              "bbState": {
+                "NONE": 5,
+                "UPPER_REJECTION": 4,
+                "MID_REJECT": 1
+              },
+              "emaStack": {
+                "BULL": 5,
+                "MIXED": 3,
+                "BEAR": 2
+              },
+              "forexTickDirection": {
+                "SELL": 5,
+                "BUY": 3,
+                "NONE": 2
+              },
+              "forexTickStatus": {
+                "NONE": 8,
+                "WARMING_OR_UNAVAILABLE": 2
+              },
+              "maBbTags": {
+                "NONE": 4,
+                "BULL_EMA_STACK|BB_UPPER_REJECTION": 4,
+                "BEAR_EMA_STACK|BEAR_5_8_CROSS|BB_MID_REJECT": 1,
+                "BEAR_EMA_STACK": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 6,
+                "UNAVAILABLE": 2,
+                "RELIABLE": 2
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 10
+              },
+              "vsaState": {
+                "UPPER_REJECTION": 4,
+                "BEAR_ABSORPTION_OR_UPTHRUST": 3,
+                "NEUTRAL": 3
+              }
+            }
+          }
+        }
+      ],
+      "cumulative": {
+        "results": {
+          "W": 57,
+          "L": 63,
+          "T": 5,
+          "accuracy": 47.5
+        },
+        "n": 125,
+        "confidenceMean": 67.7,
+        "streaks": {
+          "maxWin": 5,
+          "maxLoss": 5
+        },
+        "thresholdBuckets": {
+          "57_61_9": {
+            "W": 5,
+            "L": 11,
+            "T": 1,
+            "accuracy": 31.2,
+            "n": 17
+          },
+          "gte62": {
+            "W": 52,
+            "L": 52,
+            "T": 4,
+            "accuracy": 50.0,
+            "n": 108
+          }
+        },
+        "direction": {
+          "BUY": {
+            "W": 42,
+            "L": 43,
+            "T": 3,
+            "accuracy": 49.4
+          },
+          "SELL": {
+            "W": 15,
+            "L": 20,
+            "T": 2,
+            "accuracy": 42.9
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "W": 31,
+            "L": 29,
+            "T": 2,
+            "accuracy": 51.7
+          },
+          "MIXED": {
+            "W": 16,
+            "L": 17,
+            "T": 1,
+            "accuracy": 48.5
+          },
+          "TRENDING": {
+            "W": 10,
+            "L": 17,
+            "T": 2,
+            "accuracy": 37.0
+          }
+        },
+        "entryLane": {
+          "CONFIRMED_ENTRY": {
+            "W": 54,
+            "L": 62,
+            "T": 5,
+            "accuracy": 46.6
+          },
+          "REACTION_ENTRY": {
+            "W": 3,
+            "L": 1,
+            "T": 0,
+            "accuracy": 75.0
+          }
+        },
+        "emaStack": {
+          "BEAR": {
+            "W": 10,
+            "L": 12,
+            "T": 2,
+            "accuracy": 45.5
+          },
+          "BULL": {
+            "W": 36,
+            "L": 37,
+            "T": 3,
+            "accuracy": 49.3
+          },
+          "MIXED": {
+            "W": 11,
+            "L": 14,
+            "T": 0,
+            "accuracy": 44.0
+          }
+        },
+        "bbState": {
+          "BEAR_EXPANSION": {
+            "W": 2,
+            "L": 2,
+            "T": 1,
+            "accuracy": 50.0
+          },
+          "BULL_EXPANSION": {
+            "W": 6,
+            "L": 6,
+            "T": 0,
+            "accuracy": 50.0
+          },
+          "LOWER_REJECTION": {
+            "W": 1,
+            "L": 1,
+            "T": 0,
+            "accuracy": 50.0
+          },
+          "MID_RECLAIM": {
+            "W": 3,
+            "L": 3,
+            "T": 0,
+            "accuracy": 50.0
+          },
+          "MID_REJECT": {
+            "W": 3,
+            "L": 4,
+            "T": 0,
+            "accuracy": 42.9
+          },
+          "NONE": {
+            "W": 41,
+            "L": 39,
+            "T": 4,
+            "accuracy": 51.2
+          },
+          "UPPER_REJECTION": {
+            "W": 1,
+            "L": 8,
+            "T": 0,
+            "accuracy": 11.1
+          }
+        },
+        "fvgState": {
+          "ACCEPTED_THROUGH": {
+            "W": 8,
+            "L": 14,
+            "T": 0,
+            "accuracy": 36.4
+          },
+          "APPROACHING": {
+            "W": 3,
+            "L": 9,
+            "T": 0,
+            "accuracy": 25.0
+          },
+          "FULLY_MITIGATED": {
+            "W": 27,
+            "L": 20,
+            "T": 3,
+            "accuracy": 57.4
+          },
+          "MITIGATING": {
+            "W": 14,
+            "L": 13,
+            "T": 2,
+            "accuracy": 51.9
+          },
+          "REJECTED": {
+            "W": 5,
+            "L": 7,
+            "T": 0,
+            "accuracy": 41.7
+          }
+        },
+        "sr": {
+          "AT RESISTANCE": {
+            "W": 20,
+            "L": 20,
+            "T": 1,
+            "accuracy": 50.0
+          },
+          "AT SUPPORT": {
+            "W": 23,
+            "L": 25,
+            "T": 2,
+            "accuracy": 47.9
+          },
+          "CLEAR": {
+            "W": 14,
+            "L": 18,
+            "T": 2,
+            "accuracy": 43.8
+          }
+        },
+        "mtfOpposition2Plus": {
+          "yes": {
+            "W": 3,
+            "L": 5,
+            "T": 0,
+            "accuracy": 37.5,
+            "n": 8
+          },
+          "no": {
+            "W": 54,
+            "L": 58,
+            "T": 5,
+            "accuracy": 48.2,
+            "n": 117
+          }
+        },
+        "adverseZone": {
+          "true": {
+            "W": 38,
+            "L": 38,
+            "T": 2,
+            "accuracy": 50.0,
+            "n": 78
+          },
+          "false": {
+            "W": 19,
+            "L": 25,
+            "T": 3,
+            "accuracy": 43.2,
+            "n": 47
+          }
+        },
+        "extended": {
+          "yes": {
+            "W": 12,
+            "L": 17,
+            "T": 2,
+            "accuracy": 41.4,
+            "n": 31
+          }
+        },
+        "failureToProgress": {
+          "true": {
+            "W": 15,
+            "L": 20,
+            "T": 2,
+            "accuracy": 42.9,
+            "n": 37
+          },
+          "false": {
+            "W": 42,
+            "L": 43,
+            "T": 3,
+            "accuracy": 49.4,
+            "n": 88
+          }
+        },
+        "transitionRisk": {
+          "true": {
+            "W": 18,
+            "L": 25,
+            "T": 1,
+            "accuracy": 41.9,
+            "n": 44
+          },
+          "false": {
+            "W": 39,
+            "L": 38,
+            "T": 4,
+            "accuracy": 50.6,
+            "n": 81
+          }
+        },
+        "lateCounterTrendRisk": {
+          "true": {
+            "W": 33,
+            "L": 38,
+            "T": 2,
+            "accuracy": 46.5,
+            "n": 73
+          },
+          "false": {
+            "W": 24,
+            "L": 25,
+            "T": 3,
+            "accuracy": 49.0,
+            "n": 52
+          }
+        },
+        "continuationResetRequired": {
+          "true": {
+            "W": 51,
+            "L": 57,
+            "T": 4,
+            "accuracy": 47.2,
+            "n": 112
+          },
+          "false": {
+            "W": 6,
+            "L": 6,
+            "T": 1,
+            "accuracy": 50.0,
+            "n": 13
+          }
+        },
+        "breakoutAccepted": {
+          "true": {
+            "W": 12,
+            "L": 16,
+            "T": 1,
+            "accuracy": 42.9,
+            "n": 29
+          },
+          "false": {
+            "W": 45,
+            "L": 47,
+            "T": 4,
+            "accuracy": 48.9,
+            "n": 96
+          }
+        },
+        "tickAgreement": {
+          "true": {
+            "W": 24,
+            "L": 23,
+            "T": 1,
+            "accuracy": 51.1,
+            "n": 48
+          },
+          "false": {
+            "W": 33,
+            "L": 40,
+            "T": 4,
+            "accuracy": 45.2,
+            "n": 77
+          }
+        },
+        "maBbPositive": {
+          "yes": {
+            "W": 33,
+            "L": 30,
+            "T": 2,
+            "accuracy": 52.4,
+            "n": 65
+          }
+        },
+        "lossFailureCombos": [
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
+            "n": 6
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS",
+            "n": 5
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
+            "n": 4
+          },
+          {
+            "combo": "FAIL_PROGRESS",
+            "n": 4
+          },
+          {
+            "combo": "EXTENDED",
+            "n": 4
+          },
+          {
+            "combo": "EXTENDED+FAIL_PROGRESS+TRANSITION_RISK+UNRESOLVED_FVG",
+            "n": 3
+          }
+        ]
+      }
+    }
+  }
+}
