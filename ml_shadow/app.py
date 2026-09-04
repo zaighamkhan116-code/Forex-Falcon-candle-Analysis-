@@ -11,11 +11,12 @@ from sklearn.ensemble import ExtraTreesClassifier, HistGradientBoostingClassifie
 from sklearn.linear_model import LogisticRegression
 
 MODEL_PATH = Path(os.environ.get("SHADOW_MODEL_BUNDLE", "ml_shadow/models/model_bundle.joblib"))
-MODEL_NAME = "RF+EXTRATREES+HISTGB_SHADOW_V1"
-REBUILD_VERSION = "NY_INDEPENDENT_V2_REBUILD_COMPACT_V1"
+MODEL_NAME = "RF+EXTRATREES+HISTGB_SHADOW_V2_MULTI_HORIZON"
+REBUILD_VERSION = "NY_INDEPENDENT_V2_REBUILD_MULTI_HORIZON_V1"
 DATA_DIR = Path(os.environ.get("SHADOW_TRAINING_DATA_DIR", "/tmp/falcon-shadow-training"))
+SUPPORTED_HORIZONS = (1, 2, 3, 5, 15)
 
-app = FastAPI(title="Forex Falcon Shadow Ensemble", version="1.1")
+app = FastAPI(title="Forex Falcon Shadow Ensemble", version="1.2")
 _bundle: Optional[Dict[str, Any]] = None
 _load_error: Optional[str] = None
 _training_attempted = False
@@ -50,7 +51,7 @@ def _rsi(series: pd.Series, period: int = 14) -> pd.Series:
     return 100 - 100 / (1 + rs)
 
 
-def make_features(df: pd.DataFrame, include_target: bool = False) -> pd.DataFrame:
+def make_features(df: pd.DataFrame) -> pd.DataFrame:
     c, o, h, l = df["close"], df["open"], df["high"], df["low"]
     x = pd.DataFrame(index=df.index)
     for n in [1, 2, 3, 5, 8, 13, 21, 34, 55]:
@@ -84,9 +85,15 @@ def make_features(df: pd.DataFrame, include_target: bool = False) -> pd.DataFram
     x["todsin"] = np.sin(2 * np.pi * mins / 1440)
     x["todcos"] = np.cos(2 * np.pi * mins / 1440)
     x["hour"] = (df.index.hour / 23) if isinstance(df.index, pd.DatetimeIndex) else 0.0
-    if include_target:
-        x["y"] = (c.shift(-5) > c).astype(int)
     return x.replace([np.inf, -np.inf], np.nan)
+
+
+def make_target(df: pd.DataFrame, horizon: int) -> pd.Series:
+    future = df["close"].shift(-int(horizon))
+    target = pd.Series(np.nan, index=df.index, dtype=float)
+    valid = future.notna()
+    target.loc[valid] = (future.loc[valid] > df.loc[valid, "close"]).astype(float)
+    return target
 
 
 def _read_histdata_zip(path: str) -> pd.DataFrame:
@@ -107,51 +114,83 @@ def _download_month(year: str, month: str) -> str:
                                   time_frame=TimeFrame.ONE_MINUTE, output_directory=str(DATA_DIR), verbose=False))
 
 
-def train_rebuild_bundle() -> Dict[str, Any]:
-    may_path = _download_month("2026", "5")
-    june_path = _download_month("2026", "6")
-    may, june = _read_histdata_zip(may_path), _read_histdata_zip(june_path)
-    fm, fj = make_features(may, True).dropna(), make_features(june, True).dropna()
-    train = fm[(fm.index.hour >= 15) & (fm.index.hour < 20)]
-    dev = fj[(fj.index.hour >= 15) & (fj.index.hour < 20)]
-    names = [c for c in train.columns if c != "y"]
-
+def _fit_horizon(train_x: pd.DataFrame, train_y: pd.Series, dev_x: pd.DataFrame, dev_y: pd.Series,
+                 names: List[str], horizon: int) -> Dict[str, Any]:
     rf = RandomForestClassifier(n_estimators=30, max_depth=7, min_samples_leaf=12, max_features="sqrt",
-                                random_state=42, n_jobs=-1, class_weight="balanced")
+                                random_state=42 + horizon, n_jobs=-1, class_weight="balanced")
     et = ExtraTreesClassifier(n_estimators=30, max_depth=8, min_samples_leaf=10, max_features="sqrt",
-                              random_state=43, n_jobs=-1, class_weight="balanced")
+                              random_state=43 + horizon, n_jobs=-1, class_weight="balanced")
     hgb = HistGradientBoostingClassifier(max_iter=50, learning_rate=0.06, max_leaf_nodes=15,
-                                         l2_regularization=2.0, random_state=44)
+                                         l2_regularization=2.0, random_state=44 + horizon)
     for model in (rf, et, hgb):
-        model.fit(train[names], train["y"])
+        model.fit(train_x[names], train_y)
 
-    probs = np.vstack([rf.predict_proba(dev[names])[:, 1], et.predict_proba(dev[names])[:, 1], hgb.predict_proba(dev[names])[:, 1]])
+    probs = np.vstack([
+        rf.predict_proba(dev_x[names])[:, 1],
+        et.predict_proba(dev_x[names])[:, 1],
+        hgb.predict_proba(dev_x[names])[:, 1],
+    ])
     votes = (probs >= 0.5).sum(axis=0)
     direction = (votes >= 2).astype(int)
     mean_buy = probs.mean(axis=0)
     dir_conf = np.where(direction == 1, mean_buy, 1 - mean_buy)
-    scored = pd.DataFrame({"conf": dir_conf, "win": (direction == dev["y"].to_numpy()).astype(int)}, index=dev.index)
+    scored = pd.DataFrame({"conf": dir_conf, "win": (direction == dev_y.to_numpy()).astype(int)}, index=dev_x.index)
     scored["hourkey"] = scored.index.floor("h")
+
+    # Preserve the original Independent-V2 calibration style: calibrate on the
+    # strongest three candidates per represented NY hour. This stays research-only.
     selected = scored.sort_values(["hourkey", "conf"]).groupby("hourkey").tail(3)
     calibrator = LogisticRegression().fit(selected[["conf"]], selected["win"])
 
-    bundle = {
-        "feature_names": names,
+    validation: Dict[str, Any] = {
+        "horizon": horizon,
+        "training_split": "May 2026 fit; June 2026 selection/calibration",
+        "june_selected": int(len(selected)),
+        "june_raw_accuracy": float(selected["win"].mean()),
+        "promotion_allowed": False,
+        "reason": "research-only multi-horizon rebuild; timestamp/direction parity not yet verified",
+    }
+    if horizon == 5:
+        validation.update({
+            "original_v2_june_benchmark": 0.6212121212,
+            "original_v2_july_unseen_benchmark": 0.6339285714,
+        })
+
+    return {
         "random_forest": rf,
         "extra_trees": et,
         "hist_gradient_boosting": hgb,
         "calibrator": calibrator,
+        "validation": validation,
+    }
+
+
+def train_rebuild_bundle() -> Dict[str, Any]:
+    may_path = _download_month("2026", "5")
+    june_path = _download_month("2026", "6")
+    may, june = _read_histdata_zip(may_path), _read_histdata_zip(june_path)
+    may_features, june_features = make_features(may), make_features(june)
+    names = list(may_features.columns)
+    models: Dict[int, Dict[str, Any]] = {}
+
+    for horizon in SUPPORTED_HORIZONS:
+        may_frame = may_features.copy()
+        may_frame["y"] = make_target(may, horizon)
+        june_frame = june_features.copy()
+        june_frame["y"] = make_target(june, horizon)
+        may_frame, june_frame = may_frame.dropna(), june_frame.dropna()
+        train = may_frame[(may_frame.index.hour >= 15) & (may_frame.index.hour < 20)]
+        dev = june_frame[(june_frame.index.hour >= 15) & (june_frame.index.hour < 20)]
+        models[horizon] = _fit_horizon(train, train["y"].astype(int), dev, dev["y"].astype(int), names, horizon)
+
+    bundle = {
+        "feature_names": names,
+        "models": models,
         "model_version": REBUILD_VERSION,
-        "feature_schema": "eurusd-m1-raw-v1",
-        "validation": {
-            "training_split": "May 2026 fit; June 2026 selection/calibration",
-            "june_selected": int(len(selected)),
-            "june_raw_accuracy": float(selected["win"].mean()),
-            "original_v2_june_benchmark": 0.6212121212,
-            "original_v2_july_unseen_benchmark": 0.6339285714,
-            "promotion_allowed": False,
-            "reason": "research rebuild; original fitted Independent V2 objects were not supplied"
-        },
+        "feature_schema": "eurusd-m1-raw-multi-horizon-v1",
+        "supported_horizons": list(SUPPORTED_HORIZONS),
+        "research_only": True,
+        "influences_live_signal": False,
     }
     MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
     try:
@@ -161,19 +200,27 @@ def train_rebuild_bundle() -> Dict[str, Any]:
     return bundle
 
 
+def _upgrade_or_rebuild(x: Dict[str, Any]) -> Dict[str, Any]:
+    if "models" in x and all(int(h) in {int(k) for k in x["models"].keys()} for h in SUPPORTED_HORIZONS):
+        return x
+    # A legacy single-horizon bundle must never be silently reused for 1/2/3/15m.
+    # Rebuild horizon-specific models so every READY prediction has the correct target.
+    return train_rebuild_bundle()
+
+
 def load_bundle() -> Optional[Dict[str, Any]]:
     global _bundle, _load_error, _training_attempted
     if _bundle is not None:
         return _bundle
     try:
         if MODEL_PATH.exists():
-            x = joblib.load(MODEL_PATH)
+            x = _upgrade_or_rebuild(joblib.load(MODEL_PATH))
         else:
             if _training_attempted:
                 return None
             _training_attempted = True
             x = train_rebuild_bundle()
-        required = {"feature_names", "random_forest", "extra_trees", "hist_gradient_boosting"}
+        required = {"feature_names", "models"}
         missing = sorted(required - set(x.keys()))
         if missing:
             raise ValueError(f"Model bundle missing: {', '.join(missing)}")
@@ -199,10 +246,9 @@ def request_row(req: PredictRequest, names: List[str]) -> np.ndarray:
     rows = [c.model_dump() for c in req.candles]
     df = pd.DataFrame(rows)
     if df["time"].notna().all():
-        # Node timestamps are milliseconds; tolerate seconds as well.
         unit = "ms" if float(df["time"].abs().max()) > 10_000_000_000 else "s"
         df.index = pd.to_datetime(df["time"], unit=unit, utc=True).tz_convert(None)
-    features = make_features(df[["open", "high", "low", "close", "volume"]], False)
+    features = make_features(df[["open", "high", "low", "close", "volume"]])
     last = features.iloc[-1]
     if last[names].isna().any():
         missing = list(last[names][last[names].isna()].index)
@@ -210,16 +256,35 @@ def request_row(req: PredictRequest, names: List[str]) -> np.ndarray:
     return last[names].to_numpy(dtype=float).reshape(1, -1)
 
 
+def _horizon_model(bundle: Dict[str, Any], horizon: int) -> Dict[str, Any]:
+    models = bundle.get("models", {})
+    model = models.get(horizon)
+    if model is None:
+        model = models.get(str(horizon))
+    if model is None:
+        raise HTTPException(status_code=422, detail=f"Unsupported shadow horizon {horizon}; supported={list(SUPPORTED_HORIZONS)}")
+    return model
+
+
 @app.get("/health")
 def health() -> Dict[str, Any]:
     bundle = load_bundle()
+    validations = {}
+    if bundle:
+        for h in SUPPORTED_HORIZONS:
+            try:
+                validations[str(h)] = _horizon_model(bundle, h).get("validation")
+            except HTTPException:
+                validations[str(h)] = None
     return {
         "ok": bundle is not None,
         "model": MODEL_NAME,
         "modelLoaded": bundle is not None,
         "modelVersion": bundle.get("model_version") if bundle else None,
         "modelPath": str(MODEL_PATH),
-        "validation": bundle.get("validation") if bundle else None,
+        "supportedPairs": ["EURUSD"],
+        "supportedHorizons": list(SUPPORTED_HORIZONS),
+        "validationByHorizon": validations,
         "researchOnly": True,
         "influencesLiveSignal": False,
         "error": _load_error,
@@ -232,22 +297,24 @@ def predict(req: PredictRequest) -> Dict[str, Any]:
     if bundle is None:
         raise HTTPException(status_code=503, detail=_load_error or "Shadow model unavailable")
     if req.pair.upper() != "EURUSD":
-        raise HTTPException(status_code=422, detail="Current validated rebuild is EURUSD-only")
-    if int(req.horizon) != 5:
-        raise HTTPException(status_code=422, detail="Current Independent-V2 rebuild predicts 5-minute direction only")
+        raise HTTPException(status_code=422, detail="Current validated shadow family is EURUSD-only")
+    horizon = int(req.horizon)
+    if horizon not in SUPPORTED_HORIZONS:
+        raise HTTPException(status_code=422, detail=f"Unsupported shadow horizon {horizon}; supported={list(SUPPORTED_HORIZONS)}")
 
     names = list(bundle["feature_names"])
     row = request_row(req, names)
-    rf = probability(bundle["random_forest"], row)
-    et = probability(bundle["extra_trees"], row)
-    hgb = probability(bundle["hist_gradient_boosting"], row)
+    hmodel = _horizon_model(bundle, horizon)
+    rf = probability(hmodel["random_forest"], row)
+    et = probability(hmodel["extra_trees"], row)
+    hgb = probability(hmodel["hist_gradient_boosting"], row)
     probs = [rf, et, hgb]
     votes = sum(p >= 0.5 for p in probs)
     direction = "BUY" if votes >= 2 else "SELL"
     ensemble_buy = float(np.mean(probs))
     directional_raw = ensemble_buy if direction == "BUY" else 1.0 - ensemble_buy
 
-    calibrator = bundle.get("calibrator")
+    calibrator = hmodel.get("calibrator")
     calibrated_win = directional_raw
     if calibrator is not None:
         calibrated_win = float(calibrator.predict_proba(np.array([[directional_raw]]))[0][1])
@@ -255,6 +322,9 @@ def predict(req: PredictRequest) -> Dict[str, Any]:
     return {
         "model": MODEL_NAME,
         "modelVersion": bundle.get("model_version", "unversioned"),
+        "pair": req.pair.upper(),
+        "horizon": horizon,
+        "analysisTimeframe": req.analysisTimeframe,
         "direction": direction,
         "confidence": round(calibrated_win * 100.0, 2),
         "calibratedProbability": round(calibrated_win, 6),
@@ -264,8 +334,9 @@ def predict(req: PredictRequest) -> Dict[str, Any]:
             "extraTreesBuy": round(et, 6),
             "histGradientBoostingBuy": round(hgb, 6),
         },
-        "featureSchema": bundle.get("feature_schema", "eurusd-m1-raw-v1"),
-        "validation": bundle.get("validation"),
+        "featureSchema": bundle.get("feature_schema", "eurusd-m1-raw-multi-horizon-v1"),
+        "validation": hmodel.get("validation"),
+        "supportedHorizons": list(SUPPORTED_HORIZONS),
         "researchOnly": True,
         "influencedLiveSignal": False,
     }
