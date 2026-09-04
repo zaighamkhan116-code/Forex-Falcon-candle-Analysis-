@@ -7,8 +7,15 @@ export SHADOW_MODEL_TIMEOUT_MS="${SHADOW_MODEL_TIMEOUT_MS:-5000}"
 python -m uvicorn ml_shadow.app:app --host 127.0.0.1 --port 8001 &
 SHADOW_PID=$!
 
+QUOTEX_PID=""
+if [[ "${QUOTEX_MOBILE_ENABLED:-false}" == "true" ]]; then
+  node quotex_mobile/worker.js &
+  QUOTEX_PID=$!
+fi
+
 cleanup() {
   kill "$SHADOW_PID" 2>/dev/null || true
+  if [[ -n "$QUOTEX_PID" ]]; then kill "$QUOTEX_PID" 2>/dev/null || true; fi
 }
 trap cleanup EXIT INT TERM
 
