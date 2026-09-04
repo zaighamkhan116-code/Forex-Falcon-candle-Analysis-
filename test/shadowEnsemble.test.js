@@ -2,25 +2,39 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {buildShadowPayload,requestShadowPrediction,settleShadowPrediction} from '../lib/shadowEnsemble.js';
 
-test('shadow payload keeps numeric market-state features',()=>{
-  const p=buildShadowPayload({pair:'USDJPY',horizon:1,direction:'SELL',confidence:64.2,regime:'CHOPPY',features:{moveQualityScore:3.2,bearExtended:true,label:'ignore'}});
+test('shadow payload keeps numeric market-state features and raw candles',()=>{
+  const p=buildShadowPayload({pair:'USDJPY',horizon:1,direction:'SELL',confidence:64.2,regime:'CHOPPY',features:{moveQualityScore:3.2,bearExtended:true,label:'ignore'}},{candles:[{time:1,open:1,high:2,low:.5,close:1.5,volume:3}]});
   assert.equal(p.pair,'USDJPY');
   assert.equal(p.features.moveQualityScore,3.2);
   assert.equal(p.features.bearExtended,1);
   assert.equal('label' in p.features,false);
+  assert.equal(p.candles.length,1);
+  assert.equal(p.candles[0].close,1.5);
 });
 
-test('shadow inference is disabled without configured service',async()=>{
-  const x=await requestShadowPrediction({pair:'EURUSD',horizon:1,features:{}},{url:''});
-  assert.equal(x.status,'DISABLED');
+test('shadow service failure is visible and never silently disabled',async()=>{
+  const x=await requestShadowPrediction({pair:'EURUSD',horizon:5,features:{}},{url:'http://shadow',candles:[],fetchImpl:async()=>{throw new Error('offline')}});
+  assert.equal(x.status,'UNAVAILABLE');
+  assert.match(x.reason,/offline/);
 });
 
 test('shadow timeout or failure never changes live signal',async()=>{
-  const signal={pair:'EURUSD',horizon:1,direction:'BUY',confidence:60,features:{}};
-  const x=await requestShadowPrediction(signal,{url:'http://shadow',fetchImpl:async()=>{throw new Error('offline')}});
+  const signal={pair:'EURUSD',horizon:5,direction:'BUY',confidence:60,features:{}};
+  const x=await requestShadowPrediction(signal,{url:'http://shadow',candles:[],fetchImpl:async()=>{throw new Error('offline')}});
   assert.equal(x.status,'UNAVAILABLE');
   assert.equal(signal.direction,'BUY');
   assert.equal(signal.confidence,60);
+  assert.equal(x.influencedLiveSignal,false);
+});
+
+test('shadow parses READY ensemble response without changing Falcon',async()=>{
+  const signal={pair:'EURUSD',horizon:5,direction:'SELL',confidence:61,features:{}};
+  const response={ok:true,json:async()=>({model:'RF+EXTRATREES+HISTGB_SHADOW_V1',modelVersion:'REBUILD',direction:'BUY',confidence:62.1,calibratedProbability:.621,memberProbabilities:{randomForestBuy:.6,extraTreesBuy:.58,histGradientBoostingBuy:.64},researchOnly:true})};
+  const x=await requestShadowPrediction(signal,{url:'http://shadow',candles:[],fetchImpl:async()=>response});
+  assert.equal(x.status,'READY');
+  assert.equal(x.direction,'BUY');
+  assert.equal(x.influencedLiveSignal,false);
+  assert.equal(signal.direction,'SELL');
 });
 
 test('shadow uses exact same candle for settlement',()=>{
