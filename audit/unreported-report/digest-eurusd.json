@@ -2,13 +2,13 @@
   "pair": "EURUSD",
   "tracks": {
     "EURUSD-1M": {
-      "batch": 16,
+      "batch": 17,
       "results": {
-        "W": 5,
-        "L": 12,
-        "T": 3,
+        "W": 9,
+        "L": 10,
+        "T": 1,
         "n": 20,
-        "wr": 29.4
+        "wr": 47.4
       },
       "cumulative": {
         "W": 120,
@@ -20,360 +20,53 @@
       "streaks": null,
       "low": {
         "results": {
-          "W": 5,
-          "L": 4,
-          "T": 1,
-          "n": 10,
-          "wr": 55.6
-        },
-        "late": 100.0,
-        "adverse": 80.0,
-        "mtf2": 40.0,
-        "transition": 50.0,
-        "extended": 20.0,
-        "failProgress": 90.0,
-        "eff": 0.1747,
-        "moveQ": 3.77,
-        "progress": 0.2,
-        "direction": {
-          "BUY": {
-            "W": 4,
-            "L": 2,
-            "T": 1,
-            "n": 7,
-            "wr": 66.7
-          },
-          "SELL": {
-            "W": 1,
-            "L": 2,
-            "T": 0,
-            "n": 3,
-            "wr": 33.3
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "W": 4,
-            "L": 1,
-            "T": 1,
-            "n": 6,
-            "wr": 80.0
-          },
-          "MIXED": {
-            "W": 1,
-            "L": 3,
-            "T": 0,
-            "n": 4,
-            "wr": 25.0
-          }
-        },
-        "sr": {
-          "AT SUPPORT": {
-            "W": 5,
-            "L": 4,
-            "T": 1,
-            "n": 10,
-            "wr": 55.6
-          }
-        }
-      },
-      "high": {
-        "results": {
-          "W": 0,
+          "W": 3,
           "L": 8,
-          "T": 2,
-          "n": 10,
-          "wr": 0.0
+          "T": 1,
+          "n": 12,
+          "wr": 27.3
         },
-        "late": 40.0,
-        "adverse": 50.0,
-        "mtf2": 20.0,
-        "transition": 0.0,
-        "extended": 0.0,
-        "failProgress": 40.0,
-        "eff": 0.1724,
-        "moveQ": 4.37,
-        "progress": 0.7,
-        "direction": {
-          "BUY": {
-            "W": 0,
-            "L": 2,
-            "T": 1,
-            "n": 3,
-            "wr": 0.0
-          },
-          "SELL": {
-            "W": 0,
-            "L": 6,
-            "T": 1,
-            "n": 7,
-            "wr": 0.0
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "W": 0,
-            "L": 3,
-            "T": 2,
-            "n": 5,
-            "wr": 0.0
-          },
-          "MIXED": {
-            "W": 0,
-            "L": 5,
-            "T": 0,
-            "n": 5,
-            "wr": 0.0
-          }
-        },
-        "sr": {
-          "AT SUPPORT": {
-            "W": 0,
-            "L": 8,
-            "T": 2,
-            "n": 10,
-            "wr": 0.0
-          }
-        }
-      },
-      "direction": null,
-      "regime": null,
-      "transition": null,
-      "adverse": null,
-      "late": null,
-      "failProgress": null,
-      "breakout": null,
-      "tick": null,
-      "mtf2": null,
-      "extended": null,
-      "maBbPositive": null,
-      "ema": null,
-      "bb": null,
-      "fvg": null,
-      "sr": null,
-      "lossCombos": [],
-      "features": {
-        "atr14": {
-          "W": 0.0001,
-          "L": 0.00011,
-          "d": -1e-05
-        },
-        "atrNormalized": {
-          "W": 9e-05,
-          "L": 9e-05,
-          "d": 0.0
-        },
-        "rangeAtr": {
-          "W": 0.6924,
-          "L": 0.9535,
-          "d": -0.2611
-        },
-        "bodyAtr": {
-          "W": 0.2824,
-          "L": 0.46467,
-          "d": -0.18227
-        },
-        "vwapDistanceAtr": {
-          "W": -0.5186,
-          "L": -1.03267,
-          "d": 0.51407
-        },
-        "vwapSlopeAtr": {
-          "W": -0.0116,
-          "L": -0.02667,
-          "d": 0.01507
-        },
-        "vsaScore": {
-          "W": 0.024,
-          "L": 0.01,
-          "d": 0.014
-        },
-        "relativeVolume": {
-          "W": 0.8356,
-          "L": 0.966,
-          "d": -0.1304
-        },
-        "candleBodyRatio": {
-          "W": 0.4516,
-          "L": 0.411,
-          "d": 0.0406
-        },
-        "lastUpperWickRatio": {
-          "W": 0.2584,
-          "L": 0.338,
-          "d": -0.0796
-        },
-        "lastLowerWickRatio": {
-          "W": 0.29,
-          "L": 0.25108,
-          "d": 0.03892
-        },
-        "advancedMomentumScore": {
-          "W": -0.0236,
-          "L": -0.06567,
-          "d": 0.04207
-        },
-        "sequence": {
-          "W": 0.1462,
-          "L": -0.05533,
-          "d": 0.20153
-        },
-        "efficiency": {
-          "W": 0.1138,
-          "L": 0.22525,
-          "d": -0.11145
-        },
-        "progressScore": {
-          "W": 0.2,
-          "L": 0.66667,
-          "d": -0.46667
-        },
-        "emaSlope5": {
-          "W": -0.0,
-          "L": -3e-05,
-          "d": 3e-05
-        },
-        "emaSlope8": {
-          "W": -1e-05,
-          "L": -3e-05,
-          "d": 2e-05
-        },
-        "emaSlope13": {
-          "W": -1e-05,
-          "L": -2e-05,
-          "d": 1e-05
-        },
-        "emaSlope20": {
-          "W": -1e-05,
-          "L": -2e-05,
-          "d": 1e-05
-        },
-        "emaCompression": {
-          "W": 3e-05,
-          "L": 5e-05,
-          "d": -2e-05
-        },
-        "bbWidth": {
-          "W": 0.0003,
-          "L": 0.00031,
-          "d": -1e-05
-        },
-        "bbExpansion": {
-          "W": -0.02422,
-          "L": 0.03374,
-          "d": -0.05796
-        },
-        "maBbConfirmation": {
-          "W": -0.048,
-          "L": -0.16667,
-          "d": 0.11867
-        },
-        "atrVwapVsaScoringActive": {
-          "W": 1.0,
-          "L": 1.0,
-          "d": 0.0
-        },
-        "lowerWickRatioVsa": {
-          "W": 0.29,
-          "L": 0.25108,
-          "d": 0.03892
-        },
-        "upperWickRatioVsa": {
-          "W": 0.2584,
-          "L": 0.338,
-          "d": -0.0796
-        },
-        "vsaHighEffort": {
-          "W": 0.0,
-          "L": 0.0,
-          "d": 0.0
-        },
-        "vsaNarrowSpread": {
-          "W": 0.6,
-          "L": 0.25,
-          "d": 0.35
-        },
-        "vsaPoorResult": {
-          "W": 1.0,
-          "L": 0.66667,
-          "d": 0.33333
-        },
-        "vsaWideSpread": {
-          "W": 0.0,
-          "L": 0.25,
-          "d": -0.25
-        },
-        "vwap": {
-          "W": 1.16228,
-          "L": 1.16233,
-          "d": -5e-05
-        },
-        "vwapExtended": {
-          "W": 0.0,
-          "L": 0.33333,
-          "d": -0.33333
-        }
-      }
-    },
-    "EURUSD-2M": {
-      "batch": 14,
-      "results": {
-        "W": 8,
-        "L": 11,
-        "T": 1,
-        "n": 20,
-        "wr": 42.1
-      },
-      "cumulative": {
-        "W": 103,
-        "L": 105,
-        "T": 19,
-        "accuracy": 49.5
-      },
-      "confidenceMean": null,
-      "streaks": null,
-      "low": {
-        "results": {
-          "W": 4,
-          "L": 4,
-          "T": 0,
-          "n": 8,
-          "wr": 50.0
-        },
-        "late": 100.0,
-        "adverse": 100.0,
-        "mtf2": 75.0,
-        "transition": 25.0,
-        "extended": 12.5,
-        "failProgress": 87.5,
-        "eff": 0.18825,
-        "moveQ": 4.3625,
-        "progress": 0.0,
+        "late": 91.7,
+        "adverse": 58.3,
+        "mtf2": 91.7,
+        "transition": 83.3,
+        "extended": 41.7,
+        "failProgress": 100.0,
+        "eff": 0.354,
+        "moveQ": 4.26667,
+        "progress": 0.16667,
         "direction": {
           "BUY": {
             "W": 3,
-            "L": 4,
-            "T": 0,
-            "n": 7,
-            "wr": 42.9
+            "L": 5,
+            "T": 1,
+            "n": 9,
+            "wr": 37.5
           },
           "SELL": {
-            "W": 1,
-            "L": 0,
+            "W": 0,
+            "L": 3,
             "T": 0,
-            "n": 1,
-            "wr": 100.0
+            "n": 3,
+            "wr": 0.0
           }
         },
         "regime": {
           "CHOPPY": {
-            "W": 2,
-            "L": 2,
+            "W": 0,
+            "L": 3,
             "T": 0,
-            "n": 4,
-            "wr": 50.0
+            "n": 3,
+            "wr": 0.0
           },
           "MIXED": {
+            "W": 1,
+            "L": 3,
+            "T": 1,
+            "n": 5,
+            "wr": 25.0
+          },
+          "TRENDING": {
             "W": 2,
             "L": 2,
             "T": 0,
@@ -383,660 +76,54 @@
         },
         "sr": {
           "AT RESISTANCE": {
-            "W": 1,
-            "L": 2,
+            "W": 2,
+            "L": 4,
             "T": 0,
-            "n": 3,
+            "n": 6,
             "wr": 33.3
           },
           "AT SUPPORT": {
-            "W": 2,
+            "W": 0,
             "L": 2,
             "T": 0,
-            "n": 4,
-            "wr": 50.0
+            "n": 2,
+            "wr": 0.0
           },
           "CLEAR": {
             "W": 1,
-            "L": 0,
-            "T": 0,
-            "n": 1,
-            "wr": 100.0
+            "L": 2,
+            "T": 1,
+            "n": 4,
+            "wr": 33.3
           }
         }
       },
       "high": {
         "results": {
-          "W": 4,
-          "L": 7,
-          "T": 1,
-          "n": 12,
-          "wr": 36.4
-        },
-        "late": 41.7,
-        "adverse": 58.3,
-        "mtf2": 16.7,
-        "transition": 25.0,
-        "extended": 8.3,
-        "failProgress": 50.0,
-        "eff": 0.15567,
-        "moveQ": 4.83333,
-        "progress": -0.5,
-        "direction": {
-          "BUY": {
-            "W": 1,
-            "L": 1,
-            "T": 0,
-            "n": 2,
-            "wr": 50.0
-          },
-          "SELL": {
-            "W": 3,
-            "L": 6,
-            "T": 1,
-            "n": 10,
-            "wr": 33.3
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "W": 4,
-            "L": 3,
-            "T": 1,
-            "n": 8,
-            "wr": 57.1
-          },
-          "MIXED": {
-            "W": 0,
-            "L": 4,
-            "T": 0,
-            "n": 4,
-            "wr": 0.0
-          }
-        },
-        "sr": {
-          "AT RESISTANCE": {
-            "W": 2,
-            "L": 2,
-            "T": 0,
-            "n": 4,
-            "wr": 50.0
-          },
-          "AT SUPPORT": {
-            "W": 2,
-            "L": 5,
-            "T": 1,
-            "n": 8,
-            "wr": 28.6
-          }
-        }
-      },
-      "direction": null,
-      "regime": null,
-      "transition": null,
-      "adverse": null,
-      "late": null,
-      "failProgress": null,
-      "breakout": null,
-      "tick": null,
-      "mtf2": null,
-      "extended": null,
-      "maBbPositive": null,
-      "ema": null,
-      "bb": null,
-      "fvg": null,
-      "sr": null,
-      "lossCombos": [],
-      "features": {
-        "atr14": {
-          "W": 0.00014,
-          "L": 0.00015,
-          "d": -1e-05
-        },
-        "atrNormalized": {
-          "W": 0.00012,
-          "L": 0.00013,
-          "d": -1e-05
-        },
-        "rangeAtr": {
-          "W": 1.07625,
-          "L": 1.04155,
-          "d": 0.0347
-        },
-        "bodyAtr": {
-          "W": 0.41775,
-          "L": 0.57764,
-          "d": -0.15989
-        },
-        "vwapDistanceAtr": {
-          "W": -1.12013,
-          "L": -1.60082,
-          "d": 0.48069
-        },
-        "vwapSlopeAtr": {
-          "W": -0.02225,
-          "L": -0.01491,
-          "d": -0.00734
-        },
-        "vsaScore": {
-          "W": 0.04375,
-          "L": -0.03182,
-          "d": 0.07557
-        },
-        "relativeVolume": {
-          "W": 1.07462,
-          "L": 1.05245,
-          "d": 0.02217
-        },
-        "candleBodyRatio": {
-          "W": 0.3255,
-          "L": 0.54155,
-          "d": -0.21605
-        },
-        "lastUpperWickRatio": {
-          "W": 0.23925,
-          "L": 0.28527,
-          "d": -0.04602
-        },
-        "lastLowerWickRatio": {
-          "W": 0.43525,
-          "L": 0.17318,
-          "d": 0.26207
-        },
-        "advancedMomentumScore": {
-          "W": 0.00875,
-          "L": -0.053,
-          "d": 0.06175
-        },
-        "sequence": {
-          "W": -0.08513,
-          "L": -0.066,
-          "d": -0.01913
-        },
-        "efficiency": {
-          "W": 0.15975,
-          "L": 0.18227,
-          "d": -0.02252
-        },
-        "progressScore": {
-          "W": -0.125,
-          "L": -0.45455,
-          "d": 0.32955
-        },
-        "emaSlope5": {
-          "W": 0.0,
-          "L": -2e-05,
-          "d": 2e-05
-        },
-        "emaSlope8": {
-          "W": 1e-05,
-          "L": -1e-05,
-          "d": 2e-05
-        },
-        "emaSlope13": {
-          "W": 1e-05,
-          "L": -0.0,
-          "d": 1e-05
-        },
-        "emaSlope20": {
-          "W": 1e-05,
-          "L": -0.0,
-          "d": 1e-05
-        },
-        "emaCompression": {
-          "W": 4e-05,
-          "L": 4e-05,
-          "d": 0.0
-        },
-        "bbWidth": {
-          "W": 0.00036,
-          "L": 0.00037,
-          "d": -1e-05
-        },
-        "bbExpansion": {
-          "W": 0.00883,
-          "L": 0.00423,
-          "d": 0.0046
-        },
-        "maBbConfirmation": {
-          "W": 0.0975,
-          "L": -0.00909,
-          "d": 0.10659
-        },
-        "atrVwapVsaScoringActive": {
-          "W": 1.0,
-          "L": 1.0,
-          "d": 0.0
-        },
-        "lowerWickRatioVsa": {
-          "W": 0.43525,
-          "L": 0.17318,
-          "d": 0.26207
-        },
-        "upperWickRatioVsa": {
-          "W": 0.23925,
-          "L": 0.28527,
-          "d": -0.04602
-        },
-        "vsaHighEffort": {
-          "W": 0.0,
-          "L": 0.18182,
-          "d": -0.18182
-        },
-        "vsaNarrowSpread": {
-          "W": 0.125,
-          "L": 0.0,
-          "d": 0.125
-        },
-        "vsaPoorResult": {
-          "W": 0.625,
-          "L": 0.18182,
-          "d": 0.44318
-        },
-        "vsaWideSpread": {
-          "W": 0.5,
-          "L": 0.27273,
-          "d": 0.22727
-        },
-        "vwap": {
-          "W": 1.16244,
-          "L": 1.16248,
-          "d": -4e-05
-        },
-        "vwapExtended": {
-          "W": 0.5,
-          "L": 0.54545,
-          "d": -0.04545
-        }
-      }
-    },
-    "EURUSD-3M": {
-      "batch": 12,
-      "results": {
-        "W": 7,
-        "L": 11,
-        "T": 2,
-        "n": 20,
-        "wr": 38.9
-      },
-      "cumulative": {
-        "W": 84,
-        "L": 105,
-        "T": 8,
-        "accuracy": 44.4
-      },
-      "confidenceMean": null,
-      "streaks": null,
-      "low": {
-        "results": {
-          "W": 4,
-          "L": 4,
-          "T": 1,
-          "n": 9,
-          "wr": 50.0
-        },
-        "late": 100.0,
-        "adverse": 100.0,
-        "mtf2": 77.8,
-        "transition": 22.2,
-        "extended": 22.2,
-        "failProgress": 66.7,
-        "eff": 0.18367,
-        "moveQ": 4.81111,
-        "progress": 0.44444,
-        "direction": {
-          "BUY": {
-            "W": 4,
-            "L": 3,
-            "T": 1,
-            "n": 8,
-            "wr": 57.1
-          },
-          "SELL": {
-            "W": 0,
-            "L": 1,
-            "T": 0,
-            "n": 1,
-            "wr": 0.0
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "W": 3,
-            "L": 2,
-            "T": 1,
-            "n": 6,
-            "wr": 60.0
-          },
-          "MIXED": {
-            "W": 1,
-            "L": 2,
-            "T": 0,
-            "n": 3,
-            "wr": 33.3
-          }
-        },
-        "sr": {
-          "AT RESISTANCE": {
-            "W": 4,
-            "L": 1,
-            "T": 1,
-            "n": 6,
-            "wr": 80.0
-          },
-          "AT SUPPORT": {
-            "W": 0,
-            "L": 3,
-            "T": 0,
-            "n": 3,
-            "wr": 0.0
-          }
-        }
-      },
-      "high": {
-        "results": {
-          "W": 3,
-          "L": 7,
-          "T": 1,
-          "n": 11,
-          "wr": 30.0
-        },
-        "late": 45.5,
-        "adverse": 45.5,
-        "mtf2": 18.2,
-        "transition": 27.3,
-        "extended": 9.1,
-        "failProgress": 36.4,
-        "eff": 0.114,
-        "moveQ": 4.15455,
-        "progress": 0.54545,
-        "direction": {
-          "BUY": {
-            "W": 0,
-            "L": 3,
-            "T": 0,
-            "n": 3,
-            "wr": 0.0
-          },
-          "SELL": {
-            "W": 3,
-            "L": 4,
-            "T": 1,
-            "n": 8,
-            "wr": 42.9
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "W": 3,
-            "L": 4,
-            "T": 1,
-            "n": 8,
-            "wr": 42.9
-          },
-          "MIXED": {
-            "W": 0,
-            "L": 3,
-            "T": 0,
-            "n": 3,
-            "wr": 0.0
-          }
-        },
-        "sr": {
-          "AT RESISTANCE": {
-            "W": 1,
-            "L": 5,
-            "T": 0,
-            "n": 6,
-            "wr": 16.7
-          },
-          "AT SUPPORT": {
-            "W": 2,
-            "L": 2,
-            "T": 1,
-            "n": 5,
-            "wr": 50.0
-          }
-        }
-      },
-      "direction": null,
-      "regime": null,
-      "transition": null,
-      "adverse": null,
-      "late": null,
-      "failProgress": null,
-      "breakout": null,
-      "tick": null,
-      "mtf2": null,
-      "extended": null,
-      "maBbPositive": null,
-      "ema": null,
-      "bb": null,
-      "fvg": null,
-      "sr": null,
-      "lossCombos": [],
-      "features": {
-        "atr14": {
-          "W": 0.00018,
-          "L": 0.00018,
-          "d": 0.0
-        },
-        "atrNormalized": {
-          "W": 0.00016,
-          "L": 0.00015,
-          "d": 1e-05
-        },
-        "rangeAtr": {
-          "W": 1.18786,
-          "L": 0.98909,
-          "d": 0.19877
-        },
-        "bodyAtr": {
-          "W": 0.535,
-          "L": 0.44009,
-          "d": 0.09491
-        },
-        "vwapDistanceAtr": {
-          "W": -1.07057,
-          "L": -1.07673,
-          "d": 0.00616
-        },
-        "vwapSlopeAtr": {
-          "W": -0.01329,
-          "L": -0.01218,
-          "d": -0.00111
-        },
-        "vsaScore": {
-          "W": 0.05,
-          "L": -0.03182,
-          "d": 0.08182
-        },
-        "relativeVolume": {
-          "W": 1.16971,
-          "L": 1.09891,
-          "d": 0.0708
-        },
-        "candleBodyRatio": {
-          "W": 0.39857,
-          "L": 0.42564,
-          "d": -0.02707
-        },
-        "lastUpperWickRatio": {
-          "W": 0.18686,
-          "L": 0.32318,
-          "d": -0.13632
-        },
-        "lastLowerWickRatio": {
-          "W": 0.41443,
-          "L": 0.251,
-          "d": 0.16343
-        },
-        "advancedMomentumScore": {
-          "W": 0.09943,
-          "L": 0.00491,
-          "d": 0.09452
-        },
-        "sequence": {
-          "W": 0.13029,
-          "L": 0.13127,
-          "d": -0.00098
-        },
-        "efficiency": {
-          "W": 0.123,
-          "L": 0.16536,
-          "d": -0.04236
-        },
-        "progressScore": {
-          "W": -0.14286,
-          "L": 1.36364,
-          "d": -1.5065
-        },
-        "emaSlope5": {
-          "W": 4e-05,
-          "L": 1e-05,
-          "d": 3e-05
-        },
-        "emaSlope8": {
-          "W": 4e-05,
-          "L": 0.0,
-          "d": 4e-05
-        },
-        "emaSlope13": {
-          "W": 2e-05,
-          "L": -0.0,
-          "d": 2e-05
-        },
-        "emaSlope20": {
-          "W": 1e-05,
-          "L": -1e-05,
-          "d": 2e-05
-        },
-        "emaCompression": {
-          "W": 5e-05,
-          "L": 6e-05,
-          "d": -1e-05
-        },
-        "bbWidth": {
-          "W": 0.0006,
-          "L": 0.00054,
-          "d": 6e-05
-        },
-        "bbExpansion": {
-          "W": -0.03199,
-          "L": -0.02182,
-          "d": -0.01017
-        },
-        "maBbConfirmation": {
-          "W": 0.07429,
-          "L": 0.08909,
-          "d": -0.0148
-        },
-        "atrVwapVsaScoringActive": {
-          "W": 1.0,
-          "L": 1.0,
-          "d": 0.0
-        },
-        "lowerWickRatioVsa": {
-          "W": 0.41443,
-          "L": 0.251,
-          "d": 0.16343
-        },
-        "upperWickRatioVsa": {
-          "W": 0.18686,
-          "L": 0.32318,
-          "d": -0.13632
-        },
-        "vsaHighEffort": {
-          "W": 0.14286,
-          "L": 0.18182,
-          "d": -0.03896
-        },
-        "vsaNarrowSpread": {
-          "W": 0.0,
-          "L": 0.09091,
-          "d": -0.09091
-        },
-        "vsaPoorResult": {
-          "W": 0.57143,
-          "L": 0.36364,
-          "d": 0.20779
-        },
-        "vsaWideSpread": {
-          "W": 0.57143,
-          "L": 0.36364,
-          "d": 0.20779
-        },
-        "vwap": {
-          "W": 1.16251,
-          "L": 1.16245,
-          "d": 6e-05
-        },
-        "vwapExtended": {
-          "W": 0.14286,
-          "L": 0.36364,
-          "d": -0.22078
-        }
-      }
-    },
-    "EURUSD-5M": {
-      "batch": 8,
-      "results": {
-        "W": 9,
-        "L": 11,
-        "T": 0,
-        "n": 20,
-        "wr": 45.0
-      },
-      "cumulative": {
-        "W": 61,
-        "L": 71,
-        "T": 2,
-        "accuracy": 46.2
-      },
-      "confidenceMean": null,
-      "streaks": null,
-      "low": {
-        "results": {
-          "W": 4,
-          "L": 4,
+          "W": 6,
+          "L": 2,
           "T": 0,
           "n": 8,
-          "wr": 50.0
+          "wr": 75.0
         },
-        "late": 87.5,
-        "adverse": 87.5,
-        "mtf2": 50.0,
-        "transition": 62.5,
-        "extended": 0.0,
-        "failProgress": 75.0,
-        "eff": 0.11525,
-        "moveQ": 3.9875,
-        "progress": 0.0,
+        "late": 75.0,
+        "adverse": 50.0,
+        "mtf2": 87.5,
+        "transition": 12.5,
+        "extended": 25.0,
+        "failProgress": 25.0,
+        "eff": 0.38425,
+        "moveQ": 5.9375,
+        "progress": 4.875,
         "direction": {
           "BUY": {
-            "W": 2,
-            "L": 2,
-            "T": 0,
-            "n": 4,
-            "wr": 50.0
-          },
-          "SELL": {
-            "W": 2,
-            "L": 2,
-            "T": 0,
-            "n": 4,
-            "wr": 50.0
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "W": 4,
-            "L": 3,
+            "W": 6,
+            "L": 1,
             "T": 0,
             "n": 7,
-            "wr": 57.1
+            "wr": 85.7
           },
-          "MIXED": {
+          "SELL": {
             "W": 0,
             "L": 1,
             "T": 0,
@@ -1044,79 +131,43 @@
             "wr": 0.0
           }
         },
-        "sr": {
-          "AT SUPPORT": {
-            "W": 4,
-            "L": 4,
-            "T": 0,
-            "n": 8,
-            "wr": 50.0
-          }
-        }
-      },
-      "high": {
-        "results": {
-          "W": 5,
-          "L": 7,
-          "T": 0,
-          "n": 12,
-          "wr": 41.7
-        },
-        "late": 41.7,
-        "adverse": 41.7,
-        "mtf2": 0.0,
-        "transition": 16.7,
-        "extended": 0.0,
-        "failProgress": 58.3,
-        "eff": 0.22033,
-        "moveQ": 5.05,
-        "progress": -0.33333,
-        "direction": {
-          "BUY": {
-            "W": 0,
-            "L": 2,
-            "T": 0,
-            "n": 2,
-            "wr": 0.0
-          },
-          "SELL": {
-            "W": 5,
-            "L": 5,
-            "T": 0,
-            "n": 10,
-            "wr": 50.0
-          }
-        },
         "regime": {
           "CHOPPY": {
-            "W": 2,
-            "L": 4,
-            "T": 0,
-            "n": 6,
-            "wr": 33.3
-          },
-          "MIXED": {
-            "W": 2,
-            "L": 3,
-            "T": 0,
-            "n": 5,
-            "wr": 40.0
-          },
-          "TRENDING": {
-            "W": 1,
+            "W": 3,
             "L": 0,
             "T": 0,
-            "n": 1,
+            "n": 3,
             "wr": 100.0
+          },
+          "MIXED": {
+            "W": 0,
+            "L": 1,
+            "T": 0,
+            "n": 1,
+            "wr": 0.0
+          },
+          "TRENDING": {
+            "W": 3,
+            "L": 1,
+            "T": 0,
+            "n": 4,
+            "wr": 75.0
           }
         },
         "sr": {
+          "AT RESISTANCE": {
+            "W": 1,
+            "L": 1,
+            "T": 0,
+            "n": 2,
+            "wr": 50.0
+          },
           "AT SUPPORT": {
             "W": 2,
-            "L": 6,
+            "L": 0,
             "T": 0,
-            "n": 8,
-            "wr": 25.0
+            "n": 2,
+            "wr": 100.0
           },
           "CLEAR": {
             "W": 3,
@@ -1145,119 +196,119 @@
       "lossCombos": [],
       "features": {
         "atr14": {
-          "W": 0.00021,
-          "L": 0.00023,
-          "d": -2e-05
+          "W": 0.00018,
+          "L": 0.00014,
+          "d": 4e-05
         },
         "atrNormalized": {
-          "W": 0.00018,
-          "L": 0.0002,
-          "d": -2e-05
+          "W": 0.00015,
+          "L": 0.00012,
+          "d": 3e-05
         },
         "rangeAtr": {
-          "W": 1.07678,
-          "L": 1.02036,
-          "d": 0.05642
+          "W": 0.901,
+          "L": 1.0422,
+          "d": -0.1412
         },
         "bodyAtr": {
-          "W": 0.46211,
-          "L": 0.60373,
-          "d": -0.14162
+          "W": 0.54167,
+          "L": 0.3106,
+          "d": 0.23107
         },
         "vwapDistanceAtr": {
-          "W": -1.90144,
-          "L": -1.36264,
-          "d": -0.5388
+          "W": 1.14856,
+          "L": 2.1221,
+          "d": -0.97354
         },
         "vwapSlopeAtr": {
-          "W": -0.03178,
-          "L": -0.02682,
-          "d": -0.00496
+          "W": 0.00078,
+          "L": 0.029,
+          "d": -0.02822
         },
         "vsaScore": {
-          "W": -0.11667,
-          "L": 0.06455,
-          "d": -0.18122
+          "W": 0.13,
+          "L": 0.02,
+          "d": 0.11
         },
         "relativeVolume": {
-          "W": 1.03822,
-          "L": 0.91482,
-          "d": 0.1234
+          "W": 0.87144,
+          "L": 1.1883,
+          "d": -0.31686
         },
         "candleBodyRatio": {
-          "W": 0.43478,
-          "L": 0.57727,
-          "d": -0.14249
+          "W": 0.57533,
+          "L": 0.2918,
+          "d": 0.28353
         },
         "lastUpperWickRatio": {
-          "W": 0.38689,
-          "L": 0.16555,
-          "d": 0.22134
+          "W": 0.14611,
+          "L": 0.374,
+          "d": -0.22789
         },
         "lastLowerWickRatio": {
-          "W": 0.17833,
-          "L": 0.25709,
-          "d": -0.07876
+          "W": 0.27867,
+          "L": 0.3343,
+          "d": -0.05563
         },
         "advancedMomentumScore": {
-          "W": -0.01811,
-          "L": -0.00055,
-          "d": -0.01756
+          "W": 0.08633,
+          "L": 0.0294,
+          "d": 0.05693
         },
         "sequence": {
-          "W": -0.17278,
-          "L": -0.00782,
-          "d": -0.16496
+          "W": 0.41789,
+          "L": 0.2743,
+          "d": 0.14359
         },
         "efficiency": {
-          "W": 0.17856,
-          "L": 0.17809,
-          "d": 0.00047
+          "W": 0.381,
+          "L": 0.3549,
+          "d": 0.0261
         },
         "progressScore": {
-          "W": -1.0,
-          "L": 0.45455,
-          "d": -1.45455
+          "W": 4.22222,
+          "L": 0.2,
+          "d": 4.02222
         },
         "emaSlope5": {
-          "W": -4e-05,
-          "L": 1e-05,
-          "d": -5e-05
+          "W": 0.00014,
+          "L": 8e-05,
+          "d": 6e-05
         },
         "emaSlope8": {
-          "W": -4e-05,
-          "L": -1e-05,
-          "d": -3e-05
+          "W": 0.00012,
+          "L": 8e-05,
+          "d": 4e-05
         },
         "emaSlope13": {
-          "W": -3e-05,
-          "L": -2e-05,
-          "d": -1e-05
+          "W": 0.0001,
+          "L": 7e-05,
+          "d": 3e-05
         },
         "emaSlope20": {
-          "W": -3e-05,
-          "L": -3e-05,
-          "d": 0.0
+          "W": 7e-05,
+          "L": 5e-05,
+          "d": 2e-05
         },
         "emaCompression": {
-          "W": 0.0001,
-          "L": 0.00011,
-          "d": -1e-05
+          "W": 0.00016,
+          "L": 0.00012,
+          "d": 4e-05
         },
         "bbWidth": {
           "W": 0.00067,
-          "L": 0.0008,
-          "d": -0.00013
+          "L": 0.00052,
+          "d": 0.00015
         },
         "bbExpansion": {
-          "W": -0.00924,
-          "L": -0.02479,
-          "d": 0.01555
+          "W": 0.08809,
+          "L": 0.05141,
+          "d": 0.03668
         },
         "maBbConfirmation": {
-          "W": -0.14222,
-          "L": -0.00364,
-          "d": -0.13858
+          "W": 0.34111,
+          "L": 0.292,
+          "d": 0.04911
         },
         "atrVwapVsaScoringActive": {
           "W": 1.0,
@@ -1265,44 +316,721 @@
           "d": 0.0
         },
         "lowerWickRatioVsa": {
-          "W": 0.17833,
-          "L": 0.25709,
-          "d": -0.07876
+          "W": 0.27867,
+          "L": 0.3343,
+          "d": -0.05563
         },
         "upperWickRatioVsa": {
-          "W": 0.38689,
-          "L": 0.16555,
-          "d": 0.22134
+          "W": 0.14611,
+          "L": 0.374,
+          "d": -0.22789
         },
         "vsaHighEffort": {
-          "W": 0.11111,
-          "L": 0.09091,
-          "d": 0.0202
+          "W": 0.0,
+          "L": 0.1,
+          "d": -0.1
         },
         "vsaNarrowSpread": {
-          "W": 0.0,
-          "L": 0.09091,
-          "d": -0.09091
+          "W": 0.22222,
+          "L": 0.1,
+          "d": 0.12222
         },
         "vsaPoorResult": {
           "W": 0.44444,
-          "L": 0.36364,
-          "d": 0.0808
+          "L": 0.5,
+          "d": -0.05556
         },
         "vsaWideSpread": {
           "W": 0.33333,
-          "L": 0.27273,
-          "d": 0.0606
+          "L": 0.3,
+          "d": 0.03333
         },
         "vwap": {
-          "W": 1.16262,
-          "L": 1.16269,
-          "d": -7e-05
+          "W": 1.16125,
+          "L": 1.16183,
+          "d": -0.00058
         },
         "vwapExtended": {
-          "W": 0.44444,
-          "L": 0.36364,
-          "d": 0.0808
+          "W": 0.22222,
+          "L": 0.7,
+          "d": -0.47778
+        }
+      }
+    },
+    "EURUSD-2M": {
+      "batch": 15,
+      "results": {
+        "W": 12,
+        "L": 8,
+        "T": 0,
+        "n": 20,
+        "wr": 60.0
+      },
+      "cumulative": {
+        "W": 103,
+        "L": 105,
+        "T": 19,
+        "accuracy": 49.5
+      },
+      "confidenceMean": null,
+      "streaks": null,
+      "low": {
+        "results": {
+          "W": 10,
+          "L": 5,
+          "T": 0,
+          "n": 15,
+          "wr": 66.7
+        },
+        "late": 86.7,
+        "adverse": 73.3,
+        "mtf2": 66.7,
+        "transition": 40.0,
+        "extended": 6.7,
+        "failProgress": 80.0,
+        "eff": 0.18327,
+        "moveQ": 4.07333,
+        "progress": -0.46667,
+        "direction": {
+          "BUY": {
+            "W": 6,
+            "L": 2,
+            "T": 0,
+            "n": 8,
+            "wr": 75.0
+          },
+          "SELL": {
+            "W": 4,
+            "L": 3,
+            "T": 0,
+            "n": 7,
+            "wr": 57.1
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "W": 7,
+            "L": 3,
+            "T": 0,
+            "n": 10,
+            "wr": 70.0
+          },
+          "MIXED": {
+            "W": 3,
+            "L": 2,
+            "T": 0,
+            "n": 5,
+            "wr": 60.0
+          }
+        },
+        "sr": {
+          "AT RESISTANCE": {
+            "W": 7,
+            "L": 3,
+            "T": 0,
+            "n": 10,
+            "wr": 70.0
+          },
+          "AT SUPPORT": {
+            "W": 2,
+            "L": 2,
+            "T": 0,
+            "n": 4,
+            "wr": 50.0
+          },
+          "CLEAR": {
+            "W": 1,
+            "L": 0,
+            "T": 0,
+            "n": 1,
+            "wr": 100.0
+          }
+        }
+      },
+      "high": {
+        "results": {
+          "W": 2,
+          "L": 3,
+          "T": 0,
+          "n": 5,
+          "wr": 40.0
+        },
+        "late": 40.0,
+        "adverse": 60.0,
+        "mtf2": 40.0,
+        "transition": 20.0,
+        "extended": 20.0,
+        "failProgress": 40.0,
+        "eff": 0.147,
+        "moveQ": 5.0,
+        "progress": -0.2,
+        "direction": {
+          "BUY": {
+            "W": 1,
+            "L": 1,
+            "T": 0,
+            "n": 2,
+            "wr": 50.0
+          },
+          "SELL": {
+            "W": 1,
+            "L": 2,
+            "T": 0,
+            "n": 3,
+            "wr": 33.3
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "W": 2,
+            "L": 2,
+            "T": 0,
+            "n": 4,
+            "wr": 50.0
+          },
+          "MIXED": {
+            "W": 0,
+            "L": 1,
+            "T": 0,
+            "n": 1,
+            "wr": 0.0
+          }
+        },
+        "sr": {
+          "AT RESISTANCE": {
+            "W": 0,
+            "L": 1,
+            "T": 0,
+            "n": 1,
+            "wr": 0.0
+          },
+          "AT SUPPORT": {
+            "W": 2,
+            "L": 2,
+            "T": 0,
+            "n": 4,
+            "wr": 50.0
+          }
+        }
+      },
+      "direction": null,
+      "regime": null,
+      "transition": null,
+      "adverse": null,
+      "late": null,
+      "failProgress": null,
+      "breakout": null,
+      "tick": null,
+      "mtf2": null,
+      "extended": null,
+      "maBbPositive": null,
+      "ema": null,
+      "bb": null,
+      "fvg": null,
+      "sr": null,
+      "lossCombos": [],
+      "features": {
+        "atr14": {
+          "W": 0.00029,
+          "L": 0.00048,
+          "d": -0.00019
+        },
+        "atrNormalized": {
+          "W": 0.00025,
+          "L": 0.00041,
+          "d": -0.00016
+        },
+        "rangeAtr": {
+          "W": 0.75642,
+          "L": 0.78763,
+          "d": -0.03121
+        },
+        "bodyAtr": {
+          "W": 0.29217,
+          "L": 0.42788,
+          "d": -0.13571
+        },
+        "vwapDistanceAtr": {
+          "W": 0.10933,
+          "L": -0.902,
+          "d": 1.01133
+        },
+        "vwapSlopeAtr": {
+          "W": -0.0045,
+          "L": -0.02113,
+          "d": 0.01663
+        },
+        "vsaScore": {
+          "W": 0.01833,
+          "L": 0.03,
+          "d": -0.01167
+        },
+        "relativeVolume": {
+          "W": 1.05908,
+          "L": 0.97787,
+          "d": 0.08121
+        },
+        "candleBodyRatio": {
+          "W": 0.38383,
+          "L": 0.472,
+          "d": -0.08817
+        },
+        "lastUpperWickRatio": {
+          "W": 0.29408,
+          "L": 0.22937,
+          "d": 0.06471
+        },
+        "lastLowerWickRatio": {
+          "W": 0.32217,
+          "L": 0.2985,
+          "d": 0.02367
+        },
+        "advancedMomentumScore": {
+          "W": 0.083,
+          "L": 0.08425,
+          "d": -0.00125
+        },
+        "sequence": {
+          "W": 0.13208,
+          "L": 0.01775,
+          "d": 0.11433
+        },
+        "efficiency": {
+          "W": 0.16533,
+          "L": 0.1875,
+          "d": -0.02217
+        },
+        "progressScore": {
+          "W": -0.33333,
+          "L": -0.5,
+          "d": 0.16667
+        },
+        "emaSlope5": {
+          "W": 5e-05,
+          "L": 2e-05,
+          "d": 3e-05
+        },
+        "emaSlope8": {
+          "W": 4e-05,
+          "L": 1e-05,
+          "d": 3e-05
+        },
+        "emaSlope13": {
+          "W": 2e-05,
+          "L": -3e-05,
+          "d": 5e-05
+        },
+        "emaSlope20": {
+          "W": -1e-05,
+          "L": -6e-05,
+          "d": 5e-05
+        },
+        "emaCompression": {
+          "W": 0.00011,
+          "L": 0.00021,
+          "d": -0.0001
+        },
+        "bbWidth": {
+          "W": 0.00121,
+          "L": 0.00232,
+          "d": -0.00111
+        },
+        "bbExpansion": {
+          "W": -0.03597,
+          "L": -0.09443,
+          "d": 0.05846
+        },
+        "maBbConfirmation": {
+          "W": 0.12833,
+          "L": -0.075,
+          "d": 0.20333
+        },
+        "atrVwapVsaScoringActive": {
+          "W": 1.0,
+          "L": 1.0,
+          "d": 0.0
+        },
+        "lowerWickRatioVsa": {
+          "W": 0.32217,
+          "L": 0.2985,
+          "d": 0.02367
+        },
+        "upperWickRatioVsa": {
+          "W": 0.29408,
+          "L": 0.22937,
+          "d": 0.06471
+        },
+        "vsaHighEffort": {
+          "W": 0.25,
+          "L": 0.125,
+          "d": 0.125
+        },
+        "vsaNarrowSpread": {
+          "W": 0.25,
+          "L": 0.625,
+          "d": -0.375
+        },
+        "vsaPoorResult": {
+          "W": 0.75,
+          "L": 0.625,
+          "d": 0.125
+        },
+        "vsaWideSpread": {
+          "W": 0.08333,
+          "L": 0.25,
+          "d": -0.16667
+        },
+        "vwap": {
+          "W": 1.1618,
+          "L": 1.16155,
+          "d": 0.00025
+        },
+        "vwapExtended": {
+          "W": 0.41667,
+          "L": 0.25,
+          "d": 0.16667
+        }
+      }
+    },
+    "EURUSD-3M": {
+      "batch": 13,
+      "results": {
+        "W": 10,
+        "L": 10,
+        "T": 0,
+        "n": 20,
+        "wr": 50.0
+      },
+      "cumulative": {
+        "W": 84,
+        "L": 105,
+        "T": 8,
+        "accuracy": 44.4
+      },
+      "confidenceMean": null,
+      "streaks": null,
+      "low": {
+        "results": {
+          "W": 2,
+          "L": 5,
+          "T": 0,
+          "n": 7,
+          "wr": 28.6
+        },
+        "late": 42.9,
+        "adverse": 42.9,
+        "mtf2": 28.6,
+        "transition": 85.7,
+        "extended": 0.0,
+        "failProgress": 100.0,
+        "eff": 0.26257,
+        "moveQ": 3.72857,
+        "progress": -1.0,
+        "direction": {
+          "BUY": {
+            "W": 1,
+            "L": 1,
+            "T": 0,
+            "n": 2,
+            "wr": 50.0
+          },
+          "SELL": {
+            "W": 1,
+            "L": 4,
+            "T": 0,
+            "n": 5,
+            "wr": 20.0
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "W": 1,
+            "L": 0,
+            "T": 0,
+            "n": 1,
+            "wr": 100.0
+          },
+          "MIXED": {
+            "W": 1,
+            "L": 5,
+            "T": 0,
+            "n": 6,
+            "wr": 16.7
+          }
+        },
+        "sr": {
+          "AT RESISTANCE": {
+            "W": 1,
+            "L": 3,
+            "T": 0,
+            "n": 4,
+            "wr": 25.0
+          },
+          "AT SUPPORT": {
+            "W": 1,
+            "L": 2,
+            "T": 0,
+            "n": 3,
+            "wr": 33.3
+          }
+        }
+      },
+      "high": {
+        "results": {
+          "W": 8,
+          "L": 5,
+          "T": 0,
+          "n": 13,
+          "wr": 61.5
+        },
+        "late": 23.1,
+        "adverse": 30.8,
+        "mtf2": 30.8,
+        "transition": 15.4,
+        "extended": 15.4,
+        "failProgress": 61.5,
+        "eff": 0.37662,
+        "moveQ": 6.23077,
+        "progress": 1.69231,
+        "direction": {
+          "BUY": {
+            "W": 3,
+            "L": 1,
+            "T": 0,
+            "n": 4,
+            "wr": 75.0
+          },
+          "SELL": {
+            "W": 5,
+            "L": 4,
+            "T": 0,
+            "n": 9,
+            "wr": 55.6
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "W": 1,
+            "L": 1,
+            "T": 0,
+            "n": 2,
+            "wr": 50.0
+          },
+          "MIXED": {
+            "W": 5,
+            "L": 1,
+            "T": 0,
+            "n": 6,
+            "wr": 83.3
+          },
+          "TRENDING": {
+            "W": 2,
+            "L": 3,
+            "T": 0,
+            "n": 5,
+            "wr": 40.0
+          }
+        },
+        "sr": {
+          "AT RESISTANCE": {
+            "W": 5,
+            "L": 1,
+            "T": 0,
+            "n": 6,
+            "wr": 83.3
+          },
+          "AT SUPPORT": {
+            "W": 0,
+            "L": 2,
+            "T": 0,
+            "n": 2,
+            "wr": 0.0
+          },
+          "CLEAR": {
+            "W": 3,
+            "L": 2,
+            "T": 0,
+            "n": 5,
+            "wr": 60.0
+          }
+        }
+      },
+      "direction": null,
+      "regime": null,
+      "transition": null,
+      "adverse": null,
+      "late": null,
+      "failProgress": null,
+      "breakout": null,
+      "tick": null,
+      "mtf2": null,
+      "extended": null,
+      "maBbPositive": null,
+      "ema": null,
+      "bb": null,
+      "fvg": null,
+      "sr": null,
+      "lossCombos": [],
+      "features": {
+        "atr14": {
+          "W": 0.00056,
+          "L": 0.00069,
+          "d": -0.00013
+        },
+        "atrNormalized": {
+          "W": 0.00049,
+          "L": 0.00059,
+          "d": -0.0001
+        },
+        "rangeAtr": {
+          "W": 1.0899,
+          "L": 0.7345,
+          "d": 0.3554
+        },
+        "bodyAtr": {
+          "W": 0.4848,
+          "L": 0.3595,
+          "d": 0.1253
+        },
+        "vwapDistanceAtr": {
+          "W": -1.3904,
+          "L": -1.7965,
+          "d": 0.4061
+        },
+        "vwapSlopeAtr": {
+          "W": -0.0589,
+          "L": -0.0507,
+          "d": -0.0082
+        },
+        "vsaScore": {
+          "W": -0.027,
+          "L": 0.122,
+          "d": -0.149
+        },
+        "relativeVolume": {
+          "W": 1.5972,
+          "L": 1.2984,
+          "d": 0.2988
+        },
+        "candleBodyRatio": {
+          "W": 0.4729,
+          "L": 0.443,
+          "d": 0.0299
+        },
+        "lastUpperWickRatio": {
+          "W": 0.2674,
+          "L": 0.261,
+          "d": 0.0064
+        },
+        "lastLowerWickRatio": {
+          "W": 0.2599,
+          "L": 0.296,
+          "d": -0.0361
+        },
+        "advancedMomentumScore": {
+          "W": -0.1011,
+          "L": -0.1317,
+          "d": 0.0306
+        },
+        "sequence": {
+          "W": 0.1306,
+          "L": 0.0771,
+          "d": 0.0535
+        },
+        "efficiency": {
+          "W": 0.3252,
+          "L": 0.3482,
+          "d": -0.023
+        },
+        "progressScore": {
+          "W": 0.9,
+          "L": 0.6,
+          "d": 0.3
+        },
+        "emaSlope5": {
+          "W": -0.00019,
+          "L": -0.00027,
+          "d": 8e-05
+        },
+        "emaSlope8": {
+          "W": -0.00022,
+          "L": -0.00029,
+          "d": 7e-05
+        },
+        "emaSlope13": {
+          "W": -0.00021,
+          "L": -0.00028,
+          "d": 7e-05
+        },
+        "emaSlope20": {
+          "W": -0.00019,
+          "L": -0.00025,
+          "d": 6e-05
+        },
+        "emaCompression": {
+          "W": 0.00051,
+          "L": 0.00061,
+          "d": -0.0001
+        },
+        "bbWidth": {
+          "W": 0.00299,
+          "L": 0.00384,
+          "d": -0.00085
+        },
+        "bbExpansion": {
+          "W": 0.05128,
+          "L": 0.02123,
+          "d": 0.03005
+        },
+        "maBbConfirmation": {
+          "W": 0.032,
+          "L": -0.194,
+          "d": 0.226
+        },
+        "atrVwapVsaScoringActive": {
+          "W": 1.0,
+          "L": 1.0,
+          "d": 0.0
+        },
+        "lowerWickRatioVsa": {
+          "W": 0.2599,
+          "L": 0.296,
+          "d": -0.0361
+        },
+        "upperWickRatioVsa": {
+          "W": 0.2674,
+          "L": 0.261,
+          "d": 0.0064
+        },
+        "vsaHighEffort": {
+          "W": 0.3,
+          "L": 0.5,
+          "d": -0.2
+        },
+        "vsaNarrowSpread": {
+          "W": 0.4,
+          "L": 0.4,
+          "d": 0.0
+        },
+        "vsaPoorResult": {
+          "W": 0.7,
+          "L": 0.6,
+          "d": 0.1
+        },
+        "vsaWideSpread": {
+          "W": 0.5,
+          "L": 0.2,
+          "d": 0.3
+        },
+        "vwap": {
+          "W": 1.16172,
+          "L": 1.16151,
+          "d": 0.00021
+        },
+        "vwapExtended": {
+          "W": 0.4,
+          "L": 0.4,
+          "d": 0.0
         }
       }
     }
