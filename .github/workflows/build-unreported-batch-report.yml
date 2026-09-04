@@ -1,0 +1,28 @@
+name: Build unreported exact-batch report
+
+on:
+  push:
+    paths:
+      - 'scripts/build_unreported_batch_report.py'
+      - '.github/workflows/build-unreported-batch-report.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build unreported report
+        run: python3 scripts/build_unreported_batch_report.py
+      - name: Commit report
+        run: |
+          set -euo pipefail
+          git config user.name "Forex Falcon Audit Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add audit/unreported-report
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "audit: build unreported exact-batch report"
+          git push
