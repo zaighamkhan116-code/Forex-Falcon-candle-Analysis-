@@ -2,17 +2,17 @@
   "pair": "AUDUSD",
   "tracks": {
     "AUDUSD-1M": {
-      "previousReportedBatch": 11,
-      "currentCompletedBatch": 12,
+      "previousReportedBatch": 12,
+      "currentCompletedBatch": 13,
       "newBatches": [
         {
-          "batch": 12,
+          "batch": 13,
           "results": {
-            "W": 9,
-            "L": 9,
-            "T": 2,
+            "W": 4,
+            "L": 10,
+            "T": 6,
             "n": 20,
-            "wr": 50.0
+            "wr": 28.6
           },
           "exactBoundaryN": 20,
           "confidenceMean": null,
@@ -20,244 +20,247 @@
           "threshold": {
             "57_61_9": {
               "results": {
-                "W": 0,
-                "L": 1,
-                "T": 0,
-                "n": 1,
-                "wr": 0.0
-              },
-              "avgConfidence": 57.0,
-              "direction": {
-                "BUY": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 0.0
-                }
-              },
-              "regime": {
-                "CHOPPY": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 0.0
-                }
-              },
-              "entryLane": {
-                "CONFIRMED_ENTRY": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 0.0
-                }
-              },
-              "sr": {
-                "AT SUPPORT": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 0.0
-                }
-              },
-              "fvgState": {
-                "MITIGATING": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 0.0
-                }
-              },
-              "emaStack": {
-                "MIXED": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 0.0
-                }
-              },
-              "bbState": {
-                "NONE": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 0.0
-                }
-              },
-              "latePct": 100.0,
-              "adversePct": 100.0,
-              "mtfOpp2Pct": 100.0,
-              "transitionPct": 0.0,
-              "extendedPct": 100.0,
-              "failProgressPct": 100.0,
-              "breakoutAcceptedPct": 0.0,
-              "tickAgreementPct": 0.0,
-              "maBbPositivePct": 0.0,
-              "avgEfficiency": 0.027,
-              "avgMoveQuality": 2.7,
-              "avgProgress": -1.0,
-              "avgEmaCompression": 2e-05,
-              "avgBbWidth": 0.00049,
-              "avgBbExpansion": 0.0121,
-              "avgMaBb": 0.0,
-              "avgAtr": 9e-05,
-              "avgVolatility": 0.00012
-            },
-            "gte62": {
-              "results": {
-                "W": 9,
-                "L": 8,
+                "W": 4,
+                "L": 2,
                 "T": 2,
-                "n": 19,
-                "wr": 52.9
+                "n": 8,
+                "wr": 66.7
               },
-              "avgConfidence": 69.46842,
+              "avgConfidence": 60.0875,
               "direction": {
                 "BUY": {
-                  "W": 3,
-                  "L": 6,
-                  "T": 0,
-                  "n": 9,
+                  "W": 1,
+                  "L": 2,
+                  "T": 2,
+                  "n": 5,
                   "wr": 33.3
                 },
                 "SELL": {
-                  "W": 6,
-                  "L": 2,
-                  "T": 2,
-                  "n": 10,
-                  "wr": 75.0
+                  "W": 3,
+                  "L": 0,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 100.0
                 }
               },
               "regime": {
                 "CHOPPY": {
-                  "W": 4,
+                  "W": 2,
                   "L": 2,
                   "T": 0,
-                  "n": 6,
-                  "wr": 66.7
-                },
-                "MIXED": {
-                  "W": 3,
-                  "L": 3,
-                  "T": 1,
-                  "n": 7,
+                  "n": 4,
                   "wr": 50.0
                 },
-                "TRENDING": {
+                "MIXED": {
                   "W": 2,
-                  "L": 3,
+                  "L": 0,
                   "T": 1,
-                  "n": 6,
-                  "wr": 40.0
+                  "n": 3,
+                  "wr": 100.0
+                },
+                "TRENDING": {
+                  "W": 0,
+                  "L": 0,
+                  "T": 1,
+                  "n": 1,
+                  "wr": null
                 }
               },
               "entryLane": {
                 "CONFIRMED_ENTRY": {
-                  "W": 8,
-                  "L": 8,
+                  "W": 4,
+                  "L": 2,
                   "T": 2,
-                  "n": 18,
-                  "wr": 50.0
-                },
-                "REACTION_ENTRY": {
-                  "W": 1,
-                  "L": 0,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 100.0
+                  "n": 8,
+                  "wr": 66.7
                 }
               },
               "sr": {
                 "AT RESISTANCE": {
-                  "W": 3,
-                  "L": 3,
-                  "T": 0,
-                  "n": 6,
-                  "wr": 50.0
-                },
-                "AT SUPPORT": {
-                  "W": 5,
-                  "L": 3,
-                  "T": 2,
-                  "n": 10,
-                  "wr": 62.5
-                },
-                "CLEAR": {
-                  "W": 1,
-                  "L": 2,
-                  "T": 0,
-                  "n": 3,
-                  "wr": 33.3
-                }
-              },
-              "fvgState": {
-                "ACCEPTED_THROUGH": {
-                  "W": 1,
-                  "L": 0,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 100.0
-                },
-                "FULLY_MITIGATED": {
-                  "W": 5,
-                  "L": 4,
-                  "T": 0,
-                  "n": 9,
-                  "wr": 55.6
-                },
-                "MITIGATING": {
-                  "W": 3,
-                  "L": 4,
-                  "T": 2,
-                  "n": 9,
-                  "wr": 42.9
-                }
-              },
-              "emaStack": {
-                "BEAR": {
-                  "W": 2,
-                  "L": 2,
-                  "T": 2,
-                  "n": 6,
-                  "wr": 50.0
-                },
-                "BULL": {
-                  "W": 5,
-                  "L": 5,
-                  "T": 0,
-                  "n": 10,
-                  "wr": 50.0
-                },
-                "MIXED": {
-                  "W": 2,
-                  "L": 1,
-                  "T": 0,
-                  "n": 3,
-                  "wr": 66.7
-                }
-              },
-              "bbState": {
-                "MID_REJECT": {
                   "W": 1,
                   "L": 1,
                   "T": 0,
                   "n": 2,
                   "wr": 50.0
                 },
+                "AT SUPPORT": {
+                  "W": 3,
+                  "L": 1,
+                  "T": 2,
+                  "n": 6,
+                  "wr": 75.0
+                }
+              },
+              "fvgState": {
+                "APPROACHING": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 1,
+                  "n": 2,
+                  "wr": 100.0
+                },
+                "FULLY_MITIGATED": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "MITIGATING": {
+                  "W": 3,
+                  "L": 1,
+                  "T": 1,
+                  "n": 5,
+                  "wr": 75.0
+                }
+              },
+              "emaStack": {
+                "BEAR": {
+                  "W": 2,
+                  "L": 1,
+                  "T": 2,
+                  "n": 5,
+                  "wr": 66.7
+                },
+                "BULL": {
+                  "W": 1,
+                  "L": 1,
+                  "T": 0,
+                  "n": 2,
+                  "wr": 50.0
+                },
+                "MIXED": {
+                  "W": 1,
+                  "L": 0,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 100.0
+                }
+              },
+              "bbState": {
                 "NONE": {
-                  "W": 8,
+                  "W": 4,
+                  "L": 2,
+                  "T": 2,
+                  "n": 8,
+                  "wr": 66.7
+                }
+              },
+              "latePct": 75.0,
+              "adversePct": 75.0,
+              "mtfOpp2Pct": 25.0,
+              "transitionPct": 25.0,
+              "extendedPct": 12.5,
+              "failProgressPct": 75.0,
+              "breakoutAcceptedPct": 0.0,
+              "tickAgreementPct": 25.0,
+              "maBbPositivePct": 12.5,
+              "avgEfficiency": 0.2,
+              "avgMoveQuality": 3.4,
+              "avgProgress": 0.125,
+              "avgEmaCompression": 4e-05,
+              "avgBbWidth": 0.00046,
+              "avgBbExpansion": -0.03636,
+              "avgMaBb": -0.085,
+              "avgAtr": 7e-05,
+              "avgVolatility": 9e-05
+            },
+            "gte62": {
+              "results": {
+                "W": 0,
+                "L": 8,
+                "T": 4,
+                "n": 12,
+                "wr": 0.0
+              },
+              "avgConfidence": 66.6,
+              "direction": {
+                "BUY": {
+                  "W": 0,
+                  "L": 2,
+                  "T": 2,
+                  "n": 4,
+                  "wr": 0.0
+                },
+                "SELL": {
+                  "W": 0,
                   "L": 6,
                   "T": 2,
-                  "n": 16,
-                  "wr": 57.1
+                  "n": 8,
+                  "wr": 0.0
+                }
+              },
+              "regime": {
+                "CHOPPY": {
+                  "W": 0,
+                  "L": 5,
+                  "T": 3,
+                  "n": 8,
+                  "wr": 0.0
                 },
-                "UPPER_REJECTION": {
+                "MIXED": {
+                  "W": 0,
+                  "L": 3,
+                  "T": 1,
+                  "n": 4,
+                  "wr": 0.0
+                }
+              },
+              "entryLane": {
+                "CONFIRMED_ENTRY": {
+                  "W": 0,
+                  "L": 8,
+                  "T": 4,
+                  "n": 12,
+                  "wr": 0.0
+                }
+              },
+              "sr": {
+                "AT RESISTANCE": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 1,
+                  "n": 2,
+                  "wr": 0.0
+                },
+                "AT SUPPORT": {
+                  "W": 0,
+                  "L": 4,
+                  "T": 3,
+                  "n": 7,
+                  "wr": 0.0
+                },
+                "CLEAR": {
+                  "W": 0,
+                  "L": 3,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 0.0
+                }
+              },
+              "fvgState": {
+                "APPROACHING": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 1,
+                  "n": 2,
+                  "wr": 0.0
+                },
+                "FULLY_MITIGATED": {
+                  "W": 0,
+                  "L": 0,
+                  "T": 1,
+                  "n": 1,
+                  "wr": null
+                },
+                "MITIGATING": {
+                  "W": 0,
+                  "L": 6,
+                  "T": 2,
+                  "n": 8,
+                  "wr": 0.0
+                },
+                "REJECTED": {
                   "W": 0,
                   "L": 1,
                   "T": 0,
@@ -265,24 +268,56 @@
                   "wr": 0.0
                 }
               },
-              "latePct": 68.4,
-              "adversePct": 63.2,
-              "mtfOpp2Pct": 52.6,
-              "transitionPct": 10.5,
-              "extendedPct": 47.4,
-              "failProgressPct": 47.4,
-              "breakoutAcceptedPct": 47.4,
-              "tickAgreementPct": 84.2,
-              "maBbPositivePct": 42.1,
-              "avgEfficiency": 0.29584,
-              "avgMoveQuality": 5.37368,
-              "avgProgress": -0.73684,
-              "avgEmaCompression": 0.00013,
-              "avgBbWidth": 0.00069,
-              "avgBbExpansion": 0.03638,
-              "avgMaBb": 0.01684,
-              "avgAtr": 8e-05,
-              "avgVolatility": 0.00012
+              "emaStack": {
+                "BEAR": {
+                  "W": 0,
+                  "L": 6,
+                  "T": 3,
+                  "n": 9,
+                  "wr": 0.0
+                },
+                "BULL": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 1,
+                  "n": 2,
+                  "wr": 0.0
+                },
+                "MIXED": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                }
+              },
+              "bbState": {
+                "NONE": {
+                  "W": 0,
+                  "L": 8,
+                  "T": 4,
+                  "n": 12,
+                  "wr": 0.0
+                }
+              },
+              "latePct": 41.7,
+              "adversePct": 41.7,
+              "mtfOpp2Pct": 41.7,
+              "transitionPct": 0.0,
+              "extendedPct": 8.3,
+              "failProgressPct": 41.7,
+              "breakoutAcceptedPct": 25.0,
+              "tickAgreementPct": 66.7,
+              "maBbPositivePct": 16.7,
+              "avgEfficiency": 0.13658,
+              "avgMoveQuality": 5.03333,
+              "avgProgress": 0.41667,
+              "avgEmaCompression": 6e-05,
+              "avgBbWidth": 0.00051,
+              "avgBbExpansion": -0.00356,
+              "avgMaBb": -0.17,
+              "avgAtr": 6e-05,
+              "avgVolatility": 9e-05
             }
           },
           "direction": null,
@@ -306,223 +341,226 @@
           "topFeatureCombos": null,
           "featureOutcomes": {
             "winNumeric": {
-              "activeFvgDistanceAtr": 0.21222,
-              "advancedMomentumScore": -0.03378,
+              "activeFvgDistanceAtr": 0.15,
+              "advancedMomentumScore": -0.089,
               "allTickWindowsAgree": 0.0,
-              "atr": 9e-05,
-              "atr14": 9e-05,
-              "atrNormalized": 0.00012,
+              "atr": 7e-05,
+              "atr14": 6e-05,
+              "atrNormalized": 9e-05,
               "atrVwapVsaScoringActive": 1.0,
-              "bbExpansion": 0.03226,
-              "bbWidth": 0.00066,
-              "bodyAtr": 0.87344,
-              "candleBodyRatio": 0.63167,
-              "continuationProgressBackedBreakout": 0.11111,
-              "efficiency": 0.21778,
-              "emaCompression": 0.00011,
+              "bbExpansion": -0.00208,
+              "bbWidth": 0.00048,
+              "bodyAtr": 0.03325,
+              "candleBodyRatio": 0.08325,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.19575,
+              "emaCompression": 5e-05,
               "emaSlope13": -2e-05,
-              "emaSlope20": -0.0,
-              "emaSlope5": -6e-05,
+              "emaSlope20": -1e-05,
+              "emaSlope5": -3e-05,
               "emaSlope8": -3e-05,
-              "failureToProgress": 0.33333,
+              "failureToProgress": 0.0,
               "fastTickWindowsAgree": 0.0,
-              "forexTickAgreement": 0.88889,
-              "forexTickDirectionQuality": 0.30667,
-              "forexTickFeedReliability": 0.75867,
-              "forexTickPressure": -0.09778,
-              "forexTickQuality": 0.30667,
+              "forexTickAgreement": 0.33333,
+              "forexTickDirectionQuality": 0.20433,
+              "forexTickFeedReliability": 0.72167,
+              "forexTickPressure": 0.02767,
+              "forexTickQuality": 0.20433,
               "forexTickWeight": 0.42,
-              "lastBodyRatio": 0.63167,
-              "lastLowerWickRatio": 0.195,
-              "lastUpperWickRatio": 0.17333,
-              "lowerWickRatioVsa": 0.195,
-              "maBbConfirmation": 0.06444,
+              "lastBodyRatio": 0.08325,
+              "lastLowerWickRatio": 0.33325,
+              "lastUpperWickRatio": 0.58325,
+              "lowerWickRatioVsa": 0.33325,
+              "maBbConfirmation": -0.085,
               "maBbWeight": 0.2,
               "microRangeChop": 0.0,
               "microRangePenalty": 0.0,
-              "momentum": -0.48978,
-              "progressFailureGate": 0.66667,
-              "progressFailureRecovery": 0.11111,
-              "progressFailureRisk": 0.33333,
-              "progressScore": -0.77778,
-              "rangeAtr": 1.17711,
-              "relativeVolume": 1.043,
-              "sequence": -0.112,
-              "tickAcceleration": 0.23456,
-              "tickAdaptiveRateBaseline": 0.28778,
-              "tickAdjustment": -1.0,
+              "momentum": -0.408,
+              "progressFailureGate": 1.0,
+              "progressFailureRecovery": 0.5,
+              "progressFailureRisk": 0.0,
+              "progressScore": 0.0,
+              "rangeAtr": 0.37775,
+              "relativeVolume": 0.74,
+              "sequence": -0.0825,
+              "tickAcceleration": -0.12733,
+              "tickAdaptiveRateBaseline": 0.22333,
+              "tickAdjustment": -0.75,
               "tickContinuityScore": 1.0,
-              "tickDensityScore": 0.91456,
-              "tickDirectionQualityScore": 3.07778,
-              "tickEfficiency": 0.43578,
-              "tickFeedReliabilityScore": 7.57778,
-              "tickFreshnessScore": 0.267,
-              "tickImbalance": -0.26922,
+              "tickDensityScore": 0.963,
+              "tickDirectionQualityScore": 2.06667,
+              "tickEfficiency": 0.17767,
+              "tickFeedReliabilityScore": 7.2,
+              "tickFreshnessScore": 0.103,
+              "tickImbalance": 0.111,
               "tickPersistence": 0.0,
-              "tickPressure10s": -0.09133,
-              "tickPressure20s": -0.25644,
-              "tickPressure30s": -0.285,
+              "tickPressure10s": 0.0,
+              "tickPressure20s": 0.111,
+              "tickPressure30s": 0.15767,
               "tickPressure5s": 0.0,
-              "tickPressure60s": -0.24544,
-              "tickRate": 0.26,
-              "tickReliabilityScore": 3.03333,
+              "tickPressure60s": 0.03233,
+              "tickRate": 0.16667,
+              "tickReliabilityScore": 1.75,
               "tickReversal": 0.0,
               "tickSpreadHealthScore": 1.0,
-              "transitionFailureToProgress": 0.11111,
+              "transitionFailureToProgress": 1.0,
               "universalProgressFailureGuard": 1.0,
-              "upperWickRatioVsa": 0.17333,
+              "upperWickRatioVsa": 0.58325,
               "vsaHighEffort": 0.0,
-              "vsaNarrowSpread": 0.44444,
-              "vsaPoorResult": 0.44444,
-              "vsaScore": 0.01333,
-              "vsaWideSpread": 0.55556,
+              "vsaNarrowSpread": 0.75,
+              "vsaPoorResult": 1.0,
+              "vsaScore": 0.1475,
+              "vsaWideSpread": 0.0,
               "vwap": 0.72072,
-              "vwapDistanceAtr": 4.97256,
-              "vwapExtended": 0.88889,
-              "vwapSlopeAtr": 0.10556
+              "vwapDistanceAtr": 0.731,
+              "vwapExtended": 1.0,
+              "vwapSlopeAtr": -0.019
             },
             "lossNumeric": {
-              "activeFvgDistanceAtr": 0.08,
-              "advancedMomentumScore": -0.02278,
+              "activeFvgDistanceAtr": 0.117,
+              "advancedMomentumScore": -0.0185,
               "allTickWindowsAgree": 0.0,
-              "atr": 8e-05,
-              "atr14": 8e-05,
-              "atrNormalized": 0.00011,
+              "atr": 6e-05,
+              "atr14": 6e-05,
+              "atrNormalized": 9e-05,
               "atrVwapVsaScoringActive": 1.0,
-              "bbExpansion": 0.02847,
-              "bbWidth": 0.00067,
-              "bodyAtr": 0.64133,
-              "candleBodyRatio": 0.50244,
-              "continuationProgressBackedBreakout": 0.11111,
-              "efficiency": 0.31111,
-              "emaCompression": 0.00012,
-              "emaSlope13": 1e-05,
-              "emaSlope20": 1e-05,
-              "emaSlope5": 0.0,
-              "emaSlope8": 1e-05,
-              "failureToProgress": 0.33333,
+              "bbExpansion": -0.01146,
+              "bbWidth": 0.00049,
+              "bodyAtr": 0.603,
+              "candleBodyRatio": 0.642,
+              "continuationProgressBackedBreakout": 0.0,
+              "efficiency": 0.1129,
+              "emaCompression": 6e-05,
+              "emaSlope13": -3e-05,
+              "emaSlope20": -2e-05,
+              "emaSlope5": -5e-05,
+              "emaSlope8": -4e-05,
+              "failureToProgress": 0.2,
               "fastTickWindowsAgree": 0.0,
               "forexTickAgreement": 0.66667,
-              "forexTickDirectionQuality": 0.29778,
-              "forexTickFeedReliability": 0.77533,
-              "forexTickPressure": 0.08067,
-              "forexTickQuality": 0.29778,
+              "forexTickDirectionQuality": 0.31122,
+              "forexTickFeedReliability": 0.78267,
+              "forexTickPressure": -0.11467,
+              "forexTickQuality": 0.31122,
               "forexTickWeight": 0.42,
-              "lastBodyRatio": 0.50244,
-              "lastLowerWickRatio": 0.38656,
-              "lastUpperWickRatio": 0.11111,
-              "lowerWickRatioVsa": 0.38656,
-              "maBbConfirmation": 0.04667,
+              "lastBodyRatio": 0.642,
+              "lastLowerWickRatio": 0.089,
+              "lastUpperWickRatio": 0.2692,
+              "lowerWickRatioVsa": 0.089,
+              "maBbConfirmation": -0.17,
               "maBbWeight": 0.2,
               "microRangeChop": 0.0,
               "microRangePenalty": 0.0,
-              "momentum": -0.04733,
-              "progressFailureGate": 0.77778,
-              "progressFailureRecovery": 0.33333,
-              "progressFailureRisk": 0.33333,
-              "progressScore": 0.11111,
-              "rangeAtr": 0.99833,
-              "relativeVolume": 1.10789,
-              "sequence": -0.04167,
-              "tickAcceleration": -0.21589,
-              "tickAdaptiveRateBaseline": 0.28111,
-              "tickAdjustment": -1.0,
-              "tickContinuityScore": 0.983,
-              "tickDensityScore": 0.83633,
-              "tickDirectionQualityScore": 2.97778,
-              "tickEfficiency": 0.44433,
-              "tickFeedReliabilityScore": 7.75556,
-              "tickFreshnessScore": 0.40167,
-              "tickImbalance": 0.24222,
+              "momentum": -0.1899,
+              "progressFailureGate": 0.9,
+              "progressFailureRecovery": 0.4,
+              "progressFailureRisk": 0.2,
+              "progressScore": 0.6,
+              "rangeAtr": 0.9837,
+              "relativeVolume": 0.9822,
+              "sequence": -0.1887,
+              "tickAcceleration": 0.40289,
+              "tickAdaptiveRateBaseline": 0.20778,
+              "tickAdjustment": -0.9,
+              "tickContinuityScore": 0.99067,
+              "tickDensityScore": 0.926,
+              "tickDirectionQualityScore": 3.11111,
+              "tickEfficiency": 0.498,
+              "tickFeedReliabilityScore": 7.82222,
+              "tickFreshnessScore": 0.34511,
+              "tickImbalance": -0.41,
               "tickPersistence": 0.0,
-              "tickPressure10s": 0.10033,
-              "tickPressure20s": 0.24333,
-              "tickPressure30s": 0.26522,
+              "tickPressure10s": -0.06333,
+              "tickPressure20s": -0.42811,
+              "tickPressure30s": -0.41989,
               "tickPressure5s": 0.0,
-              "tickPressure60s": 0.04233,
-              "tickRate": 0.26222,
-              "tickReliabilityScore": 3.26667,
+              "tickPressure60s": -0.19411,
+              "tickRate": 0.24111,
+              "tickReliabilityScore": 2.83,
               "tickReversal": 0.0,
               "tickSpreadHealthScore": 1.0,
-              "transitionFailureToProgress": 0.55556,
+              "transitionFailureToProgress": 0.3,
               "universalProgressFailureGuard": 1.0,
-              "upperWickRatioVsa": 0.11111,
-              "vsaHighEffort": 0.22222,
-              "vsaNarrowSpread": 0.33333,
-              "vsaPoorResult": 0.44444,
-              "vsaScore": -0.04,
-              "vsaWideSpread": 0.44444,
+              "upperWickRatioVsa": 0.2692,
+              "vsaHighEffort": 0.2,
+              "vsaNarrowSpread": 0.2,
+              "vsaPoorResult": 0.5,
+              "vsaScore": -0.015,
+              "vsaWideSpread": 0.3,
               "vwap": 0.72075,
-              "vwapDistanceAtr": 5.16133,
-              "vwapExtended": 0.77778,
-              "vwapSlopeAtr": 0.07822
+              "vwapDistanceAtr": 0.6282,
+              "vwapExtended": 0.4,
+              "vwapSlopeAtr": -0.0148
             },
             "winCategorical": {
               "bbState": {
-                "NONE": 8,
-                "MID_REJECT": 1
+                "NONE": 4
               },
               "emaStack": {
-                "BULL": 5,
-                "MIXED": 2,
-                "BEAR": 2
+                "BEAR": 2,
+                "MIXED": 1,
+                "BULL": 1
               },
               "forexTickDirection": {
-                "SELL": 5,
-                "BUY": 4
+                "BUY": 3,
+                "NONE": 1
+              },
+              "forexTickStatus": {
+                "NONE": 3,
+                "WARMING_OR_UNAVAILABLE": 1
               },
               "maBbTags": {
-                "BULL_EMA_STACK": 4,
-                "NONE": 2,
                 "BEAR_EMA_STACK": 2,
-                "BB_MID_REJECT": 1
+                "NONE": 1,
+                "BULL_EMA_STACK": 1
               },
               "tickReliabilityState": {
-                "WEAK": 9
+                "WEAK": 3,
+                "UNAVAILABLE": 1
               },
               "volumeSource": {
-                "TICK_VOLUME": 9
+                "TICK_VOLUME": 4
               },
               "vsaState": {
-                "NEUTRAL": 8,
-                "LOW_SUPPLY_DEMAND_BULL": 1
+                "LOW_SUPPLY_DEMAND_BULL": 2,
+                "NEUTRAL": 1,
+                "LOWER_REJECTION": 1
               }
             },
             "lossCategorical": {
               "bbState": {
-                "NONE": 7,
-                "UPPER_REJECTION": 1,
-                "MID_REJECT": 1
+                "NONE": 10
               },
               "emaStack": {
-                "BULL": 5,
-                "BEAR": 2,
-                "MIXED": 2
+                "BEAR": 7,
+                "BULL": 2,
+                "MIXED": 1
               },
               "forexTickDirection": {
-                "BUY": 7,
-                "SELL": 2
+                "SELL": 8,
+                "BUY": 1,
+                "NONE": 1
+              },
+              "forexTickStatus": {
+                "NONE": 9,
+                "WARMING_OR_UNAVAILABLE": 1
               },
               "maBbTags": {
-                "BULL_EMA_STACK": 3,
-                "NONE": 2,
-                "BEAR_EMA_STACK": 2,
-                "BULL_EMA_STACK|BB_UPPER_REJECTION": 1,
-                "BB_MID_REJECT": 1
+                "BEAR_EMA_STACK": 6,
+                "NONE": 3,
+                "BULL_EMA_STACK": 1
               },
               "tickReliabilityState": {
-                "WEAK": 9
+                "WEAK": 9,
+                "UNAVAILABLE": 1
               },
               "volumeSource": {
-                "TICK_VOLUME": 9
+                "TICK_VOLUME": 10
               },
               "vsaState": {
-                "NEUTRAL": 3,
-                "LOW_SUPPLY_DEMAND_BULL": 2,
-                "UPPER_REJECTION": 1,
-                "LOW_SUPPLY_DEMAND_BEAR": 1,
-                "BEAR_EFFORT_RESULT": 1,
-                "LOWER_REJECTION": 1
+                "NEUTRAL": 7,
+                "UPPER_REJECTION": 2,
+                "BULL_ABSORPTION_OR_STOPPING": 1
               }
             }
           }
@@ -896,17 +934,17 @@
       }
     },
     "AUDUSD-2M": {
-      "previousReportedBatch": 10,
-      "currentCompletedBatch": 11,
+      "previousReportedBatch": 11,
+      "currentCompletedBatch": 12,
       "newBatches": [
         {
-          "batch": 11,
+          "batch": 12,
           "results": {
-            "W": 12,
-            "L": 8,
-            "T": 0,
+            "W": 8,
+            "L": 11,
+            "T": 1,
             "n": 20,
-            "wr": 60.0
+            "wr": 42.1
           },
           "exactBoundaryN": 20,
           "confidenceMean": null,
@@ -914,192 +952,290 @@
           "threshold": {
             "57_61_9": {
               "results": {
-                "W": 0,
-                "L": 0,
+                "W": 5,
+                "L": 5,
                 "T": 0,
-                "n": 0,
-                "wr": null
+                "n": 10,
+                "wr": 50.0
               },
-              "avgConfidence": null,
-              "direction": {},
-              "regime": {},
-              "entryLane": {},
-              "sr": {},
-              "fvgState": {},
-              "emaStack": {},
-              "bbState": {},
-              "latePct": null,
-              "adversePct": null,
-              "mtfOpp2Pct": null,
-              "transitionPct": null,
-              "extendedPct": null,
-              "failProgressPct": null,
-              "breakoutAcceptedPct": null,
-              "tickAgreementPct": null,
-              "maBbPositivePct": null,
-              "avgEfficiency": null,
-              "avgMoveQuality": null,
-              "avgProgress": null,
-              "avgEmaCompression": null,
-              "avgBbWidth": null,
-              "avgBbExpansion": null,
-              "avgMaBb": null,
-              "avgAtr": null,
-              "avgVolatility": null
-            },
-            "gte62": {
-              "results": {
-                "W": 12,
-                "L": 8,
-                "T": 0,
-                "n": 20,
-                "wr": 60.0
-              },
-              "avgConfidence": 68.995,
+              "avgConfidence": 58.73,
               "direction": {
                 "BUY": {
-                  "W": 7,
-                  "L": 8,
-                  "T": 0,
-                  "n": 15,
-                  "wr": 46.7
-                },
-                "SELL": {
-                  "W": 5,
-                  "L": 0,
+                  "W": 3,
+                  "L": 2,
                   "T": 0,
                   "n": 5,
-                  "wr": 100.0
+                  "wr": 60.0
+                },
+                "SELL": {
+                  "W": 2,
+                  "L": 3,
+                  "T": 0,
+                  "n": 5,
+                  "wr": 40.0
                 }
               },
               "regime": {
                 "CHOPPY": {
                   "W": 4,
-                  "L": 2,
+                  "L": 3,
                   "T": 0,
-                  "n": 6,
-                  "wr": 66.7
+                  "n": 7,
+                  "wr": 57.1
                 },
                 "MIXED": {
-                  "W": 4,
-                  "L": 4,
-                  "T": 0,
-                  "n": 8,
-                  "wr": 50.0
-                },
-                "TRENDING": {
-                  "W": 4,
+                  "W": 1,
                   "L": 2,
                   "T": 0,
-                  "n": 6,
-                  "wr": 66.7
+                  "n": 3,
+                  "wr": 33.3
                 }
               },
               "entryLane": {
                 "CONFIRMED_ENTRY": {
-                  "W": 12,
-                  "L": 8,
+                  "W": 5,
+                  "L": 5,
                   "T": 0,
-                  "n": 20,
-                  "wr": 60.0
+                  "n": 10,
+                  "wr": 50.0
                 }
               },
               "sr": {
                 "AT RESISTANCE": {
-                  "W": 5,
-                  "L": 1,
+                  "W": 3,
+                  "L": 2,
                   "T": 0,
-                  "n": 6,
-                  "wr": 83.3
+                  "n": 5,
+                  "wr": 60.0
                 },
                 "AT SUPPORT": {
-                  "W": 6,
-                  "L": 1,
+                  "W": 1,
+                  "L": 3,
                   "T": 0,
-                  "n": 7,
-                  "wr": 85.7
+                  "n": 4,
+                  "wr": 25.0
                 },
                 "CLEAR": {
                   "W": 1,
-                  "L": 6,
+                  "L": 0,
                   "T": 0,
-                  "n": 7,
-                  "wr": 14.3
+                  "n": 1,
+                  "wr": 100.0
                 }
               },
               "fvgState": {
                 "ACCEPTED_THROUGH": {
-                  "W": 3,
-                  "L": 3,
+                  "W": 0,
+                  "L": 2,
                   "T": 0,
-                  "n": 6,
-                  "wr": 50.0
+                  "n": 2,
+                  "wr": 0.0
                 },
-                "FULLY_MITIGATED": {
-                  "W": 5,
-                  "L": 4,
-                  "T": 0,
-                  "n": 9,
-                  "wr": 55.6
-                },
-                "MITIGATING": {
-                  "W": 4,
-                  "L": 1,
-                  "T": 0,
-                  "n": 5,
-                  "wr": 80.0
-                }
-              },
-              "emaStack": {
-                "BULL": {
-                  "W": 9,
-                  "L": 8,
-                  "T": 0,
-                  "n": 17,
-                  "wr": 52.9
-                },
-                "MIXED": {
-                  "W": 3,
-                  "L": 0,
-                  "T": 0,
-                  "n": 3,
-                  "wr": 100.0
-                }
-              },
-              "bbState": {
-                "MID_REJECT": {
+                "APPROACHING": {
                   "W": 1,
                   "L": 0,
                   "T": 0,
                   "n": 1,
                   "wr": 100.0
                 },
-                "NONE": {
-                  "W": 11,
-                  "L": 8,
+                "FULLY_MITIGATED": {
+                  "W": 3,
+                  "L": 1,
                   "T": 0,
-                  "n": 19,
-                  "wr": 57.9
+                  "n": 4,
+                  "wr": 75.0
+                },
+                "MITIGATING": {
+                  "W": 1,
+                  "L": 2,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 33.3
+                }
+              },
+              "emaStack": {
+                "BEAR": {
+                  "W": 1,
+                  "L": 2,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 33.3
+                },
+                "MIXED": {
+                  "W": 4,
+                  "L": 3,
+                  "T": 0,
+                  "n": 7,
+                  "wr": 57.1
+                }
+              },
+              "bbState": {
+                "NONE": {
+                  "W": 5,
+                  "L": 5,
+                  "T": 0,
+                  "n": 10,
+                  "wr": 50.0
+                }
+              },
+              "latePct": 80.0,
+              "adversePct": 80.0,
+              "mtfOpp2Pct": 20.0,
+              "transitionPct": 50.0,
+              "extendedPct": 40.0,
+              "failProgressPct": 90.0,
+              "breakoutAcceptedPct": 10.0,
+              "tickAgreementPct": 40.0,
+              "maBbPositivePct": 0.0,
+              "avgEfficiency": 0.1804,
+              "avgMoveQuality": 4.15,
+              "avgProgress": 1.2,
+              "avgEmaCompression": 9e-05,
+              "avgBbWidth": 0.00084,
+              "avgBbExpansion": -0.05232,
+              "avgMaBb": -0.034,
+              "avgAtr": 0.00012,
+              "avgVolatility": 0.00016
+            },
+            "gte62": {
+              "results": {
+                "W": 3,
+                "L": 6,
+                "T": 1,
+                "n": 10,
+                "wr": 33.3
+              },
+              "avgConfidence": 67.84,
+              "direction": {
+                "BUY": {
+                  "W": 2,
+                  "L": 2,
+                  "T": 1,
+                  "n": 5,
+                  "wr": 50.0
+                },
+                "SELL": {
+                  "W": 1,
+                  "L": 4,
+                  "T": 0,
+                  "n": 5,
+                  "wr": 20.0
+                }
+              },
+              "regime": {
+                "CHOPPY": {
+                  "W": 2,
+                  "L": 3,
+                  "T": 1,
+                  "n": 6,
+                  "wr": 40.0
+                },
+                "MIXED": {
+                  "W": 1,
+                  "L": 3,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 25.0
+                }
+              },
+              "entryLane": {
+                "CONFIRMED_ENTRY": {
+                  "W": 3,
+                  "L": 6,
+                  "T": 1,
+                  "n": 10,
+                  "wr": 33.3
+                }
+              },
+              "sr": {
+                "AT RESISTANCE": {
+                  "W": 2,
+                  "L": 1,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 66.7
+                },
+                "AT SUPPORT": {
+                  "W": 1,
+                  "L": 5,
+                  "T": 1,
+                  "n": 7,
+                  "wr": 16.7
+                }
+              },
+              "fvgState": {
+                "ACCEPTED_THROUGH": {
+                  "W": 0,
+                  "L": 0,
+                  "T": 1,
+                  "n": 1,
+                  "wr": null
+                },
+                "FULLY_MITIGATED": {
+                  "W": 2,
+                  "L": 3,
+                  "T": 0,
+                  "n": 5,
+                  "wr": 40.0
+                },
+                "MITIGATING": {
+                  "W": 1,
+                  "L": 3,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 25.0
+                }
+              },
+              "emaStack": {
+                "BEAR": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "MIXED": {
+                  "W": 3,
+                  "L": 5,
+                  "T": 1,
+                  "n": 9,
+                  "wr": 37.5
+                }
+              },
+              "bbState": {
+                "MID_RECLAIM": {
+                  "W": 0,
+                  "L": 1,
+                  "T": 0,
+                  "n": 1,
+                  "wr": 0.0
+                },
+                "NONE": {
+                  "W": 3,
+                  "L": 5,
+                  "T": 1,
+                  "n": 9,
+                  "wr": 37.5
                 }
               },
               "latePct": 50.0,
-              "adversePct": 45.0,
-              "mtfOpp2Pct": 30.0,
-              "transitionPct": 5.0,
-              "extendedPct": 20.0,
-              "failProgressPct": 55.0,
-              "breakoutAcceptedPct": 25.0,
-              "tickAgreementPct": 45.0,
-              "maBbPositivePct": 75.0,
-              "avgEfficiency": 0.3032,
-              "avgMoveQuality": 5.595,
-              "avgProgress": -0.55,
-              "avgEmaCompression": 0.00015,
-              "avgBbWidth": 0.00083,
-              "avgBbExpansion": -0.01148,
-              "avgMaBb": 0.25,
-              "avgAtr": 0.00011,
-              "avgVolatility": 0.00015
+              "adversePct": 40.0,
+              "mtfOpp2Pct": 20.0,
+              "transitionPct": 10.0,
+              "extendedPct": 30.0,
+              "failProgressPct": 30.0,
+              "breakoutAcceptedPct": 30.0,
+              "tickAgreementPct": 80.0,
+              "maBbPositivePct": 10.0,
+              "avgEfficiency": 0.1563,
+              "avgMoveQuality": 5.11,
+              "avgProgress": -1.4,
+              "avgEmaCompression": 5e-05,
+              "avgBbWidth": 0.00052,
+              "avgBbExpansion": -0.04714,
+              "avgMaBb": -0.042,
+              "avgAtr": 0.0001,
+              "avgVolatility": 0.00014
             }
           },
           "direction": null,
@@ -1123,195 +1259,164 @@
           "topFeatureCombos": null,
           "featureOutcomes": {
             "winNumeric": {
-              "activeFvgDistanceAtr": 0.09583,
-              "advancedMomentumScore": -0.06358,
+              "activeFvgDistanceAtr": 0.12125,
+              "advancedMomentumScore": 0.058,
               "allTickWindowsAgree": 0.0,
               "atr": 0.00011,
               "atr14": 0.00011,
               "atrNormalized": 0.00015,
               "atrVwapVsaScoringActive": 1.0,
-              "bbExpansion": 0.00016,
-              "bbWidth": 0.00082,
-              "bodyAtr": 0.69608,
-              "candleBodyRatio": 0.691,
+              "bbExpansion": -0.06445,
+              "bbWidth": 0.0006,
+              "bodyAtr": 0.37813,
+              "candleBodyRatio": 0.45913,
               "continuationProgressBackedBreakout": 0.0,
-              "efficiency": 0.30067,
-              "emaCompression": 0.00014,
-              "emaSlope13": 4e-05,
-              "emaSlope20": 5e-05,
-              "emaSlope5": -0.0,
-              "emaSlope8": 2e-05,
-              "failureToProgress": 0.33333,
-              "fastTickWindowsAgree": 0.0,
-              "forexTickAgreement": 0.58333,
-              "forexTickDirectionQuality": 0.26392,
-              "forexTickFeedReliability": 0.70033,
-              "forexTickPressure": 0.0025,
-              "forexTickQuality": 0.26392,
+              "efficiency": 0.16812,
+              "emaCompression": 5e-05,
+              "emaSlope13": 1e-05,
+              "emaSlope20": -0.0,
+              "emaSlope5": 2e-05,
+              "emaSlope8": 1e-05,
+              "failureToProgress": 0.375,
+              "fastTickWindowsAgree": 0.14286,
+              "forexTickAgreement": 0.71429,
+              "forexTickDirectionQuality": 0.33443,
+              "forexTickFeedReliability": 0.72743,
+              "forexTickPressure": -0.058,
+              "forexTickQuality": 0.33443,
               "forexTickWeight": 0.36,
-              "lastBodyRatio": 0.691,
-              "lastLowerWickRatio": 0.19558,
-              "lastUpperWickRatio": 0.11342,
-              "lowerWickRatioVsa": 0.19558,
-              "maBbConfirmation": 0.19,
+              "lastBodyRatio": 0.45913,
+              "lastLowerWickRatio": 0.38812,
+              "lastUpperWickRatio": 0.15275,
+              "lowerWickRatioVsa": 0.38812,
+              "maBbConfirmation": 0.0,
               "maBbWeight": 0.19,
               "microRangeChop": 0.0,
               "microRangePenalty": 0.0,
-              "momentum": -0.43092,
-              "progressFailureGate": 0.91667,
-              "progressFailureRecovery": 0.25,
-              "progressFailureRisk": 0.08333,
-              "progressScore": -1.08333,
-              "rangeAtr": 0.92842,
-              "relativeVolume": 0.817,
-              "sequence": -0.05258,
-              "tickAcceleration": 0.05333,
-              "tickAdaptiveRateBaseline": 0.23167,
-              "tickAdjustment": -1.0,
-              "tickContinuityScore": 0.98075,
-              "tickDensityScore": 0.8685,
-              "tickDirectionQualityScore": 2.65,
-              "tickEfficiency": 0.27825,
-              "tickFeedReliabilityScore": 7.0,
-              "tickFreshnessScore": 0.12717,
-              "tickImbalance": -0.07367,
-              "tickPersistence": 0.0,
-              "tickPressure10s": 0.0475,
-              "tickPressure20s": -0.02775,
-              "tickPressure30s": -0.05367,
-              "tickPressure5s": 0.0,
-              "tickPressure60s": -0.04525,
-              "tickRate": 0.205,
-              "tickReliabilityScore": 2.56667,
+              "momentum": 0.1095,
+              "progressFailureGate": 1.0,
+              "progressFailureRecovery": 0.125,
+              "progressFailureRisk": 0.0,
+              "progressScore": 0.5,
+              "rangeAtr": 0.80775,
+              "relativeVolume": 0.80212,
+              "sequence": 0.13612,
+              "tickAcceleration": 0.15386,
+              "tickAdaptiveRateBaseline": 0.24571,
+              "tickAdjustment": -0.75,
+              "tickContinuityScore": 0.91214,
+              "tickDensityScore": 0.87671,
+              "tickDirectionQualityScore": 3.34286,
+              "tickEfficiency": 0.46829,
+              "tickFeedReliabilityScore": 7.3,
+              "tickFreshnessScore": 0.26714,
+              "tickImbalance": 0.06814,
+              "tickPersistence": 0.11429,
+              "tickPressure10s": -0.10471,
+              "tickPressure20s": -0.35814,
+              "tickPressure30s": 0.05929,
+              "tickPressure5s": -0.03329,
+              "tickPressure60s": 0.20486,
+              "tickRate": 0.23714,
+              "tickReliabilityScore": 2.9,
               "tickReversal": 0.0,
               "tickSpreadHealthScore": 1.0,
-              "transitionFailureToProgress": 0.41667,
+              "transitionFailureToProgress": 0.625,
               "universalProgressFailureGuard": 1.0,
-              "upperWickRatioVsa": 0.11342,
-              "vsaHighEffort": 0.08333,
-              "vsaNarrowSpread": 0.41667,
-              "vsaPoorResult": 0.41667,
-              "vsaScore": -0.02083,
-              "vsaWideSpread": 0.33333,
-              "vwap": 0.72072,
-              "vwapDistanceAtr": 2.77825,
-              "vwapExtended": 0.91667,
-              "vwapSlopeAtr": 0.06767
+              "upperWickRatioVsa": 0.15275,
+              "vsaHighEffort": 0.0,
+              "vsaNarrowSpread": 0.25,
+              "vsaPoorResult": 0.375,
+              "vsaScore": 0.1175,
+              "vsaWideSpread": 0.125,
+              "vwap": 0.72066,
+              "vwapDistanceAtr": -2.8355,
+              "vwapExtended": 0.75,
+              "vwapSlopeAtr": -0.03062
             },
             "lossNumeric": {
-              "activeFvgDistanceAtr": 0.48375,
-              "advancedMomentumScore": 0.04063,
-              "allTickWindowsAgree": 0.0,
-              "atr": 0.0001,
-              "atr14": 0.0001,
-              "atrNormalized": 0.00014,
+              "activeFvgDistanceAtr": 0.09818,
+              "advancedMomentumScore": -0.05373,
+              "allTickWindowsAgree": 0.1,
+              "atr": 0.00011,
+              "atr14": 0.00011,
+              "atrNormalized": 0.00016,
               "atrVwapVsaScoringActive": 1.0,
-              "bbExpansion": -0.02892,
-              "bbWidth": 0.00086,
-              "bodyAtr": 0.74613,
-              "candleBodyRatio": 0.60613,
-              "continuationProgressBackedBreakout": 0.0,
-              "efficiency": 0.307,
-              "emaCompression": 0.00017,
-              "emaSlope13": 8e-05,
-              "emaSlope20": 7e-05,
-              "emaSlope5": 9e-05,
-              "emaSlope8": 8e-05,
-              "failureToProgress": 0.5,
-              "fastTickWindowsAgree": 0.0,
-              "forexTickAgreement": 0.28571,
-              "forexTickDirectionQuality": 0.38343,
-              "forexTickFeedReliability": 0.71614,
-              "forexTickPressure": -0.09429,
-              "forexTickQuality": 0.38343,
+              "bbExpansion": -0.01575,
+              "bbWidth": 0.00075,
+              "bodyAtr": 0.44727,
+              "candleBodyRatio": 0.51191,
+              "continuationProgressBackedBreakout": 0.18182,
+              "efficiency": 0.18264,
+              "emaCompression": 9e-05,
+              "emaSlope13": -3e-05,
+              "emaSlope20": -2e-05,
+              "emaSlope5": -3e-05,
+              "emaSlope8": -2e-05,
+              "failureToProgress": 0.45455,
+              "fastTickWindowsAgree": 0.2,
+              "forexTickAgreement": 0.6,
+              "forexTickDirectionQuality": 0.4178,
+              "forexTickFeedReliability": 0.8237,
+              "forexTickPressure": 0.0806,
+              "forexTickQuality": 0.4178,
               "forexTickWeight": 0.36,
-              "lastBodyRatio": 0.60613,
-              "lastLowerWickRatio": 0.16562,
-              "lastUpperWickRatio": 0.22837,
-              "lowerWickRatioVsa": 0.16562,
-              "maBbConfirmation": 0.34,
+              "lastBodyRatio": 0.51191,
+              "lastLowerWickRatio": 0.20782,
+              "lastUpperWickRatio": 0.28045,
+              "lowerWickRatioVsa": 0.20782,
+              "maBbConfirmation": -0.06909,
               "maBbWeight": 0.19,
-              "microRangeChop": 0.0,
-              "microRangePenalty": 0.0,
-              "momentum": 0.57975,
-              "progressFailureGate": 0.875,
-              "progressFailureRecovery": 0.25,
-              "progressFailureRisk": 0.125,
-              "progressScore": 0.25,
-              "rangeAtr": 1.29612,
-              "relativeVolume": 0.903,
-              "sequence": 0.31175,
-              "tickAcceleration": 0.15357,
-              "tickAdaptiveRateBaseline": 0.22857,
-              "tickAdjustment": -0.875,
-              "tickContinuityScore": 0.98643,
-              "tickDensityScore": 0.84157,
-              "tickDirectionQualityScore": 3.85714,
-              "tickEfficiency": 0.89529,
-              "tickFeedReliabilityScore": 7.17143,
-              "tickFreshnessScore": 0.19657,
-              "tickImbalance": -0.3,
-              "tickPersistence": 0.0,
-              "tickPressure10s": -0.14286,
-              "tickPressure20s": -0.14286,
-              "tickPressure30s": -0.31671,
+              "microRangeChop": 0.09091,
+              "microRangePenalty": 0.32727,
+              "momentum": -0.27,
+              "progressFailureGate": 0.81818,
+              "progressFailureRecovery": 0.09091,
+              "progressFailureRisk": 0.18182,
+              "progressScore": -0.54545,
+              "rangeAtr": 0.77264,
+              "relativeVolume": 0.87391,
+              "sequence": 0.01745,
+              "tickAcceleration": -0.0265,
+              "tickAdaptiveRateBaseline": 0.218,
+              "tickAdjustment": -0.72727,
+              "tickContinuityScore": 0.9948,
+              "tickDensityScore": 0.9267,
+              "tickDirectionQualityScore": 4.17,
+              "tickEfficiency": 0.5218,
+              "tickFeedReliabilityScore": 8.23,
+              "tickFreshnessScore": 0.4975,
+              "tickImbalance": 0.0485,
+              "tickPersistence": 0.14,
+              "tickPressure10s": 0.165,
+              "tickPressure20s": 0.095,
+              "tickPressure30s": 0.0643,
               "tickPressure5s": 0.0,
-              "tickPressure60s": -0.12614,
-              "tickRate": 0.14857,
-              "tickReliabilityScore": 2.5625,
+              "tickPressure60s": 0.2136,
+              "tickRate": 0.217,
+              "tickReliabilityScore": 3.62727,
               "tickReversal": 0.0,
-              "tickSpreadHealthScore": 1.0,
-              "transitionFailureToProgress": 0.125,
+              "tickSpreadHealthScore": 0.97,
+              "transitionFailureToProgress": 0.27273,
               "universalProgressFailureGuard": 1.0,
-              "upperWickRatioVsa": 0.22837,
-              "vsaHighEffort": 0.0,
-              "vsaNarrowSpread": 0.125,
-              "vsaPoorResult": 0.25,
-              "vsaScore": -0.02875,
-              "vsaWideSpread": 0.625,
-              "vwap": 0.72074,
-              "vwapDistanceAtr": 4.1395,
-              "vwapExtended": 1.0,
-              "vwapSlopeAtr": 0.0945
+              "upperWickRatioVsa": 0.28045,
+              "vsaHighEffort": 0.09091,
+              "vsaNarrowSpread": 0.54545,
+              "vsaPoorResult": 0.63636,
+              "vsaScore": -0.02091,
+              "vsaWideSpread": 0.09091,
+              "vwap": 0.72071,
+              "vwapDistanceAtr": -2.75164,
+              "vwapExtended": 0.63636,
+              "vwapSlopeAtr": -0.02382
             },
             "winCategorical": {
-              "bbState": {
-                "NONE": 11,
-                "MID_REJECT": 1
-              },
-              "emaStack": {
-                "BULL": 9,
-                "MIXED": 3
-              },
-              "forexTickDirection": {
-                "BUY": 7,
-                "SELL": 5
-              },
-              "maBbTags": {
-                "BULL_EMA_STACK": 7,
-                "NONE": 4,
-                "BB_MID_REJECT": 1
-              },
-              "tickReliabilityState": {
-                "WEAK": 12
-              },
-              "volumeSource": {
-                "TICK_VOLUME": 12
-              },
-              "vsaState": {
-                "NEUTRAL": 7,
-                "LOW_SUPPLY_DEMAND_BEAR": 2,
-                "LOW_SUPPLY_DEMAND_BULL": 1,
-                "LOWER_REJECTION": 1,
-                "BEAR_EFFORT_RESULT": 1
-              }
-            },
-            "lossCategorical": {
               "bbState": {
                 "NONE": 8
               },
               "emaStack": {
-                "BULL": 8
+                "MIXED": 7,
+                "BEAR": 1
               },
               "forexTickDirection": {
                 "SELL": 5,
@@ -1323,20 +1428,60 @@
                 "WARMING_OR_UNAVAILABLE": 1
               },
               "maBbTags": {
-                "BULL_EMA_STACK": 8
+                "NONE": 8
               },
               "tickReliabilityState": {
-                "WEAK": 7,
-                "UNAVAILABLE": 1
+                "WEAK": 6,
+                "UNAVAILABLE": 1,
+                "USABLE": 1
               },
               "volumeSource": {
                 "TICK_VOLUME": 8
               },
               "vsaState": {
                 "NEUTRAL": 4,
+                "LOWER_REJECTION": 2,
+                "LOW_SUPPLY_DEMAND_BULL": 2
+              }
+            },
+            "lossCategorical": {
+              "bbState": {
+                "NONE": 10,
+                "MID_RECLAIM": 1
+              },
+              "emaStack": {
+                "MIXED": 8,
+                "BEAR": 3
+              },
+              "forexTickDirection": {
+                "BUY": 6,
+                "SELL": 4,
+                "NONE": 1
+              },
+              "forexTickStatus": {
+                "NONE": 10,
+                "WARMING_OR_UNAVAILABLE": 1
+              },
+              "maBbTags": {
+                "NONE": 8,
+                "BEAR_EMA_STACK": 1,
+                "BEAR_EMA_STACK|BEAR_5_8_CROSS": 1,
+                "BB_MID_RECLAIM": 1
+              },
+              "tickReliabilityState": {
+                "WEAK": 8,
+                "USABLE": 2,
+                "UNAVAILABLE": 1
+              },
+              "volumeSource": {
+                "TICK_VOLUME": 11
+              },
+              "vsaState": {
+                "NEUTRAL": 5,
+                "LOW_SUPPLY_DEMAND_BULL": 2,
                 "UPPER_REJECTION": 2,
-                "LOWER_REJECTION": 1,
-                "LOW_SUPPLY_DEMAND_BULL": 1
+                "LOW_SUPPLY_DEMAND_BEAR": 1,
+                "LOWER_REJECTION": 1
               }
             }
           }
@@ -1709,18 +1854,18 @@
         ]
       }
     },
-    "AUDUSD-3M": {
-      "previousReportedBatch": 9,
-      "currentCompletedBatch": 10,
+    "AUDUSD-5M": {
+      "previousReportedBatch": 6,
+      "currentCompletedBatch": 7,
       "newBatches": [
         {
-          "batch": 10,
+          "batch": 7,
           "results": {
-            "W": 7,
-            "L": 10,
-            "T": 3,
+            "W": 9,
+            "L": 11,
+            "T": 0,
             "n": 20,
-            "wr": 41.2
+            "wr": 45.0
           },
           "exactBoundaryN": 20,
           "confidenceMean": null,
@@ -1728,74 +1873,74 @@
           "threshold": {
             "57_61_9": {
               "results": {
-                "W": 0,
-                "L": 1,
+                "W": 1,
+                "L": 0,
                 "T": 0,
                 "n": 1,
-                "wr": 0.0
+                "wr": 100.0
               },
-              "avgConfidence": 58.9,
+              "avgConfidence": 57.0,
               "direction": {
-                "BUY": {
-                  "W": 0,
-                  "L": 1,
+                "SELL": {
+                  "W": 1,
+                  "L": 0,
                   "T": 0,
                   "n": 1,
-                  "wr": 0.0
+                  "wr": 100.0
                 }
               },
               "regime": {
                 "CHOPPY": {
-                  "W": 0,
-                  "L": 1,
+                  "W": 1,
+                  "L": 0,
                   "T": 0,
                   "n": 1,
-                  "wr": 0.0
+                  "wr": 100.0
                 }
               },
               "entryLane": {
                 "CONFIRMED_ENTRY": {
-                  "W": 0,
-                  "L": 1,
+                  "W": 1,
+                  "L": 0,
                   "T": 0,
                   "n": 1,
-                  "wr": 0.0
+                  "wr": 100.0
                 }
               },
               "sr": {
                 "AT SUPPORT": {
-                  "W": 0,
-                  "L": 1,
+                  "W": 1,
+                  "L": 0,
                   "T": 0,
                   "n": 1,
-                  "wr": 0.0
+                  "wr": 100.0
                 }
               },
               "fvgState": {
-                "MITIGATING": {
-                  "W": 0,
-                  "L": 1,
+                "APPROACHING": {
+                  "W": 1,
+                  "L": 0,
                   "T": 0,
                   "n": 1,
-                  "wr": 0.0
+                  "wr": 100.0
                 }
               },
               "emaStack": {
-                "MIXED": {
-                  "W": 0,
-                  "L": 1,
+                "BEAR": {
+                  "W": 1,
+                  "L": 0,
                   "T": 0,
                   "n": 1,
-                  "wr": 0.0
+                  "wr": 100.0
                 }
               },
               "bbState": {
                 "NONE": {
-                  "W": 0,
-                  "L": 1,
+                  "W": 1,
+                  "L": 0,
                   "T": 0,
                   "n": 1,
-                  "wr": 0.0
+                  "wr": 100.0
                 }
               },
               "latePct": 100.0,
@@ -1803,127 +1948,127 @@
               "mtfOpp2Pct": 0.0,
               "transitionPct": 0.0,
               "extendedPct": 0.0,
-              "failProgressPct": 0.0,
+              "failProgressPct": 100.0,
               "breakoutAcceptedPct": 0.0,
               "tickAgreementPct": 0.0,
               "maBbPositivePct": 0.0,
-              "avgEfficiency": 0.026,
+              "avgEfficiency": 0.209,
               "avgMoveQuality": 3.6,
               "avgProgress": 0.0,
-              "avgEmaCompression": 9e-05,
-              "avgBbWidth": 0.00105,
-              "avgBbExpansion": -0.0568,
-              "avgMaBb": 0.0,
-              "avgAtr": 0.00014,
-              "avgVolatility": 0.00019
+              "avgEmaCompression": 0.00036,
+              "avgBbWidth": 0.00103,
+              "avgBbExpansion": -0.0515,
+              "avgMaBb": -0.34,
+              "avgAtr": 0.00021,
+              "avgVolatility": 0.0003
             },
             "gte62": {
               "results": {
-                "W": 7,
-                "L": 9,
-                "T": 3,
+                "W": 8,
+                "L": 11,
+                "T": 0,
                 "n": 19,
-                "wr": 43.8
+                "wr": 42.1
               },
-              "avgConfidence": 67.74737,
+              "avgConfidence": 69.45789,
               "direction": {
                 "BUY": {
                   "W": 7,
-                  "L": 7,
-                  "T": 2,
+                  "L": 9,
+                  "T": 0,
                   "n": 16,
-                  "wr": 50.0
+                  "wr": 43.8
                 },
                 "SELL": {
-                  "W": 0,
+                  "W": 1,
                   "L": 2,
-                  "T": 1,
+                  "T": 0,
                   "n": 3,
-                  "wr": 0.0
+                  "wr": 33.3
                 }
               },
               "regime": {
                 "CHOPPY": {
-                  "W": 3,
-                  "L": 4,
-                  "T": 2,
-                  "n": 9,
-                  "wr": 42.9
+                  "W": 2,
+                  "L": 5,
+                  "T": 0,
+                  "n": 7,
+                  "wr": 28.6
                 },
                 "MIXED": {
-                  "W": 2,
+                  "W": 5,
                   "L": 3,
-                  "T": 1,
-                  "n": 6,
-                  "wr": 40.0
+                  "T": 0,
+                  "n": 8,
+                  "wr": 62.5
                 },
                 "TRENDING": {
-                  "W": 2,
-                  "L": 2,
+                  "W": 1,
+                  "L": 3,
                   "T": 0,
                   "n": 4,
-                  "wr": 50.0
+                  "wr": 25.0
                 }
               },
               "entryLane": {
                 "CONFIRMED_ENTRY": {
                   "W": 7,
-                  "L": 8,
-                  "T": 3,
+                  "L": 11,
+                  "T": 0,
                   "n": 18,
-                  "wr": 46.7
+                  "wr": 38.9
                 },
                 "REACTION_ENTRY": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 0.0
-                }
-              },
-              "sr": {
-                "AT RESISTANCE": {
                   "W": 1,
                   "L": 0,
                   "T": 0,
                   "n": 1,
                   "wr": 100.0
+                }
+              },
+              "sr": {
+                "AT RESISTANCE": {
+                  "W": 1,
+                  "L": 2,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 33.3
                 },
                 "AT SUPPORT": {
-                  "W": 5,
-                  "L": 8,
-                  "T": 2,
-                  "n": 15,
-                  "wr": 38.5
+                  "W": 2,
+                  "L": 5,
+                  "T": 0,
+                  "n": 7,
+                  "wr": 28.6
                 },
                 "CLEAR": {
-                  "W": 1,
-                  "L": 1,
-                  "T": 1,
-                  "n": 3,
-                  "wr": 50.0
+                  "W": 5,
+                  "L": 4,
+                  "T": 0,
+                  "n": 9,
+                  "wr": 55.6
                 }
               },
               "fvgState": {
                 "ACCEPTED_THROUGH": {
+                  "W": 2,
+                  "L": 3,
+                  "T": 0,
+                  "n": 5,
+                  "wr": 40.0
+                },
+                "APPROACHING": {
+                  "W": 1,
+                  "L": 2,
+                  "T": 0,
+                  "n": 3,
+                  "wr": 33.3
+                },
+                "FULLY_MITIGATED": {
                   "W": 0,
                   "L": 3,
                   "T": 0,
                   "n": 3,
-                  "wr": 0.0
-                },
-                "APPROACHING": {
-                  "W": 2,
-                  "L": 2,
-                  "T": 2,
-                  "n": 6,
-                  "wr": 50.0
-                },
-                "FULLY_MITIGATED": {
-                  "W": 0,
-                  "L": 1,
-                  "T": 0,
-                  "n": 1,
                   "wr": 0.0
                 },
                 "MITIGATING": {
@@ -1932,54 +2077,40 @@
                   "T": 0,
                   "n": 8,
                   "wr": 62.5
-                },
-                "REJECTED": {
-                  "W": 0,
-                  "L": 0,
-                  "T": 1,
-                  "n": 1,
-                  "wr": null
                 }
               },
               "emaStack": {
                 "BEAR": {
+                  "W": 2,
+                  "L": 2,
+                  "T": 0,
+                  "n": 4,
+                  "wr": 50.0
+                },
+                "BULL": {
+                  "W": 6,
+                  "L": 8,
+                  "T": 0,
+                  "n": 14,
+                  "wr": 42.9
+                },
+                "MIXED": {
                   "W": 0,
                   "L": 1,
                   "T": 0,
                   "n": 1,
                   "wr": 0.0
-                },
-                "BULL": {
-                  "W": 5,
-                  "L": 6,
-                  "T": 2,
-                  "n": 13,
-                  "wr": 45.5
-                },
-                "MIXED": {
-                  "W": 2,
-                  "L": 2,
-                  "T": 1,
-                  "n": 5,
-                  "wr": 50.0
                 }
               },
               "bbState": {
                 "BULL_EXPANSION": {
                   "W": 1,
-                  "L": 0,
+                  "L": 1,
                   "T": 0,
-                  "n": 1,
-                  "wr": 100.0
+                  "n": 2,
+                  "wr": 50.0
                 },
-                "MID_RECLAIM": {
-                  "W": 1,
-                  "L": 0,
-                  "T": 0,
-                  "n": 1,
-                  "wr": 100.0
-                },
-                "MID_REJECT": {
+                "LOWER_REJECTION": {
                   "W": 0,
                   "L": 1,
                   "T": 0,
@@ -1987,11 +2118,11 @@
                   "wr": 0.0
                 },
                 "NONE": {
-                  "W": 5,
-                  "L": 7,
-                  "T": 3,
+                  "W": 7,
+                  "L": 8,
+                  "T": 0,
                   "n": 15,
-                  "wr": 41.7
+                  "wr": 46.7
                 },
                 "UPPER_REJECTION": {
                   "W": 0,
@@ -2001,24 +2132,24 @@
                   "wr": 0.0
                 }
               },
-              "latePct": 52.6,
-              "adversePct": 57.9,
-              "mtfOpp2Pct": 15.8,
-              "transitionPct": 10.5,
-              "extendedPct": 10.5,
-              "failProgressPct": 31.6,
+              "latePct": 36.8,
+              "adversePct": 47.4,
+              "mtfOpp2Pct": 0.0,
+              "transitionPct": 26.3,
+              "extendedPct": 21.1,
+              "failProgressPct": 68.4,
               "breakoutAcceptedPct": 15.8,
-              "tickAgreementPct": 52.6,
-              "maBbPositivePct": 68.4,
-              "avgEfficiency": 0.25984,
-              "avgMoveQuality": 5.28947,
-              "avgProgress": 0.68421,
-              "avgEmaCompression": 0.00016,
-              "avgBbWidth": 0.00098,
-              "avgBbExpansion": 0.01641,
+              "tickAgreementPct": 47.4,
+              "maBbPositivePct": 73.7,
+              "avgEfficiency": 0.29337,
+              "avgMoveQuality": 5.02105,
+              "avgProgress": 1.0,
+              "avgEmaCompression": 0.0003,
+              "avgBbWidth": 0.0013,
+              "avgBbExpansion": 0.03807,
               "avgMaBb": 0.19789,
-              "avgAtr": 0.00014,
-              "avgVolatility": 0.00019
+              "avgAtr": 0.00021,
+              "avgVolatility": 0.00029
             }
           },
           "direction": null,
@@ -2042,229 +2173,236 @@
           "topFeatureCombos": null,
           "featureOutcomes": {
             "winNumeric": {
-              "activeFvgDistanceAtr": 0.40143,
-              "advancedMomentumScore": 0.09343,
-              "allTickWindowsAgree": 0.0,
-              "atr": 0.00013,
-              "atr14": 0.00013,
-              "atrNormalized": 0.00018,
+              "activeFvgDistanceAtr": 0.30222,
+              "advancedMomentumScore": 0.12,
+              "allTickWindowsAgree": 0.125,
+              "atr": 0.00021,
+              "atr14": 0.00021,
+              "atrNormalized": 0.0003,
               "atrVwapVsaScoringActive": 1.0,
-              "bbExpansion": 0.03366,
-              "bbWidth": 0.00085,
-              "bodyAtr": 0.50871,
-              "candleBodyRatio": 0.46171,
-              "continuationProgressBackedBreakout": 0.0,
-              "efficiency": 0.26757,
-              "emaCompression": 0.00014,
+              "bbExpansion": 0.02587,
+              "bbWidth": 0.00136,
+              "bodyAtr": 0.71333,
+              "candleBodyRatio": 0.60844,
+              "continuationProgressBackedBreakout": 0.11111,
+              "efficiency": 0.27256,
+              "emaCompression": 0.00032,
               "emaSlope13": 8e-05,
-              "emaSlope20": 5e-05,
-              "emaSlope5": 0.00014,
-              "emaSlope8": 0.00011,
-              "failureToProgress": 0.0,
-              "fastTickWindowsAgree": 0.0,
-              "forexTickAgreement": 0.42857,
-              "forexTickDirectionQuality": 0.25,
-              "forexTickFeedReliability": 0.623,
-              "forexTickPressure": -0.03943,
-              "forexTickQuality": 0.25,
-              "forexTickWeight": 0.31,
-              "lastBodyRatio": 0.46171,
-              "lastLowerWickRatio": 0.31143,
-              "lastUpperWickRatio": 0.22686,
-              "lowerWickRatioVsa": 0.31143,
-              "maBbConfirmation": 0.28286,
-              "maBbWeight": 0.18,
+              "emaSlope20": 6e-05,
+              "emaSlope5": 8e-05,
+              "emaSlope8": 9e-05,
+              "failureToProgress": 0.11111,
+              "fastTickWindowsAgree": 0.125,
+              "forexTickAgreement": 0.25,
+              "forexTickDirectionQuality": 0.33975,
+              "forexTickFeedReliability": 0.70725,
+              "forexTickPressure": 0.04,
+              "forexTickQuality": 0.33975,
+              "forexTickWeight": 0.24,
+              "lastBodyRatio": 0.60844,
+              "lastLowerWickRatio": 0.16178,
+              "lastUpperWickRatio": 0.22989,
+              "lowerWickRatioVsa": 0.16178,
+              "maBbConfirmation": 0.13333,
+              "maBbWeight": 0.16,
               "microRangeChop": 0.0,
               "microRangePenalty": 0.0,
-              "momentum": 0.51857,
+              "momentum": 0.20356,
               "progressFailureGate": 1.0,
-              "progressFailureRecovery": 0.42857,
+              "progressFailureRecovery": 0.55556,
               "progressFailureRisk": 0.0,
-              "progressScore": 0.0,
-              "rangeAtr": 1.00543,
-              "relativeVolume": 0.99714,
-              "sequence": 0.19843,
-              "tickAcceleration": -0.062,
-              "tickAdaptiveRateBaseline": 0.21857,
-              "tickAdjustment": -1.0,
-              "tickContinuityScore": 0.906,
-              "tickDensityScore": 0.73514,
-              "tickDirectionQualityScore": 2.5,
-              "tickEfficiency": 0.17129,
-              "tickFeedReliabilityScore": 6.22857,
-              "tickFreshnessScore": 0.04229,
-              "tickImbalance": -0.04757,
-              "tickPersistence": 0.0,
-              "tickPressure10s": -0.14286,
-              "tickPressure20s": 0.019,
-              "tickPressure30s": -0.001,
-              "tickPressure5s": 0.0,
-              "tickPressure60s": 0.00586,
-              "tickRate": 0.11286,
-              "tickReliabilityScore": 2.27143,
+              "progressScore": 1.0,
+              "rangeAtr": 1.02722,
+              "relativeVolume": 0.89889,
+              "sequence": 0.12133,
+              "tickAcceleration": 0.07375,
+              "tickAdaptiveRateBaseline": 0.25375,
+              "tickAdjustment": -0.77778,
+              "tickContinuityScore": 0.96962,
+              "tickDensityScore": 0.92488,
+              "tickDirectionQualityScore": 3.3875,
+              "tickEfficiency": 0.29863,
+              "tickFeedReliabilityScore": 7.075,
+              "tickFreshnessScore": 0.11213,
+              "tickImbalance": -0.06825,
+              "tickPersistence": 0.125,
+              "tickPressure10s": -0.00212,
+              "tickPressure20s": 0.01425,
+              "tickPressure30s": -0.00737,
+              "tickPressure5s": 0.125,
+              "tickPressure60s": -0.092,
+              "tickRate": 0.23625,
+              "tickReliabilityScore": 2.65556,
               "tickReversal": 0.0,
               "tickSpreadHealthScore": 1.0,
-              "transitionFailureToProgress": 0.28571,
+              "transitionFailureToProgress": 0.44444,
               "universalProgressFailureGuard": 1.0,
-              "upperWickRatioVsa": 0.22686,
-              "vsaHighEffort": 0.14286,
-              "vsaNarrowSpread": 0.14286,
-              "vsaPoorResult": 0.71429,
-              "vsaScore": -0.02857,
-              "vsaWideSpread": 0.42857,
-              "vwap": 0.72067,
-              "vwapDistanceAtr": 2.18757,
-              "vwapExtended": 0.71429,
-              "vwapSlopeAtr": 0.01929
+              "upperWickRatioVsa": 0.22989,
+              "vsaHighEffort": 0.11111,
+              "vsaNarrowSpread": 0.44444,
+              "vsaPoorResult": 0.55556,
+              "vsaScore": 0.04,
+              "vsaWideSpread": 0.33333,
+              "vwap": 0.7205,
+              "vwapDistanceAtr": 1.67656,
+              "vwapExtended": 1.0,
+              "vwapSlopeAtr": 0.02867
             },
             "lossNumeric": {
-              "activeFvgDistanceAtr": 0.597,
-              "advancedMomentumScore": 0.0197,
+              "activeFvgDistanceAtr": 0.69455,
+              "advancedMomentumScore": 0.11173,
               "allTickWindowsAgree": 0.0,
-              "atr": 0.00014,
-              "atr14": 0.00014,
-              "atrNormalized": 0.0002,
+              "atr": 0.0002,
+              "atr14": 0.0002,
+              "atrNormalized": 0.00028,
               "atrVwapVsaScoringActive": 1.0,
-              "bbExpansion": 0.00335,
-              "bbWidth": 0.0011,
-              "bodyAtr": 0.8998,
-              "candleBodyRatio": 0.663,
+              "bbExpansion": 0.03992,
+              "bbWidth": 0.00123,
+              "bodyAtr": 0.49445,
+              "candleBodyRatio": 0.51955,
               "continuationProgressBackedBreakout": 0.0,
-              "efficiency": 0.2433,
-              "emaCompression": 0.00018,
-              "emaSlope13": 7e-05,
-              "emaSlope20": 6e-05,
-              "emaSlope5": 6e-05,
-              "emaSlope8": 7e-05,
-              "failureToProgress": 0.0,
+              "efficiency": 0.30273,
+              "emaCompression": 0.00029,
+              "emaSlope13": 0.00011,
+              "emaSlope20": 8e-05,
+              "emaSlope5": 0.00014,
+              "emaSlope8": 0.00013,
+              "failureToProgress": 0.63636,
               "fastTickWindowsAgree": 0.0,
-              "forexTickAgreement": 0.75,
-              "forexTickDirectionQuality": 0.296,
-              "forexTickFeedReliability": 0.78725,
-              "forexTickPressure": 0.04038,
-              "forexTickQuality": 0.296,
-              "forexTickWeight": 0.31,
-              "lastBodyRatio": 0.663,
-              "lastLowerWickRatio": 0.115,
-              "lastUpperWickRatio": 0.222,
-              "lowerWickRatioVsa": 0.115,
-              "maBbConfirmation": 0.144,
-              "maBbWeight": 0.18,
+              "forexTickAgreement": 0.7,
+              "forexTickDirectionQuality": 0.2448,
+              "forexTickFeedReliability": 0.747,
+              "forexTickPressure": 0.0103,
+              "forexTickQuality": 0.2448,
+              "forexTickWeight": 0.24,
+              "lastBodyRatio": 0.51955,
+              "lastLowerWickRatio": 0.20373,
+              "lastUpperWickRatio": 0.27682,
+              "lowerWickRatioVsa": 0.20373,
+              "maBbConfirmation": 0.20182,
+              "maBbWeight": 0.16,
               "microRangeChop": 0.0,
               "microRangePenalty": 0.0,
-              "momentum": 0.1521,
+              "momentum": 0.37309,
               "progressFailureGate": 1.0,
-              "progressFailureRecovery": 0.2,
-              "progressFailureRisk": 0.0,
-              "progressScore": 1.2,
-              "rangeAtr": 1.2631,
-              "relativeVolume": 0.9601,
-              "sequence": 0.0942,
-              "tickAcceleration": -0.03362,
-              "tickAdaptiveRateBaseline": 0.245,
-              "tickAdjustment": -0.8,
-              "tickContinuityScore": 0.99562,
-              "tickDensityScore": 0.98237,
-              "tickDirectionQualityScore": 2.9625,
-              "tickEfficiency": 0.42,
-              "tickFeedReliabilityScore": 7.8625,
-              "tickFreshnessScore": 0.30925,
-              "tickImbalance": -0.00438,
+              "progressFailureRecovery": 0.54545,
+              "progressFailureRisk": 0.27273,
+              "progressScore": 0.90909,
+              "rangeAtr": 0.95145,
+              "relativeVolume": 0.97455,
+              "sequence": 0.16591,
+              "tickAcceleration": 0.0734,
+              "tickAdaptiveRateBaseline": 0.255,
+              "tickAdjustment": -0.90909,
+              "tickContinuityScore": 0.9819,
+              "tickDensityScore": 0.8621,
+              "tickDirectionQualityScore": 2.45,
+              "tickEfficiency": 0.211,
+              "tickFeedReliabilityScore": 7.47,
+              "tickFreshnessScore": 0.2868,
+              "tickImbalance": 0.0357,
               "tickPersistence": 0.0,
-              "tickPressure10s": 0.12262,
-              "tickPressure20s": 0.119,
-              "tickPressure30s": -0.00188,
+              "tickPressure10s": 0.0333,
+              "tickPressure20s": -0.13,
+              "tickPressure30s": 0.0652,
               "tickPressure5s": 0.0,
-              "tickPressure60s": -0.08975,
-              "tickRate": 0.26375,
-              "tickReliabilityScore": 2.36,
+              "tickPressure60s": 0.103,
+              "tickRate": 0.18,
+              "tickReliabilityScore": 2.51818,
               "tickReversal": 0.0,
               "tickSpreadHealthScore": 1.0,
-              "transitionFailureToProgress": 0.1,
+              "transitionFailureToProgress": 0.63636,
               "universalProgressFailureGuard": 1.0,
-              "upperWickRatioVsa": 0.222,
-              "vsaHighEffort": 0.1,
-              "vsaNarrowSpread": 0.2,
-              "vsaPoorResult": 0.4,
-              "vsaScore": 0.06,
-              "vsaWideSpread": 0.7,
-              "vwap": 0.72064,
-              "vwapDistanceAtr": 2.6295,
-              "vwapExtended": 0.9,
-              "vwapSlopeAtr": 0.0254
+              "upperWickRatioVsa": 0.27682,
+              "vsaHighEffort": 0.0,
+              "vsaNarrowSpread": 0.27273,
+              "vsaPoorResult": 0.54545,
+              "vsaScore": -0.03182,
+              "vsaWideSpread": 0.09091,
+              "vwap": 0.72048,
+              "vwapDistanceAtr": 2.23991,
+              "vwapExtended": 0.90909,
+              "vwapSlopeAtr": 0.03209
             },
             "winCategorical": {
               "bbState": {
-                "NONE": 5,
-                "MID_RECLAIM": 1,
+                "NONE": 8,
                 "BULL_EXPANSION": 1
               },
               "emaStack": {
-                "BULL": 5,
-                "MIXED": 2
+                "BULL": 6,
+                "BEAR": 3
               },
               "forexTickDirection": {
-                "SELL": 4,
-                "BUY": 3
+                "SELL": 5,
+                "BUY": 3,
+                "NONE": 1
+              },
+              "forexTickStatus": {
+                "NONE": 8,
+                "WARMING_OR_UNAVAILABLE": 1
               },
               "maBbTags": {
-                "BULL_EMA_STACK": 4,
-                "BB_MID_RECLAIM": 1,
-                "NONE": 1,
+                "BULL_EMA_STACK": 5,
+                "BEAR_EMA_STACK": 3,
                 "BULL_EMA_STACK|BB_BULL_EXPANSION": 1
               },
               "tickReliabilityState": {
-                "WEAK": 7
+                "WEAK": 7,
+                "UNAVAILABLE": 1,
+                "USABLE": 1
               },
               "volumeSource": {
-                "TICK_VOLUME": 7
+                "TICK_VOLUME": 9
               },
               "vsaState": {
                 "NEUTRAL": 5,
-                "BEAR_ABSORPTION_OR_UPTHRUST": 1,
-                "LOWER_REJECTION": 1
+                "LOWER_REJECTION": 1,
+                "BULL_EFFORT_RESULT": 1,
+                "UPPER_REJECTION": 1,
+                "LOW_SUPPLY_DEMAND_BEAR": 1
               }
             },
             "lossCategorical": {
               "bbState": {
                 "NONE": 8,
-                "MID_REJECT": 1,
+                "BULL_EXPANSION": 1,
+                "LOWER_REJECTION": 1,
                 "UPPER_REJECTION": 1
               },
               "emaStack": {
-                "BULL": 6,
-                "MIXED": 3,
-                "BEAR": 1
+                "BULL": 8,
+                "BEAR": 2,
+                "MIXED": 1
               },
               "forexTickDirection": {
-                "BUY": 4,
-                "SELL": 4,
-                "NONE": 2
+                "SELL": 5,
+                "BUY": 5,
+                "NONE": 1
               },
               "forexTickStatus": {
-                "NONE": 8,
-                "WARMING_OR_UNAVAILABLE": 2
+                "NONE": 10,
+                "WARMING_OR_UNAVAILABLE": 1
               },
               "maBbTags": {
-                "BULL_EMA_STACK": 5,
-                "NONE": 2,
-                "BB_MID_REJECT": 1,
-                "BEAR_EMA_STACK": 1,
-                "BULL_EMA_STACK|BB_UPPER_REJECTION": 1
+                "BULL_EMA_STACK": 6,
+                "BULL_EMA_STACK|BB_BULL_EXPANSION": 1,
+                "BEAR_EMA_STACK|BB_LOWER_REJECTION": 1,
+                "NONE": 1,
+                "BULL_EMA_STACK|BB_UPPER_REJECTION": 1,
+                "BEAR_EMA_STACK": 1
               },
               "tickReliabilityState": {
-                "WEAK": 8,
-                "UNAVAILABLE": 2
+                "WEAK": 10,
+                "UNAVAILABLE": 1
               },
               "volumeSource": {
-                "TICK_VOLUME": 10
+                "TICK_VOLUME": 11
               },
               "vsaState": {
-                "NEUTRAL": 6,
-                "BULL_EFFORT_RESULT": 1,
-                "LOWER_REJECTION": 1,
-                "UPPER_REJECTION": 1,
-                "LOW_SUPPLY_DEMAND_BULL": 1
+                "NEUTRAL": 8,
+                "UPPER_REJECTION": 2,
+                "LOWER_REJECTION": 1
               }
             }
           }
@@ -2272,341 +2410,341 @@
       ],
       "cumulative": {
         "results": {
-          "W": 82,
-          "L": 89,
-          "T": 11,
-          "accuracy": 48.0
+          "W": 72,
+          "L": 49,
+          "T": 5,
+          "accuracy": 59.5
         },
-        "n": 182,
-        "confidenceMean": 66.8,
+        "n": 126,
+        "confidenceMean": 68.0,
         "streaks": {
-          "maxWin": 5,
-          "maxLoss": 8
+          "maxWin": 10,
+          "maxLoss": 5
         },
         "thresholdBuckets": {
           "57_61_9": {
-            "W": 17,
-            "L": 23,
-            "T": 3,
-            "accuracy": 42.5,
-            "n": 43
+            "W": 14,
+            "L": 7,
+            "T": 2,
+            "accuracy": 66.7,
+            "n": 23
           },
           "gte62": {
-            "W": 65,
-            "L": 66,
-            "T": 8,
-            "accuracy": 49.6,
-            "n": 139
+            "W": 58,
+            "L": 42,
+            "T": 3,
+            "accuracy": 58.0,
+            "n": 103
           }
         },
         "direction": {
           "BUY": {
-            "W": 53,
-            "L": 55,
-            "T": 6,
-            "accuracy": 49.1
+            "W": 50,
+            "L": 28,
+            "T": 3,
+            "accuracy": 64.1
           },
           "SELL": {
-            "W": 29,
-            "L": 34,
-            "T": 5,
-            "accuracy": 46.0
+            "W": 22,
+            "L": 21,
+            "T": 2,
+            "accuracy": 51.2
           }
         },
         "regime": {
           "CHOPPY": {
-            "W": 31,
-            "L": 43,
-            "T": 7,
-            "accuracy": 41.9
+            "W": 24,
+            "L": 17,
+            "T": 1,
+            "accuracy": 58.5
           },
           "MIXED": {
             "W": 35,
-            "L": 26,
+            "L": 18,
             "T": 2,
-            "accuracy": 57.4
+            "accuracy": 66.0
           },
           "TRENDING": {
-            "W": 16,
-            "L": 20,
+            "W": 13,
+            "L": 14,
             "T": 2,
-            "accuracy": 44.4
+            "accuracy": 48.1
           }
         },
         "entryLane": {
           "CONFIRMED_ENTRY": {
-            "W": 78,
-            "L": 85,
-            "T": 11,
-            "accuracy": 47.9
+            "W": 70,
+            "L": 48,
+            "T": 5,
+            "accuracy": 59.3
           },
           "REACTION_ENTRY": {
-            "W": 4,
-            "L": 4,
+            "W": 2,
+            "L": 1,
             "T": 0,
-            "accuracy": 50.0
+            "accuracy": 66.7
           }
         },
         "emaStack": {
           "BEAR": {
-            "W": 22,
-            "L": 27,
-            "T": 3,
-            "accuracy": 44.9
+            "W": 16,
+            "L": 20,
+            "T": 2,
+            "accuracy": 44.4
           },
           "BULL": {
-            "W": 43,
-            "L": 43,
-            "T": 5,
-            "accuracy": 50.0
+            "W": 47,
+            "L": 24,
+            "T": 2,
+            "accuracy": 66.2
           },
           "MIXED": {
-            "W": 17,
-            "L": 19,
-            "T": 3,
-            "accuracy": 47.2
+            "W": 9,
+            "L": 5,
+            "T": 1,
+            "accuracy": 64.3
           }
         },
         "bbState": {
           "BEAR_EXPANSION": {
+            "W": 3,
+            "L": 3,
+            "T": 0,
+            "accuracy": 50.0
+          },
+          "BULL_EXPANSION": {
+            "W": 6,
+            "L": 4,
+            "T": 2,
+            "accuracy": 60.0
+          },
+          "LOWER_REJECTION": {
             "W": 4,
             "L": 1,
             "T": 0,
             "accuracy": 80.0
           },
-          "BULL_EXPANSION": {
-            "W": 3,
-            "L": 2,
-            "T": 0,
-            "accuracy": 60.0
-          },
-          "LOWER_REJECTION": {
-            "W": 4,
-            "L": 2,
-            "T": 0,
-            "accuracy": 66.7
-          },
           "MID_RECLAIM": {
-            "W": 2,
-            "L": 6,
+            "W": 1,
+            "L": 1,
             "T": 0,
-            "accuracy": 25.0
+            "accuracy": 50.0
           },
           "MID_REJECT": {
             "W": 2,
-            "L": 8,
-            "T": 0,
-            "accuracy": 20.0
-          },
-          "NONE": {
-            "W": 64,
-            "L": 68,
-            "T": 11,
-            "accuracy": 48.5
-          },
-          "UPPER_REJECTION": {
-            "W": 3,
             "L": 2,
             "T": 0,
-            "accuracy": 60.0
+            "accuracy": 50.0
+          },
+          "NONE": {
+            "W": 55,
+            "L": 36,
+            "T": 3,
+            "accuracy": 60.4
+          },
+          "UPPER_REJECTION": {
+            "W": 1,
+            "L": 2,
+            "T": 0,
+            "accuracy": 33.3
           }
         },
         "fvgState": {
           "ACCEPTED_THROUGH": {
-            "W": 13,
-            "L": 11,
-            "T": 2,
-            "accuracy": 54.2
+            "W": 10,
+            "L": 12,
+            "T": 0,
+            "accuracy": 45.5
           },
           "APPROACHING": {
             "W": 9,
-            "L": 13,
-            "T": 1,
-            "accuracy": 40.9
+            "L": 6,
+            "T": 0,
+            "accuracy": 60.0
           },
           "FULLY_MITIGATED": {
-            "W": 26,
-            "L": 36,
+            "W": 15,
+            "L": 19,
             "T": 3,
-            "accuracy": 41.9
+            "accuracy": 44.1
           },
           "MITIGATING": {
-            "W": 24,
-            "L": 25,
-            "T": 3,
-            "accuracy": 49.0
+            "W": 27,
+            "L": 7,
+            "T": 2,
+            "accuracy": 79.4
           },
           "REJECTED": {
-            "W": 10,
-            "L": 4,
-            "T": 2,
-            "accuracy": 71.4
+            "W": 11,
+            "L": 5,
+            "T": 0,
+            "accuracy": 68.8
           }
         },
         "sr": {
           "AT RESISTANCE": {
             "W": 22,
-            "L": 15,
-            "T": 5,
-            "accuracy": 59.5
+            "L": 7,
+            "T": 0,
+            "accuracy": 75.9
           },
           "AT SUPPORT": {
-            "W": 34,
-            "L": 48,
-            "T": 6,
-            "accuracy": 41.5
+            "W": 28,
+            "L": 21,
+            "T": 2,
+            "accuracy": 57.1
           },
           "CLEAR": {
-            "W": 26,
-            "L": 26,
-            "T": 0,
-            "accuracy": 50.0
+            "W": 22,
+            "L": 21,
+            "T": 3,
+            "accuracy": 51.2
           }
         },
         "mtfOpposition2Plus": {
           "yes": {
-            "W": 13,
-            "L": 15,
-            "T": 0,
-            "accuracy": 46.4,
-            "n": 28
+            "W": 7,
+            "L": 4,
+            "T": 1,
+            "accuracy": 63.6,
+            "n": 12
           },
           "no": {
-            "W": 69,
-            "L": 74,
-            "T": 11,
-            "accuracy": 48.3,
-            "n": 154
+            "W": 65,
+            "L": 45,
+            "T": 4,
+            "accuracy": 59.1,
+            "n": 114
           }
         },
         "adverseZone": {
           "true": {
-            "W": 44,
-            "L": 51,
-            "T": 7,
-            "accuracy": 46.3,
-            "n": 102
+            "W": 46,
+            "L": 32,
+            "T": 4,
+            "accuracy": 59.0,
+            "n": 82
           },
           "false": {
-            "W": 38,
-            "L": 38,
-            "T": 4,
-            "accuracy": 50.0,
-            "n": 80
+            "W": 26,
+            "L": 17,
+            "T": 1,
+            "accuracy": 60.5,
+            "n": 44
           }
         },
         "extended": {
           "yes": {
-            "W": 21,
-            "L": 20,
+            "W": 15,
+            "L": 12,
             "T": 1,
-            "accuracy": 51.2,
-            "n": 42
+            "accuracy": 55.6,
+            "n": 28
           }
         },
         "failureToProgress": {
           "true": {
-            "W": 30,
-            "L": 28,
-            "T": 6,
-            "accuracy": 51.7,
-            "n": 64
+            "W": 20,
+            "L": 16,
+            "T": 1,
+            "accuracy": 55.6,
+            "n": 37
           },
           "false": {
             "W": 52,
-            "L": 61,
-            "T": 5,
-            "accuracy": 46.0,
-            "n": 118
+            "L": 33,
+            "T": 4,
+            "accuracy": 61.2,
+            "n": 89
           }
         },
         "transitionRisk": {
           "true": {
-            "W": 20,
-            "L": 25,
+            "W": 17,
+            "L": 16,
             "T": 3,
-            "accuracy": 44.4,
-            "n": 48
+            "accuracy": 51.5,
+            "n": 36
           },
           "false": {
-            "W": 62,
-            "L": 64,
-            "T": 8,
-            "accuracy": 49.2,
-            "n": 134
+            "W": 55,
+            "L": 33,
+            "T": 2,
+            "accuracy": 62.5,
+            "n": 90
           }
         },
         "lateCounterTrendRisk": {
           "true": {
-            "W": 49,
-            "L": 50,
-            "T": 6,
-            "accuracy": 49.5,
-            "n": 105
+            "W": 44,
+            "L": 30,
+            "T": 4,
+            "accuracy": 59.5,
+            "n": 78
           },
           "false": {
-            "W": 33,
-            "L": 39,
-            "T": 5,
-            "accuracy": 45.8,
-            "n": 77
+            "W": 28,
+            "L": 19,
+            "T": 1,
+            "accuracy": 59.6,
+            "n": 48
           }
         },
         "continuationResetRequired": {
           "true": {
-            "W": 74,
-            "L": 78,
-            "T": 11,
-            "accuracy": 48.7,
-            "n": 163
+            "W": 64,
+            "L": 43,
+            "T": 4,
+            "accuracy": 59.8,
+            "n": 111
           },
           "false": {
             "W": 8,
-            "L": 11,
-            "T": 0,
-            "accuracy": 42.1,
-            "n": 19
+            "L": 6,
+            "T": 1,
+            "accuracy": 57.1,
+            "n": 15
           }
         },
         "breakoutAccepted": {
           "true": {
-            "W": 17,
-            "L": 17,
-            "T": 2,
-            "accuracy": 50.0,
-            "n": 36
+            "W": 15,
+            "L": 12,
+            "T": 1,
+            "accuracy": 55.6,
+            "n": 28
           },
           "false": {
-            "W": 65,
-            "L": 72,
-            "T": 9,
-            "accuracy": 47.4,
-            "n": 146
+            "W": 57,
+            "L": 37,
+            "T": 4,
+            "accuracy": 60.6,
+            "n": 98
           }
         },
         "tickAgreement": {
           "true": {
-            "W": 41,
-            "L": 51,
-            "T": 4,
-            "accuracy": 44.6,
-            "n": 96
+            "W": 34,
+            "L": 20,
+            "T": 0,
+            "accuracy": 63.0,
+            "n": 54
           },
           "false": {
-            "W": 41,
-            "L": 38,
-            "T": 7,
-            "accuracy": 51.9,
-            "n": 86
+            "W": 38,
+            "L": 29,
+            "T": 5,
+            "accuracy": 56.7,
+            "n": 72
           }
         },
         "maBbPositive": {
           "yes": {
-            "W": 38,
-            "L": 42,
-            "T": 4,
-            "accuracy": 47.5,
-            "n": 84
+            "W": 44,
+            "L": 24,
+            "T": 2,
+            "accuracy": 64.7,
+            "n": 70
           }
         },
         "lossFailureCombos": [
@@ -2615,24 +2753,24 @@
             "n": 8
           },
           {
-            "combo": "ADVERSE_ZONE",
-            "n": 6
-          },
-          {
-            "combo": "EXTENDED+UNRESOLVED_FVG",
-            "n": 6
-          },
-          {
-            "combo": "OTHER",
+            "combo": "EXTENDED",
             "n": 5
           },
           {
             "combo": "LATE_COUNTERTREND+ADVERSE_ZONE+FAIL_PROGRESS+TRANSITION_RISK",
-            "n": 5
+            "n": 4
+          },
+          {
+            "combo": "MTF_CONFLICT+UNRESOLVED_FVG",
+            "n": 2
           },
           {
             "combo": "UNRESOLVED_FVG",
-            "n": 4
+            "n": 2
+          },
+          {
+            "combo": "LATE_COUNTERTREND+ADVERSE_ZONE",
+            "n": 2
           }
         ]
       }
