@@ -17,18 +17,13 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
           p=Path('lib/decisionFusion.js')
           s=p.read_text()
-          old="export function fuseDecision(result,bundle,pair,horizon=1,minimumConfidence=57){const requestedMinimumConfidence=Number(minimumConfidence||57),pairCode=String(pair||'').toUpperCase(),trackMinimumConfidence=(Number(horizon)===1&&['EURUSD','GBPUSD'].includes(pairCode))?Math.max(62,requestedMinimumConfidence):requestedMinimumConfidence;\n  minimumConfidence=trackMinimumConfidence;"
-          new="export function fuseDecision(result,bundle,pair,horizon=1,minimumConfidence=57){const requestedMinimumConfidence=Number(minimumConfidence||57),pairCode=String(pair||'').toUpperCase(),trackMinimumConfidence=requestedMinimumConfidence;\n  minimumConfidence=trackMinimumConfidence;"
-          if old not in s:
-              raise SystemExit('V2.10 track threshold block not found')
-          s=s.replace(old,new,1)
-          old2=",gbpusd2mSellFreshBreakoutGate=!(pairCode==='GBPUSD'&&Number(horizon)===2&&direction==='SELL')||f.breakoutAccepted===true,qualified=core.qualified===true&&confidence>=minimumConfidence&&baseSafeguards&&lane.laneQualified&&gbpusd2mSellFreshBreakoutGate;"
-          new2=",gbpusd2mSellFreshBreakoutGate=true,qualified=core.qualified===true&&confidence>=minimumConfidence&&baseSafeguards&&lane.laneQualified;"
-          if old2 not in s:
-              raise SystemExit('GBPUSD 2M hard SELL gate block not found')
-          s=s.replace(old2,new2,1)
+          s,n1=re.subn(r"trackMinimumConfidence=\(Number\(horizon\)===1&&\['EURUSD','GBPUSD'\]\.includes\(pairCode\)\)\?Math\.max\(62,requestedMinimumConfidence\):requestedMinimumConfidence", "trackMinimumConfidence=requestedMinimumConfidence", s, count=1)
+          s,n2=re.subn(r"gbpusd2mSellFreshBreakoutGate=!\(pairCode==='GBPUSD'&&Number\(horizon\)===2&&direction==='SELL'\)\|\|f\.breakoutAccepted===true,qualified=core\.qualified===true&&confidence>=minimumConfidence&&baseSafeguards&&lane\.laneQualified&&gbpusd2mSellFreshBreakoutGate", "gbpusd2mSellFreshBreakoutGate=true,qualified=core.qualified===true&&confidence>=minimumConfidence&&baseSafeguards&&lane.laneQualified", s, count=1)
+          if n1!=1: raise SystemExit(f'V2.10 threshold replacement count={n1}')
+          if n2!=1: raise SystemExit(f'GBPUSD 2M gate replacement count={n2}')
           p.write_text(s)
           PY
       - name: Wire V6 scorer into interactive live cycle too
@@ -44,8 +39,7 @@ jobs:
               s=s.replace(anchor,anchor+'\n'+imp,1)
           old="const adapted=applyLossContext(b,engine.pair,engine.horizon),raw=adapted.result,modelConfidence=Number(raw.confidence||50),r={...raw,confidence:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1)),probability:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1)),qualified:true,tradeQualified:true,features:{...(raw.features||{}),modelQualified:raw.qualified===true&&raw.tradeQualified!==false,modelConfidence:Number(modelConfidence.toFixed(1)),frequencyPreserved:true,scoreOnlyWarnings:raw.vetoReasons||[]}};"
           new="const adapted=applyLossContext(b,engine.pair,engine.horizon),raw=adapted.result,tuned=tuneFrequencyScore({...raw,pair:engine.pair,horizon:engine.horizon}),modelConfidence=Number(tuned.confidence||50),r={...tuned,confidence:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1)),probability:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1)),qualified:true,tradeQualified:true,features:{...(tuned.features||{}),modelQualified:raw.qualified===true&&raw.tradeQualified!==false,modelConfidence:Number(modelConfidence.toFixed(1)),frequencyPreserved:true,scoreOnlyWarnings:tuned.vetoReasons||[]}};"
-          if old not in s:
-              raise SystemExit('interactive finalizeCycle scoring block not found')
+          if old not in s: raise SystemExit('interactive finalizeCycle scoring block not found')
           s=s.replace(old,new,1)
           p.write_text(s)
           PY
