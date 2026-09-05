@@ -1,0 +1,3 @@
+# V6.1 validation plan
+
+For every one of the 25 pair×timeframe tracks, compare new post-deployment exact-boundary batches against the clean V5/V6 baseline. Primary metrics: maximum loss streak, maximum win streak, raw WR, 57–61.9 vs >=62 performance, direction, regime, MTF conflict, S/R, VSA, candle body/wicks, sequence pressure, FVG state, EMA/Bollinger state, transition risk, and streak-state adjustments. No pooling between tracks.
