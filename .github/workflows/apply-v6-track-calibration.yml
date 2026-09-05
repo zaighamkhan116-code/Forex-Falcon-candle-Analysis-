@@ -1,0 +1,93 @@
+name: Apply V6 pair-timeframe calibration
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-v6-track-calibration.yml'
+permissions:
+  contents: write
+jobs:
+  patch-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Remove stale V2.10 hard threshold exceptions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('lib/decisionFusion.js')
+          s=p.read_text()
+          old="export function fuseDecision(result,bundle,pair,horizon=1,minimumConfidence=57){const requestedMinimumConfidence=Number(minimumConfidence||57),pairCode=String(pair||'').toUpperCase(),trackMinimumConfidence=(Number(horizon)===1&&['EURUSD','GBPUSD'].includes(pairCode))?Math.max(62,requestedMinimumConfidence):requestedMinimumConfidence;\n  minimumConfidence=trackMinimumConfidence;"
+          new="export function fuseDecision(result,bundle,pair,horizon=1,minimumConfidence=57){const requestedMinimumConfidence=Number(minimumConfidence||57),pairCode=String(pair||'').toUpperCase(),trackMinimumConfidence=requestedMinimumConfidence;\n  minimumConfidence=trackMinimumConfidence;"
+          if old not in s:
+              raise SystemExit('V2.10 track threshold block not found')
+          s=s.replace(old,new,1)
+          old2=",gbpusd2mSellFreshBreakoutGate=!(pairCode==='GBPUSD'&&Number(horizon)===2&&direction==='SELL')||f.breakoutAccepted===true,qualified=core.qualified===true&&confidence>=minimumConfidence&&baseSafeguards&&lane.laneQualified&&gbpusd2mSellFreshBreakoutGate;"
+          new2=",gbpusd2mSellFreshBreakoutGate=true,qualified=core.qualified===true&&confidence>=minimumConfidence&&baseSafeguards&&lane.laneQualified;"
+          if old2 not in s:
+              raise SystemExit('GBPUSD 2M hard SELL gate block not found')
+          s=s.replace(old2,new2,1)
+          p.write_text(s)
+          PY
+      - name: Wire V6 scorer into interactive live cycle too
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('server.js')
+          s=p.read_text()
+          anchor="import {recordResolution,journalSummary,getReports,getLatestReport,generateReport} from './lib/tradeJournal.js';"
+          imp="import {tuneFrequencyScore} from './lib/frequencyScoring.js';"
+          if imp not in s:
+              if anchor not in s: raise SystemExit('server import anchor not found')
+              s=s.replace(anchor,anchor+'\n'+imp,1)
+          old="const adapted=applyLossContext(b,engine.pair,engine.horizon),raw=adapted.result,modelConfidence=Number(raw.confidence||50),r={...raw,confidence:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1)),probability:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1)),qualified:true,tradeQualified:true,features:{...(raw.features||{}),modelQualified:raw.qualified===true&&raw.tradeQualified!==false,modelConfidence:Number(modelConfidence.toFixed(1)),frequencyPreserved:true,scoreOnlyWarnings:raw.vetoReasons||[]}};"
+          new="const adapted=applyLossContext(b,engine.pair,engine.horizon),raw=adapted.result,tuned=tuneFrequencyScore({...raw,pair:engine.pair,horizon:engine.horizon}),modelConfidence=Number(tuned.confidence||50),r={...tuned,confidence:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1)),probability:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1)),qualified:true,tradeQualified:true,features:{...(tuned.features||{}),modelQualified:raw.qualified===true&&raw.tradeQualified!==false,modelConfidence:Number(modelConfidence.toFixed(1)),frequencyPreserved:true,scoreOnlyWarnings:tuned.vetoReasons||[]}};"
+          if old not in s:
+              raise SystemExit('interactive finalizeCycle scoring block not found')
+          s=s.replace(old,new,1)
+          p.write_text(s)
+          PY
+      - name: Run regression tests
+        run: npm test
+      - name: Record strategy audit trail
+        run: |
+          mkdir -p audit/strategy-changes
+          cat > audit/strategy-changes/2026-09-05-track-calibration-v6.md <<'EOF'
+          # V6 pair×timeframe reaction calibration
+
+          ## Evidence
+          Clean exact-boundary forward batches after the 57% epoch showed that the remaining failures are not explained by one global confidence threshold. GBPUSD 1M repeatedly failed when reaction quality was weak/wick-heavy/poor-VSA; GBPUSD 2M was strongly state-dependent; EURUSD 3M/5M repeatedly showed mature-displacement/exhaustion risk; EURJPY 2M/3M separated better when transition/progress quality was respected; USDJPY 3M recovered without a broad intervention; AUDUSD showed that late/mature entries can remain profitable when the reaction itself is healthy.
+
+          The accumulated batches also invalidated the old V2.10 blanket exceptions that forced 62% for EURUSD 1M and GBPUSD 1M and required an accepted breakout for every GBPUSD 2M SELL. Lower-confidence forward buckets have subsequently produced material outperformance on those markets in some states.
+
+          ## Change
+          - Add `lib/trackCalibration.js` with independent pair×timeframe reaction/state calibration.
+          - Keep one signal per boundary and the global minimum confidence at 57%.
+          - Apply only soft confidence and direction-ranking adjustments; no new cadence vetoes.
+          - GBPUSD: emphasize weak-vs-healthy reaction quality and 2M state discrimination.
+          - EURUSD: penalize mature 3M/5M continuation only when reaction quality is unhealthy; reward healthy continuation.
+          - EURJPY: penalize transition-without-progress on 2M/3M and credit clean confirmed structure.
+          - USDJPY: preserve the recovered 3M behavior and target only demonstrated weak-state conflict, especially 5M.
+          - AUDUSD: explicitly avoid treating lateness/extension alone as a failure; only compound weak reaction + conflict is penalized.
+          - Cap 15M adjustments while forward sample size remains comparatively small.
+          - Remove stale V2.10 hard 62% overrides and GBPUSD 2M SELL hard gate.
+          - Wire the same V6 scorer into the interactive live cycle so manual/app signals and background forward tracks use the same final calibration path.
+
+          ## No-lookahead / frequency policy
+          All inputs are features available before the target candle resolves. Exact-boundary settlement remains untouched. V6 never suppresses a boundary signal and never raises the global 57% threshold. Shadow ensemble remains research-only and does not vote directly into live direction.
+
+          ## Expected effect
+          Improve raw direction/calibration by reducing false confidence in weak reactions and mature failed continuations while preserving profitable low-confidence and mature-reaction entries. Pair behavior is not pooled and calibration is not transferred between markets.
+
+          ## Validation epoch
+          Treat deployment of V6 as a new forward-validation epoch. Compare each exact pair×timeframe independently across future 20-result batches against its clean V5 baseline, including 57.0–61.9% vs >=62%, direction, regime, MTF conflict, S/R, VSA, sequence pressure, FVG, EMA/Bollinger, transition risk, reaction quality, reranks and loss streaks. Revert/retune a track only after repeatable independent forward evidence.
+          EOF
+      - name: Commit applied wiring
+        run: |
+          git config user.name "Forex Falcon Audit Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add lib/decisionFusion.js server.js audit/strategy-changes/2026-09-05-track-calibration-v6.md
+          git commit -m "V6: align live scoring with pair-timeframe calibration"
+          git push
