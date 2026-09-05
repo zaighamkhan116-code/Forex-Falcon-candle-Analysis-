@@ -1,0 +1,1 @@
+V6.1 applies independent streak-state learning to EURUSD, GBPUSD, EURJPY, USDJPY and AUDUSD across 1M, 2M, 3M, 5M and 15M. It is frequency-preserving, threshold-preserving, no-lookahead, and shadow remains research-only.
