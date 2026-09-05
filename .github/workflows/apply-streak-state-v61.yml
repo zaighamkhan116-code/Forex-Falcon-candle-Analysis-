@@ -1,0 +1,88 @@
+name: Apply V6.1 streak-state learning
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-streak-state-v61.yml'
+permissions:
+  contents: write
+jobs:
+  patch-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Patch background runtime
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('lib/backgroundResearch.js'); s=p.read_text()
+          anchor="import {summarizeModelArbitration} from './modelArbitration.js';"
+          imp="import {applyStreakState,recordTrackOutcome} from './streakState.js';"
+          if imp not in s:
+            if anchor not in s: raise SystemExit('background import anchor missing')
+            s=s.replace(anchor,anchor+'\n'+imp,1)
+          old="s.resolved.push({...p,shadowModel:settleShadowPrediction(p.shadowModel,entry,exit),"
+          new="const settled={...p,shadowModel:settleShadowPrediction(p.shadowModel,entry,exit),"
+          if old in s:
+            s=s.replace(old,new,1)
+            marker="resultLocked:true,resultLockedAt:now})}catch(e){"
+            repl="resultLocked:true,resultLockedAt:now};s.resolved.push(settled);recordTrackOutcome(settled)}catch(e){"
+            if marker not in s: raise SystemExit('background settlement close marker missing')
+            s=s.replace(marker,repl,1)
+          elif 'recordTrackOutcome(settled)' not in s:
+            raise SystemExit('background settlement block not patchable')
+          old2="sig=tuneFrequencyScore(sig);"
+          new2="sig=applyStreakState(tuneFrequencyScore(sig));"
+          if old2 in s:s=s.replace(old2,new2,1)
+          elif new2 not in s: raise SystemExit('background scorer marker missing')
+          p.write_text(s)
+          PY
+      - name: Patch interactive runtime
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('server.js'); s=p.read_text()
+          anchor="import {recordResolution,journalSummary,getReports,getLatestReport,generateReport} from './lib/tradeJournal.js';"
+          imp="import {applyStreakState,recordTrackOutcome} from './lib/streakState.js';"
+          if imp not in s:
+            if anchor not in s: raise SystemExit('server import anchor missing')
+            s=s.replace(anchor,anchor+'\n'+imp,1)
+          marker="recordResolution(s);if(s.result==='LOSS')engine.lastLossReview=diagnoseLoss(s,null)"
+          repl="recordResolution(s);recordTrackOutcome(s);if(s.result==='LOSS')engine.lastLossReview=diagnoseLoss(s,null)"
+          if marker in s:s=s.replace(marker,repl,1)
+          elif 'recordTrackOutcome(s)' not in s: raise SystemExit('server settlement marker missing')
+          # If V6 tune is wired, wrap it. Otherwise retain compatibility and add tuning import/wiring.
+          if "import {tuneFrequencyScore} from './lib/frequencyScoring.js';" not in s:
+            s=s.replace(anchor+'\n'+imp,anchor+'\n'+imp+"\nimport {tuneFrequencyScore} from './lib/frequencyScoring.js';",1)
+          old="tuned=tuneFrequencyScore({...raw,pair:engine.pair,horizon:engine.horizon})"
+          new="tuned=applyStreakState(tuneFrequencyScore({...raw,pair:engine.pair,horizon:engine.horizon}))"
+          if old in s:s=s.replace(old,new,1)
+          elif new not in s:
+            oldraw="raw=adapted.result,modelConfidence=Number(raw.confidence||50)"
+            newraw="raw=adapted.result,tuned=applyStreakState(tuneFrequencyScore({...raw,pair:engine.pair,horizon:engine.horizon})),modelConfidence=Number(tuned.confidence||50)"
+            if oldraw not in s: raise SystemExit('server scoring marker missing')
+            s=s.replace(oldraw,newraw,1)
+            s=s.replace("r={...raw,confidence:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1))","r={...tuned,confidence:Number(clamp(modelConfidence,MIN_CONFIDENCE,85).toFixed(1))",1)
+          p.write_text(s)
+          PY
+      - name: Add tests
+        run: |
+          cat > test/streak-state-v61.test.js <<'EOF'
+          import test from 'node:test';
+          import assert from 'node:assert/strict';
+          import {applyStreakState,recordTrackOutcome} from '../lib/streakState.js';
+          const loss=(pair,h,features={})=>recordTrackOutcome({pair,horizon:h,direction:'BUY',result:'LOSS',features});
+          test('one loss never changes next confidence',()=>{loss('EURUSD',3,{failureToProgress:true});const o=applyStreakState({pair:'EURUSD',horizon:3,direction:'BUY',confidence:65,features:{failureToProgress:true}});assert.equal(o.confidence,65)});
+          test('repeat loss state gets soft penalty only on same track',()=>{loss('GBPUSD',1,{failureToProgress:true,vsaPoorResult:true,candleBodyRatio:.2});loss('GBPUSD',1,{failureToProgress:true,vsaPoorResult:true,candleBodyRatio:.2});const a=applyStreakState({pair:'GBPUSD',horizon:1,direction:'BUY',confidence:65,features:{failureToProgress:true,vsaPoorResult:true,candleBodyRatio:.2}});const b=applyStreakState({pair:'GBPUSD',horizon:2,direction:'BUY',confidence:65,features:{failureToProgress:true,vsaPoorResult:true,candleBodyRatio:.2}});assert.ok(a.confidence<65);assert.equal(b.confidence,65)});
+          test('frequency floor remains 57',()=>{loss('USDJPY',5,{failureToProgress:true,mtfOppositionCount:2,vsaPoorResult:true,candleBodyRatio:.2});loss('USDJPY',5,{failureToProgress:true,mtfOppositionCount:2,vsaPoorResult:true,candleBodyRatio:.2});const o=applyStreakState({pair:'USDJPY',horizon:5,direction:'BUY',confidence:57,features:{failureToProgress:true,mtfOppositionCount:2,vsaPoorResult:true,candleBodyRatio:.2}});assert.equal(o.confidence,57)});
+          EOF
+          npm test
+      - name: Commit
+        run: |
+          git config user.name "Forex Falcon Audit Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add lib/backgroundResearch.js server.js test/streak-state-v61.test.js
+          git commit -m "V6.1: learn track-local streak state without reducing cadence"
+          git push
