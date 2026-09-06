@@ -1,7 +1,6 @@
 name: Capture Live Core FX Audit
 
-# Keep repository audit snapshots compact. The server remains the durable source
-# of full forward history; GitHub stores recent evidence plus cumulative counts.
+# Keep repository audit snapshots compact. Full forward history stays on the live server.
 on:
   push:
     paths:
@@ -34,18 +33,21 @@ jobs:
           mkdir -p audit/live audit/resolved audit/pending
           for pair in $PAIRS; do
             slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
-            url="$BASE_URL/$pair"
-            echo "Capturing $pair"
-            curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 15 --max-time 60 "$url" -o "/tmp/$slug.json"
+            curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 15 --max-time 60 "$BASE_URL/$pair" -o "/tmp/$slug.json"
             jq -e --arg pair "$pair" '.pair == $pair and (.horizons | type == "object")' "/tmp/$slug.json" >/dev/null
 
-            # Do not commit the server's unbounded payload. Keep only recent evidence
-            # needed to inspect current market state and settlement behavior.
+            # Store only the fields needed for live audit/batch diagnosis. Large model,
+            # candle and auxiliary state remains on Railway and is fetched on demand.
             jq --argjson keep "$RETAIN_PER_PAIR" '
-              .horizons |= with_entries(
-                .value.recent = ((.value.recent // []) | sort_by(.resolvedAt // .expiry // .signalBoundary // 0) | .[-$keep:])
-                | .value.pendingRecent = ((.value.pendingRecent // []) | sort_by(.signalBoundary // .predictedAt // 0) | .[-100:])
-              )
+              {
+                pair,
+                capturedAt:(now*1000|floor),
+                horizons:(.horizons | with_entries(.value = {
+                  horizon:(.value.horizon // null),
+                  recent:((.value.recent // []) | sort_by(.resolvedAt // .expiry // .signalBoundary // 0) | .[-$keep:]),
+                  pendingRecent:((.value.pendingRecent // []) | sort_by(.signalBoundary // .predictedAt // 0) | .[-100:])
+                }))
+              }
             ' "/tmp/$slug.json" > "audit/live/$slug.json"
 
             [ -f "audit/resolved/$slug.json" ] || echo '[]' > "audit/resolved/$slug.json"
@@ -57,7 +59,6 @@ jobs:
               | .[-$keep:]
             ' "audit/resolved/$slug.json" "/tmp/$slug-new-resolved.json" > "/tmp/$slug-merged.json"
             mv "/tmp/$slug-merged.json" "audit/resolved/$slug.json"
-
             jq '[.horizons[]?.pendingRecent[]?] | sort_by(.signalBoundary // .predictedAt // 0) | .[-100:]' "/tmp/$slug.json" > "audit/pending/$slug.json"
           done
 
@@ -72,7 +73,21 @@ jobs:
           curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 15 --max-time 60 "$CONFIG_URL" -o /tmp/app-config.json
           jq -e '.engine and (.engine.history | type == "array")' /tmp/app-health.json >/dev/null
 
-          jq --argjson keep "$APP_RETAIN" '{capturedAt:(now*1000|floor),serverTime,engine:(.engine | .history=((.history // []) | sort_by(.resolvedAt // .signalBoundary // 0) | .[-$keep:]))}' /tmp/app-health.json > audit/live-app.json
+          # IMPORTANT: replacing engine.history was not enough because engine contains
+          # other very large state. Whitelist only audit-relevant engine fields.
+          jq --argjson keep "$APP_RETAIN" '{
+            capturedAt:(now*1000|floor),
+            serverTime,
+            engine:{
+              history:((.engine.history // []) | sort_by(.resolvedAt // .signalBoundary // 0) | .[-$keep:]),
+              running:(.engine.running // null),
+              pair:(.engine.pair // null),
+              timeframe:(.engine.timeframe // .engine.horizon // null),
+              session:(.engine.session // null),
+              regime:(.engine.regime // null)
+            }
+          }' /tmp/app-health.json > audit/live-app.json
+
           [ -f audit/resolved-app.json ] || echo '[]' > audit/resolved-app.json
           jq '[.engine.history[]? | select(.result != "PENDING")]' /tmp/app-health.json > /tmp/app-new-resolved.json
           jq -s --argjson keep "$APP_RETAIN" '
@@ -99,8 +114,7 @@ jobs:
             --argjson appResolvedCount "$(jq 'length' audit/resolved-app.json)" \
             --argjson appPendingCount "$(jq 'length' audit/pending-app.json)" \
             --argjson minimumConfidence "$(jq '.minimumProbability // 57' audit/app-config.json)" \
-            '{capturedAt:$capturedAt,pairs:($pairs|split(" ")),timeframes:[1,2,3,5,15],resolvedRetainedCount:$resolvedCount,pendingRetainedCount:$pendingCount,visibleAppResolvedRetainedCount:$appResolvedCount,visibleAppPendingRetainedCount:$appPendingCount,minimumConfidence:$minimumConfidence,visibleAppCapture:true,storageMode:"bounded-recent",fullHistorySource:"live-server"}' \
-            > audit/capture-status.json
+            '{capturedAt:$capturedAt,pairs:($pairs|split(" ")),timeframes:[1,2,3,5,15],resolvedRetainedCount:$resolvedCount,pendingRetainedCount:$pendingCount,visibleAppResolvedRetainedCount:$appResolvedCount,visibleAppPendingRetainedCount:$appPendingCount,minimumConfidence:$minimumConfidence,visibleAppCapture:true,storageMode:"bounded-recent",fullHistorySource:"live-server"}' > audit/capture-status.json
 
       - name: Build compact pair-timeframe batch audit snapshot
         env:
@@ -115,8 +129,7 @@ jobs:
             for horizon in $HORIZONS; do
               key="${pair}-${horizon}M"
               current=$(jq --argjson h "$horizon" '[.[] | select((.horizon|tonumber) == $h)] | length' "audit/resolved/$slug.json")
-              jq --arg key "$key" --arg pair "$pair" --argjson horizon "$horizon" --argjson retained "$current" \
-                '.tracks[$key]={pair:$pair,horizon:$horizon,retainedResolved:$retained}' /tmp/track-status.json > /tmp/track-status-next.json
+              jq --arg key "$key" --arg pair "$pair" --argjson horizon "$horizon" --argjson retained "$current" '.tracks[$key]={pair:$pair,horizon:$horizon,retainedResolved:$retained}' /tmp/track-status.json > /tmp/track-status-next.json
               mv /tmp/track-status-next.json /tmp/track-status.json
               jq --argjson h "$horizon" '[.[] | select((.horizon|tonumber) == $h)] | sort_by(.resolvedAt // .expiry // .signalBoundary // 0) | .[-60:]' "audit/resolved/$slug.json" > "audit/track-tail/$slug-${horizon}m.json"
             done
@@ -126,8 +139,12 @@ jobs:
       - name: Guard repository audit size
         run: |
           set -euo pipefail
-          # Fail before committing if a future payload regression recreates huge files.
-          find audit -type f -size +45M -print -quit | grep -q . && { echo 'Audit file exceeded 45 MB safety cap'; find audit -type f -size +45M -ls; exit 1; } || true
+          oversized=$(find audit -type f -size +45M -print)
+          if [ -n "$oversized" ]; then
+            echo 'Audit file exceeded 45 MB safety cap:'
+            echo "$oversized"
+            exit 1
+          fi
 
       - name: Commit changed audit data safely
         run: |
@@ -140,6 +157,5 @@ jobs:
             exit 0
           fi
           git commit -m "audit: capture bounded live core FX forward-test data"
-          # Scheduled captures can overlap with other audit writers. Rebase once before push.
           git pull --rebase origin main
           git push origin main
