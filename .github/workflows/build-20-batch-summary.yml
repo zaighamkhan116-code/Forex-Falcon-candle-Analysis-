@@ -128,3 +128,5 @@ jobs:
           git commit -m "audit: rebuild canonical integrity-gated exact batches"
           git pull --rebase origin main
           git push origin main
+
+# 2026-09-07 self-heal retrigger: no batch logic change; forces authoritative rebuild from canonical history.
