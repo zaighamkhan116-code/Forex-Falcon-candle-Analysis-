@@ -1,33 +1,14 @@
 {
-  "capturedAt": "2026-09-07T12:11:01.402784+00:00",
+  "capturedAt": "2026-09-07T13:45:11.082280+00:00",
   "dataIntegrity": "PASS",
-  "captureWorkflowHealth": "PASS_WITH_SELF_HEALING_BACKSTOP",
-  "batchBuilderHealth": "PASS",
-  "latestCapture": "2026-09-07T12:08:09Z",
-  "canonicalSettledCount": 2735,
-  "latestExactBatchStatus": "2026-09-07T12:09:27Z",
-  "newlyCompletedBatches": [
-    "eurusd-1m-batch-8.json",
-    "gbpusd-1m-batch-8.json",
-    "eurjpy-1m-batch-8.json",
-    "usdjpy-1m-batch-8.json",
-    "audusd-1m-batch-8.json",
-    "eurjpy-15m-batch-2.json",
-    "audusd-15m-batch-2.json"
+  "canonicalSettledCount": 3000,
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "newBatchCount": 17,
+  "repairsActive": [
+    "append-only canonical permanent-ID history",
+    "integrity-gated canonical exact batches",
+    "canonical reporting watermark"
   ],
-  "repairsPerformed": [
-    {
-      "commit": "0d8fece1d73a9db04063a28be6dae86d419b8f19",
-      "change": "added stale-capture dispatch backstop"
-    },
-    {
-      "commit": "53eb786af67a2cfb96c6ffdbf5044723564c6ebc",
-      "change": "backstop now waits for verified capture then dispatches exact-batch rebuild"
-    }
-  ],
-  "pairPanelInstrumentation": "MISSING_SELECTED_AND_RUNNER_UP_SCORE_BREAKDOWN",
-  "unresolvedIssues": [
-    "pair-panel selection score/runner-up persistence is still missing; calibration cannot be validated truthfully until instrumented"
-  ],
-  "strategyModificationThisCycle": "NONE_EVIDENCE_THRESHOLD_NOT_MET"
+  "strategyModificationThisCycle": "PENDING_EVIDENCE_REVIEW",
+  "nextValidation": "next unseen canonical exact-20 batch after current watermark"
 }
