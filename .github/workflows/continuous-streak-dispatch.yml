@@ -1,0 +1,26 @@
+name: Continuous loss-streak audit dispatch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_run:
+    workflows: ['Capture Live Core FX Audit']
+    types: [completed]
+  push:
+    paths:
+      - '.github/workflows/continuous-streak-dispatch.yml'
+permissions:
+  actions: write
+  contents: read
+concurrency:
+  group: continuous-streak-dispatch
+  cancel-in-progress: true
+jobs:
+  dispatch:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger canonical all-track streak analysis
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run analyze-all-track-loss-streaks.yml --repo '${{ github.repository }}' --ref main
