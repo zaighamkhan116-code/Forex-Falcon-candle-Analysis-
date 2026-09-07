@@ -1,12 +1,14 @@
 import express from 'express';
 import fs from 'fs/promises';
 import path from 'path';
+import { OtcShadowEngine } from './otc_shadow_engine.js';
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const TOKEN = String(process.env.QUOTEX_BRIDGE_TOKEN || '');
 const ROOT = process.env.QUOTEX_OTC_DATA_DIR || '/data/quotex-otc';
 const MAX_AGE_MS = Math.max(1000, Number(process.env.QUOTEX_BRIDGE_MAX_AGE_MS || 10000));
+const shadow = new OtcShadowEngine({ root: ROOT });
 
 app.use(express.json({ limit: '64kb' }));
 app.use((req, res, next) => {
@@ -55,12 +57,38 @@ app.get('/health', (_req, res) => {
   res.json({
     ok: true,
     service: 'falcon-quotex-browser-bridge',
-    mode: 'READ_ONLY',
+    mode: 'READ_ONLY_SHADOW',
     tradingEnabled: false,
     tokenConfigured: Boolean(TOKEN),
     connected: state.connected && ageMs !== null && ageMs <= MAX_AGE_MS,
     ageMs,
     ...state,
+    shadow: shadow.snapshot(),
+    serverTime: Date.now(),
+  });
+});
+
+app.get('/api/quotex/otc/shadow', (req, res) => {
+  const pair = normalizePair(req.query?.pair || '');
+  res.json({
+    ok: true,
+    mode: 'SHADOW',
+    tradingEnabled: false,
+    data: pair ? shadow.snapshot(pair) : shadow.snapshot(),
+    serverTime: Date.now(),
+  });
+});
+
+app.get('/api/quotex/otc/micro', (req, res) => {
+  const pair = normalizePair(req.query?.pair || state.lastPair || '');
+  if (!pair) return res.status(400).json({ error: 'pair is required until first OTC tick is received' });
+  const snap = shadow.snapshot(pair);
+  res.json({
+    ok: true,
+    pair,
+    timeframeSeconds: 1,
+    currentCandle: snap.currentCandle,
+    candleCount: snap.candleCount,
     serverTime: Date.now(),
   });
 });
@@ -95,6 +123,7 @@ app.post('/api/quotex/otc/tick', async (req, res) => {
       source: 'QUOTEX_BROWSER_BRIDGE',
     };
     await persistTick(tick);
+    const shadowEvent = await shadow.onTick(tick);
     state.connected = true;
     state.lastTickAt = now;
     state.lastPrice = price;
@@ -103,12 +132,29 @@ app.post('/api/quotex/otc/tick', async (req, res) => {
     state.lastSource = tick.source;
     state.lastClientTs = clientTs;
     if (state.tickCount <= 5 || state.tickCount % 100 === 0) console.log(JSON.stringify({ event: 'bridge-tick', ...tick, tickCount: state.tickCount }));
-    res.json({ ok: true, duplicate: false, serverTime: now, tickCount: state.tickCount });
+    res.json({
+      ok: true,
+      duplicate: false,
+      serverTime: now,
+      tickCount: state.tickCount,
+      shadow: {
+        predictions: shadowEvent.predictions.map(p => ({ id: p.id, expirySeconds: p.expirySeconds, direction: p.direction, confidence: p.confidence })),
+        settlements: shadowEvent.settlements.map(s => ({ id: s.id, expirySeconds: s.expirySeconds, outcome: s.outcome })),
+      },
+    });
   } catch (e) {
     state.lastError = e.message;
     console.error(JSON.stringify({ event: 'bridge-error', error: e.message }));
-    res.status(500).json({ error: 'Bridge tick persistence failed' });
+    res.status(500).json({ error: 'Bridge tick persistence or shadow processing failed' });
   }
 });
 
-app.listen(PORT, () => console.log(JSON.stringify({ event: 'bridge-ready', port: PORT, mode: 'READ_ONLY', tokenConfigured: Boolean(TOKEN), dataDir: ROOT })));
+app.listen(PORT, () => console.log(JSON.stringify({
+  event: 'bridge-ready',
+  port: PORT,
+  mode: 'READ_ONLY_SHADOW',
+  tradingEnabled: false,
+  shadowEngines: ['OTC_15S_SHADOW_V1', 'OTC_30S_SHADOW_V1'],
+  tokenConfigured: Boolean(TOKEN),
+  dataDir: ROOT,
+})));
