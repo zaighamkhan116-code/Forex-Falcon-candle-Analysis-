@@ -1,9 +1,9 @@
 {
-  "capturedAt": "2026-09-07T19:07:05.205348+00:00",
+  "capturedAt": "2026-09-07T20:40:25.837492+00:00",
   "dataIntegrity": "PASS",
-  "canonicalSettledCount": 3768,
+  "canonicalSettledCount": 3823,
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
-  "newBatchCount": 10,
+  "newBatchCount": 0,
   "repairsActive": [
     "append-only canonical permanent-ID history",
     "integrity-gated canonical exact batches",
@@ -11,6 +11,6 @@
     "independent scheduled canonical learning",
     "concurrent-audit push retry"
   ],
-  "strategyModificationThisCycle": "PENDING_EVIDENCE_REVIEW",
+  "strategyModificationThisCycle": "NONE",
   "nextValidation": "next unseen canonical exact-20 batch after current watermark"
 }
