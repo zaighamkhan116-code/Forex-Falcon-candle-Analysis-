@@ -8,6 +8,7 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "quotex:worker": "node quotex_mobile/worker.js",
+    "quotex:otc": "node quotex_mobile/otc_collector.js",
     "ios:add": "npx cap add ios",
     "ios:sync": "npx cap sync ios",
     "ios:open": "npx cap open ios",
