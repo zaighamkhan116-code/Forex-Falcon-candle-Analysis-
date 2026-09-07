@@ -48,7 +48,6 @@ select,
 .glass,
 .controls,
 .history,
-.analysis-card,
 .ai-learning-banner,
 .tv-card,
 .market-rank-panel,
@@ -56,6 +55,24 @@ select,
 .stats .glass,
 .orb-disclaimer{
   background:linear-gradient(180deg,rgba(15,49,82,.94),rgba(7,27,50,.97))!important;
+}
+
+/* Falcon Analysis: replace the purple analysis surfaces with dark Tufts blue. */
+.analysis-card{
+  background:linear-gradient(180deg,#0b3157 0%,#082744 48%,#061d34 100%)!important;
+  border-color:var(--tufts-neon)!important;
+}
+.analysis-card > div:not(.analysis-title),
+.analysis-card section,
+.analysis-card article,
+.analysis-card .tf-analysis,
+.analysis-card [class*="analysis-block"],
+.analysis-card [class*="context"]{
+  background:linear-gradient(180deg,rgba(10,45,79,.98),rgba(5,27,50,.99))!important;
+  border-color:rgba(110,198,255,.72)!important;
+}
+.analysis-card hr{
+  border-color:rgba(110,198,255,.58)!important;
 }
 
 .market-mode-btn,
