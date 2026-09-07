@@ -1,0 +1,80 @@
+name: Capture selector telemetry
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+  push:
+    paths:
+      - '.github/workflows/capture-selector-telemetry.yml'
+permissions:
+  contents: write
+concurrency:
+  group: selector-telemetry
+  cancel-in-progress: false
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Fetch live ranked candidates
+        run: |
+          curl --fail --silent --show-error --retry 12 --retry-delay 5 --retry-all-errors \
+            'https://forex-falcon-candle-analysis-production.up.railway.app/api/research/background' \
+            -o /tmp/background.json
+          node -e "const x=require('/tmp/background.json'); if(!Array.isArray(x)||!x.length) process.exit(2); console.log('rows',x.length)"
+      - name: Build all-pair all-timeframe selector snapshot
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import {scoreSelectorRow} from './lib/selectorScoring.js';
+          const rows=JSON.parse(fs.readFileSync('/tmp/background.json','utf8'));
+          const capturedAt=new Date().toISOString();
+          const horizons=[1,2,3,5,15];
+          const out=[];
+          for(const horizon of horizons){
+            const candidates=[];
+            for(const pairRow of rows){
+              const h=pairRow?.horizons?.[horizon]??pairRow?.horizons?.[String(horizon)];
+              if(!h)continue;
+              const selector=scoreSelectorRow(h);
+              const sig=h.currentCandidate||h.displaySignal||h.last||null;
+              const qc=h.qualityControl||{};
+              candidates.push({
+                pair:pairRow.pair,horizon,
+                score:selector.score,scoreVersion:selector.version,breakdown:selector.breakdown,
+                calibratedProbability:selector.calibratedProbability,reliability:selector.reliability,
+                signalBoundary:Number(sig?.signalBoundary||sig?.boundary||0)||null,
+                targetBoundary:Number(h?.targetBoundary||0)||null,
+                direction:sig?.direction||null,confidence:Number(sig?.confidence)||null,regime:sig?.regime||null,
+                session:sig?.features?.trackCalibrationSession||null,timeBucket:sig?.features?.trackCalibrationTimeBucket||null,
+                conflicts:sig?.features?.frequencyConflicts||[],conflictCount:Number(sig?.features?.frequencyConflictCount||0),
+                directionBias:qc?.directionBias||null,freshness:qc?.freshness||null,lossStreak:qc?.lossStreak||null,
+                profile:qc?.profile||null,
+                shadow:{status:sig?.shadowModel?.status||null,direction:sig?.shadowModel?.direction||null,confidence:Number(sig?.shadowModel?.confidence)||null},
+                result:h?.last?.signalBoundary===sig?.signalBoundary?h?.last?.result||null:null
+              });
+            }
+            candidates.sort((a,b)=>b.score-a.score||a.pair.localeCompare(b.pair));
+            candidates.forEach((x,i)=>{x.rank=i+1;x.selected=i===0;x.runnerUpScore=i===0?(candidates[1]?.score??null):(candidates[0]?.score??null)});
+            out.push({capturedAt,horizon,relativeStrengthOnly:true,candidates});
+          }
+          const day=capturedAt.slice(0,10),dir='audit/selector-telemetry',path=`${dir}/${day}.jsonl`;
+          fs.mkdirSync(dir,{recursive:true});
+          fs.appendFileSync(path,out.map(x=>JSON.stringify(x)).join('\n')+'\n');
+          fs.writeFileSync(`${dir}/latest.json`,JSON.stringify({capturedAt,horizons:out},null,2)+'\n');
+          NODE
+      - name: Commit telemetry
+        run: |
+          git config user.name 'Forex Falcon Audit Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add audit/selector-telemetry
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'audit: capture selector candidates and runner-ups'
+          git pull --rebase origin main
+          git push origin HEAD:main
