@@ -1,36 +1,15 @@
 {
-  "capturedAt": "2026-09-07T16:02:00Z",
-  "dataIntegrity": "PASS_WITH_CAPTURE_BACKSTOP",
-  "canonicalSettledCount": 3000,
+  "capturedAt": "2026-09-07T17:02:07.223829+00:00",
+  "dataIntegrity": "PASS",
+  "canonicalSettledCount": 3400,
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
-  "newBatchCount": 0,
+  "newBatchCount": 20,
   "repairsActive": [
     "append-only canonical permanent-ID history",
     "integrity-gated canonical exact batches",
     "canonical reporting watermark",
-    "hourly self-heal dispatch backstop for stalled scheduled capture",
-    "shadow inference preserves trained feature names at prediction/calibration"
+    "independent scheduled canonical learning"
   ],
-  "repairsThisCycle": [
-    {
-      "commit": "dd0b7150e781d7a8d447a0a4fe7218099d820cad",
-      "change": "preserve trained sklearn feature schema at Shadow inference and calibration to eliminate feature-name mismatch warnings without changing model weights, direction logic or authority"
-    },
-    {
-      "evidence": "live Railway Shadow inference repeatedly emitted sklearn 'X does not have valid feature names' warnings for RandomForest, ExtraTrees, HistGradientBoosting and LogisticRegression while EURUSD predictions still returned HTTP 200"
-    },
-    {
-      "verification": "Railway deployment 236e6c58-19e9-4827-8b1e-cd043db7e094 triggered from the repair commit; build observed in progress during this checkpoint"
-    }
-  ],
-  "shadowInfrastructure": {
-    "status": "SCHEMA_REPAIR_DEPLOYING",
-    "supportedPairs": ["EURUSD"],
-    "supportedHorizons": [1, 2, 3, 5, 15],
-    "nonEURUSD422": "EXPECTED_UNSUPPORTED_NOT_GLOBAL_FAILURE",
-    "authoritative": false,
-    "strategyImpact": "NONE_INFRASTRUCTURE_ONLY"
-  },
-  "strategyModificationThisCycle": "NONE_NO_NEW_CLEAN_EXACT20_BATCH",
-  "nextValidation": "verify deployed Shadow logs no longer emit feature-name mismatch warnings; then wait for next unseen canonical exact-20 batch, prioritizing EURUSD-2M, AUDUSD-2M, EURJPY-3M and USDJPY-3M repeatability"
+  "strategyModificationThisCycle": "PENDING_EVIDENCE_REVIEW",
+  "nextValidation": "next unseen canonical exact-20 batch after current watermark"
 }
