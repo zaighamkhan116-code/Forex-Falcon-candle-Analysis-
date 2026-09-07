@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-09-07T19:01:56Z",
+  "canonicalIntegrity": "PASS",
+  "canonicalSettledCount": 3535,
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "completedBatchWatermarkAligned": true,
+  "newCompletedBatches": 0,
+  "strategyChange": null,
+  "railway": {
+    "mainService": "SUCCESS",
+    "otcCollector": "SUCCESS"
+  },
+  "repair": {
+    "type": "STALE_CAPTURE_BACKSTOP_RETRIGGER",
+    "commit": "b3f9e5aa5b88e285dac8902cf14ab2ce30972510",
+    "dispatchRun": 34153915975,
+    "dispatchConclusion": "success",
+    "captureRun": 34153923213,
+    "captureStage": "live fetch + visible history + combined audit + exact batch audit + size guard succeeded; commit/publish step still running at checkpoint",
+    "status": "VERIFY_PUBLISH_NEXT_CYCLE"
+  },
+  "nextValidationTargets": ["GBPUSD-2M B10 V3.1", "EURJPY-2M B10 V3", "EURJPY-3M B8 V9", "AUDUSD-2M B10 post-V9/V3 observations"]
+}
