@@ -137,8 +137,6 @@ def _fit_horizon(train_x: pd.DataFrame, train_y: pd.Series, dev_x: pd.DataFrame,
     scored = pd.DataFrame({"conf": dir_conf, "win": (direction == dev_y.to_numpy()).astype(int)}, index=dev_x.index)
     scored["hourkey"] = scored.index.floor("h")
 
-    # Preserve the original Independent-V2 calibration style: calibrate on the
-    # strongest three candidates per represented NY hour. This stays research-only.
     selected = scored.sort_values(["hourkey", "conf"]).groupby("hourkey").tail(3)
     calibrator = LogisticRegression().fit(selected[["conf"]], selected["win"])
 
@@ -203,8 +201,6 @@ def train_rebuild_bundle() -> Dict[str, Any]:
 def _upgrade_or_rebuild(x: Dict[str, Any]) -> Dict[str, Any]:
     if "models" in x and all(int(h) in {int(k) for k in x["models"].keys()} for h in SUPPORTED_HORIZONS):
         return x
-    # A legacy single-horizon bundle must never be silently reused for 1/2/3/15m.
-    # Rebuild horizon-specific models so every READY prediction has the correct target.
     return train_rebuild_bundle()
 
 
@@ -247,7 +243,8 @@ def request_row(req: PredictRequest, names: List[str]) -> np.ndarray:
     df = pd.DataFrame(rows)
     if df["time"].notna().all():
         unit = "ms" if float(df["time"].abs().max()) > 10_000_000_000 else "s"
-        df.index = pd.to_datetime(df["time"], unit=unit, utc=True).tz_convert(None)
+        timestamps = pd.to_datetime(df["time"], unit=unit, utc=True)
+        df.index = pd.DatetimeIndex(timestamps).tz_convert(None)
     features = make_features(df[["open", "high", "low", "close", "volume"]])
     last = features.iloc[-1]
     if last[names].isna().any():
