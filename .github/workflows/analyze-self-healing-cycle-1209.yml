@@ -98,7 +98,7 @@ jobs:
           now=datetime.datetime.now(datetime.timezone.utc).isoformat()
           out={'generatedAt':now,'lineageVersion':state.get('lineageVersion'),'newBatchCount':len(files),'newBatches':[p.name for p in files],'perBatch':per,'combined':combined,'confidenceBuckets':table(conf,1),'sessionTimeMatrix':table(sessions,2),'componentScorecard':table(tags,4),'shadow':{'statuses':dict(shadow_status),'agreements':agreements,'disagreements':disagreements,'bothModelLosses':both_losses,'decided':len(shadow_dec),'wins':sw,'rawAccuracy':round(sw/len(shadow_dec),4) if shadow_dec else None},'modificationDecision':{'strategyChanged':False,'status':'EVIDENCE_REVIEW_REQUIRED' if files else 'NO_NEW_BATCH','rule':'No strategy retune is applied by the metrics job itself; downstream self-healing may modify only a repeatable pair×timeframe×session×regime failure with chronological support.'}}
           (root/'audit/self-healing-latest.json').write_text(json.dumps(out,indent=2)+'\n')
-          health={'capturedAt':now,'dataIntegrity':'PASS','canonicalSettledCount':sum(int(t['canonicalEligible']) for t in status['tracks'].values()),'lineageRule':status.get('lineageRule'),'newBatchCount':len(files),'repairsActive':['append-only canonical permanent-ID history','integrity-gated canonical exact batches','canonical reporting watermark','independent scheduled canonical learning'],'strategyModificationThisCycle':'PENDING_EVIDENCE_REVIEW' if files else 'NONE','nextValidation':'next unseen canonical exact-20 batch after current watermark'}
+          health={'capturedAt':now,'dataIntegrity':'PASS','canonicalSettledCount':sum(int(t['canonicalEligible']) for t in status['tracks'].values()),'lineageRule':status.get('lineageRule'),'newBatchCount':len(files),'repairsActive':['append-only canonical permanent-ID history','integrity-gated canonical exact batches','canonical reporting watermark','independent scheduled canonical learning','concurrent-audit push retry'],'strategyModificationThisCycle':'PENDING_EVIDENCE_REVIEW' if files else 'NONE','nextValidation':'next unseen canonical exact-20 batch after current watermark'}
           (root/'audit/self-healing-health.json').write_text(json.dumps(health,indent=2)+'\n')
           if files:
             rb=state.setdefault('reportedBatches',{})
@@ -116,7 +116,13 @@ jobs:
           git add audit/self-healing-latest.json audit/self-healing-health.json audit/automation-state-20-batch.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'audit: analyze canonical new exact batches and advance watermark'
-          git pull --rebase origin main
-          git push origin main
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*2))
+          done
+          echo 'Failed to publish canonical learning after 5 rebase/push attempts' >&2
+          exit 1
 
 # self-healing dispatch marker: canonical watermark lag detected 2026-09-07T18:08Z
+# self-healing repair: retry concurrent audit-bot push races 2026-09-07T18:15Z
