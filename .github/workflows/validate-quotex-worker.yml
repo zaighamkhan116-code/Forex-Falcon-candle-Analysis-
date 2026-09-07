@@ -1,0 +1,25 @@
+name: Validate Quotex fast execution worker
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'quotex_mobile/worker.js'
+      - '.github/workflows/validate-quotex-worker.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax
+        run: node --check quotex_mobile/worker.js
+      - name: Project regression tests
+        run: node --test
+      - name: Guard execution invariants
+        run: |
+          grep -q 'monitorSettlement(page,trade' quotex_mobile/worker.js
+          grep -q 'queueExecution(page, signal)' quotex_mobile/worker.js
+          grep -q 'const DEFAULT_STAKE' quotex_mobile/worker.js
+          ! grep -q 'martingale\|recoveryStake\|secondSameDirection' quotex_mobile/worker.js
