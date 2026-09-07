@@ -1,43 +1,16 @@
 {
-  "capturedAt": "2026-09-07T17:08:30Z",
+  "capturedAt": "2026-09-07T18:15:26.257936+00:00",
   "dataIntegrity": "PASS",
-  "canonicalSettledCount": 3400,
+  "canonicalSettledCount": 3535,
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
-  "newBatchCount": 20,
+  "newBatchCount": 9,
   "repairsActive": [
     "append-only canonical permanent-ID history",
     "integrity-gated canonical exact batches",
     "canonical reporting watermark",
     "independent scheduled canonical learning",
-    "atomic learning-watermark advancement",
-    "strategy validation compatible with repository without lockfile"
+    "concurrent-audit push retry"
   ],
-  "stageZeroRepairsThisCycle": [
-    "75853b0d29589f7e88c3fc638f14443ff5cbe9d7",
-    "fc5fb780f359f4849fa987d51f157fa732684eb7",
-    "cb8adcebecfd557e48f4cda34b14e24b2eac0968"
-  ],
-  "canonicalLearningCommit": "3c3def817ce181db613709382c0d74fd482c2376",
-  "strategyModificationThisCycle": {
-    "status": "FORWARD_VALIDATION",
-    "version": "V9_FORWARD_VALIDATION_TRACK_CONFLICT_CALIBRATION",
-    "codeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
-    "testCommit": "74aa3bde1ebd01e50fbdd19335393c3995829b7e",
-    "auditCommit": "2ef7ffae017c4f0cd4939f9f8c0a3758fd81aeea",
-    "tracks": ["EURJPY-3M", "AUDUSD-2M"],
-    "frequencyPreserved": true,
-    "minimumConfidence": 57,
-    "ci": "PASS",
-    "productionDeployment": "75c725fd-a842-4039-8783-6ff612db5b8d"
-  },
-  "shadow": {
-    "authority": "NON_AUTHORITATIVE",
-    "schemaRepairLiveVerification": "PASS_NO_FEATURE_NAME_WARNINGS",
-    "unsupportedTracks": "UNSUPPORTED"
-  },
-  "nextValidation": [
-    "EURJPY-3M canonical B8 against B6/B7 pre-change 35% baseline and L5/L7 streak severity",
-    "AUDUSD-2M canonical B9 against B7 31.58% and B8 42.11% baseline with L6/L6 streak severity",
-    "Do not promote one-batch degradations GBPUSD-1M/2M, EURJPY-2M or USDJPY-2M without repeat evidence"
-  ]
+  "strategyModificationThisCycle": "PENDING_EVIDENCE_REVIEW",
+  "nextValidation": "next unseen canonical exact-20 batch after current watermark"
 }
