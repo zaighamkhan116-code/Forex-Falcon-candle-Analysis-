@@ -5,6 +5,8 @@ on:
       - '.github/workflows/analyze-self-healing-cycle-1209.yml'
       - 'audit/exact-20-batch-status.json'
   workflow_dispatch:
+  schedule:
+    - cron: '25 * * * 1-5'
 permissions:
   contents: write
 concurrency:
@@ -22,7 +24,7 @@ jobs:
         run: |
           set -euo pipefail
           python - <<'PY'
-          import json, pathlib, datetime, collections, math
+          import json, pathlib, datetime, collections
           root=pathlib.Path('.')
           status=json.loads((root/'audit/exact-20-batch-status.json').read_text())
           state=json.loads((root/'audit/automation-state-20-batch.json').read_text())
@@ -47,7 +49,7 @@ jobs:
           def session(ms):
             h=pkt_hour(ms)
             if h is None:return 'UNKNOWN'
-            if h<12:return 'ASIAN_LATE'
+            if 9<=h<12:return 'ASIAN_LATE'
             if h==12:return 'LONDON_PREOPEN'
             if h==13:return 'LONDON_OPEN'
             if 14<=h<17:return 'LONDON_EARLY_MID'
@@ -57,11 +59,13 @@ jobs:
           def add(d,k,x): d[k][0]+=1; d[k][1]+=x.get('result')=='WIN'
           for p in files:
             if not p.exists(): raise SystemExit(f'missing canonical batch {p}')
-            xs=json.loads(p.read_text());
+            xs=json.loads(p.read_text())
             if len(xs)!=20: raise SystemExit(f'{p} has {len(xs)}, expected 20')
             ids=[x.get('id') for x in xs]
-            if len(ids)!=len(set(ids)): raise SystemExit(f'duplicate permanent id in {p}')
+            if any(not i for i in ids) or len(ids)!=len(set(ids)): raise SystemExit(f'missing/duplicate permanent id in {p}')
             if not all(x.get('authoritativeBoundarySettlement') is True for x in xs): raise SystemExit(f'non-authoritative settlement in {p}')
+            if any(x.get('result') not in ('WIN','LOSS','TIE') for x in xs): raise SystemExit(f'malformed result in {p}')
+            if any(not x.get('signalBoundary') or not x.get('entry') or x.get('direction') not in ('BUY','SELL') for x in xs): raise SystemExit(f'malformed settlement context in {p}')
             per[p.name]=metric(xs); rows.extend(xs)
             for x in xs:
               if x.get('result') not in ('WIN','LOSS'): continue
@@ -92,18 +96,25 @@ jobs:
               if x.get('result')=='LOSS' and sr=='LOSS': both_losses+=1
           sw=sum(r=='WIN' for r in shadow_dec)
           now=datetime.datetime.now(datetime.timezone.utc).isoformat()
-          out={'generatedAt':now,'lineageVersion':state.get('lineageVersion'),'newBatchCount':len(files),'newBatches':[p.name for p in files],'perBatch':per,'combined':combined,'confidenceBuckets':table(conf,1),'sessionTimeMatrix':table(sessions,2),'componentScorecard':table(tags,4),'shadow':{'statuses':dict(shadow_status),'agreements':agreements,'disagreements':disagreements,'bothModelLosses':both_losses,'decided':len(shadow_dec),'wins':sw,'rawAccuracy':round(sw/len(shadow_dec),4) if shadow_dec else None},'modificationDecision':{'strategyChanged':False,'status':'EVIDENCE_REVIEW_REQUIRED','rule':'No strategy retune is auto-applied by this metrics job; downstream self-healing may modify only a repeatable pair×timeframe×session×regime failure with chronological support.'}}
+          out={'generatedAt':now,'lineageVersion':state.get('lineageVersion'),'newBatchCount':len(files),'newBatches':[p.name for p in files],'perBatch':per,'combined':combined,'confidenceBuckets':table(conf,1),'sessionTimeMatrix':table(sessions,2),'componentScorecard':table(tags,4),'shadow':{'statuses':dict(shadow_status),'agreements':agreements,'disagreements':disagreements,'bothModelLosses':both_losses,'decided':len(shadow_dec),'wins':sw,'rawAccuracy':round(sw/len(shadow_dec),4) if shadow_dec else None},'modificationDecision':{'strategyChanged':False,'status':'EVIDENCE_REVIEW_REQUIRED' if files else 'NO_NEW_BATCH','rule':'No strategy retune is applied by the metrics job itself; downstream self-healing may modify only a repeatable pair×timeframe×session×regime failure with chronological support.'}}
           (root/'audit/self-healing-latest.json').write_text(json.dumps(out,indent=2)+'\n')
-          health={'capturedAt':now,'dataIntegrity':'PASS','canonicalSettledCount':sum(int(t['canonicalEligible']) for t in status['tracks'].values()),'lineageRule':status.get('lineageRule'),'newBatchCount':len(files),'repairsActive':['append-only canonical permanent-ID history','integrity-gated canonical exact batches','canonical reporting watermark'],'strategyModificationThisCycle':'PENDING_EVIDENCE_REVIEW','nextValidation':'next unseen canonical exact-20 batch after current watermark'}
+          health={'capturedAt':now,'dataIntegrity':'PASS','canonicalSettledCount':sum(int(t['canonicalEligible']) for t in status['tracks'].values()),'lineageRule':status.get('lineageRule'),'newBatchCount':len(files),'repairsActive':['append-only canonical permanent-ID history','integrity-gated canonical exact batches','canonical reporting watermark','independent scheduled canonical learning'],'strategyModificationThisCycle':'PENDING_EVIDENCE_REVIEW' if files else 'NONE','nextValidation':'next unseen canonical exact-20 batch after current watermark'}
           (root/'audit/self-healing-health.json').write_text(json.dumps(health,indent=2)+'\n')
+          if files:
+            rb=state.setdefault('reportedBatches',{})
+            for key,t in status['tracks'].items(): rb[key]=int(t['completed20Batches'])
+            state['lastReportedAt']=now
+            state['lastAnalysisBatchCount']=len(files)
+            state['lastAnalysisSource']='audit/self-healing-latest.json'
+            (root/'audit/automation-state-20-batch.json').write_text(json.dumps(state,indent=2)+'\n')
           PY
-      - name: Commit learning outputs
+      - name: Commit learning outputs and watermark atomically
         run: |
           set -euo pipefail
           git config user.name 'Forex Falcon Audit Bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add audit/self-healing-latest.json audit/self-healing-health.json
+          git add audit/self-healing-latest.json audit/self-healing-health.json audit/automation-state-20-batch.json
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'audit: analyze canonical new exact batches'
+          git commit -m 'audit: analyze canonical new exact batches and advance watermark'
           git pull --rebase origin main
           git push origin main
