@@ -1,13 +1,10 @@
 {
-  "capturedAt": "2026-09-07T22:07:00Z",
+  "capturedAt": "2026-09-07T23:03:00Z",
   "dataIntegrity": "PASS",
-  "canonicalSettledCount": 4258,
+  "canonicalSettledCount": 4263,
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
-  "newBatchCount": 20,
-  "repairsThisCycle": [
-    {"commit":"017e68d9737d84149bf0a5883bedbd37150661bf","change":"Retrigger stale canonical learning watermark."},
-    {"commit":"7199c21fd8a1894a7844f261f3475b2b464da6a0","change":"Fix canonical learner list-vs-object batch schema handling while retaining exact-20 and permanent-ID validation."}
-  ],
+  "newBatchCount": 0,
+  "repairsThisCycle": [],
   "repairsActive": [
     "append-only canonical permanent-ID history",
     "integrity-gated canonical exact batches",
@@ -16,19 +13,19 @@
     "concurrent-audit push retry",
     "dual-shape canonical batch reader with exact-20 validation"
   ],
-  "strategyModificationThisCycle": {
-    "type":"PARTIAL_REVERT",
-    "track":"AUDUSD-2M",
-    "component":"V9 compound-conflict calibration",
-    "codeCommit":"9b7ce16051b85349774db29568e05159c074fbe8",
-    "testCommit":"54af97f3bc0955db81351dd369b26e86dd2bf9b7",
-    "reason":"Second unseen batch B10 degraded to 27.27% decided accuracy with L5 after B9 57.14%/L5; revert only the experimental V9 arm while preserving older AUDUSD-2M logic."
+  "runtimeHealth": {
+    "productionDeployment": "SUCCESS",
+    "executionSignalsHttp": "200_OK",
+    "backgroundResearchHttp": "200_OK",
+    "shadowSupportedTrackObserved": "EURUSD_200_OK",
+    "shadowUnsupportedTracks": "EXPECTED_422_UNSUPPORTED"
   },
+  "strategyModificationThisCycle": "NONE",
   "forwardValidation": {
-    "EURJPY-3M":"RETAINED_CONTINUED; B9 45%/L4 remains above 35% L5/L7 pre-change baseline; next B10",
+    "EURJPY-3M":"RETAINED_CONTINUED; next B10",
     "AUDUSD-2M":"REVERTED_DEGRADED; next B11 after revert",
-    "GBPUSD-2M-V3_1":"CONTINUE; B10 27.78% but L4 vs B9 L6; next B11",
-    "EURJPY-2M-V3":"CONTINUE; B10 61.11% but L6 remains; next B11"
+    "GBPUSD-2M-V3_1":"CONTINUE; next B11",
+    "EURJPY-2M-V3":"CONTINUE; next B11"
   },
   "shadowAuthority":"NON_AUTHORITATIVE",
   "minimumConfidence":57,
