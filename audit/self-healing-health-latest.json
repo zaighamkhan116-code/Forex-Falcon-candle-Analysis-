@@ -1,24 +1,19 @@
 {
-  "checkedAt": "2026-09-07T19:09:00Z",
+  "checkedAt": "2026-09-07T19:58:12Z",
   "canonicalIntegrity": "PASS",
   "canonicalSettledCount": 3768,
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
   "completedBatchWatermarkAligned": true,
-  "newCompletedBatches": 10,
+  "newCompletedBatches": 0,
   "learningCommit": "54193b79b8ae63c26d259104b8f8f135fb32cd2a",
-  "combinedNewBatchPerformance": {"decided":151,"wins":88,"losses":63,"ties":49,"rawAccuracy":0.5828,"maxLossStreak":4},
   "railway": {"mainService":"SUCCESS","otcCollector":"SUCCESS"},
-  "repairs": [
-    {"type":"STALE_CAPTURE_BACKSTOP_RETRIGGER","commit":"b3f9e5aa5b88e285dac8902cf14ab2ce30972510","result":"SUCCESS","canonicalSettlementsAfter":3768},
-    {"type":"STALE_EXACT_BATCH_REBUILD_RETRIGGER","commit":"96a4559fd135239112e581b0142001a59aa6955c","result":"SUCCESS","integrity":"0 malformed / 0 duplicate IDs / 0 duplicate boundaries / 0 contradictions"},
-    {"type":"STALE_LEARNER_RETRIGGER","commit":"0dae0928677a99c194bb859abc5cf51d1ceda825","result":"SUCCESS","newBatchesAnalyzed":10}
-  ],
+  "healthCheckpoint": {"status":"NO_NEW_CANONICAL_BATCH_AT_CHECKPOINT","scheduledExactBatchBuilder":"QUEUED","workflowRun":34157600168,"action":"NO_STRATEGY_CHANGE"},
   "forwardValidation": {
-    "EURJPY-3M-V9": {"status":"VALIDATED_RETAINED","batch8Accuracy":0.6842,"batch8MaxLossStreak":2,"preChangeAccuracy":[0.35,0.35],"preChangeMaxLossStreak":[5,7],"auditCommit":"5d703a2fe8b6105a5dd1bac242b6e80b70dda637"},
+    "EURJPY-3M-V9": {"status":"VALIDATED_RETAINED","batch8Accuracy":0.6842,"batch8MaxLossStreak":2,"preChangeAccuracy":[0.35,0.35],"preChangeMaxLossStreak":[5,7],"next":"B9"},
     "AUDUSD-2M-V9": {"status":"CONTINUE_FORWARD_VALIDATION","batch9Accuracy":0.5714,"batch9MaxLossStreak":5,"next":"B10"},
     "GBPUSD-2M-V3.1": {"status":"AWAITING_FIRST_COMPLETE_UNSEEN_BATCH","currentCompletedBatch":9,"remainder":13,"next":"B10"}
   },
-  "strategyModificationThisCycle": "No new direction/scoring formula added. Existing EURJPY-3M V9 specialization retained after successful unseen validation; no global broadening.",
-  "shadow": {"authority":"NON_AUTHORITATIVE","ready":25,"agreements":8,"disagreements":17,"decided":18,"wins":7,"rawAccuracy":0.3889,"bothModelLosses":5,"decision":"NO_PROMOTION"},
+  "strategyModificationThisCycle": null,
+  "shadow": {"authority":"NON_AUTHORITATIVE","decision":"NO_PROMOTION"},
   "nextValidationTargets": ["GBPUSD-2M B10 V3.1", "EURJPY-2M B10 V3", "EURJPY-3M B9 retained V9", "AUDUSD-2M B10 V9"]
 }
