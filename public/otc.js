@@ -16,8 +16,8 @@ function normalizeKey(v){return String(v||'').toUpperCase().replace(/[^A-Z]/g,''
 function pairMetaFor(p){const key=normalizeKey(p);return marketRows().find(x=>normalizeKey(x.pair)===key)||null}
 function pairMeta(){return pairMetaFor(state.pair)}
 function numericField(meta,keys){for(const k of keys){const n=Number(meta?.[k]);if(Number.isFinite(n))return n}return null}
-function profit1(meta){return numericField(meta,['profit1Percent','payout1Percent','payoutPercent'])}
-function profit5(meta){return numericField(meta,['profit5Percent','payout5Percent'])}
+function profit1(meta){return numericField(meta,['profit1mPercent','payout1mPercent','profit1Percent','payout1Percent'])}
+function profit5(meta){return numericField(meta,['profit5mPercent','payout5mPercent','profit5Percent','payout5Percent'])}
 function rankedWatchlist(){return OTC_WATCHLIST.map((p,index)=>{const meta=pairMetaFor(p);const roi=profit1(meta);return{pair:p,index,roi,meta}}).sort((a,b)=>{const ar=a.roi??-1,br=b.roi??-1;return br-ar||a.index-b.index})}
 function selectOtcPair(p){if(!OTC_WATCHLIST.includes(p))return;state.pair=p;pair.value=p;$('otcPairButton').textContent=DISPLAY_NAMES[p]||p;$('otcPairPanel').classList.remove('open');$('otcPairButton').classList.remove('open');renderOtcPairPanel();render()}
 function renderOtcPairPanel(){const rows=rankedWatchlist(),tb=$('otcPairBody');if(!tb)return;tb.innerHTML=rows.map((row,i)=>{const p1=profit1(row.meta),p5=profit5(row.meta);const selected=row.pair===state.pair?' selected':'';const top=i<5&&p1!==null?' top1':'';return `<tr class="market-rank-row${selected}${top}" data-pair="${row.pair}"><td class="market-pair"><button class="market-pair-btn" type="button" data-pair="${row.pair}">${DISPLAY_NAMES[row.pair]||row.pair}</button></td><td class="market-rating green">${p1===null?'—':`${p1}%`}</td><td class="market-rating green">${p5===null?'—':`${p5}%`}</td></tr>`}).join('');tb.querySelectorAll('.market-rank-row').forEach(tr=>tr.onclick=()=>selectOtcPair(tr.dataset.pair));tb.querySelectorAll('.market-pair-btn').forEach(btn=>btn.onclick=e=>{e.stopPropagation();selectOtcPair(btn.dataset.pair)})}
