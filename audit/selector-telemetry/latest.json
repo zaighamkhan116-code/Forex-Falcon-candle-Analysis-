@@ -1,129 +1,57 @@
 {
-  "capturedAt": "2026-09-07T12:59:24.012Z",
+  "capturedAt": "2026-09-07T13:05:11.784Z",
   "horizons": [
     {
-      "capturedAt": "2026-09-07T12:59:24.012Z",
+      "capturedAt": "2026-09-07T13:05:11.784Z",
       "horizon": 1,
       "relativeStrengthOnly": true,
       "candidates": [
         {
-          "pair": "AUDCHF",
+          "pair": "NZDCHF",
           "horizon": 1,
-          "score": 64.1,
+          "score": 67.8,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 4.09,
-            "profileReliability": -0.04,
-            "sampleReliability": 0.31,
-            "regime": 5,
-            "moveQuality": 0.78,
+            "signalQuality": 10.53,
+            "profileReliability": -0.99,
+            "sampleReliability": 1.75,
+            "regime": 0,
+            "moveQuality": 2.47,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.5252,
-          "reliability": 0.0385,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
+          "calibratedProbability": 0.5511,
+          "reliability": 0.2188,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786360000,
           "direction": "BUY",
-          "confidence": 63.3,
-          "regime": "TRENDING",
-          "session": null,
-          "timeBucket": null,
+          "confidence": 73.2,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
-            "window": 1,
+            "window": 7,
             "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 1,
-              "accuracy": 0
-            },
-            "dominantDirection": "SELL",
-            "imbalance": 1,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "BUY|TRENDING|0.6|0|BUY|0.8|RESISTANCE|OK|||MITIGATING",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 1,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "rawAccuracy": 0,
-            "shrunkAccuracy": 0.5,
-            "reliability": 0.0385
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 1,
-          "selected": true,
-          "runnerUpScore": 60.5
-        },
-        {
-          "pair": "AUDJPY",
-          "horizon": 1,
-          "score": 60.5,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 0,
-            "profileReliability": -0.01,
-            "sampleReliability": 0.59,
-            "regime": 5,
-            "moveQuality": 0.91,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.489,
-          "reliability": 0.0741,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
-          "direction": "BUY",
-          "confidence": 53.9,
-          "regime": "TRENDING",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 2,
-            "buy": {
-              "n": 0,
-              "accuracy": null
+              "n": 5,
+              "accuracy": 0.2
             },
             "sell": {
               "n": 2,
-              "accuracy": 0.5
+              "accuracy": 0
             },
-            "dominantDirection": "SELL",
-            "imbalance": 1,
+            "dominantDirection": "BUY",
+            "imbalance": 0.7143,
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "BUY|TRENDING|0.7|0|BUY|0|RESISTANCE|OK|||MITIGATING",
+            "fingerprint": "BUY|MIXED|0.6|0|BUY|0.8|RESISTANCE|OK|||FULLY_MITIGATED",
             "repeatedRecent": 0,
-            "sourceAdvanced": true,
+            "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
           },
@@ -133,69 +61,68 @@
             "recurrentTags": []
           },
           "profile": {
-            "n": 2,
+            "n": 7,
             "wins": 1,
-            "losses": 1,
-            "rawAccuracy": 0.5,
-            "shrunkAccuracy": 0.5185,
-            "reliability": 0.0741
+            "losses": 6,
+            "rawAccuracy": 0.1429,
+            "shrunkAccuracy": 0.4375,
+            "reliability": 0.2188
           },
           "shadow": {
             "status": null,
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 2,
-          "selected": false,
-          "runnerUpScore": 64.1
+          "rank": 1,
+          "selected": true,
+          "runnerUpScore": 66.7
         },
         {
           "pair": "EURJPY",
           "horizon": 1,
-          "score": 60.5,
+          "score": 66.7,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 0,
-            "profileReliability": -0.01,
-            "sampleReliability": 0.59,
-            "regime": 5,
-            "moveQuality": 0.91,
+            "signalQuality": 7.8,
+            "profileReliability": 0.34,
+            "sampleReliability": 1.94,
+            "regime": 0,
+            "moveQuality": 2.6,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.501,
-          "reliability": 0.0741,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
+          "calibratedProbability": 0.559,
+          "reliability": 0.2424,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786360000,
           "direction": "BUY",
-          "confidence": 56.9,
-          "regime": "TRENDING",
-          "session": null,
-          "timeBucket": null,
+          "confidence": 69,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
-            "window": 2,
+            "window": 8,
             "buy": {
-              "n": 0,
-              "accuracy": null
+              "n": 6,
+              "accuracy": 0.6666666666666666
             },
             "sell": {
               "n": 2,
               "accuracy": 0.5
             },
-            "dominantDirection": "SELL",
-            "imbalance": 1,
+            "dominantDirection": "BUY",
+            "imbalance": 0.75,
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "BUY|TRENDING|0.8|0|BUY|0|RESISTANCE|OK|||FULLY_MITIGATED",
+            "fingerprint": "BUY|MIXED|0.6|0|BUY|0.9|SUPPORT|OK|||MITIGATING",
             "repeatedRecent": 0,
-            "sourceAdvanced": true,
+            "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
           },
@@ -205,211 +132,208 @@
             "recurrentTags": []
           },
           "profile": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "rawAccuracy": 0.5,
-            "shrunkAccuracy": 0.5185,
-            "reliability": 0.0741
+            "n": 8,
+            "wins": 5,
+            "losses": 3,
+            "rawAccuracy": 0.625,
+            "shrunkAccuracy": 0.5455,
+            "reliability": 0.2424
           },
           "shadow": {
             "status": null,
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 3,
+          "rank": 2,
           "selected": false,
-          "runnerUpScore": 64.1
-        },
-        {
-          "pair": "GBPCAD",
-          "horizon": 1,
-          "score": 57.4,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 7.8,
-            "profileReliability": -0.16,
-            "sampleReliability": 0.59,
-            "regime": -3,
-            "moveQuality": 0.65,
-            "conflicts": 0,
-            "lossStreak": -2.5,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.5466,
-          "reliability": 0.0741,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
-          "direction": "BUY",
-          "confidence": 69,
-          "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 2,
-            "buy": {
-              "n": 1,
-              "accuracy": 0
-            },
-            "sell": {
-              "n": 1,
-              "accuracy": 0
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0.5,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "BUY|CHOPPY|0.9|8|BUY|0.8|RESISTANCE|OK|||FULLY_MITIGATED",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 2,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "rawAccuracy": 0,
-            "shrunkAccuracy": 0.4815,
-            "reliability": 0.0741
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 4,
-          "selected": false,
-          "runnerUpScore": 64.1
-        },
-        {
-          "pair": "NZDCHF",
-          "horizon": 1,
-          "score": 56,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 1.76,
-            "profileReliability": -0.04,
-            "sampleReliability": 0.31,
-            "regime": 0,
-            "moveQuality": 0,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.5108,
-          "reliability": 0.0385,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
-          "direction": "BUY",
-          "confidence": 59.7,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 1,
-            "buy": {
-              "n": 1,
-              "accuracy": 0
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 1,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "BUY|MIXED|0.6|0|BUY|0.1|RESISTANCE|OK|||FULLY_MITIGATED",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 1,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "rawAccuracy": 0,
-            "shrunkAccuracy": 0.5,
-            "reliability": 0.0385
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 5,
-          "selected": false,
-          "runnerUpScore": 64.1
+          "runnerUpScore": 67.8
         },
         {
           "pair": "AUDNZD",
           "horizon": 1,
-          "score": 55.2,
+          "score": 57,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 0.72,
-            "profileReliability": -0.01,
-            "sampleReliability": 0.59,
+            "signalQuality": 0,
+            "profileReliability": -0.47,
+            "sampleReliability": 1.94,
             "regime": 0,
-            "moveQuality": -0.13,
+            "moveQuality": 1.56,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.5058,
-          "reliability": 0.0741,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
+          "calibratedProbability": 0.4763,
+          "reliability": 0.2424,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786360000,
           "direction": "BUY",
-          "confidence": 58.1,
+          "confidence": 52,
           "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
-            "window": 2,
+            "window": 8,
             "buy": {
-              "n": 1,
-              "accuracy": 1
+              "n": 5,
+              "accuracy": 0.4
+            },
+            "sell": {
+              "n": 3,
+              "accuracy": 0.3333333333333333
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.625,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|MIXED|0.7|-3|BUY|0.6|RESISTANCE|FAIL|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 8,
+            "wins": 3,
+            "losses": 5,
+            "rawAccuracy": 0.375,
+            "shrunkAccuracy": 0.4848,
+            "reliability": 0.2424
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 3,
+          "selected": false,
+          "runnerUpScore": 67.8
+        },
+        {
+          "pair": "GBPCAD",
+          "horizon": 1,
+          "score": 55.5,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.06,
+            "sampleReliability": 1.94,
+            "regime": 0,
+            "moveQuality": -0.39,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4757,
+          "reliability": 0.2424,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 8,
+            "buy": {
+              "n": 7,
+              "accuracy": 0.5714285714285714
             },
             "sell": {
               "n": 1,
               "accuracy": 0
             },
             "dominantDirection": "BUY",
-            "imbalance": 0.5,
+            "imbalance": 0.875,
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "BUY|MIXED|0.6|0|BUY|0.4|RESISTANCE|OK|||MITIGATING",
+            "fingerprint": "BUY|MIXED|0.4|3|BUY|0.7|RESISTANCE|FAIL|||MITIGATING",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 8,
+            "wins": 4,
+            "losses": 4,
+            "rawAccuracy": 0.5,
+            "shrunkAccuracy": 0.5152,
+            "reliability": 0.2424
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 4,
+          "selected": false,
+          "runnerUpScore": 67.8
+        },
+        {
+          "pair": "AUDJPY",
+          "horizon": 1,
+          "score": 54.2,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.06,
+            "sampleReliability": 1.94,
+            "regime": 0,
+            "moveQuality": -1.69,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4889,
+          "reliability": 0.2424,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 53.3,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 8,
+            "buy": {
+              "n": 6,
+              "accuracy": 0.5
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.75,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|MIXED|0.7|0|BUY|0.3|RESISTANCE|OK|||MITIGATING",
             "repeatedRecent": 0,
             "sourceAdvanced": true,
             "staleRisk": false,
@@ -421,176 +345,31 @@
             "recurrentTags": []
           },
           "profile": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
+            "n": 8,
+            "wins": 4,
+            "losses": 4,
             "rawAccuracy": 0.5,
-            "shrunkAccuracy": 0.5185,
-            "reliability": 0.0741
+            "shrunkAccuracy": 0.5152,
+            "reliability": 0.2424
           },
           "shadow": {
             "status": null,
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 6,
+          "rank": 5,
           "selected": false,
-          "runnerUpScore": 64.1
+          "runnerUpScore": 67.8
         },
         {
-          "pair": "EURUSD",
-          "horizon": 1,
-          "score": 52.2,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 1.76,
-            "profileReliability": -0.04,
-            "sampleReliability": 0.31,
-            "regime": -3,
-            "moveQuality": -0.78,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.5108,
-          "reliability": 0.0385,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 59.7,
-          "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 1,
-            "buy": {
-              "n": 1,
-              "accuracy": 0
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 1,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "SELL|CHOPPY|-0.4|0|SELL|0.2|RESISTANCE|OK|||MITIGATING",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 1,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "rawAccuracy": 0,
-            "shrunkAccuracy": 0.5,
-            "reliability": 0.0385
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 7,
-          "selected": false,
-          "runnerUpScore": 64.1
-        },
-        {
-          "pair": "USDJPY",
+          "pair": "GBPUSD",
           "horizon": 1,
           "score": 51.2,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
             "signalQuality": 0,
-            "profileReliability": -0.16,
-            "sampleReliability": 0.59,
-            "regime": 0,
-            "moveQuality": -0.78,
-            "conflicts": 0,
-            "lossStreak": -2.5,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.4706,
-          "reliability": 0.0741,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
-          "direction": "BUY",
-          "confidence": 50,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 2,
-            "buy": {
-              "n": 1,
-              "accuracy": 0
-            },
-            "sell": {
-              "n": 1,
-              "accuracy": 0
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0.5,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "BUY|MIXED|0.3|0|BUY|0|RESISTANCE|OK|||FULLY_MITIGATED",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 2,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "rawAccuracy": 0,
-            "shrunkAccuracy": 0.4815,
-            "reliability": 0.0741
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 8,
-          "selected": false,
-          "runnerUpScore": 64.1
-        },
-        {
-          "pair": "GBPUSD",
-          "horizon": 1,
-          "score": 49.7,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 0,
-            "profileReliability": 0.15,
-            "sampleReliability": 0.59,
+            "profileReliability": 0.51,
+            "sampleReliability": 1.75,
             "regime": -3,
             "moveQuality": -2.08,
             "conflicts": 0,
@@ -599,22 +378,22 @@
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.4969,
-          "reliability": 0.0741,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
+          "calibratedProbability": 0.4857,
+          "reliability": 0.2188,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786360000,
           "direction": "BUY",
-          "confidence": 55.2,
+          "confidence": 50,
           "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
-            "window": 2,
+            "window": 7,
             "buy": {
-              "n": 2,
-              "accuracy": 1
+              "n": 7,
+              "accuracy": 0.7142857142857143
             },
             "sell": {
               "n": 0,
@@ -625,9 +404,971 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "BUY|CHOPPY|0.8|2|BUY|0.9|RESISTANCE|FAIL|||MITIGATING",
+            "fingerprint": "BUY|CHOPPY|0.3|0|BUY|0.7|RESISTANCE|OK|||MITIGATING",
             "repeatedRecent": 0,
             "sourceAdvanced": true,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 7,
+            "wins": 5,
+            "losses": 2,
+            "rawAccuracy": 0.7143,
+            "shrunkAccuracy": 0.5625,
+            "reliability": 0.2188
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 6,
+          "selected": false,
+          "runnerUpScore": 67.8
+        },
+        {
+          "pair": "AUDCHF",
+          "horizon": 1,
+          "score": 50.3,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.62,
+            "sampleReliability": 1.75,
+            "regime": 0,
+            "moveQuality": 0.13,
+            "conflicts": 0,
+            "lossStreak": -5,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4824,
+          "reliability": 0.2188,
+          "signalBoundary": 1788786360000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 54.3,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 7,
+            "buy": {
+              "n": 5,
+              "accuracy": 0.4
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.7143,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|MIXED|0.5|-2|BUY|0.2|CLEAR|FAIL|||MITIGATING",
+            "repeatedRecent": 0,
+            "sourceAdvanced": true,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 3,
+            "active": true,
+            "severity": "WATCH",
+            "recurrentTags": [
+              {
+                "tag": "ADVERSE_LOCATION",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "WEAKPROGRESS",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "ADVERSE",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "TRENDING",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "BUY",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "BELOW_CONFIDENCE_THRESHOLD",
+                "count": 2,
+                "share": 0.667
+              }
+            ]
+          },
+          "profile": {
+            "n": 7,
+            "wins": 2,
+            "losses": 5,
+            "rawAccuracy": 0.2857,
+            "shrunkAccuracy": 0.4688,
+            "reliability": 0.2188
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 7,
+          "selected": false,
+          "runnerUpScore": 67.8
+        },
+        {
+          "pair": "AUDUSD",
+          "horizon": 1,
+          "score": 49.9,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.24,
+            "sampleReliability": 1.75,
+            "regime": -3,
+            "moveQuality": -2.6,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.472,
+          "reliability": 0.2188,
+          "signalBoundary": 1788786360000,
+          "targetBoundary": 1788786360000,
+          "direction": "SELL",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 7,
+            "buy": {
+              "n": 7,
+              "accuracy": 0.42857142857142855
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|CHOPPY|-0.3|0|BUY|0.3|SUPPORT|OK|||MITIGATING",
+            "repeatedRecent": 0,
+            "sourceAdvanced": true,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 7,
+            "wins": 3,
+            "losses": 4,
+            "rawAccuracy": 0.4286,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.2188
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 8,
+          "selected": false,
+          "runnerUpScore": 67.8
+        },
+        {
+          "pair": "EURUSD",
+          "horizon": 1,
+          "score": 49,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.62,
+            "sampleReliability": 1.75,
+            "regime": -3,
+            "moveQuality": -3.12,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4652,
+          "reliability": 0.2188,
+          "signalBoundary": 1788786360000,
+          "targetBoundary": 1788786360000,
+          "direction": "SELL",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 7,
+            "buy": {
+              "n": 3,
+              "accuracy": 0.3333333333333333
+            },
+            "sell": {
+              "n": 4,
+              "accuracy": 0.25
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 0.5714,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|CHOPPY|-0.5|0|SELL|0.1|SUPPORT|OK|||MITIGATING",
+            "repeatedRecent": 0,
+            "sourceAdvanced": true,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 7,
+            "wins": 2,
+            "losses": 5,
+            "rawAccuracy": 0.2857,
+            "shrunkAccuracy": 0.4688,
+            "reliability": 0.2188
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 9,
+          "selected": false,
+          "runnerUpScore": 67.8
+        },
+        {
+          "pair": "USDJPY",
+          "horizon": 1,
+          "score": 48.6,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -1.28,
+            "sampleReliability": 1.94,
+            "regime": -3,
+            "moveQuality": -0.52,
+            "conflicts": 0,
+            "lossStreak": -2.5,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.46,
+          "reliability": 0.2424,
+          "signalBoundary": 1788786360000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 51.6,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 8,
+            "buy": {
+              "n": 5,
+              "accuracy": 0.2
+            },
+            "sell": {
+              "n": 3,
+              "accuracy": 0
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.625,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.5|0|BUY|0.5|SUPPORT|OK|||MITIGATING",
+            "repeatedRecent": 0,
+            "sourceAdvanced": true,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 2,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 8,
+            "wins": 1,
+            "losses": 7,
+            "rawAccuracy": 0.125,
+            "shrunkAccuracy": 0.4242,
+            "reliability": 0.2424
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 10,
+          "selected": false,
+          "runnerUpScore": 67.8
+        }
+      ]
+    },
+    {
+      "capturedAt": "2026-09-07T13:05:11.784Z",
+      "horizon": 2,
+      "relativeStrengthOnly": true,
+      "candidates": [
+        {
+          "pair": "AUDCHF",
+          "horizon": 2,
+          "score": 55.9,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 6.04,
+            "profileReliability": -0.01,
+            "sampleReliability": 0.59,
+            "regime": -3,
+            "moveQuality": -1.69,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5386,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 66.3,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.6|0|BUY|0.9|RESISTANCE|OK|||FULLY_MITIGATED",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "rawAccuracy": 0.5,
+            "shrunkAccuracy": 0.5185,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 1,
+          "selected": true,
+          "runnerUpScore": 52.5
+        },
+        {
+          "pair": "GBPCAD",
+          "horizon": 2,
+          "score": 52.5,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": 0.3,
+            "sampleReliability": 0.86,
+            "regime": -3,
+            "moveQuality": 0.39,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4797,
+          "reliability": 0.1071,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "SELL",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 3,
+            "buy": {
+              "n": 2,
+              "accuracy": 1
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 1
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.6667,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|CHOPPY|-0.5|3|BUY|0|SUPPORT|FAIL|||ACCEPTED_THROUGH",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 3,
+            "wins": 3,
+            "losses": 0,
+            "rawAccuracy": 1,
+            "shrunkAccuracy": 0.5714,
+            "reliability": 0.1071
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 2,
+          "selected": false,
+          "runnerUpScore": 55.9
+        },
+        {
+          "pair": "USDJPY",
+          "horizon": 2,
+          "score": 50.4,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": 0.09,
+            "sampleReliability": 0.86,
+            "regime": -3,
+            "moveQuality": -1.56,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4758,
+          "reliability": 0.1071,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 3,
+            "buy": {
+              "n": 1,
+              "accuracy": 1
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 0.6667,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.3|1|BUY|0.3|RESISTANCE|FAIL|||ACCEPTED_THROUGH",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "rawAccuracy": 0.6667,
+            "shrunkAccuracy": 0.5357,
+            "reliability": 0.1071
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 3,
+          "selected": false,
+          "runnerUpScore": 55.9
+        },
+        {
+          "pair": "EURJPY",
+          "horizon": 2,
+          "score": 50,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.12,
+            "sampleReliability": 0.86,
+            "regime": -3,
+            "moveQuality": -1.69,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.472,
+          "reliability": 0.1071,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 3,
+            "buy": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.6667,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.3|2|BUY|0.1|RESISTANCE|FAIL|||FULLY_MITIGATED",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "rawAccuracy": 0.3333,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.1071
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 4,
+          "selected": false,
+          "runnerUpScore": 55.9
+        },
+        {
+          "pair": "GBPUSD",
+          "horizon": 2,
+          "score": 49.9,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": 0.09,
+            "sampleReliability": 0.86,
+            "regime": -3,
+            "moveQuality": -2.08,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4786,
+          "reliability": 0.1071,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50.7,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 3,
+            "buy": {
+              "n": 2,
+              "accuracy": 1
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.6667,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.7|0|BUY|0.4|RESISTANCE|FAIL|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "rawAccuracy": 0.6667,
+            "shrunkAccuracy": 0.5357,
+            "reliability": 0.1071
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 5,
+          "selected": false,
+          "runnerUpScore": 55.9
+        },
+        {
+          "pair": "NZDCHF",
+          "horizon": 2,
+          "score": 49.9,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.01,
+            "sampleReliability": 0.59,
+            "regime": -3,
+            "moveQuality": -1.69,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.483,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 52.4,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.6|0|BUY|0.9|RESISTANCE|OK|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "rawAccuracy": 0.5,
+            "shrunkAccuracy": 0.5185,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 6,
+          "selected": false,
+          "runnerUpScore": 55.9
+        },
+        {
+          "pair": "AUDJPY",
+          "horizon": 2,
+          "score": 49.4,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.12,
+            "sampleReliability": 0.86,
+            "regime": -3,
+            "moveQuality": -2.34,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.472,
+          "reliability": 0.1071,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 3,
+            "buy": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.6667,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.4|2|BUY|0.4|RESISTANCE|FAIL|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "rawAccuracy": 0.3333,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.1071
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 7,
+          "selected": false,
+          "runnerUpScore": 55.9
+        },
+        {
+          "pair": "EURUSD",
+          "horizon": 2,
+          "score": 48.1,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.12,
+            "sampleReliability": 0.86,
+            "regime": -3,
+            "moveQuality": -1.17,
+            "conflicts": 0,
+            "lossStreak": -2.5,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.472,
+          "reliability": 0.1071,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "SELL",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 3,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 3,
+              "accuracy": 0.3333333333333333
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|CHOPPY|-0.1|0|SELL|0.3|RESISTANCE|OK|||ACCEPTED_THROUGH",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 2,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "rawAccuracy": 0.3333,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.1071
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 8,
+          "selected": false,
+          "runnerUpScore": 55.9
+        },
+        {
+          "pair": "AUDUSD",
+          "horizon": 2,
+          "score": 47.6,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": 0.15,
+            "sampleReliability": 0.59,
+            "regime": -3,
+            "moveQuality": -4.16,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4761,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 1,
+              "accuracy": 1
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 1
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.5,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.6|0|BUY|1.1|RESISTANCE|OK|||ACCEPTED_THROUGH",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
           },
@@ -649,37 +1390,511 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
           "rank": 9,
           "selected": false,
-          "runnerUpScore": 64.1
+          "runnerUpScore": 55.9
         },
         {
-          "pair": "AUDUSD",
-          "horizon": 1,
-          "score": 48.9,
+          "pair": "AUDNZD",
+          "horizon": 2,
+          "score": 44.8,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
             "signalQuality": 0,
-            "profileReliability": -0.01,
-            "sampleReliability": 0.59,
+            "profileReliability": -0.33,
+            "sampleReliability": 0.86,
             "regime": -3,
-            "moveQuality": -2.73,
+            "moveQuality": -1.69,
+            "conflicts": 0,
+            "lossStreak": -5,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4682,
+          "reliability": 0.1071,
+          "signalBoundary": 1788786240000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 3,
+            "buy": {
+              "n": 2,
+              "accuracy": 0
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.6667,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.5|0|BUY|0.4|RESISTANCE|OK|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 3,
+            "active": true,
+            "severity": "WATCH",
+            "recurrentTags": [
+              {
+                "tag": "WEAKPROGRESS",
+                "count": 3,
+                "share": 1
+              },
+              {
+                "tag": "ADVERSE_LOCATION",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "LATE",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "ADVERSE",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "LATE_CONTINUATION_GATE",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "ENTRY_LANE_GATE",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "CHOPPY",
+                "count": 2,
+                "share": 0.667
+              },
+              {
+                "tag": "BUY",
+                "count": 2,
+                "share": 0.667
+              }
+            ]
+          },
+          "profile": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.4643,
+            "reliability": 0.1071
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 10,
+          "selected": false,
+          "runnerUpScore": 55.9
+        }
+      ]
+    },
+    {
+      "capturedAt": "2026-09-07T13:05:11.784Z",
+      "horizon": 3,
+      "relativeStrengthOnly": true,
+      "candidates": [
+        {
+          "pair": "GBPUSD",
+          "horizon": 3,
+          "score": 71.6,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 15.47,
+            "profileReliability": 0.15,
+            "sampleReliability": 0.59,
+            "regime": 0,
+            "moveQuality": 1.43,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.4734,
+          "calibratedProbability": 0.5993,
           "reliability": 0.0741,
-          "signalBoundary": 1788786000000,
-          "targetBoundary": 1788786000000,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
           "direction": "BUY",
-          "confidence": 50,
+          "confidence": 80.8,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 2,
+              "accuracy": 1
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|MIXED|0.9|0|BUY|0.9|RESISTANCE|OK|||FULLY_MITIGATED",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 2,
+            "losses": 0,
+            "rawAccuracy": 1,
+            "shrunkAccuracy": 0.5556,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 1,
+          "selected": true,
+          "runnerUpScore": 68.5
+        },
+        {
+          "pair": "AUDCHF",
+          "horizon": 3,
+          "score": 68.5,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 16,
+            "profileReliability": -0.01,
+            "sampleReliability": 0.59,
+            "regime": -3,
+            "moveQuality": 0.91,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.6018,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 82.1,
           "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.7|8|BUY|1.2|SUPPORT|OK|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "rawAccuracy": 0.5,
+            "shrunkAccuracy": 0.5185,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 2,
+          "selected": false,
+          "runnerUpScore": 71.6
+        },
+        {
+          "pair": "GBPCAD",
+          "horizon": 3,
+          "score": 64.5,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 10.79,
+            "profileReliability": -0.01,
+            "sampleReliability": 0.59,
+            "regime": -3,
+            "moveQuality": 2.08,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5678,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 73.6,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.8|6|BUY|0.2|RESISTANCE|OK|||FULLY_MITIGATED",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "rawAccuracy": 0.5,
+            "shrunkAccuracy": 0.5185,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 3,
+          "selected": false,
+          "runnerUpScore": 71.6
+        },
+        {
+          "pair": "AUDNZD",
+          "horizon": 3,
+          "score": 63.3,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 10.4,
+            "profileReliability": -0.01,
+            "sampleReliability": 0.59,
+            "regime": -3,
+            "moveQuality": 1.3,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5654,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 73,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0.5
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.6|0|SELL|0.2|RESISTANCE|OK|||FULLY_MITIGATED",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "rawAccuracy": 0.5,
+            "shrunkAccuracy": 0.5185,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 4,
+          "selected": false,
+          "runnerUpScore": 71.6
+        },
+        {
+          "pair": "USDJPY",
+          "horizon": 3,
+          "score": 58.6,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 5.53,
+            "profileReliability": -0.16,
+            "sampleReliability": 0.59,
+            "regime": 0,
+            "moveQuality": 1.17,
+            "conflicts": 0,
+            "lossStreak": -2.5,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5326,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 65.5,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|MIXED|0.3|7|BUY|0.3|RESISTANCE|OK|||ACCEPTED_THROUGH",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 2,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.4815,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 5,
+          "selected": false,
+          "runnerUpScore": 71.6
+        },
+        {
+          "pair": "EURUSD",
+          "horizon": 3,
+          "score": 57.7,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 6.5,
+            "profileReliability": -0.01,
+            "sampleReliability": 0.59,
+            "regime": -3,
+            "moveQuality": -0.39,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5414,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "SELL",
+          "confidence": 67,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -697,9 +1912,293 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "BUY|CHOPPY|0.2|0|BUY|0.2|SUPPORT|OK|||FULLY_MITIGATED",
+            "fingerprint": "SELL|CHOPPY|-0.8|-1|SELL|0.4|RESISTANCE|FAIL|||APPROACHING",
             "repeatedRecent": 0,
-            "sourceAdvanced": true,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "rawAccuracy": 0.5,
+            "shrunkAccuracy": 0.5185,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 6,
+          "selected": false,
+          "runnerUpScore": 71.6
+        },
+        {
+          "pair": "NZDCHF",
+          "horizon": 3,
+          "score": 54.1,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 4.09,
+            "profileReliability": -0.04,
+            "sampleReliability": 0.31,
+            "regime": -3,
+            "moveQuality": -1.3,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5252,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 63.3,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 1,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.6|8|BUY|0.9|RESISTANCE|OK|||FULLY_MITIGATED",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.0385
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 7,
+          "selected": false,
+          "runnerUpScore": 71.6
+        },
+        {
+          "pair": "AUDJPY",
+          "horizon": 3,
+          "score": 53.1,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.16,
+            "sampleReliability": 0.59,
+            "regime": 0,
+            "moveQuality": 1.17,
+            "conflicts": 0,
+            "lossStreak": -2.5,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4706,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|MIXED|0.3|0|BUY|0|RESISTANCE|OK|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 2,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.4815,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 8,
+          "selected": false,
+          "runnerUpScore": 71.6
+        },
+        {
+          "pair": "EURJPY",
+          "horizon": 3,
+          "score": 52.5,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.16,
+            "sampleReliability": 0.59,
+            "regime": 0,
+            "moveQuality": 0.52,
+            "conflicts": 0,
+            "lossStreak": -2.5,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4706,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 2,
+              "accuracy": 0
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|MIXED|0.2|7|BUY|0|RESISTANCE|OK|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 2,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.4815,
+            "reliability": 0.0741
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 9,
+          "selected": false,
+          "runnerUpScore": 71.6
+        },
+        {
+          "pair": "AUDUSD",
+          "horizon": 3,
+          "score": 50.8,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.01,
+            "sampleReliability": 0.59,
+            "regime": -3,
+            "moveQuality": -0.78,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4734,
+          "reliability": 0.0741,
+          "signalBoundary": 1788786180000,
+          "targetBoundary": 1788786360000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 2,
+            "buy": {
+              "n": 1,
+              "accuracy": 1
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0.5,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0|0|BUY|0.2|SUPPORT|OK|||FULLY_MITIGATED",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
           },
@@ -721,459 +2220,97 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
           "rank": 10,
           "selected": false,
-          "runnerUpScore": 64.1
+          "runnerUpScore": 71.6
         }
       ]
     },
     {
-      "capturedAt": "2026-09-07T12:59:24.012Z",
-      "horizon": 2,
+      "capturedAt": "2026-09-07T13:05:11.784Z",
+      "horizon": 5,
       "relativeStrengthOnly": true,
       "candidates": [
         {
-          "pair": "AUDUSD",
-          "horizon": 2,
-          "score": 61.9,
+          "pair": "GBPCAD",
+          "horizon": 5,
+          "score": 66.7,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 7.67,
-            "profileReliability": 0,
-            "sampleReliability": 0,
+            "signalQuality": 9.43,
+            "profileReliability": -0.04,
+            "sampleReliability": 0.31,
             "regime": 0,
-            "moveQuality": 0.26,
+            "moveQuality": 2.99,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.5472,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
+          "calibratedProbability": 0.558,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
           "direction": "SELL",
-          "confidence": 68.8,
+          "confidence": 71.5,
           "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
-            "window": 0,
+            "window": 1,
             "buy": {
               "n": 0,
               "accuracy": null
             },
             "sell": {
-              "n": 0,
-              "accuracy": null
+              "n": 1,
+              "accuracy": 0
             },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
+            "dominantDirection": "SELL",
+            "imbalance": 1,
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|MIXED|-0.7|0|SELL|0.2|RESISTANCE|OK|||FULLY_MITIGATED",
+            "fingerprint": "SELL|MIXED|-0.6|-3|SELL|0.4|RESISTANCE|FAIL|||FULLY_MITIGATED",
             "repeatedRecent": 0,
             "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
           },
           "lossStreak": {
-            "currentLossRun": 0,
+            "currentLossRun": 1,
             "active": false,
             "recurrentTags": []
           },
           "profile": {
-            "n": 0,
+            "n": 1,
             "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
+            "losses": 1,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.0385
           },
           "shadow": {
             "status": null,
             "direction": null,
             "confidence": null
           },
-          "result": null,
           "rank": 1,
           "selected": true,
-          "runnerUpScore": 61.8
-        },
-        {
-          "pair": "GBPCAD",
-          "horizon": 2,
-          "score": 61.8,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 2.53,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": 5,
-            "moveQuality": 0.26,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.5156,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 60.9,
-          "regime": "TRENDING",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "SELL|TRENDING|-0.6|0|BUY|0.4|SUPPORT|OK|||APPROACHING",
-            "repeatedRecent": 0,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 2,
-          "selected": false,
-          "runnerUpScore": 61.9
-        },
-        {
-          "pair": "NZDCHF",
-          "horizon": 2,
-          "score": 60.2,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 8.32,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": -3,
-            "moveQuality": 0.91,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.5512,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
-          "direction": "BUY",
-          "confidence": 69.8,
-          "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "BUY|CHOPPY|0.6|8|BUY|1|RESISTANCE|OK|||MITIGATING",
-            "repeatedRecent": 1,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 3,
-          "selected": false,
-          "runnerUpScore": 61.9
-        },
-        {
-          "pair": "EURUSD",
-          "horizon": 2,
-          "score": 54.7,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 3.71,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": -3,
-            "moveQuality": 0,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.5228,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 62.7,
-          "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "SELL|CHOPPY|-0.7|0|SELL|0.9|RESISTANCE|OK|||ACCEPTED_THROUGH",
-            "repeatedRecent": 0,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 4,
-          "selected": false,
-          "runnerUpScore": 61.9
-        },
-        {
-          "pair": "AUDCHF",
-          "horizon": 2,
-          "score": 54.5,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 0,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": 0,
-            "moveQuality": 0.52,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.472,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
-          "direction": "BUY",
-          "confidence": 50,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "BUY|MIXED|0.3|7|BUY|0|RESISTANCE|OK|||MITIGATING",
-            "repeatedRecent": 1,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 5,
-          "selected": false,
-          "runnerUpScore": 61.9
-        },
-        {
-          "pair": "AUDNZD",
-          "horizon": 2,
-          "score": 52.3,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 0,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": 0,
-            "moveQuality": -1.69,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.4856,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 53.4,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "SELL|MIXED|-0.6|0|SELL|0.3|SUPPORT|FAIL|||REJECTED",
-            "repeatedRecent": 0,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 6,
-          "selected": false,
-          "runnerUpScore": 61.9
+          "runnerUpScore": 61.1
         },
         {
           "pair": "GBPUSD",
-          "horizon": 2,
-          "score": 51.3,
+          "horizon": 5,
+          "score": 61.1,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 0,
-            "profileReliability": 0,
-            "sampleReliability": 0,
+            "signalQuality": 9.49,
+            "profileReliability": 0.04,
+            "sampleReliability": 0.31,
             "regime": -3,
             "moveQuality": 0.26,
             "conflicts": 0,
@@ -1182,34 +2319,34 @@
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.4992,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 56.8,
+          "calibratedProbability": 0.5599,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
+          "direction": "BUY",
+          "confidence": 71.6,
           "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
-            "window": 0,
+            "window": 1,
             "buy": {
-              "n": 0,
-              "accuracy": null
+              "n": 1,
+              "accuracy": 1
             },
             "sell": {
               "n": 0,
               "accuracy": null
             },
             "dominantDirection": "BUY",
-            "imbalance": 0,
+            "imbalance": 1,
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|CHOPPY|-0.6|0|SELL|0.2|SUPPORT|OK|||FULLY_MITIGATED",
-            "repeatedRecent": 0,
+            "fingerprint": "BUY|CHOPPY|0.7|0|BUY|1.1|RESISTANCE|OK|||FULLY_MITIGATED",
+            "repeatedRecent": 1,
             "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
@@ -1220,121 +2357,190 @@
             "recurrentTags": []
           },
           "profile": {
-            "n": 0,
-            "wins": 0,
+            "n": 1,
+            "wins": 1,
             "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
+            "rawAccuracy": 1,
+            "shrunkAccuracy": 0.5385,
+            "reliability": 0.0385
           },
           "shadow": {
             "status": null,
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 7,
+          "rank": 2,
           "selected": false,
-          "runnerUpScore": 61.9
+          "runnerUpScore": 66.7
         },
         {
-          "pair": "AUDJPY",
-          "horizon": 2,
-          "score": 50.4,
+          "pair": "AUDCHF",
+          "horizon": 5,
+          "score": 60,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 0,
-            "profileReliability": 0,
-            "sampleReliability": 0,
+            "signalQuality": 8.91,
+            "profileReliability": -0.04,
+            "sampleReliability": 0.31,
             "regime": -3,
-            "moveQuality": -0.65,
+            "moveQuality": -0.13,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.472,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 50,
+          "calibratedProbability": 0.5548,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
+          "direction": "BUY",
+          "confidence": 70.7,
           "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
-            "window": 0,
+            "window": 1,
             "buy": {
               "n": 0,
               "accuracy": null
             },
             "sell": {
-              "n": 0,
-              "accuracy": null
+              "n": 1,
+              "accuracy": 0
             },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
+            "dominantDirection": "SELL",
+            "imbalance": 1,
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|CHOPPY|-0.2|1|BUY|0|RESISTANCE|FAIL|||APPROACHING",
-            "repeatedRecent": 0,
+            "fingerprint": "BUY|CHOPPY|0.7|0|BUY|0.3|SUPPORT|OK|||MITIGATING",
+            "repeatedRecent": 1,
             "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
           },
           "lossStreak": {
-            "currentLossRun": 0,
+            "currentLossRun": 1,
             "active": false,
             "recurrentTags": []
           },
           "profile": {
-            "n": 0,
+            "n": 1,
             "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
+            "losses": 1,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.0385
           },
           "shadow": {
             "status": null,
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 8,
+          "rank": 3,
           "selected": false,
-          "runnerUpScore": 61.9
+          "runnerUpScore": 66.7
         },
         {
           "pair": "EURJPY",
-          "horizon": 2,
-          "score": 50.4,
+          "horizon": 5,
+          "score": 54.7,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 0,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": -3,
-            "moveQuality": -0.65,
+            "signalQuality": 0.84,
+            "profileReliability": -0.04,
+            "sampleReliability": 0.31,
+            "regime": 0,
+            "moveQuality": -0.39,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.4932,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
+          "calibratedProbability": 0.5052,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
           "direction": "SELL",
-          "confidence": 55.3,
+          "confidence": 58.3,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 1,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|MIXED|-0.5|1|SELL|0.2|RESISTANCE|FAIL|||MITIGATING",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.0385
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 4,
+          "selected": false,
+          "runnerUpScore": 66.7
+        },
+        {
+          "pair": "AUDNZD",
+          "horizon": 5,
+          "score": 53.9,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 3.9,
+            "profileReliability": 0,
+            "sampleReliability": 0,
+            "regime": -3,
+            "moveQuality": -1.04,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.524,
+          "reliability": 0,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
+          "direction": "BUY",
+          "confidence": 63,
           "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -1352,8 +2558,8 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|CHOPPY|-0.5|0|BUY|0|RESISTANCE|OK|||APPROACHING",
-            "repeatedRecent": 0,
+            "fingerprint": "BUY|CHOPPY|0.7|0|BUY|0|RESISTANCE|OK|||REJECTED",
+            "repeatedRecent": 1,
             "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
@@ -1376,20 +2582,161 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 9,
+          "rank": 5,
           "selected": false,
-          "runnerUpScore": 61.9
+          "runnerUpScore": 66.7
         },
         {
           "pair": "USDJPY",
-          "horizon": 2,
-          "score": 50.2,
+          "horizon": 5,
+          "score": 53.9,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
             "signalQuality": 0,
-            "profileReliability": 0,
-            "sampleReliability": 0,
+            "profileReliability": -0.04,
+            "sampleReliability": 0.31,
+            "regime": 0,
+            "moveQuality": -0.39,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.4736,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
+          "direction": "SELL",
+          "confidence": 50.4,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 1,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|MIXED|-0.3|3|BUY|0.1|SUPPORT|FAIL|||ACCEPTED_THROUGH",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.0385
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 6,
+          "selected": false,
+          "runnerUpScore": 66.7
+        },
+        {
+          "pair": "AUDJPY",
+          "horizon": 5,
+          "score": 53.8,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0.07,
+            "profileReliability": -0.04,
+            "sampleReliability": 0.31,
+            "regime": 0,
+            "moveQuality": -0.52,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5004,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
+          "direction": "SELL",
+          "confidence": 57.1,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 1,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "dominantDirection": "SELL",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|MIXED|-0.4|2|BUY|0|RESISTANCE|FAIL|||MITIGATING",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.0385
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 7,
+          "selected": false,
+          "runnerUpScore": 66.7
+        },
+        {
+          "pair": "NZDCHF",
+          "horizon": 5,
+          "score": 50.6,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": 0.04,
+            "sampleReliability": 0.31,
             "regime": -3,
             "moveQuality": -0.78,
             "conflicts": 0,
@@ -1398,15 +2745,86 @@
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.4752,
-          "reliability": 0,
-          "signalBoundary": 1788785880000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 50.8,
+          "calibratedProbability": 0.4995,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
+          "direction": "BUY",
+          "confidence": 56.5,
           "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 1,
+            "buy": {
+              "n": 1,
+              "accuracy": 1
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.3|8|BUY|0.3|SUPPORT|OK|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "rawAccuracy": 1,
+            "shrunkAccuracy": 0.5385,
+            "reliability": 0.0385
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 8,
+          "selected": false,
+          "runnerUpScore": 66.7
+        },
+        {
+          "pair": "EURUSD",
+          "horizon": 5,
+          "score": 49.6,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": 0,
+            "sampleReliability": 0,
+            "regime": -3,
+            "moveQuality": -1.43,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.472,
+          "reliability": 0,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
+          "direction": "BUY",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -1424,7 +2842,7 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|CHOPPY|-0.2|0|SELL|0.3|RESISTANCE|OK|||REJECTED",
+            "fingerprint": "BUY|CHOPPY|0.1|-2|BUY|0|RESISTANCE|FAIL|||APPROACHING",
             "repeatedRecent": 0,
             "sourceAdvanced": false,
             "staleRisk": false,
@@ -1448,29 +2866,99 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
+          "rank": 9,
+          "selected": false,
+          "runnerUpScore": 66.7
+        },
+        {
+          "pair": "AUDUSD",
+          "horizon": 5,
+          "score": 46.3,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 0,
+            "profileReliability": -0.04,
+            "sampleReliability": 0.31,
+            "regime": -3,
+            "moveQuality": -4.94,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.472,
+          "reliability": 0.0385,
+          "signalBoundary": 1788786300000,
+          "targetBoundary": 1788786600000,
+          "direction": "SELL",
+          "confidence": 50,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 1,
+            "buy": {
+              "n": 1,
+              "accuracy": 0
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 1,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|CHOPPY|-0.6|0|BUY|0.4|SUPPORT|OK|||REJECTED",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 1,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "rawAccuracy": 0,
+            "shrunkAccuracy": 0.5,
+            "reliability": 0.0385
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
           "rank": 10,
           "selected": false,
-          "runnerUpScore": 61.9
+          "runnerUpScore": 66.7
         }
       ]
     },
     {
-      "capturedAt": "2026-09-07T12:59:24.012Z",
-      "horizon": 3,
+      "capturedAt": "2026-09-07T13:05:11.784Z",
+      "horizon": 15,
       "relativeStrengthOnly": true,
       "candidates": [
         {
           "pair": "GBPCAD",
-          "horizon": 3,
-          "score": 71.7,
+          "horizon": 15,
+          "score": 78.1,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
             "signalQuality": 16,
             "profileReliability": 0,
             "sampleReliability": 0,
-            "regime": 0,
-            "moveQuality": 1.69,
+            "regime": 5,
+            "moveQuality": 3.12,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
@@ -1479,13 +2967,13 @@
           },
           "calibratedProbability": 0.612,
           "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
           "direction": "SELL",
           "confidence": 85,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
+          "regime": "TRENDING",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -1503,7 +2991,7 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|MIXED|-0.6|-7|SELL|1.3|CLEAR|OK|||FULLY_MITIGATED",
+            "fingerprint": "SELL|TRENDING|-0.8|-4|SELL|0.6|RESISTANCE|OK|||ACCEPTED_THROUGH",
             "repeatedRecent": 0,
             "sourceAdvanced": false,
             "staleRisk": false,
@@ -1527,181 +3015,36 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
           "rank": 1,
           "selected": true,
-          "runnerUpScore": 71
+          "runnerUpScore": 73.3
         },
         {
-          "pair": "USDJPY",
-          "horizon": 3,
-          "score": 71,
+          "pair": "AUDCHF",
+          "horizon": 15,
+          "score": 73.3,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 9.88,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": 5,
-            "moveQuality": 2.08,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.5608,
-          "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 72.2,
-          "regime": "TRENDING",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "SELL|TRENDING|-0.7|0|SELL|0.7|RESISTANCE|OK|||ACCEPTED_THROUGH",
-            "repeatedRecent": 0,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 2,
-          "selected": false,
-          "runnerUpScore": 71.7
-        },
-        {
-          "pair": "EURUSD",
-          "horizon": 3,
-          "score": 67.7,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 12.03,
+            "signalQuality": 16,
             "profileReliability": 0,
             "sampleReliability": 0,
             "regime": 0,
-            "moveQuality": 1.69,
+            "moveQuality": 3.25,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.574,
+          "calibratedProbability": 0.6064,
           "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
-          "direction": "BUY",
-          "confidence": 75.5,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "BUY|MIXED|0.8|0|BUY|0.9|SUPPORT|OK|||REJECTED",
-            "repeatedRecent": 1,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 3,
-          "selected": false,
-          "runnerUpScore": 71.7
-        },
-        {
-          "pair": "AUDJPY",
-          "horizon": 3,
-          "score": 66.4,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 5.2,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": 5,
-            "moveQuality": 2.21,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.532,
-          "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
           "direction": "SELL",
-          "confidence": 65,
-          "regime": "TRENDING",
-          "session": null,
-          "timeBucket": null,
+          "confidence": 83.6,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -1719,7 +3062,7 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|TRENDING|-0.6|0|SELL|0.5|CLEAR|OK|||ACCEPTED_THROUGH",
+            "fingerprint": "SELL|MIXED|-0.8|0|SELL|0.4|SUPPORT|OK|||ACCEPTED_THROUGH",
             "repeatedRecent": 0,
             "sourceAdvanced": false,
             "staleRisk": false,
@@ -1743,21 +3086,20 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 4,
+          "rank": 2,
           "selected": false,
-          "runnerUpScore": 71.7
+          "runnerUpScore": 78.1
         },
         {
-          "pair": "EURJPY",
-          "horizon": 3,
-          "score": 66.2,
+          "pair": "NZDCHF",
+          "horizon": 15,
+          "score": 69.9,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 5.85,
+            "signalQuality": 14.63,
             "profileReliability": 0,
             "sampleReliability": 0,
-            "regime": 5,
+            "regime": 0,
             "moveQuality": 1.3,
             "conflicts": 0,
             "lossStreak": 0,
@@ -1765,15 +3107,15 @@
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.536,
+          "calibratedProbability": 0.59,
           "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
           "direction": "SELL",
-          "confidence": 66,
-          "regime": "TRENDING",
-          "session": null,
-          "timeBucket": null,
+          "confidence": 79.5,
+          "regime": "MIXED",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -1791,7 +3133,7 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|TRENDING|-0.6|0|SELL|0.3|RESISTANCE|OK|||ACCEPTED_THROUGH",
+            "fingerprint": "SELL|MIXED|-0.9|0|SELL|0.4|SUPPORT|OK|||REJECTED",
             "repeatedRecent": 0,
             "sourceAdvanced": false,
             "staleRisk": false,
@@ -1815,37 +3157,320 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
+          "rank": 3,
+          "selected": false,
+          "runnerUpScore": 78.1
+        },
+        {
+          "pair": "USDJPY",
+          "horizon": 15,
+          "score": 68.6,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 16,
+            "profileReliability": 0,
+            "sampleReliability": 0,
+            "regime": -3,
+            "moveQuality": 1.56,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.61,
+          "reliability": 0,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
+          "direction": "SELL",
+          "confidence": 84.5,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 0,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|CHOPPY|-0.9|0|SELL|1|SUPPORT|OK|||ACCEPTED_THROUGH",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 0,
+            "wins": 0,
+            "losses": 0,
+            "rawAccuracy": null,
+            "shrunkAccuracy": 0.52,
+            "reliability": 0
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 4,
+          "selected": false,
+          "runnerUpScore": 78.1
+        },
+        {
+          "pair": "AUDJPY",
+          "horizon": 15,
+          "score": 67.9,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 15.34,
+            "profileReliability": 0,
+            "sampleReliability": 0,
+            "regime": -3,
+            "moveQuality": 1.56,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5944,
+          "reliability": 0,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
+          "direction": "SELL",
+          "confidence": 80.6,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 0,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|CHOPPY|-0.6|0|SELL|1.3|SUPPORT|OK|||MITIGATING",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 0,
+            "wins": 0,
+            "losses": 0,
+            "rawAccuracy": null,
+            "shrunkAccuracy": 0.52,
+            "reliability": 0
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
           "rank": 5,
           "selected": false,
-          "runnerUpScore": 71.7
+          "runnerUpScore": 78.1
+        },
+        {
+          "pair": "EURJPY",
+          "horizon": 15,
+          "score": 67.7,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 15.14,
+            "profileReliability": 0,
+            "sampleReliability": 0,
+            "regime": -3,
+            "moveQuality": 1.56,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5932,
+          "reliability": 0,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
+          "direction": "SELL",
+          "confidence": 80.3,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 0,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "SELL|CHOPPY|-0.9|0|SELL|0.8|SUPPORT|OK|||ACCEPTED_THROUGH",
+            "repeatedRecent": 0,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 0,
+            "wins": 0,
+            "losses": 0,
+            "rawAccuracy": null,
+            "shrunkAccuracy": 0.52,
+            "reliability": 0
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 6,
+          "selected": false,
+          "runnerUpScore": 78.1
+        },
+        {
+          "pair": "EURUSD",
+          "horizon": 15,
+          "score": 63.2,
+          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
+          "breakdown": {
+            "signalQuality": 13.13,
+            "profileReliability": 0,
+            "sampleReliability": 0,
+            "regime": -3,
+            "moveQuality": -0.91,
+            "conflicts": 0,
+            "lossStreak": 0,
+            "freshness": 2,
+            "directionBias": 0,
+            "shadow": 0
+          },
+          "calibratedProbability": 0.5808,
+          "reliability": 0,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
+          "direction": "BUY",
+          "confidence": 77.2,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
+          "conflicts": [],
+          "conflictCount": 0,
+          "directionBias": {
+            "window": 0,
+            "buy": {
+              "n": 0,
+              "accuracy": null
+            },
+            "sell": {
+              "n": 0,
+              "accuracy": null
+            },
+            "dominantDirection": "BUY",
+            "imbalance": 0,
+            "alarm": false
+          },
+          "freshness": {
+            "fingerprint": "BUY|CHOPPY|0.9|0|BUY|1.1|RESISTANCE|OK|||MITIGATING",
+            "repeatedRecent": 1,
+            "sourceAdvanced": false,
+            "staleRisk": false,
+            "warning": null
+          },
+          "lossStreak": {
+            "currentLossRun": 0,
+            "active": false,
+            "recurrentTags": []
+          },
+          "profile": {
+            "n": 0,
+            "wins": 0,
+            "losses": 0,
+            "rawAccuracy": null,
+            "shrunkAccuracy": 0.52,
+            "reliability": 0
+          },
+          "shadow": {
+            "status": null,
+            "direction": null,
+            "confidence": null
+          },
+          "rank": 7,
+          "selected": false,
+          "runnerUpScore": 78.1
         },
         {
           "pair": "GBPUSD",
-          "horizon": 3,
-          "score": 61.3,
+          "horizon": 15,
+          "score": 60.8,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 5.39,
+            "signalQuality": 10.4,
             "profileReliability": 0,
             "sampleReliability": 0,
-            "regime": 0,
-            "moveQuality": 1.95,
+            "regime": -3,
+            "moveQuality": -0.65,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.5332,
+          "calibratedProbability": 0.564,
           "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
           "direction": "BUY",
-          "confidence": 65.3,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
+          "confidence": 73,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -1863,7 +3488,7 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "BUY|MIXED|0.7|0|BUY|0.8|RESISTANCE|OK|||ACCEPTED_THROUGH",
+            "fingerprint": "BUY|CHOPPY|0.9|0|BUY|0.7|RESISTANCE|OK|||MITIGATING",
             "repeatedRecent": 1,
             "sourceAdvanced": false,
             "staleRisk": false,
@@ -1887,37 +3512,36 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 6,
+          "rank": 8,
           "selected": false,
-          "runnerUpScore": 71.7
+          "runnerUpScore": 78.1
         },
         {
           "pair": "AUDNZD",
-          "horizon": 3,
-          "score": 60.7,
+          "horizon": 15,
+          "score": 55.6,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
-            "signalQuality": 6.69,
+            "signalQuality": 3.06,
             "profileReliability": 0,
             "sampleReliability": 0,
-            "regime": 0,
-            "moveQuality": 0,
+            "regime": -3,
+            "moveQuality": 1.56,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.5412,
+          "calibratedProbability": 0.5188,
           "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
           "direction": "SELL",
-          "confidence": 67.3,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
+          "confidence": 61.7,
+          "regime": "CHOPPY",
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -1935,8 +3559,8 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|MIXED|0|0|SELL|0.4|SUPPORT|OK|||REJECTED",
-            "repeatedRecent": 1,
+            "fingerprint": "SELL|CHOPPY|-0.3|0|SELL|0.2|RESISTANCE|OK|||FULLY_MITIGATED",
+            "repeatedRecent": 0,
             "sourceAdvanced": false,
             "staleRisk": false,
             "warning": null
@@ -1959,181 +3583,36 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
-          "rank": 7,
+          "rank": 9,
           "selected": false,
-          "runnerUpScore": 71.7
+          "runnerUpScore": 78.1
         },
         {
           "pair": "AUDUSD",
-          "horizon": 3,
-          "score": 59.7,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 6.44,
-            "profileReliability": 0,
-            "sampleReliability": 0,
-            "regime": 0,
-            "moveQuality": -0.78,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.5396,
-          "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
-          "direction": "BUY",
-          "confidence": 66.9,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "BUY|MIXED|0|0|BUY|0.5|SUPPORT|OK|||REJECTED",
-            "repeatedRecent": 1,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 8,
-          "selected": false,
-          "runnerUpScore": 71.7
-        },
-        {
-          "pair": "AUDCHF",
-          "horizon": 3,
-          "score": 55.3,
+          "horizon": 15,
+          "score": 50.7,
           "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
           "breakdown": {
             "signalQuality": 0,
             "profileReliability": 0,
             "sampleReliability": 0,
-            "regime": 0,
-            "moveQuality": 1.3,
-            "conflicts": 0,
-            "lossStreak": 0,
-            "freshness": 2,
-            "directionBias": 0,
-            "shadow": 0
-          },
-          "calibratedProbability": 0.4968,
-          "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
-          "direction": "SELL",
-          "confidence": 56.2,
-          "regime": "MIXED",
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "SELL|MIXED|-0.4|0|SELL|0.3|RESISTANCE|OK|||ACCEPTED_THROUGH",
-            "repeatedRecent": 0,
-            "sourceAdvanced": false,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 9,
-          "selected": false,
-          "runnerUpScore": 71.7
-        },
-        {
-          "pair": "NZDCHF",
-          "horizon": 3,
-          "score": 50.9,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "signalQuality": 1.17,
-            "profileReliability": 0,
-            "sampleReliability": 0,
             "regime": -3,
-            "moveQuality": -1.3,
+            "moveQuality": -0.26,
             "conflicts": 0,
             "lossStreak": 0,
             "freshness": 2,
             "directionBias": 0,
             "shadow": 0
           },
-          "calibratedProbability": 0.5072,
+          "calibratedProbability": 0.4872,
           "reliability": 0,
-          "signalBoundary": 1788785820000,
-          "targetBoundary": 1788786000000,
+          "signalBoundary": 1788786000000,
+          "targetBoundary": 1788786900000,
           "direction": "SELL",
-          "confidence": 58.8,
+          "confidence": 53.8,
           "regime": "CHOPPY",
-          "session": null,
-          "timeBucket": null,
+          "session": "LONDON_NY_OVERLAP",
+          "timeBucket": "18:00-18:59",
           "conflicts": [],
           "conflictCount": 0,
           "directionBias": {
@@ -2151,7 +3630,7 @@
             "alarm": false
           },
           "freshness": {
-            "fingerprint": "SELL|CHOPPY|-0.3|0|SELL|0.8|RESISTANCE|FAIL|||REJECTED",
+            "fingerprint": "SELL|CHOPPY|-0.5|-1|SELL|0.3|SUPPORT|FAIL|||APPROACHING",
             "repeatedRecent": 0,
             "sourceAdvanced": false,
             "staleRisk": false,
@@ -2175,1284 +3654,9 @@
             "direction": null,
             "confidence": null
           },
-          "result": null,
           "rank": 10,
           "selected": false,
-          "runnerUpScore": 71.7
-        }
-      ]
-    },
-    {
-      "capturedAt": "2026-09-07T12:59:24.012Z",
-      "horizon": 5,
-      "relativeStrengthOnly": true,
-      "candidates": [
-        {
-          "pair": "AUDCHF",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 1,
-          "selected": true,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "AUDJPY",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 2,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "AUDNZD",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 3,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "AUDUSD",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 4,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "EURJPY",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 5,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "EURUSD",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 6,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "GBPCAD",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 7,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "GBPUSD",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 8,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "NZDCHF",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 9,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "USDJPY",
-          "horizon": 5,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 10,
-          "selected": false,
-          "runnerUpScore": 1
-        }
-      ]
-    },
-    {
-      "capturedAt": "2026-09-07T12:59:24.012Z",
-      "horizon": 15,
-      "relativeStrengthOnly": true,
-      "candidates": [
-        {
-          "pair": "AUDCHF",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 1,
-          "selected": true,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "AUDJPY",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 2,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "AUDNZD",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 3,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "AUDUSD",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 4,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "EURJPY",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 5,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "EURUSD",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 6,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "GBPCAD",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 7,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "GBPUSD",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 8,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "NZDCHF",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 9,
-          "selected": false,
-          "runnerUpScore": 1
-        },
-        {
-          "pair": "USDJPY",
-          "horizon": 15,
-          "score": 1,
-          "scoreVersion": "SELECTOR_V2_FORWARD_SHRUNK",
-          "breakdown": {
-            "availability": -49
-          },
-          "calibratedProbability": null,
-          "reliability": 0,
-          "signalBoundary": null,
-          "targetBoundary": 1788786000000,
-          "direction": null,
-          "confidence": null,
-          "regime": null,
-          "session": null,
-          "timeBucket": null,
-          "conflicts": [],
-          "conflictCount": 0,
-          "directionBias": {
-            "window": 0,
-            "buy": {
-              "n": 0,
-              "accuracy": null
-            },
-            "sell": {
-              "n": 0,
-              "accuracy": null
-            },
-            "dominantDirection": "BUY",
-            "imbalance": 0,
-            "alarm": false
-          },
-          "freshness": {
-            "fingerprint": "||0|0||0||OK|||",
-            "repeatedRecent": 0,
-            "sourceAdvanced": true,
-            "staleRisk": false,
-            "warning": null
-          },
-          "lossStreak": {
-            "currentLossRun": 0,
-            "active": false,
-            "recurrentTags": []
-          },
-          "profile": {
-            "n": 0,
-            "wins": 0,
-            "losses": 0,
-            "rawAccuracy": null,
-            "shrunkAccuracy": 0.52,
-            "reliability": 0
-          },
-          "shadow": {
-            "status": null,
-            "direction": null,
-            "confidence": null
-          },
-          "result": null,
-          "rank": 10,
-          "selected": false,
-          "runnerUpScore": 1
+          "runnerUpScore": 78.1
         }
       ]
     }
