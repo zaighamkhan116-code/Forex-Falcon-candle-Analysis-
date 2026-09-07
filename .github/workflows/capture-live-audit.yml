@@ -1,7 +1,7 @@
 name: Capture Live Core FX Audit
 
-# Keep repository audit snapshots compact while also maintaining a canonical,
-# restart-safe settled-result history for deterministic 20-result batching.
+# Keep repository audit snapshots compact while maintaining an append-only,
+# restart-safe canonical settled-result history for deterministic 20-result batching.
 on:
   push:
     paths:
@@ -31,29 +31,24 @@ jobs:
           BASE_URL: https://forex-falcon-candle-analysis-production.up.railway.app/api/research/background
           PAIRS: EURUSD GBPUSD EURJPY USDJPY AUDUSD
           RETAIN_PER_PAIR: '500'
-          CANONICAL_RETAIN_PER_PAIR: '5000'
         run: |
           set -euo pipefail
-          mkdir -p audit/live audit/resolved audit/pending audit/canonical
+          mkdir -p audit/live audit/resolved audit/pending audit/canonical audit/integrity
           for pair in $PAIRS; do
             slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
             curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 15 --max-time 60 "$BASE_URL/$pair" -o "/tmp/$slug.json"
             jq -e --arg pair "$pair" '.pair == $pair and (.horizons | type == "object")' "/tmp/$slug.json" >/dev/null
 
-            # Small operational snapshot for quick inspection.
-            jq --argjson keep "$RETAIN_PER_PAIR" '
-              {
-                pair,
-                capturedAt:(now*1000|floor),
-                horizons:(.horizons | with_entries(.value = {
-                  horizon:(.value.horizon // null),
-                  recent:((.value.recent // []) | sort_by(.resolvedAt // .expiry // .signalBoundary // 0) | .[-$keep:]),
-                  pendingRecent:((.value.pendingRecent // []) | sort_by(.signalBoundary // .predictedAt // 0) | .[-100:])
-                }))
-              }
-            ' "/tmp/$slug.json" > "audit/live/$slug.json"
+            jq --argjson keep "$RETAIN_PER_PAIR" '{
+              pair,
+              capturedAt:(now*1000|floor),
+              horizons:(.horizons | with_entries(.value = {
+                horizon:(.value.horizon // null),
+                recent:((.value.recent // []) | sort_by(.resolvedAt // .expiry // .signalBoundary // 0) | .[-$keep:]),
+                pendingRecent:((.value.pendingRecent // []) | sort_by(.signalBoundary // .predictedAt // 0) | .[-100:])
+              }))
+            }' "/tmp/$slug.json" > "audit/live/$slug.json"
 
-            # Existing bounded full-fidelity history remains available for deep recent diagnosis.
             [ -f "audit/resolved/$slug.json" ] || echo '[]' > "audit/resolved/$slug.json"
             jq '[.horizons[]?.recent[]?]' "/tmp/$slug.json" > "/tmp/$slug-new-resolved.json"
             jq -s --arg pair "$pair" --argjson keep "$RETAIN_PER_PAIR" '
@@ -64,9 +59,6 @@ jobs:
             ' "audit/resolved/$slug.json" "/tmp/$slug-new-resolved.json" > "/tmp/$slug-merged.json"
             mv "/tmp/$slug-merged.json" "audit/resolved/$slug.json"
 
-            # Canonical compact history: this is the authoritative restart-safe sequence used
-            # for exact 20-result batches. It is derived from immutable settled predictions,
-            # not from volatile in-memory completedBatchCount values.
             [ -f "audit/canonical/$slug.json" ] || echo '[]' > "audit/canonical/$slug.json"
             jq --arg pair "$pair" '[.horizons[]?.recent[]? | select(.result != null and .result != "PENDING") | {
               id:(.id // (($pair) + "-" + ((.horizon // 0)|tostring) + "-" + ((.signalBoundary // .predictedAt // .resolvedAt // 0)|tostring))),
@@ -126,8 +118,6 @@ jobs:
               settlementCandleBody, authoritativeBoundarySettlement
             }]' "/tmp/$slug.json" > "/tmp/$slug-canonical-new.json"
 
-            # Seed the canonical store from any currently retained settled records as well, so
-            # the migration immediately recovers today's already-captured results.
             jq --arg pair "$pair" '[.[] | select(.result != null and .result != "PENDING") | {
               id:(.id // (($pair) + "-" + ((.horizon // 0)|tostring) + "-" + ((.signalBoundary // .predictedAt // .resolvedAt // 0)|tostring))),
               pair:(.pair // $pair), symbol, horizon, analysisTimeframe,
@@ -186,12 +176,15 @@ jobs:
               settlementCandleBody, authoritativeBoundarySettlement
             }]' "audit/resolved/$slug.json" > "/tmp/$slug-canonical-seed.json"
 
-            jq -s --argjson keep "$CANONICAL_RETAIN_PER_PAIR" '
-              (.[0] + .[1] + .[2])
-              | unique_by(.id)
-              | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)
-              | .[-$keep:]
-            ' "audit/canonical/$slug.json" "/tmp/$slug-canonical-seed.json" "/tmp/$slug-canonical-new.json" > "/tmp/$slug-canonical-merged.json"
+            jq -s '(.[0] + .[1] + .[2])' "audit/canonical/$slug.json" "/tmp/$slug-canonical-seed.json" "/tmp/$slug-canonical-new.json" > "/tmp/$slug-canonical-all.json"
+            contradictions=$(jq '[group_by(.id)[] | select(length>1) | select((map({pair,horizon,signalBoundary,entry,direction,confidence,result,resolvedAt,settlementSource,authoritativeBoundarySettlement})|unique|length)>1)] | length' "/tmp/$slug-canonical-all.json")
+            jq -n --arg pair "$pair" --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson contradictions "$contradictions" '{pair:$pair,capturedAt:$capturedAt,permanentIdContradictions:$contradictions}' > "audit/integrity/$slug.json"
+            [ "$contradictions" -eq 0 ] || { echo "Contradictory canonical permanent IDs for $pair" >&2; exit 1; }
+
+            jq 'unique_by(.id) | sort_by(.signalBoundary // .resolvedAt // 0, .resolvedAt // 0, .id)' "/tmp/$slug-canonical-all.json" > "/tmp/$slug-canonical-merged.json"
+            oldCount=$(jq 'length' "audit/canonical/$slug.json")
+            newCount=$(jq 'length' "/tmp/$slug-canonical-merged.json")
+            [ "$newCount" -ge "$oldCount" ] || { echo "Canonical history shrank for $pair: $oldCount -> $newCount" >&2; exit 1; }
             mv "/tmp/$slug-canonical-merged.json" "audit/canonical/$slug.json"
 
             jq '[.horizons[]?.pendingRecent[]?] | sort_by(.signalBoundary // .predictedAt // 0) | .[-100:]' "/tmp/$slug.json" > "audit/pending/$slug.json"
@@ -229,7 +222,7 @@ jobs:
           jq -s 'map({key:.pair,value:.}) | from_entries' audit/live/*.json > audit/live-core-fx.json
           jq -s 'add | sort_by(.resolvedAt // .expiry // .signalBoundary // 0) | .[-2500:]' audit/resolved/*.json > audit/resolved-core-fx.json
           jq -s 'add | sort_by(.signalBoundary // .predictedAt // 0) | .[-500:]' audit/pending/*.json > audit/pending-core-fx.json
-          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg pairs "EURUSD GBPUSD EURJPY USDJPY AUDUSD" --argjson resolvedCount "$(jq 'length' audit/resolved-core-fx.json)" --argjson pendingCount "$(jq 'length' audit/pending-core-fx.json)" --argjson appResolvedCount "$(jq 'length' audit/resolved-app.json)" --argjson appPendingCount "$(jq 'length' audit/pending-app.json)" --argjson canonicalCount "$(jq -s 'add|length' audit/canonical/*.json)" --argjson minimumConfidence "$(jq '.minimumProbability // 57' audit/app-config.json)" '{capturedAt:$capturedAt,pairs:($pairs|split(" ")),timeframes:[1,2,3,5,15],resolvedRetainedCount:$resolvedCount,pendingRetainedCount:$pendingCount,visibleAppResolvedRetainedCount:$appResolvedCount,visibleAppPendingRetainedCount:$appPendingCount,canonicalSettledCount:$canonicalCount,minimumConfidence:$minimumConfidence,visibleAppCapture:true,storageMode:"bounded-recent+canonical-restart-safe",canonicalSource:"settled-result-id-sequence",fullHistorySource:"live-server"}' > audit/capture-status.json
+          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg pairs "EURUSD GBPUSD EURJPY USDJPY AUDUSD" --argjson resolvedCount "$(jq 'length' audit/resolved-core-fx.json)" --argjson pendingCount "$(jq 'length' audit/pending-core-fx.json)" --argjson appResolvedCount "$(jq 'length' audit/resolved-app.json)" --argjson appPendingCount "$(jq 'length' audit/pending-app.json)" --argjson canonicalCount "$(jq -s 'add|length' audit/canonical/*.json)" --argjson minimumConfidence "$(jq '.minimumProbability // 57' audit/app-config.json)" '{capturedAt:$capturedAt,pairs:($pairs|split(" ")),timeframes:[1,2,3,5,15],resolvedRetainedCount:$resolvedCount,pendingRetainedCount:$pendingCount,visibleAppResolvedRetainedCount:$appResolvedCount,visibleAppPendingRetainedCount:$appPendingCount,canonicalSettledCount:$canonicalCount,minimumConfidence:$minimumConfidence,visibleAppCapture:true,storageMode:"bounded-recent+canonical-append-only-restart-safe",canonicalSource:"settled-result-permanent-id-sequence",fullHistorySource:"live-server"}' > audit/capture-status.json
 
       - name: Build compact pair-timeframe batch audit snapshot
         env:
@@ -238,7 +231,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p audit/track-tail
-          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{capturedAt:$capturedAt,storageMode:"canonical-restart-safe",tracks:{}}' > /tmp/track-status.json
+          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{capturedAt:$capturedAt,storageMode:"canonical-append-only-restart-safe",tracks:{}}' > /tmp/track-status.json
           for pair in $PAIRS; do
             slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
             for horizon in $HORIZONS; do
@@ -247,7 +240,7 @@ jobs:
               completed=$((current/20)); rem=$((current%20))
               jq --arg key "$key" --arg pair "$pair" --argjson horizon "$horizon" --argjson retained "$current" --argjson completed "$completed" --argjson rem "$rem" '.tracks[$key]={pair:$pair,horizon:$horizon,canonicalResolved:$retained,completed20Batches:$completed,remainder:$rem}' /tmp/track-status.json > /tmp/track-status-next.json
               mv /tmp/track-status-next.json /tmp/track-status.json
-              jq --argjson h "$horizon" '[.[] | select((.horizon|tonumber) == $h)] | sort_by(.resolvedAt // .expiry // .signalBoundary // 0) | .[-60:]' "audit/canonical/$slug.json" > "audit/track-tail/$slug-${horizon}m.json"
+              jq --argjson h "$horizon" '[.[] | select((.horizon|tonumber) == $h)] | sort_by(.signalBoundary // .resolvedAt // 0) | .[-60:]' "audit/canonical/$slug.json" > "audit/track-tail/$slug-${horizon}m.json"
             done
           done
           mv /tmp/track-status.json audit/track-status.json
@@ -267,11 +260,11 @@ jobs:
           set -euo pipefail
           git config user.name "Forex Falcon Audit Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add audit/live audit/resolved audit/canonical audit/pending audit/live-core-fx.json audit/resolved-core-fx.json audit/pending-core-fx.json audit/live-app.json audit/resolved-app.json audit/pending-app.json audit/app-config.json audit/capture-status.json audit/track-status.json audit/track-tail
+          git add audit/live audit/resolved audit/canonical audit/pending audit/integrity audit/live-core-fx.json audit/resolved-core-fx.json audit/pending-core-fx.json audit/live-app.json audit/resolved-app.json audit/pending-app.json audit/app-config.json audit/capture-status.json audit/track-status.json audit/track-tail
           if git diff --cached --quiet; then
             echo "No audit changes"
             exit 0
           fi
-          git commit -m "audit: capture canonical restart-safe settled history"
+          git commit -m "audit: capture append-only canonical settled history"
           git pull --rebase origin main
           git push origin main
