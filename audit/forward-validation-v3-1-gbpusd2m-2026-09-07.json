@@ -1,0 +1,28 @@
+{
+  "status": "FORWARD_VALIDATION",
+  "version": "V3_1_FORWARD_VALIDATION",
+  "createdAt": "2026-09-07T18:17:00Z",
+  "affectedTrack": {"pair":"GBPUSD","horizon":2,"timeframe":"2M"},
+  "strategyCommit": "430be1c8211131bd77cd91cac41f85ed9ac393d7",
+  "testCommit": "d900cd9ee10391c7cb00359623b3f0ec6f5853be",
+  "baseline": {
+    "batch8": {"rawAccuracy":0.3158,"maxLossStreak":5},
+    "batch9": {"rawAccuracy":0.2778,"maxLossStreak":6},
+    "batch9SessionBucketsPKT": {
+      "19:00_LONDON_NY_OVERLAP": {"accuracy":0.3333,"n":12},
+      "22:00_NEW_YORK": {"accuracy":0.1667,"n":6}
+    }
+  },
+  "mechanism": {
+    "name": "GBPUSD_2M_NEGATIVE_EDGE_CONFLICT_RERANK",
+    "rule": "Rerank to the opposite direction only when originalDirectionScore is negative, oppositeDirectionScore is at least 0.75 better, and compound conflict is present via >=2 stored conflicts or >=3 opposed confirmation votes.",
+    "frequencyImpact": "NONE",
+    "globalMinimumConfidence": 57,
+    "moneyManagementChanged": false
+  },
+  "evidence": "B8 and B9 repeated degradation. In B9 several losses had both directional scores negative while the opposite score was materially less negative, under compound conflict, yet directionReranked remained false. Wins commonly retained a clearly superior chosen-direction score.",
+  "expectedEffect": "Reduce wrong-direction clusters in GBPUSD 2M when the selected side has a negative edge and the opposite side is materially stronger under conflict, without removing signals.",
+  "nextUnseenValidation": "GBPUSD 2M canonical batch B10",
+  "retainRule": "Retain only if B10 and subsequent clean chronological evidence improve raw accuracy and/or materially reduce loss-streak severity without unacceptable frequency degradation.",
+  "rollbackRule": "If unseen evidence degrades, revert only the GBPUSD 2M V3.1 arm and preserve all other V3/V9 specializations."
+}
