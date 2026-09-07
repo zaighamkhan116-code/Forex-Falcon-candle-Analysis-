@@ -66,6 +66,17 @@ button{
   box-shadow:0 0 10px rgba(40,215,255,.92),0 0 24px rgba(40,215,255,.40),inset 0 0 12px rgba(40,215,255,.10)!important;
 }
 
+/* Pair names: pure white for maximum readability */
+.select-pair-btn,
+.market-pair,
+.market-pair-btn,
+.market-rank-row .market-pair,
+.market-rank-row .market-pair-btn,
+#otcPairButton{
+  color:#ffffff!important;
+  text-shadow:0 0 7px rgba(255,255,255,.20)!important;
+}
+
 /* Tables and internal cells */
 .market-rank-table,
 .otc-history table{background:rgba(2,16,32,.72)!important}
