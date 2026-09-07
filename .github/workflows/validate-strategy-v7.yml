@@ -1,0 +1,35 @@
+name: Validate Strategy V7
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'lib/trackCalibration.js'
+      - 'lib/frequencyScoring.js'
+      - 'lib/shadowEnsemble.js'
+      - 'test/**'
+      - '.github/workflows/validate-strategy-v7.yml'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Strategy invariants
+        run: |
+          node --input-type=module <<'NODE'
+          import {tuneFrequencyScore} from './lib/frequencyScoring.js';
+          const samples=[
+            {pair:'EURUSD',horizon:5,direction:'BUY',confidence:65,signalBoundary:Date.UTC(2026,8,7,9,30),features:{moveQualityScore:3.5,efficiency:.15,progressScore:-2,failureToProgress:true,mtfOppositionCount:2,emaCompression:true,lateContinuationRisk:true,transitionRiskActive:true}},
+            {pair:'GBPUSD',horizon:5,direction:'BUY',confidence:65,signalBoundary:Date.UTC(2026,8,7,9,30),features:{moveQualityScore:6,vsaScore:.28,candleBodyRatio:.62,bodyAtr:.5,sequencePressure:.2,progressScore:3,mtfAgreementCount:3,groupConsensusDirection:'BUY',groupDominance:.7}},
+            {pair:'USDJPY',horizon:5,direction:'SELL',confidence:65,signalBoundary:Date.UTC(2026,8,7,9,30),features:{moveQualityScore:3.8,efficiency:.18,progressScore:2,failureToProgress:true,mtfOppositionCount:3,bbContraction:true,lateContinuationRisk:true}}
+          ];
+          for(const s of samples){const out=tuneFrequencyScore(s);if(!out.tradeQualified||out.confidence<57||out.features.frequencyPreserved!==true)throw new Error(`cadence invariant failed for ${s.pair}`);}
+          NODE
