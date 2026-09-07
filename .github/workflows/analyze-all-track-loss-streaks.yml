@@ -1,0 +1,154 @@
+name: Analyze all track loss streaks
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/analyze-all-track-loss-streaks.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build all-track streak analysis
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'fs';
+          import path from 'path';
+
+          const PAIRS=['EURUSD','GBPUSD','EURJPY','USDJPY','AUDUSD'];
+          const H=[1,2,3,5,15];
+          const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+          const upper=v=>String(v??'').toUpperCase();
+          const n=v=>{const x=Number(v);return Number.isFinite(x)?x:0};
+          const pct=v=>Number((v*100).toFixed(2));
+          const tsOf=x=>n(x.signalBoundary||x.predictedAt||x.generatedAt||x.resolvedAt||x.expiry);
+          const horizonOf=x=>n(x.horizon||x.features?.horizon||String(x.analysisTimeframe||'').replace(/\D/g,''));
+          const directional=x=>x.result==='WIN'||x.result==='LOSS';
+
+          function pktParts(ts){
+            const d=new Date(ts);
+            const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Karachi',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(d);
+            const hour=Number(parts.find(x=>x.type==='hour')?.value||0),minute=Number(parts.find(x=>x.type==='minute')?.value||0);
+            return{hour,minute,bucket:`${String(hour).padStart(2,'0')}:00-${String((hour+1)%24).padStart(2,'0')}:00`,session:hour>=9&&hour<=11?'ASIAN_LATE':hour===12?'LONDON_PREOPEN':hour===13?'LONDON_OPEN':hour>=14&&hour<=16?'LONDON_EARLY_MID':hour>=17&&hour<=19?'LONDON_NY_OVERLAP':hour>=20&&hour<=22?'NEW_YORK':'OTHER'};
+          }
+
+          function tags(x){
+            const f=x.features||{},d=upper(x.direction),out=new Set();
+            for(const a of [f.frequencyConflicts,f.frequencyStructuralTags,f.frequencyFreshEvidence,f.trackCalibrationTags,x.vetoReasons]) if(Array.isArray(a)) for(const t of a) if(t) out.add(upper(t));
+            const q=n(f.moveQualityScore||5), mtf=n(f.mtfOppositionCount), prog=n(f.progressScore)*(d==='SELL'?-1:1), zone=upper(f.dynamicZoneSide), fvg=upper(f.activeFvgState||f.fvgState);
+            if(q<4.8)out.add('WEAK_MOVE_QUALITY');
+            if(mtf>=2)out.add('MTF_CONFLICT');
+            if(f.failureToProgress===true||prog<=0)out.add('FAILURE_TO_PROGRESS');
+            if(f.lateContinuationRisk===true||f.lateCounterTrendRisk===true)out.add('LATE_CONTINUATION');
+            if((d==='BUY'&&zone==='RESISTANCE')||(d==='SELL'&&zone==='SUPPORT'))out.add('ADVERSE_LOCATION');
+            if(['APPROACHING','MITIGATING'].includes(fvg))out.add('UNRESOLVED_FVG');
+            if(f.emaCompression===true||f.emaCompressed===true||upper(f.emaState).includes('COMPRESS'))out.add('EMA_COMPRESSION');
+            if(f.bbContraction===true||upper(f.bbState).includes('CONTRACT'))out.add('BB_CONTRACTION');
+            if((d==='BUY'&&f.bullExtended===true)||(d==='SELL'&&f.bearExtended===true)||f.extendedMove===true)out.add('EXTENDED_MOVE');
+            if(f.breakoutAccepted===true)out.add('BREAKOUT_PROGRESS');
+            if(f.breakoutMaturityGate===true||f.breakoutMaturityQualified===true)out.add('BREAKOUT_MATURE');
+            if(f.continuationResetGate===true||f.continuationResetQualified===true)out.add('CONTINUATION_RESET');
+            if(f.maBbAlignment===true||f.maBbAligned===true)out.add('MA_BB_ALIGNMENT');
+            if(f.tickAcceleration===true||n(f.tickAccelerationScore)>=.18)out.add('TICK_ACCELERATION');
+            if(f.renewedProgress===true)out.add('RENEWED_PROGRESS');
+            return [...out];
+          }
+
+          function streakRuns(rows){
+            const runs=[];let cur=[];
+            for(const x of rows){
+              if(x.result==='LOSS')cur.push(x);else if(x.result==='WIN'&&cur.length){runs.push(cur);cur=[]}
+            }
+            if(cur.length)runs.push(cur);
+            return runs;
+          }
+
+          function prevalence(rows){
+            const map=new Map();
+            for(const x of rows)for(const t of tags(x))map.set(t,(map.get(t)||0)+1);
+            return map;
+          }
+
+          function highRiskTags(rows){
+            const baseLoss=rows.filter(x=>x.result==='LOSS').length/Math.max(1,rows.length), by=new Map();
+            for(const x of rows)for(const t of tags(x)){
+              const z=by.get(t)||{n:0,l:0,w:0};z.n++;z.l+=x.result==='LOSS';z.w+=x.result==='WIN';by.set(t,z);
+            }
+            return [...by.entries()].map(([tag,z])=>({tag,n:z.n,losses:z.l,wins:z.w,lossRate:pct(z.l/z.n),deltaVsTrackLossRatePp:Number(((z.l/z.n-baseLoss)*100).toFixed(2)),status:z.n>=8?'EVIDENCE':'PROVISIONAL'})).filter(x=>x.n>=5).sort((a,b)=>b.deltaVsTrackLossRatePp-a.deltaVsTrackLossRatePp||b.n-a.n).slice(0,8);
+          }
+
+          function protectiveTags(rows){
+            const baseWin=rows.filter(x=>x.result==='WIN').length/Math.max(1,rows.length), by=new Map();
+            for(const x of rows)for(const t of tags(x)){
+              const z=by.get(t)||{n:0,w:0};z.n++;z.w+=x.result==='WIN';by.set(t,z);
+            }
+            return [...by.entries()].map(([tag,z])=>({tag,n:z.n,winRate:pct(z.w/z.n),liftVsTrackWinRatePp:Number(((z.w/z.n-baseWin)*100).toFixed(2)),status:z.n>=8?'EVIDENCE':'PROVISIONAL'})).filter(x=>x.n>=5).sort((a,b)=>b.liftVsTrackWinRatePp-a.liftVsTrackWinRatePp||b.n-a.n).slice(0,6);
+          }
+
+          function summarize(pair,h,rows){
+            rows=rows.filter(directional).sort((a,b)=>tsOf(a)-tsOf(b));
+            const w=rows.filter(x=>x.result==='WIN').length,l=rows.length-w,runs=streakRuns(rows),max=Math.max(0,...runs.map(r=>r.length));
+            const runCounts={ge2:runs.filter(r=>r.length>=2).length,ge3:runs.filter(r=>r.length>=3).length,ge4:runs.filter(r=>r.length>=4).length,ge5:runs.filter(r=>r.length>=5).length};
+            const dirs={BUY:rows.filter(x=>upper(x.direction)==='BUY').length,SELL:rows.filter(x=>upper(x.direction)==='SELL').length};
+            const sessions={};
+            for(const x of rows){const p=pktParts(tsOf(x)),k=p.session,z=sessions[k]||{n:0,w:0,l:0};z.n++;z.w+=x.result==='WIN';z.l+=x.result==='LOSS';sessions[k]=z}
+            for(const z of Object.values(sessions))z.accuracy=pct(z.w/Math.max(1,z.w+z.l));
+            const hours={};
+            for(const x of rows){const p=pktParts(tsOf(x)),z=hours[p.bucket]||{n:0,w:0,l:0};z.n++;z.w+=x.result==='WIN';z.l+=x.result==='LOSS';hours[p.bucket]=z}
+            for(const z of Object.values(hours))z.accuracy=pct(z.w/Math.max(1,z.w+z.l));
+            const streakDetails=runs.filter(r=>r.length>=3).map(r=>{
+              const all=prevalence(r), recurrent=[...all.entries()].map(([tag,count])=>({tag,count,share:pct(count/r.length)})).filter(x=>x.share>=50).sort((a,b)=>b.share-a.share).slice(0,8);
+              const ps=r.map(x=>pktParts(tsOf(x)));
+              return{length:r.length,start:tsOf(r[0]),end:tsOf(r.at(-1)),directions:{BUY:r.filter(x=>upper(x.direction)==='BUY').length,SELL:r.filter(x=>upper(x.direction)==='SELL').length},sessions:[...new Set(ps.map(x=>x.session))],hours:[...new Set(ps.map(x=>x.bucket))],regimes:[...new Set(r.map(x=>upper(x.regime)||'UNKNOWN'))],recurrentTags:recurrent};
+            }).sort((a,b)=>b.length-a.length||b.end-a.end).slice(0,12);
+            const risk=highRiskTags(rows),protect=protectiveTags(rows),poorSessions=Object.entries(sessions).map(([session,z])=>({session,...z})).filter(x=>x.n>=10&&x.accuracy<45).sort((a,b)=>a.accuracy-b.accuracy),poorHours=Object.entries(hours).map(([bucket,z])=>({bucket,...z})).filter(x=>x.n>=8&&x.accuracy<45).sort((a,b)=>a.accuracy-b.accuracy).slice(0,6);
+            const imbalance=rows.length?Math.max(dirs.BUY,dirs.SELL)/rows.length:0, dominant=dirs.BUY>=dirs.SELL?'BUY':'SELL';
+            const solutions=[];
+            for(const x of risk.filter(x=>x.deltaVsTrackLossRatePp>=10).slice(0,4))solutions.push({type:'CONDITIONAL_PENALTY',target:x.tag,evidence:x,status:'SHADOW_FIRST',frequencyImpact:'NONE'});
+            for(const x of protect.filter(x=>x.liftVsTrackWinRatePp>=10).slice(0,3))solutions.push({type:'PROTECT_OR_CREDIT',target:x.tag,evidence:x,status:'FORWARD_VALIDATE',frequencyImpact:'NONE'});
+            for(const x of poorSessions.slice(0,2))solutions.push({type:'SESSION_PROFILE_RECALIBRATION',target:x.session,evidence:{n:x.n,accuracy:x.accuracy},status:'FORWARD_VALIDATE',frequencyImpact:'NONE'});
+            if(imbalance>=.80&&rows.length>=20&&w/rows.length<.55)solutions.push({type:'DIRECTION_BIAS_RECALIBRATION',target:dominant,evidence:{share:pct(imbalance),accuracy:pct(w/rows.length)},status:'FORWARD_VALIDATE',frequencyImpact:'NONE'});
+            if(max>=4)solutions.push({type:'STREAK_BREAK_COMPOUND_RISK',target:'COMPOUND_CONFLICT_SCORE',evidence:{maxLossStreak:max,runCounts},status:'HIGH_PRIORITY_SHADOW_FIRST',frequencyImpact:'NONE'});
+            return{pair,horizon:h,n:rows.length,wins:w,losses:l,accuracy:rows.length?pct(w/rows.length):null,maxLossStreak:max,lossRunCounts:runCounts,directions:dirs,directionImbalancePct:pct(imbalance),sessions,hours,highRiskTags:risk,protectiveTags:protect,streaks3Plus:streakDetails,solutions};
+          }
+
+          const all=[];
+          for(const pair of PAIRS){
+            const file=`audit/canonical/${pair.toLowerCase()}.json`;
+            if(!fs.existsSync(file))continue;
+            let arr=[];try{arr=JSON.parse(fs.readFileSync(file,'utf8'))}catch(e){console.error('parse failed',file,e.message);continue}
+            if(!Array.isArray(arr))continue;
+            for(const h of H)all.push(summarize(pair,h,arr.filter(x=>horizonOf(x)===h)));
+          }
+
+          const byPair={};
+          for(const pair of PAIRS){
+            const tracks=all.filter(x=>x.pair===pair&&x.n>0);
+            const ranked=[...tracks].sort((a,b)=>(b.accuracy??-1)-(a.accuracy??-1)||a.maxLossStreak-b.maxLossStreak);
+            byPair[pair]={referenceTimeframes:ranked.map(x=>({horizon:x.horizon,n:x.n,accuracy:x.accuracy,maxLossStreak:x.maxLossStreak})),bestReference:ranked[0]||null};
+          }
+          const priority=[...all].filter(x=>x.n>0).sort((a,b)=>b.maxLossStreak-a.maxLossStreak||(a.accuracy??100)-(b.accuracy??100)).map(x=>({pair:x.pair,horizon:x.horizon,n:x.n,accuracy:x.accuracy,maxLossStreak:x.maxLossStreak,ge4:x.lossRunCounts.ge4,topRisk:x.highRiskTags[0]||null}));
+          const report={generatedAt:new Date().toISOString(),timezone:'Asia/Karachi',method:'chronological canonical WIN/LOSS records; tag prevalence compared with same-track baseline; no hard veto proposed',constraints:{frequencyPreserved:true,globalThresholdUnchanged:57,allTimeframesActive:true,shadowFirstForNewPenalties:true},trackCount:all.filter(x=>x.n>0).length,priority,byPair,tracks:all};
+          fs.mkdirSync('audit',{recursive:true});fs.writeFileSync('audit/all-track-loss-streak-analysis-2026-09-07.json',JSON.stringify(report,null,2)+'\n');
+          console.log(JSON.stringify({trackCount:report.trackCount,priority:priority.slice(0,10)},null,2));
+          NODE
+      - name: Commit report
+        run: |
+          git config user.name 'Forex Falcon Audit Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add audit/all-track-loss-streak-analysis-2026-09-07.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'audit: report all-track loss streak causes'
+          git pull --rebase origin main
+          git push origin HEAD:main
