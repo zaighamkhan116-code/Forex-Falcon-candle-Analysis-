@@ -1,10 +1,11 @@
 {
   "createdAt": "2026-09-07T17:05:00Z",
-  "status": "FORWARD_VALIDATION",
+  "updatedAt": "2026-09-07T19:08:00Z",
+  "status": "MIXED_FORWARD_VALIDATION",
   "strategyVersion": "V9_FORWARD_VALIDATION_TRACK_CONFLICT_CALIBRATION",
   "integrityPrerequisite": {
     "status": "PASS",
-    "canonicalSettledCount": 3400,
+    "canonicalSettledCount": 3768,
     "lineageRule": "CANONICAL_RECORDS_1_20_B1",
     "malformed": 0,
     "duplicateIds": 0,
@@ -12,71 +13,57 @@
     "contradictions": 0
   },
   "stageZeroRepairsThisCycle": [
-    {
-      "commit": "75853b0d29589f7e88c3fc638f14443ff5cbe9d7",
-      "change": "Advance stale canonical learning watermark only through batches proven analyzed by the prior completed report."
-    },
-    {
-      "commit": "fc5fb780f359f4849fa987d51f157fa732684eb7",
-      "change": "Give canonical learning an independent scheduled trigger and atomically persist its batch watermark after successful analysis."
-    },
-    {
-      "commit": "3c3def817ce181db613709382c0d74fd482c2376",
-      "change": "Successful canonical analysis of 20 newly completed exact-20 batches and atomic watermark advancement."
-    }
+    {"commit":"b3f9e5aa5b88e285dac8902cf14ab2ce30972510","change":"Retrigger stalled canonical capture backstop; no strategy logic change."},
+    {"commit":"96a4559fd135239112e581b0142001a59aa6955c","change":"Retrigger stalled integrity-gated exact-20 rebuild; no batch logic change."},
+    {"commit":"0dae0928677a99c194bb859abc5cf51d1ceda825","change":"Retrigger canonical learner after exact-batch rebuild advanced beyond watermark."},
+    {"commit":"54193b79b8ae63c26d259104b8f8f135fb32cd2a","change":"Analyze 10 newly completed canonical exact-20 batches and advance watermark atomically."}
   ],
   "experiments": [
     {
       "track": "EURJPY-3M",
       "codeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
       "testCommit": "74aa3bde1ebd01e50fbdd19335393c3995829b7e",
-      "evidence": {
+      "status": "VALIDATED_RETAINED",
+      "preChangeEvidence": {
         "batch6": {"rawAccuracy": 0.35, "maxLossStreak": 5},
-        "batch7": {"rawAccuracy": 0.35, "maxLossStreak": 7},
-        "repeatability": "Two consecutive clean canonical batches at 35%; streak severity worsened.",
-        "timeContext": "Weakness moved between London early/mid and London/NY overlap, so the experiment is condition-specific rather than hard-coded to one hour."
+        "batch7": {"rawAccuracy": 0.35, "maxLossStreak": 7}
       },
-      "change": "When EURJPY 3M is already in compound conflict with failed/weak reaction, add a targeted confidence adjustment and direction-bias penalty to that candidate direction. No veto and no minimum-confidence change.",
-      "expectedEffect": "Reduce persistence in stale/conflicted direction and let the existing evidence-based opposite-direction reranker win when the alternative has healthier reaction evidence, while preserving one signal per eligible boundary.",
-      "nextUnseenTarget": "EURJPY-3M canonical B8",
-      "promotionRule": "Retain only if unseen raw accuracy and/or loss-streak severity improves without frequency degradation; otherwise revert this track-specific V9 tag."
+      "unseenValidation": {
+        "batch8": {"rawAccuracy": 0.6842, "wins": 13, "losses": 6, "ties": 1, "maxLossStreak": 2},
+        "accuracyLiftVsImmediatePreChangeAveragePp": 33.42,
+        "streakImprovement": "max loss streak reduced from L5/L7 to L2",
+        "frequency": "20 canonical settlements retained; no signal-suppression mechanism introduced"
+      },
+      "decision": "RETAIN V9 EURJPY-3M track-specific conflict calibration. Do not broaden globally. Keep under continued chronological validation before any wider routing use.",
+      "nextUnseenTarget": "EURJPY-3M canonical B9",
+      "rollbackRule": "Revert only EURJPY-3M V9 specialization if later unseen batches materially reverse the accuracy/streak improvement."
     },
     {
       "track": "AUDUSD-2M",
       "codeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
       "testCommit": "74aa3bde1ebd01e50fbdd19335393c3995829b7e",
-      "evidence": {
+      "status": "FORWARD_VALIDATION_CONTINUES",
+      "preChangeEvidence": {
         "batch7": {"rawAccuracy": 0.3158, "maxLossStreak": 6},
-        "batch8": {"rawAccuracy": 0.4211, "maxLossStreak": 6},
-        "repeatability": "Two consecutive clean canonical batches below 43% with repeated six-loss maximum streaks.",
-        "timeContext": "Weakness spans adjacent London/overlap conditions, so the experiment targets compound reaction conflict rather than removing a session."
+        "batch8": {"rawAccuracy": 0.4211, "maxLossStreak": 6}
       },
-      "change": "When AUDUSD 2M is already in compound conflict with failed/weak reaction, add a targeted confidence adjustment and direction-bias penalty to that candidate direction. No veto and no minimum-confidence change.",
-      "expectedEffect": "Improve direction selection under conflicted price reaction without reducing signal cadence or modifying money management.",
-      "nextUnseenTarget": "AUDUSD-2M canonical B9",
-      "promotionRule": "Retain only if unseen raw accuracy and/or loss-streak severity improves without frequency degradation; otherwise revert this track-specific V9 tag."
+      "firstUnseenObservation": {"batch9": {"rawAccuracy": 0.5714, "maxLossStreak": 5}},
+      "decision": "Improved but not yet regime-locked; require B10 because streak reduction is modest and only one unseen batch is available.",
+      "nextUnseenTarget": "AUDUSD-2M canonical B10"
     }
   ],
-  "notModifiedForInsufficientRepeatability": [
-    "GBPUSD-1M",
-    "GBPUSD-2M",
-    "EURJPY-2M",
-    "USDJPY-2M"
-  ],
-  "recoveredWithoutFurtherModification": [
-    "EURUSD-2M",
-    "USDJPY-3M"
-  ],
-  "protectedHealthyControls": [
-    "EURUSD-5M B5 68.42%",
-    "AUDUSD-5M B5 72.22%",
-    "USDJPY-1M B10 57.89%",
-    "GBPUSD-5M B5 55%"
-  ],
+  "currentCycleObservations": {
+    "combined10NewBatches": {"decided":151,"wins":88,"losses":63,"ties":49,"rawAccuracy":0.5828,"maxLossStreak":4},
+    "watchOnly": [
+      "AUDUSD-3M B8 42.86% / L4: one weak unseen batch, insufficient for modification",
+      "GBPUSD-3M B8 47.37% / L3: insufficient repeatability",
+      "VSA_OPPOSES_DIRECTION 6W/9L over 15 cases across mixed tracks: degraded aggregate signal but not yet pair×timeframe-specific enough for a global change"
+    ]
+  },
   "shadow": {
     "authority": "NON_AUTHORITATIVE",
-    "schemaRepair": "CONFIRMED_LIVE_NO_FEATURE_NAME_WARNINGS",
-    "unsupportedPairs": "UNSUPPORTED_NOT_GLOBAL_FAILURE"
+    "currentCycle": {"ready":25,"unavailable":5,"unsupported":170,"agreements":8,"disagreements":17,"decided":18,"wins":7,"rawAccuracy":0.3889,"bothModelLosses":5},
+    "decision": "No promotion or weighting; current unseen Shadow performance is insufficient."
   },
   "minimumConfidence": 57,
   "frequencyPolicy": "PRESERVED"
