@@ -1,0 +1,16 @@
+{
+  "status": "FORWARD_VALIDATION_PLANNED",
+  "generatedAt": "2026-09-07T17:29:00Z",
+  "constraints": {
+    "preserveFrequency": true,
+    "globalConfidenceFloor": 57,
+    "noMoneyManagementChanges": true,
+    "pairTimeframeSpecific": true
+  },
+  "targets": [
+    {"pair":"USDJPY","horizon":2,"issue":"BREAKOUT_MATURITY_GATE","evidence":"10 losses / 11 cases","plannedAction":"penalize mature breakout continuation after stalled/failed progress; favor reversal/retest interpretation without veto"},
+    {"pair":"EURUSD","horizon":2,"issue":"CONTINUATION_RESET_GATE","evidence":"19 losses / 26 cases","plannedAction":"decay continuation/EMA/momentum authority after failed progress or rejection"},
+    {"pair":"GBPUSD","horizon":1,"issue":"ONE_MINUTE_CHOP_GUARD","evidence":"13 losses / 20 cases","plannedAction":"downweight trend continuation inside chop and increase range-location/rejection/sequence authority"},
+    {"pair":"EURJPY","horizon":2,"issue":"CONSENSUS_CONFLICT","evidence":"5 losses / 5 cases; provisional","plannedAction":"opposite-direction rerank only under compound conflict; keep provisional and reversible"}
+  ]
+}
