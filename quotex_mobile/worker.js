@@ -24,8 +24,15 @@ const state = {
   lastError: null,
   lastSignalId: null,
   lastTrade: null,
+  balance: null,
+  openTrades: 0,
+  settledTrades: 0,
   startedAt: Date.now()
 };
+
+const claimedTradeIds = new Set();
+const openTrades = new Map();
+let executionQueue = Promise.resolve();
 
 function log(event, extra={}) {
   console.log(JSON.stringify({ service:'quotex-mobile', event, at:Date.now(), ...extra }));
@@ -77,10 +84,13 @@ async function snapshot(page) {
       if(Number.isFinite(n)){ balance=n; break; }
     }
     const history=[...document.querySelectorAll('.vEqGz')].map(row=>{
-      const s=txt(row), id=s.match(/ID:\s*([a-f0-9-]{16,})/i)?.[1];
-      const r=txt(row.querySelector('.lCITV')); return {id,returned:r?Number(r.replace(/[^0-9.-]/g,'')):null};
+      const text=txt(row), id=text.match(/ID:\s*([a-f0-9-]{16,})/i)?.[1];
+      const resultEl=row.querySelector('.lCITV'), returnedText=txt(resultEl), returned=returnedText?Number(returnedText.replace(/[^0-9.-]/g,'')):null;
+      const lower=text.toLowerCase();
+      const semanticResult=/\b(win|won|profit|successful)\b/.test(lower)?'WIN':/\b(loss|lost|lose)\b/.test(lower)?'LOSS':/\b(draw|tie)\b/.test(lower)?'DRAW':null;
+      return {id,returned:Number.isFinite(returned)?returned:null,returnedText,text,semanticResult};
     }).filter(x=>x.id);
-    return { currentPair, balance, history:history.slice(0,10), page:location.href };
+    return { currentPair, balance, history:history.slice(0,20), page:location.href };
   });
 }
 
@@ -132,32 +142,68 @@ async function clickDirection(page, direction) {
   }, direction);
 }
 
+function inferSettlement(row, trade, beforeBalance, afterBalance) {
+  const balanceDelta=Number.isFinite(beforeBalance)&&Number.isFinite(afterBalance)?Number((afterBalance-beforeBalance).toFixed(2)):null;
+  let status=row.semanticResult||null, profit=null, source=null;
+  if (/^[+-]/.test(String(row.returnedText||'').trim()) && Number.isFinite(row.returned)) {
+    profit=Number(row.returned.toFixed(2)); source='HISTORY_SIGNED_VALUE';
+    status=profit>0?'WIN':profit<0?'LOSS':'DRAW';
+  } else if (status && Number.isFinite(row.returned)) {
+    profit=status==='LOSS'?-Math.abs(trade.stake):status==='DRAW'?0:null; source='HISTORY_SEMANTIC';
+  } else if (openTrades.size<=1 && balanceDelta!==null) {
+    profit=balanceDelta; source='BALANCE_DELTA_SINGLE_OPEN_TRADE';
+    status=profit>0?'WIN':profit<0?'LOSS':'DRAW';
+  } else if (Number.isFinite(row.returned)) {
+    // Quotex commonly renders total return for a settled position. Keep this as a fallback only.
+    if(row.returned===0){profit=-Math.abs(trade.stake);status='LOSS'}
+    else if(row.returned>=trade.stake){profit=Number((row.returned-trade.stake).toFixed(2));status=profit>0?'WIN':'DRAW'}
+    source='HISTORY_RETURN_FALLBACK';
+  }
+  return {status:status||'SETTLED_UNCLASSIFIED',profit,balanceDelta,profitSource:source};
+}
+
+async function monitorSettlement(page, trade, beforeHistory, beforeBalance) {
+  await sleep(Math.max(0,Number(trade.expiry)-Date.now()+700));
+  for(let i=0;i<240;i++){
+    const after=await snapshot(page);
+    if(Number.isFinite(after.balance))state.balance=after.balance;
+    const row=after.history.find(x=>!beforeHistory.some(y=>y.id===x.id)&&!claimedTradeIds.has(x.id));
+    if(row){
+      claimedTradeIds.add(row.id);
+      const settled=inferSettlement(row,trade,beforeBalance,after.balance);
+      trade.tradeId=row.id;trade.returned=row.returned;trade.returnedText=row.returnedText;trade.postBalance=after.balance;
+      trade.profit=settled.profit;trade.balanceDelta=settled.balanceDelta;trade.profitSource=settled.profitSource;
+      trade.status=settled.status;trade.settledAt=Date.now();
+      openTrades.delete(trade.signalId);state.openTrades=openTrades.size;state.settledTrades++;state.lastTrade=trade;
+      log('trade-settled',trade);return;
+    }
+    await sleep(100);
+  }
+  trade.status='SETTLEMENT_UNCONFIRMED';openTrades.delete(trade.signalId);state.openTrades=openTrades.size;state.lastTrade=trade;log('settlement-unconfirmed',trade);
+}
+
 async function executeSignal(page, signal) {
   const now=Date.now(), boundary=Number(signal.signalBoundary), cutoff=boundary+HARD_CUTOFF_MS;
-  if (!Number.isFinite(boundary) || now>cutoff) return;
+  if (!Number.isFinite(boundary) || now>cutoff) return false;
   state.lastSignalId=signal.id;
-  if (!LIVE) { log('observe-signal', { id:signal.id,pair:signal.pair,direction:signal.direction,horizon:signal.horizon,confidence:signal.confidence }); return; }
-  const before=await snapshot(page);
+  if (!LIVE) { log('observe-signal', { id:signal.id,pair:signal.pair,direction:signal.direction,horizon:signal.horizon,confidence:signal.confidence }); return true; }
+  const before=await snapshot(page);if(Number.isFinite(before.balance))state.balance=before.balance;
   await choosePair(page, signal.pair);
   await prepareControls(page, DEFAULT_STAKE, Number(signal.horizon));
   const executeAt=boundary+TARGET_OFFSET_MS;
   if(executeAt>Date.now())await sleep(executeAt-Date.now());
   if(Date.now()>cutoff)throw new Error('Signal missed hard execution cutoff');
   await clickDirection(page, signal.direction);
-  const trade={signalId:signal.id,pair:signal.pair,direction:signal.direction,stake:DEFAULT_STAKE,openedAt:Date.now(),preBalance:before.balance,expiry:Number(signal.expiry),status:'OPEN'};
-  state.lastTrade=trade; log('trade-opened',trade);
-  await sleep(Math.max(0,Number(signal.expiry)-Date.now()+700));
-  for(let i=0;i<200;i++){
-    const after=await snapshot(page), row=after.history.find(x=>!before.history.some(y=>y.id===x.id));
-    if(row){
-      const delta=Number.isFinite(before.balance)&&Number.isFinite(after.balance)?Number((after.balance-before.balance).toFixed(2)):null;
-      trade.tradeId=row.id;trade.returned=row.returned;trade.postBalance=after.balance;trade.profit=delta;
-      trade.status=delta===null?'SETTLED':delta>0?'WIN':delta<0?'LOSS':'DRAW';trade.settledAt=Date.now();
-      state.lastTrade=trade;log('trade-settled',trade);return;
-    }
-    await sleep(75);
-  }
-  trade.status='SETTLEMENT_UNCONFIRMED'; state.lastTrade=trade; log('settlement-unconfirmed',trade);
+  const trade={signalId:signal.id,pair:signal.pair,direction:signal.direction,horizon:Number(signal.horizon),stake:DEFAULT_STAKE,openedAt:Date.now(),preBalance:before.balance,expiry:Number(signal.expiry),status:'OPEN'};
+  openTrades.set(trade.signalId,trade);state.openTrades=openTrades.size;state.lastTrade=trade;log('trade-opened',trade);
+  monitorSettlement(page,trade,before.history,before.balance).catch(e=>{trade.status='SETTLEMENT_ERROR';trade.settlementError=e.message;openTrades.delete(trade.signalId);state.openTrades=openTrades.size;state.lastError=e.message;state.lastTrade=trade;log('settlement-error',{signalId:trade.signalId,error:e.message})});
+  return true;
+}
+
+function queueExecution(page, signal) {
+  const task=executionQueue.then(()=>executeSignal(page,signal));
+  executionQueue=task.catch(e=>{state.lastError=e.message;log('execution-error',{signalId:signal.id,error:e.message})});
+  return task;
 }
 
 async function main(){
@@ -170,11 +216,13 @@ async function main(){
     try{
       const feed=await fetchSignals();
       for(const signal of feed.signals||[]){
-        if(seen.has(signal.id))continue;seen.add(signal.id);
+        if(seen.has(signal.id))continue;
         if(Number(signal.confidence)<Number(feed.minimumConfidence||0))continue;
         if(signal.tradeQualified!==true)continue;
-        await executeSignal(page,signal);
+        seen.add(signal.id);
+        queueExecution(page,signal).catch(()=>{});
       }
+      if(seen.size>5000){const keep=[...seen].slice(-2500);seen.clear();keep.forEach(x=>seen.add(x))}
       state.lastError=null;
     }catch(e){state.lastError=e.message;log('worker-error',{error:e.message});}
     await sleep(POLL_MS);
