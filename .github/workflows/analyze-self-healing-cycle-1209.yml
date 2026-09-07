@@ -1,11 +1,15 @@
-name: Analyze Self-Healing Cycle 1209
+name: Analyze Canonical Self-Healing Cycle
 on:
   push:
     paths:
       - '.github/workflows/analyze-self-healing-cycle-1209.yml'
+      - 'audit/exact-20-batch-status.json'
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: canonical-self-healing-learning
+  cancel-in-progress: false
 jobs:
   analyze:
     runs-on: ubuntu-latest
@@ -13,103 +17,93 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Analyze newly completed authoritative batches
+          fetch-depth: 0
+      - name: Analyze all canonical batches beyond reporting watermark
         run: |
           set -euo pipefail
           python - <<'PY'
-          import json, pathlib, datetime, collections
-          files = [
-            'audit/new-batches/eurusd-1m-batch-8.json',
-            'audit/new-batches/gbpusd-1m-batch-8.json',
-            'audit/new-batches/eurjpy-1m-batch-8.json',
-            'audit/new-batches/usdjpy-1m-batch-8.json',
-            'audit/new-batches/audusd-1m-batch-8.json',
-            'audit/new-batches/eurjpy-15m-batch-2.json',
-            'audit/new-batches/audusd-15m-batch-2.json',
-          ]
-          rows=[]
-          per={}
-          def metric(xs):
-            decided=[x for x in xs if x.get('result') in ('WIN','LOSS')]
-            wins=sum(x.get('result')=='WIN' for x in decided); losses=len(decided)-wins
-            maxl=maxw=cur_l=cur_w=0; runs=[]
+          import json, pathlib, datetime, collections, math
+          root=pathlib.Path('.')
+          status=json.loads((root/'audit/exact-20-batch-status.json').read_text())
+          state=json.loads((root/'audit/automation-state-20-batch.json').read_text())
+          files=[]
+          for key,t in status['tracks'].items():
+            pair=t['pair'].lower(); h=int(t['horizon']); prev=int(state.get('reportedBatches',{}).get(key,0)); curr=int(t['completed20Batches'])
+            for b in range(prev+1,curr+1): files.append(root/f'audit/new-batches/{pair}-{h}m-batch-{b}.json')
+          def streaks(decided):
+            maxl=maxw=cl=cw=0; runs=[]
             for x in decided:
-              if x.get('result')=='LOSS':
-                cur_l+=1; cur_w=0; maxl=max(maxl,cur_l)
+              if x['result']=='LOSS': cl+=1; cw=0; maxl=max(maxl,cl)
               else:
-                if cur_l:runs.append(cur_l)
-                cur_l=0; cur_w+=1; maxw=max(maxw,cur_w)
-            if cur_l:runs.append(cur_l)
-            return {'rows':len(xs),'decided':len(decided),'wins':wins,'losses':losses,
-                    'tiesOrOther':len(xs)-len(decided),'rawAccuracy':round(wins/len(decided),4) if decided else None,
-                    'maxLossStreak':maxl,'maxWinStreak':maxw,
-                    'lossRunsAtLeast':{str(n):sum(r>=n for r in runs) for n in (2,3,4,5)},
-                    'avgConfidence':round(sum(float(x.get('confidence') or 0) for x in xs)/len(xs),2) if xs else None,
-                    'regimes':dict(collections.Counter(x.get('regime') or 'UNKNOWN' for x in xs)),
-                    'directions':dict(collections.Counter(x.get('direction') or 'UNKNOWN' for x in xs))}
-          for fn in files:
-            p=pathlib.Path(fn)
-            if not p.exists(): raise SystemExit(f'missing {fn}')
-            xs=json.loads(p.read_text())
-            if len(xs)!=20: raise SystemExit(f'{fn} not exact 20: {len(xs)}')
+                if cl:runs.append(cl)
+                cl=0; cw+=1; maxw=max(maxw,cw)
+            if cl:runs.append(cl)
+            return maxl,maxw,{str(n):sum(r>=n for r in runs) for n in (2,3,4,5)}
+          def metric(xs):
+            d=[x for x in xs if x.get('result') in ('WIN','LOSS')]; w=sum(x['result']=='WIN' for x in d); ml,mw,r=streaks(d)
+            return {'rows':len(xs),'decided':len(d),'wins':w,'losses':len(d)-w,'ties':len(xs)-len(d),'rawAccuracy':round(w/len(d),4) if d else None,'maxLossStreak':ml,'maxWinStreak':mw,'lossRunsAtLeast':r,'avgConfidence':round(sum(float(x.get('confidence') or 0) for x in xs)/len(xs),2) if xs else None}
+          rows=[]; per={}; sessions=collections.defaultdict(lambda:[0,0]); tags=collections.defaultdict(lambda:[0,0]); conf=collections.defaultdict(lambda:[0,0])
+          def pkt_hour(ms): return datetime.datetime.fromtimestamp(float(ms)/1000,datetime.timezone(datetime.timedelta(hours=5))).hour if ms else None
+          def session(ms):
+            h=pkt_hour(ms)
+            if h is None:return 'UNKNOWN'
+            if h<12:return 'ASIAN_LATE'
+            if h==12:return 'LONDON_PREOPEN'
+            if h==13:return 'LONDON_OPEN'
+            if 14<=h<17:return 'LONDON_EARLY_MID'
+            if 17<=h<20:return 'LONDON_NY_OVERLAP'
+            if 20<=h<23:return 'NEW_YORK'
+            return 'OFF_HOURS'
+          def add(d,k,x): d[k][0]+=1; d[k][1]+=x.get('result')=='WIN'
+          for p in files:
+            if not p.exists(): raise SystemExit(f'missing canonical batch {p}')
+            xs=json.loads(p.read_text());
+            if len(xs)!=20: raise SystemExit(f'{p} has {len(xs)}, expected 20')
             ids=[x.get('id') for x in xs]
-            if len(ids)!=len(set(ids)): raise SystemExit(f'duplicate id in {fn}')
-            if not all(x.get('authoritativeBoundarySettlement') is True for x in xs): raise SystemExit(f'non-authoritative settlement in {fn}')
+            if len(ids)!=len(set(ids)): raise SystemExit(f'duplicate permanent id in {p}')
+            if not all(x.get('authoritativeBoundarySettlement') is True for x in xs): raise SystemExit(f'non-authoritative settlement in {p}')
             per[p.name]=metric(xs); rows.extend(xs)
+            for x in xs:
+              if x.get('result') not in ('WIN','LOSS'): continue
+              pair=x.get('pair','UNKNOWN'); h=x.get('horizon','?'); s=session(x.get('signalBoundary')); hour=pkt_hour(x.get('signalBoundary'))
+              add(sessions,f'{pair}-{h}M|{s}|{hour:02d}:00' if hour is not None else f'{pair}-{h}M|{s}',x)
+              c=float(x.get('confidence') or 0); cb='57-59' if c<60 else '60-64' if c<65 else '65-69' if c<70 else '70-79' if c<80 else '80+'; add(conf,cb,x)
+              f=x.get('features') or {}
+              for k in ('regime','direction'): add(tags,f'{k}:{x.get(k)}',x)
+              for k in ('structure','trend','liquidity','pattern','breakout','sr','emaStack','emaCompression','bbState','maBbConfirmation','transitionRisk','lateCounterTrendRisk','adverseZone','extendedMove','progressFailureRisk','highConfidenceContradictionRisk'):
+                v=f.get(k)
+                if v is not None:add(tags,f'{k}:{v}',x)
+              for k in ('frequencyConflicts','frequencyStructuralTags','frequencyFreshEvidence','scoreRedistributionPenaltyTags','scoreRedistributionBonusTags','maBbTags'):
+                v=f.get(k) or []
+                if isinstance(v,str): v=[z for z in v.split('|') if z and z!='NONE']
+                for z in v:add(tags,f'{k}:{z}',x)
           combined=metric(rows)
-          decided=[x for x in rows if x.get('result') in ('WIN','LOSS')]
-          buckets={}
-          for lo,hi in [(55,59.999),(60,64.999),(65,69.999),(70,79.999),(80,100)]:
-            xs=[x for x in decided if lo <= float(x.get('confidence') or 0) <= hi]
-            if xs:
-              w=sum(x['result']=='WIN' for x in xs); buckets[f'{lo}-{int(hi)}']={'n':len(xs),'wins':w,'accuracy':round(w/len(xs),4)}
-          tags=collections.defaultdict(lambda:[0,0])
-          def add(tag,x):
-            if not tag:return
-            tags[tag][0]+=1; tags[tag][1]+=x.get('result')=='WIN'
-          for x in decided:
-            f=x.get('features') or {}
-            add('regime:'+str(x.get('regime')),x)
-            add('structure:'+str(f.get('structure')),x)
-            for key in ('frequencyConflicts','frequencyStructuralTags','frequencyFreshEvidence'):
-              v=f.get(key) or []
-              if isinstance(v,str): v=v.split('|')
-              for z in v:add(key+':'+str(z),x)
-            for key in ('scoreRedistributionPenaltyTags','scoreRedistributionBonusTags','maBbTags'):
-              v=f.get(key) or ''
-              if isinstance(v,list): vals=v
-              else: vals=str(v).split('|')
-              for z in vals:
-                if z and z!='NONE':add(key+':'+z,x)
-          tagscore={k:{'n':v[0],'wins':v[1],'accuracy':round(v[1]/v[0],4),'liftVsCombined':round(v[1]/v[0]-combined['rawAccuracy'],4)} for k,v in tags.items() if v[0]>=5}
-          shadow_ready=[x for x in rows if (x.get('shadowModel') or {}).get('status')=='READY']
-          shadow_dec=[x for x in shadow_ready if (x.get('shadowModel') or {}).get('result') in ('WIN','LOSS')]
-          sw=sum((x.get('shadowModel') or {}).get('result')=='WIN' for x in shadow_dec)
-          shadow={'ready':len(shadow_ready),'decided':len(shadow_dec),'wins':sw,'rawAccuracy':round(sw/len(shadow_dec),4) if shadow_dec else None,
-                  'statuses':dict(collections.Counter((x.get('shadowModel') or {}).get('status','MISSING') for x in rows))}
+          def table(src,minn=3):
+            return {k:{'n':v[0],'wins':v[1],'accuracy':round(v[1]/v[0],4),'liftVsCombined':round(v[1]/v[0]-(combined['rawAccuracy'] or 0),4)} for k,v in src.items() if v[0]>=minn}
+          shadow_status=collections.Counter((x.get('shadowModel') or {}).get('status','MISSING') for x in rows)
+          agreements=disagreements=both_losses=0; shadow_dec=[]
+          for x in rows:
+            sh=x.get('shadowModel') or {}; sd=sh.get('direction')
+            if sh.get('status')=='READY' and sd in ('BUY','SELL'):
+              if sd==x.get('direction'): agreements+=1
+              else: disagreements+=1
+              sr=sh.get('result')
+              if sr in ('WIN','LOSS'): shadow_dec.append(sr)
+              if x.get('result')=='LOSS' and sr=='LOSS': both_losses+=1
+          sw=sum(r=='WIN' for r in shadow_dec)
           now=datetime.datetime.now(datetime.timezone.utc).isoformat()
-          out={'generatedAt':now,'integrity':{'allSevenBatchesPresent':True,'allRowsExact20':True,'allAuthoritativeBoundarySettlements':True,'totalSignals':len(rows)},
-               'newBatches':files,'perBatch':per,'combined':combined,'confidenceBuckets':buckets,'componentTags':tagscore,'shadow':shadow,
-               'pairPanelCalibration':{'available':False,'reason':'Exact settlement batches still do not contain persisted displayed pair-panel score plus competing runner-up breakdown.'},
-               'modificationDecision':{'strategyChanged':False,'reason':'Seven new clean batches span five 1M tracks and two 15M tracks; no repeated pair×timeframe×session/regime failure has yet crossed the evidence threshold for a safe strategy retune in this cycle. Infrastructure self-healing was modified instead.'}}
-          pathlib.Path('audit/self-healing-cycle-2026-09-07-1209.json').write_text(json.dumps(out,indent=2))
-          status=json.loads(pathlib.Path('audit/exact-20-batch-status.json').read_text())
-          capture=json.loads(pathlib.Path('audit/capture-status.json').read_text())
-          health={'capturedAt':now,'dataIntegrity':'PASS','captureWorkflowHealth':'PASS_WITH_SELF_HEALING_BACKSTOP','batchBuilderHealth':'PASS',
-                  'latestCapture':capture.get('capturedAt'),'canonicalSettledCount':capture.get('canonicalSettledCount'),
-                  'latestExactBatchStatus':status.get('capturedAt'),'newlyCompletedBatches':[pathlib.Path(x).name for x in files],
-                  'repairsPerformed':[{'commit':'0d8fece1d73a9db04063a28be6dae86d419b8f19','change':'added stale-capture dispatch backstop'},
-                                      {'commit':'53eb786af67a2cfb96c6ffdbf5044723564c6ebc','change':'backstop now waits for verified capture then dispatches exact-batch rebuild'}],
-                  'pairPanelInstrumentation':'MISSING_SELECTED_AND_RUNNER_UP_SCORE_BREAKDOWN','unresolvedIssues':['pair-panel selection score/runner-up persistence is still missing; calibration cannot be validated truthfully until instrumented'],
-                  'strategyModificationThisCycle':'NONE_EVIDENCE_THRESHOLD_NOT_MET'}
-          pathlib.Path('audit/self-healing-health.json').write_text(json.dumps(health,indent=2))
+          out={'generatedAt':now,'lineageVersion':state.get('lineageVersion'),'newBatchCount':len(files),'newBatches':[p.name for p in files],'perBatch':per,'combined':combined,'confidenceBuckets':table(conf,1),'sessionTimeMatrix':table(sessions,2),'componentScorecard':table(tags,4),'shadow':{'statuses':dict(shadow_status),'agreements':agreements,'disagreements':disagreements,'bothModelLosses':both_losses,'decided':len(shadow_dec),'wins':sw,'rawAccuracy':round(sw/len(shadow_dec),4) if shadow_dec else None},'modificationDecision':{'strategyChanged':False,'status':'EVIDENCE_REVIEW_REQUIRED','rule':'No strategy retune is auto-applied by this metrics job; downstream self-healing may modify only a repeatable pair×timeframe×session×regime failure with chronological support.'}}
+          (root/'audit/self-healing-latest.json').write_text(json.dumps(out,indent=2)+'\n')
+          health={'capturedAt':now,'dataIntegrity':'PASS','canonicalSettledCount':sum(int(t['canonicalEligible']) for t in status['tracks'].values()),'lineageRule':status.get('lineageRule'),'newBatchCount':len(files),'repairsActive':['append-only canonical permanent-ID history','integrity-gated canonical exact batches','canonical reporting watermark'],'strategyModificationThisCycle':'PENDING_EVIDENCE_REVIEW','nextValidation':'next unseen canonical exact-20 batch after current watermark'}
+          (root/'audit/self-healing-health.json').write_text(json.dumps(health,indent=2)+'\n')
           PY
-      - name: Commit cycle audit
+      - name: Commit learning outputs
         run: |
           set -euo pipefail
           git config user.name 'Forex Falcon Audit Bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add audit/self-healing-cycle-2026-09-07-1209.json audit/self-healing-health.json
-          git commit -m 'audit: record self-healing cycle and new exact batches' || exit 0
+          git add audit/self-healing-latest.json audit/self-healing-health.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'audit: analyze canonical new exact batches'
           git pull --rebase origin main
           git push origin main
