@@ -1,0 +1,96 @@
+/* Live Market Tufts Blue visual theme. Presentation only; no signal/engine logic changes. */
+:root{
+  --tufts-blue:#3E8EDE;
+  --tufts-blue-bright:#6FB2F0;
+  --tufts-blue-soft:rgba(62,142,222,.62);
+  --tufts-blue-faint:rgba(62,142,222,.18);
+  --live-blue-0:#06111f;
+  --live-blue-1:#0a1c31;
+  --live-blue-2:#0d2947;
+}
+
+html,body{background:var(--live-blue-0)!important}
+body{
+  background:
+    radial-gradient(circle at 50% -8%,rgba(62,142,222,.34),transparent 38%),
+    radial-gradient(circle at 14% 44%,rgba(62,142,222,.18),transparent 34%),
+    linear-gradient(180deg,var(--live-blue-2) 0%,var(--live-blue-1) 44%,var(--live-blue-0) 100%)!important;
+  color:#f4f9ff;
+}
+
+.glass,
+.controls,
+.history,
+.analysis-card,
+.ai-learning-banner,
+.tv-card,
+.market-rank-panel,
+.market-rank-wrap,
+.stats .glass,
+.orb-disclaimer{
+  border:1px solid var(--tufts-blue)!important;
+  background:linear-gradient(180deg,rgba(15,49,82,.94),rgba(7,27,50,.97))!important;
+  box-shadow:0 0 8px rgba(62,142,222,.52),0 0 20px rgba(62,142,222,.18),inset 0 0 16px rgba(111,178,240,.05)!important;
+}
+
+.market-mode-btn,
+.select-pair-btn,
+.market-pair-btn,
+.horizons button,
+.roi-pill,
+.stop,
+button,
+select{
+  border-color:var(--tufts-blue)!important;
+}
+
+.market-mode-btn,
+.select-pair-btn,
+.market-pair-btn,
+.horizons button,
+select{
+  background:linear-gradient(180deg,rgba(23,72,116,.94),rgba(10,38,70,.98))!important;
+  color:#ffffff!important;
+  box-shadow:0 0 7px rgba(62,142,222,.42),inset 0 0 10px rgba(111,178,240,.05)!important;
+}
+
+.market-mode-btn.active,
+.select-pair-btn.open,
+.horizons button.active,
+.horizons button.selected{
+  border-color:var(--tufts-blue-bright)!important;
+  color:#ffffff!important;
+  background:rgba(62,142,222,.94)!important;
+  box-shadow:0 0 12px rgba(62,142,222,.85),0 0 26px rgba(62,142,222,.34),inset 0 0 12px rgba(255,255,255,.08)!important;
+}
+
+.market-rank-table,
+.history table{background:rgba(5,22,41,.76)!important}
+.market-rank-table th,
+.market-rank-table td,
+.history th,
+.history td{border-color:rgba(62,142,222,.30)!important}
+.market-rank-row.selected{background:rgba(62,142,222,.12)!important;box-shadow:inset 3px 0 0 var(--tufts-blue)!important}
+
+.signal-orb{
+  border:1px solid var(--tufts-blue)!important;
+  box-shadow:0 0 18px rgba(62,142,222,.60),0 0 58px rgba(62,142,222,.25)!important;
+}
+
+.hero h1,
+.market-rank-title,
+.analysis-title,
+.label,
+.eyebrow,
+.section-head h2{
+  color:#d9ecff!important;
+  text-shadow:0 0 10px rgba(62,142,222,.40)!important;
+}
+
+.market-pair,.market-pair-btn,#pair,select option{color:#ffffff!important}
+
+@media(max-width:650px){
+  .glass,.controls,.history,.analysis-card,.ai-learning-banner,.tv-card,.market-rank-panel{
+    box-shadow:0 0 7px rgba(62,142,222,.48),0 0 16px rgba(62,142,222,.16),inset 0 0 12px rgba(111,178,240,.04)!important;
+  }
+}
