@@ -37,6 +37,38 @@ QUOTEX_HARD_CUTOFF_MS=3000
 QUOTEX_URL=https://qxbroker.com/en/sign-in/modal/
 ```
 
+## Read-only OTC collector
+
+The first 15s/30s milestone is a separate read-only collector. It does not click Up/Down and it does not use `QUOTEX_LIVE_EXECUTION`.
+
+Run:
+
+```text
+npm run quotex:otc
+```
+
+Required Railway variables:
+
+```text
+QUOTEX_OTC_COLLECTOR_ENABLED=true
+QUOTEX_EMAIL=your Quotex email
+QUOTEX_PASSWORD=your Quotex password
+QUOTEX_PROFILE_DIR=/data/quotex-profile
+QUOTEX_OTC_SYMBOL=EURUSD
+```
+
+Optional collector tuning:
+
+```text
+QUOTEX_OTC_POLL_MS=50
+QUOTEX_OTC_DATA_DIR=/data/quotex-otc
+QUOTEX_OTC_DIAGNOSTIC_MS=30000
+```
+
+Expected logs are `login-ok`, then `collector-ready`, followed by changing `tick` records. Tick data is written as JSONL under `/data/quotex-otc/` with the exact server timestamp and observed Quotex OTC price. If the current Quotex DOM build uses a different price element, the collector emits `quote-not-found` diagnostics with visible numeric candidates so the selector can be corrected without enabling trading.
+
+Keep this collector observational until its recorded price is verified against the same Quotex OTC chart on-screen.
+
 ## First mobile test
 
 Keep `QUOTEX_LIVE_EXECUTION=false`. Redeploy and inspect Railway logs. Expected sequence:
