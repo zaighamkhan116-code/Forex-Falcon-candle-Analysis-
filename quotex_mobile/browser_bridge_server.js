@@ -28,7 +28,9 @@ function authorized(req) {
   const supplied = String(req.get('X-Falcon-Bridge-Token') || '');
   return supplied.length === TOKEN.length && supplied === TOKEN;
 }
-function normalizePair(v) { return String(v || '').toUpperCase().replace(/\(OTC\)/g, '').replace(/[^A-Z]/g, ''); }
+function normalizePair(v) { return String(v || '').toUpperCase().replace(/\(OTC\)/g, '').replace(/[^A-Z]/g, '').slice(0,12); }
+function validPair(p) { return /^[A-Z]{3,12}$/.test(p); }
+function pct(v){const n=Number(v);return Number.isFinite(n)?Math.max(0,Math.min(100,Math.round(n*10)/10)):null;}
 function dayFile(pair, ts) { return path.join(ROOT, `${pair}-OTC-${new Date(ts).toISOString().slice(0, 10)}.jsonl`); }
 async function persistTick(tick) { await fs.mkdir(ROOT,{recursive:true}); await fs.appendFile(dayFile(tick.pair,tick.timestamp_ms),JSON.stringify(tick)+'\n','utf8'); }
 
@@ -47,9 +49,11 @@ app.post('/api/quotex/otc/market-state',(req,res)=>{
   const seen=new Set();
   for(const row of incoming){
     const p=normalizePair(row?.pair||row?.symbol||row?.name);
-    if(!p||p.length<6||seen.has(p))continue;
-    const payout=Number(row?.payoutPercent??row?.payout??row?.roi);
-    pairs.push({pair:p,displayName:String(row?.displayName||`${p} (OTC)`).slice(0,80),payoutPercent:Number.isFinite(payout)?Math.max(0,Math.min(100,Math.round(payout*10)/10)):null,available:row?.available!==false});
+    if(!validPair(p)||seen.has(p))continue;
+    const payout=pct(row?.payoutPercent??row?.payout??row?.roi);
+    const profit1m=pct(row?.profit1mPercent??row?.payout1mPercent??row?.profit1Percent??row?.payout1Percent??payout);
+    const profit5m=pct(row?.profit5mPercent??row?.payout5mPercent??row?.profit5Percent??row?.payout5Percent);
+    pairs.push({pair:p,displayName:String(row?.displayName||`${p} (OTC)`).slice(0,80),payoutPercent:payout,profit1mPercent:profit1m,profit5mPercent:profit5m,available:row?.available!==false});
     seen.add(p);
   }
   marketState.updatedAt=Date.now();
@@ -62,7 +66,7 @@ app.post('/api/quotex/otc/tick', async (req,res)=>{
   if(!authorized(req))return res.status(401).json({error:'Unauthorized bridge client'});
   try{
     const pair=normalizePair(req.body?.pair),market=String(req.body?.market||'').toUpperCase(),price=Number(req.body?.price),clientTs=Number(req.body?.timestamp_ms||req.body?.timestamp||Date.now());
-    if(!pair||pair.length<6||market!=='OTC'||!Number.isFinite(price)||price<=0)return res.status(400).json({error:'Invalid OTC tick payload'});
+    if(!validPair(pair)||market!=='OTC'||!Number.isFinite(price)||price<=0)return res.status(400).json({error:'Invalid OTC tick payload'});
     const now=Date.now();
     if(Math.abs(now-clientTs)>60000)return res.status(400).json({error:'Stale or invalid client timestamp'});
     const tick={pair,market:'OTC',timestamp_ms:now,timestamp_iso:new Date(now).toISOString(),client_timestamp_ms:clientTs,client_lag_ms:now-clientTs,price,source:'QUOTEX_BROWSER_BRIDGE'};
@@ -79,4 +83,4 @@ app.post('/api/quotex/otc/tick', async (req,res)=>{
   }catch(e){state.lastError=e.message;console.error(JSON.stringify({event:'bridge-error',error:e.message}));res.status(500).json({error:'Bridge tick persistence or shadow processing failed'});}
 });
 
-app.listen(PORT,()=>console.log(JSON.stringify({event:'bridge-ready',port:PORT,mode:'READ_ONLY_SHADOW',tradingEnabled:false,shadowEngines:['OTC_10S_SHADOW_V1','OTC_15S_SHADOW_V1','OTC_30S_SHADOW_V1','OTC_60S_SHADOW_V1','OTC_300S_SHADOW_V1'],tokenConfigured:Boolean(TOKEN),dataDir:ROOT})));
+app.listen(PORT,()=>console.log(JSON.stringify({event:'bridge-ready',port:PORT,mode:'READ_ONLY_SHADOW',tradingEnabled:false,shadowEngines:['OTC_10S_SHADOW_V2','OTC_15S_SHADOW_V2','OTC_30S_SHADOW_V2','OTC_60S_SHADOW_V1','OTC_300S_SHADOW_V1'],tokenConfigured:Boolean(TOKEN),dataDir:ROOT})));
