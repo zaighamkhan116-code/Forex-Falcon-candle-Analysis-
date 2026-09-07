@@ -1,8 +1,7 @@
 name: Build 20-result batch summary
 
-# Deterministic exact-batch reconstruction from the canonical restart-safe settled history.
-# Rebuild immediately after the canonical capture workflow completes so the batch job
-# cannot race ahead of the commit that writes audit/canonical/*.json.
+# Deterministic exact-batch reconstruction from the full canonical restart-safe settled history.
+# Canonical record order defines lineage: records 1-20=B1, 21-40=B2, remainder carries forward.
 on:
   push:
     paths:
@@ -41,35 +40,70 @@ jobs:
           for pair in $PAIRS; do
             slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
             source="audit/canonical/$slug.json"
-            if [ ! -s "$source" ]; then
-              echo "Missing or empty canonical history for $pair at $source" >&2
-              exit 1
-            fi
+            [ -s "$source" ] || { echo "Missing canonical history: $source" >&2; exit 1; }
             jq -e 'type == "array"' "$source" >/dev/null
           done
 
-      - name: Build exact post-baseline track summary
+      - name: Build integrity-gated canonical batches
         env:
-          BASELINE_MS: '1788388509000'
           PAIRS: EURUSD GBPUSD EURJPY USDJPY AUDUSD
           HORIZONS: 1 2 3 5 15
         run: |
           set -euo pipefail
-          mkdir -p audit/new-batches
-          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson baselineMs "$BASELINE_MS" '{capturedAt:$capturedAt,baselineMs:$baselineMs,source:"audit/canonical",tracks:{}}' > /tmp/status.json
+          rm -rf audit/new-batches audit/quarantine
+          mkdir -p audit/new-batches audit/quarantine
+          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{capturedAt:$capturedAt,source:"audit/canonical",lineageRule:"CANONICAL_RECORDS_1_20_B1",tracks:{}}' > /tmp/status.json
+
           for pair in $PAIRS; do
             slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
             source="audit/canonical/$slug.json"
             for h in $HORIZONS; do
               key="${pair}-${h}M"
-              jq --argjson h "$h" --argjson b "$BASELINE_MS" '[.[] | select((.horizon|tonumber)==$h and ((.resolvedAt // .expiry // .signalBoundary // 0)|tonumber)>$b)] | unique_by(.id) | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)' "$source" > "/tmp/$slug-$h-new.json"
-              n=$(jq 'length' "/tmp/$slug-$h-new.json")
+
+              jq --arg pair "$pair" --argjson h "$h" '
+                [ .[] | select((.pair==$pair) and ((.horizon|tonumber)==$h)) ]
+                | sort_by(.signalBoundary // .resolvedAt // 0)
+              ' "$source" > "/tmp/$slug-$h-all.json"
+
+              jq '[.[] | select(
+                (.id|type)=="string" and (.id|length)>0 and
+                (.signalBoundary|type)=="number" and (.signalBoundary>0) and
+                (.entry|type)=="number" and
+                (.direction=="BUY" or .direction=="SELL") and
+                (.confidence|type)=="number" and
+                (.result=="WIN" or .result=="LOSS" or .result=="TIE") and
+                (.resolvedAt|type)=="number" and (.resolvedAt>=.signalBoundary) and
+                (.settlementSource|type)=="string" and (.settlementSource|length)>0 and
+                (.authoritativeBoundarySettlement==true)
+              )]' "/tmp/$slug-$h-all.json" > "/tmp/$slug-$h-valid.json"
+
+              jq '[.[] | select(
+                ((.id|type)!="string") or (.id|length)==0 or
+                ((.signalBoundary|type)!="number") or (.signalBoundary<=0) or
+                ((.entry|type)!="number") or
+                ((.direction!="BUY") and (.direction!="SELL")) or
+                ((.confidence|type)!="number") or
+                ((.result!="WIN") and (.result!="LOSS") and (.result!="TIE")) or
+                ((.resolvedAt|type)!="number") or (.resolvedAt<.signalBoundary) or
+                ((.settlementSource|type)!="string") or (.settlementSource|length)==0 or
+                (.authoritativeBoundarySettlement!=true)
+              )]' "/tmp/$slug-$h-all.json" > "audit/quarantine/$slug-${h}m.json"
+
+              duplicateIds=$(jq '[group_by(.id)[] | select(length>1)] | length' "/tmp/$slug-$h-valid.json")
+              duplicateBoundaries=$(jq '[group_by(.signalBoundary)[] | select(length>1)] | length' "/tmp/$slug-$h-valid.json")
+              contradictions=$(jq '[group_by(.id)[] | select(length>1) | select((map({pair,horizon,signalBoundary,entry,direction,confidence,result,resolvedAt,settlementSource,authoritativeBoundarySettlement})|unique|length)>1)] | length' "/tmp/$slug-$h-valid.json")
+              malformed=$(jq 'length' "audit/quarantine/$slug-${h}m.json")
+
+              jq 'unique_by(.id) | sort_by(.signalBoundary, .resolvedAt, .id)' "/tmp/$slug-$h-valid.json" > "/tmp/$slug-$h-clean.json"
+              n=$(jq 'length' "/tmp/$slug-$h-clean.json")
               completed=$((n/20)); rem=$((n%20))
-              jq --arg key "$key" --arg pair "$pair" --argjson h "$h" --argjson n "$n" --argjson completed "$completed" --argjson rem "$rem" '.tracks[$key]={pair:$pair,horizon:$h,newSinceBaseline:$n,completed20Batches:$completed,remainder:$rem,authoritative:true}' /tmp/status.json > /tmp/status2.json && mv /tmp/status2.json /tmp/status.json
+
+              jq --arg key "$key" --arg pair "$pair" --argjson h "$h" --argjson n "$n" --argjson completed "$completed" --argjson rem "$rem" --argjson malformed "$malformed" --argjson duplicateIds "$duplicateIds" --argjson duplicateBoundaries "$duplicateBoundaries" --argjson contradictions "$contradictions" '.tracks[$key]={pair:$pair,horizon:$h,canonicalEligible:$n,completed20Batches:$completed,remainder:$rem,authoritative:true,integrity:{malformed:$malformed,duplicateIds:$duplicateIds,duplicateBoundaries:$duplicateBoundaries,contradictions:$contradictions}}' /tmp/status.json > /tmp/status2.json && mv /tmp/status2.json /tmp/status.json
+
               if [ "$completed" -gt 0 ]; then
                 for batch in $(seq 1 "$completed"); do
                   start=$(( (batch-1)*20 ))
-                  jq --argjson s "$start" '.[$s:$s+20]' "/tmp/$slug-$h-new.json" > "audit/new-batches/$slug-${h}m-batch-${batch}.json"
+                  jq --argjson s "$start" '.[$s:$s+20]' "/tmp/$slug-$h-clean.json" > "audit/new-batches/$slug-${h}m-batch-${batch}.json"
                 done
               fi
             done
@@ -80,19 +114,17 @@ jobs:
         run: |
           set -euo pipefail
           bad=$(find audit/new-batches -type f -name '*batch-*.json' -print0 | xargs -0 -r -n1 sh -c 'n=$(jq length "$0"); [ "$n" -eq 20 ] || echo "$0:$n"')
-          if [ -n "$bad" ]; then
-            echo "Invalid exact batch size:" >&2
-            echo "$bad" >&2
-            exit 1
-          fi
+          [ -z "$bad" ] || { echo "Invalid exact batch size:" >&2; echo "$bad" >&2; exit 1; }
+          contradictions=$(jq '[.tracks[].integrity.contradictions] | add // 0' audit/exact-20-batch-status.json)
+          [ "$contradictions" -eq 0 ] || { echo "Contradictory permanent signal IDs detected; quarantined from learning" >&2; exit 1; }
 
       - name: Commit summary
         run: |
           set -euo pipefail
           git config user.name "Forex Falcon Audit Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add audit/exact-20-batch-status.json audit/new-batches
+          git add audit/exact-20-batch-status.json audit/new-batches audit/quarantine
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "audit: rebuild exact batches from canonical settled history"
+          git commit -m "audit: rebuild canonical integrity-gated exact batches"
           git pull --rebase origin main
           git push origin main
