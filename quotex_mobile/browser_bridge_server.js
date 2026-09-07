@@ -45,17 +45,27 @@ app.get('/api/quotex/otc/market-state',(_req,res)=>res.json({ok:true,...marketSt
 app.post('/api/quotex/otc/market-state',(req,res)=>{
   if(!authorized(req))return res.status(401).json({error:'Unauthorized bridge client'});
   const incoming=Array.isArray(req.body?.pairs)?req.body.pairs:[];
+  const previous=new Map((marketState.pairs||[]).map(x=>[normalizePair(x.pair),x]));
   const pairs=[];
   const seen=new Set();
   for(const row of incoming){
     const p=normalizePair(row?.pair||row?.symbol||row?.name);
     if(!validPair(p)||seen.has(p))continue;
+    const prev=previous.get(p)||{};
     const payout=pct(row?.payoutPercent??row?.payout??row?.roi);
-    const profit1m=pct(row?.profit1mPercent??row?.payout1mPercent??row?.profit1Percent??row?.payout1Percent??payout);
+    const profit1m=pct(row?.profit1mPercent??row?.payout1mPercent??row?.profit1Percent??row?.payout1Percent);
     const profit5m=pct(row?.profit5mPercent??row?.payout5mPercent??row?.profit5Percent??row?.payout5Percent);
-    pairs.push({pair:p,displayName:String(row?.displayName||`${p} (OTC)`).slice(0,80),payoutPercent:payout,profit1mPercent:profit1m,profit5mPercent:profit5m,available:row?.available!==false});
+    pairs.push({
+      pair:p,
+      displayName:String(row?.displayName||prev.displayName||`${p} (OTC)`).slice(0,80),
+      payoutPercent:payout??prev.payoutPercent??null,
+      profit1mPercent:profit1m??prev.profit1mPercent??null,
+      profit5mPercent:profit5m??prev.profit5mPercent??null,
+      available:row?.available!==false
+    });
     seen.add(p);
   }
+  for(const [p,prev] of previous){if(!seen.has(p)&&validPair(p)){pairs.push(prev);seen.add(p)}}
   marketState.updatedAt=Date.now();
   marketState.activePair=normalizePair(req.body?.activePair||state.lastPair||'')||null;
   marketState.pairs=pairs.slice(0,200);
@@ -83,4 +93,4 @@ app.post('/api/quotex/otc/tick', async (req,res)=>{
   }catch(e){state.lastError=e.message;console.error(JSON.stringify({event:'bridge-error',error:e.message}));res.status(500).json({error:'Bridge tick persistence or shadow processing failed'});}
 });
 
-app.listen(PORT,()=>console.log(JSON.stringify({event:'bridge-ready',port:PORT,mode:'READ_ONLY_SHADOW',tradingEnabled:false,shadowEngines:['OTC_10S_SHADOW_V2','OTC_15S_SHADOW_V2','OTC_30S_SHADOW_V2','OTC_60S_SHADOW_V1','OTC_300S_SHADOW_V1'],tokenConfigured:Boolean(TOKEN),dataDir:ROOT})));
+app.listen(PORT,()=>console.log(JSON.stringify({event:'bridge-ready',port:PORT,mode:'READ_ONLY_SHADOW',tradingEnabled:false,shadowEngines:['OTC_10S_SHADOW_V2','OTC_15S_SHADOW_V2','OTC_30S_SHADOW_V2','OTC_60S_SHADOW_V2','OTC_300S_SHADOW_V1'],tokenConfigured:Boolean(TOKEN),dataDir:ROOT})));
