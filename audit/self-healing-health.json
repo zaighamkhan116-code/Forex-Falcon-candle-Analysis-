@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-09-07T15:00:00Z",
+  "capturedAt": "2026-09-07T16:02:00Z",
   "dataIntegrity": "PASS_WITH_CAPTURE_BACKSTOP",
   "canonicalSettledCount": 3000,
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
@@ -8,24 +8,29 @@
     "append-only canonical permanent-ID history",
     "integrity-gated canonical exact batches",
     "canonical reporting watermark",
-    "hourly self-heal dispatch backstop for stalled scheduled capture"
+    "hourly self-heal dispatch backstop for stalled scheduled capture",
+    "shadow inference preserves trained feature names at prediction/calibration"
   ],
   "repairsThisCycle": [
     {
-      "commit": "4666ab98f09e2739fa1fda6e918680bbeb901345",
-      "change": "added weekday hourly dispatch backstop for canonical live capture after scheduled audit activity stalled"
+      "commit": "dd0b7150e781d7a8d447a0a4fe7218099d820cad",
+      "change": "preserve trained sklearn feature schema at Shadow inference and calibration to eliminate feature-name mismatch warnings without changing model weights, direction logic or authority"
     },
     {
-      "verification": "workflow 34135893020 completed successfully and dispatched Capture Live Core FX Audit run 34135902324"
+      "evidence": "live Railway Shadow inference repeatedly emitted sklearn 'X does not have valid feature names' warnings for RandomForest, ExtraTrees, HistGradientBoosting and LogisticRegression while EURUSD predictions still returned HTTP 200"
+    },
+    {
+      "verification": "Railway deployment 236e6c58-19e9-4827-8b1e-cd043db7e094 triggered from the repair commit; build observed in progress during this checkpoint"
     }
   ],
   "shadowInfrastructure": {
-    "status": "SUPPORTED_SCOPE_CONFIRMED",
+    "status": "SCHEMA_REPAIR_DEPLOYING",
     "supportedPairs": ["EURUSD"],
     "supportedHorizons": [1, 2, 3, 5, 15],
     "nonEURUSD422": "EXPECTED_UNSUPPORTED_NOT_GLOBAL_FAILURE",
-    "authoritative": false
+    "authoritative": false,
+    "strategyImpact": "NONE_INFRASTRUCTURE_ONLY"
   },
   "strategyModificationThisCycle": "NONE_NO_NEW_CLEAN_EXACT20_BATCH",
-  "nextValidation": "next unseen canonical exact-20 batch after current watermark; prioritize EURUSD-2M, AUDUSD-2M, EURJPY-3M and USDJPY-3M repeatability"
+  "nextValidation": "verify deployed Shadow logs no longer emit feature-name mismatch warnings; then wait for next unseen canonical exact-20 batch, prioritizing EURUSD-2M, AUDUSD-2M, EURJPY-3M and USDJPY-3M repeatability"
 }
