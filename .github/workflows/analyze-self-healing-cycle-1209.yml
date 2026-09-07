@@ -118,3 +118,5 @@ jobs:
           git commit -m 'audit: analyze canonical new exact batches and advance watermark'
           git pull --rebase origin main
           git push origin main
+
+# self-healing dispatch marker: canonical watermark lag detected 2026-09-07T18:08Z
