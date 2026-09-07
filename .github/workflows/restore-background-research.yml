@@ -1,0 +1,22 @@
+name: Restore background research
+on:
+  push:
+    paths:
+      - '.github/workflows/restore-background-research.yml'
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore last good background research implementation
+        run: |
+          git checkout cfeb9c79c1cf2f2a6c97aebf847b39f56181202b -- lib/backgroundResearch.js
+          git config user.name "Forex Falcon Audit Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add lib/backgroundResearch.js
+          git diff --cached --quiet || git commit -m "repair: restore background research implementation"
+          git push
