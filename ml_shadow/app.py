@@ -16,7 +16,7 @@ REBUILD_VERSION = "NY_INDEPENDENT_V2_REBUILD_MULTI_HORIZON_V1"
 DATA_DIR = Path(os.environ.get("SHADOW_TRAINING_DATA_DIR", "/tmp/falcon-shadow-training"))
 SUPPORTED_HORIZONS = (1, 2, 3, 5, 15)
 
-app = FastAPI(title="Forex Falcon Shadow Ensemble", version="1.2")
+app = FastAPI(title="Forex Falcon Shadow Ensemble", version="1.2.1")
 _bundle: Optional[Dict[str, Any]] = None
 _load_error: Optional[str] = None
 _training_attempted = False
@@ -227,16 +227,25 @@ def load_bundle() -> Optional[Dict[str, Any]]:
         return None
 
 
-def probability(model: Any, row: np.ndarray) -> float:
+def _preserve_feature_names(model: Any, row: Any) -> Any:
+    names = getattr(model, "feature_names_in_", None)
+    if names is None or isinstance(row, pd.DataFrame):
+        return row
+    values = np.asarray(row, dtype=float)
+    return pd.DataFrame(values, columns=list(names))
+
+
+def probability(model: Any, row: Any) -> float:
+    model_row = _preserve_feature_names(model, row)
     if hasattr(model, "predict_proba"):
-        return float(model.predict_proba(row)[0][1])
+        return float(model.predict_proba(model_row)[0][1])
     if hasattr(model, "decision_function"):
-        z = float(model.decision_function(row)[0])
+        z = float(model.decision_function(model_row)[0])
         return float(1.0 / (1.0 + np.exp(-z)))
-    return 1.0 if float(model.predict(row)[0]) > 0 else 0.0
+    return 1.0 if float(model.predict(model_row)[0]) > 0 else 0.0
 
 
-def request_row(req: PredictRequest, names: List[str]) -> np.ndarray:
+def request_row(req: PredictRequest, names: List[str]) -> pd.DataFrame:
     if len(req.candles) < 60:
         raise HTTPException(status_code=422, detail=f"Need at least 60 M1 candles; received {len(req.candles)}")
     rows = [c.model_dump() for c in req.candles]
@@ -250,7 +259,7 @@ def request_row(req: PredictRequest, names: List[str]) -> np.ndarray:
     if last[names].isna().any():
         missing = list(last[names][last[names].isna()].index)
         raise HTTPException(status_code=422, detail=f"Insufficient candle history for features: {missing[:8]}")
-    return last[names].to_numpy(dtype=float).reshape(1, -1)
+    return pd.DataFrame([last[names].to_numpy(dtype=float)], columns=names)
 
 
 def _horizon_model(bundle: Dict[str, Any], horizon: int) -> Dict[str, Any]:
@@ -314,7 +323,8 @@ def predict(req: PredictRequest) -> Dict[str, Any]:
     calibrator = hmodel.get("calibrator")
     calibrated_win = directional_raw
     if calibrator is not None:
-        calibrated_win = float(calibrator.predict_proba(np.array([[directional_raw]]))[0][1])
+        calibration_row = _preserve_feature_names(calibrator, np.array([[directional_raw]], dtype=float))
+        calibrated_win = float(calibrator.predict_proba(calibration_row)[0][1])
 
     return {
         "model": MODEL_NAME,
