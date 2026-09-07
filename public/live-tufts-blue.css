@@ -1,7 +1,8 @@
 /* Live Market Tufts Blue visual theme. Presentation only; no signal/engine logic changes. */
 :root{
   --tufts-blue:#3E8EDE;
-  --tufts-blue-bright:#6FB2F0;
+  --tufts-neon:#6EC6FF;
+  --tufts-neon-strong:#8ED7FF;
   --tufts-blue-soft:rgba(62,142,222,.62);
   --tufts-blue-faint:rgba(62,142,222,.18);
   --live-blue-0:#06111f;
@@ -18,6 +19,32 @@ body{
   color:#f4f9ff;
 }
 
+/* All major boxes use neon Tufts-blue outlines */
+.glass,
+.controls,
+.history,
+.analysis-card,
+.ai-learning-banner,
+.tv-card,
+.market-rank-panel,
+.market-rank-wrap,
+.stats .glass,
+.orb-disclaimer,
+.market-mode-btn,
+.select-pair-btn,
+.market-pair-btn,
+.horizons button,
+.roi-pill,
+.stop,
+select,
+.signal-orb{
+  border:1px solid var(--tufts-neon)!important;
+  box-shadow:
+    0 0 7px rgba(110,198,255,.78),
+    0 0 18px rgba(62,142,222,.34),
+    inset 0 0 12px rgba(110,198,255,.07)!important;
+}
+
 .glass,
 .controls,
 .history,
@@ -28,20 +55,7 @@ body{
 .market-rank-wrap,
 .stats .glass,
 .orb-disclaimer{
-  border:1px solid var(--tufts-blue)!important;
   background:linear-gradient(180deg,rgba(15,49,82,.94),rgba(7,27,50,.97))!important;
-  box-shadow:0 0 8px rgba(62,142,222,.52),0 0 20px rgba(62,142,222,.18),inset 0 0 16px rgba(111,178,240,.05)!important;
-}
-
-.market-mode-btn,
-.select-pair-btn,
-.market-pair-btn,
-.horizons button,
-.roi-pill,
-.stop,
-button,
-select{
-  border-color:var(--tufts-blue)!important;
 }
 
 .market-mode-btn,
@@ -51,17 +65,19 @@ select{
 select{
   background:linear-gradient(180deg,rgba(23,72,116,.94),rgba(10,38,70,.98))!important;
   color:#ffffff!important;
-  box-shadow:0 0 7px rgba(62,142,222,.42),inset 0 0 10px rgba(111,178,240,.05)!important;
 }
 
 .market-mode-btn.active,
 .select-pair-btn.open,
 .horizons button.active,
 .horizons button.selected{
-  border-color:var(--tufts-blue-bright)!important;
+  border-color:var(--tufts-neon-strong)!important;
   color:#ffffff!important;
   background:rgba(62,142,222,.94)!important;
-  box-shadow:0 0 12px rgba(62,142,222,.85),0 0 26px rgba(62,142,222,.34),inset 0 0 12px rgba(255,255,255,.08)!important;
+  box-shadow:
+    0 0 10px rgba(142,215,255,.95),
+    0 0 26px rgba(62,142,222,.55),
+    inset 0 0 14px rgba(255,255,255,.09)!important;
 }
 
 .market-rank-table,
@@ -69,12 +85,16 @@ select{
 .market-rank-table th,
 .market-rank-table td,
 .history th,
-.history td{border-color:rgba(62,142,222,.30)!important}
-.market-rank-row.selected{background:rgba(62,142,222,.12)!important;box-shadow:inset 3px 0 0 var(--tufts-blue)!important}
+.history td{
+  border-color:rgba(110,198,255,.52)!important;
+}
+.market-rank-row.selected{
+  background:rgba(62,142,222,.12)!important;
+  box-shadow:inset 3px 0 0 var(--tufts-neon)!important;
+}
 
 .signal-orb{
-  border:1px solid var(--tufts-blue)!important;
-  box-shadow:0 0 18px rgba(62,142,222,.60),0 0 58px rgba(62,142,222,.25)!important;
+  box-shadow:0 0 18px rgba(110,198,255,.86),0 0 58px rgba(62,142,222,.34)!important;
 }
 
 .hero h1,
@@ -90,7 +110,8 @@ select{
 .market-pair,.market-pair-btn,#pair,select option{color:#ffffff!important}
 
 @media(max-width:650px){
-  .glass,.controls,.history,.analysis-card,.ai-learning-banner,.tv-card,.market-rank-panel{
-    box-shadow:0 0 7px rgba(62,142,222,.48),0 0 16px rgba(62,142,222,.16),inset 0 0 12px rgba(111,178,240,.04)!important;
+  .glass,.controls,.history,.analysis-card,.ai-learning-banner,.tv-card,.market-rank-panel,
+  .market-mode-btn,.select-pair-btn,.market-pair-btn,.horizons button,select{
+    box-shadow:0 0 7px rgba(110,198,255,.74),0 0 16px rgba(62,142,222,.24),inset 0 0 12px rgba(110,198,255,.05)!important;
   }
 }
