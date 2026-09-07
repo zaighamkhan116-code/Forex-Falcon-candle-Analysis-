@@ -1,14 +1,21 @@
 name: Build 20-result batch summary
 
-# Audit refresh trigger: 2026-09-07T04:03Z. Keep this workflow manually rerunnable and push-triggered on its own file.
+# Deterministic exact-batch reconstruction from the canonical restart-safe settled history.
 on:
   push:
     paths:
       - '.github/workflows/build-20-batch-summary.yml'
+      - 'audit/canonical/**'
+  schedule:
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: exact-20-result-batch-summary
+  cancel-in-progress: false
 
 jobs:
   summarize:
@@ -16,6 +23,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Build exact post-baseline track summary
         env:
           BASELINE_MS: '1788388509000'
@@ -24,24 +34,40 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p audit/new-batches
-          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson baselineMs "$BASELINE_MS" '{capturedAt:$capturedAt,baselineMs:$baselineMs,tracks:{}}' > /tmp/status.json
+          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson baselineMs "$BASELINE_MS" '{capturedAt:$capturedAt,baselineMs:$baselineMs,source:"audit/canonical",tracks:{}}' > /tmp/status.json
           for pair in $PAIRS; do
             slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
+            source="audit/canonical/$slug.json"
+            if [ ! -f "$source" ]; then
+              echo "Missing canonical history for $pair" >&2
+              exit 1
+            fi
             for h in $HORIZONS; do
               key="${pair}-${h}M"
-              jq --argjson h "$h" --argjson b "$BASELINE_MS" '[.[] | select((.horizon|tonumber)==$h and ((.resolvedAt // .expiry // .signalBoundary // 0)|tonumber)>$b)] | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)' "audit/resolved/$slug.json" > "/tmp/$slug-$h-new.json"
+              jq --argjson h "$h" --argjson b "$BASELINE_MS" '[.[] | select((.horizon|tonumber)==$h and ((.resolvedAt // .expiry // .signalBoundary // 0)|tonumber)>$b)] | unique_by(.id) | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)' "$source" > "/tmp/$slug-$h-new.json"
               n=$(jq 'length' "/tmp/$slug-$h-new.json")
               completed=$((n/20)); rem=$((n%20))
-              jq --arg key "$key" --arg pair "$pair" --argjson h "$h" --argjson n "$n" --argjson completed "$completed" --argjson rem "$rem" '.tracks[$key]={pair:$pair,horizon:$h,newSinceBaseline:$n,completed20Batches:$completed,remainder:$rem}' /tmp/status.json > /tmp/status2.json && mv /tmp/status2.json /tmp/status.json
+              jq --arg key "$key" --arg pair "$pair" --argjson h "$h" --argjson n "$n" --argjson completed "$completed" --argjson rem "$rem" '.tracks[$key]={pair:$pair,horizon:$h,newSinceBaseline:$n,completed20Batches:$completed,remainder:$rem,authoritative:true}' /tmp/status.json > /tmp/status2.json && mv /tmp/status2.json /tmp/status.json
               if [ "$completed" -gt 0 ]; then
                 for batch in $(seq 1 "$completed"); do
-                  start=$(( (batch-1)*20 ));
+                  start=$(( (batch-1)*20 ))
                   jq --argjson s "$start" '.[$s:$s+20]' "/tmp/$slug-$h-new.json" > "audit/new-batches/$slug-${h}m-batch-${batch}.json"
                 done
               fi
             done
           done
           mv /tmp/status.json audit/exact-20-batch-status.json
+
+      - name: Verify exact batch integrity
+        run: |
+          set -euo pipefail
+          bad=$(find audit/new-batches -type f -name '*batch-*.json' -print0 | xargs -0 -r -n1 sh -c 'n=$(jq length "$0"); [ "$n" -eq 20 ] || echo "$0:$n"')
+          if [ -n "$bad" ]; then
+            echo "Invalid exact batch size:" >&2
+            echo "$bad" >&2
+            exit 1
+          fi
+
       - name: Commit summary
         run: |
           set -euo pipefail
@@ -49,5 +75,6 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add audit/exact-20-batch-status.json audit/new-batches
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "audit: build exact 20-result batch summary"
-          git push
+          git commit -m "audit: rebuild exact batches from canonical settled history"
+          git pull --rebase origin main
+          git push origin main
