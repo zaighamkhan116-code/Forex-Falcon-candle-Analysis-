@@ -84,6 +84,10 @@ Only after the Railway session remains stable and the observed pair/balance/hist
 
 Attach a Railway volume at `/data` if you want Chromium's remembered Quotex session to survive redeploys/restarts. Without a volume the worker can still attempt email/password login again, but Quotex may request verification.
 
+## Railway collector service
+
+Deploy the dedicated `Falcon OTC Collector` service from `feature/quotex-otc-readonly-feed` with start command `npm run quotex:otc`. If Railway shows a deployment from `main`, trigger a fresh deployment from the configured feature branch before debugging Quotex login.
+
 ## Security
 
 Do **not** commit Quotex passwords, cookies, SSIDs, session tokens, or other credentials to GitHub. Store them only in Railway environment variables/secrets.
