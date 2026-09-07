@@ -1,0 +1,52 @@
+name: Apply V8 frequency scoring integration
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-v8-frequency-scoring.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Patch V8 scoring metadata and rerank sensitivity
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('lib/frequencyScoring.js')
+          s=p.read_text()
+          old="""  let minimumMargin=horizon===1?2.25:horizon===2?2.0:1.75;\n  if(originalTrack.reactionQuality==='WEAK'&&oppositeTrack.reactionQuality==='HEALTHY')minimumMargin=Math.max(1.6,minimumMargin-.35);\n"""
+          new="""  let minimumMargin=horizon===1?2.25:horizon===2?2.0:1.75;\n  if(originalTrack.reactionQuality==='WEAK'&&oppositeTrack.reactionQuality==='HEALTHY')minimumMargin=Math.max(1.45,minimumMargin-.45);\n  if(originalTrack.compoundConflict>=3&&oppositeTrack.compoundConflict<=1)minimumMargin=Math.max(1.35,minimumMargin-.55);\n  if(originalTrack.falseBreakoutRisk===true&&oppositeTrack.reactionQuality==='HEALTHY')minimumMargin=Math.max(1.35,minimumMargin-.45);\n  if(horizon===1&&originalTrack.compoundConflict>=4&&oppositeTrack.cleanContinuation===true)minimumMargin=Math.max(1.25,minimumMargin-.5);\n"""
+          if old not in s:
+              raise SystemExit('expected rerank block not found')
+          s=s.replace(old,new)
+          s=s.replace("+DIRECTION_RERANK_V4+FREQUENCY_SCORE_V7+TRACK_CAL_V7","+DIRECTION_RERANK_V5+FREQUENCY_SCORE_V8+TRACK_CAL_V8")
+          s=s.replace("frequencyScoreVersion:'V7'","frequencyScoreVersion:'V8'")
+          s=s.replace("directionRerankVersion:'V4'","directionRerankVersion:'V5'")
+          p.write_text(s)
+          PY
+      - name: Syntax and tests
+        run: |
+          node --check lib/frequencyScoring.js
+          node --check lib/trackCalibration.js
+          node --test
+      - name: Commit V8 integration
+        run: |
+          git config user.name "Forex Falcon Audit Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add lib/frequencyScoring.js
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "feat: integrate V8 streak-aware reranking"
+          git pull --rebase origin main
+          git push origin main
