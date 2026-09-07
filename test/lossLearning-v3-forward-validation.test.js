@@ -27,6 +27,26 @@ test('GBPUSD 1M chop reranks only when chop state is confirmed',()=>{
   assert.equal(clean.direction,'BUY');
 });
 
+test('GBPUSD 2M negative-edge compound conflict reranks',()=>{
+  const risky=base('BUY',{originalDirectionScore:-4.2,oppositeDirectionScore:-3.3,frequencyConflicts:['ADVERSE_LOCATION','REJECTION_PRESSURE'],confirmationV2Opposed:4});
+  const out=applyLossContext(risky,'GBPUSD',2).result;
+  assert.equal(out.direction,'SELL');
+  assert.equal(out.features.lossStreakRerankTrigger,'GBPUSD_2M_NEGATIVE_EDGE_CONFLICT_RERANK');
+  assert.equal(out.features.lossStreakFrequencyImpact,'NONE');
+});
+
+test('GBPUSD 2M rerank requires material opposite advantage',()=>{
+  const out=applyLossContext(base('BUY',{originalDirectionScore:-4.2,oppositeDirectionScore:-3.6,frequencyConflicts:['ADVERSE_LOCATION','REJECTION_PRESSURE'],confirmationV2Opposed:4}),'GBPUSD',2).result;
+  assert.equal(out.direction,'BUY');
+  assert.equal(out.features.lossStreakRerankApplied,false);
+});
+
+test('GBPUSD 2M rerank requires compound conflict',()=>{
+  const out=applyLossContext(base('BUY',{originalDirectionScore:-4.2,oppositeDirectionScore:-3.0,frequencyConflicts:[],confirmationV2Opposed:1}),'GBPUSD',2).result;
+  assert.equal(out.direction,'BUY');
+  assert.equal(out.features.lossStreakRerankApplied,false);
+});
+
 test('EURJPY 2M conflict requires compound evidence',()=>{
   const weak=applyLossContext(base('BUY',{groupOpposingVotes:2,groupDominance:.3}),'EURJPY',2).result;
   assert.equal(weak.direction,'BUY');
