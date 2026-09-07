@@ -1,0 +1,36 @@
+name: Ensure Live Audit Capture
+
+# Self-healing backstop for the primary 5-minute capture schedule.
+# A push to this file dispatches the canonical capture immediately; the hourly
+# schedule is a second independent backstop if GitHub delays the primary cron.
+on:
+  push:
+    paths:
+      - '.github/workflows/ensure-live-audit.yml'
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: ensure-live-audit-capture
+  cancel-in-progress: true
+
+jobs:
+  dispatch-capture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch canonical capture
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api \
+            --method POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "/repos/${GITHUB_REPOSITORY}/actions/workflows/capture-live-audit.yml/dispatches" \
+            -f ref="${GITHUB_REF_NAME:-main}"
