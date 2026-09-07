@@ -1,0 +1,194 @@
+name: Analyze repaired exact batches
+
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze-repaired-batches.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Analyze six newly completed authoritative batches
+        run: |
+          python - <<'PY'
+          import json, pathlib, datetime, collections, math
+
+          files = [
+            'audit/new-batches/eurusd-5m-batch-4.json',
+            'audit/new-batches/gbpusd-5m-batch-4.json',
+            'audit/new-batches/eurjpy-5m-batch-4.json',
+            'audit/new-batches/usdjpy-5m-batch-4.json',
+            'audit/new-batches/audusd-5m-batch-4.json',
+            'audit/new-batches/usdjpy-15m-batch-2.json',
+          ]
+
+          def pkt_hour(ms):
+            return (datetime.datetime.fromtimestamp(ms/1000, datetime.timezone.utc) + datetime.timedelta(hours=5)).hour
+
+          def time_bucket(ms):
+            dt = datetime.datetime.fromtimestamp(ms/1000, datetime.timezone.utc) + datetime.timedelta(hours=5)
+            h,m = dt.hour, dt.minute
+            return f'{h:02d}:00-{h:02d}:59'
+
+          def session(ms):
+            h = pkt_hour(ms)
+            if 9 <= h < 12: return 'ASIAN_LATE'
+            if 12 <= h < 13: return 'LONDON_PREOPEN'
+            if 13 <= h < 14: return 'LONDON_OPEN'
+            if 14 <= h < 17: return 'LONDON_EARLY_MID'
+            if 17 <= h < 20: return 'LONDON_NY_OVERLAP'
+            if 20 <= h < 23: return 'NEW_YORK'
+            return 'OTHER'
+
+          def streak_stats(results):
+            max_loss=max_win=cur_l=cur_w=0
+            runs={2:0,3:0,4:0,5:0}
+            loss_runs=[]
+            for r in results+['END']:
+              if r=='LOSS':
+                cur_l+=1; max_loss=max(max_loss,cur_l); cur_w=0
+              else:
+                if cur_l:
+                  loss_runs.append(cur_l)
+                  for k in runs:
+                    if cur_l>=k: runs[k]+=1
+                cur_l=0
+                if r=='WIN': cur_w+=1; max_win=max(max_win,cur_w)
+                else: cur_w=0
+            return {'maxLossStreak':max_loss,'maxWinStreak':max_win,'lossRunsAtLeast':{str(k):v for k,v in runs.items()},'lossRunLengths':loss_runs}
+
+          def summarize(rows):
+            rows=sorted(rows,key=lambda r:r.get('signalBoundary',0))
+            main=[r.get('result') for r in rows if r.get('result') in ('WIN','LOSS')]
+            wins=main.count('WIN'); losses=main.count('LOSS')
+            out={'n':len(main),'wins':wins,'losses':losses,'rawAccuracy':round(wins/len(main),4) if main else None}
+            out.update(streak_stats(main))
+            out['directions']=dict(collections.Counter(r.get('direction','UNKNOWN') for r in rows))
+            out['regimes']=dict(collections.Counter(r.get('regime','UNKNOWN') for r in rows))
+            conf=[r.get('confidence') for r in rows if isinstance(r.get('confidence'),(int,float))]
+            out['avgConfidence']=round(sum(conf)/len(conf),2) if conf else None
+            # shadow
+            shadow_ready=[]; agree=[]
+            for r in rows:
+              s=r.get('shadowModel') or {}
+              if s.get('settled') and s.get('result') in ('WIN','LOSS'):
+                shadow_ready.append(s.get('result'))
+                if s.get('direction') in ('BUY','SELL') and r.get('direction') in ('BUY','SELL'):
+                  agree.append((s.get('direction')==r.get('direction'),r.get('result'),s.get('result')))
+            if shadow_ready:
+              sw=shadow_ready.count('WIN')
+              out['shadow']={'n':len(shadow_ready),'wins':sw,'rawAccuracy':round(sw/len(shadow_ready),4)}
+              if agree:
+                a=[x for x in agree if x[0]]; d=[x for x in agree if not x[0]]
+                out['shadow']['agreementN']=len(a); out['shadow']['disagreementN']=len(d)
+                out['shadow']['mainAccuracyWhenAgree']=round(sum(x[1]=='WIN' for x in a)/len(a),4) if a else None
+                out['shadow']['mainAccuracyWhenDisagree']=round(sum(x[1]=='WIN' for x in d)/len(d),4) if d else None
+            out['shadowStatus']=dict(collections.Counter((r.get('shadowModel') or {}).get('status','MISSING') for r in rows))
+            return out
+
+          all_rows=[]; per_batch={}
+          for f in files:
+            p=pathlib.Path(f)
+            rows=json.loads(p.read_text())
+            if len(rows)!=20: raise SystemExit(f'{f} has {len(rows)} rows, expected 20')
+            if any(not r.get('authoritativeBoundarySettlement') for r in rows): raise SystemExit(f'{f} contains non-authoritative settlement')
+            per_batch[p.name]=summarize(rows)
+            all_rows.extend(rows)
+
+          # chrono combined
+          combined=summarize(all_rows)
+
+          # pair x timeframe
+          profiles={}
+          for key, rr in __import__('itertools').groupby(sorted(all_rows,key=lambda r:(r['pair'],r['horizon'],r['signalBoundary'])), key=lambda r:(r['pair'],r['horizon'])):
+            arr=list(rr); profiles[f'{key[0]}-{key[1]}M']=summarize(arr)
+
+          # session/time matrix
+          matrix={}
+          groups=collections.defaultdict(list)
+          for r in all_rows:
+            groups[(r['pair'],r['horizon'],session(r['signalBoundary']),time_bucket(r['signalBoundary']))].append(r)
+          for k,arr in groups.items():
+            sm=summarize(arr)
+            sm['smallSampleProvisional']=sm['n']<20
+            matrix['|'.join(map(str,k))]=sm
+
+          # gate/tag attribution
+          labels=collections.defaultdict(lambda:{'eligible':0,'wins':0,'losses':0})
+          for r in all_rows:
+            tags=set(r.get('vetoReasons') or [])
+            feat=r.get('features') or {}
+            for fld in ('frequencyConflicts','frequencyStructuralTags','frequencyFreshEvidence'):
+              v=feat.get(fld) or []
+              if isinstance(v,str): v=[x for x in v.split('|') if x]
+              tags.update(f'{fld}:{x}' for x in v)
+            for fld in ('scoreRedistributionPenaltyTags','scoreRedistributionBonusTags','maBbTags'):
+              v=feat.get(fld)
+              if isinstance(v,str): tags.update(f'{fld}:{x}' for x in v.split('|') if x and x!='NONE')
+            tags.add('regime:'+str(r.get('regime')))
+            tags.add('entryLane:'+str(feat.get('entryLane')))
+            tags.add('activeFvgState:'+str(feat.get('activeFvgState')))
+            tags.add('structure:'+str(feat.get('structure')))
+            for t in tags:
+              d=labels[t]; d['eligible']+=1; d['wins']+=r.get('result')=='WIN'; d['losses']+=r.get('result')=='LOSS'
+          gate_scorecard={}
+          base=combined['rawAccuracy']
+          for t,d in labels.items():
+            if d['eligible']>=5:
+              acc=d['wins']/d['eligible']
+              gate_scorecard[t]={**d,'accuracy':round(acc,4),'liftVsCombined':round(acc-base,4)}
+          gate_scorecard=dict(sorted(gate_scorecard.items(), key=lambda kv:(-kv[1]['eligible'],kv[0])))
+
+          # confidence buckets empirical
+          cb=collections.defaultdict(lambda:[0,0])
+          for r in all_rows:
+            c=r.get('confidence')
+            if not isinstance(c,(int,float)): continue
+            b='55-59' if c<60 else '60-64' if c<65 else '65-69' if c<70 else '70-79' if c<80 else '80+'
+            cb[b][0]+=1; cb[b][1]+=r.get('result')=='WIN'
+          conf_buckets={k:{'n':n,'wins':w,'accuracy':round(w/n,4)} for k,(n,w) in cb.items() if n}
+
+          # London-specific EURUSD/GBPUSD
+          london={}
+          for pair in ('EURUSD','GBPUSD'):
+            for s in ('LONDON_PREOPEN','LONDON_OPEN','LONDON_EARLY_MID','LONDON_NY_OVERLAP'):
+              rr=[r for r in all_rows if r['pair']==pair and session(r['signalBoundary'])==s]
+              if rr: london[f'{pair}|{s}']=summarize(rr)
+
+          report={
+            'generatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            'sourceFiles':files,
+            'integrity':{'allSixBatchesPresent':True,'allRowsExact20':True,'allAuthoritativeBoundarySettlements':True,'totalSignals':len(all_rows)},
+            'perBatch':per_batch,
+            'profiles':profiles,
+            'combinedChronological':combined,
+            'sessionTimeMatrix':matrix,
+            'eurusdGbpusdLondon':london,
+            'confidenceBuckets':conf_buckets,
+            'gateTagScorecard':gate_scorecard,
+            'pairPanelCalibration':{'available':False,'reason':'These canonical settlement records do not persist displayed pair-panel score/runner-up breakdown at each selection timestamp; cannot truthfully test top-score vs runner-up from this batch artifact alone.'},
+            'notes':['All statistics are raw before martingale overlays.','Session labels are PKT audit buckets for this diagnostic report; small samples remain provisional.']
+          }
+          out=pathlib.Path('audit/repair-cycle-analysis-2026-09-07.json')
+          out.write_text(json.dumps(report,indent=2,sort_keys=True))
+          PY
+
+      - name: Commit analysis
+        run: |
+          git config user.name 'Forex Falcon Audit Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add audit/repair-cycle-analysis-2026-09-07.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'audit: analyze repaired exact batches'
+          git pull --rebase origin main
+          git push origin main
