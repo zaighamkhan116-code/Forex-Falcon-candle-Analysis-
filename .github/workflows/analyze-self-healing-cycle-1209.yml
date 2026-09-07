@@ -24,7 +24,7 @@ jobs:
         run: |
           set -euo pipefail
           python - <<'PY'
-          import json, pathlib, datetime, collections
+          import json, pathlib, datetime, collections, re
           root=pathlib.Path('.')
           status=json.loads((root/'audit/exact-20-batch-status.json').read_text())
           state=json.loads((root/'audit/automation-state-20-batch.json').read_text())
@@ -52,10 +52,23 @@ jobs:
           def stat(rows):
             w=sum(r.get('result')=='WIN' for r in rows); l=sum(r.get('result')=='LOSS' for r in rows); t=sum(r.get('result')=='TIE' for r in rows); d=w+l
             return {'n':len(rows),'wins':w,'losses':l,'ties':t,'accuracyExTies':round(100*w/d,2) if d else None}
+          def batch_meta(path,b):
+            if isinstance(b,dict):
+              return b.get('pair'),b.get('horizon'),b.get('batchNumber')
+            m=re.match(r'([a-z]+)-(\d+)m-batch-(\d+)\.json$',path.name)
+            if not m:return None,None,None
+            return m.group(1).upper(),int(m.group(2)),int(m.group(3))
           reports=[]
           for p in files:
             if not p.exists(): continue
-            b=json.loads(p.read_text()); rows=b.get('results',b.get('records',[])); decided=[r.get('result') for r in rows if r.get('result') in ('WIN','LOSS')]
+            b=json.loads(p.read_text())
+            rows=b if isinstance(b,list) else b.get('results',b.get('records',[]))
+            if not isinstance(rows,list): raise SystemExit(f'malformed batch rows in {p}')
+            if len(rows)!=20: raise SystemExit(f'{p} has {len(rows)} rows, expected exactly 20')
+            ids=[r.get('id') for r in rows]
+            if any(not x for x in ids) or len(ids)!=len(set(ids)): raise SystemExit(f'missing/duplicate permanent signal id in {p}')
+            if any(r.get('result') not in ('WIN','LOSS','TIE') for r in rows): raise SystemExit(f'malformed result in {p}')
+            decided=[r.get('result') for r in rows if r.get('result') in ('WIN','LOSS')]
             groups={k:collections.defaultdict(list) for k in ['confidence','direction','regime','session','hour','safeguard']}
             for r in rows:
               groups['confidence'][bucket_conf(r.get('confidence',r.get('probability',0)))].append(r); groups['direction'][r.get('direction','UNKNOWN')].append(r); groups['regime'][r.get('regime','UNKNOWN')].append(r)
@@ -66,8 +79,10 @@ jobs:
               for k,v in f.items():
                 if isinstance(v,bool) and v and any(x in k.lower() for x in ['guard','gate','conflict','risk','fresh','breakout','fvg','sweep','rejection','alignment','progress']): tags.add(k)
               for tag in tags: groups['safeguard'][tag].append(r)
-            rep={'file':str(p),'pair':b.get('pair'),'horizon':b.get('horizon'),'batchNumber':b.get('batchNumber'),'summary':stat(rows),**streaks(decided),'breakdowns':{k:{g:stat(v) for g,v in vals.items()} for k,vals in groups.items()}}
-            shadow=[r for r in rows if (r.get('shadow') or {}).get('status')=='READY']; rep['shadow']={'ready':len(shadow),'agreements':sum((r.get('shadow') or {}).get('direction')==r.get('direction') for r in shadow),'disagreements':sum((r.get('shadow') or {}).get('direction')!=r.get('direction') for r in shadow)}
+            pair,horizon,batch_number=batch_meta(p,b)
+            rep={'file':str(p),'pair':pair,'horizon':horizon,'batchNumber':batch_number,'summary':stat(rows),**streaks(decided),'breakdowns':{k:{g:stat(v) for g,v in vals.items()} for k,vals in groups.items()}}
+            shadow=[r for r in rows if ((r.get('shadow') or r.get('shadowModel') or {}).get('status')=='READY')]
+            rep['shadow']={'ready':len(shadow),'agreements':sum((r.get('shadow') or r.get('shadowModel') or {}).get('direction')==r.get('direction') for r in shadow),'disagreements':sum((r.get('shadow') or r.get('shadowModel') or {}).get('direction')!=r.get('direction') for r in shadow)}
             reports.append(rep)
           out={'generatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'integrityStatus':'PASS' if all(t['integrity']['malformed']==t['integrity']['duplicateIds']==t['integrity']['duplicateBoundaries']==t['integrity']['contradictions']==0 for t in status['tracks'].values()) else 'FAIL','lineageRule':status['lineageRule'],'newBatchCount':len(reports),'batches':reports,'decision':'EVIDENCE_REVIEW_REQUIRED' if reports else 'NO_NEW_BATCH'}
           (root/'audit/self-healing-latest.json').write_text(json.dumps(out,indent=2))
@@ -91,3 +106,4 @@ jobs:
           exit 1
 # automation trigger: 2026-09-08T02:02+05:00
 # automation self-heal retrigger: 2026-09-08T03:00+05:00 stale canonical watermark detected
+# self-heal: accept legacy list-shaped canonical batch files while retaining exact-20/permanent-ID validation
