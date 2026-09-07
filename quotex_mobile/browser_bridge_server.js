@@ -30,7 +30,7 @@ function authorized(req) {
 }
 function normalizePair(v) { return String(v || '').toUpperCase().replace(/\(OTC\)/g, '').replace(/[^A-Z]/g, '').slice(0,12); }
 function validPair(p) { return /^[A-Z]{3,12}$/.test(p); }
-function pct(v){const n=Number(v);return Number.isFinite(n)?Math.max(0,Math.min(100,Math.round(n*10)/10)):null;}
+function pct(v){const n=Number(v);return Number.isFinite(n)&&n>0&&n<=100?Math.round(n*10)/10:null;}
 function dayFile(pair, ts) { return path.join(ROOT, `${pair}-OTC-${new Date(ts).toISOString().slice(0, 10)}.jsonl`); }
 async function persistTick(tick) { await fs.mkdir(ROOT,{recursive:true}); await fs.appendFile(dayFile(tick.pair,tick.timestamp_ms),JSON.stringify(tick)+'\n','utf8'); }
 
