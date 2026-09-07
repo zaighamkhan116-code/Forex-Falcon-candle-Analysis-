@@ -8,7 +8,7 @@ const EMAIL = process.env.QUOTEX_EMAIL || '';
 const PASSWORD = process.env.QUOTEX_PASSWORD || '';
 const PROFILE = process.env.QUOTEX_PROFILE_DIR || '/data/quotex-profile';
 const CHROME = process.env.CHROMIUM_PATH || '/usr/bin/chromium';
-const QX_URL = process.env.QUOTEX_URL || 'https://qxbroker.com/en/sign-in/modal/';
+const QX_URL = process.env.QUOTEX_URL || 'https://qxbroker.com/en/sign-in/';
 const SYMBOL = String(process.env.QUOTEX_OTC_SYMBOL || 'EURUSD').toUpperCase().replace(/[^A-Z]/g, '');
 const POLL_MS = Math.max(25, Number(process.env.QUOTEX_OTC_POLL_MS || 50));
 const ROOT = process.env.QUOTEX_OTC_DATA_DIR || '/data/quotex-otc';
@@ -34,30 +34,116 @@ function log(event, extra = {}) {
   console.log(JSON.stringify({ service: 'quotex-otc-collector', event, at: Date.now(), ...extra }));
 }
 
+async function loginPageDiagnostics(page, reason) {
+  try {
+    const diag = await page.evaluate(() => {
+      const compact = s => String(s || '').replace(/\s+/g, ' ').trim();
+      const visible = el => {
+        if (!el) return false;
+        const r = el.getBoundingClientRect();
+        const st = getComputedStyle(el);
+        return r.width > 0 && r.height > 0 && st.visibility !== 'hidden' && st.display !== 'none';
+      };
+      const inputs = [...document.querySelectorAll('input')].slice(0, 20).map((el, i) => ({
+        i,
+        type: el.type || '',
+        name: el.name || '',
+        placeholder: el.placeholder || '',
+        autocomplete: el.autocomplete || '',
+        id: el.id || '',
+        className: String(el.className || '').slice(0, 120),
+        visible: visible(el),
+      }));
+      const buttons = [...document.querySelectorAll('button,[role="button"]')]
+        .filter(visible)
+        .slice(0, 20)
+        .map((el, i) => ({
+          i,
+          text: compact(el.textContent).slice(0, 100),
+          type: el.getAttribute('type') || '',
+          id: el.id || '',
+          className: String(el.className || '').slice(0, 120),
+        }));
+      const forms = [...document.querySelectorAll('form')].slice(0, 10).map((el, i) => ({
+        i,
+        action: el.getAttribute('action') || '',
+        method: el.getAttribute('method') || '',
+        text: compact(el.textContent).slice(0, 250),
+      }));
+      return {
+        href: location.href,
+        title: document.title,
+        readyState: document.readyState,
+        bodyText: compact(document.body?.innerText).slice(0, 1800),
+        inputs,
+        buttons,
+        forms,
+      };
+    });
+    log('login-page-diagnostic', { reason, ...diag });
+  } catch (e) {
+    log('login-page-diagnostic-error', { reason, error: e.message });
+  }
+}
+
 async function ensureLogin(page) {
-  await page.goto(QX_URL, { waitUntil: 'domcontentloaded', timeout: 45000 });
-  await sleep(1500);
+  const response = await page.goto(QX_URL, { waitUntil: 'domcontentloaded', timeout: 45000 });
+  await sleep(2500);
+  log('login-navigation', {
+    requestedUrl: QX_URL,
+    finalUrl: page.url(),
+    status: response?.status?.() ?? null,
+    title: await page.title().catch(() => ''),
+  });
+
   if (await page.locator('#tab-active').count()) {
     state.loggedIn = true;
+    log('session-ready', { url: page.url() });
     return;
   }
-  const email = page.locator('input[type="email"], input[name="email"]').first();
-  const password = page.locator('input[type="password"]').first();
-  if (!(await email.count()) || !(await password.count())) throw new Error('Quotex login form not detected');
+
+  const emailSelectors = [
+    'input[type="email"]',
+    'input[name="email"]',
+    'input[autocomplete="email"]',
+    'input[placeholder*="mail" i]'
+  ];
+  const passwordSelectors = [
+    'input[type="password"]',
+    'input[name="password"]',
+    'input[autocomplete="current-password"]',
+    'input[placeholder*="password" i]'
+  ];
+  const email = page.locator(emailSelectors.join(',')).first();
+  const password = page.locator(passwordSelectors.join(',')).first();
+
+  if (!(await email.count()) || !(await password.count())) {
+    await loginPageDiagnostics(page, 'login-form-not-detected');
+    throw new Error('Quotex login form not detected');
+  }
   if (!EMAIL || !PASSWORD) throw new Error('QUOTEX_EMAIL / QUOTEX_PASSWORD Railway secrets are required for first login');
+
   await email.fill(EMAIL);
   await password.fill(PASSWORD);
   const remember = page.locator('input[type="checkbox"]').first();
   if (await remember.count()) { try { await remember.check(); } catch {} }
-  const button = page.getByRole('button', { name: /sign in|login/i }).first();
-  if (!(await button.count())) throw new Error('Quotex sign-in button not detected');
+
+  let button = page.getByRole('button', { name: /sign in|login|log in/i }).first();
+  if (!(await button.count())) button = page.locator('button[type="submit"],input[type="submit"]').first();
+  if (!(await button.count())) {
+    await loginPageDiagnostics(page, 'sign-in-button-not-detected');
+    throw new Error('Quotex sign-in button not detected');
+  }
+
   await button.click();
-  await page.waitForTimeout(2500);
+  await page.waitForTimeout(3500);
   if (await page.locator('#tab-active').count()) {
     state.loggedIn = true;
-    log('login-ok');
+    log('login-ok', { url: page.url() });
     return;
   }
+
+  await loginPageDiagnostics(page, 'login-not-completed');
   throw new Error('Login not completed. Quotex may require verification/CAPTCHA. Collector remains read-only and stopped.');
 }
 
