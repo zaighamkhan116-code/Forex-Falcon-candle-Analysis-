@@ -56,6 +56,11 @@ jobs:
             "function rate(row){if(Number.isFinite(Number(row?.selector?.score)))return Number(row.selector.score);const c=liveSignal(row);if(!c)return 0;")
           p=Path('public/market-selector-ui.js'); s=p.read_text().replace('Market-quality rating combines structure, momentum alignment, directional efficiency, volatility quality, regime, current confidence and recent validation.','Forward-shrunk market ranking uses live quality, profile reliability, regime, streak risk, freshness and direction-bias diagnostics. The score is relative strength, not literal win probability.'); p.write_text(s)
 
+          # UI warnings are diagnostic only after frequency-preserving scoring.
+          replace_once('public/app.js',
+            "function signalPassesGates(sig,threshold){const conf=Number(sig?.confidence??sig?.probability??0);return sig?.qualified===true&&sig?.tradeQualified!==false&&conf>=threshold&&(!Array.isArray(sig?.vetoReasons)||sig.vetoReasons.length===0)}",
+            "function signalPassesGates(sig,threshold){const conf=Number(sig?.confidence??sig?.probability??0);return sig?.qualified===true&&sig?.tradeQualified!==false&&conf>=threshold}")
+
           # Countdown uses server authoritative target boundary when available.
           replace_once('public/app.js',
             "boundaryRefreshKey:'',minConfidence:57",
@@ -84,6 +89,7 @@ jobs:
           grep -q "qualified:true,tradeQualified:true" lib/frequencyScoring.js
           grep -q "lossLearningFrequencyPreserved:true" lib/lossLearning.js
           grep -q "influencedLiveSignal:false" lib/shadowEnsemble.js
+          grep -q "return sig?.qualified===true&&sig?.tradeQualified!==false&&conf>=threshold" public/app.js
       - name: Commit validated hardening
         run: |
           git config user.name 'Forex Falcon Audit Bot'
