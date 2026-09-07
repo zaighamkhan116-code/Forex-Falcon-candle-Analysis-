@@ -2,7 +2,7 @@ name: Capture selector telemetry
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '*/5 * * * *'
   push:
     paths:
       - '.github/workflows/capture-selector-telemetry.yml'
@@ -37,6 +37,28 @@ jobs:
           const capturedAt=new Date().toISOString();
           const horizons=[1,2,3,5,15];
           const out=[];
+          const key=(pair,h,b)=>`${pair}:${h}:${Number(b||0)}`;
+          function pkt(ts){
+            if(!Number(ts))return{session:null,timeBucket:null};
+            const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Karachi',hour:'2-digit',hourCycle:'h23'}).formatToParts(new Date(Number(ts)));
+            const hour=Number(parts.find(x=>x.type==='hour')?.value||0);
+            const session=hour>=9&&hour<12?'ASIAN_LATE':hour===12?'LONDON_PREOPEN':hour===13?'LONDON_OPEN':hour>=14&&hour<17?'LONDON_EARLY_MID':hour>=17&&hour<20?'LONDON_NY_OVERLAP':hour>=20&&hour<23?'NEW_YORK':'OFF_HOURS';
+            return{session,timeBucket:`${String(hour).padStart(2,'0')}:00-${String(hour).padStart(2,'0')}:59`};
+          }
+          const settlement=new Map();
+          for(const pairRow of rows){
+            for(const horizon of horizons){
+              const h=pairRow?.horizons?.[horizon]??pairRow?.horizons?.[String(horizon)];
+              for(const r of h?.recent||[]){
+                if(!['WIN','LOSS','TIE'].includes(r?.result)||!Number(r?.signalBoundary))continue;
+                settlement.set(key(pairRow.pair,horizon,r.signalBoundary),{
+                  result:r.result,entry:Number(r.entry),exit:Number(r.exit),resolvedAt:Number(r.resolvedAt)||null,
+                  authoritativeBoundarySettlement:r.authoritativeBoundarySettlement===true,
+                  settlementRule:r.settlementRule||null
+                });
+              }
+            }
+          }
           for(const horizon of horizons){
             const candidates=[];
             for(const pairRow of rows){
@@ -45,19 +67,22 @@ jobs:
               const selector=scoreSelectorRow(h);
               const sig=h.currentCandidate||h.displaySignal||h.last||null;
               const qc=h.qualityControl||{};
+              const signalBoundary=Number(sig?.signalBoundary||sig?.boundary||0)||null;
+              const pc=pkt(signalBoundary||h?.targetBoundary||Date.parse(capturedAt));
+              const settled=settlement.get(key(pairRow.pair,horizon,signalBoundary))||{};
               candidates.push({
                 pair:pairRow.pair,horizon,
                 score:selector.score,scoreVersion:selector.version,breakdown:selector.breakdown,
                 calibratedProbability:selector.calibratedProbability,reliability:selector.reliability,
-                signalBoundary:Number(sig?.signalBoundary||sig?.boundary||0)||null,
-                targetBoundary:Number(h?.targetBoundary||0)||null,
+                signalBoundary,targetBoundary:Number(h?.targetBoundary||0)||null,
                 direction:sig?.direction||null,confidence:Number(sig?.confidence)||null,regime:sig?.regime||null,
-                session:sig?.features?.trackCalibrationSession||null,timeBucket:sig?.features?.trackCalibrationTimeBucket||null,
+                session:sig?.features?.trackCalibrationSession||pc.session,
+                timeBucket:sig?.features?.trackCalibrationTimeBucket||pc.timeBucket,
                 conflicts:sig?.features?.frequencyConflicts||[],conflictCount:Number(sig?.features?.frequencyConflictCount||0),
                 directionBias:qc?.directionBias||null,freshness:qc?.freshness||null,lossStreak:qc?.lossStreak||null,
                 profile:qc?.profile||null,
                 shadow:{status:sig?.shadowModel?.status||null,direction:sig?.shadowModel?.direction||null,confidence:Number(sig?.shadowModel?.confidence)||null},
-                result:h?.last?.signalBoundary===sig?.signalBoundary?h?.last?.result||null:null
+                ...settled
               });
             }
             candidates.sort((a,b)=>b.score-a.score||a.pair.localeCompare(b.pair));
@@ -66,6 +91,18 @@ jobs:
           }
           const day=capturedAt.slice(0,10),dir='audit/selector-telemetry',path=`${dir}/${day}.jsonl`;
           fs.mkdirSync(dir,{recursive:true});
+          if(fs.existsSync(path)){
+            const old=fs.readFileSync(path,'utf8').split('\n').filter(Boolean).map(line=>JSON.parse(line));
+            for(const snap of old)for(const c of snap.candidates||[]){
+              if(c.result||!c.signalBoundary)continue;
+              const s=settlement.get(key(c.pair,c.horizon,c.signalBoundary));
+              if(s)Object.assign(c,s);
+              const pc=pkt(c.signalBoundary);
+              if(!c.session)c.session=pc.session;
+              if(!c.timeBucket)c.timeBucket=pc.timeBucket;
+            }
+            fs.writeFileSync(path,old.map(x=>JSON.stringify(x)).join('\n')+'\n');
+          }
           fs.appendFileSync(path,out.map(x=>JSON.stringify(x)).join('\n')+'\n');
           fs.writeFileSync(`${dir}/latest.json`,JSON.stringify({capturedAt,horizons:out},null,2)+'\n');
           NODE
