@@ -1,0 +1,83 @@
+{
+  "createdAt": "2026-09-07T17:05:00Z",
+  "status": "FORWARD_VALIDATION",
+  "strategyVersion": "V9_FORWARD_VALIDATION_TRACK_CONFLICT_CALIBRATION",
+  "integrityPrerequisite": {
+    "status": "PASS",
+    "canonicalSettledCount": 3400,
+    "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "stageZeroRepairsThisCycle": [
+    {
+      "commit": "75853b0d29589f7e88c3fc638f14443ff5cbe9d7",
+      "change": "Advance stale canonical learning watermark only through batches proven analyzed by the prior completed report."
+    },
+    {
+      "commit": "fc5fb780f359f4849fa987d51f157fa732684eb7",
+      "change": "Give canonical learning an independent scheduled trigger and atomically persist its batch watermark after successful analysis."
+    },
+    {
+      "commit": "3c3def817ce181db613709382c0d74fd482c2376",
+      "change": "Successful canonical analysis of 20 newly completed exact-20 batches and atomic watermark advancement."
+    }
+  ],
+  "experiments": [
+    {
+      "track": "EURJPY-3M",
+      "codeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
+      "testCommit": "74aa3bde1ebd01e50fbdd19335393c3995829b7e",
+      "evidence": {
+        "batch6": {"rawAccuracy": 0.35, "maxLossStreak": 5},
+        "batch7": {"rawAccuracy": 0.35, "maxLossStreak": 7},
+        "repeatability": "Two consecutive clean canonical batches at 35%; streak severity worsened.",
+        "timeContext": "Weakness moved between London early/mid and London/NY overlap, so the experiment is condition-specific rather than hard-coded to one hour."
+      },
+      "change": "When EURJPY 3M is already in compound conflict with failed/weak reaction, add a targeted confidence adjustment and direction-bias penalty to that candidate direction. No veto and no minimum-confidence change.",
+      "expectedEffect": "Reduce persistence in stale/conflicted direction and let the existing evidence-based opposite-direction reranker win when the alternative has healthier reaction evidence, while preserving one signal per eligible boundary.",
+      "nextUnseenTarget": "EURJPY-3M canonical B8",
+      "promotionRule": "Retain only if unseen raw accuracy and/or loss-streak severity improves without frequency degradation; otherwise revert this track-specific V9 tag."
+    },
+    {
+      "track": "AUDUSD-2M",
+      "codeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
+      "testCommit": "74aa3bde1ebd01e50fbdd19335393c3995829b7e",
+      "evidence": {
+        "batch7": {"rawAccuracy": 0.3158, "maxLossStreak": 6},
+        "batch8": {"rawAccuracy": 0.4211, "maxLossStreak": 6},
+        "repeatability": "Two consecutive clean canonical batches below 43% with repeated six-loss maximum streaks.",
+        "timeContext": "Weakness spans adjacent London/overlap conditions, so the experiment targets compound reaction conflict rather than removing a session."
+      },
+      "change": "When AUDUSD 2M is already in compound conflict with failed/weak reaction, add a targeted confidence adjustment and direction-bias penalty to that candidate direction. No veto and no minimum-confidence change.",
+      "expectedEffect": "Improve direction selection under conflicted price reaction without reducing signal cadence or modifying money management.",
+      "nextUnseenTarget": "AUDUSD-2M canonical B9",
+      "promotionRule": "Retain only if unseen raw accuracy and/or loss-streak severity improves without frequency degradation; otherwise revert this track-specific V9 tag."
+    }
+  ],
+  "notModifiedForInsufficientRepeatability": [
+    "GBPUSD-1M",
+    "GBPUSD-2M",
+    "EURJPY-2M",
+    "USDJPY-2M"
+  ],
+  "recoveredWithoutFurtherModification": [
+    "EURUSD-2M",
+    "USDJPY-3M"
+  ],
+  "protectedHealthyControls": [
+    "EURUSD-5M B5 68.42%",
+    "AUDUSD-5M B5 72.22%",
+    "USDJPY-1M B10 57.89%",
+    "GBPUSD-5M B5 55%"
+  ],
+  "shadow": {
+    "authority": "NON_AUTHORITATIVE",
+    "schemaRepair": "CONFIRMED_LIVE_NO_FEATURE_NAME_WARNINGS",
+    "unsupportedPairs": "UNSUPPORTED_NOT_GLOBAL_FAILURE"
+  },
+  "minimumConfidence": 57,
+  "frequencyPolicy": "PRESERVED"
+}
