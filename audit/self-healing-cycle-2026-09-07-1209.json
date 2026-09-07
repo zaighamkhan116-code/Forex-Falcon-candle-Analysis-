@@ -1,0 +1,622 @@
+{
+  "generatedAt": "2026-09-07T12:11:01.402784+00:00",
+  "integrity": {
+    "allSevenBatchesPresent": true,
+    "allRowsExact20": true,
+    "allAuthoritativeBoundarySettlements": true,
+    "totalSignals": 140
+  },
+  "newBatches": [
+    "audit/new-batches/eurusd-1m-batch-8.json",
+    "audit/new-batches/gbpusd-1m-batch-8.json",
+    "audit/new-batches/eurjpy-1m-batch-8.json",
+    "audit/new-batches/usdjpy-1m-batch-8.json",
+    "audit/new-batches/audusd-1m-batch-8.json",
+    "audit/new-batches/eurjpy-15m-batch-2.json",
+    "audit/new-batches/audusd-15m-batch-2.json"
+  ],
+  "perBatch": {
+    "eurusd-1m-batch-8.json": {
+      "rows": 20,
+      "decided": 18,
+      "wins": 10,
+      "losses": 8,
+      "tiesOrOther": 2,
+      "rawAccuracy": 0.5556,
+      "maxLossStreak": 3,
+      "maxWinStreak": 5,
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "avgConfidence": 63.94,
+      "regimes": {
+        "TRENDING": 3,
+        "MIXED": 8,
+        "CHOPPY": 9
+      },
+      "directions": {
+        "BUY": 12,
+        "SELL": 8
+      }
+    },
+    "gbpusd-1m-batch-8.json": {
+      "rows": 20,
+      "decided": 16,
+      "wins": 8,
+      "losses": 8,
+      "tiesOrOther": 4,
+      "rawAccuracy": 0.5,
+      "maxLossStreak": 3,
+      "maxWinStreak": 4,
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 2,
+        "4": 0,
+        "5": 0
+      },
+      "avgConfidence": 62.35,
+      "regimes": {
+        "CHOPPY": 10,
+        "MIXED": 8,
+        "TRENDING": 2
+      },
+      "directions": {
+        "SELL": 12,
+        "BUY": 8
+      }
+    },
+    "eurjpy-1m-batch-8.json": {
+      "rows": 20,
+      "decided": 20,
+      "wins": 13,
+      "losses": 7,
+      "tiesOrOther": 0,
+      "rawAccuracy": 0.65,
+      "maxLossStreak": 3,
+      "maxWinStreak": 5,
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "avgConfidence": 63.44,
+      "regimes": {
+        "CHOPPY": 12,
+        "MIXED": 6,
+        "TRENDING": 2
+      },
+      "directions": {
+        "SELL": 4,
+        "BUY": 16
+      }
+    },
+    "usdjpy-1m-batch-8.json": {
+      "rows": 20,
+      "decided": 20,
+      "wins": 11,
+      "losses": 9,
+      "tiesOrOther": 0,
+      "rawAccuracy": 0.55,
+      "maxLossStreak": 3,
+      "maxWinStreak": 3,
+      "lossRunsAtLeast": {
+        "2": 3,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "avgConfidence": 63.4,
+      "regimes": {
+        "CHOPPY": 14,
+        "MIXED": 4,
+        "TRENDING": 2
+      },
+      "directions": {
+        "SELL": 5,
+        "BUY": 15
+      }
+    },
+    "audusd-1m-batch-8.json": {
+      "rows": 20,
+      "decided": 17,
+      "wins": 9,
+      "losses": 8,
+      "tiesOrOther": 3,
+      "rawAccuracy": 0.5294,
+      "maxLossStreak": 4,
+      "maxWinStreak": 5,
+      "lossRunsAtLeast": {
+        "2": 3,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "avgConfidence": 64.36,
+      "regimes": {
+        "CHOPPY": 17,
+        "MIXED": 3
+      },
+      "directions": {
+        "SELL": 11,
+        "BUY": 9
+      }
+    },
+    "eurjpy-15m-batch-2.json": {
+      "rows": 20,
+      "decided": 20,
+      "wins": 10,
+      "losses": 10,
+      "tiesOrOther": 0,
+      "rawAccuracy": 0.5,
+      "maxLossStreak": 4,
+      "maxWinStreak": 3,
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "avgConfidence": 69.48,
+      "regimes": {
+        "MIXED": 5,
+        "TRENDING": 14,
+        "CHOPPY": 1
+      },
+      "directions": {
+        "SELL": 19,
+        "BUY": 1
+      }
+    },
+    "audusd-15m-batch-2.json": {
+      "rows": 20,
+      "decided": 20,
+      "wins": 13,
+      "losses": 7,
+      "tiesOrOther": 0,
+      "rawAccuracy": 0.65,
+      "maxLossStreak": 3,
+      "maxWinStreak": 4,
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "avgConfidence": 68.6,
+      "regimes": {
+        "MIXED": 6,
+        "TRENDING": 12,
+        "CHOPPY": 2
+      },
+      "directions": {
+        "BUY": 19,
+        "SELL": 1
+      }
+    }
+  },
+  "combined": {
+    "rows": 140,
+    "decided": 131,
+    "wins": 74,
+    "losses": 57,
+    "tiesOrOther": 9,
+    "rawAccuracy": 0.5649,
+    "maxLossStreak": 4,
+    "maxWinStreak": 7,
+    "lossRunsAtLeast": {
+      "2": 17,
+      "3": 8,
+      "4": 2,
+      "5": 0
+    },
+    "avgConfidence": 65.08,
+    "regimes": {
+      "TRENDING": 35,
+      "MIXED": 40,
+      "CHOPPY": 65
+    },
+    "directions": {
+      "BUY": 80,
+      "SELL": 60
+    }
+  },
+  "confidenceBuckets": {
+    "55-59": {
+      "n": 36,
+      "wins": 21,
+      "accuracy": 0.5833
+    },
+    "60-64": {
+      "n": 29,
+      "wins": 13,
+      "accuracy": 0.4483
+    },
+    "65-69": {
+      "n": 34,
+      "wins": 20,
+      "accuracy": 0.5882
+    },
+    "70-79": {
+      "n": 31,
+      "wins": 20,
+      "accuracy": 0.6452
+    },
+    "80-100": {
+      "n": 1,
+      "wins": 0,
+      "accuracy": 0.0
+    }
+  },
+  "componentTags": {
+    "regime:TRENDING": {
+      "n": 33,
+      "wins": 15,
+      "accuracy": 0.4545,
+      "liftVsCombined": -0.1104
+    },
+    "structure:BULL STRUCTURE": {
+      "n": 41,
+      "wins": 23,
+      "accuracy": 0.561,
+      "liftVsCombined": -0.0039
+    },
+    "frequencyConflicts:ADVERSE_LOCATION": {
+      "n": 76,
+      "wins": 46,
+      "accuracy": 0.6053,
+      "liftVsCombined": 0.0404
+    },
+    "frequencyConflicts:FAILURE_TO_PROGRESS": {
+      "n": 38,
+      "wins": 18,
+      "accuracy": 0.4737,
+      "liftVsCombined": -0.0912
+    },
+    "frequencyConflicts:REJECTION_PRESSURE": {
+      "n": 31,
+      "wins": 14,
+      "accuracy": 0.4516,
+      "liftVsCombined": -0.1133
+    },
+    "frequencyStructuralTags:LATE": {
+      "n": 80,
+      "wins": 45,
+      "accuracy": 0.5625,
+      "liftVsCombined": -0.0024
+    },
+    "frequencyStructuralTags:WEAKPROGRESS": {
+      "n": 96,
+      "wins": 52,
+      "accuracy": 0.5417,
+      "liftVsCombined": -0.0232
+    },
+    "frequencyStructuralTags:ADVERSE": {
+      "n": 76,
+      "wins": 46,
+      "accuracy": 0.6053,
+      "liftVsCombined": 0.0404
+    },
+    "frequencyFreshEvidence:DIRECTIONAL_EVIDENCE": {
+      "n": 124,
+      "wins": 70,
+      "accuracy": 0.5645,
+      "liftVsCombined": -0.0004
+    },
+    "frequencyFreshEvidence:CONSENSUS": {
+      "n": 83,
+      "wins": 44,
+      "accuracy": 0.5301,
+      "liftVsCombined": -0.0348
+    },
+    "frequencyFreshEvidence:FVG_RESOLVED": {
+      "n": 90,
+      "wins": 55,
+      "accuracy": 0.6111,
+      "liftVsCombined": 0.0462
+    },
+    "frequencyFreshEvidence:MOVE_QUALITY": {
+      "n": 54,
+      "wins": 33,
+      "accuracy": 0.6111,
+      "liftVsCombined": 0.0462
+    },
+    "scoreRedistributionPenaltyTags:FAILURE_TO_PROGRESS": {
+      "n": 72,
+      "wins": 35,
+      "accuracy": 0.4861,
+      "liftVsCombined": -0.0788
+    },
+    "scoreRedistributionPenaltyTags:ADVERSE_ZONE": {
+      "n": 78,
+      "wins": 47,
+      "accuracy": 0.6026,
+      "liftVsCombined": 0.0377
+    },
+    "scoreRedistributionPenaltyTags:REJECTION_PRESSURE": {
+      "n": 38,
+      "wins": 19,
+      "accuracy": 0.5,
+      "liftVsCombined": -0.0649
+    },
+    "scoreRedistributionPenaltyTags:EMA_COMPRESSION": {
+      "n": 69,
+      "wins": 41,
+      "accuracy": 0.5942,
+      "liftVsCombined": 0.0293
+    },
+    "scoreRedistributionPenaltyTags:VWAP_ATR_EXTENSION": {
+      "n": 87,
+      "wins": 53,
+      "accuracy": 0.6092,
+      "liftVsCombined": 0.0443
+    },
+    "scoreRedistributionBonusTags:FVG_RESOLVED": {
+      "n": 90,
+      "wins": 55,
+      "accuracy": 0.6111,
+      "liftVsCombined": 0.0462
+    },
+    "scoreRedistributionBonusTags:CLEAN_MTF_ALIGNMENT": {
+      "n": 60,
+      "wins": 30,
+      "accuracy": 0.5,
+      "liftVsCombined": -0.0649
+    },
+    "maBbTags:BULL_EMA_STACK": {
+      "n": 49,
+      "wins": 26,
+      "accuracy": 0.5306,
+      "liftVsCombined": -0.0343
+    },
+    "regime:MIXED": {
+      "n": 39,
+      "wins": 25,
+      "accuracy": 0.641,
+      "liftVsCombined": 0.0761
+    },
+    "frequencyConflicts:WEAK_MOVE_QUALITY": {
+      "n": 47,
+      "wins": 25,
+      "accuracy": 0.5319,
+      "liftVsCombined": -0.033
+    },
+    "frequencyStructuralTags:TRANSITION": {
+      "n": 24,
+      "wins": 14,
+      "accuracy": 0.5833,
+      "liftVsCombined": 0.0184
+    },
+    "scoreRedistributionPenaltyTags:WEAK_MOVE_QUALITY": {
+      "n": 67,
+      "wins": 35,
+      "accuracy": 0.5224,
+      "liftVsCombined": -0.0425
+    },
+    "scoreRedistributionPenaltyTags:VSA_OPPOSES_DIRECTION": {
+      "n": 19,
+      "wins": 10,
+      "accuracy": 0.5263,
+      "liftVsCombined": -0.0386
+    },
+    "frequencyFreshEvidence:VSA_SUPPORT": {
+      "n": 37,
+      "wins": 22,
+      "accuracy": 0.5946,
+      "liftVsCombined": 0.0297
+    },
+    "scoreRedistributionBonusTags:MA_BB_ALIGNMENT": {
+      "n": 55,
+      "wins": 30,
+      "accuracy": 0.5455,
+      "liftVsCombined": -0.0194
+    },
+    "scoreRedistributionBonusTags:VSA_EFFORT_RESULT_ALIGNMENT": {
+      "n": 18,
+      "wins": 14,
+      "accuracy": 0.7778,
+      "liftVsCombined": 0.2129
+    },
+    "scoreRedistributionBonusTags:VWAP_RECLAIM_REACTION": {
+      "n": 23,
+      "wins": 14,
+      "accuracy": 0.6087,
+      "liftVsCombined": 0.0438
+    },
+    "structure:RANGE": {
+      "n": 47,
+      "wins": 31,
+      "accuracy": 0.6596,
+      "liftVsCombined": 0.0947
+    },
+    "frequencyConflicts:UNRESOLVED_FVG": {
+      "n": 41,
+      "wins": 19,
+      "accuracy": 0.4634,
+      "liftVsCombined": -0.1015
+    },
+    "frequencyStructuralTags:EXTENDED": {
+      "n": 45,
+      "wins": 23,
+      "accuracy": 0.5111,
+      "liftVsCombined": -0.0538
+    },
+    "frequencyStructuralTags:UNRESOLVED": {
+      "n": 41,
+      "wins": 19,
+      "accuracy": 0.4634,
+      "liftVsCombined": -0.1015
+    },
+    "frequencyFreshEvidence:FRESH_PROGRESS": {
+      "n": 39,
+      "wins": 25,
+      "accuracy": 0.641,
+      "liftVsCombined": 0.0761
+    },
+    "frequencyFreshEvidence:BREAKOUT_PROGRESS": {
+      "n": 31,
+      "wins": 22,
+      "accuracy": 0.7097,
+      "liftVsCombined": 0.1448
+    },
+    "scoreRedistributionPenaltyTags:UNRESOLVED_FVG": {
+      "n": 41,
+      "wins": 19,
+      "accuracy": 0.4634,
+      "liftVsCombined": -0.1015
+    },
+    "scoreRedistributionPenaltyTags:EXTENDED_MOVE": {
+      "n": 46,
+      "wins": 24,
+      "accuracy": 0.5217,
+      "liftVsCombined": -0.0432
+    },
+    "scoreRedistributionBonusTags:FRESH_BREAKOUT": {
+      "n": 18,
+      "wins": 12,
+      "accuracy": 0.6667,
+      "liftVsCombined": 0.1018
+    },
+    "scoreRedistributionBonusTags:RENEWED_PROGRESS": {
+      "n": 17,
+      "wins": 10,
+      "accuracy": 0.5882,
+      "liftVsCombined": 0.0233
+    },
+    "regime:CHOPPY": {
+      "n": 59,
+      "wins": 34,
+      "accuracy": 0.5763,
+      "liftVsCombined": 0.0114
+    },
+    "frequencyConflicts:MTF_CONFLICT": {
+      "n": 57,
+      "wins": 35,
+      "accuracy": 0.614,
+      "liftVsCombined": 0.0491
+    },
+    "frequencyStructuralTags:MTF": {
+      "n": 57,
+      "wins": 35,
+      "accuracy": 0.614,
+      "liftVsCombined": 0.0491
+    },
+    "scoreRedistributionPenaltyTags:MTF_CONFLICT": {
+      "n": 57,
+      "wins": 35,
+      "accuracy": 0.614,
+      "liftVsCombined": 0.0491
+    },
+    "scoreRedistributionPenaltyTags:LOW_EFFICIENCY": {
+      "n": 50,
+      "wins": 29,
+      "accuracy": 0.58,
+      "liftVsCombined": 0.0151
+    },
+    "maBbTags:BEAR_EMA_STACK": {
+      "n": 37,
+      "wins": 18,
+      "accuracy": 0.4865,
+      "liftVsCombined": -0.0784
+    },
+    "scoreRedistributionPenaltyTags:NEGATIVE_PROGRESS": {
+      "n": 6,
+      "wins": 4,
+      "accuracy": 0.6667,
+      "liftVsCombined": 0.1018
+    },
+    "scoreRedistributionPenaltyTags:VWAP_SLOPE_CONFLICT": {
+      "n": 17,
+      "wins": 8,
+      "accuracy": 0.4706,
+      "liftVsCombined": -0.0943
+    },
+    "scoreRedistributionBonusTags:TICK_ACCELERATION": {
+      "n": 8,
+      "wins": 6,
+      "accuracy": 0.75,
+      "liftVsCombined": 0.1851
+    },
+    "scoreRedistributionBonusTags:VOLUME_CONFIRMED_FLOW": {
+      "n": 16,
+      "wins": 12,
+      "accuracy": 0.75,
+      "liftVsCombined": 0.1851
+    },
+    "maBbTags:BB_MID_REJECT": {
+      "n": 6,
+      "wins": 5,
+      "accuracy": 0.8333,
+      "liftVsCombined": 0.2684
+    },
+    "structure:BEAR STRUCTURE": {
+      "n": 28,
+      "wins": 13,
+      "accuracy": 0.4643,
+      "liftVsCombined": -0.1006
+    },
+    "scoreRedistributionPenaltyTags:VSA_HIGH_EFFORT_LOW_RESULT": {
+      "n": 13,
+      "wins": 6,
+      "accuracy": 0.4615,
+      "liftVsCombined": -0.1034
+    },
+    "scoreRedistributionPenaltyTags:BB_CONTRACTION": {
+      "n": 24,
+      "wins": 10,
+      "accuracy": 0.4167,
+      "liftVsCombined": -0.1482
+    },
+    "scoreRedistributionBonusTags:RENEWED_CONSENSUS": {
+      "n": 24,
+      "wins": 14,
+      "accuracy": 0.5833,
+      "liftVsCombined": 0.0184
+    },
+    "maBbTags:BB_BEAR_EXPANSION": {
+      "n": 11,
+      "wins": 6,
+      "accuracy": 0.5455,
+      "liftVsCombined": -0.0194
+    },
+    "scoreRedistributionBonusTags:FRESH_SWEEP_RECLAIM": {
+      "n": 8,
+      "wins": 3,
+      "accuracy": 0.375,
+      "liftVsCombined": -0.1899
+    },
+    "structure:BULL BOS": {
+      "n": 11,
+      "wins": 5,
+      "accuracy": 0.4545,
+      "liftVsCombined": -0.1104
+    },
+    "maBbTags:BB_BULL_EXPANSION": {
+      "n": 6,
+      "wins": 2,
+      "accuracy": 0.3333,
+      "liftVsCombined": -0.2316
+    }
+  },
+  "shadow": {
+    "ready": 8,
+    "decided": 8,
+    "wins": 3,
+    "rawAccuracy": 0.375,
+    "statuses": {
+      "UNSUPPORTED": 132,
+      "READY": 8
+    }
+  },
+  "pairPanelCalibration": {
+    "available": false,
+    "reason": "Exact settlement batches still do not contain persisted displayed pair-panel score plus competing runner-up breakdown."
+  },
+  "modificationDecision": {
+    "strategyChanged": false,
+    "reason": "Seven new clean batches span five 1M tracks and two 15M tracks; no repeated pair\u00d7timeframe\u00d7session/regime failure has yet crossed the evidence threshold for a safe strategy retune in this cycle. Infrastructure self-healing was modified instead."
+  }
+}
