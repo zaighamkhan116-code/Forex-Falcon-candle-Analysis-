@@ -43,10 +43,10 @@ test('generic breakout progress gets less credit than mature breakout progress',
   assert.ok(mature.features.frequencyFreshCredit>generic.features.frequencyFreshCredit);
 });
 
-test('EURJPY 3M V9 forward-validation profile penalizes only compound weak state and preserves cadence',()=>{
+test('EURJPY 3M V9 retained profile still penalizes compound weak state and preserves cadence',()=>{
   const bad=base('EURJPY',3,'BUY',{moveQualityScore:3.6,efficiency:.16,progressScore:-2,failureToProgress:true,mtfOppositionCount:3,emaCompression:true,lateContinuationRisk:true,vsaScore:-.22,candleBodyRatio:.25});
   const cal=assessTrackCalibration(bad,'BUY');
-  assert.equal(cal.version,'V9_FORWARD_VALIDATION_TRACK_CONFLICT_CALIBRATION');
+  assert.equal(cal.version,'V9_1_PARTIAL_REVERT_AUDUSD_2M');
   assert.ok(cal.tags.includes('EURJPY_3M_FORWARD_VALIDATION_CONFLICT_V9'));
   assert.ok(cal.directionBias<0);
   const out=tuneFrequencyScore(bad);
@@ -57,11 +57,11 @@ test('EURJPY 3M V9 forward-validation profile penalizes only compound weak state
   assert.ok(!healthy.tags.includes('EURJPY_3M_FORWARD_VALIDATION_CONFLICT_V9'));
 });
 
-test('AUDUSD 2M V9 forward-validation profile targets compound weak state without global suppression',()=>{
+test('AUDUSD 2M V9 compound-conflict arm is reverted while base track logic remains',()=>{
   const bad=base('AUDUSD',2,'SELL',{moveQualityScore:3.7,efficiency:.17,progressScore:2,failureToProgress:true,mtfOppositionCount:3,bbContraction:true,lateContinuationRisk:true,vsaScore:.25,candleBodyRatio:.24});
   const cal=assessTrackCalibration(bad,'SELL');
-  assert.ok(cal.tags.includes('AUDUSD_2M_FORWARD_VALIDATION_CONFLICT_V9'));
-  assert.ok(cal.confidenceAdjustment<0);
+  assert.equal(cal.version,'V9_1_PARTIAL_REVERT_AUDUSD_2M');
+  assert.ok(!cal.tags.includes('AUDUSD_2M_FORWARD_VALIDATION_CONFLICT_V9'));
   const out=tuneFrequencyScore(bad);
   assert.equal(out.qualified,true);
   assert.equal(out.tradeQualified,true);
