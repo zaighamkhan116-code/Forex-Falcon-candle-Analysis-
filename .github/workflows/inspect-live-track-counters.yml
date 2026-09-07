@@ -1,0 +1,52 @@
+name: Inspect live track counters
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-live-track-counters.yml'
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch live counters
+        env:
+          BASE_URL: https://forex-falcon-candle-analysis-production.up.railway.app/api/research/background
+          PAIRS: EURUSD GBPUSD EURJPY USDJPY AUDUSD
+        run: |
+          set -euo pipefail
+          jq -n --arg capturedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{capturedAt:$capturedAt,tracks:{}}' > /tmp/out.json
+          for pair in $PAIRS; do
+            curl --fail --silent --show-error --location --retry 4 --retry-delay 2 --connect-timeout 15 --max-time 60 "$BASE_URL/$pair" -o "/tmp/$pair.json"
+            for h in 1 2 3 5 15; do
+              key="${pair}-${h}M"
+              jq --arg key "$key" --arg pair "$pair" --arg h "$h" --slurpfile src "/tmp/$pair.json" '
+                ($src[0].horizons[$h] // {}) as $x |
+                .tracks[$key]={
+                  pair:$pair,
+                  horizon:($h|tonumber),
+                  completedBatchCount:($x.completedBatchCount // 0),
+                  activeBatchNumber:($x.activeBatchNumber // null),
+                  activeBatchProgress:($x.activeBatchProgress // null),
+                  sample:($x.sample // 0),
+                  wins:($x.wins // 0),
+                  losses:($x.losses // 0),
+                  ties:($x.ties // 0),
+                  maxWinStreak:($x.maxWinStreak // null),
+                  maxLossStreak:($x.maxLossStreak // null),
+                  recent:($x.recent // []),
+                  modelArbitration:($x.modelArbitration // null),
+                  engine:($x.mode // null)
+                }' /tmp/out.json > /tmp/out2.json
+              mv /tmp/out2.json /tmp/out.json
+            done
+          done
+          mv /tmp/out.json audit/current-track-counters.json
+      - name: Commit counters
+        run: |
+          git config user.name "Forex Falcon Audit Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add audit/current-track-counters.json
+          git commit -m "audit: capture live per-track counters" || exit 0
+          git push
