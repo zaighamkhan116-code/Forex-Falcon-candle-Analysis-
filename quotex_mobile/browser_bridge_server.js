@@ -1,0 +1,114 @@
+import express from 'express';
+import fs from 'fs/promises';
+import path from 'path';
+
+const app = express();
+const PORT = Number(process.env.PORT || 3000);
+const TOKEN = String(process.env.QUOTEX_BRIDGE_TOKEN || '');
+const ROOT = process.env.QUOTEX_OTC_DATA_DIR || '/data/quotex-otc';
+const MAX_AGE_MS = Math.max(1000, Number(process.env.QUOTEX_BRIDGE_MAX_AGE_MS || 10000));
+
+app.use(express.json({ limit: '64kb' }));
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, X-Falcon-Bridge-Token');
+  res.set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
+
+const state = {
+  connected: false,
+  lastTickAt: null,
+  lastPrice: null,
+  lastPair: null,
+  tickCount: 0,
+  duplicateCount: 0,
+  lastSource: null,
+  lastClientTs: null,
+  startedAt: Date.now(),
+  lastError: null,
+};
+
+function authorized(req) {
+  if (!TOKEN) return false;
+  const supplied = String(req.get('X-Falcon-Bridge-Token') || '');
+  return supplied.length === TOKEN.length && supplied === TOKEN;
+}
+
+function normalizePair(v) {
+  return String(v || '').toUpperCase().replace(/\(OTC\)/g, '').replace(/[^A-Z]/g, '');
+}
+
+function dayFile(pair, ts) {
+  return path.join(ROOT, `${pair}-OTC-${new Date(ts).toISOString().slice(0, 10)}.jsonl`);
+}
+
+async function persistTick(tick) {
+  await fs.mkdir(ROOT, { recursive: true });
+  await fs.appendFile(dayFile(tick.pair, tick.timestamp_ms), JSON.stringify(tick) + '\n', 'utf8');
+}
+
+app.get('/health', (_req, res) => {
+  const ageMs = state.lastTickAt == null ? null : Date.now() - state.lastTickAt;
+  res.json({
+    ok: true,
+    service: 'falcon-quotex-browser-bridge',
+    mode: 'READ_ONLY',
+    tradingEnabled: false,
+    tokenConfigured: Boolean(TOKEN),
+    connected: state.connected && ageMs !== null && ageMs <= MAX_AGE_MS,
+    ageMs,
+    ...state,
+    serverTime: Date.now(),
+  });
+});
+
+app.post('/api/quotex/otc/tick', async (req, res) => {
+  if (!authorized(req)) return res.status(401).json({ error: 'Unauthorized bridge client' });
+  try {
+    const pair = normalizePair(req.body?.pair);
+    const market = String(req.body?.market || '').toUpperCase();
+    const price = Number(req.body?.price);
+    const clientTs = Number(req.body?.timestamp_ms || req.body?.timestamp || Date.now());
+    if (!pair || pair.length < 6 || market !== 'OTC' || !Number.isFinite(price) || price <= 0) {
+      return res.status(400).json({ error: 'Invalid OTC tick payload' });
+    }
+    const now = Date.now();
+    if (Math.abs(now - clientTs) > 60000) return res.status(400).json({ error: 'Stale or invalid client timestamp' });
+    if (state.lastPair === pair && state.lastPrice === price) {
+      state.duplicateCount++;
+      state.connected = true;
+      state.lastTickAt = now;
+      state.lastClientTs = clientTs;
+      return res.json({ ok: true, duplicate: true, serverTime: now });
+    }
+    const tick = {
+      pair,
+      market: 'OTC',
+      timestamp_ms: now,
+      timestamp_iso: new Date(now).toISOString(),
+      client_timestamp_ms: clientTs,
+      client_lag_ms: now - clientTs,
+      price,
+      source: 'QUOTEX_BROWSER_BRIDGE',
+    };
+    await persistTick(tick);
+    state.connected = true;
+    state.lastTickAt = now;
+    state.lastPrice = price;
+    state.lastPair = pair;
+    state.tickCount++;
+    state.lastSource = tick.source;
+    state.lastClientTs = clientTs;
+    if (state.tickCount <= 5 || state.tickCount % 100 === 0) console.log(JSON.stringify({ event: 'bridge-tick', ...tick, tickCount: state.tickCount }));
+    res.json({ ok: true, duplicate: false, serverTime: now, tickCount: state.tickCount });
+  } catch (e) {
+    state.lastError = e.message;
+    console.error(JSON.stringify({ event: 'bridge-error', error: e.message }));
+    res.status(500).json({ error: 'Bridge tick persistence failed' });
+  }
+});
+
+app.listen(PORT, () => console.log(JSON.stringify({ event: 'bridge-ready', port: PORT, mode: 'READ_ONLY', tokenConfigured: Boolean(TOKEN), dataDir: ROOT })));
