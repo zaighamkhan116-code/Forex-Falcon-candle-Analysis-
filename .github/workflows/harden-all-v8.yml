@@ -1,0 +1,95 @@
+name: Harden all V8 quality controls
+on:
+  push:
+    paths:
+      - '.github/workflows/harden-all-v8.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  harden:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Integrate hardening layers
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              p=Path(path); s=p.read_text()
+              if old not in s: raise SystemExit(f'missing patch anchor in {path}: {old[:90]}')
+              p.write_text(s.replace(old,new,1))
+
+          # Background quality control, selector scoring, Shadow raw M1 feed.
+          replace_once('lib/backgroundResearch.js',
+            "import {summarizeModelArbitration} from './modelArbitration.js';",
+            "import {summarizeModelArbitration} from './modelArbitration.js';\nimport {assessRuntimeQuality} from './qualityControl.js';\nimport {rankSelectorRows} from './selectorScoring.js';")
+          replace_once('lib/backgroundResearch.js',
+            "modelArbitration=summarizeModelArbitration(r);return{",
+            "modelArbitration=summarizeModelArbitration(r),qualityControl=assessRuntimeQuality(s.displaySignal||s.candidate||r.at(-1),r,pendingRows);return{")
+          replace_once('lib/backgroundResearch.js',
+            "accuracy:w+l?w/(w+l):null,modelArbitration,...streaks(r)",
+            "accuracy:w+l?w/(w+l):null,modelArbitration,qualityControl,...streaks(r)")
+          replace_once('lib/backgroundResearch.js',
+            "attachShadowPrediction(pending);s.pending.push(pending)",
+            "attachShadowPrediction(pending,{candlesPromise:getStagedSnapshot(s.pair).then(x=>x.m1||[])});s.pending.push(pending)")
+          replace_once('lib/backgroundResearch.js',
+            "export function getAllBackgroundResearch(){return pairs.map(pairStats)}",
+            "export function getAllBackgroundResearch(){return rankSelectorRows(pairs.map(pairStats))}")
+
+          # V8 reranker metadata and conflict-aware margin; never loss-streak flipping.
+          replace_once('lib/frequencyScoring.js',
+            "if(originalTrack.reactionQuality==='WEAK'&&oppositeTrack.reactionQuality==='HEALTHY')minimumMargin=Math.max(1.6,minimumMargin-.35);",
+            "if(originalTrack.reactionQuality==='WEAK'&&oppositeTrack.reactionQuality==='HEALTHY')minimumMargin=Math.max(1.6,minimumMargin-.35);\n  if(Number(originalTrack.compoundConflict||0)>=4&&(oppositeTrack.reactionQuality==='HEALTHY'||oppositeTrack.cleanContinuation===true))minimumMargin=Math.max(1.35,minimumMargin-.55);\n  else if(Number(originalTrack.compoundConflict||0)>=3&&oppositeTrack.reactionQuality==='HEALTHY')minimumMargin=Math.max(1.45,minimumMargin-.25);")
+          p=Path('lib/frequencyScoring.js'); s=p.read_text().replace('DIRECTION_RERANK_V4+FREQUENCY_SCORE_V7+TRACK_CAL_V7','DIRECTION_RERANK_V5+FREQUENCY_SCORE_V8+TRACK_CAL_V8').replace("frequencyScoreVersion:'V7'","frequencyScoreVersion:'V8'").replace("directionRerankVersion:'V4'","directionRerankVersion:'V5'"); p.write_text(s)
+
+          # Browser selector consumes server-side ranking first; legacy heuristic only fallback.
+          replace_once('public/market-selector-ui.js',
+            "function rate(row){const c=liveSignal(row);if(!c)return 0;",
+            "function rate(row){if(Number.isFinite(Number(row?.selector?.score)))return Number(row.selector.score);const c=liveSignal(row);if(!c)return 0;")
+          p=Path('public/market-selector-ui.js'); s=p.read_text().replace('Market-quality rating combines structure, momentum alignment, directional efficiency, volatility quality, regime, current confidence and recent validation.','Forward-shrunk market ranking uses live quality, profile reliability, regime, streak risk, freshness and direction-bias diagnostics. The score is relative strength, not literal win probability.'); p.write_text(s)
+
+          # Countdown uses server authoritative target boundary when available.
+          replace_once('public/app.js',
+            "boundaryRefreshKey:'',minConfidence:57",
+            "boundaryRefreshKey:'',serverTargetBoundary:0,minConfidence:57")
+          replace_once('public/app.js',
+            "function applyState(x){state.engine=x;if(Number.isFinite(x.serverTime))state.serverOffset=x.serverTime-Date.now();const pr=selectedPairResearch(x),bg=backgroundSignal(pr);",
+            "function applyState(x){state.engine=x;if(Number.isFinite(x.serverTime))state.serverOffset=x.serverTime-Date.now();const pr=selectedPairResearch(x),bg=backgroundSignal(pr);state.serverTargetBoundary=Number(pr?.targetBoundary||0);")
+          replace_once('public/app.js',
+            "function nextDisplayBoundary(now=serverNow()){const span=Math.max(1,Number(state.horizon)||1)*60000;return Math.floor(now/span)*span+span}",
+            "function nextDisplayBoundary(now=serverNow()){const serverTarget=Number(state.serverTargetBoundary||0),span=Math.max(1,Number(state.horizon)||1)*60000;if(serverTarget>now&&serverTarget<=now+span+5000)return serverTarget;return Math.floor(now/span)*span+span}")
+          PY
+      - name: Syntax checks
+        run: |
+          node --check lib/lossLearning.js
+          node --check lib/qualityControl.js
+          node --check lib/selectorScoring.js
+          node --check lib/backgroundResearch.js
+          node --check lib/frequencyScoring.js
+          node --check public/app.js
+          node --check public/market-selector-ui.js
+      - name: Full tests
+        run: node --test
+      - name: Guard frequency invariants
+        run: |
+          grep -q "const MIN_CONFIDENCE=57" lib/frequencyScoring.js
+          grep -q "qualified:true,tradeQualified:true" lib/frequencyScoring.js
+          grep -q "lossLearningFrequencyPreserved:true" lib/lossLearning.js
+          grep -q "influencedLiveSignal:false" lib/shadowEnsemble.js
+      - name: Commit validated hardening
+        run: |
+          git config user.name 'Forex Falcon Audit Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add lib public
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'feat: integrate V8 quality controls and execution hardening'
+          git pull --rebase origin main
+          git push origin HEAD:main
