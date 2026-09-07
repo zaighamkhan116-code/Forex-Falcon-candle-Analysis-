@@ -1,0 +1,98 @@
+/* Quotex OTC neon-blue visual theme. Presentation only; no signal/engine logic changes. */
+:root{
+  --otc-neon:#28d7ff;
+  --otc-neon-soft:rgba(40,215,255,.62);
+  --otc-neon-faint:rgba(40,215,255,.18);
+  --otc-blue-0:#020b18;
+  --otc-blue-1:#03162b;
+  --otc-blue-2:#05213d;
+  --otc-panel:rgba(4,25,48,.90);
+}
+
+html,body{background:#020b18!important}
+body{
+  background:
+    radial-gradient(circle at 50% -8%,rgba(25,126,210,.32),transparent 38%),
+    radial-gradient(circle at 15% 42%,rgba(0,88,170,.18),transparent 34%),
+    linear-gradient(180deg,var(--otc-blue-2) 0%,var(--otc-blue-1) 42%,var(--otc-blue-0) 100%)!important;
+  color:#eafaff;
+}
+
+/* Main boxed surfaces */
+.glass,
+.controls,
+.history,
+.analysis-card,
+.ai-learning-banner,
+.market-rank-panel,
+.market-rank-wrap,
+.stats .glass,
+.otc-feed,
+.orb-disclaimer{
+  border:1px solid var(--otc-neon)!important;
+  background:linear-gradient(180deg,rgba(6,36,67,.94),rgba(3,19,39,.96))!important;
+  box-shadow:
+    0 0 7px rgba(40,215,255,.55),
+    0 0 18px rgba(40,215,255,.20),
+    inset 0 0 16px rgba(40,215,255,.055)!important;
+}
+
+/* Navigation and every selectable box/button */
+.market-mode-btn,
+.select-pair-btn,
+.market-pair-btn,
+.horizons button,
+.roi-pill,
+.otc-engine-badge,
+.stop,
+button{
+  border-color:var(--otc-neon)!important;
+}
+.market-mode-btn,
+.select-pair-btn,
+.market-pair-btn,
+.horizons button{
+  background:linear-gradient(180deg,rgba(7,45,79,.92),rgba(3,24,47,.98))!important;
+  color:#c9f5ff!important;
+  box-shadow:0 0 7px rgba(40,215,255,.44),inset 0 0 10px rgba(40,215,255,.06)!important;
+}
+.market-mode-btn.active,
+.select-pair-btn.open,
+.horizons button.active,
+.horizons button.selected{
+  border-color:#7deaff!important;
+  color:#ffffff!important;
+  background:rgba(10,73,119,.95)!important;
+  box-shadow:0 0 10px rgba(40,215,255,.92),0 0 24px rgba(40,215,255,.40),inset 0 0 12px rgba(40,215,255,.10)!important;
+}
+
+/* Tables and internal cells */
+.market-rank-table,
+.otc-history table{background:rgba(2,16,32,.72)!important}
+.market-rank-table th,
+.market-rank-table td,
+.otc-history th,
+.otc-history td{
+  border-color:rgba(40,215,255,.30)!important;
+}
+.market-rank-row.selected{
+  background:rgba(40,215,255,.10)!important;
+  box-shadow:inset 3px 0 0 var(--otc-neon)!important;
+}
+
+/* Signal orb keeps directional state colors, but gains blue frame */
+.signal-orb{
+  border:1px solid var(--otc-neon)!important;
+  box-shadow:0 0 16px rgba(40,215,255,.62),0 0 52px rgba(40,215,255,.28)!important;
+}
+
+.hero h1,.market-rank-title,.analysis-title,.label,.eyebrow{
+  color:#bdefff!important;
+  text-shadow:0 0 9px rgba(40,215,255,.42)!important;
+}
+
+@media(max-width:650px){
+  .glass,.controls,.history,.analysis-card,.ai-learning-banner,.market-rank-panel{
+    box-shadow:0 0 6px rgba(40,215,255,.50),0 0 14px rgba(40,215,255,.16),inset 0 0 12px rgba(40,215,255,.045)!important;
+  }
+}
