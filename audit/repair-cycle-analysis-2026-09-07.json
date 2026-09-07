@@ -1,0 +1,1763 @@
+{
+  "combinedChronological": {
+    "avgConfidence": 63.71,
+    "directions": {
+      "BUY": 50,
+      "SELL": 70
+    },
+    "lossRunLengths": [
+      1,
+      2,
+      1,
+      2,
+      5,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      5,
+      3,
+      3,
+      4,
+      2,
+      3,
+      6,
+      1,
+      6,
+      1,
+      4,
+      3
+    ],
+    "lossRunsAtLeast": {
+      "2": 16,
+      "3": 10,
+      "4": 6,
+      "5": 4
+    },
+    "losses": 61,
+    "maxLossStreak": 6,
+    "maxWinStreak": 9,
+    "n": 116,
+    "rawAccuracy": 0.4741,
+    "regimes": {
+      "CHOPPY": 66,
+      "MIXED": 29,
+      "TRENDING": 25
+    },
+    "shadow": {
+      "agreementN": 4,
+      "disagreementN": 5,
+      "mainAccuracyWhenAgree": 0.25,
+      "mainAccuracyWhenDisagree": 0.6,
+      "n": 9,
+      "rawAccuracy": 0.3333,
+      "wins": 3
+    },
+    "shadowStatus": {
+      "READY": 10,
+      "UNSUPPORTED": 110
+    },
+    "wins": 55
+  },
+  "confidenceBuckets": {
+    "55-59": {
+      "accuracy": 0.4375,
+      "n": 48,
+      "wins": 21
+    },
+    "60-64": {
+      "accuracy": 0.3913,
+      "n": 23,
+      "wins": 9
+    },
+    "65-69": {
+      "accuracy": 0.5217,
+      "n": 23,
+      "wins": 12
+    },
+    "70-79": {
+      "accuracy": 0.5,
+      "n": 26,
+      "wins": 13
+    }
+  },
+  "eurusdGbpusdLondon": {
+    "EURUSD|LONDON_EARLY_MID": {
+      "avgConfidence": 61.89,
+      "directions": {
+        "BUY": 8,
+        "SELL": 11
+      },
+      "lossRunLengths": [
+        7,
+        2,
+        4
+      ],
+      "lossRunsAtLeast": {
+        "2": 3,
+        "3": 2,
+        "4": 2,
+        "5": 1
+      },
+      "losses": 13,
+      "maxLossStreak": 7,
+      "maxWinStreak": 2,
+      "n": 18,
+      "rawAccuracy": 0.2778,
+      "regimes": {
+        "CHOPPY": 11,
+        "MIXED": 6,
+        "TRENDING": 2
+      },
+      "shadow": {
+        "agreementN": 4,
+        "disagreementN": 4,
+        "mainAccuracyWhenAgree": 0.25,
+        "mainAccuracyWhenDisagree": 0.5,
+        "n": 8,
+        "rawAccuracy": 0.375,
+        "wins": 3
+      },
+      "shadowStatus": {
+        "READY": 9,
+        "UNSUPPORTED": 10
+      },
+      "wins": 5
+    },
+    "GBPUSD|LONDON_EARLY_MID": {
+      "avgConfidence": 60.18,
+      "directions": {
+        "BUY": 13,
+        "SELL": 3
+      },
+      "lossRunLengths": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 5,
+      "maxLossStreak": 2,
+      "maxWinStreak": 5,
+      "n": 15,
+      "rawAccuracy": 0.6667,
+      "regimes": {
+        "CHOPPY": 16
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 16
+      },
+      "wins": 10
+    }
+  },
+  "gateTagScorecard": {
+    "BELOW_CONFIDENCE_THRESHOLD": {
+      "accuracy": 0.4615,
+      "eligible": 39,
+      "liftVsCombined": -0.0126,
+      "losses": 19,
+      "wins": 18
+    },
+    "BREAKOUT_MATURITY_GATE": {
+      "accuracy": 0.6429,
+      "eligible": 14,
+      "liftVsCombined": 0.1688,
+      "losses": 5,
+      "wins": 9
+    },
+    "CONTINUATION_RESET_GATE": {
+      "accuracy": 0.5833,
+      "eligible": 24,
+      "liftVsCombined": 0.1092,
+      "losses": 10,
+      "wins": 14
+    },
+    "ENTRY_LANE_GATE": {
+      "accuracy": 0.4286,
+      "eligible": 49,
+      "liftVsCombined": -0.0455,
+      "losses": 26,
+      "wins": 21
+    },
+    "FUSION_QUALITY_GATE": {
+      "accuracy": 0.5484,
+      "eligible": 31,
+      "liftVsCombined": 0.0743,
+      "losses": 11,
+      "wins": 17
+    },
+    "LATE_CONTINUATION_GATE": {
+      "accuracy": 0.4321,
+      "eligible": 81,
+      "liftVsCombined": -0.042,
+      "losses": 43,
+      "wins": 35
+    },
+    "PROGRESS_FAILURE_GATE": {
+      "accuracy": 0.6667,
+      "eligible": 9,
+      "liftVsCombined": 0.1926,
+      "losses": 3,
+      "wins": 6
+    },
+    "TRANSITION_GATE": {
+      "accuracy": 0.4706,
+      "eligible": 34,
+      "liftVsCombined": -0.0035,
+      "losses": 15,
+      "wins": 16
+    },
+    "activeFvgState:ACCEPTED_THROUGH": {
+      "accuracy": 0.4583,
+      "eligible": 24,
+      "liftVsCombined": -0.0158,
+      "losses": 11,
+      "wins": 11
+    },
+    "activeFvgState:APPROACHING": {
+      "accuracy": 0.5833,
+      "eligible": 12,
+      "liftVsCombined": 0.1092,
+      "losses": 5,
+      "wins": 7
+    },
+    "activeFvgState:FULLY_MITIGATED": {
+      "accuracy": 0.4231,
+      "eligible": 52,
+      "liftVsCombined": -0.051,
+      "losses": 29,
+      "wins": 22
+    },
+    "activeFvgState:MITIGATING": {
+      "accuracy": 0.48,
+      "eligible": 25,
+      "liftVsCombined": 0.0059,
+      "losses": 12,
+      "wins": 12
+    },
+    "activeFvgState:REJECTED": {
+      "accuracy": 0.4286,
+      "eligible": 7,
+      "liftVsCombined": -0.0455,
+      "losses": 4,
+      "wins": 3
+    },
+    "entryLane:CONFIRMED_ENTRY": {
+      "accuracy": 0.4492,
+      "eligible": 118,
+      "liftVsCombined": -0.0249,
+      "losses": 61,
+      "wins": 53
+    },
+    "frequencyConflicts:ADVERSE_LOCATION": {
+      "accuracy": 0.4429,
+      "eligible": 70,
+      "liftVsCombined": -0.0312,
+      "losses": 37,
+      "wins": 31
+    },
+    "frequencyConflicts:EVIDENCE_CONFLICT": {
+      "accuracy": 0.4,
+      "eligible": 10,
+      "liftVsCombined": -0.0741,
+      "losses": 6,
+      "wins": 4
+    },
+    "frequencyConflicts:FAILURE_TO_PROGRESS": {
+      "accuracy": 0.4706,
+      "eligible": 34,
+      "liftVsCombined": -0.0035,
+      "losses": 15,
+      "wins": 16
+    },
+    "frequencyConflicts:MTF_CONFLICT": {
+      "accuracy": 0.4318,
+      "eligible": 44,
+      "liftVsCombined": -0.0423,
+      "losses": 22,
+      "wins": 19
+    },
+    "frequencyConflicts:REJECTION_PRESSURE": {
+      "accuracy": 0.4848,
+      "eligible": 33,
+      "liftVsCombined": 0.0107,
+      "losses": 15,
+      "wins": 16
+    },
+    "frequencyConflicts:UNRESOLVED_FVG": {
+      "accuracy": 0.5135,
+      "eligible": 37,
+      "liftVsCombined": 0.0394,
+      "losses": 17,
+      "wins": 19
+    },
+    "frequencyConflicts:WEAK_MOVE_QUALITY": {
+      "accuracy": 0.4211,
+      "eligible": 57,
+      "liftVsCombined": -0.053,
+      "losses": 29,
+      "wins": 24
+    },
+    "frequencyFreshEvidence:BREAKOUT_PROGRESS": {
+      "accuracy": 0.36,
+      "eligible": 25,
+      "liftVsCombined": -0.1141,
+      "losses": 16,
+      "wins": 9
+    },
+    "frequencyFreshEvidence:CONSENSUS": {
+      "accuracy": 0.4844,
+      "eligible": 64,
+      "liftVsCombined": 0.0103,
+      "losses": 32,
+      "wins": 31
+    },
+    "frequencyFreshEvidence:DIRECTIONAL_EVIDENCE": {
+      "accuracy": 0.4796,
+      "eligible": 98,
+      "liftVsCombined": 0.0055,
+      "losses": 47,
+      "wins": 47
+    },
+    "frequencyFreshEvidence:FRESH_PROGRESS": {
+      "accuracy": 0.4474,
+      "eligible": 38,
+      "liftVsCombined": -0.0267,
+      "losses": 20,
+      "wins": 17
+    },
+    "frequencyFreshEvidence:FVG_RESOLVED": {
+      "accuracy": 0.4337,
+      "eligible": 83,
+      "liftVsCombined": -0.0404,
+      "losses": 44,
+      "wins": 36
+    },
+    "frequencyFreshEvidence:MOVE_QUALITY": {
+      "accuracy": 0.5484,
+      "eligible": 31,
+      "liftVsCombined": 0.0743,
+      "losses": 14,
+      "wins": 17
+    },
+    "frequencyFreshEvidence:VSA_SUPPORT": {
+      "accuracy": 0.5263,
+      "eligible": 19,
+      "liftVsCombined": 0.0522,
+      "losses": 8,
+      "wins": 10
+    },
+    "frequencyStructuralTags:ADVERSE": {
+      "accuracy": 0.4429,
+      "eligible": 70,
+      "liftVsCombined": -0.0312,
+      "losses": 37,
+      "wins": 31
+    },
+    "frequencyStructuralTags:EXTENDED": {
+      "accuracy": 0.4688,
+      "eligible": 32,
+      "liftVsCombined": -0.0054,
+      "losses": 15,
+      "wins": 15
+    },
+    "frequencyStructuralTags:LATE": {
+      "accuracy": 0.4268,
+      "eligible": 82,
+      "liftVsCombined": -0.0473,
+      "losses": 44,
+      "wins": 35
+    },
+    "frequencyStructuralTags:MTF": {
+      "accuracy": 0.4318,
+      "eligible": 44,
+      "liftVsCombined": -0.0423,
+      "losses": 22,
+      "wins": 19
+    },
+    "frequencyStructuralTags:TRANSITION": {
+      "accuracy": 0.4706,
+      "eligible": 34,
+      "liftVsCombined": -0.0035,
+      "losses": 15,
+      "wins": 16
+    },
+    "frequencyStructuralTags:UNRESOLVED": {
+      "accuracy": 0.5135,
+      "eligible": 37,
+      "liftVsCombined": 0.0394,
+      "losses": 17,
+      "wins": 19
+    },
+    "frequencyStructuralTags:WEAKPROGRESS": {
+      "accuracy": 0.4483,
+      "eligible": 87,
+      "liftVsCombined": -0.0258,
+      "losses": 45,
+      "wins": 39
+    },
+    "maBbTags:BB_BEAR_EXPANSION": {
+      "accuracy": 0.5,
+      "eligible": 8,
+      "liftVsCombined": 0.0259,
+      "losses": 4,
+      "wins": 4
+    },
+    "maBbTags:BB_UPPER_REJECTION": {
+      "accuracy": 0.1429,
+      "eligible": 7,
+      "liftVsCombined": -0.3312,
+      "losses": 5,
+      "wins": 1
+    },
+    "maBbTags:BEAR_EMA_STACK": {
+      "accuracy": 0.5333,
+      "eligible": 45,
+      "liftVsCombined": 0.0592,
+      "losses": 21,
+      "wins": 24
+    },
+    "maBbTags:BULL_EMA_STACK": {
+      "accuracy": 0.5789,
+      "eligible": 19,
+      "liftVsCombined": 0.1048,
+      "losses": 7,
+      "wins": 11
+    },
+    "regime:CHOPPY": {
+      "accuracy": 0.4394,
+      "eligible": 66,
+      "liftVsCombined": -0.0347,
+      "losses": 34,
+      "wins": 29
+    },
+    "regime:MIXED": {
+      "accuracy": 0.4483,
+      "eligible": 29,
+      "liftVsCombined": -0.0258,
+      "losses": 15,
+      "wins": 13
+    },
+    "regime:TRENDING": {
+      "accuracy": 0.52,
+      "eligible": 25,
+      "liftVsCombined": 0.0459,
+      "losses": 12,
+      "wins": 13
+    },
+    "scoreRedistributionBonusTags:CLEAN_MTF_ALIGNMENT": {
+      "accuracy": 0.4697,
+      "eligible": 66,
+      "liftVsCombined": -0.0044,
+      "losses": 34,
+      "wins": 31
+    },
+    "scoreRedistributionBonusTags:FRESH_BREAKOUT": {
+      "accuracy": 0.5,
+      "eligible": 8,
+      "liftVsCombined": 0.0259,
+      "losses": 4,
+      "wins": 4
+    },
+    "scoreRedistributionBonusTags:FRESH_SWEEP_RECLAIM": {
+      "accuracy": 0.2,
+      "eligible": 5,
+      "liftVsCombined": -0.2741,
+      "losses": 3,
+      "wins": 1
+    },
+    "scoreRedistributionBonusTags:FVG_RESOLVED": {
+      "accuracy": 0.4337,
+      "eligible": 83,
+      "liftVsCombined": -0.0404,
+      "losses": 44,
+      "wins": 36
+    },
+    "scoreRedistributionBonusTags:MA_BB_ALIGNMENT": {
+      "accuracy": 0.6364,
+      "eligible": 22,
+      "liftVsCombined": 0.1623,
+      "losses": 8,
+      "wins": 14
+    },
+    "scoreRedistributionBonusTags:RENEWED_CONSENSUS": {
+      "accuracy": 0.4615,
+      "eligible": 13,
+      "liftVsCombined": -0.0126,
+      "losses": 7,
+      "wins": 6
+    },
+    "scoreRedistributionBonusTags:RENEWED_PROGRESS": {
+      "accuracy": 0.6429,
+      "eligible": 14,
+      "liftVsCombined": 0.1688,
+      "losses": 5,
+      "wins": 9
+    },
+    "scoreRedistributionBonusTags:TICK_ACCELERATION": {
+      "accuracy": 0.6316,
+      "eligible": 19,
+      "liftVsCombined": 0.1575,
+      "losses": 7,
+      "wins": 12
+    },
+    "scoreRedistributionBonusTags:VOLUME_CONFIRMED_FLOW": {
+      "accuracy": 0.4,
+      "eligible": 5,
+      "liftVsCombined": -0.0741,
+      "losses": 3,
+      "wins": 2
+    },
+    "scoreRedistributionBonusTags:VSA_EFFORT_RESULT_ALIGNMENT": {
+      "accuracy": 0.25,
+      "eligible": 8,
+      "liftVsCombined": -0.2241,
+      "losses": 5,
+      "wins": 2
+    },
+    "scoreRedistributionBonusTags:VWAP_RECLAIM_REACTION": {
+      "accuracy": 0.3333,
+      "eligible": 9,
+      "liftVsCombined": -0.1408,
+      "losses": 5,
+      "wins": 3
+    },
+    "scoreRedistributionPenaltyTags:ADVERSE_ZONE": {
+      "accuracy": 0.44,
+      "eligible": 75,
+      "liftVsCombined": -0.0341,
+      "losses": 40,
+      "wins": 33
+    },
+    "scoreRedistributionPenaltyTags:BB_CONTRACTION": {
+      "accuracy": 0.3636,
+      "eligible": 44,
+      "liftVsCombined": -0.1105,
+      "losses": 27,
+      "wins": 16
+    },
+    "scoreRedistributionPenaltyTags:EMA_COMPRESSION": {
+      "accuracy": 0.3824,
+      "eligible": 34,
+      "liftVsCombined": -0.0917,
+      "losses": 19,
+      "wins": 13
+    },
+    "scoreRedistributionPenaltyTags:EXTENDED_MOVE": {
+      "accuracy": 0.4839,
+      "eligible": 31,
+      "liftVsCombined": 0.0098,
+      "losses": 14,
+      "wins": 15
+    },
+    "scoreRedistributionPenaltyTags:FAILURE_TO_PROGRESS": {
+      "accuracy": 0.4545,
+      "eligible": 66,
+      "liftVsCombined": -0.0196,
+      "losses": 33,
+      "wins": 30
+    },
+    "scoreRedistributionPenaltyTags:LOW_EFFICIENCY": {
+      "accuracy": 0.4364,
+      "eligible": 55,
+      "liftVsCombined": -0.0377,
+      "losses": 29,
+      "wins": 24
+    },
+    "scoreRedistributionPenaltyTags:MTF_CONFLICT": {
+      "accuracy": 0.4318,
+      "eligible": 44,
+      "liftVsCombined": -0.0423,
+      "losses": 22,
+      "wins": 19
+    },
+    "scoreRedistributionPenaltyTags:NEGATIVE_PROGRESS": {
+      "accuracy": 0.2857,
+      "eligible": 7,
+      "liftVsCombined": -0.1884,
+      "losses": 4,
+      "wins": 2
+    },
+    "scoreRedistributionPenaltyTags:REJECTION_PRESSURE": {
+      "accuracy": 0.4286,
+      "eligible": 42,
+      "liftVsCombined": -0.0455,
+      "losses": 22,
+      "wins": 18
+    },
+    "scoreRedistributionPenaltyTags:UNRESOLVED_FVG": {
+      "accuracy": 0.5135,
+      "eligible": 37,
+      "liftVsCombined": 0.0394,
+      "losses": 17,
+      "wins": 19
+    },
+    "scoreRedistributionPenaltyTags:VSA_OPPOSES_DIRECTION": {
+      "accuracy": 0.5,
+      "eligible": 14,
+      "liftVsCombined": 0.0259,
+      "losses": 6,
+      "wins": 7
+    },
+    "scoreRedistributionPenaltyTags:VWAP_ATR_EXTENSION": {
+      "accuracy": 0.4306,
+      "eligible": 72,
+      "liftVsCombined": -0.0435,
+      "losses": 40,
+      "wins": 31
+    },
+    "scoreRedistributionPenaltyTags:VWAP_SLOPE_CONFLICT": {
+      "accuracy": 0.4773,
+      "eligible": 44,
+      "liftVsCombined": 0.0032,
+      "losses": 20,
+      "wins": 21
+    },
+    "scoreRedistributionPenaltyTags:WEAK_MOVE_QUALITY": {
+      "accuracy": 0.439,
+      "eligible": 82,
+      "liftVsCombined": -0.0351,
+      "losses": 42,
+      "wins": 36
+    },
+    "structure:BEAR STRUCTURE": {
+      "accuracy": 0.4762,
+      "eligible": 42,
+      "liftVsCombined": 0.0021,
+      "losses": 21,
+      "wins": 20
+    },
+    "structure:BULL BOS": {
+      "accuracy": 0.7143,
+      "eligible": 7,
+      "liftVsCombined": 0.2402,
+      "losses": 2,
+      "wins": 5
+    },
+    "structure:BULL STRUCTURE": {
+      "accuracy": 0.375,
+      "eligible": 16,
+      "liftVsCombined": -0.0991,
+      "losses": 9,
+      "wins": 6
+    },
+    "structure:RANGE": {
+      "accuracy": 0.451,
+      "eligible": 51,
+      "liftVsCombined": -0.0231,
+      "losses": 26,
+      "wins": 23
+    }
+  },
+  "generatedAt": "2026-09-07T11:35:58.028276+00:00",
+  "integrity": {
+    "allAuthoritativeBoundarySettlements": true,
+    "allRowsExact20": true,
+    "allSixBatchesPresent": true,
+    "totalSignals": 120
+  },
+  "notes": [
+    "All statistics are raw before martingale overlays.",
+    "Session labels are PKT audit buckets for this diagnostic report; small samples remain provisional."
+  ],
+  "pairPanelCalibration": {
+    "available": false,
+    "reason": "These canonical settlement records do not persist displayed pair-panel score/runner-up breakdown at each selection timestamp; cannot truthfully test top-score vs runner-up from this batch artifact alone."
+  },
+  "perBatch": {
+    "audusd-5m-batch-4.json": {
+      "avgConfidence": 60.48,
+      "directions": {
+        "BUY": 9,
+        "SELL": 11
+      },
+      "lossRunLengths": [
+        2,
+        1,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 10,
+      "maxLossStreak": 3,
+      "maxWinStreak": 2,
+      "n": 19,
+      "rawAccuracy": 0.4737,
+      "regimes": {
+        "CHOPPY": 15,
+        "MIXED": 4,
+        "TRENDING": 1
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 9
+    },
+    "eurjpy-5m-batch-4.json": {
+      "avgConfidence": 64.26,
+      "directions": {
+        "BUY": 8,
+        "SELL": 12
+      },
+      "lossRunLengths": [
+        1,
+        2,
+        5,
+        1,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "losses": 10,
+      "maxLossStreak": 5,
+      "maxWinStreak": 3,
+      "n": 19,
+      "rawAccuracy": 0.4737,
+      "regimes": {
+        "CHOPPY": 8,
+        "MIXED": 6,
+        "TRENDING": 6
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 9
+    },
+    "eurusd-5m-batch-4.json": {
+      "avgConfidence": 61.65,
+      "directions": {
+        "BUY": 9,
+        "SELL": 11
+      },
+      "lossRunLengths": [
+        7,
+        2,
+        4
+      ],
+      "lossRunsAtLeast": {
+        "2": 3,
+        "3": 2,
+        "4": 2,
+        "5": 1
+      },
+      "losses": 13,
+      "maxLossStreak": 7,
+      "maxWinStreak": 2,
+      "n": 19,
+      "rawAccuracy": 0.3158,
+      "regimes": {
+        "CHOPPY": 12,
+        "MIXED": 6,
+        "TRENDING": 2
+      },
+      "shadow": {
+        "agreementN": 4,
+        "disagreementN": 5,
+        "mainAccuracyWhenAgree": 0.25,
+        "mainAccuracyWhenDisagree": 0.6,
+        "n": 9,
+        "rawAccuracy": 0.3333,
+        "wins": 3
+      },
+      "shadowStatus": {
+        "READY": 10,
+        "UNSUPPORTED": 10
+      },
+      "wins": 6
+    },
+    "gbpusd-5m-batch-4.json": {
+      "avgConfidence": 62.23,
+      "directions": {
+        "BUY": 17,
+        "SELL": 3
+      },
+      "lossRunLengths": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 6,
+      "maxLossStreak": 2,
+      "maxWinStreak": 5,
+      "n": 19,
+      "rawAccuracy": 0.6842,
+      "regimes": {
+        "CHOPPY": 16,
+        "MIXED": 2,
+        "TRENDING": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 13
+    },
+    "usdjpy-15m-batch-2.json": {
+      "avgConfidence": 70.24,
+      "directions": {
+        "SELL": 20
+      },
+      "lossRunLengths": [
+        2,
+        1,
+        2,
+        4
+      ],
+      "lossRunsAtLeast": {
+        "2": 3,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "losses": 9,
+      "maxLossStreak": 4,
+      "maxWinStreak": 4,
+      "n": 20,
+      "rawAccuracy": 0.55,
+      "regimes": {
+        "CHOPPY": 4,
+        "MIXED": 6,
+        "TRENDING": 10
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 11
+    },
+    "usdjpy-5m-batch-4.json": {
+      "avgConfidence": 63.38,
+      "directions": {
+        "BUY": 7,
+        "SELL": 13
+      },
+      "lossRunLengths": [
+        1,
+        6,
+        1,
+        4,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 1
+      },
+      "losses": 13,
+      "maxLossStreak": 6,
+      "maxWinStreak": 3,
+      "n": 20,
+      "rawAccuracy": 0.35,
+      "regimes": {
+        "CHOPPY": 11,
+        "MIXED": 5,
+        "TRENDING": 4
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 7
+    }
+  },
+  "profiles": {
+    "AUDUSD-5M": {
+      "avgConfidence": 60.48,
+      "directions": {
+        "BUY": 9,
+        "SELL": 11
+      },
+      "lossRunLengths": [
+        2,
+        1,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 10,
+      "maxLossStreak": 3,
+      "maxWinStreak": 2,
+      "n": 19,
+      "rawAccuracy": 0.4737,
+      "regimes": {
+        "CHOPPY": 15,
+        "MIXED": 4,
+        "TRENDING": 1
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 9
+    },
+    "EURJPY-5M": {
+      "avgConfidence": 64.26,
+      "directions": {
+        "BUY": 8,
+        "SELL": 12
+      },
+      "lossRunLengths": [
+        1,
+        2,
+        5,
+        1,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "losses": 10,
+      "maxLossStreak": 5,
+      "maxWinStreak": 3,
+      "n": 19,
+      "rawAccuracy": 0.4737,
+      "regimes": {
+        "CHOPPY": 8,
+        "MIXED": 6,
+        "TRENDING": 6
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 9
+    },
+    "EURUSD-5M": {
+      "avgConfidence": 61.65,
+      "directions": {
+        "BUY": 9,
+        "SELL": 11
+      },
+      "lossRunLengths": [
+        7,
+        2,
+        4
+      ],
+      "lossRunsAtLeast": {
+        "2": 3,
+        "3": 2,
+        "4": 2,
+        "5": 1
+      },
+      "losses": 13,
+      "maxLossStreak": 7,
+      "maxWinStreak": 2,
+      "n": 19,
+      "rawAccuracy": 0.3158,
+      "regimes": {
+        "CHOPPY": 12,
+        "MIXED": 6,
+        "TRENDING": 2
+      },
+      "shadow": {
+        "agreementN": 4,
+        "disagreementN": 5,
+        "mainAccuracyWhenAgree": 0.25,
+        "mainAccuracyWhenDisagree": 0.6,
+        "n": 9,
+        "rawAccuracy": 0.3333,
+        "wins": 3
+      },
+      "shadowStatus": {
+        "READY": 10,
+        "UNSUPPORTED": 10
+      },
+      "wins": 6
+    },
+    "GBPUSD-5M": {
+      "avgConfidence": 62.23,
+      "directions": {
+        "BUY": 17,
+        "SELL": 3
+      },
+      "lossRunLengths": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 6,
+      "maxLossStreak": 2,
+      "maxWinStreak": 5,
+      "n": 19,
+      "rawAccuracy": 0.6842,
+      "regimes": {
+        "CHOPPY": 16,
+        "MIXED": 2,
+        "TRENDING": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 13
+    },
+    "USDJPY-15M": {
+      "avgConfidence": 70.24,
+      "directions": {
+        "SELL": 20
+      },
+      "lossRunLengths": [
+        2,
+        1,
+        2,
+        4
+      ],
+      "lossRunsAtLeast": {
+        "2": 3,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "losses": 9,
+      "maxLossStreak": 4,
+      "maxWinStreak": 4,
+      "n": 20,
+      "rawAccuracy": 0.55,
+      "regimes": {
+        "CHOPPY": 4,
+        "MIXED": 6,
+        "TRENDING": 10
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 11
+    },
+    "USDJPY-5M": {
+      "avgConfidence": 63.38,
+      "directions": {
+        "BUY": 7,
+        "SELL": 13
+      },
+      "lossRunLengths": [
+        1,
+        6,
+        1,
+        4,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 1
+      },
+      "losses": 13,
+      "maxLossStreak": 6,
+      "maxWinStreak": 3,
+      "n": 20,
+      "rawAccuracy": 0.35,
+      "regimes": {
+        "CHOPPY": 11,
+        "MIXED": 5,
+        "TRENDING": 4
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 20
+      },
+      "wins": 7
+    }
+  },
+  "sessionTimeMatrix": {
+    "AUDUSD|5|ASIAN_LATE|10:00-10:59": {
+      "avgConfidence": 73.5,
+      "directions": {
+        "BUY": 1
+      },
+      "lossRunLengths": [],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 0,
+      "maxLossStreak": 0,
+      "maxWinStreak": 1,
+      "n": 1,
+      "rawAccuracy": 1.0,
+      "regimes": {
+        "TRENDING": 1
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 1
+      },
+      "smallSampleProvisional": true,
+      "wins": 1
+    },
+    "AUDUSD|5|LONDON_EARLY_MID|14:00-14:59": {
+      "avgConfidence": 60.98,
+      "directions": {
+        "BUY": 7,
+        "SELL": 3
+      },
+      "lossRunLengths": [
+        2,
+        1,
+        3
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 6,
+      "maxLossStreak": 3,
+      "maxWinStreak": 1,
+      "n": 9,
+      "rawAccuracy": 0.3333,
+      "regimes": {
+        "CHOPPY": 8,
+        "MIXED": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 10
+      },
+      "smallSampleProvisional": true,
+      "wins": 3
+    },
+    "AUDUSD|5|LONDON_EARLY_MID|15:00-15:59": {
+      "avgConfidence": 58.48,
+      "directions": {
+        "BUY": 1,
+        "SELL": 8
+      },
+      "lossRunLengths": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 4,
+      "maxLossStreak": 1,
+      "maxWinStreak": 2,
+      "n": 9,
+      "rawAccuracy": 0.5556,
+      "regimes": {
+        "CHOPPY": 7,
+        "MIXED": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 9
+      },
+      "smallSampleProvisional": true,
+      "wins": 5
+    },
+    "EURJPY|5|ASIAN_LATE|10:00-10:59": {
+      "avgConfidence": 73.8,
+      "directions": {
+        "SELL": 1
+      },
+      "lossRunLengths": [],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 0,
+      "maxLossStreak": 0,
+      "maxWinStreak": 1,
+      "n": 1,
+      "rawAccuracy": 1.0,
+      "regimes": {
+        "TRENDING": 1
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 1
+      },
+      "smallSampleProvisional": true,
+      "wins": 1
+    },
+    "EURJPY|5|LONDON_EARLY_MID|14:00-14:59": {
+      "avgConfidence": 65.58,
+      "directions": {
+        "BUY": 1,
+        "SELL": 9
+      },
+      "lossRunLengths": [
+        1,
+        2,
+        3
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 6,
+      "maxLossStreak": 3,
+      "maxWinStreak": 3,
+      "n": 10,
+      "rawAccuracy": 0.4,
+      "regimes": {
+        "CHOPPY": 4,
+        "MIXED": 3,
+        "TRENDING": 3
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 10
+      },
+      "smallSampleProvisional": true,
+      "wins": 4
+    },
+    "EURJPY|5|LONDON_EARLY_MID|15:00-15:59": {
+      "avgConfidence": 61.73,
+      "directions": {
+        "BUY": 7,
+        "SELL": 2
+      },
+      "lossRunLengths": [
+        2,
+        1,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 4,
+      "maxLossStreak": 2,
+      "maxWinStreak": 2,
+      "n": 8,
+      "rawAccuracy": 0.5,
+      "regimes": {
+        "CHOPPY": 4,
+        "MIXED": 3,
+        "TRENDING": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 9
+      },
+      "smallSampleProvisional": true,
+      "wins": 4
+    },
+    "EURUSD|5|ASIAN_LATE|10:00-10:59": {
+      "avgConfidence": 57.2,
+      "directions": {
+        "BUY": 1
+      },
+      "lossRunLengths": [],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 0,
+      "maxLossStreak": 0,
+      "maxWinStreak": 1,
+      "n": 1,
+      "rawAccuracy": 1.0,
+      "regimes": {
+        "CHOPPY": 1
+      },
+      "shadow": {
+        "agreementN": 0,
+        "disagreementN": 1,
+        "mainAccuracyWhenAgree": null,
+        "mainAccuracyWhenDisagree": 1.0,
+        "n": 1,
+        "rawAccuracy": 0.0,
+        "wins": 0
+      },
+      "shadowStatus": {
+        "READY": 1
+      },
+      "smallSampleProvisional": true,
+      "wins": 1
+    },
+    "EURUSD|5|LONDON_EARLY_MID|14:00-14:59": {
+      "avgConfidence": 61.75,
+      "directions": {
+        "BUY": 4,
+        "SELL": 6
+      },
+      "lossRunLengths": [
+        7
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "losses": 7,
+      "maxLossStreak": 7,
+      "maxWinStreak": 1,
+      "n": 9,
+      "rawAccuracy": 0.2222,
+      "regimes": {
+        "CHOPPY": 3,
+        "MIXED": 5,
+        "TRENDING": 2
+      },
+      "shadow": {
+        "agreementN": 2,
+        "disagreementN": 1,
+        "mainAccuracyWhenAgree": 0.0,
+        "mainAccuracyWhenDisagree": 1.0,
+        "n": 3,
+        "rawAccuracy": 0.0,
+        "wins": 0
+      },
+      "shadowStatus": {
+        "READY": 4,
+        "UNSUPPORTED": 6
+      },
+      "smallSampleProvisional": true,
+      "wins": 2
+    },
+    "EURUSD|5|LONDON_EARLY_MID|15:00-15:59": {
+      "avgConfidence": 62.04,
+      "directions": {
+        "BUY": 4,
+        "SELL": 5
+      },
+      "lossRunLengths": [
+        2,
+        4
+      ],
+      "lossRunsAtLeast": {
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "losses": 6,
+      "maxLossStreak": 4,
+      "maxWinStreak": 2,
+      "n": 9,
+      "rawAccuracy": 0.3333,
+      "regimes": {
+        "CHOPPY": 8,
+        "MIXED": 1
+      },
+      "shadow": {
+        "agreementN": 2,
+        "disagreementN": 3,
+        "mainAccuracyWhenAgree": 0.5,
+        "mainAccuracyWhenDisagree": 0.3333,
+        "n": 5,
+        "rawAccuracy": 0.6,
+        "wins": 3
+      },
+      "shadowStatus": {
+        "READY": 5,
+        "UNSUPPORTED": 4
+      },
+      "smallSampleProvisional": true,
+      "wins": 3
+    },
+    "GBPUSD|5|ASIAN_LATE|10:00-10:59": {
+      "avgConfidence": 70.45,
+      "directions": {
+        "BUY": 4
+      },
+      "lossRunLengths": [
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 1,
+      "maxLossStreak": 1,
+      "maxWinStreak": 3,
+      "n": 4,
+      "rawAccuracy": 0.75,
+      "regimes": {
+        "MIXED": 2,
+        "TRENDING": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 4
+      },
+      "smallSampleProvisional": true,
+      "wins": 3
+    },
+    "GBPUSD|5|LONDON_EARLY_MID|14:00-14:59": {
+      "avgConfidence": 60.84,
+      "directions": {
+        "BUY": 10
+      },
+      "lossRunLengths": [
+        1,
+        1,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 3,
+      "maxLossStreak": 1,
+      "maxWinStreak": 5,
+      "n": 10,
+      "rawAccuracy": 0.7,
+      "regimes": {
+        "CHOPPY": 10
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 10
+      },
+      "smallSampleProvisional": true,
+      "wins": 7
+    },
+    "GBPUSD|5|LONDON_EARLY_MID|15:00-15:59": {
+      "avgConfidence": 59.08,
+      "directions": {
+        "BUY": 3,
+        "SELL": 3
+      },
+      "lossRunLengths": [
+        2
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 2,
+      "maxLossStreak": 2,
+      "maxWinStreak": 3,
+      "n": 5,
+      "rawAccuracy": 0.6,
+      "regimes": {
+        "CHOPPY": 6
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 6
+      },
+      "smallSampleProvisional": true,
+      "wins": 3
+    },
+    "USDJPY|15|ASIAN_LATE|10:00-10:59": {
+      "avgConfidence": 64.47,
+      "directions": {
+        "SELL": 3
+      },
+      "lossRunLengths": [],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 0,
+      "maxLossStreak": 0,
+      "maxWinStreak": 3,
+      "n": 3,
+      "rawAccuracy": 1.0,
+      "regimes": {
+        "CHOPPY": 3
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 3
+      },
+      "smallSampleProvisional": true,
+      "wins": 3
+    },
+    "USDJPY|15|ASIAN_LATE|11:00-11:59": {
+      "avgConfidence": 71.5,
+      "directions": {
+        "SELL": 3
+      },
+      "lossRunLengths": [
+        2
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 2,
+      "maxLossStreak": 2,
+      "maxWinStreak": 1,
+      "n": 3,
+      "rawAccuracy": 0.3333,
+      "regimes": {
+        "MIXED": 1,
+        "TRENDING": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 3
+      },
+      "smallSampleProvisional": true,
+      "wins": 1
+    },
+    "USDJPY|15|LONDON_EARLY_MID|14:00-14:59": {
+      "avgConfidence": 72.65,
+      "directions": {
+        "SELL": 4
+      },
+      "lossRunLengths": [
+        2
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 2,
+      "maxLossStreak": 2,
+      "maxWinStreak": 2,
+      "n": 4,
+      "rawAccuracy": 0.5,
+      "regimes": {
+        "TRENDING": 4
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 4
+      },
+      "smallSampleProvisional": true,
+      "wins": 2
+    },
+    "USDJPY|15|LONDON_EARLY_MID|15:00-15:59": {
+      "avgConfidence": 73.55,
+      "directions": {
+        "SELL": 2
+      },
+      "lossRunLengths": [
+        2
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 2,
+      "maxLossStreak": 2,
+      "maxWinStreak": 0,
+      "n": 2,
+      "rawAccuracy": 0.0,
+      "regimes": {
+        "MIXED": 1,
+        "TRENDING": 1
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 2
+      },
+      "smallSampleProvisional": true,
+      "wins": 0
+    },
+    "USDJPY|15|LONDON_OPEN|13:00-13:59": {
+      "avgConfidence": 74.45,
+      "directions": {
+        "SELL": 4
+      },
+      "lossRunLengths": [
+        2
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 2,
+      "maxLossStreak": 2,
+      "maxWinStreak": 2,
+      "n": 4,
+      "rawAccuracy": 0.5,
+      "regimes": {
+        "MIXED": 2,
+        "TRENDING": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 4
+      },
+      "smallSampleProvisional": true,
+      "wins": 2
+    },
+    "USDJPY|15|LONDON_PREOPEN|12:00-12:59": {
+      "avgConfidence": 65.35,
+      "directions": {
+        "SELL": 4
+      },
+      "lossRunLengths": [
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 1,
+      "maxLossStreak": 1,
+      "maxWinStreak": 2,
+      "n": 4,
+      "rawAccuracy": 0.75,
+      "regimes": {
+        "CHOPPY": 1,
+        "MIXED": 2,
+        "TRENDING": 1
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 4
+      },
+      "smallSampleProvisional": true,
+      "wins": 3
+    },
+    "USDJPY|5|ASIAN_LATE|10:00-10:59": {
+      "avgConfidence": 75.0,
+      "directions": {
+        "SELL": 1
+      },
+      "lossRunLengths": [],
+      "lossRunsAtLeast": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "losses": 0,
+      "maxLossStreak": 0,
+      "maxWinStreak": 1,
+      "n": 1,
+      "rawAccuracy": 1.0,
+      "regimes": {
+        "TRENDING": 1
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 1
+      },
+      "smallSampleProvisional": true,
+      "wins": 1
+    },
+    "USDJPY|5|LONDON_EARLY_MID|14:00-14:59": {
+      "avgConfidence": 64.33,
+      "directions": {
+        "BUY": 1,
+        "SELL": 9
+      },
+      "lossRunLengths": [
+        1,
+        6
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "losses": 7,
+      "maxLossStreak": 6,
+      "maxWinStreak": 3,
+      "n": 10,
+      "rawAccuracy": 0.3,
+      "regimes": {
+        "CHOPPY": 6,
+        "MIXED": 2,
+        "TRENDING": 2
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 10
+      },
+      "smallSampleProvisional": true,
+      "wins": 3
+    },
+    "USDJPY|5|LONDON_EARLY_MID|15:00-15:59": {
+      "avgConfidence": 61.02,
+      "directions": {
+        "BUY": 6,
+        "SELL": 3
+      },
+      "lossRunLengths": [
+        1,
+        4,
+        1
+      ],
+      "lossRunsAtLeast": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "losses": 6,
+      "maxLossStreak": 4,
+      "maxWinStreak": 1,
+      "n": 9,
+      "rawAccuracy": 0.3333,
+      "regimes": {
+        "CHOPPY": 5,
+        "MIXED": 3,
+        "TRENDING": 1
+      },
+      "shadowStatus": {
+        "UNSUPPORTED": 9
+      },
+      "smallSampleProvisional": true,
+      "wins": 3
+    }
+  },
+  "sourceFiles": [
+    "audit/new-batches/eurusd-5m-batch-4.json",
+    "audit/new-batches/gbpusd-5m-batch-4.json",
+    "audit/new-batches/eurjpy-5m-batch-4.json",
+    "audit/new-batches/usdjpy-5m-batch-4.json",
+    "audit/new-batches/audusd-5m-batch-4.json",
+    "audit/new-batches/usdjpy-15m-batch-2.json"
+  ]
+}
