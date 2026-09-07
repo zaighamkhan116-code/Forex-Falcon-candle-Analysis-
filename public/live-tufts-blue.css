@@ -75,6 +75,11 @@ select,
   border:1px solid var(--tufts-neon)!important;
   box-shadow:0 0 6px rgba(110,198,255,.58),inset 0 0 10px rgba(110,198,255,.05)!important;
 }
+/* Keep 1M / M5 / M15 / H1 labels one character away from the left border. */
+.analysis-card .tf-analysis-head{
+  padding-left:1ch!important;
+  box-sizing:border-box!important;
+}
 .analysis-card hr{
   border-color:var(--tufts-neon)!important;
   box-shadow:0 0 5px rgba(110,198,255,.52)!important;
