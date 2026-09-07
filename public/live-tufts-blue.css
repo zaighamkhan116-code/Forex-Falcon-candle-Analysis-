@@ -57,22 +57,41 @@ select,
   background:linear-gradient(180deg,rgba(15,49,82,.94),rgba(7,27,50,.97))!important;
 }
 
-/* Falcon Analysis: replace the purple analysis surfaces with dark Tufts blue. */
+/* Falcon Analysis: dark Tufts-blue surfaces + explicit neon borders on every analysis/context box. */
 .analysis-card{
   background:linear-gradient(180deg,#0b3157 0%,#082744 48%,#061d34 100%)!important;
-  border-color:var(--tufts-neon)!important;
+  border:1px solid var(--tufts-neon-strong)!important;
+  box-shadow:0 0 10px rgba(142,215,255,.92),0 0 28px rgba(62,142,222,.42),inset 0 0 18px rgba(110,198,255,.07)!important;
 }
 .analysis-card > div:not(.analysis-title),
 .analysis-card section,
 .analysis-card article,
 .analysis-card .tf-analysis,
 .analysis-card [class*="analysis-block"],
-.analysis-card [class*="context"]{
+.analysis-card [class*="context"],
+.analysis-card [class*="timeframe"],
+.analysis-card [class*="panel"]{
   background:linear-gradient(180deg,rgba(10,45,79,.98),rgba(5,27,50,.99))!important;
-  border-color:rgba(110,198,255,.72)!important;
+  border:1px solid var(--tufts-neon)!important;
+  box-shadow:0 0 6px rgba(110,198,255,.58),inset 0 0 10px rgba(110,198,255,.05)!important;
 }
 .analysis-card hr{
-  border-color:rgba(110,198,255,.58)!important;
+  border-color:var(--tufts-neon)!important;
+  box-shadow:0 0 5px rgba(110,198,255,.52)!important;
+}
+
+/* TradingView outer card and inner chart frame get the same neon Tufts-blue treatment. */
+.tv-card{
+  border:1px solid var(--tufts-neon-strong)!important;
+  box-shadow:0 0 10px rgba(142,215,255,.92),0 0 28px rgba(62,142,222,.42),inset 0 0 18px rgba(110,198,255,.07)!important;
+}
+.tradingview-widget-container,
+.tradingview-widget-container__widget,
+#tradingviewChart{
+  border:1px solid var(--tufts-neon)!important;
+  border-radius:12px!important;
+  box-shadow:0 0 8px rgba(110,198,255,.72),0 0 20px rgba(62,142,222,.28)!important;
+  overflow:hidden!important;
 }
 
 .market-mode-btn,
@@ -130,5 +149,10 @@ select{
   .glass,.controls,.history,.analysis-card,.ai-learning-banner,.tv-card,.market-rank-panel,
   .market-mode-btn,.select-pair-btn,.market-pair-btn,.horizons button,select{
     box-shadow:0 0 7px rgba(110,198,255,.74),0 0 16px rgba(62,142,222,.24),inset 0 0 12px rgba(110,198,255,.05)!important;
+  }
+  .analysis-card,
+  .tv-card,
+  #tradingviewChart{
+    box-shadow:0 0 8px rgba(142,215,255,.84),0 0 20px rgba(62,142,222,.34),inset 0 0 12px rgba(110,198,255,.05)!important;
   }
 }
