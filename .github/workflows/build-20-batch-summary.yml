@@ -1,11 +1,16 @@
 name: Build 20-result batch summary
 
 # Deterministic exact-batch reconstruction from the canonical restart-safe settled history.
+# Rebuild immediately after the canonical capture workflow completes so the batch job
+# cannot race ahead of the commit that writes audit/canonical/*.json.
 on:
   push:
     paths:
       - '.github/workflows/build-20-batch-summary.yml'
       - 'audit/canonical/**'
+  workflow_run:
+    workflows: ['Capture Live Core FX Audit']
+    types: [completed]
   schedule:
     - cron: '*/10 * * * *'
   workflow_dispatch:
@@ -19,12 +24,29 @@ concurrency:
 
 jobs:
   summarize:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout current canonical branch state
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
+
+      - name: Verify canonical inputs exist
+        env:
+          PAIRS: EURUSD GBPUSD EURJPY USDJPY AUDUSD
+        run: |
+          set -euo pipefail
+          for pair in $PAIRS; do
+            slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
+            source="audit/canonical/$slug.json"
+            if [ ! -s "$source" ]; then
+              echo "Missing or empty canonical history for $pair at $source" >&2
+              exit 1
+            fi
+            jq -e 'type == "array"' "$source" >/dev/null
+          done
 
       - name: Build exact post-baseline track summary
         env:
@@ -38,10 +60,6 @@ jobs:
           for pair in $PAIRS; do
             slug=$(echo "$pair" | tr '[:upper:]' '[:lower:]')
             source="audit/canonical/$slug.json"
-            if [ ! -f "$source" ]; then
-              echo "Missing canonical history for $pair" >&2
-              exit 1
-            fi
             for h in $HORIZONS; do
               key="${pair}-${h}M"
               jq --argjson h "$h" --argjson b "$BASELINE_MS" '[.[] | select((.horizon|tonumber)==$h and ((.resolvedAt // .expiry // .signalBoundary // 0)|tonumber)>$b)] | unique_by(.id) | sort_by(.resolvedAt // .expiry // .signalBoundary // 0)' "$source" > "/tmp/$slug-$h-new.json"
