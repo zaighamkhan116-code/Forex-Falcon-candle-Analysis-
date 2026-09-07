@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-09-07T06:02:49Z",
+  "capturedAt": "2026-09-07T10:54:43Z",
   "pairs": [
     "EURUSD",
     "GBPUSD",
@@ -15,11 +15,13 @@
     15
   ],
   "resolvedRetainedCount": 2500,
-  "pendingRetainedCount": 26,
-  "visibleAppResolvedRetainedCount": 16,
+  "pendingRetainedCount": 25,
+  "visibleAppResolvedRetainedCount": 36,
   "visibleAppPendingRetainedCount": 0,
+  "canonicalSettledCount": 2500,
   "minimumConfidence": 57,
   "visibleAppCapture": true,
-  "storageMode": "bounded-recent",
+  "storageMode": "bounded-recent+canonical-restart-safe",
+  "canonicalSource": "settled-result-id-sequence",
   "fullHistorySource": "live-server"
 }
