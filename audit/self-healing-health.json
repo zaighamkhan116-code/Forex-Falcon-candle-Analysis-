@@ -1,14 +1,31 @@
 {
-  "capturedAt": "2026-09-07T13:45:11.082280+00:00",
-  "dataIntegrity": "PASS",
+  "capturedAt": "2026-09-07T15:00:00Z",
+  "dataIntegrity": "PASS_WITH_CAPTURE_BACKSTOP",
   "canonicalSettledCount": 3000,
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
-  "newBatchCount": 17,
+  "newBatchCount": 0,
   "repairsActive": [
     "append-only canonical permanent-ID history",
     "integrity-gated canonical exact batches",
-    "canonical reporting watermark"
+    "canonical reporting watermark",
+    "hourly self-heal dispatch backstop for stalled scheduled capture"
   ],
-  "strategyModificationThisCycle": "PENDING_EVIDENCE_REVIEW",
-  "nextValidation": "next unseen canonical exact-20 batch after current watermark"
+  "repairsThisCycle": [
+    {
+      "commit": "4666ab98f09e2739fa1fda6e918680bbeb901345",
+      "change": "added weekday hourly dispatch backstop for canonical live capture after scheduled audit activity stalled"
+    },
+    {
+      "verification": "workflow 34135893020 completed successfully and dispatched Capture Live Core FX Audit run 34135902324"
+    }
+  ],
+  "shadowInfrastructure": {
+    "status": "SUPPORTED_SCOPE_CONFIRMED",
+    "supportedPairs": ["EURUSD"],
+    "supportedHorizons": [1, 2, 3, 5, 15],
+    "nonEURUSD422": "EXPECTED_UNSUPPORTED_NOT_GLOBAL_FAILURE",
+    "authoritative": false
+  },
+  "strategyModificationThisCycle": "NONE_NO_NEW_CLEAN_EXACT20_BATCH",
+  "nextValidation": "next unseen canonical exact-20 batch after current watermark; prioritize EURUSD-2M, AUDUSD-2M, EURJPY-3M and USDJPY-3M repeatability"
 }
