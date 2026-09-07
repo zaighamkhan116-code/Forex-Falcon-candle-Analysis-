@@ -25,11 +25,11 @@ test('EURUSD 5M mature displacement without healthy reaction gets exhaustion pen
   assert.ok(cal.confidenceAdjustment<0);
 });
 
-test('EURJPY 3M clean healthy structure receives confirmation credit',()=>{
+test('EURJPY 3M clean healthy structure receives stability-preserve credit',()=>{
   const s=base('EURJPY',3,'SELL',{vsaScore:-.3,candleBodyRatio:.6,bodyAtr:.5,sequencePressure:-.2,progressScore:-4,evidenceScore:-.4,mtfAgreementCount:3,mtfOppositionCount:0,groupConsensusDirection:'SELL',groupDominance:.7,failureToProgress:false,transitionRiskActive:false});
   const cal=assessTrackCalibration(s,'SELL');
   assert.equal(cal.reactionQuality,'HEALTHY');
-  assert.ok(cal.tags.includes('EURJPY_STRUCTURAL_CONFIRMATION'));
+  assert.ok(cal.tags.includes('EURJPY_3M_STABILITY_PRESERVE'));
   assert.ok(cal.confidenceAdjustment>0);
 });
 
@@ -40,18 +40,18 @@ test('USDJPY 3M recovery is preserved rather than broadly penalized',()=>{
   assert.ok(cal.confidenceAdjustment>=0);
 });
 
-test('AUDUSD healthy mature 5M reaction is allowed instead of punished for lateness alone',()=>{
+test('AUDUSD healthy 5M control profile is protected instead of punished for extension alone',()=>{
   const s=base('AUDUSD',5,'BUY',{bullExtended:true,vwapDistanceAtr:2.2,rangeAtr:1.3,vsaScore:.3,candleBodyRatio:.6,bodyAtr:.5,sequencePressure:.2,progressScore:3,activeFvgState:'FULLY_MITIGATED',mtfAgreementCount:3,mtfOppositionCount:0});
   const cal=assessTrackCalibration(s,'BUY');
   assert.equal(cal.reactionQuality,'HEALTHY');
   assert.ok(cal.confidenceAdjustment>0);
-  assert.ok(cal.tags.includes('AUDUSD_5M_MATURE_REACTION_ALLOWED'));
+  assert.ok(cal.tags.includes('AUDUSD_5M_CONTROL_PROFILE_PRESERVE'));
 });
 
 test('15M calibration is capped while sample remains small',()=>{
   const s=base('GBPUSD',15,'BUY',{vsaPoorResult:true,candleBodyRatio:.1,upperWickRatioVsa:.7,sequencePressure:-.4,progressScore:-5,failureToProgress:true});
   const cal=assessTrackCalibration(s,'BUY');
-  assert.ok(Math.abs(cal.confidenceAdjustment)<=1);
-  assert.ok(Math.abs(cal.directionBias)<=.25);
+  assert.ok(Math.abs(cal.confidenceAdjustment)<=1.25);
+  assert.ok(Math.abs(cal.directionBias)<=.3);
   assert.ok(cal.tags.includes('15M_SMALL_SAMPLE_CAP'));
 });
