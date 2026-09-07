@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Falcon OTC Signals</title>
+<style>
+:root{color-scheme:dark;--bg:#080b12;--card:#101623;--line:#27324a;--text:#edf3ff;--muted:#8ea0bf;--green:#37df8d;--red:#ff5f72;--amber:#ffc857;--blue:#6da7ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#111a2d 0,#080b12 42%);color:var(--text);font:15px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:980px;margin:auto;padding:18px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.brand{font-weight:800;font-size:22px;letter-spacing:.5px}.pill{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);background:#0c111c}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(180deg,#111827,#0d1320);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 16px 40px rgba(0,0,0,.25)}.signal{min-height:245px}.eyebrow{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px}.dir{font-size:46px;font-weight:900;margin:10px 0 2px}.up{color:var(--green)}.down{color:var(--red)}.neutral{color:var(--muted)}.conf{font-size:22px;font-weight:700}.count{font-size:34px;font-variant-numeric:tabular-nums;margin:16px 0 8px}.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;color:var(--muted);font-size:13px}.meta b{color:var(--text);font-weight:700}.result{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}.win{color:var(--green);font-weight:800}.loss{color:var(--red);font-weight:800}.draw{color:var(--amber);font-weight:800}.stats{margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#0b111d;border:1px solid var(--line);border-radius:14px;padding:12px}.stat .v{font-size:22px;font-weight:800}.statusdot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--red);margin-right:6px}.statusdot.on{background:var(--green);box-shadow:0 0 12px rgba(55,223,141,.8)}select{background:#0b111d;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:7px 10px}.footer{margin-top:14px;color:var(--muted);font-size:12px;text-align:center}@media(max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.dir{font-size:40px}.wrap{padding:12px}}</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><div class="brand">FALCON OTC SIGNALS</div><div class="eyebrow">Quotex shadow intelligence • no auto trading</div></div>
+    <div class="pill"><span id="dot" class="statusdot"></span><span id="connection">Waiting for feed</span></div>
+  </div>
+  <div class="top"><div class="pill">Pair: <b id="pairLabel">EURUSD OTC</b></div><select id="pair"><option value="EURUSD">EURUSD OTC</option><option value="GBPUSD">GBPUSD OTC</option><option value="USDJPY">USDJPY OTC</option><option value="USDPKR">USDPKR OTC</option></select></div>
+  <div class="grid">
+    <section class="card signal" id="s15"><div class="eyebrow">15 SECOND SHADOW</div><div class="dir neutral">WAIT</div><div class="conf">Confidence —</div><div class="count">--.-s</div><div class="meta"><div>Entry <b class="entry">—</b></div><div>Score <b class="score">—</b></div><div>Momentum <b class="mom">—</b></div><div>Pressure <b class="pressure">—</b></div></div><div class="result"><span>Last result</span><span class="last neutral">—</span></div></section>
+    <section class="card signal" id="s30"><div class="eyebrow">30 SECOND SHADOW</div><div class="dir neutral">WAIT</div><div class="conf">Confidence —</div><div class="count">--.-s</div><div class="meta"><div>Entry <b class="entry">—</b></div><div>Score <b class="score">—</b></div><div>Momentum <b class="mom">—</b></div><div>Pressure <b class="pressure">—</b></div></div><div class="result"><span>Last result</span><span class="last neutral">—</span></div></section>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="eyebrow">15s win rate</div><div class="v" id="wr15">—</div></div>
+    <div class="stat"><div class="eyebrow">30s win rate</div><div class="v" id="wr30">—</div></div>
+    <div class="stat"><div class="eyebrow">1s candles</div><div class="v" id="candles">0</div></div>
+    <div class="stat"><div class="eyebrow">Live price</div><div class="v" id="price">—</div></div>
+  </div>
+  <div class="footer">SHADOW MODE • Signals are for validation only while the engine learns the Quotex OTC feed.</div>
+</div>
+<script>
+let lastHealth=null,lastShadow=null;
+const fmt=n=>Number.isFinite(Number(n))?Number(n).toFixed(5):'—';
+function outcomeClass(o){return o==='WIN'?'win':o==='LOSS'?'loss':o==='DRAW'?'draw':'neutral'}
+function renderSignal(sec,data){const root=document.querySelector(sec===15?'#s15':'#s30');const p=data?.latestPrediction?.[sec];const s=data?.latestSettlement?.[sec];const dir=root.querySelector('.dir');if(p){dir.textContent=p.direction==='UP'?'BUY ↑':'SELL ↓';dir.className='dir '+(p.direction==='UP'?'up':'down');root.querySelector('.conf').textContent=`Confidence ${p.confidence}%`;root.querySelector('.entry').textContent=fmt(p.entryPrice);root.querySelector('.score').textContent=Number(p.score).toFixed(4);root.querySelector('.mom').textContent=((p.features?.m5||0)*10000).toFixed(2);root.querySelector('.pressure').textContent=Number(p.features?.pressure||0).toFixed(2);const remain=Math.max(0,(p.targetTimestampMs-Date.now())/1000);root.querySelector('.count').textContent=remain.toFixed(1)+'s';}else{dir.textContent='WAIT';dir.className='dir neutral';root.querySelector('.conf').textContent='Confidence —';root.querySelector('.count').textContent='--.-s'}const last=root.querySelector('.last');last.textContent=s?.outcome||'—';last.className='last '+outcomeClass(s?.outcome)}
+function render(){const d=lastShadow?.data;const connected=!!lastHealth?.connected;document.querySelector('#dot').classList.toggle('on',connected);document.querySelector('#connection').textContent=connected?'LIVE OTC FEED':'Feed offline';document.querySelector('#price').textContent=fmt(lastHealth?.lastPrice);document.querySelector('#candles').textContent=d?.candleCount??0;document.querySelector('#wr15').textContent=d?.results?.[15]?.winRate==null?'—':d.results[15].winRate+'%';document.querySelector('#wr30').textContent=d?.results?.[30]?.winRate==null?'—':d.results[30].winRate+'%';renderSignal(15,d);renderSignal(30,d)}
+async function poll(){const pair=document.querySelector('#pair').value;document.querySelector('#pairLabel').textContent=pair+' OTC';try{const [h,s]=await Promise.all([fetch('/health',{cache:'no-store'}),fetch('/api/quotex/otc/shadow?pair='+encodeURIComponent(pair),{cache:'no-store'})]);if(h.ok)lastHealth=await h.json();if(s.ok)lastShadow=await s.json();}catch(e){}render();setTimeout(poll,500)}
+document.querySelector('#pair').addEventListener('change',()=>{lastShadow=null});setInterval(render,100);poll();
+</script>
+</body>
+</html>
