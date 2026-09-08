@@ -1,0 +1,55 @@
+{
+  "capturedAt": "2026-09-08T03:58:33Z",
+  "status": "PASS_NO_ADDITIONAL_BATCH_AFTER_24_BATCH_CYCLE",
+  "canonicalSettledCount": 5425,
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "minimumConfidence": 57,
+  "frequencyPreserved": true,
+  "integrity": {
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "batchWatermarkStatus": "IN_SYNC",
+  "additionalCompletedBatchesSince0328Checkpoint": 0,
+  "latestCompletedCycle": {
+    "newExactBatches": 24,
+    "settlements": 480,
+    "wins": 227,
+    "losses": 236,
+    "ties": 17,
+    "accuracyExTies": 49.03
+  },
+  "activeForwardValidation": [
+    "AUDUSD_1M_PROGRESS_FAILURE_CONFLICT_RERANK_V3_3",
+    "GBPUSD_3M_TRANSITION_CONFLICT_RERANK_V3_3"
+  ],
+  "safetyPatch": {
+    "commit": "f17518ebc0ff15d04d5a7e1c9b3ba74ea583bf6a",
+    "testCommit": "bf6cdb80ba7c16c0e650335e992b0a0396b765fa",
+    "rule": "V3.3 reranks require finite original/opposite comparative scores and the opposite score must not be materially worse"
+  },
+  "production": {
+    "deployment": "78fafbc0-30b6-499e-93df-d0454a6b3355",
+    "status": "SUCCESS",
+    "commit": "bf6cdb80ba7c16c0e650335e992b0a0396b765fa"
+  },
+  "shadow": {
+    "status": "NON_AUTHORITATIVE",
+    "supportedRequestsObserved": true,
+    "unsupported422sExpected": true
+  },
+  "strategyModificationThisCheckpoint": "NONE",
+  "reason": "The repaired 24-batch cycle and V3.3 safety patch are fully deployed and current deterministic batch counts match the learning watermark. No additional clean unseen exact-20 batch exists yet to justify another modification.",
+  "nextTargets": [
+    "AUDUSD 1M B17",
+    "GBPUSD 3M B12",
+    "EURJPY 5M B9",
+    "GBPUSD 2M B14",
+    "EURJPY 3M B12",
+    "EURJPY 2M B14",
+    "EURUSD 5M B9",
+    "GBPUSD 5M B9"
+  ]
+}
