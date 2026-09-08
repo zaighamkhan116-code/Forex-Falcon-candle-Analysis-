@@ -1,14 +1,14 @@
 {
-  "capturedAt": "2026-09-07T23:07:15Z",
+  "capturedAt": "2026-09-08T00:36:41Z",
   "source": "audit/canonical",
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
   "tracks": {
     "EURUSD-1M": {
       "pair": "EURUSD",
       "horizon": 1,
-      "canonicalEligible": 288,
+      "canonicalEligible": 295,
       "completed20Batches": 14,
-      "remainder": 8,
+      "remainder": 15,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -20,9 +20,9 @@
     "EURUSD-2M": {
       "pair": "EURUSD",
       "horizon": 2,
-      "canonicalEligible": 236,
+      "canonicalEligible": 239,
       "completed20Batches": 11,
-      "remainder": 16,
+      "remainder": 19,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -34,9 +34,9 @@
     "EURUSD-3M": {
       "pair": "EURUSD",
       "horizon": 3,
-      "canonicalEligible": 194,
+      "canonicalEligible": 196,
       "completed20Batches": 9,
-      "remainder": 14,
+      "remainder": 16,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -76,9 +76,9 @@
     "GBPUSD-1M": {
       "pair": "GBPUSD",
       "horizon": 1,
-      "canonicalEligible": 286,
+      "canonicalEligible": 293,
       "completed20Batches": 14,
-      "remainder": 6,
+      "remainder": 13,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -90,9 +90,9 @@
     "GBPUSD-2M": {
       "pair": "GBPUSD",
       "horizon": 2,
-      "canonicalEligible": 234,
+      "canonicalEligible": 237,
       "completed20Batches": 11,
-      "remainder": 14,
+      "remainder": 17,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -104,9 +104,9 @@
     "GBPUSD-3M": {
       "pair": "GBPUSD",
       "horizon": 3,
-      "canonicalEligible": 193,
+      "canonicalEligible": 195,
       "completed20Batches": 9,
-      "remainder": 13,
+      "remainder": 15,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -146,9 +146,9 @@
     "EURJPY-1M": {
       "pair": "EURJPY",
       "horizon": 1,
-      "canonicalEligible": 287,
+      "canonicalEligible": 294,
       "completed20Batches": 14,
-      "remainder": 7,
+      "remainder": 14,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -160,9 +160,9 @@
     "EURJPY-2M": {
       "pair": "EURJPY",
       "horizon": 2,
-      "canonicalEligible": 234,
+      "canonicalEligible": 237,
       "completed20Batches": 11,
-      "remainder": 14,
+      "remainder": 17,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -174,9 +174,9 @@
     "EURJPY-3M": {
       "pair": "EURJPY",
       "horizon": 3,
-      "canonicalEligible": 195,
+      "canonicalEligible": 197,
       "completed20Batches": 9,
-      "remainder": 15,
+      "remainder": 17,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -216,9 +216,9 @@
     "USDJPY-1M": {
       "pair": "USDJPY",
       "horizon": 1,
-      "canonicalEligible": 287,
+      "canonicalEligible": 294,
       "completed20Batches": 14,
-      "remainder": 7,
+      "remainder": 14,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -230,9 +230,9 @@
     "USDJPY-2M": {
       "pair": "USDJPY",
       "horizon": 2,
-      "canonicalEligible": 234,
+      "canonicalEligible": 237,
       "completed20Batches": 11,
-      "remainder": 14,
+      "remainder": 17,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -244,9 +244,9 @@
     "USDJPY-3M": {
       "pair": "USDJPY",
       "horizon": 3,
-      "canonicalEligible": 193,
+      "canonicalEligible": 195,
       "completed20Batches": 9,
-      "remainder": 13,
+      "remainder": 15,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -286,9 +286,9 @@
     "AUDUSD-1M": {
       "pair": "AUDUSD",
       "horizon": 1,
-      "canonicalEligible": 276,
-      "completed20Batches": 13,
-      "remainder": 16,
+      "canonicalEligible": 283,
+      "completed20Batches": 14,
+      "remainder": 3,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -300,9 +300,9 @@
     "AUDUSD-2M": {
       "pair": "AUDUSD",
       "horizon": 2,
-      "canonicalEligible": 232,
+      "canonicalEligible": 235,
       "completed20Batches": 11,
-      "remainder": 12,
+      "remainder": 15,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -314,9 +314,9 @@
     "AUDUSD-3M": {
       "pair": "AUDUSD",
       "horizon": 3,
-      "canonicalEligible": 194,
+      "canonicalEligible": 196,
       "completed20Batches": 9,
-      "remainder": 14,
+      "remainder": 16,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
