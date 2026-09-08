@@ -1,0 +1,38 @@
+{
+  "status": "STAGE_ZERO_BLOCKED_CAPTURE_STALE",
+  "checkedAt": "2026-09-08T07:05:00Z",
+  "canonical": {
+    "lastCapturedAt": "2026-09-08T05:52:29Z",
+    "settledCount": 5870,
+    "minimumConfidence": 57,
+    "storageMode": "bounded-recent+canonical-append-only-restart-safe",
+    "learningAllowed": false,
+    "reason": "live service remains healthy and serves /api/research/background, but repository canonical capture checkpoint has not advanced"
+  },
+  "server": {
+    "deploymentId": "61f001c1-8205-4111-92cb-b82f20c56afe",
+    "deploymentStatus": "SUCCESS",
+    "backgroundEndpointObserved200": true,
+    "engineStateObserved200": true,
+    "shadowSupportedPredictionsObserved200": true,
+    "shadowUnsupported422Expected": true
+  },
+  "repair": {
+    "triggerCommit": "277d0de2aba4b9b278f5583860d5e668de7d87bd",
+    "method": "one-shot GitHub workflow dispatcher for capture-live-audit.yml",
+    "verification": "PENDING_CAPTURE_STATUS_ADVANCE"
+  },
+  "strategy": {
+    "latestCodeCommit": "c9790a9c7903795a374506f8136b80bd9d74c249",
+    "status": "FORWARD_VALIDATION_PENDING_CLEAN_CANONICAL_DATA",
+    "note": "stale-compound/FVG-confirmation refinement must not be evaluated or promoted until fresh canonical batches are captured and settled"
+  },
+  "actionsThisRun": [
+    "verified production deployment healthy",
+    "verified live background endpoint returning HTTP 200 from Railway proxy logs",
+    "detected stale canonical capture checkpoint",
+    "triggered capture recovery",
+    "blocked Stage One and Stage Two from incomplete data",
+    "preserved batch numbering and canonical history unchanged"
+  ]
+}
