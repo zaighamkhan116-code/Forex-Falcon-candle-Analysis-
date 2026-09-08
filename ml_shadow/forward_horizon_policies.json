@@ -1,0 +1,50 @@
+{
+  "policyVersion": "SHADOW_TIMEFRAME_FORWARD_POLICY_V1",
+  "generatedFromCanonicalCount": 6690,
+  "generatedAt": "2026-09-08T11:08:26Z",
+  "researchOnly": true,
+  "influencesLiveSignal": false,
+  "horizons": {
+    "1": {
+      "directionTransform": "RETAIN",
+      "status": "MONITOR_UNSTABLE",
+      "settledSample": 140,
+      "rawAccuracy": 0.463415
+    },
+    "2": {
+      "directionTransform": "RETAIN",
+      "status": "RETAIN_FORWARD_EDGE",
+      "settledSample": 139,
+      "rawAccuracy": 0.55303
+    },
+    "3": {
+      "directionTransform": "RETAIN",
+      "status": "MONITOR_NEUTRAL",
+      "settledSample": 119,
+      "rawAccuracy": 0.495575
+    },
+    "5": {
+      "directionTransform": "RETAIN",
+      "status": "MONITOR_UNSTABLE",
+      "settledSample": 105,
+      "rawAccuracy": 0.520833
+    },
+    "15": {
+      "directionTransform": "INVERT",
+      "status": "FORWARD_SHADOW_VALIDATION",
+      "settledSample": 39,
+      "baseWins": 14,
+      "baseLosses": 25,
+      "correctedWins": 25,
+      "correctedLosses": 14,
+      "correctedRawAccuracy": 0.641026,
+      "bayesianAccuracy": 0.59322,
+      "chronologicalWindows": [0.65, 0.631579],
+      "baseMaximumLossStreak": 5,
+      "correctedMaximumLossStreak": 3,
+      "baseFivePlusLossStreaks": 1,
+      "correctedFivePlusLossStreaks": 0,
+      "frequencyImpact": "NONE"
+    }
+  }
+}
