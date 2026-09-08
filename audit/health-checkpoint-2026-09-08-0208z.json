@@ -1,0 +1,99 @@
+{
+  "generatedAt": "2026-09-08T02:08:00Z",
+  "integrity": {
+    "status": "PASS",
+    "canonicalSettledCount": 4985,
+    "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "capture": {
+    "capturedAt": "2026-09-08T01:10:40Z",
+    "storageMode": "bounded-recent+canonical-append-only-restart-safe",
+    "canonicalSource": "settled-result-permanent-id-sequence",
+    "minimumConfidence": 57
+  },
+  "stageZeroRepairs": [
+    {"commit":"6cf907bf6951a97d0131a2361bfe3319039e1969","action":"Retrigger exact-20 reconstruction because canonical history had advanced beyond the stale exact-batch snapshot."},
+    {"commit":"8421642a8a0577bbddd9a025b954673f0d6f600b","action":"Rebuild deterministic integrity-gated exact batches from canonical history; all 25 tracks passed integrity checks."},
+    {"commit":"fe20f76742a0c38ed8ef58e23392f47046fc4dbb","action":"Retrigger learner because rebuilt completed-batch counts were ahead of the canonical learning watermark."},
+    {"commit":"bc4916a11a720bcb8df82b8fb857de1739a62caa","action":"Analyze and atomically watermark all 16 newly completed exact-20 batches."}
+  ],
+  "newExact20Batches": 16,
+  "aggregate": {"settlements":320,"wins":141,"losses":165,"ties":14,"accuracyExTies":46.08,"maxLossStreak":6},
+  "batches": [
+    ["EURUSD",1,15,7,10,3,41.18,4],
+    ["EURUSD",2,12,8,12,0,40.00,3],
+    ["EURUSD",3,10,5,14,1,26.32,6],
+    ["GBPUSD",1,15,9,8,3,52.94,2],
+    ["GBPUSD",2,12,9,8,3,52.94,3],
+    ["GBPUSD",3,10,7,12,1,36.84,5],
+    ["EURJPY",1,15,13,7,0,65.00,2],
+    ["EURJPY",2,12,9,11,0,45.00,4],
+    ["EURJPY",3,10,12,8,0,60.00,3],
+    ["USDJPY",1,15,12,8,0,60.00,2],
+    ["USDJPY",2,12,8,12,0,40.00,3],
+    ["USDJPY",3,10,10,10,0,50.00,4],
+    ["USDJPY",15,3,9,11,0,45.00,3],
+    ["AUDUSD",1,15,8,12,0,40.00,4],
+    ["AUDUSD",2,12,7,11,2,38.89,4],
+    ["AUDUSD",3,10,8,11,1,42.11,3]
+  ],
+  "keyDiagnostics": {
+    "EURUSD_3M_B10": {"continuationFreshEvidence":"1W/12L/1T = 7.69%","progressFailureGate":"4W/14L = 22.22%","choppy":"3W/9L = 25%","hour05":"0W/6L","decision":"DEGRADED_WATCH; one severe new batch is insufficient for a new global or track rule."},
+    "GBPUSD_3M_B10": {"choppy":"4W/11L/1T = 26.67%","continuationFreshEvidence":"4W/11L/1T = 26.67%","hour05":"1W/6L = 14.29%","decision":"DEGRADED_WATCH; require repeatable unseen state before specialization."},
+    "AUDUSD_1M_B15": {"accuracy":40.0,"maxLossStreak":4,"buy":"2W/7L = 22.22%","continuationFreshEvidence":"3W/9L = 25%","progressFailureRisk":"3W/5L = 37.5%","priorB14":"41.18%/L4","decision":"DEGRADED_WATCH; B16 decisive because weak direction changed between B14 and B15."},
+    "AUDUSD_2M_B12": {"accuracy":38.89,"maxLossStreak":4,"mixed":"2W/6L = 25%","fusionQualityGate":"0W/3L/1T","decision":"Keep V9 arm reverted; no safe replacement yet."}
+  },
+  "forwardValidation": {
+    "EURJPY_3M_V9": {"status":"REGIME_LOCKED","pre":"B6 35%/L5; B7 35%/L7","unseen":"B8 68.42%/L2; B9 45%/L4; B10 60%/L3","aggregateUnseen":"34W/25L/1T = 57.63%","auditCommit":"8064f2675b731eeb8d41a3e8aa771c6342ca446f"},
+    "GBPUSD_2M_V3_1": {"status":"REGIME_LOCKED","pre":"B8 31.58%/L5; B9 27.78%/L6","unseen":"B10 27.78%/L4; B11 53.85%/L3; B12 52.94%/L3","auditCommit":"8064f2675b731eeb8d41a3e8aa771c6342ca446f"},
+    "EURJPY_2M_V3": {"status":"FORWARD_VALIDATION","unseen":"B10 61.11%/L6; B11 42.11%/L3; B12 45%/L4","decision":"Not stable enough to lock or revert."},
+    "AUDUSD_2M_V9": {"status":"REVERTED_DEGRADED_CONTINUE_OBSERVATION","postRevert":"B11 53.33%/L2; B12 38.89%/L4"},
+    "EURJPY_5M_V3_2": {"status":"FORWARD_VALIDATION","nextTarget":"B8 not completed yet"}
+  },
+  "mainShadow": {
+    "authority":"SHADOW_NON_AUTHORITATIVE",
+    "newReady":25,
+    "agreements":4,
+    "disagreements":21,
+    "supportedScope":"EURUSD only in these new batches",
+    "decision":"NO_PROMOTION"
+  },
+  "selector": {
+    "version":"SELECTOR_V2_FORWARD_SHRUNK",
+    "latestCaptureCommit":"f0df9c1d32c29167ce1fd1757f34f57cbea8686c",
+    "selected":"AUDCHF 1M score 70.9",
+    "runnerUp":"GBPUSD 1M score 70.3",
+    "margin":0.6,
+    "decision":"NO_WEIGHT_CHANGE; latest capture is candidate/runner-up telemetry without a new settled top-pick-vs-runner-up outcome set sufficient for forward recalibration. Scores remain rankings, not literal probability."
+  },
+  "production": {
+    "project":"sublime-wisdom",
+    "mainDeployment":"b2b3f87a-10e5-4c37-b9fe-13185667b2e0",
+    "mainStatus":"SUCCESS",
+    "healthHttp":200,
+    "otcCollectorStatus":"SUCCESS",
+    "quotexBridgeStatus":"SUCCESS",
+    "shadowObservation":"Supported predict requests return 200; recurring 422 responses correspond to unsupported tracks and do not alter Main authority."
+  },
+  "strategyDecision": {
+    "status":"TWO_REGIME_LOCK_PROMOTIONS_NO_NEW_CODE_ARM",
+    "frequencyPreserved":true,
+    "globalThresholdUnchanged":57,
+    "moneyManagementChanged":false,
+    "reason":"Clean unseen evidence justifies promotion of EURJPY-3M V9 and GBPUSD-2M V3.1 from forward-validation/retained status to REGIME_LOCKED. New weak batches on EURUSD-3M, GBPUSD-3M and AUDUSD-1M are not yet sufficiently repeatable and state-stable for another safe code change."
+  },
+  "nextTargets": [
+    "EURJPY 5M B8 for V3.2 first unseen validation",
+    "EURJPY 3M B11 regime-lock durability",
+    "GBPUSD 2M B13 regime-lock durability",
+    "EURJPY 2M B13 V3 decision",
+    "AUDUSD 2M B13 post-revert durability",
+    "AUDUSD 1M B16 repeatability decision",
+    "EURUSD 3M B11 degradation repeatability",
+    "GBPUSD 3M B11 degradation repeatability"
+  ]
+}
