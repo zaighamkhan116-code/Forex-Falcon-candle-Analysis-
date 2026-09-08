@@ -1,0 +1,24 @@
+{
+  "version": "V3_2_FORWARD_VALIDATION",
+  "status": "FORWARD_VALIDATION",
+  "pair": "EURJPY",
+  "horizon": 5,
+  "trigger": "EURJPY_5M_BREAKOUT_PROGRESS_CONFLICT_RERANK",
+  "evidence": {
+    "cumulativeBreakoutProgress": {"wins": 8, "losses": 21, "lossRatePct": 72.41},
+    "latestBatch": {"batch": 7, "wins": 6, "losses": 13, "ties": 1, "accuracyExTiesPct": 31.58, "maxLossStreak": 10},
+    "latestHighConfidence70Plus": {"wins": 0, "losses": 4},
+    "latestContinuationFreshEvidence": {"wins": 3, "losses": 12, "ties": 1, "accuracyExTiesPct": 20.0}
+  },
+  "scope": "EURJPY 5M only; accepted breakout + continuationFreshEvidence + weak progress + at least one additional conflict",
+  "conflictInputs": ["WEAKPROGRESS/NEGATIVE_PROGRESS/FAILURE_TO_PROGRESS", "UNRESOLVED_FVG", "confirmationV2Opposed>=3", "mtfOppositionCount>=2", "adverse S/R", "moveQualityScore<5.6"],
+  "action": "Rerank direction to opposite side under compound breakout-progress conflict. Do not veto the signal.",
+  "frequencyImpact": "NONE",
+  "globalConfidenceFloorChanged": false,
+  "moneyManagementChanged": false,
+  "settlementIntegrityChanged": false,
+  "baseline": {"trackAccuracyPct": 46.38, "trackMaxLossStreak": 10},
+  "nextUnseenValidationTarget": "EURJPY 5M B8",
+  "retainRule": "Retain only if unseen B8/B9 materially improve raw accuracy and/or reduce loss-streak severity without unacceptable signal-frequency degradation.",
+  "rollbackRule": "Revert only EURJPY_5M_BREAKOUT_PROGRESS_CONFLICT_RERANK if unseen chronological evidence degrades accuracy or streak behavior."
+}
