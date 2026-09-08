@@ -129,4 +129,4 @@ jobs:
           git pull --rebase origin main
           git push origin main
 
-# 2026-09-07 self-heal retrigger: no batch logic change; forces authoritative rebuild from canonical history.
+# 2026-09-08T02:00Z self-heal retrigger: canonical history advanced beyond exact-batch snapshot; force authoritative rebuild.
