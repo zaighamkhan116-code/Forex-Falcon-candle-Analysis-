@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-09-08T00:06:30Z",
+  "integrity": {
+    "status": "PASS",
+    "canonicalSettledCount": 4555,
+    "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "newExact20Batches": 15,
+  "combined": {"wins": 97, "losses": 147, "ties": 56, "accuracyExTiesPct": 39.75},
+  "batches": [
+    ["EURUSD",1,14,5,8,7,38.46,3], ["EURUSD",2,11,8,11,1,42.11,3], ["EURUSD",5,7,7,11,2,38.89,6],
+    ["GBPUSD",1,14,7,7,6,50.0,4], ["GBPUSD",2,11,7,6,7,53.85,3], ["GBPUSD",5,7,9,9,2,50.0,3],
+    ["EURJPY",1,14,7,12,1,36.84,4], ["EURJPY",2,11,8,11,1,42.11,3], ["EURJPY",5,7,6,13,1,31.58,10],
+    ["USDJPY",1,14,7,11,2,38.89,4], ["USDJPY",2,11,4,12,4,25.0,5], ["USDJPY",5,7,4,16,0,20.0,6],
+    ["AUDUSD",1,13,6,2,12,75.0,2], ["AUDUSD",2,11,8,7,5,53.33,2], ["AUDUSD",5,7,4,11,5,26.67,5]
+  ],
+  "forwardValidation": {
+    "GBPUSD_2M_V3_1": {"status":"VALIDATED_RETAINED","evidence":"B11 53.85% L3 after pre-change B8 31.58% L5 / B9 27.78% L6 and B10 27.78% L4"},
+    "AUDUSD_2M_V9_REVERT": {"status":"REVERSION_CONFIRMED","evidence":"post-revert B11 53.33% L2 after degraded B10 27.27% L5"},
+    "EURJPY_2M_V3": {"status":"FORWARD_VALIDATION","evidence":"B10 61.11% L6 then B11 42.11% L3; streak improved but raw accuracy not stable"},
+    "EURJPY_3M_V9": {"status":"VALIDATED_RETAINED_WAITING_NEXT_BATCH","next":"B10"},
+    "EURJPY_5M_V3_2": {"status":"FORWARD_VALIDATION","commit":"650a8a456f1c214f253c96917417955f2cfdb6da","testCommit":"d9ab55102584eb8a0ff593bec7252e862a9e894a","auditCommit":"58d87c50d1a6a9a4e66ee2d3cddb79f41bc06844","next":"B8"}
+  },
+  "shadow": {"status":"NON_AUTHORITATIVE","latestEurusdReady":22,"agreements":8,"disagreements":14,"startupWarmup":"transient 503s recovered to shadow-ready; no canonical impact"},
+  "selector": {"version":"SELECTOR_V2_FORWARD_SHRUNK","decision":"NO_CHANGE","reason":"recent candidate profiles remain extremely low reliability/sample size"},
+  "validation": {"strategyWorkflow":"Validate Strategy V7","result":"PASS","npmTest":"PASS","strategyInvariants":"PASS"},
+  "production": {"deploymentId":"b2b3f87a-10e5-4c37-b9fe-13185667b2e0","status":"SUCCESS","health":"200 OK","shadow":"READY"},
+  "nextTargets": ["EURJPY 5M B8 V3.2", "GBPUSD 2M B12 V3.1 retained", "AUDUSD 2M B12 post-revert", "EURJPY 2M B12 V3", "EURJPY 3M B10 V9", "USDJPY 5M B8 watch", "AUDUSD 5M B8 watch"]
+}
