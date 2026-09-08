@@ -66,3 +66,22 @@ test('shadow uses exact same candle for settlement',()=>{
   assert.equal(settleShadowPrediction({status:'READY',direction:'SELL',confidence:67},1.2,1.1).result,'WIN');
   assert.equal(settleShadowPrediction({status:'READY',direction:'BUY',confidence:67},1.2,1.1).result,'LOSS');
 });
+
+test('timeframe policy evidence is retained while shadow remains research-only',async()=>{
+  const signal={pair:'EURUSD',horizon:15,direction:'BUY',confidence:63,features:{}};
+  const response={ok:true,status:200,json:async()=>({
+    model:'RF+EXTRATREES+HISTGB_SHADOW_V2_MULTI_HORIZON',
+    modelVersion:'MULTI+SHADOW_TIMEFRAME_FORWARD_POLICY_V1',
+    pair:'EURUSD',horizon:15,direction:'SELL',baseDirection:'BUY',directionPolicy:'INVERT',
+    horizonPolicyVersion:'SHADOW_TIMEFRAME_FORWARD_POLICY_V1',
+    horizonPolicy:{status:'FORWARD_SHADOW_VALIDATION',frequencyImpact:'NONE'},
+    confidence:57.2,calibratedProbability:.572,baseCalibratedProbability:.62,researchOnly:true
+  })};
+  const out=await requestShadowPrediction(signal,{url:'http://shadow',candles:[],fetchImpl:async()=>response});
+  assert.equal(out.direction,'SELL');
+  assert.equal(out.baseDirection,'BUY');
+  assert.equal(out.directionPolicy,'INVERT');
+  assert.equal(out.horizonPolicy.frequencyImpact,'NONE');
+  assert.equal(out.influencedLiveSignal,false);
+  assert.equal(signal.direction,'BUY');
+});

@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 from sklearn.ensemble import ExtraTreesClassifier, HistGradientBoostingClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 
+from ml_shadow.horizon_policy import POLICY_VERSION, apply_horizon_policy, load_horizon_policies
+
 MODEL_PATH = Path(os.environ.get("SHADOW_MODEL_BUNDLE", "ml_shadow/models/model_bundle.joblib"))
 MODEL_NAME = "RF+EXTRATREES+HISTGB_SHADOW_V2_MULTI_HORIZON"
 REBUILD_VERSION = "NY_INDEPENDENT_V2_REBUILD_MULTI_HORIZON_V1"
@@ -275,6 +277,7 @@ def _horizon_model(bundle: Dict[str, Any], horizon: int) -> Dict[str, Any]:
 @app.get("/health")
 def health() -> Dict[str, Any]:
     bundle = load_bundle()
+    policies = load_horizon_policies()
     validations = {}
     if bundle:
         for h in SUPPORTED_HORIZONS:
@@ -286,11 +289,13 @@ def health() -> Dict[str, Any]:
         "ok": bundle is not None,
         "model": MODEL_NAME,
         "modelLoaded": bundle is not None,
-        "modelVersion": bundle.get("model_version") if bundle else None,
+        "modelVersion": f"{bundle.get('model_version')}+{POLICY_VERSION}" if bundle else None,
         "modelPath": str(MODEL_PATH),
         "supportedPairs": ["EURUSD"],
         "supportedHorizons": list(SUPPORTED_HORIZONS),
         "validationByHorizon": validations,
+        "horizonPolicies": policies,
+        "horizonPolicyVersion": POLICY_VERSION,
         "researchOnly": True,
         "influencesLiveSignal": False,
         "error": _load_error,
@@ -319,22 +324,32 @@ def predict(req: PredictRequest) -> Dict[str, Any]:
     direction = "BUY" if votes >= 2 else "SELL"
     ensemble_buy = float(np.mean(probs))
     directional_raw = ensemble_buy if direction == "BUY" else 1.0 - ensemble_buy
+    base_direction = direction
 
     calibrator = hmodel.get("calibrator")
     calibrated_win = directional_raw
     if calibrator is not None:
         calibration_row = _preserve_feature_names(calibrator, np.array([[directional_raw]], dtype=float))
         calibrated_win = float(calibrator.predict_proba(calibration_row)[0][1])
+    base_calibrated_win = calibrated_win
+    applied_policy = apply_horizon_policy(horizon, base_direction, base_calibrated_win)
+    direction = applied_policy["direction"]
+    calibrated_win = applied_policy["probability"]
 
     return {
         "model": MODEL_NAME,
-        "modelVersion": bundle.get("model_version", "unversioned"),
+        "modelVersion": f"{bundle.get('model_version', 'unversioned')}+{POLICY_VERSION}",
         "pair": req.pair.upper(),
         "horizon": horizon,
         "analysisTimeframe": req.analysisTimeframe,
         "direction": direction,
+        "baseDirection": base_direction,
+        "directionPolicy": applied_policy["transform"],
+        "horizonPolicyVersion": POLICY_VERSION,
+        "horizonPolicy": applied_policy["policy"],
         "confidence": round(calibrated_win * 100.0, 2),
         "calibratedProbability": round(calibrated_win, 6),
+        "baseCalibratedProbability": round(base_calibrated_win, 6),
         "rawDirectionalConfidence": round(directional_raw, 6),
         "memberProbabilities": {
             "randomForestBuy": round(rf, 6),
