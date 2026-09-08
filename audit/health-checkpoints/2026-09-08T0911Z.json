@@ -1,0 +1,23 @@
+{
+  "capturedAt":"2026-09-08T09:11:00Z",
+  "status":"PASS_WITH_TARGETED_DURABILITY_WATCHES",
+  "canonicalSettledCount":6265,
+  "lineageRule":"CANONICAL_RECORDS_1_20_B1",
+  "integrity":{"malformed":0,"duplicateIds":0,"duplicateBoundaries":0,"contradictions":0},
+  "repairs":[
+    {"commit":"54162a3d000b946f1e3be72378a2987cef55a29c","item":"stale capture dispatch"},
+    {"commit":"ef135712a5694e4fcb9ba263ddfa95f9910fbbdd","item":"append-only canonical capture recovered to 6265"},
+    {"commit":"06466a466fece8710d37e1ad62b511dfdd25e958","item":"exact-batch rebuild trigger"},
+    {"commit":"50a67df806caf90f18a5e278c8c421ec58e92ede","item":"integrity-gated exact batches rebuilt"},
+    {"commit":"a52d3d5820f5677c53fc2ddebdf692a48430e8f5","item":"canonical learner retrigger"},
+    {"commit":"776cf07c33d5c2eec48107aa6e212046ddf2e2e1","item":"23 exact-20 batches learned and watermarked"}
+  ],
+  "newWindow":{"batches":23,"settlements":460,"wins":202,"losses":243,"ties":15,"accuracyExTies":45.39},
+  "modificationDecision":{"commit":"47fc17f2750ae7fd4c219c6e8f34c734744f7a9e","AUDUSD-1M-V3_3":"REGIME_LOCKED","GBPUSD-3M-V3_3":"REGIME_LOCKED","EURJPY-5M-V3_2":"REGIME_LOCKED_DURABILITY_WATCH","EURJPY-3M-V9":"REGIME_LOCKED_DURABILITY_WATCH","GBPUSD-2M-V3_1":"REGIME_LOCKED_DURABILITY_WATCH","AUDUSD-2M-V9":"REVERTED_DEGRADED_WATCH"},
+  "minimumConfidence":57,
+  "frequencyPolicy":"PRESERVED",
+  "moneyManagementChanged":false,
+  "shadowAuthority":"NON_AUTHORITATIVE",
+  "pairSelectorVersion":"SELECTOR_V2_FORWARD_SHRUNK",
+  "nextValidationObjectives":["AUDUSD-1M B19","GBPUSD-3M B14","EURJPY-5M B11","GBPUSD-2M B16","EURJPY-3M B14","EURJPY-2M B16","AUDUSD-2M B16","first fully post-c979 stale-compound/FVG batches"]
+}
