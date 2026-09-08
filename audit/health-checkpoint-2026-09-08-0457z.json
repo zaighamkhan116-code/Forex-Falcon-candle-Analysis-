@@ -1,0 +1,44 @@
+{
+  "capturedAt": "2026-09-08T04:57:30Z",
+  "status": "PASS_NO_NEW_BATCH",
+  "canonicalSettledCount": 5425,
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "minimumConfidence": 57,
+  "frequencyPreserved": true,
+  "integrity": {
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "batchWatermarkStatus": "IN_SYNC",
+  "latestLearnerDecision": "NO_NEW_BATCH",
+  "latestLearnerGeneratedAt": "2026-09-08T04:53:40.900361Z",
+  "production": {
+    "project": "sublime-wisdom",
+    "service": "Forex-Falcon-candle-Analysis-",
+    "deployment": "78fafbc0-30b6-499e-93df-d0454a6b3355",
+    "status": "SUCCESS"
+  },
+  "shadow": {
+    "status": "NON_AUTHORITATIVE",
+    "supported200ObservedAt": "2026-09-08T04:57:09Z",
+    "unsupported422sExpected": true
+  },
+  "strategyModificationThisCheckpoint": "NONE",
+  "reason": "Canonical exact-batch counts and learner watermark remain synchronized. No new deterministic exact-20 batch exists after the prior cycle, no integrity repair is required, and no new unseen evidence justifies another calibration.",
+  "activeForwardValidation": [
+    "AUDUSD_1M_PROGRESS_FAILURE_CONFLICT_RERANK_V3_3",
+    "GBPUSD_3M_TRANSITION_CONFLICT_RERANK_V3_3"
+  ],
+  "nextTargets": [
+    "AUDUSD 1M B17",
+    "GBPUSD 3M B12",
+    "EURJPY 5M B9",
+    "GBPUSD 2M B14",
+    "EURJPY 3M B12",
+    "EURJPY 2M B14",
+    "EURUSD 5M B9",
+    "GBPUSD 5M B9"
+  ]
+}
