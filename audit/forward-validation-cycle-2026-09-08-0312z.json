@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-09-08T03:12:00Z",
+  "integrity": {
+    "status": "PASS",
+    "canonicalSettled": 5425,
+    "lineage": "CANONICAL_RECORDS_1_20_B1",
+    "minimumConfidence": 57,
+    "frequencyPreserved": true
+  },
+  "stageZeroRepairs": [
+    {
+      "type": "STALLED_CANONICAL_CAPTURE",
+      "repairCommit": "8ff888ce38385e4a02918793815c4b2e616b8ddb",
+      "verifiedCaptureCommit": "fb2d947c512fcd6b85b908820d31a5a198f3d408",
+      "beforeCanonical": 4985,
+      "afterCanonical": 5425,
+      "recovered": 440
+    },
+    {
+      "type": "STALE_EXACT_BATCH_BUILD",
+      "repairCommit": "b5adc884d4379056b011d48d26dc891e7579d6b5",
+      "verifiedBuildCommit": "306a6b85837597a2437c388306d7b849d28db627"
+    },
+    {
+      "type": "STALE_CANONICAL_LEARNER",
+      "repairCommit": "1912393c022a46f7b5aac7d1cae7f2509fe229f1",
+      "verifiedLearningCommit": "2335b4f19b5accfd5c2917c9a96aae9a4afda081",
+      "newExactBatches": 24
+    }
+  ],
+  "window": {
+    "settlements": 480,
+    "wins": 227,
+    "losses": 236,
+    "ties": 17,
+    "accuracyExTies": 49.03,
+    "shadowReady": 45,
+    "shadowAgreements": 14,
+    "shadowDisagreements": 31
+  },
+  "forwardValidationDecisions": [
+    {
+      "arm": "EURJPY_5M_BREAKOUT_PROGRESS_CONFLICT_RERANK",
+      "status": "VALIDATED_RETAINED",
+      "baseline": "B7 31.58% / L10; cumulative BREAKOUT_PROGRESS 8W/21L",
+      "unseen": "B8 60.00% / L3",
+      "nextTarget": "EURJPY 5M B9",
+      "lockRule": "Require another clean unseen batch retaining material accuracy/streak advantage before REGIME_LOCK"
+    },
+    {
+      "arm": "GBPUSD_2M_NEGATIVE_EDGE_CONFLICT_RERANK",
+      "status": "REGIME_LOCKED_DURABILITY_CONFIRMED",
+      "unseen": "B13 57.89% / L3",
+      "nextTarget": "GBPUSD 2M B14"
+    },
+    {
+      "arm": "EURJPY_3M_FORWARD_VALIDATION_CONFLICT_V9",
+      "status": "REGIME_LOCKED_WATCH",
+      "unseen": "B11 40.00% / L5",
+      "reason": "Degraded versus B8-B10 but still above the 35% pre-change raw baseline and has not reproduced pre-change L7 severity",
+      "nextTarget": "EURJPY 3M B12",
+      "rollbackRule": "Unlock/revert only if clean unseen evidence removes the accuracy/streak advantage versus the pre-change baseline"
+    },
+    {
+      "arm": "EURJPY_2M_COMPOUND_CONFLICT_RERANK",
+      "status": "VALIDATED_RETAINED_NOT_LOCKED",
+      "unseen": "B13 63.16% / L3 after B10 61.11/L6, B11 42.11/L3, B12 45.00/L4",
+      "nextTarget": "EURJPY 2M B14"
+    },
+    {
+      "arm": "AUDUSD_2M_FORWARD_VALIDATION_CONFLICT_V9",
+      "status": "REVERT_REMAINS_CONFIRMED",
+      "unseenPostRevert": "B13 50.00% / L4",
+      "nextTarget": "AUDUSD 2M B14"
+    }
+  ],
+  "newModifications": [
+    {
+      "version": "V3.3_FORWARD_VALIDATION",
+      "track": "AUDUSD 1M",
+      "trigger": "AUDUSD_1M_PROGRESS_FAILURE_CONFLICT_RERANK",
+      "evidence": "B14 41.18/L4, B15 40.00/L4, B16 47.37/L3; repeated progress/continuation failure while loss direction changed",
+      "mechanism": "Rerank only when progressFailureRisk is present, continuation evidence is stale/reset, and at least one independent runtime conflict is present",
+      "frequencyImpact": "NONE",
+      "globalThresholdChanged": false,
+      "codeCommit": "2e52084b3a0ca6e7eed9c43cf35e95f5abf1683c",
+      "testCommit": "c07d5aa17d2b20a066705573e205b334a8731125",
+      "status": "FORWARD_VALIDATION",
+      "nextTarget": "AUDUSD 1M B17"
+    },
+    {
+      "version": "V3.3_FORWARD_VALIDATION",
+      "track": "GBPUSD 3M",
+      "trigger": "GBPUSD_3M_TRANSITION_CONFLICT_RERANK",
+      "evidence": "B10 36.84/L5 and B11 30.00/L5; B11 TRANSITION_GATE 1W/4L and mixed/transition continuation weakness",
+      "mechanism": "Rerank only when transition risk/gate fails, continuation evidence is stale, compound conflict is present, and opposite direction score is not materially worse",
+      "frequencyImpact": "NONE",
+      "globalThresholdChanged": false,
+      "codeCommit": "2e52084b3a0ca6e7eed9c43cf35e95f5abf1683c",
+      "testCommit": "c07d5aa17d2b20a066705573e205b334a8731125",
+      "status": "FORWARD_VALIDATION",
+      "nextTarget": "GBPUSD 3M B12"
+    }
+  ],
+  "watchOnly": [
+    "EURUSD 5M B7/B8 remain weak with L6/L7, but no sufficiently stable condition-specific differentiator has yet earned a new arm",
+    "GBPUSD 5M B8 is severe at 25%/L8, but B7 was 50%/L3, so no new strategy arm from the single renewed collapse",
+    "AUDUSD 15M B3 is 27.78%/L4 but the 15M sample remains too small for specialization"
+  ],
+  "shadow": {
+    "status": "NON_AUTHORITATIVE",
+    "reason": "45 READY comparisons produced only 14 agreements and 31 disagreements; unsupported non-EURUSD tracks remain UNSUPPORTED"
+  }
+}
