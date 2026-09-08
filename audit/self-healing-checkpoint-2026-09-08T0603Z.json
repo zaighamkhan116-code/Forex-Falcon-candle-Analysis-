@@ -1,0 +1,29 @@
+{
+  "generatedAt":"2026-09-08T06:03:00Z",
+  "integrityStatus":"PASS",
+  "canonicalSettledCount":5870,
+  "lineageRule":"CANONICAL_RECORDS_1_20_B1",
+  "minimumConfidence":57,
+  "frequencyPreserved":true,
+  "moneyManagementChanged":false,
+  "newBatchCount":20,
+  "aggregate":{"wins":204,"losses":175,"ties":21,"accuracyExTies":53.83,"settlements":400},
+  "stageZeroRepairs":[
+    {"commit":"6a751ade779147cc740d8ee448c5ed6ea327f563","action":"trigger stale exact-batch reconstruction"},
+    {"commit":"c122a6d453c0f43c25bab437a56f82b4bfe671a8","action":"rebuild integrity-gated exact batches"},
+    {"commit":"a4702d1facacd5a604a9064163d4f3f45d577d6b","action":"trigger canonical learner"},
+    {"commit":"87f4ac36d4c955156e344c50a3f9a75f5e65a24b","action":"analyze and watermark 20 new batches"},
+    {"commit":"1501faab06e05e68ebf6e80ac43106e975e81964","action":"refresh all-track loss-streak diagnostics"}
+  ],
+  "forwardValidation":[
+    {"track":"EURJPY-5M","version":"V3.2","status":"REGIME_LOCKED","evidence":"B8 60%/L3 and B9 55%/L3 vs B7 31.58%/L10"},
+    {"track":"AUDUSD-1M","version":"V3.3","status":"VALIDATED_RETAINED_FORWARD","evidence":"B17 58.82%/L3 after B14-B16 41.18%/L4, 40%/L4, 47.37%/L3"},
+    {"track":"GBPUSD-3M","version":"V3.3","status":"VALIDATED_RETAINED_FORWARD","evidence":"B12 70%/L2 after B10 36.84%/L5 and B11 30%/L5"},
+    {"track":"GBPUSD-2M","version":"V3.1","status":"REGIME_LOCKED_DURABILITY_CONFIRMED","evidence":"B14 57.89%/L2"},
+    {"track":"EURJPY-3M","version":"V9","status":"REGIME_LOCKED_DURABILITY_WATCH","evidence":"B11-B12 40%/L5 but five unseen aggregate 50.51% and worst L5 vs pre-change 35% L5/L7"},
+    {"track":"AUDUSD-2M","version":"V9 conflict arm","status":"REVERTED_DEGRADED_WATCH","evidence":"B14 38.89%/L7; MIXED 0/5 and TRANSITION_GATE 0/5; failed arm remains reverted"}
+  ],
+  "shadow":{"ready":34,"agreements":22,"disagreements":12,"authority":"NON_AUTHORITATIVE"},
+  "selector":{"decision":"NO_WEIGHT_CHANGE","reason":"No sufficiently settled new top-pick-vs-runner-up evidence in this canonical batch window."},
+  "nextTargets":["EURJPY-5M B10","AUDUSD-1M B18","GBPUSD-3M B13","GBPUSD-2M B15","EURJPY-3M B13","EURJPY-2M B15","AUDUSD-2M B15","AUDUSD-3M B13"]
+}
