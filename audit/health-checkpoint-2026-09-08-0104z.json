@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-09-08T01:04:30Z",
+  "integrity": {
+    "status": "PASS",
+    "canonicalSettledCount": 4615,
+    "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "capture": {
+    "capturedAt": "2026-09-08T00:13:43Z",
+    "storageMode": "bounded-recent+canonical-append-only-restart-safe",
+    "canonicalSource": "settled-result-permanent-id-sequence",
+    "minimumConfidence": 57
+  },
+  "selfHealing": {
+    "action": "IMMEDIATE_CANONICAL_LEARNER_TRIGGER",
+    "triggerCommit": "3df2dbfeb41f65c1792ca1ce0638e74a3e0d3e5d",
+    "analysisCommit": "67794c41e4fdf08da4ace71d69a67b04586215ca",
+    "reason": "AUDUSD-1M canonical batch count advanced to B14 while learning watermark remained at B13; forced immediate clean analysis rather than waiting for the next scheduled learner pass.",
+    "workflowResult": "SUCCESS"
+  },
+  "newExact20Batches": 1,
+  "batches": [
+    ["AUDUSD",1,14,7,10,3,41.18,4]
+  ],
+  "batchDiagnostics": {
+    "AUDUSD_1M_B14": {
+      "direction": {"BUY":"5W/5L/2T = 50.0%", "SELL":"2W/5L/1T = 28.57%"},
+      "regime": {"CHOPPY":"2W/4L/2T = 33.33%", "MIXED":"3W/4L/1T = 42.86%", "TRENDING":"2W/2L = 50.0%"},
+      "confidence": {"57-59":"5W/7L/1T = 41.67%", "60-64":"1W/2L = 33.33%", "65-69":"0W/1L/1T", "70+":"1W/0L/1T"},
+      "safeguardFindings": {
+        "ENTRY_LANE_GATE":"0W/5L/1T",
+        "progressFailureRisk":"0W/4L",
+        "PROGRESS_FAILURE_GATE":"0W/2L",
+        "FUSION_QUALITY_GATE":"0W/2L/1T",
+        "CONTINUATION_RESET_GATE":"4W/7L/1T = 36.36%"
+      },
+      "session": "All 20 signals were OFF_SESSION at 03:00-05:00 PKT; this batch is not evidence for London/NY routing changes."
+    }
+  },
+  "strategyDecision": {
+    "status": "NO_NEW_MODIFICATION",
+    "reason": "AUDUSD 1M B12 and B13 were 70% and 75% respectively; B14 is one degraded batch. Repeatability requirement is not met. Existing AUDUSD-1M mature-breakout specialization remains under observation rather than being broadened or stacked with another rule.",
+    "frequencyPreserved": true,
+    "globalThresholdUnchanged": 57
+  },
+  "forwardValidation": {
+    "GBPUSD_2M_V3_1": "VALIDATED_RETAINED; waiting B12",
+    "AUDUSD_2M_V9_REVERT": "REVERSION_CONFIRMED; waiting B12",
+    "EURJPY_2M_V3": "FORWARD_VALIDATION; waiting B12",
+    "EURJPY_3M_V9": "VALIDATED_RETAINED; waiting B10",
+    "EURJPY_5M_V3_2": "FORWARD_VALIDATION; waiting B8"
+  },
+  "shadow": {
+    "status": "NON_AUTHORITATIVE",
+    "AUDUSD_1M_B14": "UNSUPPORTED; 0 READY comparisons",
+    "decision": "NO_CHANGE"
+  },
+  "selector": {
+    "version": "SELECTOR_V2_FORWARD_SHRUNK",
+    "decision": "NO_CHANGE; no new settled selector evidence in this batch"
+  },
+  "nextTargets": [
+    "EURJPY 5M B8 V3.2",
+    "GBPUSD 2M B12 V3.1 retained",
+    "AUDUSD 2M B12 post-revert",
+    "EURJPY 2M B12 V3",
+    "EURJPY 3M B10 V9",
+    "USDJPY 5M B8 degradation watch",
+    "AUDUSD 5M B8 degradation watch",
+    "AUDUSD 1M B15 repeatability check after B14 degradation"
+  ]
+}
