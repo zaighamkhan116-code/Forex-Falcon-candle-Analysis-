@@ -1,126 +1,114 @@
 {
   "createdAt": "2026-09-07T17:05:00Z",
-  "updatedAt": "2026-09-08T06:03:00Z",
-  "status": "REGIME_LOCKS_V3_2_WITH_V3_3_FORWARD_VALIDATION",
-  "strategyVersion": "V9_1_PLUS_V3_1_V3_2_LOCKS_V3_3_VALIDATION",
+  "updatedAt": "2026-09-08T09:10:00Z",
+  "status": "REGIME_LOCKS_V3_2_V3_3_WITH_DURABILITY_WATCHES",
+  "strategyVersion": "V9_1_PLUS_V3_1_V3_2_V3_3_LOCKS",
   "integrityPrerequisite": {
     "status": "PASS",
     "lineageRule": "CANONICAL_RECORDS_1_20_B1",
-    "canonicalSettledCount": 5870,
+    "canonicalSettledCount": 6265,
     "malformed": 0,
     "duplicateIds": 0,
     "duplicateBoundaries": 0,
     "contradictions": 0
   },
   "stageZeroRepairsThisCycle": [
-    {"commit":"6a751ade779147cc740d8ee448c5ed6ea327f563","change":"Triggered deterministic exact-20 reconstruction after canonical capture advanced to 5,870 settlements while exact-batch status remained stale."},
-    {"commit":"c122a6d453c0f43c25bab437a56f82b4bfe671a8","change":"Rebuilt exact canonical batches; all 25 active tracks passed malformed, permanent-ID, boundary and contradiction checks."},
-    {"commit":"a4702d1facacd5a604a9064163d4f3f45d577d6b","change":"Triggered canonical learner because bot-authored exact-batch commit did not cascade the learner workflow."},
-    {"commit":"87f4ac36d4c955156e344c50a3f9a75f5e65a24b","change":"Processed and atomically watermarked 20 newly completed exact-20 batches."},
-    {"commit":"1501faab06e05e68ebf6e80ac43106e975e81964","change":"Refreshed accumulated all-track loss-streak diagnostics after canonical learning."}
+    {"commit":"54162a3d000b946f1e3be72378a2987cef55a29c","change":"Repaired stale-capture recovery dispatch so it targets the repository explicitly."},
+    {"commit":"ef135712a5694e4fcb9ba263ddfa95f9910fbbdd","change":"Recovered append-only canonical capture to 6,265 permanent settlements."},
+    {"commit":"06466a466fece8710d37e1ad62b511dfdd25e958","change":"Triggered deterministic exact-20 reconstruction after repaired capture advanced."},
+    {"commit":"50a67df806caf90f18a5e278c8c421ec58e92ede","change":"Rebuilt integrity-gated exact batches; all 25 tracks passed malformed/permanent-ID/boundary/contradiction checks."},
+    {"commit":"a52d3d5820f5677c53fc2ddebdf692a48430e8f5","change":"Retriggered canonical learner after bot-authored batch rebuild did not cascade automatically."},
+    {"commit":"776cf07c33d5c2eec48107aa6e212046ddf2e2e1","change":"Processed and atomically watermarked 23 newly completed exact-20 batches."}
   ],
   "experiments": [
     {
       "track": "EURJPY-3M",
       "originalCodeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
       "status": "REGIME_LOCKED_DURABILITY_WATCH",
-      "preChangeEvidence": {
-        "batch6": {"rawAccuracy": 0.35, "maxLossStreak": 5},
-        "batch7": {"rawAccuracy": 0.35, "maxLossStreak": 7}
-      },
+      "preChangeEvidence": {"batch6":{"rawAccuracy":0.35,"maxLossStreak":5},"batch7":{"rawAccuracy":0.35,"maxLossStreak":7}},
       "unseenValidation": {
-        "batch8": {"rawAccuracy": 0.6842, "wins": 13, "losses": 6, "ties": 1, "maxLossStreak": 2},
-        "batch9": {"rawAccuracy": 0.45, "wins": 9, "losses": 11, "ties": 0, "maxLossStreak": 4},
-        "batch10": {"rawAccuracy": 0.60, "wins": 12, "losses": 8, "ties": 0, "maxLossStreak": 3},
-        "batch11": {"rawAccuracy": 0.40, "wins": 8, "losses": 12, "ties": 0, "maxLossStreak": 5},
-        "batch12": {"rawAccuracy": 0.40, "wins": 8, "losses": 12, "ties": 0, "maxLossStreak": 5}
+        "batch8":{"rawAccuracy":0.6842,"wins":13,"losses":6,"ties":1,"maxLossStreak":2},
+        "batch9":{"rawAccuracy":0.45,"wins":9,"losses":11,"ties":0,"maxLossStreak":4},
+        "batch10":{"rawAccuracy":0.60,"wins":12,"losses":8,"ties":0,"maxLossStreak":3},
+        "batch11":{"rawAccuracy":0.40,"wins":8,"losses":12,"ties":0,"maxLossStreak":5},
+        "batch12":{"rawAccuracy":0.40,"wins":8,"losses":12,"ties":0,"maxLossStreak":5},
+        "batch13":{"rawAccuracy":0.40,"wins":8,"losses":12,"ties":0,"maxLossStreak":5}
       },
-      "aggregateUnseen": {"wins":50,"losses":49,"ties":1,"accuracyExTies":0.5051,"worstMaxLossStreak":5},
-      "latestDifferentiators": {"trending":{"wins":1,"losses":6,"accuracyExTies":0.1429},"mixed":{"wins":4,"losses":1,"accuracyExTies":0.80},"continuationFreshEvidence":{"wins":6,"losses":8,"accuracyExTies":0.4286},"lateCounterTrendRisk":{"wins":3,"losses":6,"accuracyExTies":0.3333}},
-      "decision": "KEEP REGIME LOCK but place on durability watch. Five unseen batches still average 50.51% versus the 35% pre-change baseline and worst unseen L5 remains better than the pre-change L7 extreme. Two consecutive 40%/L5 batches prevent complacency but do not yet satisfy the existing rollback rule.",
-      "nextUnseenTarget": "EURJPY-3M canonical B13",
-      "rollbackRule": "Unlock/revert only EURJPY-3M V9 if later chronological evidence removes both the raw-accuracy and streak-severity advantage versus the 35% L5/L7 baseline."
+      "aggregateUnseen":{"wins":58,"losses":61,"ties":1,"accuracyExTies":0.4874,"worstMaxLossStreak":5},
+      "decision":"KEEP REGIME LOCK but escalate durability watch. Three consecutive 40%/L5 batches are degraded, yet six unseen batches still retain a material accuracy advantage over the 35% pre-change baseline and have not reproduced the pre-change L7 extreme. Do not broaden or stack another overlapping rule.",
+      "nextUnseenTarget":"EURJPY-3M B14",
+      "rollbackRule":"Unlock/revert only EURJPY-3M V9 when chronological evidence removes its remaining accuracy/streak advantage versus the 35% L5/L7 baseline."
     },
     {
-      "track": "EURJPY-5M",
-      "originalCodeCommit": "650a8a456f1c214f253c96917417955f2cfdb6da",
-      "testCommit": "d9ab55102584eb8a0ff593bec7252e862a9e894a",
-      "status": "REGIME_LOCKED",
-      "preChangeEvidence": {"batch7":{"rawAccuracy":0.3158,"wins":6,"losses":13,"ties":1,"maxLossStreak":10}},
-      "unseenValidation": {
-        "batch8":{"rawAccuracy":0.60,"wins":12,"losses":8,"ties":0,"maxLossStreak":3},
-        "batch9":{"rawAccuracy":0.55,"wins":11,"losses":9,"ties":0,"maxLossStreak":3}
-      },
-      "aggregateUnseen":{"wins":23,"losses":17,"ties":0,"accuracyExTies":0.575,"worstMaxLossStreak":3},
-      "decision":"REGIME-LOCK V3.2 breakout-progress conflict reranking. Two clean unseen exact-20 batches average 57.5% and L3 versus the immediate pre-change 31.58%/L10 failure, with no signal-frequency reduction.",
-      "nextUnseenTarget":"EURJPY-5M B10",
-      "rollbackRule":"Unlock/revert only the EURJPY-5M V3.2 compound state if later unseen evidence removes its material raw-accuracy and streak-severity advantage; never broaden globally."
+      "track":"EURJPY-5M",
+      "originalCodeCommit":"650a8a456f1c214f253c96917417955f2cfdb6da",
+      "testCommit":"d9ab55102584eb8a0ff593bec7252e862a9e894a",
+      "status":"REGIME_LOCKED_DURABILITY_WATCH",
+      "preChangeEvidence":{"batch7":{"rawAccuracy":0.3158,"wins":6,"losses":13,"ties":1,"maxLossStreak":10}},
+      "unseenValidation":{"batch8":{"rawAccuracy":0.60,"wins":12,"losses":8,"ties":0,"maxLossStreak":3},"batch9":{"rawAccuracy":0.55,"wins":11,"losses":9,"ties":0,"maxLossStreak":3},"batch10":{"rawAccuracy":0.30,"wins":6,"losses":14,"ties":0,"maxLossStreak":4}},
+      "aggregateUnseen":{"wins":29,"losses":31,"ties":0,"accuracyExTies":0.4833,"worstMaxLossStreak":4},
+      "decision":"KEEP V3.2 REGIME LOCK but place on durability watch. B10 degraded to 30%, but the three unseen batches still average 48.33% and worst L4 versus the immediate pre-change 31.58%/L10 failure. B11 becomes the next keep/revert checkpoint.",
+      "nextUnseenTarget":"EURJPY-5M B11"
     },
     {
-      "track": "AUDUSD-2M",
-      "originalCodeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
-      "revertCodeCommit": "9b7ce16051b85349774db29568e05159c074fbe8",
-      "revertTestCommit": "54af97f3bc0955db81351dd369b26e86dd2bf9b7",
-      "status": "REVERTED_DEGRADED_WATCH",
-      "unseenValidationBeforeRevert": {
-        "batch9": {"rawAccuracy": 0.5714, "maxLossStreak": 5},
-        "batch10": {"rawAccuracy": 0.2727, "wins": 3, "losses": 8, "ties": 9, "maxLossStreak": 5}
-      },
-      "postRevertValidation": {
-        "batch11": {"rawAccuracy":0.5333,"maxLossStreak":2},
-        "batch12": {"rawAccuracy":0.3889,"wins":7,"losses":11,"ties":2,"maxLossStreak":4},
-        "batch13": {"rawAccuracy":0.50,"maxLossStreak":4},
-        "batch14": {"rawAccuracy":0.3889,"wins":7,"losses":11,"ties":2,"maxLossStreak":7}
-      },
-      "latestFailureConcentration":{"mixed":{"wins":0,"losses":5,"accuracyExTies":0.0},"transitionGate":{"wins":0,"losses":5,"accuracyExTies":0.0},"entryLaneGate":{"wins":3,"losses":11,"ties":2,"accuracyExTies":0.2143},"lateCounterTrendRisk":{"wins":2,"losses":7,"ties":2,"accuracyExTies":0.2222}},
-      "decision":"KEEP V9 conflict arm reverted. B14 is a serious L7 degradation watch, but do not reactivate the failed arm or stack a replacement until the concentrated MIXED/transition/entry-location failure repeats on B15.",
-      "nextUnseenTarget": "AUDUSD-2M B15"
+      "track":"AUDUSD-2M",
+      "originalCodeCommit":"0a4ef6d0d404ad879eab835997636dabc5430997",
+      "revertCodeCommit":"9b7ce16051b85349774db29568e05159c074fbe8",
+      "revertTestCommit":"54af97f3bc0955db81351dd369b26e86dd2bf9b7",
+      "status":"REVERTED_DEGRADED_WATCH",
+      "postRevertValidation":{"batch11":{"rawAccuracy":0.5333,"maxLossStreak":2},"batch12":{"rawAccuracy":0.3889,"maxLossStreak":4},"batch13":{"rawAccuracy":0.50,"maxLossStreak":4},"batch14":{"rawAccuracy":0.3889,"maxLossStreak":7},"batch15":{"rawAccuracy":0.3158,"wins":6,"losses":13,"ties":1,"maxLossStreak":4}},
+      "latestFailureConcentration":{"mixed":{"wins":3,"losses":9,"accuracyExTies":0.25},"sell":{"wins":1,"losses":6,"accuracyExTies":0.1429},"confidence57_59":{"wins":1,"losses":9,"ties":1,"accuracyExTies":0.10},"londonOpenEarly":{"wins":1,"losses":4,"accuracyExTies":0.20}},
+      "decision":"KEEP failed V9 arm reverted. B15 confirms continued AUDUSD-2M degradation, but the current batch overlaps the newly deployed stale-compound/FVG refinement window; do not stack a replacement until a fully post-change unseen batch isolates the remaining failure mode.",
+      "nextUnseenTarget":"AUDUSD-2M B16"
     }
   ],
   "otherForwardValidation": {
     "GBPUSD-2M-V3_1": {
-      "status":"REGIME_LOCKED_DURABILITY_CONFIRMED",
+      "status":"REGIME_LOCKED_DURABILITY_WATCH",
       "preChange":{"batch8":{"rawAccuracy":0.3158,"maxLossStreak":5},"batch9":{"rawAccuracy":0.2778,"maxLossStreak":6}},
-      "unseen":{"batch10":{"rawAccuracy":0.2778,"maxLossStreak":4},"batch11":{"rawAccuracy":0.5385,"maxLossStreak":3},"batch12":{"rawAccuracy":0.5294,"maxLossStreak":3},"batch13":{"rawAccuracy":0.5789,"maxLossStreak":3},"batch14":{"rawAccuracy":0.5789,"wins":11,"losses":8,"ties":1,"maxLossStreak":2}},
-      "decision":"KEEP REGIME LOCK. B14 again delivered 57.89% with L2, materially better streak behavior than pre-change L5/L6 and sustained raw-accuracy recovery.",
-      "nextTarget":"GBPUSD-2M B15"
+      "unseen":{"batch10":{"rawAccuracy":0.2778,"maxLossStreak":4},"batch11":{"rawAccuracy":0.5385,"maxLossStreak":3},"batch12":{"rawAccuracy":0.5294,"maxLossStreak":3},"batch13":{"rawAccuracy":0.5789,"maxLossStreak":3},"batch14":{"rawAccuracy":0.5789,"maxLossStreak":2},"batch15":{"rawAccuracy":0.3158,"wins":6,"losses":13,"ties":1,"maxLossStreak":4}},
+      "decision":"KEEP REGIME LOCK but move to durability watch. B15 fell to 31.58%, yet L4 remains below the pre-change L5/L6 severity and the prior four unseen batches established a meaningful improvement. Require B16 before any unlock/revert.",
+      "nextTarget":"GBPUSD-2M B16"
     },
     "EURJPY-2M-V3": {
       "status":"FORWARD_VALIDATION_CONTINUE",
-      "batch10":{"rawAccuracy":0.6111,"maxLossStreak":6},
-      "batch11":{"rawAccuracy":0.4211,"maxLossStreak":3},
-      "batch12":{"rawAccuracy":0.45,"maxLossStreak":4},
-      "batch13":{"rawAccuracy":0.6316,"maxLossStreak":3},
-      "batch14":{"rawAccuracy":0.4737,"wins":9,"losses":10,"ties":1,"maxLossStreak":4},
-      "decision":"Continue chronological forward validation. Streak severity remains generally improved but raw accuracy is still too variable for regime lock or evidence-based revert.",
-      "nextTarget":"EURJPY-2M B15"
+      "unseen":{"batch10":{"rawAccuracy":0.6111,"maxLossStreak":6},"batch11":{"rawAccuracy":0.4211,"maxLossStreak":3},"batch12":{"rawAccuracy":0.45,"maxLossStreak":4},"batch13":{"rawAccuracy":0.6316,"maxLossStreak":3},"batch14":{"rawAccuracy":0.4737,"maxLossStreak":4},"batch15":{"rawAccuracy":0.40,"wins":8,"losses":12,"ties":0,"maxLossStreak":3}},
+      "decision":"Continue forward validation. Streak control remains acceptable but raw accuracy is too variable to regime-lock and not sufficiently degraded to justify a targeted revert.",
+      "nextTarget":"EURJPY-2M B16"
     },
     "AUDUSD-1M-V3_3": {
-      "status":"VALIDATED_RETAINED_FORWARD",
+      "status":"REGIME_LOCKED",
       "codeCommit":"2e52084b3a0ca6e7eed9c43cf35e95f5abf1683c",
       "safetyCommit":"f17518ebc0ff15d04d5a7e1c9b3ba74ea583bf6a",
       "testCommit":"bf6cdb80ba7c16c0e650335e992b0a0396b765fa",
       "preChange":{"batch14":{"rawAccuracy":0.4118,"maxLossStreak":4},"batch15":{"rawAccuracy":0.40,"maxLossStreak":4},"batch16":{"rawAccuracy":0.4737,"maxLossStreak":3}},
-      "unseen":{"batch17":{"rawAccuracy":0.5882,"wins":10,"losses":7,"ties":3,"maxLossStreak":3}},
-      "decision":"RETAIN V3.3 in forward validation. First clean unseen batch recovered to 58.82% without increasing streak severity or reducing the exact-20 signal batch. One unseen batch is insufficient for regime lock.",
-      "nextTarget":"AUDUSD-1M B18"
+      "unseen":{"batch17":{"rawAccuracy":0.5882,"wins":10,"losses":7,"ties":3,"maxLossStreak":3},"batch18":{"rawAccuracy":0.55,"wins":11,"losses":9,"ties":0,"maxLossStreak":3}},
+      "aggregateUnseen":{"wins":21,"losses":16,"ties":3,"accuracyExTies":0.5676,"worstMaxLossStreak":3},
+      "decision":"REGIME-LOCK the existing AUDUSD-1M V3.3 stale-progress compound-conflict reranker. Two clean unseen exact-20 batches average 56.76% decided accuracy with worst L3 versus three consecutive pre-change sub-48% batches. Frequency remains unchanged.",
+      "nextTarget":"AUDUSD-1M B19"
     },
     "GBPUSD-3M-V3_3": {
-      "status":"VALIDATED_RETAINED_FORWARD",
+      "status":"REGIME_LOCKED",
       "codeCommit":"2e52084b3a0ca6e7eed9c43cf35e95f5abf1683c",
       "safetyCommit":"f17518ebc0ff15d04d5a7e1c9b3ba74ea583bf6a",
       "testCommit":"bf6cdb80ba7c16c0e650335e992b0a0396b765fa",
       "preChange":{"batch10":{"rawAccuracy":0.3684,"maxLossStreak":5},"batch11":{"rawAccuracy":0.30,"maxLossStreak":5}},
-      "unseen":{"batch12":{"rawAccuracy":0.70,"wins":14,"losses":6,"ties":0,"maxLossStreak":2}},
-      "latestSupport":{"continuationFreshEvidence":{"wins":12,"losses":5,"accuracyExTies":0.7059},"progressFailureGate":{"wins":13,"losses":4,"accuracyExTies":0.7647},"entryLaneGate":{"wins":6,"losses":1,"accuracyExTies":0.8571}},
-      "decision":"RETAIN V3.3 in forward validation. First clean unseen B12 reached 70%/L2 versus the pre-change 36.84%/L5 and 30%/L5 batches. Require another unseen batch before regime locking.",
-      "nextTarget":"GBPUSD-3M B13"
+      "unseen":{"batch12":{"rawAccuracy":0.70,"wins":14,"losses":6,"ties":0,"maxLossStreak":2},"batch13":{"rawAccuracy":0.4211,"wins":8,"losses":11,"ties":1,"maxLossStreak":3}},
+      "aggregateUnseen":{"wins":22,"losses":17,"ties":1,"accuracyExTies":0.5641,"worstMaxLossStreak":3},
+      "decision":"REGIME-LOCK the existing GBPUSD-3M V3.3 transition/stale-continuation compound-conflict reranker. Two unseen batches average 56.41% with worst L3 versus pre-change 36.84%/L5 and 30%/L5. Keep it track/state-specific and frequency preserving.",
+      "nextTarget":"GBPUSD-3M B14"
+    },
+    "STALE_COMPOUND_FVG_REFINEMENT": {
+      "codeCommit":"c9790a9c7903795a374506f8136b80bd9d74c249",
+      "status":"FORWARD_VALIDATION_PENDING_FULLY_POST_CHANGE_BATCH",
+      "decision":"Do not judge or stack an overlapping rule from batches that straddle its deployment. First fully post-change exact-20 batches are required."
     }
   },
-  "minimumConfidence": 57,
-  "frequencyPolicy": "PRESERVED",
-  "moneyManagementChanged": false,
-  "shadowAuthority": "NON_AUTHORITATIVE",
-  "shadowCurrentWindow":{"ready":34,"agreements":22,"disagreements":12,"decision":"NO_PROMOTION"},
-  "nextValidationObjectives":["EURJPY-5M B10","AUDUSD-1M B18","GBPUSD-3M B13","GBPUSD-2M B15","EURJPY-3M B13","EURJPY-2M B15","AUDUSD-2M B15","AUDUSD-3M B13"]
+  "minimumConfidence":57,
+  "frequencyPolicy":"PRESERVED",
+  "moneyManagementChanged":false,
+  "shadowAuthority":"NON_AUTHORITATIVE",
+  "shadowCurrentWindow":{"decision":"NO_PROMOTION","note":"EURUSD-supported comparisons remain disagreement-heavy in this capture window; unsupported tracks remain UNSUPPORTED, not global failures."},
+  "pairSelector":{"version":"SELECTOR_V2_FORWARD_SHRUNK","decision":"NO_WEIGHT_CHANGE","reason":"No sufficiently settled new top-pick-versus-runner-up outcome series justified a selector reweight in this cycle."},
+  "nextValidationObjectives":["AUDUSD-1M B19","GBPUSD-3M B14","EURJPY-5M B11","GBPUSD-2M B16","EURJPY-3M B14","EURJPY-2M B16","AUDUSD-2M B16","first fully post-c979 stale-compound/FVG batches"]
 }
