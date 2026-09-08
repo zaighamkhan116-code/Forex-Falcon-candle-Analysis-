@@ -1,0 +1,1388 @@
+{
+  "generatedAt": "2026-09-08T03:10:03.958526+00:00",
+  "sourceGeneratedAt": "2026-09-08T03:07:24.954315+00:00",
+  "integrityStatus": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "newBatchCount": 24,
+  "totals": {
+    "wins": 227,
+    "losses": 236,
+    "ties": 17,
+    "accuracy": 49.03
+  },
+  "shadowTotals": {
+    "ready": 45,
+    "agreements": 14,
+    "disagreements": 31
+  },
+  "batches": [
+    {
+      "pair": "EURUSD",
+      "horizon": 1,
+      "batch": 16,
+      "wins": 9,
+      "losses": 11,
+      "ties": 0,
+      "accuracy": 45.0,
+      "maxLossStreak": 5,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 7,
+        "wins": 2,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 28.57
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 7,
+        "wins": 3,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 42.86
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 15,
+        "wins": 5,
+        "losses": 10,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstHour": {
+        "key": "05:00",
+        "n": 5,
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 20.0
+      },
+      "worstSafeguard": {
+        "key": "BELOW_CONFIDENCE_THRESHOLD",
+        "n": 11,
+        "wins": 4,
+        "losses": 7,
+        "ties": 0,
+        "accuracy": 36.36
+      },
+      "shadow": {
+        "ready": 8,
+        "agreements": 1,
+        "disagreements": 7
+      }
+    },
+    {
+      "pair": "EURUSD",
+      "horizon": 2,
+      "batch": 13,
+      "wins": 9,
+      "losses": 8,
+      "ties": 3,
+      "accuracy": 52.94,
+      "maxLossStreak": 3,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 4,
+        "wins": 0,
+        "losses": 3,
+        "ties": 1,
+        "accuracy": 0.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 7,
+        "wins": 3,
+        "losses": 3,
+        "ties": 1,
+        "accuracy": 50.0
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 17,
+        "wins": 7,
+        "losses": 8,
+        "ties": 2,
+        "accuracy": 46.67
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 5,
+        "wins": 2,
+        "losses": 2,
+        "ties": 1,
+        "accuracy": 50.0
+      },
+      "worstSafeguard": {
+        "key": "progressFailureGate",
+        "n": 20,
+        "wins": 9,
+        "losses": 8,
+        "ties": 3,
+        "accuracy": 52.94
+      },
+      "shadow": {
+        "ready": 8,
+        "agreements": 3,
+        "disagreements": 5
+      }
+    },
+    {
+      "pair": "EURUSD",
+      "horizon": 3,
+      "batch": 11,
+      "wins": 8,
+      "losses": 11,
+      "ties": 1,
+      "accuracy": 42.11,
+      "maxLossStreak": 3,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 7,
+        "wins": 2,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 28.57
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 4,
+        "wins": 1,
+        "losses": 2,
+        "ties": 1,
+        "accuracy": 33.33
+      },
+      "worstHour": {
+        "key": "07:00",
+        "n": 5,
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 20.0
+      },
+      "worstSafeguard": {
+        "key": "CONTINUATION_RESET_GATE",
+        "n": 7,
+        "wins": 2,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 28.57
+      },
+      "shadow": {
+        "ready": 11,
+        "agreements": 3,
+        "disagreements": 8
+      }
+    },
+    {
+      "pair": "EURUSD",
+      "horizon": 5,
+      "batch": 8,
+      "wins": 8,
+      "losses": 11,
+      "ties": 1,
+      "accuracy": 42.11,
+      "maxLossStreak": 7,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 5,
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 20.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 4,
+        "wins": 1,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 25.0
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 12,
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "accuracy": 41.67
+      },
+      "worstHour": {
+        "key": "05:00",
+        "n": 10,
+        "wins": 3,
+        "losses": 7,
+        "ties": 0,
+        "accuracy": 30.0
+      },
+      "worstSafeguard": {
+        "key": "continuationFreshEvidence",
+        "n": 17,
+        "wins": 6,
+        "losses": 10,
+        "ties": 1,
+        "accuracy": 37.5
+      },
+      "shadow": {
+        "ready": 9,
+        "agreements": 3,
+        "disagreements": 6
+      }
+    },
+    {
+      "pair": "EURUSD",
+      "horizon": 15,
+      "batch": 3,
+      "wins": 14,
+      "losses": 6,
+      "ties": 0,
+      "accuracy": 70.0,
+      "maxLossStreak": 3,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 6,
+        "wins": 3,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 9,
+        "wins": 6,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 66.67
+      },
+      "worstRegime": {
+        "key": "TRENDING",
+        "n": 6,
+        "wins": 4,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 66.67
+      },
+      "worstHour": {
+        "key": "01:00",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstSafeguard": {
+        "key": "BREAKOUT_MATURITY_GATE",
+        "n": 6,
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "shadow": {
+        "ready": 9,
+        "agreements": 4,
+        "disagreements": 5
+      }
+    },
+    {
+      "pair": "GBPUSD",
+      "horizon": 1,
+      "batch": 16,
+      "wins": 9,
+      "losses": 9,
+      "ties": 2,
+      "accuracy": 50.0,
+      "maxLossStreak": 2,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 4,
+        "wins": 1,
+        "losses": 2,
+        "ties": 1,
+        "accuracy": 33.33
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 14,
+        "wins": 6,
+        "losses": 6,
+        "ties": 2,
+        "accuracy": 50.0
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 6,
+        "wins": 3,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 10,
+        "wins": 4,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 40.0
+      },
+      "worstSafeguard": {
+        "key": "FUSION_QUALITY_GATE",
+        "n": 6,
+        "wins": 1,
+        "losses": 4,
+        "ties": 1,
+        "accuracy": 20.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "GBPUSD",
+      "horizon": 2,
+      "batch": 13,
+      "wins": 11,
+      "losses": 8,
+      "ties": 1,
+      "accuracy": 57.89,
+      "maxLossStreak": 3,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 6,
+        "wins": 3,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstDirection": {
+        "key": "BUY",
+        "n": 12,
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 18,
+        "wins": 9,
+        "losses": 8,
+        "ties": 1,
+        "accuracy": 52.94
+      },
+      "worstHour": {
+        "key": "07:00",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstSafeguard": {
+        "key": "TRANSITION_GATE",
+        "n": 8,
+        "wins": 4,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "GBPUSD",
+      "horizon": 3,
+      "batch": 11,
+      "wins": 6,
+      "losses": 14,
+      "ties": 0,
+      "accuracy": 30.0,
+      "maxLossStreak": 5,
+      "lossRuns4Plus": 2,
+      "lossRuns5Plus": 1,
+      "worstConfidence": {
+        "key": "65-69",
+        "n": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 11,
+        "wins": 3,
+        "losses": 8,
+        "ties": 0,
+        "accuracy": 27.27
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 7,
+        "wins": 2,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 28.57
+      },
+      "worstHour": {
+        "key": "07:00",
+        "n": 6,
+        "wins": 1,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 16.67
+      },
+      "worstSafeguard": {
+        "key": "TRANSITION_GATE",
+        "n": 5,
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 20.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "GBPUSD",
+      "horizon": 5,
+      "batch": 8,
+      "wins": 5,
+      "losses": 15,
+      "ties": 0,
+      "accuracy": 25.0,
+      "maxLossStreak": 8,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "worstConfidence": {
+        "key": "57-59",
+        "n": 5,
+        "wins": 1,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 20.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 13,
+        "wins": 3,
+        "losses": 10,
+        "ties": 0,
+        "accuracy": 23.08
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 4,
+        "wins": 0,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 5,
+        "wins": 0,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "worstSafeguard": {
+        "key": "TRANSITION_GATE",
+        "n": 7,
+        "wins": 0,
+        "losses": 7,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "GBPUSD",
+      "horizon": 15,
+      "batch": 3,
+      "wins": 10,
+      "losses": 10,
+      "ties": 0,
+      "accuracy": 50.0,
+      "maxLossStreak": 5,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 6,
+        "wins": 1,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 16.67
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 9,
+        "wins": 3,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 16,
+        "wins": 8,
+        "losses": 8,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstHour": {
+        "key": "01:00",
+        "n": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "worstSafeguard": {
+        "key": "PROGRESS_FAILURE_GATE",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "EURJPY",
+      "horizon": 1,
+      "batch": 16,
+      "wins": 11,
+      "losses": 9,
+      "ties": 0,
+      "accuracy": 55.0,
+      "maxLossStreak": 2,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "65-69",
+        "n": 4,
+        "wins": 2,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 10,
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 4,
+        "wins": 2,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 10,
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstSafeguard": {
+        "key": "FUSION_QUALITY_GATE",
+        "n": 4,
+        "wins": 1,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 25.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "EURJPY",
+      "horizon": 2,
+      "batch": 13,
+      "wins": 12,
+      "losses": 7,
+      "ties": 1,
+      "accuracy": 63.16,
+      "maxLossStreak": 3,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 5,
+        "wins": 1,
+        "losses": 3,
+        "ties": 1,
+        "accuracy": 25.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 10,
+        "wins": 6,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 60.0
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 8,
+        "wins": 3,
+        "losses": 4,
+        "ties": 1,
+        "accuracy": 42.86
+      },
+      "worstHour": {
+        "key": "05:00",
+        "n": 12,
+        "wins": 6,
+        "losses": 5,
+        "ties": 1,
+        "accuracy": 54.55
+      },
+      "worstSafeguard": {
+        "key": "continuationFreshEvidence",
+        "n": 16,
+        "wins": 8,
+        "losses": 7,
+        "ties": 1,
+        "accuracy": 53.33
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "EURJPY",
+      "horizon": 3,
+      "batch": 11,
+      "wins": 8,
+      "losses": 12,
+      "ties": 0,
+      "accuracy": 40.0,
+      "maxLossStreak": 5,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 8,
+        "wins": 1,
+        "losses": 7,
+        "ties": 0,
+        "accuracy": 12.5
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 15,
+        "wins": 6,
+        "losses": 9,
+        "ties": 0,
+        "accuracy": 40.0
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 7,
+        "wins": 2,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 28.57
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstSafeguard": {
+        "key": "continuationFreshEvidence",
+        "n": 9,
+        "wins": 3,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "EURJPY",
+      "horizon": 5,
+      "batch": 8,
+      "wins": 12,
+      "losses": 8,
+      "ties": 0,
+      "accuracy": 60.0,
+      "maxLossStreak": 3,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 6,
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 19,
+        "wins": 11,
+        "losses": 8,
+        "ties": 0,
+        "accuracy": 57.89
+      },
+      "worstRegime": {
+        "key": "TRENDING",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstHour": {
+        "key": "05:00",
+        "n": 10,
+        "wins": 5,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstSafeguard": {
+        "key": "progressFailureRisk",
+        "n": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "EURJPY",
+      "horizon": 15,
+      "batch": 3,
+      "wins": 10,
+      "losses": 10,
+      "ties": 0,
+      "accuracy": 50.0,
+      "maxLossStreak": 2,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 8,
+        "wins": 4,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 19,
+        "wins": 9,
+        "losses": 10,
+        "ties": 0,
+        "accuracy": 47.37
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 11,
+        "wins": 5,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 45.45
+      },
+      "worstHour": {
+        "key": "01:00",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstSafeguard": {
+        "key": "CONTINUATION_RESET_GATE",
+        "n": 6,
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "USDJPY",
+      "horizon": 1,
+      "batch": 16,
+      "wins": 11,
+      "losses": 8,
+      "ties": 1,
+      "accuracy": 57.89,
+      "maxLossStreak": 4,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "57-59",
+        "n": 12,
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstDirection": {
+        "key": "BUY",
+        "n": 10,
+        "wins": 5,
+        "losses": 4,
+        "ties": 1,
+        "accuracy": 55.56
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "accuracy": 50.0
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 10,
+        "wins": 4,
+        "losses": 5,
+        "ties": 1,
+        "accuracy": 44.44
+      },
+      "worstSafeguard": {
+        "key": "FUSION_QUALITY_GATE",
+        "n": 5,
+        "wins": 2,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 40.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "USDJPY",
+      "horizon": 2,
+      "batch": 13,
+      "wins": 12,
+      "losses": 8,
+      "ties": 0,
+      "accuracy": 60.0,
+      "maxLossStreak": 3,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 5,
+        "wins": 2,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 40.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 11,
+        "wins": 6,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 54.55
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 6,
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstHour": {
+        "key": "05:00",
+        "n": 12,
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstSafeguard": {
+        "key": "FUSION_QUALITY_GATE",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "USDJPY",
+      "horizon": 3,
+      "batch": 11,
+      "wins": 9,
+      "losses": 11,
+      "ties": 0,
+      "accuracy": 45.0,
+      "maxLossStreak": 4,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 4,
+        "wins": 1,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 25.0
+      },
+      "worstDirection": {
+        "key": "BUY",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 8,
+        "wins": 3,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 37.5
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstSafeguard": {
+        "key": "LATE_CONTINUATION_GATE",
+        "n": 9,
+        "wins": 3,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "USDJPY",
+      "horizon": 5,
+      "batch": 8,
+      "wins": 9,
+      "losses": 11,
+      "ties": 0,
+      "accuracy": 45.0,
+      "maxLossStreak": 4,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 6,
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 19,
+        "wins": 9,
+        "losses": 10,
+        "ties": 0,
+        "accuracy": 47.37
+      },
+      "worstRegime": {
+        "key": "TRENDING",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 8,
+        "wins": 3,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 37.5
+      },
+      "worstSafeguard": {
+        "key": "progressFailureRisk",
+        "n": 4,
+        "wins": 0,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "AUDUSD",
+      "horizon": 1,
+      "batch": 16,
+      "wins": 9,
+      "losses": 10,
+      "ties": 1,
+      "accuracy": 47.37,
+      "maxLossStreak": 3,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "65-69",
+        "n": 5,
+        "wins": 1,
+        "losses": 3,
+        "ties": 1,
+        "accuracy": 25.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 8,
+        "wins": 3,
+        "losses": 4,
+        "ties": 1,
+        "accuracy": 42.86
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 11,
+        "wins": 5,
+        "losses": 5,
+        "ties": 1,
+        "accuracy": 50.0
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "worstSafeguard": {
+        "key": "PROGRESS_FAILURE_GATE",
+        "n": 6,
+        "wins": 2,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 33.33
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "AUDUSD",
+      "horizon": 2,
+      "batch": 13,
+      "wins": 9,
+      "losses": 9,
+      "ties": 2,
+      "accuracy": 50.0,
+      "maxLossStreak": 4,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "57-59",
+        "n": 5,
+        "wins": 1,
+        "losses": 3,
+        "ties": 1,
+        "accuracy": 25.0
+      },
+      "worstDirection": {
+        "key": "BUY",
+        "n": 5,
+        "wins": 2,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 40.0
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 13,
+        "wins": 4,
+        "losses": 7,
+        "ties": 2,
+        "accuracy": 36.36
+      },
+      "worstHour": {
+        "key": "05:00",
+        "n": 10,
+        "wins": 4,
+        "losses": 5,
+        "ties": 1,
+        "accuracy": 44.44
+      },
+      "worstSafeguard": {
+        "key": "ENTRY_LANE_GATE",
+        "n": 11,
+        "wins": 2,
+        "losses": 8,
+        "ties": 1,
+        "accuracy": 20.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "AUDUSD",
+      "horizon": 3,
+      "batch": 11,
+      "wins": 8,
+      "losses": 10,
+      "ties": 2,
+      "accuracy": 44.44,
+      "maxLossStreak": 4,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "60-64",
+        "n": 7,
+        "wins": 2,
+        "losses": 5,
+        "ties": 0,
+        "accuracy": 28.57
+      },
+      "worstDirection": {
+        "key": "BUY",
+        "n": 5,
+        "wins": 1,
+        "losses": 3,
+        "ties": 1,
+        "accuracy": 25.0
+      },
+      "worstRegime": {
+        "key": "MIXED",
+        "n": 10,
+        "wins": 3,
+        "losses": 6,
+        "ties": 1,
+        "accuracy": 33.33
+      },
+      "worstHour": {
+        "key": "05:00",
+        "n": 12,
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "accuracy": 41.67
+      },
+      "worstSafeguard": {
+        "key": "BELOW_CONFIDENCE_THRESHOLD",
+        "n": 8,
+        "wins": 2,
+        "losses": 5,
+        "ties": 1,
+        "accuracy": 28.57
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "AUDUSD",
+      "horizon": 5,
+      "batch": 8,
+      "wins": 13,
+      "losses": 7,
+      "ties": 0,
+      "accuracy": 65.0,
+      "maxLossStreak": 2,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 4,
+        "wins": 1,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 25.0
+      },
+      "worstDirection": {
+        "key": "SELL",
+        "n": 16,
+        "wins": 10,
+        "losses": 6,
+        "ties": 0,
+        "accuracy": 62.5
+      },
+      "worstRegime": {
+        "key": "TRENDING",
+        "n": 4,
+        "wins": 2,
+        "losses": 2,
+        "ties": 0,
+        "accuracy": 50.0
+      },
+      "worstHour": {
+        "key": "06:00",
+        "n": 9,
+        "wins": 5,
+        "losses": 4,
+        "ties": 0,
+        "accuracy": 55.56
+      },
+      "worstSafeguard": {
+        "key": "TRANSITION_GATE",
+        "n": 7,
+        "wins": 4,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 57.14
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "pair": "AUDUSD",
+      "horizon": 15,
+      "batch": 3,
+      "wins": 5,
+      "losses": 13,
+      "ties": 2,
+      "accuracy": 27.78,
+      "maxLossStreak": 4,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "worstConfidence": {
+        "key": "70+",
+        "n": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "worstDirection": {
+        "key": "BUY",
+        "n": 8,
+        "wins": 1,
+        "losses": 6,
+        "ties": 1,
+        "accuracy": 14.29
+      },
+      "worstRegime": {
+        "key": "CHOPPY",
+        "n": 17,
+        "wins": 5,
+        "losses": 10,
+        "ties": 2,
+        "accuracy": 33.33
+      },
+      "worstHour": {
+        "key": "01:00",
+        "n": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "accuracy": 0.0
+      },
+      "worstSafeguard": {
+        "key": "FUSION_QUALITY_GATE",
+        "n": 6,
+        "wins": 0,
+        "losses": 5,
+        "ties": 1,
+        "accuracy": 0.0
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    }
+  ]
+}
