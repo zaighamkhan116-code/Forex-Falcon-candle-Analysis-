@@ -1,0 +1,13 @@
+{
+  "capturedAt":"2026-09-08T03:28:38Z",
+  "status":"PASS_NO_NEW_BATCH",
+  "canonicalSettledCount":5425,
+  "lineageRule":"CANONICAL_RECORDS_1_20_B1",
+  "minimumConfidence":57,
+  "integrity":{"malformed":0,"duplicateIds":0,"duplicateBoundaries":0,"contradictions":0},
+  "batchWatermarkStatus":"IN_SYNC",
+  "newCompletedBatches":0,
+  "strategyModification":"NONE",
+  "reason":"All completed exact-20 canonical batches already match the learning/reporting watermark. Canonical remainders continue accumulating; no clean unseen completed batch exists to justify a modification.",
+  "nextTargets":["EURJPY-5M B9","EURJPY-3M B12","GBPUSD-2M B14","EURJPY-2M B14","AUDUSD-2M B14","AUDUSD-1M B17","EURUSD-3M B12","GBPUSD-3M B12"]
+}
