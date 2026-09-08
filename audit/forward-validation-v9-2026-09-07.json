@@ -1,8 +1,8 @@
 {
   "createdAt": "2026-09-07T17:05:00Z",
-  "updatedAt": "2026-09-07T22:05:00Z",
-  "status": "PARTIAL_REVERT_AFTER_UNSEEN_VALIDATION",
-  "strategyVersion": "V9_1_PARTIAL_REVERT_AUDUSD_2M",
+  "updatedAt": "2026-09-08T02:05:00Z",
+  "status": "REGIME_LOCKS_WITH_PARTIAL_REVERT",
+  "strategyVersion": "V9_1_PLUS_V3_1_LOCKS",
   "integrityPrerequisite": {
     "status": "PASS",
     "lineageRule": "CANONICAL_RECORDS_1_20_B1",
@@ -12,61 +12,74 @@
     "contradictions": 0
   },
   "stageZeroRepairsThisCycle": [
-    {"commit":"017e68d9737d84149bf0a5883bedbd37150661bf","change":"Retrigger canonical learner after exact canonical batches advanced beyond reporting watermark."},
-    {"commit":"7199c21fd8a1894a7844f261f3475b2b464da6a0","change":"Repair canonical learner to accept both list-shaped legacy exact-batch files and object-shaped batch files while enforcing exactly 20 unique permanent IDs and valid WIN/LOSS/TIE results."}
+    {"commit":"6cf907bf6951a97d0131a2361bfe3319039e1969","change":"Retrigger deterministic exact-20 reconstruction after canonical history advanced to 4,985 settlements while exact-batch status remained stale."},
+    {"commit":"8421642a8a0577bbddd9a025b954673f0d6f600b","change":"Rebuilt integrity-gated exact canonical batches from permanent append-only history; all 25 tracks passed malformed/duplicate/boundary/contradiction checks."},
+    {"commit":"fe20f76742a0c38ed8ef58e23392f47046fc4dbb","change":"Retrigger canonical learner after rebuilt batch counts advanced beyond the reporting watermark."},
+    {"commit":"bc4916a11a720bcb8df82b8fb857de1739a62caa","change":"Processed and atomically watermarked 16 newly completed exact-20 batches."}
   ],
   "experiments": [
     {
       "track": "EURJPY-3M",
       "originalCodeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
-      "status": "VALIDATED_RETAINED_CONTINUED",
+      "status": "REGIME_LOCKED",
       "preChangeEvidence": {
         "batch6": {"rawAccuracy": 0.35, "maxLossStreak": 5},
         "batch7": {"rawAccuracy": 0.35, "maxLossStreak": 7}
       },
       "unseenValidation": {
         "batch8": {"rawAccuracy": 0.6842, "wins": 13, "losses": 6, "ties": 1, "maxLossStreak": 2},
-        "batch9": {"rawAccuracy": 0.45, "wins": 9, "losses": 11, "ties": 0, "maxLossStreak": 4}
+        "batch9": {"rawAccuracy": 0.45, "wins": 9, "losses": 11, "ties": 0, "maxLossStreak": 4},
+        "batch10": {"rawAccuracy": 0.60, "wins": 12, "losses": 8, "ties": 0, "maxLossStreak": 3}
       },
-      "decision": "RETAIN EURJPY-3M V9 specialization. B9 is weaker than B8 but remains above both 35% pre-change batches and max loss streak L4 remains below pre-change L5/L7. Continue chronological validation; do not broaden globally.",
-      "nextUnseenTarget": "EURJPY-3M canonical B10",
-      "rollbackRule": "Revert only EURJPY-3M V9 specialization if later unseen evidence removes the accuracy/streak advantage versus the 35% L5/L7 baseline."
+      "aggregateUnseen": {"wins":34,"losses":25,"ties":1,"accuracyExTies":0.5763,"worstMaxLossStreak":4},
+      "decision": "REGIME-LOCK EURJPY-3M V9 specialization. Three chronological unseen batches average 57.63% decided accuracy versus the two-batch 35% pre-change baseline, and unseen max-loss streak severity stayed at L2/L4/L3 versus pre-change L5/L7. Frequency remained full exact-20 batches. Do not broaden globally.",
+      "nextUnseenTarget": "EURJPY-3M canonical B11",
+      "rollbackRule": "Unlock/revert only EURJPY-3M V9 specialization if later unseen evidence removes the accuracy/streak advantage versus the 35% L5/L7 baseline."
     },
     {
       "track": "AUDUSD-2M",
       "originalCodeCommit": "0a4ef6d0d404ad879eab835997636dabc5430997",
       "revertCodeCommit": "9b7ce16051b85349774db29568e05159c074fbe8",
       "revertTestCommit": "54af97f3bc0955db81351dd369b26e86dd2bf9b7",
-      "status": "REVERTED_DEGRADED",
+      "status": "REVERTED_DEGRADED_CONFIRMED_CONTINUE_OBSERVATION",
       "preChangeEvidence": {
         "batch7": {"rawAccuracy": 0.3158, "maxLossStreak": 6},
         "batch8": {"rawAccuracy": 0.4211, "maxLossStreak": 6}
       },
-      "unseenValidation": {
+      "unseenValidationBeforeRevert": {
         "batch9": {"rawAccuracy": 0.5714, "maxLossStreak": 5},
         "batch10": {"rawAccuracy": 0.2727, "wins": 3, "losses": 8, "ties": 9, "maxLossStreak": 5}
       },
-      "batch10FailureConcentration": {
-        "newYorkLate": {"wins":0,"losses":5,"ties":5,"accuracyExTies":0.0},
-        "choppy": {"wins":1,"losses":4,"ties":2,"accuracyExTies":0.20},
-        "sell": {"wins":1,"losses":5,"ties":3,"accuracyExTies":0.1667},
-        "continuationResetGate": {"wins":0,"losses":2,"ties":3,"accuracyExTies":0.0}
+      "postRevertValidation": {
+        "batch11": {"rawAccuracy":0.5333,"maxLossStreak":2},
+        "batch12": {"rawAccuracy":0.3889,"wins":7,"losses":11,"ties":2,"maxLossStreak":4}
       },
-      "decision": "REVERT only AUDUSD-2M V9 compound-conflict penalty. First unseen B9 improved, but second unseen B10 fell below both the immediate pre-change average and B9 without reducing max streak below L5. Preserve the older AUDUSD-2M VSA-without-confirmation and clean-continuation rules.",
-      "nextUnseenTarget": "AUDUSD-2M canonical B11 after partial revert"
+      "decision": "Keep the AUDUSD-2M V9 conflict arm reverted. B11 improved strongly and B12 softened to 38.89%/L4, but there is not repeatable evidence for a new replacement arm. Preserve older VSA-without-confirmation and clean-continuation rules and continue unseen observation.",
+      "nextUnseenTarget": "AUDUSD-2M canonical B13"
     }
   ],
   "otherForwardValidation": {
     "GBPUSD-2M-V3_1": {
-      "batch10": {"rawAccuracy":0.2778,"wins":5,"losses":13,"ties":2,"maxLossStreak":4},
-      "priorBatch9": {"rawAccuracy":0.2778,"maxLossStreak":6},
-      "decision": "CONTINUE ONE MORE UNSEEN BATCH. Accuracy is unchanged, but maximum streak improved from L6 to L4; not enough evidence to retain or revert yet.",
-      "nextTarget": "GBPUSD-2M B11"
+      "status":"REGIME_LOCKED",
+      "preChange":{"batch8":{"rawAccuracy":0.3158,"maxLossStreak":5},"batch9":{"rawAccuracy":0.2778,"maxLossStreak":6}},
+      "unseen":{"batch10":{"rawAccuracy":0.2778,"wins":5,"losses":13,"ties":2,"maxLossStreak":4},"batch11":{"rawAccuracy":0.5385,"maxLossStreak":3},"batch12":{"rawAccuracy":0.5294,"wins":9,"losses":8,"ties":3,"maxLossStreak":3}},
+      "decision":"REGIME-LOCK the GBPUSD-2M negative-edge compound-conflict reranker. B10 held raw accuracy while reducing L6 to L4, then B11 and B12 improved to 53.85% and 52.94% with L3. The arm remains pair/timeframe/state specific and frequency preserving.",
+      "nextTarget":"GBPUSD-2M B13",
+      "rollbackRule":"Unlock/revert only this GBPUSD-2M arm if later unseen batches lose both its raw-accuracy and streak-severity advantage over B8/B9."
     },
     "EURJPY-2M-V3": {
-      "batch10": {"rawAccuracy":0.6111,"wins":11,"losses":7,"ties":2,"maxLossStreak":6},
-      "decision": "RETAIN IN FORWARD VALIDATION. Raw accuracy recovered strongly, but one L6 cluster remains and 70+ confidence was only 20% on 5 observations; confidence calibration remains provisional rather than a threshold change.",
-      "nextTarget": "EURJPY-2M B11"
+      "status":"FORWARD_VALIDATION",
+      "batch10":{"rawAccuracy":0.6111,"wins":11,"losses":7,"ties":2,"maxLossStreak":6},
+      "batch11":{"rawAccuracy":0.4211,"maxLossStreak":3},
+      "batch12":{"rawAccuracy":0.45,"wins":9,"losses":11,"ties":0,"maxLossStreak":4},
+      "decision":"CONTINUE FORWARD VALIDATION. Streak severity is better after B10, but raw accuracy is not yet stable enough to regime-lock or revert the compound-conflict arm.",
+      "nextTarget":"EURJPY-2M B13"
+    },
+    "AUDUSD-1M-WATCH": {
+      "status":"DEGRADED_WATCH_NO_CHANGE",
+      "batch14":{"rawAccuracy":0.4118,"wins":7,"losses":10,"ties":3,"maxLossStreak":4,"progressFailureRisk":{"wins":0,"losses":4}},
+      "batch15":{"rawAccuracy":0.40,"wins":8,"losses":12,"ties":0,"maxLossStreak":4,"continuationFreshEvidence":{"wins":3,"losses":9},"progressFailureRisk":{"wins":3,"losses":5}},
+      "decision":"Two weak batches now exist, but the dominant bad direction changed between B14 and B15 and the component failure is not yet sufficiently stable for a safe reranker. Do not chase noise; B16 is decisive for a targeted progress/fresh-continuation correction."
     }
   },
   "minimumConfidence": 57,
