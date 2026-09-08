@@ -4,11 +4,13 @@ import {applyLossContext} from '../lib/lossLearning.js';
 
 const signal=(direction='BUY',features={})=>({direction,confidence:64,qualified:true,tradeQualified:true,regime:'CHOPPY',features});
 
-test('AUDUSD 1M reranks stale progress failure only with compound conflict',()=>{
+test('AUDUSD 1M reranks stale progress failure only with compound conflict and score support',()=>{
   const risky=applyLossContext(signal('BUY',{
     progressFailureRisk:true,
     continuationFreshEvidence:false,
-    frequencyConflicts:['FAILURE_TO_PROGRESS','UNRESOLVED_FVG']
+    frequencyConflicts:['FAILURE_TO_PROGRESS','UNRESOLVED_FVG'],
+    originalDirectionScore:-1.0,
+    oppositeDirectionScore:-0.8
   }),'AUDUSD',1).result;
   assert.equal(risky.direction,'SELL');
   assert.equal(risky.qualified,true);
@@ -18,10 +20,20 @@ test('AUDUSD 1M reranks stale progress failure only with compound conflict',()=>
   const clean=applyLossContext(signal('BUY',{
     progressFailureRisk:true,
     continuationFreshEvidence:true,
-    frequencyConflicts:[]
+    frequencyConflicts:[],
+    originalDirectionScore:1.2,
+    oppositeDirectionScore:-1.0
   }),'AUDUSD',1).result;
   assert.equal(clean.direction,'BUY');
   assert.equal(clean.features.lossStreakRerankApplied,false);
+
+  const missingScores=applyLossContext(signal('BUY',{
+    progressFailureRisk:true,
+    continuationFreshEvidence:false,
+    frequencyConflicts:['FAILURE_TO_PROGRESS','UNRESOLVED_FVG']
+  }),'AUDUSD',1).result;
+  assert.equal(missingScores.direction,'BUY');
+  assert.equal(missingScores.features.lossStreakRerankApplied,false);
 });
 
 test('GBPUSD 3M transition conflict reranks only when opposite score is not materially worse',()=>{
@@ -46,13 +58,24 @@ test('GBPUSD 3M transition conflict reranks only when opposite score is not mate
   }),'GBPUSD',3).result;
   assert.equal(supportedOriginal.direction,'SELL');
   assert.equal(supportedOriginal.features.lossStreakRerankApplied,false);
+
+  const missingScores=applyLossContext(signal('SELL',{
+    transitionGate:false,
+    continuationFreshEvidence:false,
+    frequencyConflicts:['TRANSITION','FAILURE_TO_PROGRESS'],
+    confirmationV2Opposed:3
+  }),'GBPUSD',3).result;
+  assert.equal(missingScores.direction,'SELL');
+  assert.equal(missingScores.features.lossStreakRerankApplied,false);
 });
 
 test('V3.3 does not change an unrelated clean track',()=>{
   const out=applyLossContext(signal('BUY',{
     progressFailureRisk:true,
     continuationFreshEvidence:false,
-    frequencyConflicts:['FAILURE_TO_PROGRESS','UNRESOLVED_FVG']
+    frequencyConflicts:['FAILURE_TO_PROGRESS','UNRESOLVED_FVG'],
+    originalDirectionScore:-1.0,
+    oppositeDirectionScore:-0.8
   }),'USDJPY',3).result;
   assert.equal(out.direction,'BUY');
   assert.equal(out.features.lossStreakRerankApplied,false);
