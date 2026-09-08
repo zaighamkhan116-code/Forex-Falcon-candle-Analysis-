@@ -1,0 +1,16 @@
+{
+  "createdAt": "2026-09-08T18:12:00Z",
+  "status": "DEPLOYMENT_FORWARD_CHECK_REQUIRED",
+  "issue": "Supported EURUSD shadow requests intermittently returned HTTP 422 for insufficient candle history and were incorrectly labelled UNSUPPORTED.",
+  "fix": [
+    "Fallback to a fresh staged M1 history whenever supplied shadow candle history has fewer than 80 usable candles.",
+    "Classify HTTP 422 as UNSUPPORTED only when the response explicitly identifies an unsupported pair, horizon, or timeframe.",
+    "Treat insufficient-history 422 responses on supported tracks as UNAVAILABLE infrastructure faults.",
+    "Keep all shadow predictions research-only and influencedLiveSignal=false."
+  ],
+  "shadowCommit": "924ef1de9ed00285dce3808f5e0c57936d566436",
+  "testCommit": "5f837f5f676a921d9ab1348a329020316c886c9f",
+  "eurusd5mReadyRequired": true,
+  "promotionOrWeightingChanged": false,
+  "acceptance": "A fresh EURUSD-5m signal must receive READY before settlement after deployment."
+}
