@@ -1,3865 +1,14 @@
 {
-  "generatedAt": "2026-09-08T20:59:21.630913+00:00",
+  "generatedAt": "2026-09-08T21:56:35.789693+00:00",
   "integrityStatus": "PASS",
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
   "newBatchCount": 20,
   "batches": [
     {
-      "file": "audit/new-batches/eurusd-1m-batch-23.json",
+      "file": "audit/new-batches/eurusd-1m-batch-24.json",
       "pair": "EURUSD",
       "horizon": 1,
-      "batchNumber": 23,
-      "summary": {
-        "n": 20,
-        "wins": 10,
-        "losses": 8,
-        "ties": 2,
-        "accuracyExTies": 55.56
-      },
-      "maxLossStreak": 3,
-      "lossRuns2Plus": 3,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "57-59": {
-            "n": 9,
-            "wins": 3,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "60-64": {
-            "n": 2,
-            "wins": 1,
-            "losses": 0,
-            "ties": 1,
-            "accuracyExTies": 100.0
-          },
-          "70+": {
-            "n": 6,
-            "wins": 5,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 83.33
-          },
-          "65-69": {
-            "n": 3,
-            "wins": 1,
-            "losses": 1,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 18,
-            "wins": 10,
-            "losses": 6,
-            "ties": 2,
-            "accuracyExTies": 62.5
-          },
-          "SELL": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 8,
-            "wins": 5,
-            "losses": 1,
-            "ties": 2,
-            "accuracyExTies": 83.33
-          },
-          "CHOPPY": {
-            "n": 8,
-            "wins": 3,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 37.5
-          },
-          "TRENDING": {
-            "n": 4,
-            "wins": 2,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 15,
-            "wins": 9,
-            "losses": 4,
-            "ties": 2,
-            "accuracyExTies": 69.23
-          },
-          "OFF_SESSION": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 15,
-            "wins": 9,
-            "losses": 4,
-            "ties": 2,
-            "accuracyExTies": 69.23
-          },
-          "00:00": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          }
-        },
-        "safeguard": {
-          "LATE_CONTINUATION_GATE": {
-            "n": 9,
-            "wins": 3,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 37.5
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 9,
-            "wins": 4,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 44.44
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 15,
-            "wins": 6,
-            "losses": 7,
-            "ties": 2,
-            "accuracyExTies": 46.15
-          },
-          "progressFailureRisk": {
-            "n": 3,
-            "wins": 2,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "lateCounterTrendRisk": {
-            "n": 9,
-            "wins": 3,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 37.5
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 3,
-            "wins": 2,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 9,
-            "wins": 4,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 44.44
-          },
-          "highConfidenceContradictionRisk": {
-            "n": 2,
-            "wins": 1,
-            "losses": 0,
-            "ties": 1,
-            "accuracyExTies": 100.0
-          },
-          "HIGH_CONFIDENCE_CONTRADICTION_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 0,
-            "ties": 1,
-            "accuracyExTies": 100.0
-          },
-          "progressFailureGate": {
-            "n": 17,
-            "wins": 8,
-            "losses": 7,
-            "ties": 2,
-            "accuracyExTies": 53.33
-          },
-          "continuationFreshEvidence": {
-            "n": 4,
-            "wins": 3,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 75.0
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 0,
-            "ties": 1,
-            "accuracyExTies": null
-          },
-          "TRANSITION_GATE": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "ONE_MINUTE_CHOP_GUARD": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 13,
-        "agreements": 3,
-        "disagreements": 10
-      }
-    },
-    {
-      "file": "audit/new-batches/eurusd-2m-batch-20.json",
-      "pair": "EURUSD",
-      "horizon": 2,
-      "batchNumber": 20,
-      "summary": {
-        "n": 20,
-        "wins": 11,
-        "losses": 8,
-        "ties": 1,
-        "accuracyExTies": 57.89
-      },
-      "maxLossStreak": 2,
-      "lossRuns2Plus": 3,
-      "lossRuns3Plus": 0,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "60-64": {
-            "n": 3,
-            "wins": 2,
-            "losses": 0,
-            "ties": 1,
-            "accuracyExTies": 100.0
-          },
-          "57-59": {
-            "n": 15,
-            "wins": 8,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 53.33
-          },
-          "70+": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "65-69": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        },
-        "direction": {
-          "SELL": {
-            "n": 8,
-            "wins": 3,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 42.86
-          },
-          "BUY": {
-            "n": 12,
-            "wins": 8,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "n": 17,
-            "wins": 8,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "MIXED": {
-            "n": 3,
-            "wins": 3,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 11,
-            "wins": 5,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "OFF_SESSION": {
-            "n": 9,
-            "wins": 6,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 11,
-            "wins": 5,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "00:00": {
-            "n": 9,
-            "wins": 6,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          }
-        },
-        "safeguard": {
-          "progressFailureGate": {
-            "n": 19,
-            "wins": 10,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 55.56
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 12,
-            "wins": 6,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 54.55
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 15,
-            "wins": 9,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 64.29
-          },
-          "TRANSITION_GATE": {
-            "n": 5,
-            "wins": 2,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 13,
-            "wins": 7,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 58.33
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 15,
-            "wins": 8,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 53.33
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 7,
-            "wins": 4,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 57.14
-          },
-          "lateCounterTrendRisk": {
-            "n": 16,
-            "wins": 9,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 56.25
-          },
-          "continuationFreshEvidence": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "progressFailureRisk": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 15,
-        "agreements": 9,
-        "disagreements": 6
-      }
-    },
-    {
-      "file": "audit/new-batches/eurusd-3m-batch-18.json",
-      "pair": "EURUSD",
-      "horizon": 3,
-      "batchNumber": 18,
-      "summary": {
-        "n": 20,
-        "wins": 11,
-        "losses": 8,
-        "ties": 1,
-        "accuracyExTies": 57.89
-      },
-      "maxLossStreak": 4,
-      "lossRuns2Plus": 2,
-      "lossRuns3Plus": 2,
-      "lossRuns4Plus": 1,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "70+": {
-            "n": 4,
-            "wins": 3,
-            "losses": 0,
-            "ties": 1,
-            "accuracyExTies": 100.0
-          },
-          "65-69": {
-            "n": 3,
-            "wins": 2,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "57-59": {
-            "n": 12,
-            "wins": 6,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "60-64": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 19,
-            "wins": 11,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 61.11
-          },
-          "SELL": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "CHOPPY": {
-            "n": 15,
-            "wins": 8,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 57.14
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 6,
-            "wins": 6,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "OFF_SESSION": {
-            "n": 14,
-            "wins": 5,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 38.46
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 6,
-            "wins": 6,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "00:00": {
-            "n": 14,
-            "wins": 5,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 38.46
-          }
-        },
-        "safeguard": {
-          "CONTINUATION_RESET_GATE": {
-            "n": 17,
-            "wins": 9,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 56.25
-          },
-          "progressFailureGate": {
-            "n": 16,
-            "wins": 10,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 66.67
-          },
-          "continuationFreshEvidence": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 13,
-            "wins": 8,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 61.54
-          },
-          "progressFailureRisk": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 12,
-            "wins": 6,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 13,
-            "wins": 7,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 53.85
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 11,
-            "wins": 6,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 54.55
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          },
-          "TRANSITION_GATE": {
-            "n": 6,
-            "wins": 4,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          }
-        }
-      },
-      "shadow": {
-        "ready": 14,
-        "agreements": 3,
-        "disagreements": 11
-      }
-    },
-    {
-      "file": "audit/new-batches/eurusd-5m-batch-14.json",
-      "pair": "EURUSD",
-      "horizon": 5,
-      "batchNumber": 14,
-      "summary": {
-        "n": 20,
-        "wins": 9,
-        "losses": 10,
-        "ties": 1,
-        "accuracyExTies": 47.37
-      },
-      "maxLossStreak": 3,
-      "lossRuns2Plus": 2,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "65-69": {
-            "n": 4,
-            "wins": 4,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "60-64": {
-            "n": 5,
-            "wins": 2,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          },
-          "57-59": {
-            "n": 9,
-            "wins": 2,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 25.0
-          },
-          "70+": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "direction": {
-          "SELL": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "BUY": {
-            "n": 13,
-            "wins": 6,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          }
-        },
-        "regime": {
-          "TRENDING": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "CHOPPY": {
-            "n": 14,
-            "wins": 5,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 38.46
-          },
-          "MIXED": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 12,
-            "wins": 6,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "OFF_SESSION": {
-            "n": 8,
-            "wins": 3,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 42.86
-          }
-        },
-        "hour": {
-          "21:00": {
-            "n": 3,
-            "wins": 2,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "23:00": {
-            "n": 9,
-            "wins": 4,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 44.44
-          },
-          "00:00": {
-            "n": 8,
-            "wins": 3,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 42.86
-          }
-        },
-        "safeguard": {
-          "continuationFreshEvidence": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "progressFailureGate": {
-            "n": 17,
-            "wins": 8,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 10,
-            "wins": 3,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 8,
-            "wins": 2,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 28.57
-          },
-          "lateCounterTrendRisk": {
-            "n": 10,
-            "wins": 3,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 9,
-            "wins": 2,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 25.0
-          },
-          "TRANSITION_GATE": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 14,
-            "wins": 6,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 46.15
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "progressFailureRisk": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 12,
-        "agreements": 4,
-        "disagreements": 8
-      }
-    },
-    {
-      "file": "audit/new-batches/gbpusd-1m-batch-23.json",
-      "pair": "GBPUSD",
-      "horizon": 1,
-      "batchNumber": 23,
-      "summary": {
-        "n": 20,
-        "wins": 11,
-        "losses": 8,
-        "ties": 1,
-        "accuracyExTies": 57.89
-      },
-      "maxLossStreak": 3,
-      "lossRuns2Plus": 2,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "57-59": {
-            "n": 10,
-            "wins": 5,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 55.56
-          },
-          "70+": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "60-64": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "65-69": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 19,
-            "wins": 11,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 61.11
-          },
-          "SELL": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "n": 11,
-            "wins": 6,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 54.55
-          },
-          "MIXED": {
-            "n": 5,
-            "wins": 4,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 80.0
-          },
-          "TRENDING": {
-            "n": 4,
-            "wins": 1,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 13,
-            "wins": 9,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 75.0
-          },
-          "OFF_SESSION": {
-            "n": 7,
-            "wins": 2,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 28.57
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 13,
-            "wins": 9,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 75.0
-          },
-          "00:00": {
-            "n": 7,
-            "wins": 2,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 28.57
-          }
-        },
-        "safeguard": {
-          "LATE_CONTINUATION_GATE": {
-            "n": 8,
-            "wins": 5,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 71.43
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 8,
-            "wins": 4,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 57.14
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 8,
-            "wins": 4,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 57.14
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 14,
-            "wins": 8,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 61.54
-          },
-          "progressFailureRisk": {
-            "n": 7,
-            "wins": 4,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 66.67
-          },
-          "TRANSITION_GATE": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 8,
-            "wins": 5,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 71.43
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 5,
-            "wins": 3,
-            "losses": 1,
-            "ties": 1,
-            "accuracyExTies": 75.0
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "continuationFreshEvidence": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "progressFailureGate": {
-            "n": 15,
-            "wins": 8,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 53.33
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "highConfidenceContradictionRisk": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "HIGH_CONFIDENCE_CONTRADICTION_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/gbpusd-2m-batch-20.json",
-      "pair": "GBPUSD",
-      "horizon": 2,
-      "batchNumber": 20,
-      "summary": {
-        "n": 20,
-        "wins": 9,
-        "losses": 10,
-        "ties": 1,
-        "accuracyExTies": 47.37
-      },
-      "maxLossStreak": 3,
-      "lossRuns2Plus": 2,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "57-59": {
-            "n": 14,
-            "wins": 5,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 38.46
-          },
-          "60-64": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "70+": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "65-69": {
-            "n": 4,
-            "wins": 2,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 16,
-            "wins": 8,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "SELL": {
-            "n": 4,
-            "wins": 1,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 4,
-            "wins": 3,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 75.0
-          },
-          "CHOPPY": {
-            "n": 13,
-            "wins": 5,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 41.67
-          },
-          "TRENDING": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 9,
-            "wins": 5,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 62.5
-          },
-          "OFF_SESSION": {
-            "n": 11,
-            "wins": 4,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 36.36
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 9,
-            "wins": 5,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 62.5
-          },
-          "00:00": {
-            "n": 11,
-            "wins": 4,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 36.36
-          }
-        },
-        "safeguard": {
-          "progressFailureGate": {
-            "n": 20,
-            "wins": 9,
-            "losses": 10,
-            "ties": 1,
-            "accuracyExTies": 47.37
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 11,
-            "wins": 5,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 45.45
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 16,
-            "wins": 8,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "TRANSITION_GATE": {
-            "n": 10,
-            "wins": 5,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 55.56
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 15,
-            "wins": 6,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 42.86
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 17,
-            "wins": 6,
-            "losses": 10,
-            "ties": 1,
-            "accuracyExTies": 37.5
-          },
-          "lateCounterTrendRisk": {
-            "n": 17,
-            "wins": 6,
-            "losses": 10,
-            "ties": 1,
-            "accuracyExTies": 37.5
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 7,
-            "wins": 3,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "continuationFreshEvidence": {
-            "n": 4,
-            "wins": 1,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 3,
-            "wins": 1,
-            "losses": 1,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "progressFailureRisk": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/gbpusd-3m-batch-18.json",
-      "pair": "GBPUSD",
-      "horizon": 3,
-      "batchNumber": 18,
-      "summary": {
-        "n": 20,
-        "wins": 11,
-        "losses": 9,
-        "ties": 0,
-        "accuracyExTies": 55.0
-      },
-      "maxLossStreak": 5,
-      "lossRuns2Plus": 3,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 1,
-      "lossRuns5Plus": 1,
-      "breakdowns": {
-        "confidence": {
-          "70+": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "65-69": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "60-64": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "57-59": {
-            "n": 8,
-            "wins": 4,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 19,
-            "wins": 10,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 52.63
-          },
-          "SELL": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 10,
-            "wins": 7,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 70.0
-          },
-          "CHOPPY": {
-            "n": 9,
-            "wins": 3,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "TRENDING": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 5,
-            "wins": 5,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "OFF_SESSION": {
-            "n": 15,
-            "wins": 6,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 5,
-            "wins": 5,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "00:00": {
-            "n": 15,
-            "wins": 6,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          }
-        },
-        "safeguard": {
-          "continuationFreshEvidence": {
-            "n": 3,
-            "wins": 3,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "progressFailureGate": {
-            "n": 18,
-            "wins": 9,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "progressFailureRisk": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 16,
-            "wins": 7,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 43.75
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "TRANSITION_GATE": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 11,
-            "wins": 6,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 54.55
-          },
-          "lateCounterTrendRisk": {
-            "n": 11,
-            "wins": 6,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 54.55
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 11,
-            "wins": 5,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 45.45
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 7,
-            "wins": 2,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 28.57
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/gbpusd-5m-batch-14.json",
-      "pair": "GBPUSD",
-      "horizon": 5,
-      "batchNumber": 14,
-      "summary": {
-        "n": 20,
-        "wins": 10,
-        "losses": 10,
-        "ties": 0,
-        "accuracyExTies": 50.0
-      },
-      "maxLossStreak": 4,
-      "lossRuns2Plus": 2,
-      "lossRuns3Plus": 2,
-      "lossRuns4Plus": 1,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "57-59": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "70+": {
-            "n": 10,
-            "wins": 5,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "60-64": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "65-69": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        },
-        "direction": {
-          "SELL": {
-            "n": 8,
-            "wins": 3,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 37.5
-          },
-          "BUY": {
-            "n": 12,
-            "wins": 7,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 58.33
-          }
-        },
-        "regime": {
-          "TRENDING": {
-            "n": 10,
-            "wins": 6,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "MIXED": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "CHOPPY": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 15,
-            "wins": 9,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "OFF_SESSION": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          }
-        },
-        "hour": {
-          "21:00": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "23:00": {
-            "n": 9,
-            "wins": 6,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "00:00": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          }
-        },
-        "safeguard": {
-          "LATE_CONTINUATION_GATE": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 6,
-            "wins": 2,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "progressFailureGate": {
-            "n": 20,
-            "wins": 10,
-            "losses": 10,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 10,
-            "wins": 5,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 13,
-            "wins": 6,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 46.15
-          },
-          "TRANSITION_GATE": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 4,
-            "wins": 2,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "continuationFreshEvidence": {
-            "n": 7,
-            "wins": 4,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 57.14
-          },
-          "progressFailureRisk": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/eurjpy-1m-batch-23.json",
-      "pair": "EURJPY",
-      "horizon": 1,
-      "batchNumber": 23,
-      "summary": {
-        "n": 20,
-        "wins": 9,
-        "losses": 10,
-        "ties": 1,
-        "accuracyExTies": 47.37
-      },
-      "maxLossStreak": 3,
-      "lossRuns2Plus": 4,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "70+": {
-            "n": 4,
-            "wins": 3,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 75.0
-          },
-          "57-59": {
-            "n": 12,
-            "wins": 5,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 45.45
-          },
-          "65-69": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          }
-        },
-        "direction": {
-          "SELL": {
-            "n": 13,
-            "wins": 9,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 69.23
-          },
-          "BUY": {
-            "n": 7,
-            "wins": 0,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 0.0
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "MIXED": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "TRENDING": {
-            "n": 8,
-            "wins": 3,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 42.86
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 14,
-            "wins": 6,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 46.15
-          },
-          "OFF_SESSION": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 14,
-            "wins": 6,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 46.15
-          },
-          "00:00": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "safeguard": {
-          "continuationFreshEvidence": {
-            "n": 6,
-            "wins": 4,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 14,
-            "wins": 6,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 46.15
-          },
-          "lateCounterTrendRisk": {
-            "n": 16,
-            "wins": 7,
-            "losses": 8,
-            "ties": 1,
-            "accuracyExTies": 46.67
-          },
-          "progressFailureGate": {
-            "n": 14,
-            "wins": 6,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 9,
-            "wins": 5,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 55.56
-          },
-          "TRANSITION_GATE": {
-            "n": 7,
-            "wins": 2,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          },
-          "progressFailureRisk": {
-            "n": 9,
-            "wins": 3,
-            "losses": 5,
-            "ties": 1,
-            "accuracyExTies": 37.5
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 12,
-            "wins": 5,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 45.45
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 12,
-            "wins": 4,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 36.36
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 6,
-            "wins": 3,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 60.0
-          },
-          "ONE_MINUTE_CHOP_GUARD": {
-            "n": 3,
-            "wins": 0,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 0.0
-          },
-          "highConfidenceContradictionRisk": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/eurjpy-2m-batch-20.json",
-      "pair": "EURJPY",
-      "horizon": 2,
-      "batchNumber": 20,
-      "summary": {
-        "n": 20,
-        "wins": 9,
-        "losses": 11,
-        "ties": 0,
-        "accuracyExTies": 45.0
-      },
-      "maxLossStreak": 4,
-      "lossRuns2Plus": 3,
-      "lossRuns3Plus": 2,
-      "lossRuns4Plus": 1,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "70+": {
-            "n": 5,
-            "wins": 2,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          },
-          "57-59": {
-            "n": 11,
-            "wins": 5,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 45.45
-          },
-          "65-69": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "60-64": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 13,
-            "wins": 5,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 38.46
-          },
-          "SELL": {
-            "n": 7,
-            "wins": 4,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 57.14
-          }
-        },
-        "regime": {
-          "TRENDING": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "MIXED": {
-            "n": 10,
-            "wins": 5,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "CHOPPY": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 9,
-            "wins": 2,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 22.22
-          },
-          "OFF_SESSION": {
-            "n": 11,
-            "wins": 7,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 63.64
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 9,
-            "wins": 2,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 22.22
-          },
-          "00:00": {
-            "n": 11,
-            "wins": 7,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 63.64
-          }
-        },
-        "safeguard": {
-          "CONTINUATION_RESET_GATE": {
-            "n": 15,
-            "wins": 6,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          },
-          "progressFailureRisk": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "progressFailureGate": {
-            "n": 19,
-            "wins": 9,
-            "losses": 10,
-            "ties": 0,
-            "accuracyExTies": 47.37
-          },
-          "continuationFreshEvidence": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 9,
-            "wins": 3,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "TRANSITION_GATE": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 9,
-            "wins": 3,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 10,
-            "wins": 5,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 11,
-            "wins": 5,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 45.45
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/eurjpy-3m-batch-18.json",
-      "pair": "EURJPY",
-      "horizon": 3,
-      "batchNumber": 18,
-      "summary": {
-        "n": 20,
-        "wins": 10,
-        "losses": 10,
-        "ties": 0,
-        "accuracyExTies": 50.0
-      },
-      "maxLossStreak": 2,
-      "lossRuns2Plus": 4,
-      "lossRuns3Plus": 0,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "70+": {
-            "n": 8,
-            "wins": 3,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 37.5
-          },
-          "57-59": {
-            "n": 7,
-            "wins": 2,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 28.57
-          },
-          "60-64": {
-            "n": 3,
-            "wins": 3,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "65-69": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 6,
-            "wins": 2,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "SELL": {
-            "n": 14,
-            "wins": 8,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 57.14
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 8,
-            "wins": 3,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 37.5
-          },
-          "CHOPPY": {
-            "n": 4,
-            "wins": 2,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "TRENDING": {
-            "n": 8,
-            "wins": 5,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 62.5
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 7,
-            "wins": 4,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 57.14
-          },
-          "OFF_SESSION": {
-            "n": 13,
-            "wins": 6,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 46.15
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 7,
-            "wins": 4,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 57.14
-          },
-          "00:00": {
-            "n": 13,
-            "wins": 6,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 46.15
-          }
-        },
-        "safeguard": {
-          "continuationFreshEvidence": {
-            "n": 6,
-            "wins": 4,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "progressFailureGate": {
-            "n": 19,
-            "wins": 10,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 52.63
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 14,
-            "wins": 6,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 8,
-            "wins": 4,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 5,
-            "wins": 4,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 80.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 5,
-            "wins": 4,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 80.0
-          },
-          "progressFailureRisk": {
-            "n": 3,
-            "wins": 0,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "TRANSITION_GATE": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/eurjpy-5m-batch-14.json",
-      "pair": "EURJPY",
-      "horizon": 5,
-      "batchNumber": 14,
-      "summary": {
-        "n": 20,
-        "wins": 6,
-        "losses": 14,
-        "ties": 0,
-        "accuracyExTies": 30.0
-      },
-      "maxLossStreak": 7,
-      "lossRuns2Plus": 2,
-      "lossRuns3Plus": 2,
-      "lossRuns4Plus": 2,
-      "lossRuns5Plus": 2,
-      "breakdowns": {
-        "confidence": {
-          "57-59": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          },
-          "65-69": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "70+": {
-            "n": 6,
-            "wins": 1,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 16.67
-          },
-          "60-64": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 11,
-            "wins": 2,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 18.18
-          },
-          "SELL": {
-            "n": 9,
-            "wins": 4,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 44.44
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "n": 8,
-            "wins": 3,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 37.5
-          },
-          "MIXED": {
-            "n": 11,
-            "wins": 3,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 27.27
-          },
-          "TRENDING": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 12,
-            "wins": 4,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "OFF_SESSION": {
-            "n": 8,
-            "wins": 2,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          }
-        },
-        "hour": {
-          "21:00": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "23:00": {
-            "n": 9,
-            "wins": 3,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "00:00": {
-            "n": 8,
-            "wins": 2,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          }
-        },
-        "safeguard": {
-          "LATE_CONTINUATION_GATE": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "progressFailureGate": {
-            "n": 20,
-            "wins": 6,
-            "losses": 14,
-            "ties": 0,
-            "accuracyExTies": 30.0
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 13,
-            "wins": 3,
-            "losses": 10,
-            "ties": 0,
-            "accuracyExTies": 23.08
-          },
-          "lateCounterTrendRisk": {
-            "n": 8,
-            "wins": 3,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 37.5
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 4,
-            "wins": 0,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "continuationFreshEvidence": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "TRANSITION_GATE": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "progressFailureRisk": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 3,
-            "wins": 0,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/usdjpy-1m-batch-23.json",
-      "pair": "USDJPY",
-      "horizon": 1,
-      "batchNumber": 23,
-      "summary": {
-        "n": 20,
-        "wins": 7,
-        "losses": 13,
-        "ties": 0,
-        "accuracyExTies": 35.0
-      },
-      "maxLossStreak": 6,
-      "lossRuns2Plus": 3,
-      "lossRuns3Plus": 2,
-      "lossRuns4Plus": 1,
-      "lossRuns5Plus": 1,
-      "breakdowns": {
-        "confidence": {
-          "65-69": {
-            "n": 4,
-            "wins": 2,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "57-59": {
-            "n": 9,
-            "wins": 3,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "70+": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "60-64": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 5,
-            "wins": 0,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "SELL": {
-            "n": 15,
-            "wins": 7,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 46.67
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "n": 7,
-            "wins": 1,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 14.29
-          },
-          "MIXED": {
-            "n": 5,
-            "wins": 2,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          },
-          "TRENDING": {
-            "n": 8,
-            "wins": 4,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 14,
-            "wins": 6,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "OFF_SESSION": {
-            "n": 6,
-            "wins": 1,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 16.67
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 14,
-            "wins": 6,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "00:00": {
-            "n": 6,
-            "wins": 1,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 16.67
-          }
-        },
-        "safeguard": {
-          "LATE_CONTINUATION_GATE": {
-            "n": 12,
-            "wins": 6,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 13,
-            "wins": 6,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 46.15
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 12,
-            "wins": 5,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 41.67
-          },
-          "progressFailureGate": {
-            "n": 14,
-            "wins": 5,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 35.71
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 9,
-            "wins": 4,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 44.44
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 8,
-            "wins": 3,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 37.5
-          },
-          "progressFailureRisk": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "TRANSITION_GATE": {
-            "n": 3,
-            "wins": 0,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 6,
-            "wins": 2,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "continuationFreshEvidence": {
-            "n": 6,
-            "wins": 2,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "highConfidenceContradictionRisk": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "HIGH_CONFIDENCE_CONTRADICTION_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/usdjpy-2m-batch-20.json",
-      "pair": "USDJPY",
-      "horizon": 2,
-      "batchNumber": 20,
-      "summary": {
-        "n": 20,
-        "wins": 9,
-        "losses": 11,
-        "ties": 0,
-        "accuracyExTies": 45.0
-      },
-      "maxLossStreak": 3,
-      "lossRuns2Plus": 3,
-      "lossRuns3Plus": 2,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "57-59": {
-            "n": 11,
-            "wins": 5,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 45.45
-          },
-          "70+": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "60-64": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "65-69": {
-            "n": 4,
-            "wins": 2,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 6,
-            "wins": 2,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "SELL": {
-            "n": 14,
-            "wins": 7,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 6,
-            "wins": 1,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 16.67
-          },
-          "TRENDING": {
-            "n": 4,
-            "wins": 3,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 75.0
-          },
-          "CHOPPY": {
-            "n": 10,
-            "wins": 5,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 9,
-            "wins": 4,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 44.44
-          },
-          "OFF_SESSION": {
-            "n": 11,
-            "wins": 5,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 45.45
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 9,
-            "wins": 4,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 44.44
-          },
-          "00:00": {
-            "n": 11,
-            "wins": 5,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 45.45
-          }
-        },
-        "safeguard": {
-          "LATE_CONTINUATION_GATE": {
-            "n": 10,
-            "wins": 5,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 11,
-            "wins": 6,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 54.55
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 15,
-            "wins": 7,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 46.67
-          },
-          "progressFailureGate": {
-            "n": 19,
-            "wins": 8,
-            "losses": 11,
-            "ties": 0,
-            "accuracyExTies": 42.11
-          },
-          "continuationFreshEvidence": {
-            "n": 4,
-            "wins": 2,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 11,
-            "wins": 6,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 54.55
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 11,
-            "wins": 6,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 54.55
-          },
-          "progressFailureRisk": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "TRANSITION_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/usdjpy-3m-batch-18.json",
-      "pair": "USDJPY",
-      "horizon": 3,
-      "batchNumber": 18,
-      "summary": {
-        "n": 20,
-        "wins": 9,
-        "losses": 11,
-        "ties": 0,
-        "accuracyExTies": 45.0
-      },
-      "maxLossStreak": 3,
-      "lossRuns2Plus": 3,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 0,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "70+": {
-            "n": 5,
-            "wins": 4,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 80.0
-          },
-          "57-59": {
-            "n": 6,
-            "wins": 4,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "60-64": {
-            "n": 6,
-            "wins": 0,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "65-69": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          }
-        },
-        "direction": {
-          "SELL": {
-            "n": 15,
-            "wins": 7,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 46.67
-          },
-          "BUY": {
-            "n": 5,
-            "wins": 2,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          }
-        },
-        "regime": {
-          "CHOPPY": {
-            "n": 8,
-            "wins": 5,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 62.5
-          },
-          "MIXED": {
-            "n": 9,
-            "wins": 3,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "TRENDING": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "OFF_SESSION": {
-            "n": 15,
-            "wins": 6,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "00:00": {
-            "n": 15,
-            "wins": 6,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          }
-        },
-        "safeguard": {
-          "continuationFreshEvidence": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 4,
-            "wins": 2,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "progressFailureGate": {
-            "n": 18,
-            "wins": 9,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 14,
-            "wins": 5,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 35.71
-          },
-          "progressFailureRisk": {
-            "n": 3,
-            "wins": 0,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 8,
-            "wins": 3,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 37.5
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "TRANSITION_GATE": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 4,
-            "wins": 0,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/usdjpy-5m-batch-14.json",
-      "pair": "USDJPY",
-      "horizon": 5,
-      "batchNumber": 14,
-      "summary": {
-        "n": 20,
-        "wins": 8,
-        "losses": 12,
-        "ties": 0,
-        "accuracyExTies": 40.0
-      },
-      "maxLossStreak": 5,
-      "lossRuns2Plus": 2,
-      "lossRuns3Plus": 2,
-      "lossRuns4Plus": 2,
-      "lossRuns5Plus": 1,
-      "breakdowns": {
-        "confidence": {
-          "70+": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "65-69": {
-            "n": 6,
-            "wins": 1,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 16.67
-          },
-          "57-59": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "60-64": {
-            "n": 5,
-            "wins": 2,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 10,
-            "wins": 3,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 30.0
-          },
-          "SELL": {
-            "n": 10,
-            "wins": 5,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 13,
-            "wins": 5,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 38.46
-          },
-          "CHOPPY": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "TRENDING": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 12,
-            "wins": 6,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "OFF_SESSION": {
-            "n": 8,
-            "wins": 2,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          }
-        },
-        "hour": {
-          "21:00": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "23:00": {
-            "n": 9,
-            "wins": 5,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 55.56
-          },
-          "00:00": {
-            "n": 8,
-            "wins": 2,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          }
-        },
-        "safeguard": {
-          "continuationFreshEvidence": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "progressFailureGate": {
-            "n": 19,
-            "wins": 8,
-            "losses": 11,
-            "ties": 0,
-            "accuracyExTies": 42.11
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 4,
-            "wins": 1,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "progressFailureRisk": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 14,
-            "wins": 5,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 35.71
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 6,
-            "wins": 3,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "TRANSITION_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 3,
-            "wins": 2,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/audusd-1m-batch-23.json",
-      "pair": "AUDUSD",
-      "horizon": 1,
-      "batchNumber": 23,
-      "summary": {
-        "n": 20,
-        "wins": 7,
-        "losses": 11,
-        "ties": 2,
-        "accuracyExTies": 38.89
-      },
-      "maxLossStreak": 7,
-      "lossRuns2Plus": 1,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 1,
-      "lossRuns5Plus": 1,
-      "breakdowns": {
-        "confidence": {
-          "70+": {
-            "n": 1,
-            "wins": 1,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          },
-          "65-69": {
-            "n": 3,
-            "wins": 0,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 0.0
-          },
-          "60-64": {
-            "n": 4,
-            "wins": 3,
-            "losses": 0,
-            "ties": 1,
-            "accuracyExTies": 100.0
-          },
-          "57-59": {
-            "n": 12,
-            "wins": 3,
-            "losses": 9,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 13,
-            "wins": 6,
-            "losses": 5,
-            "ties": 2,
-            "accuracyExTies": 54.55
-          },
-          "SELL": {
-            "n": 7,
-            "wins": 1,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 14.29
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 10,
-            "wins": 2,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 22.22
-          },
-          "TRENDING": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "CHOPPY": {
-            "n": 9,
-            "wins": 5,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 62.5
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 3,
-            "wins": 1,
-            "losses": 1,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "OFF_SESSION": {
-            "n": 17,
-            "wins": 6,
-            "losses": 10,
-            "ties": 1,
-            "accuracyExTies": 37.5
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 3,
-            "wins": 1,
-            "losses": 1,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          },
-          "00:00": {
-            "n": 17,
-            "wins": 6,
-            "losses": 10,
-            "ties": 1,
-            "accuracyExTies": 37.5
-          }
-        },
-        "safeguard": {
-          "progressFailureGate": {
-            "n": 16,
-            "wins": 6,
-            "losses": 9,
-            "ties": 1,
-            "accuracyExTies": 40.0
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 2,
-            "wins": 0,
-            "losses": 1,
-            "ties": 1,
-            "accuracyExTies": 0.0
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 16,
-            "wins": 6,
-            "losses": 9,
-            "ties": 1,
-            "accuracyExTies": 40.0
-          },
-          "highConfidenceContradictionRisk": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "HIGH_CONFIDENCE_CONTRADICTION_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "progressFailureRisk": {
-            "n": 7,
-            "wins": 2,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 4,
-            "wins": 1,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 12,
-            "wins": 4,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 36.36
-          },
-          "LATE_CONTINUATION_GATE": {
-            "n": 13,
-            "wins": 5,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 38.46
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 10,
-            "wins": 3,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 30.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 13,
-            "wins": 5,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 38.46
-          },
-          "continuationFreshEvidence": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "TRANSITION_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 3,
-            "wins": 3,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/audusd-2m-batch-20.json",
-      "pair": "AUDUSD",
-      "horizon": 2,
-      "batchNumber": 20,
-      "summary": {
-        "n": 20,
-        "wins": 9,
-        "losses": 10,
-        "ties": 1,
-        "accuracyExTies": 47.37
-      },
-      "maxLossStreak": 4,
-      "lossRuns2Plus": 3,
-      "lossRuns3Plus": 1,
-      "lossRuns4Plus": 1,
-      "lossRuns5Plus": 0,
-      "breakdowns": {
-        "confidence": {
-          "57-59": {
-            "n": 10,
-            "wins": 2,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 22.22
-          },
-          "70+": {
-            "n": 3,
-            "wins": 2,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 66.67
-          },
-          "60-64": {
-            "n": 5,
-            "wins": 3,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 60.0
-          },
-          "65-69": {
-            "n": 2,
-            "wins": 2,
-            "losses": 0,
-            "ties": 0,
-            "accuracyExTies": 100.0
-          }
-        },
-        "direction": {
-          "BUY": {
-            "n": 11,
-            "wins": 5,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 45.45
-          },
-          "SELL": {
-            "n": 9,
-            "wins": 4,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          }
-        },
-        "regime": {
-          "MIXED": {
-            "n": 8,
-            "wins": 4,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "CHOPPY": {
-            "n": 5,
-            "wins": 2,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          },
-          "TRENDING": {
-            "n": 7,
-            "wins": 3,
-            "losses": 3,
-            "ties": 1,
-            "accuracyExTies": 50.0
-          }
-        },
-        "session": {
-          "NEW_YORK_LATE": {
-            "n": 7,
-            "wins": 4,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 57.14
-          },
-          "OFF_SESSION": {
-            "n": 13,
-            "wins": 5,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 41.67
-          }
-        },
-        "hour": {
-          "23:00": {
-            "n": 7,
-            "wins": 4,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 57.14
-          },
-          "00:00": {
-            "n": 13,
-            "wins": 5,
-            "losses": 7,
-            "ties": 1,
-            "accuracyExTies": 41.67
-          }
-        },
-        "safeguard": {
-          "LATE_CONTINUATION_GATE": {
-            "n": 17,
-            "wins": 7,
-            "losses": 9,
-            "ties": 1,
-            "accuracyExTies": 43.75
-          },
-          "progressFailureGate": {
-            "n": 18,
-            "wins": 8,
-            "losses": 9,
-            "ties": 1,
-            "accuracyExTies": 47.06
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 5,
-            "wins": 2,
-            "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 40.0
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 12,
-            "wins": 6,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          },
-          "lateCounterTrendRisk": {
-            "n": 17,
-            "wins": 7,
-            "losses": 9,
-            "ties": 1,
-            "accuracyExTies": 43.75
-          },
-          "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 6,
-            "wins": 0,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "TRANSITION_GATE": {
-            "n": 7,
-            "wins": 0,
-            "losses": 6,
-            "ties": 1,
-            "accuracyExTies": 0.0
-          },
-          "ENTRY_LANE_GATE": {
-            "n": 9,
-            "wins": 1,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 11.11
-          },
-          "continuationFreshEvidence": {
-            "n": 7,
-            "wins": 2,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 33.33
-          },
-          "progressFailureRisk": {
-            "n": 3,
-            "wins": 1,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 33.33
-          },
-          "FUSION_QUALITY_GATE": {
-            "n": 1,
-            "wins": 0,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 2,
-            "wins": 1,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 50.0
-          }
-        }
-      },
-      "shadow": {
-        "ready": 0,
-        "agreements": 0,
-        "disagreements": 0
-      }
-    },
-    {
-      "file": "audit/new-batches/audusd-3m-batch-18.json",
-      "pair": "AUDUSD",
-      "horizon": 3,
-      "batchNumber": 18,
+      "batchNumber": 24,
       "summary": {
         "n": 20,
         "wins": 12,
@@ -3867,35 +16,869 @@
         "ties": 2,
         "accuracyExTies": 66.67
       },
-      "maxLossStreak": 4,
-      "lossRuns2Plus": 1,
+      "maxLossStreak": 3,
+      "lossRuns2Plus": 2,
       "lossRuns3Plus": 1,
-      "lossRuns4Plus": 1,
+      "lossRuns4Plus": 0,
       "lossRuns5Plus": 0,
       "breakdowns": {
         "confidence": {
+          "60-64": {
+            "n": 5,
+            "wins": 2,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
           "57-59": {
+            "n": 12,
+            "wins": 8,
+            "losses": 3,
+            "ties": 1,
+            "accuracyExTies": 72.73
+          },
+          "65-69": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          }
+        },
+        "direction": {
+          "BUY": {
+            "n": 9,
+            "wins": 6,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 75.0
+          },
+          "SELL": {
             "n": 11,
             "wins": 6,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 60.0
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "n": 11,
+            "wins": 8,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 80.0
+          },
+          "MIXED": {
+            "n": 9,
+            "wins": 4,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 12,
+            "losses": 6,
+            "ties": 2,
+            "accuracyExTies": 66.67
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 15,
+            "wins": 10,
+            "losses": 3,
+            "ties": 2,
+            "accuracyExTies": 76.92
+          },
+          "02:00": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "safeguard": {
+          "highConfidenceContradictionRisk": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "progressFailureGate": {
+            "n": 16,
+            "wins": 9,
+            "losses": 5,
+            "ties": 2,
+            "accuracyExTies": 64.29
+          },
+          "HIGH_CONFIDENCE_CONTRADICTION_GATE": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "continuationFreshEvidence": {
+            "n": 5,
+            "wins": 5,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 14,
+            "wins": 6,
+            "losses": 6,
+            "ties": 2,
+            "accuracyExTies": 50.0
+          },
+          "progressFailureRisk": {
+            "n": 4,
+            "wins": 3,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 17,
+            "wins": 9,
+            "losses": 6,
+            "ties": 2,
+            "accuracyExTies": 60.0
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 13,
+            "wins": 8,
+            "losses": 3,
+            "ties": 2,
+            "accuracyExTies": 72.73
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 13,
+            "wins": 8,
+            "losses": 3,
+            "ties": 2,
+            "accuracyExTies": 72.73
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 4,
+            "wins": 3,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 17,
+            "wins": 9,
+            "losses": 6,
+            "ties": 2,
+            "accuracyExTies": 60.0
+          },
+          "TRANSITION_GATE": {
+            "n": 3,
+            "wins": 2,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": 100.0
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 5,
+            "wins": 3,
+            "losses": 1,
+            "ties": 1,
+            "accuracyExTies": 75.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "ONE_MINUTE_CHOP_GUARD": {
+            "n": 2,
+            "wins": 1,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": 100.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 5,
+        "agreements": 3,
+        "disagreements": 2
+      }
+    },
+    {
+      "file": "audit/new-batches/eurusd-2m-batch-21.json",
+      "pair": "EURUSD",
+      "horizon": 2,
+      "batchNumber": 21,
+      "summary": {
+        "n": 20,
+        "wins": 8,
+        "losses": 11,
+        "ties": 1,
+        "accuracyExTies": 42.11
+      },
+      "maxLossStreak": 5,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 2,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 16,
+            "wins": 7,
+            "losses": 8,
+            "ties": 1,
+            "accuracyExTies": 46.67
+          },
+          "60-64": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "65-69": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 10,
+            "wins": 4,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 44.44
+          },
+          "BUY": {
+            "n": 10,
+            "wins": 4,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "regime": {
+          "MIXED": {
+            "n": 6,
+            "wins": 1,
             "losses": 5,
             "ties": 0,
-            "accuracyExTies": 54.55
+            "accuracyExTies": 16.67
           },
-          "70+": {
+          "TRENDING": {
             "n": 2,
             "wins": 1,
             "losses": 1,
             "ties": 0,
             "accuracyExTies": 50.0
           },
-          "65-69": {
+          "CHOPPY": {
+            "n": 12,
+            "wins": 6,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 54.55
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 8,
+            "losses": 11,
+            "ties": 1,
+            "accuracyExTies": 42.11
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 11,
+            "wins": 5,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 45.45
+          },
+          "01:00": {
+            "n": 7,
+            "wins": 3,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 42.86
+          },
+          "02:00": {
+            "n": 2,
+            "wins": 0,
+            "losses": 1,
+            "ties": 1,
+            "accuracyExTies": 0.0
+          }
+        },
+        "safeguard": {
+          "CONTINUATION_RESET_GATE": {
+            "n": 16,
+            "wins": 7,
+            "losses": 8,
+            "ties": 1,
+            "accuracyExTies": 46.67
+          },
+          "TRANSITION_GATE": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 14,
+            "wins": 6,
+            "losses": 7,
+            "ties": 1,
+            "accuracyExTies": 46.15
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 12,
+            "wins": 5,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 45.45
+          },
+          "progressFailureGate": {
+            "n": 15,
+            "wins": 5,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 6,
+            "wins": 1,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 16.67
+          },
+          "continuationFreshEvidence": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "lateCounterTrendRisk": {
+            "n": 14,
+            "wins": 8,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 61.54
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 14,
+            "wins": 8,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 61.54
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 4,
+            "wins": 3,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          },
+          "progressFailureRisk": {
             "n": 5,
             "wins": 3,
+            "losses": 1,
+            "ties": 1,
+            "accuracyExTies": 75.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 5,
+            "wins": 3,
+            "losses": 1,
+            "ties": 1,
+            "accuracyExTies": 75.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 7,
+        "agreements": 2,
+        "disagreements": 5
+      }
+    },
+    {
+      "file": "audit/new-batches/eurusd-3m-batch-19.json",
+      "pair": "EURUSD",
+      "horizon": 3,
+      "batchNumber": 19,
+      "summary": {
+        "n": 20,
+        "wins": 6,
+        "losses": 13,
+        "ties": 1,
+        "accuracyExTies": 31.58
+      },
+      "maxLossStreak": 5,
+      "lossRuns2Plus": 4,
+      "lossRuns3Plus": 1,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 13,
+            "wins": 4,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 30.77
+          },
+          "65-69": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "60-64": {
+            "n": 3,
+            "wins": 0,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 0.0
+          },
+          "70+": {
+            "n": 1,
+            "wins": 1,
             "losses": 0,
-            "ties": 2,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          }
+        },
+        "direction": {
+          "BUY": {
+            "n": 9,
+            "wins": 2,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 25.0
+          },
+          "SELL": {
+            "n": 11,
+            "wins": 4,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 36.36
+          }
+        },
+        "regime": {
+          "MIXED": {
+            "n": 9,
+            "wins": 2,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 22.22
+          },
+          "CHOPPY": {
+            "n": 11,
+            "wins": 4,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 40.0
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 6,
+            "losses": 13,
+            "ties": 1,
+            "accuracyExTies": 31.58
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "01:00": {
+            "n": 12,
+            "wins": 4,
+            "losses": 7,
+            "ties": 1,
+            "accuracyExTies": 36.36
+          },
+          "02:00": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "safeguard": {
+          "CONTINUATION_RESET_GATE": {
+            "n": 18,
+            "wins": 6,
+            "losses": 11,
+            "ties": 1,
+            "accuracyExTies": 35.29
+          },
+          "TRANSITION_GATE": {
+            "n": 4,
+            "wins": 0,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 15,
+            "wins": 5,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 12,
+            "wins": 3,
+            "losses": 8,
+            "ties": 1,
+            "accuracyExTies": 27.27
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 9,
+            "wins": 3,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 37.5
+          },
+          "progressFailureGate": {
+            "n": 19,
+            "wins": 6,
+            "losses": 12,
+            "ties": 1,
+            "accuracyExTies": 33.33
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 14,
+            "wins": 5,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 35.71
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 5,
+            "wins": 1,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 20.0
+          },
+          "continuationFreshEvidence": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "progressFailureRisk": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 7,
+        "agreements": 3,
+        "disagreements": 4
+      }
+    },
+    {
+      "file": "audit/new-batches/eurusd-5m-batch-15.json",
+      "pair": "EURUSD",
+      "horizon": 5,
+      "batchNumber": 15,
+      "summary": {
+        "n": 20,
+        "wins": 11,
+        "losses": 9,
+        "ties": 0,
+        "accuracyExTies": 55.0
+      },
+      "maxLossStreak": 3,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 1,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 14,
+            "wins": 7,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "65-69": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "70+": {
+            "n": 2,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
             "accuracyExTies": 100.0
           },
           "60-64": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          }
+        },
+        "direction": {
+          "BUY": {
+            "n": 10,
+            "wins": 6,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 60.0
+          },
+          "SELL": {
+            "n": 10,
+            "wins": 5,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "n": 9,
+            "wins": 5,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 55.56
+          },
+          "MIXED": {
+            "n": 8,
+            "wins": 5,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 62.5
+          },
+          "TRENDING": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 11,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 55.0
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "01:00": {
+            "n": 12,
+            "wins": 7,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 58.33
+          },
+          "02:00": {
+            "n": 4,
+            "wins": 3,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          }
+        },
+        "safeguard": {
+          "CONTINUATION_RESET_GATE": {
+            "n": 17,
+            "wins": 10,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 58.82
+          },
+          "TRANSITION_GATE": {
+            "n": 4,
+            "wins": 3,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 16,
+            "wins": 7,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 43.75
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 8,
+            "wins": 3,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 37.5
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 7,
+            "wins": 3,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 42.86
+          },
+          "progressFailureGate": {
+            "n": 19,
+            "wins": 10,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 52.63
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 16,
+            "wins": 7,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 43.75
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 7,
+            "wins": 5,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 71.43
+          },
+          "progressFailureRisk": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 3,
+            "wins": 3,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "continuationFreshEvidence": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          }
+        }
+      },
+      "shadow": {
+        "ready": 7,
+        "agreements": 4,
+        "disagreements": 3
+      }
+    },
+    {
+      "file": "audit/new-batches/gbpusd-1m-batch-24.json",
+      "pair": "GBPUSD",
+      "horizon": 1,
+      "batchNumber": 24,
+      "summary": {
+        "n": 20,
+        "wins": 14,
+        "losses": 3,
+        "ties": 3,
+        "accuracyExTies": 82.35
+      },
+      "maxLossStreak": 1,
+      "lossRuns2Plus": 0,
+      "lossRuns3Plus": 0,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 15,
+            "wins": 10,
+            "losses": 2,
+            "ties": 3,
+            "accuracyExTies": 83.33
+          },
+          "60-64": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "65-69": {
+            "n": 2,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "70+": {
             "n": 2,
             "wins": 2,
             "losses": 0,
@@ -3905,156 +888,156 @@
         },
         "direction": {
           "BUY": {
-            "n": 8,
-            "wins": 5,
-            "losses": 3,
+            "n": 6,
+            "wins": 4,
+            "losses": 2,
             "ties": 0,
-            "accuracyExTies": 62.5
+            "accuracyExTies": 66.67
           },
           "SELL": {
-            "n": 12,
-            "wins": 7,
-            "losses": 3,
-            "ties": 2,
-            "accuracyExTies": 70.0
+            "n": 14,
+            "wins": 10,
+            "losses": 1,
+            "ties": 3,
+            "accuracyExTies": 90.91
           }
         },
         "regime": {
-          "TRENDING": {
-            "n": 6,
-            "wins": 1,
-            "losses": 4,
-            "ties": 1,
-            "accuracyExTies": 20.0
+          "CHOPPY": {
+            "n": 14,
+            "wins": 8,
+            "losses": 3,
+            "ties": 3,
+            "accuracyExTies": 72.73
           },
           "MIXED": {
-            "n": 6,
-            "wins": 6,
+            "n": 1,
+            "wins": 1,
             "losses": 0,
             "ties": 0,
             "accuracyExTies": 100.0
           },
-          "CHOPPY": {
-            "n": 8,
+          "TRENDING": {
+            "n": 5,
             "wins": 5,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 71.43
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
           }
         },
         "session": {
-          "NEW_YORK_LATE": {
-            "n": 6,
-            "wins": 5,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 83.33
-          },
           "OFF_SESSION": {
-            "n": 14,
-            "wins": 7,
-            "losses": 5,
-            "ties": 2,
-            "accuracyExTies": 58.33
+            "n": 20,
+            "wins": 14,
+            "losses": 3,
+            "ties": 3,
+            "accuracyExTies": 82.35
           }
         },
         "hour": {
-          "23:00": {
-            "n": 6,
-            "wins": 5,
-            "losses": 1,
-            "ties": 0,
-            "accuracyExTies": 83.33
-          },
           "00:00": {
-            "n": 14,
+            "n": 13,
             "wins": 7,
-            "losses": 5,
-            "ties": 2,
-            "accuracyExTies": 58.33
+            "losses": 3,
+            "ties": 3,
+            "accuracyExTies": 70.0
+          },
+          "02:00": {
+            "n": 7,
+            "wins": 7,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
           }
         },
         "safeguard": {
-          "LATE_CONTINUATION_GATE": {
-            "n": 14,
-            "wins": 7,
-            "losses": 5,
-            "ties": 2,
-            "accuracyExTies": 58.33
-          },
-          "progressFailureGate": {
-            "n": 19,
+          "CONTINUATION_RESET_GATE": {
+            "n": 17,
             "wins": 11,
-            "losses": 6,
-            "ties": 2,
-            "accuracyExTies": 64.71
-          },
-          "continuationFreshEvidence": {
-            "n": 7,
-            "wins": 3,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 42.86
-          },
-          "TRANSITION_GATE": {
-            "n": 6,
-            "wins": 3,
             "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 50.0
+            "ties": 3,
+            "accuracyExTies": 78.57
           },
           "lateCounterTrendRisk": {
-            "n": 15,
-            "wins": 7,
-            "losses": 6,
+            "n": 14,
+            "wins": 9,
+            "losses": 3,
             "ties": 2,
-            "accuracyExTies": 53.85
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 11,
-            "wins": 8,
-            "losses": 2,
-            "ties": 1,
-            "accuracyExTies": 80.0
-          },
-          "progressFailureRisk": {
-            "n": 4,
-            "wins": 3,
-            "losses": 1,
-            "ties": 0,
             "accuracyExTies": 75.0
           },
           "ENTRY_LANE_GATE": {
-            "n": 10,
-            "wins": 7,
+            "n": 14,
+            "wins": 8,
             "losses": 3,
-            "ties": 0,
-            "accuracyExTies": 70.0
+            "ties": 3,
+            "accuracyExTies": 72.73
           },
           "BELOW_CONFIDENCE_THRESHOLD": {
-            "n": 5,
+            "n": 14,
+            "wins": 8,
+            "losses": 3,
+            "ties": 3,
+            "accuracyExTies": 72.73
+          },
+          "progressFailureGate": {
+            "n": 15,
+            "wins": 9,
+            "losses": 3,
+            "ties": 3,
+            "accuracyExTies": 75.0
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 14,
+            "wins": 9,
+            "losses": 3,
+            "ties": 2,
+            "accuracyExTies": 75.0
+          },
+          "TRANSITION_GATE": {
+            "n": 6,
             "wins": 4,
             "losses": 1,
-            "ties": 0,
+            "ties": 1,
             "accuracyExTies": 80.0
           },
           "FUSION_QUALITY_GATE": {
-            "n": 3,
-            "wins": 1,
+            "n": 10,
+            "wins": 5,
+            "losses": 3,
+            "ties": 2,
+            "accuracyExTies": 62.5
+          },
+          "ONE_MINUTE_CHOP_GUARD": {
+            "n": 7,
+            "wins": 3,
             "losses": 2,
+            "ties": 2,
+            "accuracyExTies": 60.0
+          },
+          "progressFailureRisk": {
+            "n": 5,
+            "wins": 5,
+            "losses": 0,
             "ties": 0,
-            "accuracyExTies": 33.33
+            "accuracyExTies": 100.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 5,
+            "wins": 5,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
           },
           "BREAKOUT_MATURITY_GATE": {
             "n": 2,
             "wins": 1,
-            "losses": 0,
-            "ties": 1,
-            "accuracyExTies": 100.0
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
           },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 1,
-            "wins": 1,
+          "continuationFreshEvidence": {
+            "n": 2,
+            "wins": 2,
             "losses": 0,
             "ties": 0,
             "accuracyExTies": 100.0
@@ -4068,16 +1051,603 @@
       }
     },
     {
-      "file": "audit/new-batches/audusd-5m-batch-14.json",
-      "pair": "AUDUSD",
+      "file": "audit/new-batches/gbpusd-2m-batch-21.json",
+      "pair": "GBPUSD",
+      "horizon": 2,
+      "batchNumber": 21,
+      "summary": {
+        "n": 20,
+        "wins": 4,
+        "losses": 15,
+        "ties": 1,
+        "accuracyExTies": 21.05
+      },
+      "maxLossStreak": 9,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 3,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 14,
+            "wins": 4,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 30.77
+          },
+          "65-69": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "60-64": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        },
+        "direction": {
+          "BUY": {
+            "n": 11,
+            "wins": 1,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 10.0
+          },
+          "SELL": {
+            "n": 9,
+            "wins": 3,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          }
+        },
+        "regime": {
+          "MIXED": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "TRENDING": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "CHOPPY": {
+            "n": 15,
+            "wins": 2,
+            "losses": 12,
+            "ties": 1,
+            "accuracyExTies": 14.29
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 4,
+            "losses": 15,
+            "ties": 1,
+            "accuracyExTies": 21.05
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 9,
+            "wins": 3,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 37.5
+          },
+          "01:00": {
+            "n": 7,
+            "wins": 1,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 14.29
+          },
+          "02:00": {
+            "n": 4,
+            "wins": 0,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        },
+        "safeguard": {
+          "CONTINUATION_RESET_GATE": {
+            "n": 18,
+            "wins": 4,
+            "losses": 13,
+            "ties": 1,
+            "accuracyExTies": 23.53
+          },
+          "lateCounterTrendRisk": {
+            "n": 16,
+            "wins": 4,
+            "losses": 11,
+            "ties": 1,
+            "accuracyExTies": 26.67
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 14,
+            "wins": 3,
+            "losses": 10,
+            "ties": 1,
+            "accuracyExTies": 23.08
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 12,
+            "wins": 3,
+            "losses": 8,
+            "ties": 1,
+            "accuracyExTies": 27.27
+          },
+          "progressFailureGate": {
+            "n": 18,
+            "wins": 3,
+            "losses": 14,
+            "ties": 1,
+            "accuracyExTies": 17.65
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 16,
+            "wins": 4,
+            "losses": 11,
+            "ties": 1,
+            "accuracyExTies": 26.67
+          },
+          "TRANSITION_GATE": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "progressFailureRisk": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/gbpusd-3m-batch-19.json",
+      "pair": "GBPUSD",
+      "horizon": 3,
+      "batchNumber": 19,
+      "summary": {
+        "n": 20,
+        "wins": 8,
+        "losses": 12,
+        "ties": 0,
+        "accuracyExTies": 40.0
+      },
+      "maxLossStreak": 3,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 1,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 10,
+            "wins": 4,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "70+": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "60-64": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "65-69": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          }
+        },
+        "direction": {
+          "BUY": {
+            "n": 13,
+            "wins": 5,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 38.46
+          },
+          "SELL": {
+            "n": 7,
+            "wins": 3,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 42.86
+          }
+        },
+        "regime": {
+          "TRENDING": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "MIXED": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "CHOPPY": {
+            "n": 17,
+            "wins": 7,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 41.18
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 8,
+            "losses": 12,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "01:00": {
+            "n": 12,
+            "wins": 4,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "02:00": {
+            "n": 6,
+            "wins": 3,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        },
+        "safeguard": {
+          "CONTINUATION_RESET_GATE": {
+            "n": 15,
+            "wins": 7,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 46.67
+          },
+          "lateCounterTrendRisk": {
+            "n": 14,
+            "wins": 5,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 35.71
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 11,
+            "wins": 5,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 45.45
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 11,
+            "wins": 5,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 45.45
+          },
+          "progressFailureGate": {
+            "n": 20,
+            "wins": 8,
+            "losses": 12,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 13,
+            "wins": 5,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 38.46
+          },
+          "TRANSITION_GATE": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "continuationFreshEvidence": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/gbpusd-5m-batch-15.json",
+      "pair": "GBPUSD",
       "horizon": 5,
-      "batchNumber": 14,
+      "batchNumber": 15,
+      "summary": {
+        "n": 20,
+        "wins": 10,
+        "losses": 9,
+        "ties": 1,
+        "accuracyExTies": 52.63
+      },
+      "maxLossStreak": 3,
+      "lossRuns2Plus": 4,
+      "lossRuns3Plus": 1,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 11,
+            "wins": 6,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 60.0
+          },
+          "65-69": {
+            "n": 4,
+            "wins": 2,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "60-64": {
+            "n": 2,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "70+": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 8,
+            "wins": 3,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 42.86
+          },
+          "BUY": {
+            "n": 12,
+            "wins": 7,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 58.33
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "n": 14,
+            "wins": 7,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "MIXED": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "TRENDING": {
+            "n": 3,
+            "wins": 1,
+            "losses": 1,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 10,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 52.63
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 7,
+            "wins": 3,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 42.86
+          },
+          "01:00": {
+            "n": 12,
+            "wins": 6,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 54.55
+          },
+          "02:00": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          }
+        },
+        "safeguard": {
+          "CONTINUATION_RESET_GATE": {
+            "n": 15,
+            "wins": 8,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 57.14
+          },
+          "TRANSITION_GATE": {
+            "n": 7,
+            "wins": 3,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 42.86
+          },
+          "lateCounterTrendRisk": {
+            "n": 13,
+            "wins": 7,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 58.33
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 10,
+            "wins": 7,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 70.0
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 9,
+            "wins": 6,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "progressFailureGate": {
+            "n": 20,
+            "wins": 10,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 52.63
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 13,
+            "wins": 7,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 58.33
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "continuationFreshEvidence": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/eurjpy-1m-batch-24.json",
+      "pair": "EURJPY",
+      "horizon": 1,
+      "batchNumber": 24,
       "summary": {
         "n": 20,
         "wins": 6,
-        "losses": 14,
-        "ties": 0,
-        "accuracyExTies": 30.0
+        "losses": 11,
+        "ties": 3,
+        "accuracyExTies": 35.29
       },
       "maxLossStreak": 4,
       "lossRuns2Plus": 3,
@@ -4087,50 +1657,57 @@
       "breakdowns": {
         "confidence": {
           "60-64": {
-            "n": 7,
+            "n": 6,
             "wins": 2,
-            "losses": 5,
+            "losses": 3,
+            "ties": 1,
+            "accuracyExTies": 40.0
+          },
+          "70+": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
             "ties": 0,
-            "accuracyExTies": 28.57
+            "accuracyExTies": 0.0
           },
           "57-59": {
             "n": 10,
-            "wins": 2,
-            "losses": 8,
-            "ties": 0,
-            "accuracyExTies": 20.0
+            "wins": 4,
+            "losses": 4,
+            "ties": 2,
+            "accuracyExTies": 50.0
           },
-          "70+": {
-            "n": 3,
-            "wins": 2,
-            "losses": 1,
+          "65-69": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
             "ties": 0,
-            "accuracyExTies": 66.67
+            "accuracyExTies": 0.0
           }
         },
         "direction": {
           "SELL": {
-            "n": 7,
-            "wins": 1,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 14.29
+            "n": 12,
+            "wins": 2,
+            "losses": 7,
+            "ties": 3,
+            "accuracyExTies": 22.22
           },
           "BUY": {
-            "n": 13,
-            "wins": 5,
-            "losses": 8,
+            "n": 8,
+            "wins": 4,
+            "losses": 4,
             "ties": 0,
-            "accuracyExTies": 38.46
+            "accuracyExTies": 50.0
           }
         },
         "regime": {
-          "TRENDING": {
-            "n": 6,
-            "wins": 2,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 33.33
+          "CHOPPY": {
+            "n": 14,
+            "wins": 4,
+            "losses": 7,
+            "ties": 3,
+            "accuracyExTies": 36.36
           },
           "MIXED": {
             "n": 6,
@@ -4138,76 +1715,819 @@
             "losses": 4,
             "ties": 0,
             "accuracyExTies": 33.33
-          },
-          "CHOPPY": {
-            "n": 8,
-            "wins": 2,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 25.0
           }
         },
         "session": {
-          "NEW_YORK_LATE": {
-            "n": 11,
-            "wins": 4,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 36.36
-          },
           "OFF_SESSION": {
-            "n": 9,
-            "wins": 2,
-            "losses": 7,
-            "ties": 0,
-            "accuracyExTies": 22.22
+            "n": 20,
+            "wins": 6,
+            "losses": 11,
+            "ties": 3,
+            "accuracyExTies": 35.29
           }
         },
         "hour": {
-          "21:00": {
-            "n": 2,
-            "wins": 0,
-            "losses": 2,
-            "ties": 0,
-            "accuracyExTies": 0.0
-          },
-          "23:00": {
-            "n": 9,
-            "wins": 4,
-            "losses": 5,
-            "ties": 0,
-            "accuracyExTies": 44.44
-          },
           "00:00": {
-            "n": 9,
-            "wins": 2,
-            "losses": 7,
+            "n": 14,
+            "wins": 5,
+            "losses": 9,
             "ties": 0,
-            "accuracyExTies": 22.22
+            "accuracyExTies": 35.71
+          },
+          "02:00": {
+            "n": 6,
+            "wins": 1,
+            "losses": 2,
+            "ties": 3,
+            "accuracyExTies": 33.33
           }
         },
         "safeguard": {
+          "PROGRESS_FAILURE_GATE": {
+            "n": 2,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 14,
+            "wins": 5,
+            "losses": 6,
+            "ties": 3,
+            "accuracyExTies": 45.45
+          },
+          "progressFailureRisk": {
+            "n": 6,
+            "wins": 3,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 60.0
+          },
+          "progressFailureGate": {
+            "n": 18,
+            "wins": 4,
+            "losses": 11,
+            "ties": 3,
+            "accuracyExTies": 26.67
+          },
+          "lateCounterTrendRisk": {
+            "n": 14,
+            "wins": 4,
+            "losses": 8,
+            "ties": 2,
+            "accuracyExTies": 33.33
+          },
           "continuationFreshEvidence": {
+            "n": 5,
+            "wins": 0,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "TRANSITION_GATE": {
+            "n": 3,
+            "wins": 0,
+            "losses": 1,
+            "ties": 2,
+            "accuracyExTies": 0.0
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 13,
+            "wins": 5,
+            "losses": 6,
+            "ties": 2,
+            "accuracyExTies": 45.45
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 11,
+            "wins": 5,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 13,
+            "wins": 4,
+            "losses": 7,
+            "ties": 2,
+            "accuracyExTies": 36.36
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 5,
+            "wins": 1,
+            "losses": 3,
+            "ties": 1,
+            "accuracyExTies": 25.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 4,
+            "wins": 1,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 33.33
+          },
+          "highConfidenceContradictionRisk": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/eurjpy-2m-batch-21.json",
+      "pair": "EURJPY",
+      "horizon": 2,
+      "batchNumber": 21,
+      "summary": {
+        "n": 20,
+        "wins": 8,
+        "losses": 11,
+        "ties": 1,
+        "accuracyExTies": 42.11
+      },
+      "maxLossStreak": 4,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 3,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "65-69": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "57-59": {
+            "n": 13,
+            "wins": 6,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "70+": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "60-64": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 13,
+            "wins": 5,
+            "losses": 7,
+            "ties": 1,
+            "accuracyExTies": 41.67
+          },
+          "BUY": {
+            "n": 7,
+            "wins": 3,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 42.86
+          }
+        },
+        "regime": {
+          "MIXED": {
+            "n": 5,
+            "wins": 3,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 60.0
+          },
+          "CHOPPY": {
+            "n": 15,
+            "wins": 5,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 35.71
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 8,
+            "losses": 11,
+            "ties": 1,
+            "accuracyExTies": 42.11
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 9,
+            "wins": 4,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "01:00": {
             "n": 7,
             "wins": 3,
             "losses": 4,
             "ties": 0,
             "accuracyExTies": 42.86
           },
+          "02:00": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          }
+        },
+        "safeguard": {
+          "progressFailureGate": {
+            "n": 19,
+            "wins": 7,
+            "losses": 11,
+            "ties": 1,
+            "accuracyExTies": 38.89
+          },
+          "continuationFreshEvidence": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 17,
+            "wins": 7,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 43.75
+          },
+          "lateCounterTrendRisk": {
+            "n": 16,
+            "wins": 6,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 40.0
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 13,
+            "wins": 7,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 58.33
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 13,
+            "wins": 7,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 58.33
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 16,
+            "wins": 6,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 40.0
+          },
+          "progressFailureRisk": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
           "TRANSITION_GATE": {
+            "n": 4,
+            "wins": 2,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 9,
+            "wins": 3,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/eurjpy-3m-batch-19.json",
+      "pair": "EURJPY",
+      "horizon": 3,
+      "batchNumber": 19,
+      "summary": {
+        "n": 20,
+        "wins": 8,
+        "losses": 12,
+        "ties": 0,
+        "accuracyExTies": 40.0
+      },
+      "maxLossStreak": 5,
+      "lossRuns2Plus": 4,
+      "lossRuns3Plus": 2,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "breakdowns": {
+        "confidence": {
+          "65-69": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "60-64": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "57-59": {
+            "n": 16,
+            "wins": 7,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 43.75
+          }
+        },
+        "direction": {
+          "BUY": {
+            "n": 5,
+            "wins": 3,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 60.0
+          },
+          "SELL": {
+            "n": 15,
+            "wins": 5,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "n": 15,
+            "wins": 6,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "MIXED": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 8,
+            "losses": 12,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "01:00": {
+            "n": 12,
+            "wins": 5,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 41.67
+          },
+          "02:00": {
+            "n": 4,
+            "wins": 2,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        },
+        "safeguard": {
+          "progressFailureGate": {
+            "n": 20,
+            "wins": 8,
+            "losses": 12,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 19,
+            "wins": 8,
+            "losses": 11,
+            "ties": 0,
+            "accuracyExTies": 42.11
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "continuationFreshEvidence": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "TRANSITION_GATE": {
+            "n": 4,
+            "wins": 2,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 16,
+            "wins": 6,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 37.5
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 16,
+            "wins": 6,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 37.5
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 15,
+            "wins": 5,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 16,
+            "wins": 6,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 37.5
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 8,
+            "wins": 3,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 37.5
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/eurjpy-5m-batch-15.json",
+      "pair": "EURJPY",
+      "horizon": 5,
+      "batchNumber": 15,
+      "summary": {
+        "n": 20,
+        "wins": 9,
+        "losses": 11,
+        "ties": 0,
+        "accuracyExTies": 45.0
+      },
+      "maxLossStreak": 3,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 1,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 7,
+            "wins": 4,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 57.14
+          },
+          "70+": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "60-64": {
+            "n": 10,
+            "wins": 4,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "65-69": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 9,
+            "wins": 3,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "BUY": {
+            "n": 11,
+            "wins": 6,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 54.55
+          }
+        },
+        "regime": {
+          "MIXED": {
+            "n": 9,
+            "wins": 3,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "CHOPPY": {
+            "n": 9,
+            "wins": 5,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 55.56
+          },
+          "TRENDING": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 9,
+            "losses": 11,
+            "ties": 0,
+            "accuracyExTies": 45.0
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "01:00": {
+            "n": 12,
+            "wins": 7,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 58.33
+          },
+          "02:00": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          }
+        },
+        "safeguard": {
+          "ENTRY_LANE_GATE": {
+            "n": 15,
+            "wins": 8,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 53.33
+          },
+          "progressFailureGate": {
+            "n": 20,
+            "wins": 9,
+            "losses": 11,
+            "ties": 0,
+            "accuracyExTies": 45.0
+          },
+          "TRANSITION_GATE": {
+            "n": 8,
+            "wins": 3,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 37.5
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 20,
+            "wins": 9,
+            "losses": 11,
+            "ties": 0,
+            "accuracyExTies": 45.0
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 11,
+            "wins": 6,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 54.55
+          },
+          "lateCounterTrendRisk": {
+            "n": 3,
+            "wins": 3,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 3,
+            "wins": 3,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 3,
+            "wins": 3,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/usdjpy-1m-batch-24.json",
+      "pair": "USDJPY",
+      "horizon": 1,
+      "batchNumber": 24,
+      "summary": {
+        "n": 20,
+        "wins": 7,
+        "losses": 13,
+        "ties": 0,
+        "accuracyExTies": 35.0
+      },
+      "maxLossStreak": 4,
+      "lossRuns2Plus": 4,
+      "lossRuns3Plus": 3,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "70+": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "57-59": {
+            "n": 9,
+            "wins": 4,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 44.44
+          },
+          "60-64": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "65-69": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 11,
+            "wins": 3,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 27.27
+          },
+          "BUY": {
+            "n": 9,
+            "wins": 4,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 44.44
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "n": 15,
+            "wins": 5,
+            "losses": 10,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "MIXED": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 7,
+            "losses": 13,
+            "ties": 0,
+            "accuracyExTies": 35.0
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 14,
+            "wins": 6,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 42.86
+          },
+          "01:00": {
             "n": 5,
             "wins": 1,
             "losses": 4,
             "ties": 0,
             "accuracyExTies": 20.0
           },
-          "progressFailureRisk": {
-            "n": 7,
-            "wins": 1,
-            "losses": 6,
+          "02:00": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
             "ties": 0,
-            "accuracyExTies": 14.29
-          },
+            "accuracyExTies": 0.0
+          }
+        },
+        "safeguard": {
           "progressFailureGate": {
             "n": 15,
             "wins": 5,
@@ -4215,35 +2535,42 @@
             "ties": 0,
             "accuracyExTies": 33.33
           },
-          "PROGRESS_FAILURE_GATE": {
-            "n": 5,
-            "wins": 1,
-            "losses": 4,
-            "ties": 0,
-            "accuracyExTies": 20.0
-          },
-          "BREAKOUT_MATURITY_GATE": {
-            "n": 8,
-            "wins": 2,
-            "losses": 6,
-            "ties": 0,
-            "accuracyExTies": 25.0
-          },
-          "CONTINUATION_RESET_GATE": {
-            "n": 12,
-            "wins": 3,
+          "lateCounterTrendRisk": {
+            "n": 13,
+            "wins": 4,
             "losses": 9,
             "ties": 0,
-            "accuracyExTies": 25.0
+            "accuracyExTies": 30.77
           },
-          "LATE_CONTINUATION_GATE": {
+          "continuationFreshEvidence": {
+            "n": 6,
+            "wins": 2,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "TRANSITION_GATE": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 13,
+            "wins": 5,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 38.46
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
             "n": 11,
             "wins": 3,
             "losses": 8,
             "ties": 0,
             "accuracyExTies": 27.27
           },
-          "lateCounterTrendRisk": {
+          "LATE_CONTINUATION_GATE": {
             "n": 12,
             "wins": 4,
             "losses": 8,
@@ -4257,17 +2584,1494 @@
             "ties": 0,
             "accuracyExTies": 66.67
           },
+          "CONTINUATION_RESET_GATE": {
+            "n": 12,
+            "wins": 4,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "progressFailureRisk": {
+            "n": 6,
+            "wins": 2,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "highConfidenceContradictionRisk": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/usdjpy-2m-batch-21.json",
+      "pair": "USDJPY",
+      "horizon": 2,
+      "batchNumber": 21,
+      "summary": {
+        "n": 20,
+        "wins": 8,
+        "losses": 11,
+        "ties": 1,
+        "accuracyExTies": 42.11
+      },
+      "maxLossStreak": 5,
+      "lossRuns2Plus": 2,
+      "lossRuns3Plus": 1,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "breakdowns": {
+        "confidence": {
+          "60-64": {
+            "n": 5,
+            "wins": 3,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 60.0
+          },
+          "57-59": {
+            "n": 11,
+            "wins": 4,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 40.0
+          },
+          "70+": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "65-69": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        },
+        "direction": {
+          "BUY": {
+            "n": 8,
+            "wins": 5,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 62.5
+          },
+          "SELL": {
+            "n": 12,
+            "wins": 3,
+            "losses": 8,
+            "ties": 1,
+            "accuracyExTies": 27.27
+          }
+        },
+        "regime": {
+          "MIXED": {
+            "n": 6,
+            "wins": 4,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "CHOPPY": {
+            "n": 14,
+            "wins": 4,
+            "losses": 9,
+            "ties": 1,
+            "accuracyExTies": 30.77
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 8,
+            "losses": 11,
+            "ties": 1,
+            "accuracyExTies": 42.11
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 9,
+            "wins": 2,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 22.22
+          },
+          "01:00": {
+            "n": 11,
+            "wins": 6,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 60.0
+          }
+        },
+        "safeguard": {
+          "progressFailureGate": {
+            "n": 19,
+            "wins": 8,
+            "losses": 10,
+            "ties": 1,
+            "accuracyExTies": 44.44
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 17,
+            "wins": 8,
+            "losses": 8,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 11,
+            "wins": 5,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 45.45
+          },
           "ENTRY_LANE_GATE": {
+            "n": 11,
+            "wins": 4,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 40.0
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 9,
+            "wins": 3,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 11,
+            "wins": 5,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 45.45
+          },
+          "continuationFreshEvidence": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "progressFailureRisk": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "TRANSITION_GATE": {
+            "n": 5,
+            "wins": 1,
+            "losses": 3,
+            "ties": 1,
+            "accuracyExTies": 25.0
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 2,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/usdjpy-3m-batch-19.json",
+      "pair": "USDJPY",
+      "horizon": 3,
+      "batchNumber": 19,
+      "summary": {
+        "n": 20,
+        "wins": 15,
+        "losses": 5,
+        "ties": 0,
+        "accuracyExTies": 75.0
+      },
+      "maxLossStreak": 1,
+      "lossRuns2Plus": 0,
+      "lossRuns3Plus": 0,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 15,
+            "wins": 12,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 80.0
+          },
+          "60-64": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "65-69": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          }
+        },
+        "direction": {
+          "BUY": {
+            "n": 11,
+            "wins": 8,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 72.73
+          },
+          "SELL": {
+            "n": 9,
+            "wins": 7,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 77.78
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "n": 12,
+            "wins": 9,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          },
+          "MIXED": {
+            "n": 8,
+            "wins": 6,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 15,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          }
+        },
+        "hour": {
+          "00:00": {
             "n": 2,
             "wins": 2,
             "losses": 0,
             "ties": 0,
             "accuracyExTies": 100.0
           },
+          "01:00": {
+            "n": 15,
+            "wins": 11,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 73.33
+          },
+          "02:00": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          }
+        },
+        "safeguard": {
+          "CONTINUATION_RESET_GATE": {
+            "n": 16,
+            "wins": 12,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          },
+          "TRANSITION_GATE": {
+            "n": 5,
+            "wins": 3,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 60.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 17,
+            "wins": 13,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 76.47
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 14,
+            "wins": 11,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 78.57
+          },
           "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 12,
+            "wins": 10,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 83.33
+          },
+          "progressFailureGate": {
+            "n": 19,
+            "wins": 14,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 73.68
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 17,
+            "wins": 13,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 76.47
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 6,
+            "wins": 4,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "continuationFreshEvidence": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "progressFailureRisk": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/usdjpy-15m-batch-6.json",
+      "pair": "USDJPY",
+      "horizon": 15,
+      "batchNumber": 6,
+      "summary": {
+        "n": 20,
+        "wins": 9,
+        "losses": 11,
+        "ties": 0,
+        "accuracyExTies": 45.0
+      },
+      "maxLossStreak": 5,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 1,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 1,
+      "breakdowns": {
+        "confidence": {
+          "60-64": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "57-59": {
+            "n": 11,
+            "wins": 6,
+            "losses": 5,
+            "ties": 0,
+            "accuracyExTies": 54.55
+          },
+          "70+": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "65-69": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 6,
+            "wins": 2,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "BUY": {
+            "n": 14,
+            "wins": 7,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        },
+        "regime": {
+          "MIXED": {
+            "n": 6,
+            "wins": 3,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "CHOPPY": {
+            "n": 12,
+            "wins": 6,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "TRENDING": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        },
+        "session": {
+          "LONDON_NY_OVERLAP": {
+            "n": 7,
+            "wins": 5,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 71.43
+          },
+          "NEW_YORK_LATE": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "OFF_SESSION": {
+            "n": 8,
+            "wins": 2,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          }
+        },
+        "hour": {
+          "19:00": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "20:00": {
+            "n": 4,
+            "wins": 4,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "21:00": {
             "n": 2,
             "wins": 1,
             "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "23:00": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "00:00": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "01:00": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          }
+        },
+        "safeguard": {
+          "progressFailureGate": {
+            "n": 18,
+            "wins": 9,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 16,
+            "wins": 9,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 56.25
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 13,
+            "wins": 7,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 53.85
+          },
+          "lateCounterTrendRisk": {
+            "n": 13,
+            "wins": 7,
+            "losses": 6,
+            "ties": 0,
+            "accuracyExTies": 53.85
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "continuationFreshEvidence": {
+            "n": 4,
+            "wins": 0,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 7,
+            "wins": 4,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 57.14
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 6,
+            "wins": 4,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 4,
+            "wins": 3,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          },
+          "TRANSITION_GATE": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "progressFailureRisk": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/audusd-1m-batch-24.json",
+      "pair": "AUDUSD",
+      "horizon": 1,
+      "batchNumber": 24,
+      "summary": {
+        "n": 20,
+        "wins": 10,
+        "losses": 6,
+        "ties": 4,
+        "accuracyExTies": 62.5
+      },
+      "maxLossStreak": 2,
+      "lossRuns2Plus": 1,
+      "lossRuns3Plus": 0,
+      "lossRuns4Plus": 0,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 7,
+            "wins": 3,
+            "losses": 3,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "65-69": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "60-64": {
+            "n": 3,
+            "wins": 1,
+            "losses": 1,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "70+": {
+            "n": 7,
+            "wins": 5,
+            "losses": 0,
+            "ties": 2,
+            "accuracyExTies": 100.0
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "BUY": {
+            "n": 15,
+            "wins": 8,
+            "losses": 3,
+            "ties": 4,
+            "accuracyExTies": 72.73
+          }
+        },
+        "regime": {
+          "CHOPPY": {
+            "n": 2,
+            "wins": 0,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "MIXED": {
+            "n": 2,
+            "wins": 2,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          },
+          "TRENDING": {
+            "n": 16,
+            "wins": 8,
+            "losses": 4,
+            "ties": 4,
+            "accuracyExTies": 66.67
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 10,
+            "losses": 6,
+            "ties": 4,
+            "accuracyExTies": 62.5
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "02:00": {
+            "n": 17,
+            "wins": 9,
+            "losses": 4,
+            "ties": 4,
+            "accuracyExTies": 69.23
+          }
+        },
+        "safeguard": {
+          "CONTINUATION_RESET_GATE": {
+            "n": 11,
+            "wins": 3,
+            "losses": 6,
+            "ties": 2,
+            "accuracyExTies": 33.33
+          },
+          "lateCounterTrendRisk": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 7,
+            "wins": 2,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 33.33
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 7,
+            "wins": 2,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 33.33
+          },
+          "progressFailureGate": {
+            "n": 19,
+            "wins": 10,
+            "losses": 6,
+            "ties": 3,
+            "accuracyExTies": 62.5
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "highConfidenceContradictionRisk": {
+            "n": 2,
+            "wins": 1,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": 100.0
+          },
+          "continuationFreshEvidence": {
+            "n": 8,
+            "wins": 6,
+            "losses": 0,
+            "ties": 2,
+            "accuracyExTies": 100.0
+          },
+          "progressFailureRisk": {
+            "n": 4,
+            "wins": 1,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 33.33
+          },
+          "HIGH_CONFIDENCE_CONTRADICTION_GATE": {
+            "n": 1,
+            "wins": 0,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": null
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 1,
+            "wins": 0,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": null
+          },
+          "TRANSITION_GATE": {
+            "n": 3,
+            "wins": 2,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": 100.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 4,
+            "wins": 2,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/audusd-2m-batch-21.json",
+      "pair": "AUDUSD",
+      "horizon": 2,
+      "batchNumber": 21,
+      "summary": {
+        "n": 20,
+        "wins": 7,
+        "losses": 10,
+        "ties": 3,
+        "accuracyExTies": 41.18
+      },
+      "maxLossStreak": 4,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 2,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "57-59": {
+            "n": 11,
+            "wins": 2,
+            "losses": 6,
+            "ties": 3,
+            "accuracyExTies": 25.0
+          },
+          "60-64": {
+            "n": 4,
+            "wins": 3,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 75.0
+          },
+          "65-69": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 8,
+            "wins": 3,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 42.86
+          },
+          "BUY": {
+            "n": 12,
+            "wins": 4,
+            "losses": 6,
+            "ties": 2,
+            "accuracyExTies": 40.0
+          }
+        },
+        "regime": {
+          "TRENDING": {
+            "n": 3,
+            "wins": 1,
+            "losses": 1,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "MIXED": {
+            "n": 9,
+            "wins": 2,
+            "losses": 7,
+            "ties": 0,
+            "accuracyExTies": 22.22
+          },
+          "CHOPPY": {
+            "n": 8,
+            "wins": 4,
+            "losses": 2,
+            "ties": 2,
+            "accuracyExTies": 66.67
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 7,
+            "losses": 10,
+            "ties": 3,
+            "accuracyExTies": 41.18
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 7,
+            "wins": 2,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 33.33
+          },
+          "01:00": {
+            "n": 7,
+            "wins": 3,
+            "losses": 3,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "02:00": {
+            "n": 6,
+            "wins": 2,
+            "losses": 3,
+            "ties": 1,
+            "accuracyExTies": 40.0
+          }
+        },
+        "safeguard": {
+          "continuationFreshEvidence": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "TRANSITION_GATE": {
+            "n": 5,
+            "wins": 0,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 0.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 12,
+            "wins": 3,
+            "losses": 6,
+            "ties": 3,
+            "accuracyExTies": 33.33
+          },
+          "progressFailureGate": {
+            "n": 18,
+            "wins": 6,
+            "losses": 10,
+            "ties": 2,
+            "accuracyExTies": 37.5
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 12,
+            "wins": 3,
+            "losses": 6,
+            "ties": 3,
+            "accuracyExTies": 33.33
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 17,
+            "wins": 6,
+            "losses": 8,
+            "ties": 3,
+            "accuracyExTies": 42.86
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 11,
+            "wins": 2,
+            "losses": 7,
+            "ties": 2,
+            "accuracyExTies": 22.22
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 10,
+            "wins": 1,
+            "losses": 7,
+            "ties": 2,
+            "accuracyExTies": 12.5
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 6,
+            "wins": 2,
+            "losses": 2,
+            "ties": 2,
+            "accuracyExTies": 50.0
+          },
+          "progressFailureRisk": {
+            "n": 2,
+            "wins": 1,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": 100.0
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 2,
+            "wins": 1,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": 100.0
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/audusd-3m-batch-19.json",
+      "pair": "AUDUSD",
+      "horizon": 3,
+      "batchNumber": 19,
+      "summary": {
+        "n": 20,
+        "wins": 9,
+        "losses": 9,
+        "ties": 2,
+        "accuracyExTies": 50.0
+      },
+      "maxLossStreak": 4,
+      "lossRuns2Plus": 2,
+      "lossRuns3Plus": 2,
+      "lossRuns4Plus": 2,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "65-69": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "57-59": {
+            "n": 10,
+            "wins": 5,
+            "losses": 3,
+            "ties": 2,
+            "accuracyExTies": 62.5
+          },
+          "60-64": {
+            "n": 6,
+            "wins": 2,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "70+": {
+            "n": 1,
+            "wins": 1,
+            "losses": 0,
+            "ties": 0,
+            "accuracyExTies": 100.0
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 6,
+            "wins": 2,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "BUY": {
+            "n": 14,
+            "wins": 7,
+            "losses": 5,
+            "ties": 2,
+            "accuracyExTies": 58.33
+          }
+        },
+        "regime": {
+          "TRENDING": {
+            "n": 4,
+            "wins": 1,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "MIXED": {
+            "n": 3,
+            "wins": 1,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "CHOPPY": {
+            "n": 13,
+            "wins": 7,
+            "losses": 4,
+            "ties": 2,
+            "accuracyExTies": 63.64
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 9,
+            "losses": 9,
+            "ties": 2,
+            "accuracyExTies": 50.0
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 3,
+            "wins": 0,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "01:00": {
+            "n": 12,
+            "wins": 5,
+            "losses": 5,
+            "ties": 2,
+            "accuracyExTies": 50.0
+          },
+          "02:00": {
+            "n": 5,
+            "wins": 4,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 80.0
+          }
+        },
+        "safeguard": {
+          "ENTRY_LANE_GATE": {
+            "n": 12,
+            "wins": 5,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 45.45
+          },
+          "progressFailureGate": {
+            "n": 18,
+            "wins": 9,
+            "losses": 8,
+            "ties": 1,
+            "accuracyExTies": 52.94
+          },
+          "TRANSITION_GATE": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 18,
+            "wins": 8,
+            "losses": 8,
+            "ties": 2,
+            "accuracyExTies": 50.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 14,
+            "wins": 7,
+            "losses": 5,
+            "ties": 2,
+            "accuracyExTies": 58.33
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 11,
+            "wins": 5,
+            "losses": 5,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 13,
+            "wins": 6,
+            "losses": 5,
+            "ties": 2,
+            "accuracyExTies": 54.55
+          },
+          "PROGRESS_FAILURE_GATE": {
+            "n": 2,
+            "wins": 0,
+            "losses": 1,
+            "ties": 1,
+            "accuracyExTies": 0.0
+          },
+          "BREAKOUT_MATURITY_GATE": {
+            "n": 1,
+            "wins": 0,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 0.0
+          },
+          "progressFailureRisk": {
+            "n": 3,
+            "wins": 0,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 0.0
+          },
+          "continuationFreshEvidence": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 8,
+            "wins": 5,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 71.43
+          }
+        }
+      },
+      "shadow": {
+        "ready": 0,
+        "agreements": 0,
+        "disagreements": 0
+      }
+    },
+    {
+      "file": "audit/new-batches/audusd-5m-batch-15.json",
+      "pair": "AUDUSD",
+      "horizon": 5,
+      "batchNumber": 15,
+      "summary": {
+        "n": 20,
+        "wins": 8,
+        "losses": 10,
+        "ties": 2,
+        "accuracyExTies": 44.44
+      },
+      "maxLossStreak": 4,
+      "lossRuns2Plus": 3,
+      "lossRuns3Plus": 1,
+      "lossRuns4Plus": 1,
+      "lossRuns5Plus": 0,
+      "breakdowns": {
+        "confidence": {
+          "65-69": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "57-59": {
+            "n": 6,
+            "wins": 2,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "70+": {
+            "n": 2,
+            "wins": 1,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 50.0
+          },
+          "60-64": {
+            "n": 9,
+            "wins": 3,
+            "losses": 4,
+            "ties": 2,
+            "accuracyExTies": 42.86
+          }
+        },
+        "direction": {
+          "SELL": {
+            "n": 15,
+            "wins": 5,
+            "losses": 8,
+            "ties": 2,
+            "accuracyExTies": 38.46
+          },
+          "BUY": {
+            "n": 5,
+            "wins": 3,
+            "losses": 2,
+            "ties": 0,
+            "accuracyExTies": 60.0
+          }
+        },
+        "regime": {
+          "MIXED": {
+            "n": 7,
+            "wins": 3,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 42.86
+          },
+          "CHOPPY": {
+            "n": 9,
+            "wins": 2,
+            "losses": 6,
+            "ties": 1,
+            "accuracyExTies": 25.0
+          },
+          "TRENDING": {
+            "n": 4,
+            "wins": 3,
+            "losses": 0,
+            "ties": 1,
+            "accuracyExTies": 100.0
+          }
+        },
+        "session": {
+          "OFF_SESSION": {
+            "n": 20,
+            "wins": 8,
+            "losses": 10,
+            "ties": 2,
+            "accuracyExTies": 44.44
+          }
+        },
+        "hour": {
+          "00:00": {
+            "n": 3,
+            "wins": 2,
+            "losses": 1,
+            "ties": 0,
+            "accuracyExTies": 66.67
+          },
+          "01:00": {
+            "n": 12,
+            "wins": 4,
+            "losses": 6,
+            "ties": 2,
+            "accuracyExTies": 40.0
+          },
+          "02:00": {
+            "n": 5,
+            "wins": 2,
+            "losses": 3,
+            "ties": 0,
+            "accuracyExTies": 40.0
+          }
+        },
+        "safeguard": {
+          "progressFailureGate": {
+            "n": 20,
+            "wins": 8,
+            "losses": 10,
+            "ties": 2,
+            "accuracyExTies": 44.44
+          },
+          "CONTINUATION_RESET_GATE": {
+            "n": 15,
+            "wins": 6,
+            "losses": 7,
+            "ties": 2,
+            "accuracyExTies": 46.15
+          },
+          "TRANSITION_GATE": {
+            "n": 7,
+            "wins": 3,
+            "losses": 3,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "lateCounterTrendRisk": {
+            "n": 12,
+            "wins": 3,
+            "losses": 9,
+            "ties": 0,
+            "accuracyExTies": 25.0
+          },
+          "ENTRY_LANE_GATE": {
+            "n": 7,
+            "wins": 2,
+            "losses": 4,
+            "ties": 1,
+            "accuracyExTies": 33.33
+          },
+          "BELOW_CONFIDENCE_THRESHOLD": {
+            "n": 5,
+            "wins": 2,
+            "losses": 2,
+            "ties": 1,
+            "accuracyExTies": 50.0
+          },
+          "LATE_CONTINUATION_GATE": {
+            "n": 11,
+            "wins": 3,
+            "losses": 8,
+            "ties": 0,
+            "accuracyExTies": 27.27
+          },
+          "FUSION_QUALITY_GATE": {
+            "n": 6,
+            "wins": 2,
+            "losses": 4,
+            "ties": 0,
+            "accuracyExTies": 33.33
+          },
+          "continuationFreshEvidence": {
+            "n": 4,
+            "wins": 2,
+            "losses": 2,
             "ties": 0,
             "accuracyExTies": 50.0
           }
