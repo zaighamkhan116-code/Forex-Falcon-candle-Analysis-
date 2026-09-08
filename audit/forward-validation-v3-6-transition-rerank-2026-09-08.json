@@ -1,0 +1,46 @@
+{
+  "createdAt": "2026-09-08T18:00:00Z",
+  "status": "FORWARD_VALIDATION",
+  "change": "V3_6_CROSS_TRACK_TRANSITION_RERANK",
+  "rationale": "Recent settled losses, especially EURUSD 1m, show stale continuation direction surviving after failure-to-progress, rejection/failed breakout, hostile FVG state, higher-timeframe opposition, compression/low move quality, and opposing reliable tick evidence. The correction reranks direction only when multiple independent transition/reversal families agree. It does not remove signals, alter boundary cadence, or raise the 57% minimum.",
+  "scope": {
+    "pairs": ["EURUSD", "GBPUSD", "EURJPY", "USDJPY", "AUDUSD"],
+    "horizons": [1, 2, 3, 5, 15],
+    "pairSpecificHardCoding": false,
+    "frequencyImpact": "NONE",
+    "minimumConfidence": 57
+  },
+  "evidenceFamilies": [
+    "PROGRESS",
+    "LOCATION_REJECTION",
+    "FVG",
+    "MTF",
+    "COMPRESSION_QUALITY",
+    "PRICE_ACTION_MOMENTUM",
+    "TICKS"
+  ],
+  "safeguards": {
+    "requiresStaleContinuation": true,
+    "lossStreakAloneCanReverse": false,
+    "freshContinuationGuard": true,
+    "unreliableTicksIgnored": true,
+    "genericRerankConfidenceCeiling": 66,
+    "globalThresholdChanged": false
+  },
+  "shadow": {
+    "researchOnly": true,
+    "influencesLiveSignal": false,
+    "weightingEnabled": false,
+    "promotionBlockedUntilParityVerified": true,
+    "note": "READY shadow disagreements remain comparison evidence only. NY Independent V2 is not promoted or weighted."
+  },
+  "preChangeAuditHead": "e9eff93f86ac08de4a3b0940898c60a1cfc08e74",
+  "codeCommit": "f170725714bcf2eab8bc931890a23858631dc7de",
+  "testCommit": "9b882583cdbb464cb90c64dc0dc256f6021e1c81",
+  "validation": {
+    "focusedTests": 6,
+    "focusedTestsPassed": 6,
+    "forwardEffectObserved": false,
+    "reason": "Fresh post-change exact-boundary results are required before claiming improvement or deterioration."
+  }
+}
