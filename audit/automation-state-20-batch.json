@@ -19,7 +19,7 @@
   ],
   "thresholdEpochCommit": "f68d3e177da03bfcbf0add98ad3d23c818efab75",
   "minimumConfidence": 57,
-  "lastReportedAt": "2026-09-07T23:36:35.042842+00:00",
+  "lastReportedAt": "2026-09-08T01:03:56.771506+00:00",
   "lastReviewedStrategyCommit": "a0e58ed284c7658ced4a8ef0fda3e9ec9dbf9423",
   "lineageVersion": "CANONICAL_RECORDS_1_20_B1_V1",
   "migration": {
@@ -76,7 +76,7 @@
     "USDJPY-3M": 9,
     "USDJPY-5M": 7,
     "USDJPY-15M": 2,
-    "AUDUSD-1M": 13,
+    "AUDUSD-1M": 14,
     "AUDUSD-2M": 11,
     "AUDUSD-3M": 9,
     "AUDUSD-5M": 7,
@@ -87,6 +87,6 @@
     "reason": "The 13:45Z canonical learning pass successfully analyzed 17 batches but did not persist its completed-through watermark. This repair advances only to batches explicitly present in audit/self-healing-latest.json from that completed pass, preventing re-learning while preserving permanent canonical lineage."
   },
   "note": "Canonical reporting/learning watermark only. Batch B1 is permanent canonical settlements 1-20 per pair-timeframe, B2 is 21-40, and so on. Runtime counters never alter this numbering.",
-  "lastAnalysisBatchCount": 15,
+  "lastAnalysisBatchCount": 1,
   "lastAnalysisSource": "audit/self-healing-latest.json"
 }
