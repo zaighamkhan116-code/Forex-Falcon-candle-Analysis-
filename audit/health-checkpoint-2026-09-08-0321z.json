@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-09-08T03:21:30Z",
+  "status": "PASS_WITH_REPAIRS_AND_FORWARD_CHANGES",
+  "canonical": {
+    "settledCount": 5425,
+    "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+    "integrity": "PASS",
+    "minimumConfidence": 57,
+    "frequencyPreserved": true,
+    "newExactBatchesProcessed": 24,
+    "newSettlementsAnalyzed": 480,
+    "window": {"wins":227,"losses":236,"ties":17,"accuracyExTies":49.03}
+  },
+  "repairs": [
+    {"fault":"stalled canonical capture","trigger":"8ff888ce38385e4a02918793815c4b2e616b8ddb","result":"fb2d947c512fcd6b85b908820d31a5a198f3d408","before":4985,"after":5425},
+    {"fault":"stale deterministic exact-batch build","trigger":"b5adc884d4379056b011d48d26dc891e7579d6b5","result":"306a6b85837597a2437c388306d7b849d28db627"},
+    {"fault":"stale canonical learner","trigger":"1912393c022a46f7b5aac7d1cae7f2509fe229f1","result":"2335b4f19b5accfd5c2917c9a96aae9a4afda081"},
+    {"fault":"stale all-track loss-streak diagnostics","result":"19a946ff48758d639792b3fcaf5709e1a16b280b"},
+    {"fault":"selector telemetry push race after successful snapshot build","workflowFix":"7f0954132b224b963c566e2ffe384b768fea189d","verifiedRefresh":"7e814a06f9d85191e793086fef553e3bb6f0bcc5","fix":"fetch/rebase/push retry loop up to five attempts"}
+  ],
+  "modifications": [
+    {"track":"AUDUSD 1M","version":"V3.3_FORWARD_VALIDATION","trigger":"AUDUSD_1M_PROGRESS_FAILURE_CONFLICT_RERANK","codeCommit":"2e52084b3a0ca6e7eed9c43cf35e95f5abf1683c","testCommit":"c07d5aa17d2b20a066705573e205b334a8731125","status":"FORWARD_VALIDATION","baseline":"B14 41.18/L4; B15 40.00/L4; B16 47.37/L3","next":"B17"},
+    {"track":"GBPUSD 3M","version":"V3.3_FORWARD_VALIDATION","trigger":"GBPUSD_3M_TRANSITION_CONFLICT_RERANK","codeCommit":"2e52084b3a0ca6e7eed9c43cf35e95f5abf1683c","testCommit":"c07d5aa17d2b20a066705573e205b334a8731125","status":"FORWARD_VALIDATION","baseline":"B10 36.84/L5; B11 30.00/L5","next":"B12"}
+  ],
+  "validation": {
+    "strategyTests":"PASS",
+    "githubCheck":"c07d5aa17d2b20a066705573e205b334a8731125",
+    "productionDeployment":"df12714c-0d8e-48cd-a3b5-233b5eecd924 SUCCESS",
+    "EURJPY_5M_V3_2":"VALIDATED_RETAINED: B8 60.00/L3 vs B7 31.58/L10; next B9",
+    "GBPUSD_2M_V3_1":"REGIME_LOCK_DURABILITY_CONFIRMED: B13 57.89/L3",
+    "EURJPY_3M_V9":"REGIME_LOCKED_WATCH: B11 40.00/L5; next B12",
+    "EURJPY_2M_V3":"VALIDATED_RETAINED_NOT_LOCKED: B13 63.16/L3; next B14",
+    "AUDUSD_2M_V9":"REVERT_REMAINS_CONFIRMED: B13 50.00/L4"
+  },
+  "shadow": {"status":"NON_AUTHORITATIVE","ready":45,"agreements":14,"disagreements":31,"promotion":false},
+  "selector": {"version":"SELECTOR_V2_FORWARD_SHRUNK","capturedAt":"2026-09-08T03:20:39.700Z","oneMinuteTop":"GBPUSD 66.4","oneMinuteRunnerUp":"AUDUSD 58.6","topReliability":0.1667,"weightsChanged":false,"reason":"fresh reliability remains too small for safe weight promotion"},
+  "watch": [
+    "EURUSD 5M B8 42.11/L7 after B7 38.89/L6 — repeat weak, but no stable condition-specific differentiator yet",
+    "GBPUSD 5M B8 25.00/L8 after B7 recovery — severe renewed collapse, next B9 required before a new arm",
+    "EURJPY 3M V9 durability weakened at B11 40/L5 but still has not reproduced pre-change L7 severity",
+    "AUDUSD 15M B3 27.78/L4 — sample too small for specialization"
+  ],
+  "nextObjectives": ["AUDUSD 1M B17","GBPUSD 3M B12","EURJPY 5M B9","GBPUSD 2M B14","EURJPY 3M B12","EURJPY 2M B14","EURUSD 5M B9","GBPUSD 5M B9"]
+}
