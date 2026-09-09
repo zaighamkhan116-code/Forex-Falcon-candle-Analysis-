@@ -1,0 +1,45 @@
+{
+  "createdAt": "2026-09-09T10:03:00Z",
+  "status": "FORWARD_VALIDATION",
+  "change": {
+    "version": "V9_2_EURUSD_1M_LONDON_PREOPEN_STALE_RISK",
+    "codeCommit": "8679e355958ef4636fb2de10ba2fa3a95c560bf6",
+    "testCommit": "c4e037d9b191f52089454f428301fe1a1f47d8db",
+    "track": "EURUSD-1M",
+    "session": "LONDON_PREOPEN",
+    "regimeScope": "only states with late continuation/countertrend risk OR failed progress OR >=2 compound conflicts",
+    "frequencyImpact": "NONE: score/direction-bias calibration only; qualified/tradeQualified and global minimum confidence remain unchanged",
+    "confidenceAdjustment": -2.0,
+    "directionBiasAdjustment": -0.65
+  },
+  "evidence": {
+    "batch29": {
+      "sessionAccuracyExTies": 16.67,
+      "note": "previous unseen canonical batch showed severe London pre-open weakness and L5 cluster"
+    },
+    "batch30": {
+      "overallAccuracyExTies": 33.33,
+      "maxLossStreak": 5,
+      "londonPreOpen": {"n": 14, "wins": 3, "losses": 10, "ties": 1, "accuracyExTies": 23.08},
+      "londonOpenEarly": {"n": 6, "wins": 3, "losses": 2, "ties": 1, "accuracyExTies": 60.0},
+      "lateContinuationGate": {"n": 14, "wins": 2, "losses": 11, "ties": 1, "accuracyExTies": 15.38},
+      "entryLaneGate": {"n": 12, "wins": 2, "losses": 9, "ties": 1, "accuracyExTies": 18.18},
+      "progressFailureGate": {"n": 18, "wins": 5, "losses": 11, "ties": 2, "accuracyExTies": 31.25}
+    },
+    "batch31": {
+      "overallAccuracyExTies": 47.37,
+      "maxLossStreak": 2,
+      "session": "LONDON_OPEN_EARLY",
+      "note": "improved streak severity outside the pre-open window supports session-specific rather than global tuning"
+    }
+  },
+  "guardrails": [
+    "No global minimum-confidence increase",
+    "No signal suppression or quota reduction",
+    "No money-management change",
+    "No Shadow authority change",
+    "Clean continuation remains positively weighted and is excluded from the new stale-state penalty"
+  ],
+  "promotionRule": "Retain or regime-lock only if subsequent unseen EURUSD-1M London-preopen batches improve raw accuracy and/or materially reduce >=3 loss runs without harmful frequency degradation; otherwise revert only this V9.2 specialization.",
+  "nextValidationTarget": "Next completed EURUSD-1M London-preopen exact-20 evidence after code commit 8679e355958ef4636fb2de10ba2fa3a95c560bf6"
+}
