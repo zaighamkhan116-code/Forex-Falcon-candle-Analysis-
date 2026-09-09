@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-09-09T20:59:40Z",
+  "integrityStatus": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "capture": {
+    "capturedAt": "2026-09-09T20:53:30Z",
+    "canonicalSettledCount": 12948,
+    "storageMode": "bounded-recent+canonical-append-only-restart-safe",
+    "canonicalSource": "settled-result-permanent-id-sequence"
+  },
+  "trackIntegrity": {
+    "activeTracks": 25,
+    "allAuthoritative": true,
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "learning": {
+    "watermarkSynchronized": true,
+    "newCompletedBatches": 0,
+    "latestDecision": "NO_NEW_BATCH",
+    "latestAnalysisSource": "audit/self-healing-latest.json"
+  },
+  "strategy": {
+    "minimumConfidence": 57,
+    "modificationApplied": false,
+    "reason": "No newly completed clean exact-20 batch and no new unseen evidence qualifying a reversible strategy/calibration/router/selector change.",
+    "shadowAuthorityChanged": false,
+    "moneyManagementChanged": false
+  },
+  "nextObjective": "Continue canonical capture and consume the next newly completed exact-20 batch; validate existing forward experiments only from unseen chronological evidence."
+}
