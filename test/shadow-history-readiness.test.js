@@ -15,15 +15,26 @@ test('insufficient local history stays NOT_READY and skips shadow inference',asy
   assert.equal(out.influencedLiveSignal,false);
 });
 
+test('unsupported pair is classified locally and skips shadow inference',async()=>{
+  let calls=0;
+  const out=await requestShadowPrediction({...signal,pair:'GBPUSD'},{fetchImpl:async()=>{calls++;return fakeResponse(422,'Current validated shadow family is EURUSD-only')},candles});
+  assert.equal(out.status,'UNSUPPORTED');
+  assert.match(out.reason,/UNSUPPORTED_SHADOW_PAIR/);
+  assert.equal(calls,0);
+  assert.equal(out.influencedLiveSignal,false);
+});
+
+test('unsupported horizon is classified locally and skips shadow inference',async()=>{
+  let calls=0;
+  const out=await requestShadowPrediction({...signal,horizon:30},{fetchImpl:async()=>{calls++;return fakeResponse(422,'Unsupported horizon 30')},candles});
+  assert.equal(out.status,'UNSUPPORTED');
+  assert.equal(calls,0);
+  assert.equal(out.influencedLiveSignal,false);
+});
+
 test('supported-track model-side 422 is infrastructure UNAVAILABLE, not UNSUPPORTED',async()=>{
   const out=await requestShadowPrediction(signal,{fetchImpl:async()=>fakeResponse(422,"Insufficient candle history for features: ['body', 'uw', 'lw']"),candles});
   assert.equal(out.status,'UNAVAILABLE');
   assert.equal(out.httpStatus,422);
-  assert.equal(out.influencedLiveSignal,false);
-});
-
-test('explicit unsupported horizon remains UNSUPPORTED and fail-open',async()=>{
-  const out=await requestShadowPrediction({...signal,horizon:30},{fetchImpl:async()=>fakeResponse(422,'Unsupported horizon 30'),candles});
-  assert.equal(out.status,'UNSUPPORTED');
   assert.equal(out.influencedLiveSignal,false);
 });
