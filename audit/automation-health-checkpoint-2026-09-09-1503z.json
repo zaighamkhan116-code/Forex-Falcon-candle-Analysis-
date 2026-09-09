@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-09-09T15:03:00Z",
+  "integrityStatus": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1_V1",
+  "canonicalSettledCount": 12083,
+  "captureStatus": {
+    "storageMode": "bounded-recent+canonical-append-only-restart-safe",
+    "canonicalSource": "settled-result-permanent-id-sequence",
+    "minimumConfidence": 57
+  },
+  "learnerStatus": "CAUGHT_UP",
+  "latestLearnedGeneration": {
+    "EURUSD": {"1M":34,"2M":30,"3M":27,"5M":21,"15M":7},
+    "GBPUSD": {"1M":34,"2M":30,"3M":27,"5M":21,"15M":7},
+    "EURJPY": {"1M":34,"2M":30,"3M":27,"5M":21,"15M":7},
+    "USDJPY": {"1M":34,"2M":30,"3M":27,"5M":21,"15M":8},
+    "AUDUSD": {"1M":33,"2M":30,"3M":27,"5M":21,"15M":7}
+  },
+  "latestEvidence": {
+    "EURUSD-1M-B34": {
+      "accuracyExTies": 42.11,
+      "maxLossStreak": 3,
+      "LONDON_MID_accuracyExTies": 50.0,
+      "LONDON_NY_OVERLAP_accuracyExTies": 36.36,
+      "CHOPPY_accuracyExTies": 30.77,
+      "progressFailureGate_accuracyExTies": 31.25,
+      "shadow": {"ready":9,"agreements":3,"disagreements":6}
+    },
+    "EURUSD-2M-B30": {
+      "accuracyExTies": 68.42,
+      "maxLossStreak": 2,
+      "LONDON_MID_accuracyExTies": 83.33,
+      "LONDON_NY_OVERLAP_accuracyExTies": 61.54,
+      "shadow": {"ready":9,"agreements":3,"disagreements":6}
+    }
+  },
+  "stageTwoDecision": "NO_NEW_CHANGE",
+  "reason": "The prior EURUSD-1M London-mid and EURUSD-2M severe failures did not repeat with sufficiently similar condition-specific unseen evidence. EURUSD-2M recovered strongly; EURUSD-1M weakness shifted toward choppy/London-NY-overlap and progress-failure states. Avoid overfitting and keep existing V9.2 isolated in forward validation.",
+  "shadowAuthority": "NON_AUTHORITATIVE",
+  "frequencyPolicy": "PRESERVED",
+  "moneyManagementChanged": false,
+  "nextValidationTargets": [
+    "EURUSD-1M choppy x London-NY-overlap x progress-failure states",
+    "EURUSD-1M V9.2 London-preopen unseen validation",
+    "EURUSD-2M confirm that B30 recovery persists and B28 L12 regime does not recur"
+  ]
+}
