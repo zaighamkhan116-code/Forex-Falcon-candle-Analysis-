@@ -356,3 +356,5 @@ jobs:
           git commit -m "audit: capture append-only canonical settled history"
           git pull --rebase origin main
           git push origin main
+
+# automation self-heal retrigger: 2026-09-09T04:04Z scheduled capture stale while production remained active
