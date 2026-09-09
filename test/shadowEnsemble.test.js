@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {buildShadowPayload,requestShadowPrediction,settleShadowPrediction,getShadowHealth,checkShadowHealth} from '../lib/shadowEnsemble.js';
 
+const readyCandles=Array.from({length:60},(_,i)=>({time:i+1,open:1+i*1e-5,high:1.001+i*1e-5,low:.999+i*1e-5,close:1.0005+i*1e-5,volume:10+i}));
+
 test('shadow payload keeps numeric market-state features and raw candles',()=>{
   const p=buildShadowPayload({pair:'USDJPY',horizon:1,direction:'SELL',confidence:64.2,regime:'CHOPPY',features:{moveQualityScore:3.2,bearExtended:true,label:'ignore'}},{candles:[{time:1,open:1,high:2,low:.5,close:1.5,volume:3}]});
   assert.equal(p.pair,'USDJPY');
@@ -14,7 +16,7 @@ test('shadow payload keeps numeric market-state features and raw candles',()=>{
 });
 
 test('shadow service failure is visible and never silently disabled',async()=>{
-  const x=await requestShadowPrediction({pair:'EURUSD',horizon:5,features:{}},{url:'http://shadow',candles:[],fetchImpl:async()=>{throw new Error('offline')}});
+  const x=await requestShadowPrediction({pair:'EURUSD',horizon:5,features:{}},{url:'http://shadow',candles:readyCandles,fetchImpl:async()=>{throw new Error('offline')}});
   assert.equal(x.status,'UNAVAILABLE');
   assert.match(x.reason,/offline/);
 });
@@ -30,18 +32,19 @@ test('health exposes all supported research-only horizons',async()=>{
 
 test('unsupported pair or horizon is explicit and does not overwrite READY health',async()=>{
   const readyResponse={ok:true,status:200,json:async()=>({model:'RF+EXTRATREES+HISTGB_SHADOW_V2_MULTI_HORIZON',modelVersion:'REBUILD',direction:'BUY',confidence:62.1,researchOnly:true,horizon:5})};
-  await requestShadowPrediction({pair:'EURUSD',horizon:5,features:{}},{url:'http://shadow',candles:[],fetchImpl:async()=>readyResponse});
+  await requestShadowPrediction({pair:'EURUSD',horizon:5,features:{}},{url:'http://shadow',candles:readyCandles,fetchImpl:async()=>readyResponse});
   assert.equal(getShadowHealth().status,'READY');
-  const unsupported={ok:false,status:422,text:async()=>JSON.stringify({detail:'Current validated shadow family is EURUSD-only'})};
-  const x=await requestShadowPrediction({pair:'GBPUSD',horizon:5,features:{}},{url:'http://shadow',candles:[],fetchImpl:async()=>unsupported});
+  let calls=0;
+  const x=await requestShadowPrediction({pair:'GBPUSD',horizon:5,features:{}},{url:'http://shadow',candles:readyCandles,fetchImpl:async()=>{calls++;throw new Error('must not call')}});
   assert.equal(x.status,'UNSUPPORTED');
-  assert.match(x.reason,/EURUSD-only/);
+  assert.match(x.reason,/UNSUPPORTED_SHADOW_PAIR:GBPUSD/);
+  assert.equal(calls,0);
   assert.equal(getShadowHealth().status,'READY');
 });
 
 test('shadow timeout or failure never changes live signal',async()=>{
   const signal={pair:'EURUSD',horizon:5,direction:'BUY',confidence:60,features:{}};
-  const x=await requestShadowPrediction(signal,{url:'http://shadow',candles:[],fetchImpl:async()=>{throw new Error('offline')}});
+  const x=await requestShadowPrediction(signal,{url:'http://shadow',candles:readyCandles,fetchImpl:async()=>{throw new Error('offline')}});
   assert.equal(x.status,'UNAVAILABLE');
   assert.equal(signal.direction,'BUY');
   assert.equal(signal.confidence,60);
@@ -52,7 +55,7 @@ test('all Falcon timeframes can return independent READY shadow predictions',asy
   for(const horizon of [1,2,3,5,15]){
     const signal={pair:'EURUSD',horizon,analysisTimeframe:`${horizon}M`,direction:'SELL',confidence:61,features:{}};
     const response={ok:true,status:200,json:async()=>({model:'RF+EXTRATREES+HISTGB_SHADOW_V2_MULTI_HORIZON',modelVersion:'MULTI',pair:'EURUSD',horizon,analysisTimeframe:`${horizon}M`,direction:horizon%2?'BUY':'SELL',confidence:62.1,calibratedProbability:.621,memberProbabilities:{randomForestBuy:.6,extraTreesBuy:.58,histGradientBoostingBuy:.64},supportedHorizons:[1,2,3,5,15],researchOnly:true})};
-    const x=await requestShadowPrediction(signal,{url:'http://shadow',candles:[],fetchImpl:async()=>response});
+    const x=await requestShadowPrediction(signal,{url:'http://shadow',candles:readyCandles,fetchImpl:async()=>response});
     assert.equal(x.status,'READY');
     assert.equal(x.horizon,horizon);
     assert.equal(x.analysisTimeframe,`${horizon}M`);
@@ -77,7 +80,7 @@ test('timeframe policy evidence is retained while shadow remains research-only',
     horizonPolicy:{status:'FORWARD_SHADOW_VALIDATION',frequencyImpact:'NONE'},
     confidence:57.2,calibratedProbability:.572,baseCalibratedProbability:.62,researchOnly:true
   })};
-  const out=await requestShadowPrediction(signal,{url:'http://shadow',candles:[],fetchImpl:async()=>response});
+  const out=await requestShadowPrediction(signal,{url:'http://shadow',candles:readyCandles,fetchImpl:async()=>response});
   assert.equal(out.direction,'SELL');
   assert.equal(out.baseDirection,'BUY');
   assert.equal(out.directionPolicy,'INVERT');
