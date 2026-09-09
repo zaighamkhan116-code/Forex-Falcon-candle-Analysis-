@@ -32,8 +32,15 @@ test('unsupported horizon is classified locally and skips shadow inference',asyn
   assert.equal(out.influencedLiveSignal,false);
 });
 
-test('supported-track model-side 422 is infrastructure UNAVAILABLE, not UNSUPPORTED',async()=>{
+test('supported-track feature-history 422 is NOT_READY and does not poison shadow health',async()=>{
   const out=await requestShadowPrediction(signal,{fetchImpl:async()=>fakeResponse(422,"Insufficient candle history for features: ['body', 'uw', 'lw']"),candles});
+  assert.equal(out.status,'NOT_READY');
+  assert.equal(out.httpStatus,422);
+  assert.equal(out.influencedLiveSignal,false);
+});
+
+test('supported-track unrelated 422 remains infrastructure UNAVAILABLE',async()=>{
+  const out=await requestShadowPrediction(signal,{fetchImpl:async()=>fakeResponse(422,'Model schema mismatch'),candles});
   assert.equal(out.status,'UNAVAILABLE');
   assert.equal(out.httpStatus,422);
   assert.equal(out.influencedLiveSignal,false);
