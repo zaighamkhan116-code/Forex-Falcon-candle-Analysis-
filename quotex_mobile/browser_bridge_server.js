@@ -37,6 +37,7 @@ app.get('/health', (_req,res) => {
   const ageMs=state.lastTickAt==null?null:Date.now()-state.lastTickAt;
   res.json({ ok:true,service:'falcon-quotex-browser-bridge',signalVersion:'OTC_INDEPENDENT_V7',strategyProfile:'INDEPENDENT_ANALYSES_STRENGTH_ARBITRATION',persistenceError:shadow.persistenceError,mode:'READ_ONLY_SHADOW',tradingEnabled:false,tokenConfigured:Boolean(TOKEN),connected:state.connected&&ageMs!==null&&ageMs<=MAX_AGE_MS,ageMs,...state,marketState,shadow:shadow.snapshot(),serverTime:Date.now() });
 });
+app.get('/api/quotex/otc/signals',(_req,res)=>{const signals=[...shadow.pairs.values()].flatMap(p=>Object.values(p.latestPrediction).filter(Boolean)).map(p=>({id:p.id,pair:p.pair,marketType:p.marketType,expirySeconds:p.expirySeconds,direction:p.direction,confidence:p.confidence,entryTimestampMs:p.entryTimestampMs,targetTimestampMs:p.targetTimestampMs,status:p.status,signalClass:p.signalClass,frequencyFloor:p.frequencyFloor}));res.json({ok:true,signals,serverTime:Date.now(),signalVersion:'OTC_INDEPENDENT_V7'});});
 app.get('/api/quotex/otc/shadow',(req,res)=>{const pair=normalizePair(req.query?.pair||'');res.json({ok:true,mode:'SHADOW',tradingEnabled:false,data:pair?shadow.snapshot(pair):shadow.snapshot(),serverTime:Date.now()});});
 app.get('/api/quotex/otc/micro',(req,res)=>{const pair=normalizePair(req.query?.pair||state.lastPair||'');if(!pair)return res.status(400).json({error:'pair is required until first OTC tick is received'});const snap=shadow.snapshot(pair);res.json({ok:true,pair,timeframeSeconds:1,currentCandle:snap.currentCandle,candleCount:snap.candleCount,structureContext:snap.structureContext,serverTime:Date.now()});});
 app.get('/api/quotex/otc/market-state',(_req,res)=>res.json({ok:true,...marketState,serverTime:Date.now()}));
@@ -64,3 +65,4 @@ app.post('/api/quotex/otc/tick', async (req,res)=>{
 });
 
 app.listen(PORT,()=>console.log(JSON.stringify({event:'bridge-ready',port:PORT,mode:'READ_ONLY_SHADOW',tradingEnabled:false,signalVersion:'OTC_INDEPENDENT_V7',shadowEngines:[10,15,30,60,120,180,300].map(x=>`OTC_${x}S_INDEPENDENT_V7`),tokenConfigured:Boolean(TOKEN),dataDir:ROOT})));
+
