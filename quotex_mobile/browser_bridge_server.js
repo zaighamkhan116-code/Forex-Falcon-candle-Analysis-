@@ -39,10 +39,10 @@ async function persistTick(tick) { await fs.mkdir(ROOT,{recursive:true}); await 
 
 app.get('/health', (_req,res) => {
   const ageMs=state.lastTickAt==null?null:Date.now()-state.lastTickAt;
-  res.json({ ok:true,service:'falcon-quotex-browser-bridge',signalVersion:'PULSE_LAG_V3',persistenceError:shadow.persistenceError,mode:'READ_ONLY_SHADOW',tradingEnabled:false,tokenConfigured:Boolean(TOKEN),connected:state.connected&&ageMs!==null&&ageMs<=MAX_AGE_MS,ageMs,...state,marketState,shadow:shadow.snapshot(),serverTime:Date.now() });
+  res.json({ ok:true,service:'falcon-quotex-browser-bridge',signalVersion:'OTC_STRUCTURE_V6',strategyProfile:'STRUCTURE_FRACTAL_EMA_MULTI_EXPIRY',persistenceError:shadow.persistenceError,mode:'READ_ONLY_SHADOW',tradingEnabled:false,tokenConfigured:Boolean(TOKEN),connected:state.connected&&ageMs!==null&&ageMs<=MAX_AGE_MS,ageMs,...state,marketState,shadow:shadow.snapshot(),serverTime:Date.now() });
 });
 app.get('/api/quotex/otc/shadow',(req,res)=>{const pair=normalizePair(req.query?.pair||'');res.json({ok:true,mode:'SHADOW',tradingEnabled:false,data:pair?shadow.snapshot(pair):shadow.snapshot(),serverTime:Date.now()});});
-app.get('/api/quotex/otc/micro',(req,res)=>{const pair=normalizePair(req.query?.pair||state.lastPair||'');if(!pair)return res.status(400).json({error:'pair is required until first OTC tick is received'});const snap=shadow.snapshot(pair);res.json({ok:true,pair,timeframeSeconds:1,currentCandle:snap.currentCandle,candleCount:snap.candleCount,serverTime:Date.now()});});
+app.get('/api/quotex/otc/micro',(req,res)=>{const pair=normalizePair(req.query?.pair||state.lastPair||'');if(!pair)return res.status(400).json({error:'pair is required until first OTC tick is received'});const snap=shadow.snapshot(pair);res.json({ok:true,pair,timeframeSeconds:1,currentCandle:snap.currentCandle,candleCount:snap.candleCount,structureContext:snap.structureContext,serverTime:Date.now()});});
 app.get('/api/quotex/otc/market-state',(_req,res)=>res.json({ok:true,...marketState,serverTime:Date.now()}));
 
 app.post('/api/quotex/otc/market-state',(req,res)=>{
@@ -58,20 +58,11 @@ app.post('/api/quotex/otc/market-state',(req,res)=>{
     const payout=pct(row?.payoutPercent??row?.payout??row?.roi);
     const profit1m=pct(row?.profit1mPercent??row?.payout1mPercent??row?.profit1Percent??row?.payout1Percent);
     const profit5m=pct(row?.profit5mPercent??row?.payout5mPercent??row?.profit5Percent??row?.payout5Percent);
-    pairs.push({
-      pair:p,
-      displayName:String(row?.displayName||prev.displayName||`${p} (OTC)`).slice(0,80),
-      payoutPercent:payout??prev.payoutPercent??null,
-      profit1mPercent:profit1m??prev.profit1mPercent??null,
-      profit5mPercent:profit5m??prev.profit5mPercent??null,
-      available:row?.available!==false
-    });
+    pairs.push({pair:p,displayName:String(row?.displayName||prev.displayName||`${p} (OTC)`).slice(0,80),payoutPercent:payout??prev.payoutPercent??null,profit1mPercent:profit1m??prev.profit1mPercent??null,profit5mPercent:profit5m??prev.profit5mPercent??null,available:row?.available!==false});
     seen.add(p);
   }
   for(const [p,prev] of previous){if(!seen.has(p)&&validPair(p)){pairs.push(prev);seen.add(p)}}
-  marketState.updatedAt=Date.now();
-  marketState.activePair=normalizePair(req.body?.activePair||state.lastPair||'')||null;
-  marketState.pairs=pairs.slice(0,200);
+  marketState.updatedAt=Date.now();marketState.activePair=normalizePair(req.body?.activePair||state.lastPair||'')||null;marketState.pairs=pairs.slice(0,200);
   res.json({ok:true,count:marketState.pairs.length,serverTime:Date.now()});
 });
 
@@ -80,8 +71,7 @@ app.post('/api/quotex/otc/tick', async (req,res)=>{
   try{
     const pair=normalizePair(req.body?.pair),market=String(req.body?.market||'').toUpperCase(),price=Number(req.body?.price),clientTs=Number(req.body?.timestamp_ms||req.body?.timestamp||Date.now());
     if(!validPair(pair)||market!=='OTC'||!Number.isFinite(price)||price<=0)return res.status(400).json({error:'Invalid OTC tick payload'});
-    const now=Date.now();
-    if(Math.abs(now-clientTs)>60000)return res.status(400).json({error:'Stale or invalid client timestamp'});
+    const now=Date.now();if(Math.abs(now-clientTs)>60000)return res.status(400).json({error:'Stale or invalid client timestamp'});
     const tick={pair,market:'OTC',timestamp_ms:clientTs,timestamp_iso:new Date(clientTs).toISOString(),receivedAtMs:now,client_timestamp_ms:clientTs,client_lag_ms:now-clientTs,price,source:'QUOTEX_BROWSER_BRIDGE'};
     if(state.lastPair===pair&&state.lastPrice===price){
       state.duplicateCount++;state.connected=true;state.lastTickAt=now;state.lastClientTs=clientTs;
@@ -96,4 +86,4 @@ app.post('/api/quotex/otc/tick', async (req,res)=>{
   }catch(e){state.lastError=e.message;console.error(JSON.stringify({event:'bridge-error',error:e.message}));res.status(500).json({error:'Bridge tick persistence or shadow processing failed'});}
 });
 
-app.listen(PORT,()=>console.log(JSON.stringify({event:'bridge-ready',port:PORT,mode:'READ_ONLY_SHADOW',tradingEnabled:false,shadowEngines:['OTC_10S_SHADOW_V2','OTC_15S_SHADOW_V2','OTC_30S_SHADOW_V2','OTC_60S_SHADOW_V2','OTC_300S_SHADOW_V1'],tokenConfigured:Boolean(TOKEN),dataDir:ROOT})));
+app.listen(PORT,()=>console.log(JSON.stringify({event:'bridge-ready',port:PORT,mode:'READ_ONLY_SHADOW',tradingEnabled:false,signalVersion:'OTC_STRUCTURE_V6',shadowEngines:[10,15,30,60,120,180,300].map(x=>`OTC_${x}S_STRUCTURE_V6`),tokenConfigured:Boolean(TOKEN),dataDir:ROOT})));
