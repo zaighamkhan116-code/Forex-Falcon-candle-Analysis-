@@ -53,16 +53,14 @@ jobs:
             w=sum(r.get('result')=='WIN' for r in rows); l=sum(r.get('result')=='LOSS' for r in rows); t=sum(r.get('result')=='TIE' for r in rows); d=w+l
             return {'n':len(rows),'wins':w,'losses':l,'ties':t,'accuracyExTies':round(100*w/d,2) if d else None}
           def batch_meta(path,b):
-            if isinstance(b,dict):
-              return b.get('pair'),b.get('horizon'),b.get('batchNumber')
+            if isinstance(b,dict): return b.get('pair'),b.get('horizon'),b.get('batchNumber')
             m=re.match(r'([a-z]+)-(\d+)m-batch-(\d+)\.json$',path.name)
             if not m:return None,None,None
             return m.group(1).upper(),int(m.group(2)),int(m.group(3))
           reports=[]
           for p in files:
             if not p.exists(): continue
-            b=json.loads(p.read_text())
-            rows=b if isinstance(b,list) else b.get('results',b.get('records',[]))
+            b=json.loads(p.read_text()); rows=b if isinstance(b,list) else b.get('results',b.get('records',[]))
             if not isinstance(rows,list): raise SystemExit(f'malformed batch rows in {p}')
             if len(rows)!=20: raise SystemExit(f'{p} has {len(rows)} rows, expected exactly 20')
             ids=[r.get('id') for r in rows]
@@ -115,3 +113,4 @@ jobs:
 # automation self-heal retrigger: 2026-09-08T18:59+05:00 20 newly completed exact batches pending canonical learning
 # automation self-heal retrigger: 2026-09-09T01:57+05:00 authoritative rebuild advanced 20 tracks beyond learner watermark
 # automation self-heal retrigger: 2026-09-09T03:57+05:00 authoritative rebuild advanced beyond learner watermark
+# automation self-heal retrigger: 2026-09-09T05:02+05:00 authoritative rebuild advanced 20 1M/2M/3M/5M tracks beyond learner watermark
