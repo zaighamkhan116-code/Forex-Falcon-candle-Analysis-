@@ -1,0 +1,143 @@
+const clamp=(n,lo,hi)=>Math.max(lo,Math.min(hi,n));
+const sign=n=>n>0?1:n<0?-1:0;
+const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:0;
+
+function aggregate1m(candles,current,nowMs){
+  const all=[...candles,current].filter(Boolean).filter(c=>c.sec<Math.floor(nowMs/60000)*60000);
+  const map=new Map();
+  for(const c of all){
+    const minute=Math.floor(c.sec/60000)*60000;
+    const row=map.get(minute)||{sec:minute,open:c.open,high:c.high,low:c.low,close:c.close,tickCount:0,synthetic:true};
+    row.high=Math.max(row.high,c.high);row.low=Math.min(row.low,c.low);row.close=c.close;row.tickCount+=c.tickCount||0;row.synthetic=row.synthetic&&Boolean(c.synthetic);map.set(minute,row);
+  }
+  return [...map.values()].sort((a,b)=>a.sec-b.sec).slice(-240);
+}
+
+function emaSeries(values,period){
+  if(!values.length)return[];
+  const k=2/(period+1),out=[values[0]];
+  for(let i=1;i<values.length;i++)out.push(values[i]*k+out[i-1]*(1-k));
+  return out;
+}
+
+function confirmedFractals(bars){
+  const out=[];
+  for(let i=2;i<bars.length-2;i++){
+    const c=bars[i],l1=bars[i-1],l2=bars[i-2],r1=bars[i+1],r2=bars[i+2];
+    if(c.high>l1.high&&c.high>l2.high&&c.high>=r1.high&&c.high>=r2.high)out.push({type:'HIGH',level:c.high,sec:c.sec,confirmSec:r2.sec+60000});
+    if(c.low<l1.low&&c.low<l2.low&&c.low<=r1.low&&c.low<=r2.low)out.push({type:'LOW',level:c.low,sec:c.sec,confirmSec:r2.sec+60000});
+  }
+  return out.slice(-80);
+}
+
+function clusterZones(fractals,tolerance){
+  const zones=[];
+  for(const f of fractals){
+    let z=zones.find(x=>Math.abs(x.level-f.level)<=tolerance);
+    if(!z){z={level:f.level,min:f.level,max:f.level,touchCount:0,highCount:0,lowCount:0,lastSec:f.sec,firstSec:f.sec};zones.push(z);}
+    const n=z.touchCount+1;z.level=(z.level*z.touchCount+f.level)/n;z.min=Math.min(z.min,f.level);z.max=Math.max(z.max,f.level);z.touchCount=n;z.lastSec=Math.max(z.lastSec,f.sec);z.firstSec=Math.min(z.firstSec,f.sec);if(f.type==='HIGH')z.highCount++;else z.lowCount++;
+  }
+  return zones.sort((a,b)=>a.level-b.level).slice(-30);
+}
+
+function swingStructure(fractals,emaSlope){
+  const highs=fractals.filter(x=>x.type==='HIGH').slice(-3),lows=fractals.filter(x=>x.type==='LOW').slice(-3);
+  let highState='NA',lowState='NA';
+  if(highs.length>=2)highState=highs.at(-1).level>highs.at(-2).level?'HH':highs.at(-1).level<highs.at(-2).level?'LH':'EH';
+  if(lows.length>=2)lowState=lows.at(-1).level>lows.at(-2).level?'HL':lows.at(-1).level<lows.at(-2).level?'LL':'EL';
+  let regime='TRANSITION',bias=0;
+  if(highState==='HH'&&lowState==='HL'){regime='UPTREND';bias=1;}
+  else if(highState==='LH'&&lowState==='LL'){regime='DOWNTREND';bias=-1;}
+  else if((highState==='LH'&&lowState==='HL')||(highState==='HH'&&lowState==='LL'))regime='RANGE';
+  if(regime==='TRANSITION'&&Math.abs(emaSlope)<0.000001)regime='RANGE';
+  return{highState,lowState,regime,bias,lastHigh:highs.at(-1)||null,lastLow:lows.at(-1)||null};
+}
+
+function currentMinute(candles,current,nowMs){
+  const start=Math.floor(nowMs/60000)*60000,src=[...candles,current].filter(Boolean).filter(c=>c.sec>=start);
+  if(!src.length)return null;
+  return{sec:start,open:src[0].open,high:Math.max(...src.map(c=>c.high)),low:Math.min(...src.map(c=>c.low)),close:src.at(-1).close};
+}
+
+function approachDirection(recentTicks,nowMs){
+  const t=recentTicks.filter(x=>x.timestamp_ms>=nowMs-6000);if(t.length<2)return 0;return sign(t.at(-1).price-t[0].price);
+}
+
+function zoneInteraction({zones,px,partial,approach,avgRange,bars,ema30,regime}){
+  if(!zones.length)return{active:false};
+  const tolerance=Math.max(avgRange*.22,Math.abs(px)*2e-7,1e-9);
+  let nearest=null;
+  for(const z of zones){const d=Math.abs(px-z.level);if(!nearest||d<nearest.distance)nearest={...z,distance:d};}
+  if(!nearest)return{active:false};
+  const touched=(partial?.high>=nearest.level-tolerance&&partial?.low<=nearest.level+tolerance)||nearest.distance<=tolerance;
+  const prev=bars.at(-1),acceptedAbove=Boolean(prev&&prev.close>nearest.level+tolerance*.55),acceptedBelow=Boolean(prev&&prev.close<nearest.level-tolerance*.55);
+  const penetrated=Boolean(partial&&(partial.high>nearest.level+tolerance*.25||partial.low<nearest.level-tolerance*.25));
+  let state='APPROACH',direction=0,strength=.2;
+  if(touched){
+    direction=approach? -approach : px>=nearest.level?-1:1;
+    state='FIRST_TOUCH';strength=regime==='RANGE'?.95:regime==='TRANSITION'?.75:.55;
+    if(penetrated&&((approach>0&&px<nearest.level)||(approach<0&&px>nearest.level))){state='FALSE_BREAK';strength=Math.max(strength,.95);}
+  }
+  if(acceptedAbove&&approach>=0){state='ACCEPTED_BREAK';direction=1;strength=.8;}
+  if(acceptedBelow&&approach<=0){state='ACCEPTED_BREAK';direction=-1;strength=.8;}
+  const confluence=ema30?1-clamp(Math.abs(nearest.level-ema30)/(avgRange*2||1),0,1):0;
+  const levelStrength=clamp(.35+Math.min(.35,nearest.touchCount*.08)+confluence*.20,0,1);
+  return{active:nearest.distance<=tolerance*3||touched,level:nearest.level,distance:nearest.distance,tolerance,touched,penetrated,state,direction,strength:clamp(strength*.75+levelStrength*.25,0,1),touchCount:nearest.touchCount,levelStrength,approach};
+}
+
+function spikeSnap(bars,avgRange){
+  if(bars.length<12)return{active:false};
+  const last=bars.at(-1),range=last.high-last.low,body=Math.abs(last.close-last.open),upper=last.high-Math.max(last.open,last.close),lower=Math.min(last.open,last.close)-last.low;
+  if(range<avgRange*2||range<=0)return{active:false};
+  if(body/range>.82)return{active:false,reason:'MARUBOZU'};
+  const direction=lower>upper?1:upper>lower?-1:0;
+  return{active:Boolean(direction),direction,strength:clamp(range/(avgRange*3),.6,1),rangeMultiple:avgRange?range/avgRange:null};
+}
+
+function emaContext(bars,ema){
+  if(bars.length<31||ema.length<31)return{available:false};
+  const last=bars.at(-1),e=ema.at(-1),e5=ema.at(-6),avgBody=avg(bars.slice(-10).map(c=>Math.abs(c.close-c.open)))||1,dist=(last.close-e)/avgBody,slope=(e-e5)/(Math.abs(e5)||1);
+  const body=last.close-last.open,upper=last.high-Math.max(last.open,last.close),lower=Math.min(last.open,last.close)-last.low;
+  let pattern=null,direction=0,strength=0;
+  if(Math.abs(dist)>=2&&((dist>0&&upper>Math.abs(body)*.4)||(dist<0&&lower>Math.abs(body)*.4))){pattern='EMA30_SNAPBACK';direction=dist>0?-1:1;strength=clamp(Math.abs(dist)/4,.55,1);}
+  if(last.close>e&&last.open<=e){pattern='EMA30_BREAK_ACCEPT_CONTINUATION';direction=1;strength=.7;}
+  if(last.close<e&&last.open>=e){pattern='EMA30_BREAK_ACCEPT_CONTINUATION';direction=-1;strength=.7;}
+  return{available:true,ema30:e,slope,distBodies:dist,pattern,direction,strength};
+}
+
+function doubleTap(fractals,avgRange){
+  const tol=Math.max(avgRange*.35,1e-9);
+  for(const type of ['HIGH','LOW']){
+    const arr=fractals.filter(x=>x.type===type).slice(-3);if(arr.length<2)continue;
+    const a=arr.at(-2),b=arr.at(-1);if(Math.abs(a.level-b.level)<=tol)return{active:true,type,direction:type==='HIGH'?-1:1,strength:.75,level:(a.level+b.level)/2};
+  }
+  return{active:false};
+}
+
+export function buildOtcStructureContext({candles,current,recentTicks,nowMs}){
+  const bars=aggregate1m(candles,current,nowMs),px=current?.close||bars.at(-1)?.close||0;
+  if(bars.length<7)return{available:false,reason:'INSUFFICIENT_1M_HISTORY',bars1m:bars.length};
+  const ranges=bars.slice(-20).map(c=>c.high-c.low).filter(x=>x>0),avgRange=Math.max(avg(ranges),Math.abs(px)*1e-7,1e-9),ema=emaSeries(bars.map(c=>c.close),30),ema30=ema.at(-1)||null,emaSlope=ema.length>6?(ema.at(-1)-ema.at(-6))/(Math.abs(ema.at(-6))||1):0;
+  const fractals=confirmedFractals(bars),zones=clusterZones(fractals,avgRange*.35),structure=swingStructure(fractals,emaSlope),partial=currentMinute(candles,current,nowMs),approach=approachDirection(recentTicks,nowMs),interaction=zoneInteraction({zones,px,partial,approach,avgRange,bars,ema30,regime:structure.regime}),spike=spikeSnap(bars,avgRange),emaCtx=emaContext(bars,ema),doubleTapCtx=doubleTap(fractals,avgRange);
+  const last10=bars.slice(-10),crosses=ema30?last10.reduce((n,c,i,a)=>i&&sign(c.close-ema[Math.max(0,ema.length-last10.length+i)])!==sign(a[i-1].close-ema[Math.max(0,ema.length-last10.length+i-1)])?n+1:n,0):0;
+  let regime=structure.regime;
+  if(crosses>=3&&Math.abs(emaSlope)<avgRange/(Math.abs(px)||1)*.15)regime='RANGE';
+  const context={available:true,bars1m:bars.length,avgRange,ema30:emaCtx,structure:{...structure,regime},fractals:fractals.slice(-20),zones:zones.slice(-12),interaction,spikeSnap:spike,doubleTap:doubleTapCtx,approachDirection:approach,price:px};
+  return context;
+}
+
+export function structureDecision(context,expiry,features){
+  if(!context?.available)return{active:false};
+  const regime=context.structure.regime,inter=context.interaction,ema=context.ema30,spike=context.spikeSnap,doubleTap=context.doubleTap;
+  let pattern='STANDARD',direction=0,strength=0,blockMomentum=false;
+  if(expiry<=15&&inter?.touched&&inter.direction){pattern=inter.state==='FALSE_BREAK'?'FRACTAL_FALSE_BREAK':'FRACTAL_FIRST_TOUCH';direction=inter.direction;strength=inter.strength;if((regime==='RANGE'||regime==='TRANSITION')&&inter.state!=='ACCEPTED_BREAK')strength=Math.max(strength,.85);}
+  if(expiry<=15&&inter?.active&&!inter.touched&&inter.distance<=inter.tolerance*2.2&&sign(features?.m5)===inter.approach&&Math.abs(features?.m5||0)>Math.max(features?.rangeNorm||0,1e-7)){blockMomentum=true;pattern='ARRIVAL_EXHAUSTION';}
+  if(expiry===30&&inter?.state==='FALSE_BREAK'){pattern='FRACTAL_FALSE_BREAK';direction=inter.direction;strength=.8;}
+  if(expiry===30&&inter?.state==='ACCEPTED_BREAK'){pattern='BREAK_ACCEPTANCE';direction=inter.direction;strength=.72;}
+  if((expiry===30||expiry===60)&&spike?.active&&spike.strength>strength){pattern='SPIKE_SNAP';direction=spike.direction;strength=spike.strength;}
+  if((expiry===30||expiry===60)&&ema?.pattern==='EMA30_SNAPBACK'&&ema.strength>strength){pattern='EMA30_SNAPBACK';direction=ema.direction;strength=ema.strength;}
+  if(expiry===60&&ema?.pattern==='EMA30_BREAK_ACCEPT_CONTINUATION'&&ema.strength>=strength){pattern=ema.pattern;direction=ema.direction;strength=ema.strength;}
+  if(expiry===120&&doubleTap?.active){pattern='DOUBLE_TAP_REVERSAL';direction=doubleTap.direction;strength=doubleTap.strength;}
+  if(expiry>=120&&context.structure.bias){const pullbackOk=(context.structure.bias>0&&features?.m20<0)||(context.structure.bias<0&&features?.m20>0);if(pullbackOk&&strength<.7){pattern='STRUCTURE_PULLBACK';direction=context.structure.bias;strength=.7;}else if(strength<.55){pattern='STRUCTURE_TREND';direction=context.structure.bias;strength=.55;}}
+  return{active:Boolean(direction)||blockMomentum,pattern,direction,strength,blockMomentum,regime};
+}
