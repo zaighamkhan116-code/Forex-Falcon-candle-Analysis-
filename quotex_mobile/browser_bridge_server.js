@@ -32,6 +32,15 @@ function validPair(p) { return /^[A-Z]{3,12}$/.test(p); }
 function pct(v){const n=Number(v);return Number.isFinite(n)&&n>0&&n<=100?Math.round(n*10)/10:null;}
 function dayFile(pair, ts) { return path.join(ROOT, `${pair}-OTC-${new Date(ts).toISOString().slice(0, 10)}.jsonl`); }
 async function persistTick(tick) { await fs.mkdir(ROOT,{recursive:true}); await fs.appendFile(dayFile(tick.pair,tick.timestamp_ms),JSON.stringify(tick)+'\n','utf8'); }
+function auditSnapshot(){
+  const rows=[...shadow.pairs.values()].flatMap(s=>(s.recentSettlements||[]).map(r=>({...r,pair:r.pair||s.pair}))).sort((a,b)=>(b.settlementTimestampMs||0)-(a.settlementTimestampMs||0));
+  const groups=new Map();
+  const add=(key,r)=>{if(!groups.has(key))groups.set(key,{key,total:0,wins:0,losses:0,draws:0,lagSum:0,lagN:0});const g=groups.get(key);g.total++;if(r.outcome==='WIN')g.wins++;else if(r.outcome==='LOSS')g.losses++;else g.draws++;const lag=Number(r.clientLagMs);if(Number.isFinite(lag)){g.lagSum+=lag;g.lagN++;}};
+  for(const r of rows){add(`PAIR:${r.pair}`,r);add(`EXPIRY:${r.expirySeconds}s`,r);add(`TRIGGER:${r.primaryAnalysis?.name||r.entryPattern||'UNKNOWN'}`,r);add(`PAIR_EXPIRY:${r.pair}:${r.expirySeconds}s`,r);add(`REGIME:${r.features?.structureRegime||r.structureContext?.structure?.regime||'UNKNOWN'}`,r);add(`VALIDATION:${r.validation||'UNKNOWN'}`,r);}
+  const summary=[...groups.values()].map(g=>({...g,winRate:(g.wins+g.losses)?Math.round(g.wins/(g.wins+g.losses)*10000)/100:null,avgClientLagMs:g.lagN?Math.round(g.lagSum/g.lagN):null})).sort((a,b)=>(a.winRate??101)-(b.winRate??101)||b.total-a.total);
+  const losses=rows.filter(r=>r.outcome==='LOSS').slice(0,250).map(r=>({id:r.id,pair:r.pair,expirySeconds:r.expirySeconds,direction:r.direction,entryPrice:r.entryPrice,settlementPrice:r.settlementPrice,priceDelta:r.priceDelta,entryTimestampMs:r.entryTimestampMs,settlementTimestampMs:r.settlementTimestampMs,settlementDelayMs:r.settlementDelayMs,clientLagMs:r.clientLagMs??null,trigger:r.primaryAnalysis?.name||r.entryPattern||'UNKNOWN',triggerStrength:r.primaryAnalysis?.strength??null,validation:r.validation||null,agreementCount:r.agreementCount??null,opposingAnalyses:(r.opposingAnalyses||[]).map(x=>({name:x.name,direction:x.direction,strength:x.strength})),regime:r.features?.structureRegime||r.structureContext?.structure?.regime||null}));
+  return{generatedAt:Date.now(),settledSample:rows.length,summary,losses};
+}
 
 app.get('/health', (_req,res) => {
   const ageMs=state.lastTickAt==null?null:Date.now()-state.lastTickAt;
@@ -39,6 +48,7 @@ app.get('/health', (_req,res) => {
 });
 app.get('/api/quotex/otc/signals',(_req,res)=>{const signals=[...shadow.pairs.values()].flatMap(p=>Object.values(p.latestPrediction).filter(Boolean)).map(p=>({id:p.id,pair:p.pair,marketType:p.marketType,expirySeconds:p.expirySeconds,direction:p.direction,confidence:p.confidence,entryTimestampMs:p.entryTimestampMs,targetTimestampMs:p.targetTimestampMs,status:p.status,signalClass:p.signalClass,frequencyFloor:p.frequencyFloor}));res.json({ok:true,signals,serverTime:Date.now(),signalVersion:'OTC_INDEPENDENT_V7'});});
 app.get('/api/quotex/otc/shadow',(req,res)=>{const pair=normalizePair(req.query?.pair||'');res.json({ok:true,mode:'SHADOW',tradingEnabled:false,data:pair?shadow.snapshot(pair):shadow.snapshot(),serverTime:Date.now()});});
+app.get('/api/quotex/otc/audit',(_req,res)=>res.json({ok:true,mode:'READ_ONLY_SHADOW',...auditSnapshot()}));
 app.get('/api/quotex/otc/micro',(req,res)=>{const pair=normalizePair(req.query?.pair||state.lastPair||'');if(!pair)return res.status(400).json({error:'pair is required until first OTC tick is received'});const snap=shadow.snapshot(pair);res.json({ok:true,pair,timeframeSeconds:1,currentCandle:snap.currentCandle,candleCount:snap.candleCount,structureContext:snap.structureContext,serverTime:Date.now()});});
 app.get('/api/quotex/otc/market-state',(_req,res)=>res.json({ok:true,...marketState,serverTime:Date.now()}));
 
@@ -65,4 +75,3 @@ app.post('/api/quotex/otc/tick', async (req,res)=>{
 });
 
 app.listen(PORT,()=>console.log(JSON.stringify({event:'bridge-ready',port:PORT,mode:'READ_ONLY_SHADOW',tradingEnabled:false,signalVersion:'OTC_INDEPENDENT_V7',shadowEngines:[10,15,30,60,120,180,300].map(x=>`OTC_${x}S_INDEPENDENT_V7`),tokenConfigured:Boolean(TOKEN),dataDir:ROOT})));
-
