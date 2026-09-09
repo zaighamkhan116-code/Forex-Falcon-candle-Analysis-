@@ -1,21 +1,6 @@
-/* Keep the text directly below the OTC expiry countdown stable on screen. */
+/* Keep only one clear status line below the OTC expiry countdown. */
 #status{
-  font-size:0!important;
-  animation:none!important;
-  opacity:1!important;
-  visibility:visible!important;
-  min-height:22px;
-}
-#status::after{
-  content:'FALCON OTC ANALYSIS ACTIVE';
-  display:block;
-  font-size:12px;
-  line-height:1.4;
-  letter-spacing:.12em;
-  color:#eafaff;
-  text-align:center;
-  text-shadow:0 0 8px rgba(40,215,255,.42);
-  animation:none!important;
+  display:none!important;
 }
 #analysisTime{
   display:none!important;
