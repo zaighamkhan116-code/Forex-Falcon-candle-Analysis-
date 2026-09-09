@@ -14,11 +14,24 @@ export function pulseFilter(ticks, now, direction, config={}) {
  if(Math.max(rateSurge,movementSurge)<c.minSurge)reasons.push('NO_PULSE');
  return {passed:reasons.length===0,reasons,pressure,efficiency,rateSurge,movementSurge,changes:recent.length,source:'QUOTE_TICK_PROXY'};
 }
+
+const samplingToleranceMs=expirySeconds=>{
+ const e=Number(expirySeconds)||0;
+ if(e<=10)return 1250;
+ if(e<=15)return 1500;
+ if(e<=30)return 1800;
+ if(e<=60)return 2500;
+ if(e<=120)return 3500;
+ if(e<=180)return 4000;
+ return 5000;
+};
+
 export class LagSimulation {
- constructor({lags=[0,250,500,1000,2000],maxSamplingDelayMs=500,onResult=()=>{}}={}){this.lags=lags;this.maxSamplingDelayMs=maxSamplingDelayMs;this.onResult=onResult;this.pending=[];this.recent=[];this.results={};}
+ constructor({lags=[0,250,500,1000,2000],maxSamplingDelayMs=null,onResult=()=>{}}={}){this.lags=lags;this.maxSamplingDelayMs=maxSamplingDelayMs;this.onResult=onResult;this.pending=[];this.recent=[];this.results={};}
+ toleranceFor(expirySeconds){const adaptive=samplingToleranceMs(expirySeconds);return Number.isFinite(this.maxSamplingDelayMs)&&this.maxSamplingDelayMs>0?Math.max(this.maxSamplingDelayMs,adaptive):adaptive;}
  add(signal){const {pair,expirySeconds,direction,confidence,entryTimestampMs,entryPrice,engine}=signal;for(const lagMs of this.lags)this.pending.push({pair,expirySeconds,direction,confidence,entryTimestampMs,entryPrice,engine,id:signal.id+':lag:'+lagMs,signalId:signal.id,lagMs,simulation:true,status:'WAITING_ENTRY',scheduledEntryMs:signal.entryTimestampMs+lagMs});}
- tick(tick){const keep=[];for(const r of this.pending){if(r.pair!==tick.pair){keep.push(r);continue;}if(r.status==='WAITING_ENTRY'&&tick.timestamp_ms>=r.scheduledEntryMs){if(tick.timestamp_ms-r.scheduledEntryMs>this.maxSamplingDelayMs){this.finish({...r,status:'SKIPPED',reason:'ENTRY_DATA_GAP'},tick.timestamp_ms);continue;}r.simulatedEntryMs=tick.timestamp_ms;r.simulatedEntryPrice=tick.price;r.effectiveLagMs=tick.timestamp_ms-r.entryTimestampMs;r.simulatedExpiryMs=tick.timestamp_ms+r.expirySeconds*1000;r.status='OPEN';}
- if(r.status==='OPEN'&&tick.timestamp_ms>=r.simulatedExpiryMs){if(tick.timestamp_ms-r.simulatedExpiryMs>this.maxSamplingDelayMs){this.finish({...r,status:'SKIPPED',reason:'EXPIRY_DATA_GAP'},tick.timestamp_ms);continue;}const delta=tick.price-r.simulatedEntryPrice;this.finish({...r,status:'SETTLED',outcome:delta===0?'DRAW':Math.sign(delta)===(r.direction==='UP'?1:-1)?'WIN':'LOSS',simulatedExitPrice:tick.price,exitSamplingDelayMs:tick.timestamp_ms-r.simulatedExpiryMs},tick.timestamp_ms);continue;}keep.push(r);}this.pending=keep;}
+ tick(tick){const keep=[];for(const r of this.pending){if(r.pair!==tick.pair){keep.push(r);continue;}const tolerance=this.toleranceFor(r.expirySeconds);if(r.status==='WAITING_ENTRY'&&tick.timestamp_ms>=r.scheduledEntryMs){const samplingDelay=tick.timestamp_ms-r.scheduledEntryMs;if(samplingDelay>tolerance){this.finish({...r,status:'SKIPPED',reason:'ENTRY_DATA_GAP',entrySamplingDelayMs:samplingDelay,samplingToleranceMs:tolerance},tick.timestamp_ms);continue;}r.simulatedEntryMs=tick.timestamp_ms;r.simulatedEntryPrice=tick.price;r.effectiveLagMs=tick.timestamp_ms-r.entryTimestampMs;r.entrySamplingDelayMs=samplingDelay;r.samplingToleranceMs=tolerance;r.simulatedExpiryMs=tick.timestamp_ms+r.expirySeconds*1000;r.status='OPEN';}
+ if(r.status==='OPEN'&&tick.timestamp_ms>=r.simulatedExpiryMs){const samplingDelay=tick.timestamp_ms-r.simulatedExpiryMs;if(samplingDelay>tolerance){this.finish({...r,status:'SKIPPED',reason:'EXPIRY_DATA_GAP',exitSamplingDelayMs:samplingDelay,samplingToleranceMs:tolerance},tick.timestamp_ms);continue;}const delta=tick.price-r.simulatedEntryPrice;this.finish({...r,status:'SETTLED',outcome:delta===0?'DRAW':Math.sign(delta)===(r.direction==='UP'?1:-1)?'WIN':'LOSS',simulatedExitPrice:tick.price,exitSamplingDelayMs:samplingDelay,samplingToleranceMs:tolerance},tick.timestamp_ms);continue;}keep.push(r);}this.pending=keep;}
  finish(r,ts){r.settlementTimestampMs=ts;const k=`${r.pair}:${r.expirySeconds}:${r.lagMs}`,s=this.results[k]??={wins:0,losses:0,draws:0,skipped:0,total:0};if(r.status==='SKIPPED')s.skipped++;else{s.total++;s[r.outcome==='WIN'?'wins':r.outcome==='LOSS'?'losses':'draws']++;}this.recent.unshift(r);this.recent=this.recent.slice(0,2000);this.onResult(r);}
- snapshot(pair){return{lags:this.lags,expiryMode:'DURATION_FROM_SIMULATED_ENTRY',maxSamplingDelayMs:this.maxSamplingDelayMs,results:Object.fromEntries(Object.entries(this.results).filter(([k])=>k.startsWith(pair+':'))),recent:this.recent.filter(r=>r.pair===pair).slice(0,500)};}
+ snapshot(pair){return{lags:this.lags,expiryMode:'DURATION_FROM_SIMULATED_ENTRY',maxSamplingDelayMs:this.maxSamplingDelayMs,samplingToleranceMode:'EXPIRY_ADAPTIVE',samplingToleranceMs:{10:1250,15:1500,30:1800,60:2500,120:3500,180:4000,300:5000},results:Object.fromEntries(Object.entries(this.results).filter(([k])=>k.startsWith(pair+':'))),recent:this.recent.filter(r=>r.pair===pair).slice(0,500)};}
 }
