@@ -10,6 +10,7 @@
     "quotex:worker": "node quotex_mobile/worker.js",
     "quotex:otc": "node quotex_mobile/otc_collector.js",
     "quotex:bridge": "node quotex_mobile/browser_bridge_server.js",
+    "quotex:backtest": "node quotex_mobile/otc_replay_backtest.js",
     "ios:add": "npx cap add ios",
     "ios:sync": "npx cap sync ios",
     "ios:open": "npx cap open ios",
