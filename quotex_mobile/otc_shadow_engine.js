@@ -1,12 +1,13 @@
 import fs from 'fs/promises';
 import path from 'path';
 import {pulseFilter,LagSimulation} from './otc_quality.js';
+import {buildOtcStructureContext,structureDecision} from './otc_structure_context.js';
 
 const clamp=(n,lo,hi)=>Math.max(lo,Math.min(hi,n));
 const sign=n=>n>0?1:n<0?-1:0;
-const EXPIRIES=[10,15,30,60,300];
+const EXPIRIES=[10,15,30,60,120,180,300];
 const MIN_PER_MINUTE={10:3,15:2,30:1,60:1};
-const MAX_CLIENT_LAG_MS={10:1250,15:1500,30:1800,60:2500,300:5000};
+const MAX_CLIENT_LAG_MS={10:1250,15:1500,30:1800,60:2500,120:3500,180:4000,300:5000};
 function safePair(v){return String(v||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,12)}
 const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:0;
 
@@ -25,7 +26,7 @@ export class OtcShadowEngine{
     }});
     this.maxCandles=maxCandles;
     this.pairs=new Map();
-    this.stats={ticksSeen:0,candlesClosed:0,predictions:0,settlements:0,wins:0,losses:0,draws:0,qualifiedPredictions:0,frequencyFloorPredictions:0};
+    this.stats={ticksSeen:0,candlesClosed:0,predictions:0,settlements:0,wins:0,losses:0,draws:0,qualifiedPredictions:0,frequencyFloorPredictions:0,structurePredictions:0};
   }
 
   pairState(pair){
@@ -33,7 +34,7 @@ export class OtcShadowEngine{
     if(!this.pairs.has(key)){
       const blank=Object.fromEntries(EXPIRIES.map(x=>[x,null]));
       const results=Object.fromEntries(EXPIRIES.map(x=>[x,{wins:0,losses:0,draws:0,total:0}]));
-      this.pairs.set(key,{pair:key,current:null,candles:[],recentTicks:[],pending:[],latestPrediction:{...blank},latestSettlement:{...blank},lastBoundary:{...blank},recentSignals:[],recentSettlements:[],results});
+      this.pairs.set(key,{pair:key,current:null,candles:[],recentTicks:[],pending:[],latestPrediction:{...blank},latestSettlement:{...blank},lastBoundary:{...blank},recentSignals:[],recentSettlements:[],results,structureContext:null,lastStructureMinute:null});
     }
     return this.pairs.get(key);
   }
@@ -87,7 +88,7 @@ export class OtcShadowEngine{
 
   featureSnapshot(state,nowMs){
     const all=[...state.candles,state.current].filter(Boolean),last=all.slice(-30),ranges=last.map(c=>c.high-c.low),avgRange=avg(ranges),lastClose=all.at(-1)?.close||0;
-    const r={m3:this.recentReturns(state,3),m5:this.recentReturns(state,5),m10:this.recentReturns(state,10),m20:this.recentReturns(state,20),m30:this.recentReturns(state,30),m60:this.recentReturns(state,60),m120:this.recentReturns(state,120)};
+    const r={m3:this.recentReturns(state,3),m5:this.recentReturns(state,5),m10:this.recentReturns(state,10),m20:this.recentReturns(state,20),m30:this.recentReturns(state,30),m60:this.recentReturns(state,60),m120:this.recentReturns(state,120),m180:this.recentReturns(state,180),m300:this.recentReturns(state,300)};
     const p3=this.tickPressure(state,nowMs,3),p5=this.tickPressure(state,nowMs,5),p10=this.tickPressure(state,nowMs,10);
     const recent10=all.slice(-10),recent20=all.slice(-20);
     const hi10=Math.max(...recent10.map(c=>c.high)),lo10=Math.min(...recent10.map(c=>c.low)),hi20=Math.max(...recent20.map(c=>c.high)),lo20=Math.min(...recent20.map(c=>c.low));
@@ -119,24 +120,14 @@ export class OtcShadowEngine{
     let nearest=null;
     for(const c of candidates){const distance=Math.abs(px-c.level);if(!nearest||distance<nearest.distance)nearest={...c,distance};}
     if(!nearest||nearest.distance>zoneWidth*2.25)return{active:false,reason:'NO_NEARBY_WICK',zoneWidth:Math.round(zoneWidth*1e8)/1e8};
-    const last4=all.slice(-4),last3=all.slice(-3);
-    const recentHigh=Math.max(...last4.map(c=>c.high)),recentLow=Math.min(...last4.map(c=>c.low));
-    const closeAvg=avg(last3.map(c=>c.close));
+    const last4=all.slice(-4),last3=all.slice(-3),recentHigh=Math.max(...last4.map(c=>c.high)),recentLow=Math.min(...last4.map(c=>c.low)),closeAvg=avg(last3.map(c=>c.close));
     let reaction='APPROACH',direction=0,strength=.25,broken=false,retested=false;
     if(nearest.side==='UPPER'){
-      broken=recentHigh>nearest.level+zoneWidth*.35&&closeAvg>nearest.level;
-      retested=broken&&recentLow<=nearest.level+zoneWidth*.55&&px>=nearest.level-zoneWidth*.10;
-      const rejected=recentHigh>=nearest.level-zoneWidth*.65&&px<nearest.level-zoneWidth*.12;
-      if(retested){reaction='BREAK_RETEST_HOLD';direction=1;strength=.85;}
-      else if(broken){reaction='BREAK_HOLD';direction=1;strength=.65;}
-      else if(rejected){reaction='REJECTION';direction=-1;strength=.75;}
+      broken=recentHigh>nearest.level+zoneWidth*.35&&closeAvg>nearest.level;retested=broken&&recentLow<=nearest.level+zoneWidth*.55&&px>=nearest.level-zoneWidth*.10;const rejected=recentHigh>=nearest.level-zoneWidth*.65&&px<nearest.level-zoneWidth*.12;
+      if(retested){reaction='BREAK_RETEST_HOLD';direction=1;strength=.85;}else if(broken){reaction='BREAK_HOLD';direction=1;strength=.65;}else if(rejected){reaction='REJECTION';direction=-1;strength=.75;}
     }else{
-      broken=recentLow<nearest.level-zoneWidth*.35&&closeAvg<nearest.level;
-      retested=broken&&recentHigh>=nearest.level-zoneWidth*.55&&px<=nearest.level+zoneWidth*.10;
-      const rejected=recentLow<=nearest.level+zoneWidth*.65&&px>nearest.level+zoneWidth*.12;
-      if(retested){reaction='BREAK_RETEST_HOLD';direction=-1;strength=.85;}
-      else if(broken){reaction='BREAK_HOLD';direction=-1;strength=.65;}
-      else if(rejected){reaction='REJECTION';direction=1;strength=.75;}
+      broken=recentLow<nearest.level-zoneWidth*.35&&closeAvg<nearest.level;retested=broken&&recentHigh>=nearest.level-zoneWidth*.55&&px<=nearest.level+zoneWidth*.10;const rejected=recentLow<=nearest.level+zoneWidth*.65&&px>nearest.level+zoneWidth*.12;
+      if(retested){reaction='BREAK_RETEST_HOLD';direction=-1;strength=.85;}else if(broken){reaction='BREAK_HOLD';direction=-1;strength=.65;}else if(rejected){reaction='REJECTION';direction=1;strength=.75;}
     }
     return{active:true,side:nearest.side,level:nearest.level,ageMs:nowMs-nearest.sec,distance:nearest.distance,zoneWidth,reaction,direction,strength,broken,retested};
   }
@@ -146,8 +137,10 @@ export class OtcShadowEngine{
     if(expiry===10)return norm(f.m3)*.22+norm(f.m5)*.17+norm(f.velocity)*.13+norm(f.accel)*.10+f.pressure3*.14+f.pressure5*.08+f.rejection*.06+f.sequence*.05+(f.pos10-.5)*.10;
     if(expiry===15)return norm(f.m3)*.14+norm(f.m5)*.18+norm(f.m10)*.12+norm(f.velocity)*.10+f.pressure5*.13+f.pressure10*.09+f.rejection*.08+f.sequence*.07+(f.pos10-.5)*.09;
     if(expiry===30)return norm(f.m5)*.10+norm(f.m10)*.19+norm(f.m20)*.18+norm(f.m30)*.10+f.pressure10*.11+f.rejection*.09+f.sequence*.08+(f.pos20-.5)*.08+clamp(f.breakout10,-1,1)*.07;
-    if(expiry===60)return norm(f.m5)*.08+norm(f.m10)*.18+norm(f.m20)*.27+norm(f.m60)*.30+norm(f.m120)*.04+f.pressure10*.09+f.sequence*.04;
-    return norm(f.m10)*.08+norm(f.m20)*.16+norm(f.m60)*.28+norm(f.m120)*.36+f.pressure10*.08+f.sequence*.04;
+    if(expiry===60)return norm(f.m5)*.06+norm(f.m10)*.14+norm(f.m20)*.23+norm(f.m60)*.31+norm(f.m120)*.08+f.pressure10*.10+f.sequence*.08;
+    if(expiry===120)return norm(f.m20)*.10+norm(f.m60)*.28+norm(f.m120)*.34+norm(f.m180)*.12+f.pressure10*.06+f.sequence*.10;
+    if(expiry===180)return norm(f.m30)*.08+norm(f.m60)*.22+norm(f.m120)*.30+norm(f.m180)*.25+norm(f.m300)*.08+f.sequence*.07;
+    return norm(f.m30)*.06+norm(f.m60)*.18+norm(f.m120)*.27+norm(f.m180)*.20+norm(f.m300)*.22+f.sequence*.07;
   }
 
   quality(f,expiry){
@@ -171,39 +164,70 @@ export class OtcShadowEngine{
     return sign(sum)*Math.max(threshold*.65,.025);
   }
 
+  thresholds(expiry){
+    if(expiry===10)return{threshold:.055,minQuality:.22,minHistory:8};
+    if(expiry===15)return{threshold:.060,minQuality:.20,minHistory:10};
+    if(expiry===30)return{threshold:.065,minQuality:.10,minHistory:15};
+    if(expiry===60)return{threshold:.050,minQuality:.08,minHistory:20};
+    if(expiry===120)return{threshold:.060,minQuality:.10,minHistory:120};
+    if(expiry===180)return{threshold:.065,minQuality:.12,minHistory:180};
+    return{threshold:.080,minQuality:.18,minHistory:300};
+  }
+
+  compactContext(context){
+    if(!context?.available)return context;
+    return{available:true,bars1m:context.bars1m,avgRange:context.avgRange,price:context.price,structure:context.structure,ema30:context.ema30,interaction:context.interaction,spikeSnap:context.spikeSnap,doubleTap:context.doubleTap,approachDirection:context.approachDirection,zones:context.zones?.slice(-8),fractals:context.fractals?.slice(-10)};
+  }
+
   async maybePredict(state,tick,expiry){
     const boundary=Math.floor(tick.timestamp_ms/(expiry*1000));if(state.lastBoundary[expiry]===boundary)return null;
-    const minHistory=expiry===10?8:expiry===15?10:expiry===30?15:expiry===60?20:120;if(state.candles.length<minHistory)return null;
+    const {threshold,minQuality,minHistory}=this.thresholds(expiry);if(state.candles.length<minHistory)return null;
     const features=this.featureSnapshot(state,tick.timestamp_ms);let raw=this.baseScore(features,expiry),q=this.quality(features,expiry);
-    const threshold=expiry===10?.055:expiry===15?.060:expiry===30?.065:expiry===60?.050:.08,minQuality=expiry===10?.22:expiry===15?.20:expiry===30?.10:expiry===60?.08:.18;
+    const context=buildOtcStructureContext({candles:state.candles,current:state.current,recentTicks:state.recentTicks,nowMs:tick.timestamp_ms});
+    state.structureContext=context;
+    const structure=structureDecision(context,expiry,features);
     const wickMemory=expiry<=15?this.wickMemory(state,tick.timestamp_ms):null;
-    if(wickMemory?.active&&wickMemory.direction){
-      const rawDir=sign(raw);
-      if(rawDir===wickMemory.direction){raw+=wickMemory.direction*(expiry===10?.018:.022)*wickMemory.strength;q=clamp(q+.05*wickMemory.strength,0,1);}
-      else if(wickMemory.reaction==='REJECTION'||wickMemory.reaction==='BREAK_RETEST_HOLD'){
-        raw*=expiry===10?.58:.52;
-        q=clamp(q-.08*wickMemory.strength,0,1);
+
+    if(structure.active&&structure.direction){
+      if(expiry<=15&&(structure.pattern==='FRACTAL_FIRST_TOUCH'||structure.pattern==='FRACTAL_FALSE_BREAK')){
+        raw=structure.direction*Math.max(Math.abs(raw)*.55,threshold*(1.15+structure.strength*.35));q=Math.max(q,.28+structure.strength*.22);
+      }else{
+        const weight=expiry<=30?.040:expiry<=60?.032:expiry<=180?.026:.020;
+        raw+=structure.direction*weight*structure.strength;q=clamp(q+.08*structure.strength,0,1);
       }
     }
+    if(structure.blockMomentum&&expiry<=15&&!structure.direction)return null;
+
+    if(wickMemory?.active&&wickMemory.direction){
+      const rawDir=sign(raw);
+      if(rawDir===wickMemory.direction){raw+=wickMemory.direction*(expiry===10?.014:.017)*wickMemory.strength;q=clamp(q+.04*wickMemory.strength,0,1);}
+      else if((wickMemory.reaction==='REJECTION'||wickMemory.reaction==='BREAK_RETEST_HOLD')&&!(structure.direction&&structure.strength>=.8)){raw*=expiry===10?.68:.62;q=clamp(q-.05*wickMemory.strength,0,1);}
+    }
+
     const pulseCfg=expiry===10?{windowMs:2500,minChanges:3,minPressure:.55,minEfficiency:.50,minSurge:1.15,maxFeedLagMs:1250}:expiry===15?{windowMs:3500,minChanges:3,minPressure:.50,minEfficiency:.45,minSurge:1.10,maxFeedLagMs:1500}:{};
     const pulse=expiry<=15?pulseFilter(state.recentTicks,tick.timestamp_ms,sign(raw),pulseCfg):null;
+    const reactionPriority=expiry<=15&&structure.direction&&(structure.pattern==='FRACTAL_FIRST_TOUCH'||structure.pattern==='FRACTAL_FALSE_BREAK')&&(structure.regime==='RANGE'||structure.regime==='TRANSITION');
     state.qualityStatus??={};
-    const lag=Number(tick.client_lag_ms||0),lagLimit=MAX_CLIENT_LAG_MS[expiry]||2500;if(this.persistenceError||lag>lagLimit)return null;
-    let qualified=Math.abs(raw)>=threshold&&q>=minQuality&&(!pulse||pulse.passed);
-    if(expiry<=15&&qualified&&wickMemory?.active&&wickMemory.direction&&sign(raw)!==wickMemory.direction&&(wickMemory.reaction==='REJECTION'||wickMemory.reaction==='BREAK_RETEST_HOLD'))qualified=false;
+    const lag=Number(tick.client_lag_ms||0),lagLimit=MAX_CLIENT_LAG_MS[expiry]||5000;if(this.persistenceError||lag>lagLimit)return null;
+    let qualified=Math.abs(raw)>=threshold&&q>=minQuality&&(reactionPriority||!pulse||pulse.passed);
+    if(expiry<=15&&qualified&&wickMemory?.active&&wickMemory.direction&&sign(raw)!==wickMemory.direction&&(wickMemory.reaction==='REJECTION'||wickMemory.reaction==='BREAK_RETEST_HOLD')&&!reactionPriority)qualified=false;
     let frequencyFloor=false;
     if(!qualified){
       const cadenceDue=expiry<=30&&this.minuteCadenceDue(state,tick,expiry);if(!cadenceDue)return null;
+      if(structure.blockMomentum)return null;
       const floorRaw=this.consensusBias(features,expiry,threshold);if(!floorRaw)return null;
+      if(structure.direction&&structure.strength>=.75&&sign(floorRaw)!==structure.direction)return null;
       if(expiry<=15&&wickMemory?.active&&wickMemory.direction&&sign(floorRaw)!==wickMemory.direction&&(wickMemory.reaction==='REJECTION'||wickMemory.reaction==='BREAK_RETEST_HOLD'))return null;
       raw=floorRaw;frequencyFloor=true;
     }
-    state.qualityStatus[expiry]={...(pulse||{}),passed:true,qualified,frequencyFloor,lagMs:lag,lagLimitMs:lagLimit,wickMemory};
+
+    const structurePattern=structure.active?structure.pattern:'STANDARD';
+    state.qualityStatus[expiry]={...(pulse||{}),passed:true,qualified,frequencyFloor,lagMs:lag,lagLimitMs:lagLimit,wickMemory,structure:{pattern:structurePattern,direction:structure.direction,strength:structure.strength,regime:structure.regime,blockMomentum:structure.blockMomentum}};
     state.lastBoundary[expiry]=boundary;
-    const direction=raw>0?'UP':'DOWN',confidence=Math.round(clamp(50+Math.abs(raw)*30+q*12,50,frequencyFloor?60:86)*10)/10,id=`${state.pair}-${expiry}-${tick.timestamp_ms}`,engine=expiry<=60?`OTC_${expiry}S_SHADOW_V2`:`OTC_${expiry}S_SHADOW_V1`;
-    const entryPattern=wickMemory?.active&&wickMemory.direction===sign(raw)?`WICK_${wickMemory.reaction}`:'STANDARD';
-    const prediction={id,engine:engine+'_WICK_MEMORY_V5',generatedAtMs:Date.now(),confidenceKind:'HEURISTIC_SCORE_NOT_CALIBRATED_PROBABILITY',pulse,wickMemory,entryPattern,mode:'SHADOW',tradingEnabled:false,pair:state.pair,marketType:'OTC',expirySeconds:expiry,direction,confidence,score:Math.round(raw*10000)/10000,quality:Math.round(q*1000)/1000,entryTimestampMs:tick.receivedAtMs??tick.timestamp_ms,sourceTickTimestampMs:tick.timestamp_ms,entryPrice:tick.price,targetTimestampMs:(tick.receivedAtMs??tick.timestamp_ms)+expiry*1000,features:{...features,wickMemory},status:'PENDING',frequencyFloor,signalClass:frequencyFloor?'FREQUENCY_FLOOR':'QUALIFIED'};
-    state.pending.push(prediction);this.simulation.add(prediction);state.latestPrediction[expiry]=prediction;state.recentSignals.unshift(prediction);state.recentSignals=state.recentSignals.slice(0,100);this.stats.predictions++;if(frequencyFloor)this.stats.frequencyFloorPredictions++;else this.stats.qualifiedPredictions++;
+    const direction=raw>0?'UP':'DOWN',confidence=Math.round(clamp(50+Math.abs(raw)*30+q*12+(structure.strength||0)*3,50,frequencyFloor?60:88)*10)/10,id=`${state.pair}-${expiry}-${tick.timestamp_ms}`;
+    const entryPattern=structurePattern!=='STANDARD'?structurePattern:wickMemory?.active&&wickMemory.direction===sign(raw)?`WICK_${wickMemory.reaction}`:'STANDARD';
+    const prediction={id,engine:`OTC_${expiry}S_STRUCTURE_V6`,generatedAtMs:Date.now(),confidenceKind:'HEURISTIC_SCORE_NOT_CALIBRATED_PROBABILITY',pulse,wickMemory,structureContext:this.compactContext(context),entryPattern,mode:'SHADOW',tradingEnabled:false,pair:state.pair,marketType:'OTC',expirySeconds:expiry,direction,confidence,score:Math.round(raw*10000)/10000,quality:Math.round(q*1000)/1000,entryTimestampMs:tick.receivedAtMs??tick.timestamp_ms,sourceTickTimestampMs:tick.timestamp_ms,entryPrice:tick.price,targetTimestampMs:(tick.receivedAtMs??tick.timestamp_ms)+expiry*1000,features:{...features,wickMemory,structurePattern,structureRegime:structure.regime},status:'PENDING',frequencyFloor,signalClass:frequencyFloor?'FREQUENCY_FLOOR':structurePattern!=='STANDARD'?'STRUCTURE_QUALIFIED':'QUALIFIED'};
+    state.pending.push(prediction);this.simulation.add(prediction);state.latestPrediction[expiry]=prediction;state.recentSignals.unshift(prediction);state.recentSignals=state.recentSignals.slice(0,140);this.stats.predictions++;if(frequencyFloor)this.stats.frequencyFloorPredictions++;else this.stats.qualifiedPredictions++;if(structurePattern!=='STANDARD')this.stats.structurePredictions++;
     await this.append(`shadow-${expiry}s-signals`,state.pair,tick.timestamp_ms,prediction);return prediction;
   }
 
@@ -214,7 +238,7 @@ export class OtcShadowEngine{
       const delta=tick.price-p.entryPrice,actual=sign(delta),predicted=p.direction==='UP'?1:-1,outcome=actual===0?'DRAW':actual===predicted?'WIN':'LOSS',row={...p,status:'SETTLED',settlementTimestampMs:tick.timestamp_ms,settlementPrice:tick.price,settlementDelayMs:tick.timestamp_ms-p.targetTimestampMs,outcome,priceDelta:delta};
       const r=state.results[p.expirySeconds];r.total++;
       if(outcome==='WIN'){r.wins++;this.stats.wins++;}else if(outcome==='LOSS'){r.losses++;this.stats.losses++;}else{r.draws++;this.stats.draws++;}
-      this.stats.settlements++;state.latestSettlement[p.expirySeconds]=row;state.recentSettlements.unshift(row);state.recentSettlements=state.recentSettlements.slice(0,100);
+      this.stats.settlements++;state.latestSettlement[p.expirySeconds]=row;state.recentSettlements.unshift(row);state.recentSettlements=state.recentSettlements.slice(0,140);
       await this.append(`shadow-${p.expirySeconds}s-results`,state.pair,tick.timestamp_ms,row);settled.push(row);
     }
     return settled;
@@ -222,17 +246,19 @@ export class OtcShadowEngine{
 
   async onTick(tick){
     this.stats.ticksSeen++;const state=this.pairState(tick.pair);if(state.lastTickTs!=null&&tick.timestamp_ms<=state.lastTickTs)return{predictions:[],settlements:[]};state.lastTickTs=tick.timestamp_ms;this.simulation.tick(tick);
-    state.recentTicks.push({timestamp_ms:tick.timestamp_ms,price:tick.price});const cutoff=tick.timestamp_ms-360000;while(state.recentTicks.length&&state.recentTicks[0].timestamp_ms<cutoff)state.recentTicks.shift();
+    state.recentTicks.push({timestamp_ms:tick.timestamp_ms,price:tick.price});const cutoff=tick.timestamp_ms-900000;while(state.recentTicks.length&&state.recentTicks[0].timestamp_ms<cutoff)state.recentTicks.shift();
     const closed=this.updateCandle(state,tick);
     for(const c of closed)await this.append('micro-1s',state.pair,c.sec,{pair:state.pair,marketType:'OTC',timeframeSeconds:1,timestamp_ms:c.sec,timestamp_iso:new Date(c.sec).toISOString(),open:c.open,high:c.high,low:c.low,close:c.close,tickCount:c.tickCount,upTicks:c.upTicks,downTicks:c.downTicks,synthetic:Boolean(c.synthetic),source:'QUOTEX_BROWSER_BRIDGE'});
+    const minuteBucket=Math.floor(tick.timestamp_ms/60000);
+    if(state.lastStructureMinute!==minuteBucket){state.lastStructureMinute=minuteBucket;state.structureContext=buildOtcStructureContext({candles:state.candles,current:state.current,recentTicks:state.recentTicks,nowMs:tick.timestamp_ms});if(state.structureContext?.available)await this.append('structure-1m',state.pair,tick.timestamp_ms,{pair:state.pair,timestamp_ms:tick.timestamp_ms,engine:'OTC_STRUCTURE_V6',context:this.compactContext(state.structureContext)});}
     const settlements=await this.settlePending(state,tick),predictions=[];
     for(const expiry of EXPIRIES){const p=await this.maybePredict(state,tick,expiry);if(p)predictions.push(p);}
     this.simulation.tick(tick);return{predictions,settlements};
   }
 
   snapshot(pair=null){
-    const serialize=state=>({pair:state.pair,qualityStatus:state.qualityStatus||{},executionSimulation:this.simulation.snapshot(state.pair),persistenceError:this.persistenceError,currentCandle:state.current,candleCount:state.candles.length,pendingCount:state.pending.length,latestPrediction:state.latestPrediction,latestSettlement:state.latestSettlement,recentSignals:state.recentSignals.slice(0,50),recentSettlements:state.recentSettlements.slice(0,50),results:Object.fromEntries(Object.entries(state.results).map(([k,v])=>[k,{...v,winRate:(v.wins+v.losses)?Math.round(v.wins/(v.wins+v.losses)*10000)/100:null}]))});
+    const serialize=state=>({pair:state.pair,qualityStatus:state.qualityStatus||{},executionSimulation:this.simulation.snapshot(state.pair),persistenceError:this.persistenceError,currentCandle:state.current,candleCount:state.candles.length,pendingCount:state.pending.length,structureContext:this.compactContext(state.structureContext),latestPrediction:state.latestPrediction,latestSettlement:state.latestSettlement,recentSignals:state.recentSignals.slice(0,70),recentSettlements:state.recentSettlements.slice(0,70),results:Object.fromEntries(Object.entries(state.results).map(([k,v])=>[k,{...v,winRate:(v.wins+v.losses)?Math.round(v.wins/(v.wins+v.losses)*10000)/100:null}]))});
     if(pair)return serialize(this.pairState(pair));
-    return{mode:'SHADOW',tradingEnabled:false,engines:EXPIRIES.map(x=>x<=60?`OTC_${x}S_SHADOW_V2`:`OTC_${x}S_SHADOW_V1`),expiries:EXPIRIES,stats:this.stats,pairs:[...this.pairs.values()].map(serialize)};
+    return{mode:'SHADOW',tradingEnabled:false,engineVersion:'OTC_STRUCTURE_V6',engines:EXPIRIES.map(x=>`OTC_${x}S_STRUCTURE_V6`),expiries:EXPIRIES,stats:this.stats,pairs:[...this.pairs.values()].map(serialize)};
   }
 }
