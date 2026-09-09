@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T19:50:50.379Z",
+  "generatedAt": "2026-09-09T21:32:00.316Z",
   "timezone": "Asia/Karachi",
   "method": "chronological canonical WIN/LOSS records; tag prevalence compared with same-track baseline; no hard veto proposed",
   "constraints": {
@@ -13,42 +13,42 @@
     {
       "pair": "EURUSD",
       "horizon": 2,
-      "n": 610,
-      "accuracy": 47.21,
+      "n": 617,
+      "accuracy": 47.33,
       "maxLossStreak": 12,
       "ge4": 22,
       "topRisk": {
         "tag": "PROGRESS_FAILURE_GATE",
-        "n": 59,
-        "losses": 35,
-        "wins": 24,
-        "lossRate": 59.32,
-        "deltaVsTrackLossRatePp": 6.54,
+        "n": 61,
+        "losses": 36,
+        "wins": 25,
+        "lossRate": 59.02,
+        "deltaVsTrackLossRatePp": 6.34,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "GBPUSD",
       "horizon": 1,
-      "n": 645,
-      "accuracy": 46.36,
+      "n": 664,
+      "accuracy": 46.54,
       "maxLossStreak": 11,
-      "ge4": 29,
+      "ge4": 30,
       "topRisk": {
         "tag": "HIGH_CONFIDENCE_CONTRADICTION_GATE",
         "n": 9,
         "losses": 6,
         "wins": 3,
         "lossRate": 66.67,
-        "deltaVsTrackLossRatePp": 13.02,
+        "deltaVsTrackLossRatePp": 13.2,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "EURJPY",
       "horizon": 5,
-      "n": 455,
-      "accuracy": 47.47,
+      "n": 457,
+      "accuracy": 47.26,
       "maxLossStreak": 10,
       "ge4": 17,
       "topRisk": {
@@ -57,15 +57,15 @@
         "losses": 4,
         "wins": 1,
         "lossRate": 80,
-        "deltaVsTrackLossRatePp": 27.47,
+        "deltaVsTrackLossRatePp": 27.26,
         "status": "PROVISIONAL"
       }
     },
     {
       "pair": "EURJPY",
       "horizon": 2,
-      "n": 634,
-      "accuracy": 47.63,
+      "n": 642,
+      "accuracy": 47.66,
       "maxLossStreak": 10,
       "ge4": 20,
       "topRisk": {
@@ -74,49 +74,49 @@
         "losses": 12,
         "wins": 4,
         "lossRate": 75,
-        "deltaVsTrackLossRatePp": 22.63,
+        "deltaVsTrackLossRatePp": 22.66,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "GBPUSD",
       "horizon": 2,
-      "n": 607,
-      "accuracy": 46.29,
+      "n": 615,
+      "accuracy": 46.5,
       "maxLossStreak": 9,
       "ge4": 21,
       "topRisk": {
         "tag": "PROGRESS_FAILURE_GATE",
-        "n": 34,
+        "n": 35,
         "losses": 21,
-        "wins": 13,
-        "lossRate": 61.76,
-        "deltaVsTrackLossRatePp": 8.06,
+        "wins": 14,
+        "lossRate": 60,
+        "deltaVsTrackLossRatePp": 6.5,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "USDJPY",
       "horizon": 2,
-      "n": 632,
-      "accuracy": 46.84,
+      "n": 640,
+      "accuracy": 47.19,
       "maxLossStreak": 9,
       "ge4": 22,
       "topRisk": {
         "tag": "BREAKOUT_MATURITY_GATE",
-        "n": 73,
-        "losses": 46,
-        "wins": 27,
-        "lossRate": 63.01,
-        "deltaVsTrackLossRatePp": 9.85,
+        "n": 76,
+        "losses": 47,
+        "wins": 29,
+        "lossRate": 61.84,
+        "deltaVsTrackLossRatePp": 9.03,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "EURUSD",
       "horizon": 3,
-      "n": 555,
-      "accuracy": 49.01,
+      "n": 560,
+      "accuracy": 48.93,
       "maxLossStreak": 9,
       "ge4": 13,
       "topRisk": {
@@ -125,15 +125,15 @@
         "losses": 6,
         "wins": 4,
         "lossRate": 60,
-        "deltaVsTrackLossRatePp": 9.01,
+        "deltaVsTrackLossRatePp": 8.93,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "USDJPY",
       "horizon": 3,
-      "n": 581,
-      "accuracy": 49.74,
+      "n": 586,
+      "accuracy": 49.83,
       "maxLossStreak": 9,
       "ge4": 21,
       "topRisk": {
@@ -142,15 +142,32 @@
         "losses": 17,
         "wins": 10,
         "lossRate": 62.96,
-        "deltaVsTrackLossRatePp": 12.7,
+        "deltaVsTrackLossRatePp": 12.79,
+        "status": "EVIDENCE"
+      }
+    },
+    {
+      "pair": "AUDUSD",
+      "horizon": 1,
+      "n": 620,
+      "accuracy": 50.32,
+      "maxLossStreak": 9,
+      "ge4": 19,
+      "topRisk": {
+        "tag": "BREAKOUT_MATURITY_GATE",
+        "n": 50,
+        "losses": 31,
+        "wins": 19,
+        "lossRate": 62,
+        "deltaVsTrackLossRatePp": 12.32,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "EURJPY",
       "horizon": 1,
-      "n": 696,
-      "accuracy": 50.29,
+      "n": 715,
+      "accuracy": 50.35,
       "maxLossStreak": 9,
       "ge4": 19,
       "topRisk": {
@@ -159,31 +176,14 @@
         "losses": 20,
         "wins": 9,
         "lossRate": 68.97,
-        "deltaVsTrackLossRatePp": 19.25,
-        "status": "EVIDENCE"
-      }
-    },
-    {
-      "pair": "AUDUSD",
-      "horizon": 1,
-      "n": 605,
-      "accuracy": 50.41,
-      "maxLossStreak": 9,
-      "ge4": 19,
-      "topRisk": {
-        "tag": "BREAKOUT_MATURITY_GATE",
-        "n": 49,
-        "losses": 31,
-        "wins": 18,
-        "lossRate": 63.27,
-        "deltaVsTrackLossRatePp": 13.68,
+        "deltaVsTrackLossRatePp": 19.32,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "GBPUSD",
       "horizon": 3,
-      "n": 560,
+      "n": 564,
       "accuracy": 50.89,
       "maxLossStreak": 9,
       "ge4": 15,
@@ -200,8 +200,8 @@
     {
       "pair": "GBPUSD",
       "horizon": 5,
-      "n": 451,
-      "accuracy": 51.22,
+      "n": 453,
+      "accuracy": 50.99,
       "maxLossStreak": 9,
       "ge4": 11,
       "topRisk": {
@@ -210,49 +210,49 @@
         "losses": 11,
         "wins": 5,
         "lossRate": 68.75,
-        "deltaVsTrackLossRatePp": 19.97,
+        "deltaVsTrackLossRatePp": 19.74,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "EURJPY",
       "horizon": 3,
-      "n": 579,
-      "accuracy": 47.15,
+      "n": 584,
+      "accuracy": 47.09,
       "maxLossStreak": 8,
-      "ge4": 22,
+      "ge4": 23,
       "topRisk": {
         "tag": "PROGRESS_FAILURE_GATE",
-        "n": 45,
-        "losses": 27,
+        "n": 46,
+        "losses": 28,
         "wins": 18,
-        "lossRate": 60,
-        "deltaVsTrackLossRatePp": 7.15,
+        "lossRate": 60.87,
+        "deltaVsTrackLossRatePp": 7.96,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "AUDUSD",
       "horizon": 2,
-      "n": 583,
-      "accuracy": 48.37,
+      "n": 590,
+      "accuracy": 48.31,
       "maxLossStreak": 8,
       "ge4": 22,
       "topRisk": {
         "tag": "TRANSITION",
-        "n": 126,
-        "losses": 74,
-        "wins": 52,
-        "lossRate": 58.73,
-        "deltaVsTrackLossRatePp": 7.1,
+        "n": 128,
+        "losses": 75,
+        "wins": 53,
+        "lossRate": 58.59,
+        "deltaVsTrackLossRatePp": 6.9,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "AUDUSD",
       "horizon": 3,
-      "n": 543,
-      "accuracy": 48.99,
+      "n": 548,
+      "accuracy": 49.27,
       "maxLossStreak": 8,
       "ge4": 20,
       "topRisk": {
@@ -261,58 +261,58 @@
         "losses": 24,
         "wins": 11,
         "lossRate": 68.57,
-        "deltaVsTrackLossRatePp": 17.56,
+        "deltaVsTrackLossRatePp": 17.84,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "USDJPY",
       "horizon": 1,
-      "n": 691,
-      "accuracy": 50.07,
+      "n": 706,
+      "accuracy": 50,
       "maxLossStreak": 8,
-      "ge4": 21,
+      "ge4": 22,
       "topRisk": {
         "tag": "CONSENSUS_CONFLICT",
         "n": 17,
         "losses": 10,
         "wins": 7,
         "lossRate": 58.82,
-        "deltaVsTrackLossRatePp": 8.9,
+        "deltaVsTrackLossRatePp": 8.82,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "EURUSD",
       "horizon": 1,
-      "n": 641,
-      "accuracy": 49.14,
+      "n": 659,
+      "accuracy": 49.77,
       "maxLossStreak": 7,
       "ge4": 24,
       "topRisk": {
         "tag": "FRESH_PROGRESS",
-        "n": 137,
-        "losses": 79,
-        "wins": 58,
-        "lossRate": 57.66,
-        "deltaVsTrackLossRatePp": 6.81,
+        "n": 145,
+        "losses": 81,
+        "wins": 64,
+        "lossRate": 55.86,
+        "deltaVsTrackLossRatePp": 5.63,
         "status": "EVIDENCE"
       }
     },
     {
       "pair": "EURUSD",
       "horizon": 5,
-      "n": 437,
-      "accuracy": 51.03,
+      "n": 439,
+      "accuracy": 50.8,
       "maxLossStreak": 7,
-      "ge4": 9,
+      "ge4": 10,
       "topRisk": {
-        "tag": "EXTENDED",
-        "n": 91,
-        "losses": 51,
-        "wins": 40,
-        "lossRate": 56.04,
-        "deltaVsTrackLossRatePp": 7.07,
+        "tag": "FVG_RESOLVED_CONFIRMED",
+        "n": 19,
+        "losses": 11,
+        "wins": 8,
+        "lossRate": 57.89,
+        "deltaVsTrackLossRatePp": 8.69,
         "status": "EVIDENCE"
       }
     },
@@ -336,17 +336,17 @@
     {
       "pair": "USDJPY",
       "horizon": 5,
-      "n": 455,
-      "accuracy": 47.47,
+      "n": 457,
+      "accuracy": 47.26,
       "maxLossStreak": 6,
-      "ge4": 16,
+      "ge4": 17,
       "topRisk": {
         "tag": "BREAKOUT_MATURITY_GATE",
-        "n": 55,
-        "losses": 34,
+        "n": 56,
+        "losses": 35,
         "wins": 21,
-        "lossRate": 61.82,
-        "deltaVsTrackLossRatePp": 9.29,
+        "lossRate": 62.5,
+        "deltaVsTrackLossRatePp": 9.76,
         "status": "EVIDENCE"
       }
     },
@@ -387,7 +387,7 @@
     {
       "pair": "AUDUSD",
       "horizon": 5,
-      "n": 434,
+      "n": 436,
       "accuracy": 50.46,
       "maxLossStreak": 6,
       "ge4": 11,
@@ -447,26 +447,26 @@
         },
         {
           "horizon": 5,
-          "n": 437,
-          "accuracy": 51.03,
+          "n": 439,
+          "accuracy": 50.8,
           "maxLossStreak": 7
         },
         {
           "horizon": 1,
-          "n": 641,
-          "accuracy": 49.14,
+          "n": 659,
+          "accuracy": 49.77,
           "maxLossStreak": 7
         },
         {
           "horizon": 3,
-          "n": 555,
-          "accuracy": 49.01,
+          "n": 560,
+          "accuracy": 48.93,
           "maxLossStreak": 9
         },
         {
           "horizon": 2,
-          "n": 610,
-          "accuracy": 47.21,
+          "n": 617,
+          "accuracy": 47.33,
           "maxLossStreak": 12
         }
       ],
@@ -1560,26 +1560,26 @@
       "referenceTimeframes": [
         {
           "horizon": 5,
-          "n": 451,
-          "accuracy": 51.22,
+          "n": 453,
+          "accuracy": 50.99,
           "maxLossStreak": 9
         },
         {
           "horizon": 3,
-          "n": 560,
+          "n": 564,
           "accuracy": 50.89,
           "maxLossStreak": 9
         },
         {
           "horizon": 1,
-          "n": 645,
-          "accuracy": 46.36,
+          "n": 664,
+          "accuracy": 46.54,
           "maxLossStreak": 11
         },
         {
           "horizon": 2,
-          "n": 607,
-          "accuracy": 46.29,
+          "n": 615,
+          "accuracy": 46.5,
           "maxLossStreak": 9
         },
         {
@@ -1592,22 +1592,22 @@
       "bestReference": {
         "pair": "GBPUSD",
         "horizon": 5,
-        "n": 451,
+        "n": 453,
         "wins": 231,
-        "losses": 220,
-        "accuracy": 51.22,
+        "losses": 222,
+        "accuracy": 50.99,
         "maxLossStreak": 9,
         "lossRunCounts": {
-          "ge2": 52,
+          "ge2": 53,
           "ge3": 30,
           "ge4": 11,
           "ge5": 4
         },
         "directions": {
-          "BUY": 271,
+          "BUY": 273,
           "SELL": 180
         },
-        "directionImbalancePct": 60.09,
+        "directionImbalancePct": 60.26,
         "sessions": {
           "NEW_YORK": {
             "n": 65,
@@ -1616,10 +1616,10 @@
             "accuracy": 46.15
           },
           "OTHER": {
-            "n": 169,
+            "n": 171,
             "w": 86,
-            "l": 83,
-            "accuracy": 50.89
+            "l": 85,
+            "accuracy": 50.29
           },
           "ASIAN_LATE": {
             "n": 61,
@@ -1780,10 +1780,10 @@
             "accuracy": 52.38
           },
           "02:00-03:00": {
-            "n": 12,
+            "n": 14,
             "w": 8,
-            "l": 4,
-            "accuracy": 66.67
+            "l": 6,
+            "accuracy": 57.14
           },
           "13:00-14:00": {
             "n": 12,
@@ -1799,7 +1799,16 @@
             "losses": 11,
             "wins": 5,
             "lossRate": 68.75,
-            "deltaVsTrackLossRatePp": 19.97,
+            "deltaVsTrackLossRatePp": 19.74,
+            "status": "EVIDENCE"
+          },
+          {
+            "tag": "VSA_SUPPORT",
+            "n": 84,
+            "losses": 48,
+            "wins": 36,
+            "lossRate": 57.14,
+            "deltaVsTrackLossRatePp": 8.14,
             "status": "EVIDENCE"
           },
           {
@@ -1808,7 +1817,7 @@
             "losses": 9,
             "wins": 7,
             "lossRate": 56.25,
-            "deltaVsTrackLossRatePp": 7.47,
+            "deltaVsTrackLossRatePp": 7.24,
             "status": "EVIDENCE"
           },
           {
@@ -1817,16 +1826,7 @@
             "losses": 9,
             "wins": 7,
             "lossRate": 56.25,
-            "deltaVsTrackLossRatePp": 7.47,
-            "status": "EVIDENCE"
-          },
-          {
-            "tag": "VSA_SUPPORT",
-            "n": 82,
-            "losses": 46,
-            "wins": 36,
-            "lossRate": 56.1,
-            "deltaVsTrackLossRatePp": 7.32,
+            "deltaVsTrackLossRatePp": 7.24,
             "status": "EVIDENCE"
           },
           {
@@ -1835,7 +1835,16 @@
             "losses": 7,
             "wins": 6,
             "lossRate": 53.85,
-            "deltaVsTrackLossRatePp": 5.07,
+            "deltaVsTrackLossRatePp": 4.84,
+            "status": "EVIDENCE"
+          },
+          {
+            "tag": "FRESH_PROGRESS",
+            "n": 112,
+            "losses": 60,
+            "wins": 52,
+            "lossRate": 53.57,
+            "deltaVsTrackLossRatePp": 4.56,
             "status": "EVIDENCE"
           },
           {
@@ -1844,16 +1853,7 @@
             "losses": 77,
             "wins": 67,
             "lossRate": 53.47,
-            "deltaVsTrackLossRatePp": 4.69,
-            "status": "EVIDENCE"
-          },
-          {
-            "tag": "FRESH_PROGRESS",
-            "n": 111,
-            "losses": 59,
-            "wins": 52,
-            "lossRate": 53.15,
-            "deltaVsTrackLossRatePp": 4.37,
+            "deltaVsTrackLossRatePp": 4.47,
             "status": "EVIDENCE"
           },
           {
@@ -1862,51 +1862,51 @@
             "losses": 77,
             "wins": 68,
             "lossRate": 53.1,
-            "deltaVsTrackLossRatePp": 4.32,
+            "deltaVsTrackLossRatePp": 4.1,
             "status": "EVIDENCE"
           }
         ],
         "protectiveTags": [
           {
             "tag": "BREAKOUT_PROGRESS",
-            "n": 77,
-            "winRate": 58.44,
-            "liftVsTrackWinRatePp": 7.22,
+            "n": 78,
+            "winRate": 57.69,
+            "liftVsTrackWinRatePp": 6.7,
             "status": "EVIDENCE"
           },
           {
             "tag": "BREAKOUT_MATURITY_GATE",
             "n": 60,
             "winRate": 56.67,
-            "liftVsTrackWinRatePp": 5.45,
+            "liftVsTrackWinRatePp": 5.67,
             "status": "EVIDENCE"
           },
           {
             "tag": "CONTINUATION_RESET_GATE",
-            "n": 235,
-            "winRate": 55.32,
-            "liftVsTrackWinRatePp": 4.1,
+            "n": 236,
+            "winRate": 55.08,
+            "liftVsTrackWinRatePp": 4.09,
             "status": "EVIDENCE"
           },
           {
             "tag": "FUSION_QUALITY_GATE",
             "n": 102,
             "winRate": 54.9,
-            "liftVsTrackWinRatePp": 3.68,
+            "liftVsTrackWinRatePp": 3.91,
             "status": "EVIDENCE"
           },
           {
             "tag": "WEAK_MOVE_QUALITY",
             "n": 215,
             "winRate": 54.42,
-            "liftVsTrackWinRatePp": 3.2,
+            "liftVsTrackWinRatePp": 3.43,
             "status": "EVIDENCE"
           },
           {
             "tag": "ENTRY_LANE_GATE",
             "n": 174,
             "winRate": 54.02,
-            "liftVsTrackWinRatePp": 2.8,
+            "liftVsTrackWinRatePp": 3.03,
             "status": "EVIDENCE"
           }
         ],
@@ -2647,7 +2647,7 @@
               "losses": 11,
               "wins": 5,
               "lossRate": 68.75,
-              "deltaVsTrackLossRatePp": 19.97,
+              "deltaVsTrackLossRatePp": 19.74,
               "status": "EVIDENCE"
             },
             "status": "SHADOW_FIRST",
@@ -2669,7 +2669,7 @@
             "evidence": {
               "maxLossStreak": 9,
               "runCounts": {
-                "ge2": 52,
+                "ge2": 53,
                 "ge3": 30,
                 "ge4": 11,
                 "ge5": 4
@@ -2685,8 +2685,8 @@
       "referenceTimeframes": [
         {
           "horizon": 1,
-          "n": 696,
-          "accuracy": 50.29,
+          "n": 715,
+          "accuracy": 50.35,
           "maxLossStreak": 9
         },
         {
@@ -2697,42 +2697,42 @@
         },
         {
           "horizon": 2,
-          "n": 634,
-          "accuracy": 47.63,
+          "n": 642,
+          "accuracy": 47.66,
           "maxLossStreak": 10
         },
         {
           "horizon": 5,
-          "n": 455,
-          "accuracy": 47.47,
+          "n": 457,
+          "accuracy": 47.26,
           "maxLossStreak": 10
         },
         {
           "horizon": 3,
-          "n": 579,
-          "accuracy": 47.15,
+          "n": 584,
+          "accuracy": 47.09,
           "maxLossStreak": 8
         }
       ],
       "bestReference": {
         "pair": "EURJPY",
         "horizon": 1,
-        "n": 696,
-        "wins": 350,
-        "losses": 346,
-        "accuracy": 50.29,
+        "n": 715,
+        "wins": 360,
+        "losses": 355,
+        "accuracy": 50.35,
         "maxLossStreak": 9,
         "lossRunCounts": {
-          "ge2": 91,
-          "ge3": 42,
+          "ge2": 94,
+          "ge3": 43,
           "ge4": 19,
           "ge5": 7
         },
         "directions": {
-          "BUY": 358,
-          "SELL": 338
+          "BUY": 375,
+          "SELL": 340
         },
-        "directionImbalancePct": 51.44,
+        "directionImbalancePct": 52.45,
         "sessions": {
           "NEW_YORK": {
             "n": 110,
@@ -2741,10 +2741,10 @@
             "accuracy": 53.64
           },
           "OTHER": {
-            "n": 298,
-            "w": 144,
-            "l": 154,
-            "accuracy": 48.32
+            "n": 317,
+            "w": 154,
+            "l": 163,
+            "accuracy": 48.58
           },
           "ASIAN_LATE": {
             "n": 58,
@@ -2881,16 +2881,16 @@
             "accuracy": 60
           },
           "01:00-02:00": {
-            "n": 16,
-            "w": 6,
+            "n": 17,
+            "w": 7,
             "l": 10,
-            "accuracy": 37.5
+            "accuracy": 41.18
           },
           "02:00-03:00": {
-            "n": 17,
-            "w": 3,
-            "l": 14,
-            "accuracy": 17.65
+            "n": 35,
+            "w": 12,
+            "l": 23,
+            "accuracy": 34.29
           },
           "07:00-08:00": {
             "n": 17,
@@ -2924,7 +2924,7 @@
             "losses": 20,
             "wins": 9,
             "lossRate": 68.97,
-            "deltaVsTrackLossRatePp": 19.25,
+            "deltaVsTrackLossRatePp": 19.32,
             "status": "EVIDENCE"
           },
           {
@@ -2933,61 +2933,61 @@
             "losses": 56,
             "wins": 38,
             "lossRate": 59.57,
-            "deltaVsTrackLossRatePp": 9.86,
+            "deltaVsTrackLossRatePp": 9.92,
             "status": "EVIDENCE"
           },
           {
             "tag": "WEAK_MOVE_QUALITY",
-            "n": 232,
-            "losses": 128,
-            "wins": 104,
-            "lossRate": 55.17,
-            "deltaVsTrackLossRatePp": 5.46,
+            "n": 234,
+            "losses": 129,
+            "wins": 105,
+            "lossRate": 55.13,
+            "deltaVsTrackLossRatePp": 5.48,
             "status": "EVIDENCE"
           },
           {
             "tag": "LATE",
-            "n": 425,
-            "losses": 222,
-            "wins": 203,
-            "lossRate": 52.24,
-            "deltaVsTrackLossRatePp": 2.52,
+            "n": 434,
+            "losses": 226,
+            "wins": 208,
+            "lossRate": 52.07,
+            "deltaVsTrackLossRatePp": 2.42,
             "status": "EVIDENCE"
           },
           {
             "tag": "LATE_CONTINUATION",
-            "n": 425,
-            "losses": 222,
-            "wins": 203,
-            "lossRate": 52.24,
-            "deltaVsTrackLossRatePp": 2.52,
+            "n": 434,
+            "losses": 226,
+            "wins": 208,
+            "lossRate": 52.07,
+            "deltaVsTrackLossRatePp": 2.42,
             "status": "EVIDENCE"
           },
           {
             "tag": "ADVERSE_LOCATION",
-            "n": 382,
-            "losses": 196,
-            "wins": 186,
-            "lossRate": 51.31,
-            "deltaVsTrackLossRatePp": 1.6,
+            "n": 391,
+            "losses": 201,
+            "wins": 190,
+            "lossRate": 51.41,
+            "deltaVsTrackLossRatePp": 1.76,
             "status": "EVIDENCE"
           },
           {
             "tag": "ADVERSE",
-            "n": 382,
-            "losses": 196,
-            "wins": 186,
-            "lossRate": 51.31,
-            "deltaVsTrackLossRatePp": 1.6,
+            "n": 391,
+            "losses": 201,
+            "wins": 190,
+            "lossRate": 51.41,
+            "deltaVsTrackLossRatePp": 1.76,
             "status": "EVIDENCE"
           },
           {
             "tag": "LATE_CONTINUATION_GATE",
-            "n": 397,
-            "losses": 203,
-            "wins": 194,
-            "lossRate": 51.13,
-            "deltaVsTrackLossRatePp": 1.42,
+            "n": 406,
+            "losses": 207,
+            "wins": 199,
+            "lossRate": 50.99,
+            "deltaVsTrackLossRatePp": 1.33,
             "status": "EVIDENCE"
           }
         ],
@@ -2996,42 +2996,42 @@
             "tag": "HIGH_CONFIDENCE_CONTRADICTION_GATE",
             "n": 30,
             "winRate": 70,
-            "liftVsTrackWinRatePp": 19.71,
+            "liftVsTrackWinRatePp": 19.65,
+            "status": "EVIDENCE"
+          },
+          {
+            "tag": "FVG_RESOLVED_CONFIRMED",
+            "n": 44,
+            "winRate": 59.09,
+            "liftVsTrackWinRatePp": 8.74,
             "status": "EVIDENCE"
           },
           {
             "tag": "CONSENSUS_CONFLICT",
             "n": 29,
             "winRate": 58.62,
-            "liftVsTrackWinRatePp": 8.33,
-            "status": "EVIDENCE"
-          },
-          {
-            "tag": "FVG_RESOLVED_CONFIRMED",
-            "n": 41,
-            "winRate": 58.54,
-            "liftVsTrackWinRatePp": 8.25,
+            "liftVsTrackWinRatePp": 8.27,
             "status": "EVIDENCE"
           },
           {
             "tag": "PROGRESS_FAILURE_GATE",
-            "n": 158,
-            "winRate": 55.06,
-            "liftVsTrackWinRatePp": 4.78,
+            "n": 159,
+            "winRate": 55.35,
+            "liftVsTrackWinRatePp": 5,
             "status": "EVIDENCE"
           },
           {
             "tag": "BREAKOUT_MATURITY_GATE",
-            "n": 70,
-            "winRate": 54.29,
-            "liftVsTrackWinRatePp": 4,
+            "n": 73,
+            "winRate": 53.42,
+            "liftVsTrackWinRatePp": 3.08,
             "status": "EVIDENCE"
           },
           {
             "tag": "FVG_RESOLVED",
             "n": 194,
             "winRate": 52.58,
-            "liftVsTrackWinRatePp": 2.29,
+            "liftVsTrackWinRatePp": 2.23,
             "status": "EVIDENCE"
           }
         ],
@@ -3774,7 +3774,7 @@
               "losses": 20,
               "wins": 9,
               "lossRate": 68.97,
-              "deltaVsTrackLossRatePp": 19.25,
+              "deltaVsTrackLossRatePp": 19.32,
               "status": "EVIDENCE"
             },
             "status": "SHADOW_FIRST",
@@ -3787,7 +3787,7 @@
               "tag": "HIGH_CONFIDENCE_CONTRADICTION_GATE",
               "n": 30,
               "winRate": 70,
-              "liftVsTrackWinRatePp": 19.71,
+              "liftVsTrackWinRatePp": 19.65,
               "status": "EVIDENCE"
             },
             "status": "FORWARD_VALIDATE",
@@ -3819,8 +3819,8 @@
             "evidence": {
               "maxLossStreak": 9,
               "runCounts": {
-                "ge2": 91,
-                "ge3": 42,
+                "ge2": 94,
+                "ge3": 43,
                 "ge4": 19,
                 "ge5": 7
               }
@@ -3841,26 +3841,26 @@
         },
         {
           "horizon": 1,
-          "n": 691,
-          "accuracy": 50.07,
+          "n": 706,
+          "accuracy": 50,
           "maxLossStreak": 8
         },
         {
           "horizon": 3,
-          "n": 581,
-          "accuracy": 49.74,
+          "n": 586,
+          "accuracy": 49.83,
           "maxLossStreak": 9
         },
         {
           "horizon": 5,
-          "n": 455,
-          "accuracy": 47.47,
+          "n": 457,
+          "accuracy": 47.26,
           "maxLossStreak": 6
         },
         {
           "horizon": 2,
-          "n": 632,
-          "accuracy": 46.84,
+          "n": 640,
+          "accuracy": 47.19,
           "maxLossStreak": 9
         }
       ],
@@ -4762,26 +4762,26 @@
       "referenceTimeframes": [
         {
           "horizon": 5,
-          "n": 434,
+          "n": 436,
           "accuracy": 50.46,
           "maxLossStreak": 6
         },
         {
           "horizon": 1,
-          "n": 605,
-          "accuracy": 50.41,
+          "n": 620,
+          "accuracy": 50.32,
           "maxLossStreak": 9
         },
         {
           "horizon": 3,
-          "n": 543,
-          "accuracy": 48.99,
+          "n": 548,
+          "accuracy": 49.27,
           "maxLossStreak": 8
         },
         {
           "horizon": 2,
-          "n": 583,
-          "accuracy": 48.37,
+          "n": 590,
+          "accuracy": 48.31,
           "maxLossStreak": 8
         },
         {
@@ -4794,9 +4794,9 @@
       "bestReference": {
         "pair": "AUDUSD",
         "horizon": 5,
-        "n": 434,
-        "wins": 219,
-        "losses": 215,
+        "n": 436,
+        "wins": 220,
+        "losses": 216,
         "accuracy": 50.46,
         "maxLossStreak": 6,
         "lossRunCounts": {
@@ -4806,10 +4806,10 @@
           "ge5": 3
         },
         "directions": {
-          "BUY": 251,
+          "BUY": 253,
           "SELL": 183
         },
-        "directionImbalancePct": 57.83,
+        "directionImbalancePct": 58.03,
         "sessions": {
           "NEW_YORK": {
             "n": 64,
@@ -4818,9 +4818,9 @@
             "accuracy": 45.31
           },
           "OTHER": {
-            "n": 158,
-            "w": 80,
-            "l": 78,
+            "n": 160,
+            "w": 81,
+            "l": 79,
             "accuracy": 50.63
           },
           "ASIAN_LATE": {
@@ -4982,10 +4982,10 @@
             "accuracy": 57.14
           },
           "02:00-03:00": {
-            "n": 12,
-            "w": 5,
-            "l": 7,
-            "accuracy": 41.67
+            "n": 14,
+            "w": 6,
+            "l": 8,
+            "accuracy": 42.86
           },
           "13:00-14:00": {
             "n": 12,
@@ -5033,11 +5033,11 @@
           },
           {
             "tag": "CONTINUATION_RESET_GATE",
-            "n": 232,
-            "losses": 125,
-            "wins": 107,
-            "lossRate": 53.88,
-            "deltaVsTrackLossRatePp": 4.34,
+            "n": 234,
+            "losses": 126,
+            "wins": 108,
+            "lossRate": 53.85,
+            "deltaVsTrackLossRatePp": 4.3,
             "status": "EVIDENCE"
           },
           {
@@ -5060,11 +5060,11 @@
           },
           {
             "tag": "UNRESOLVED_FVG",
-            "n": 150,
+            "n": 151,
             "losses": 80,
-            "wins": 70,
-            "lossRate": 53.33,
-            "deltaVsTrackLossRatePp": 3.79,
+            "wins": 71,
+            "lossRate": 52.98,
+            "deltaVsTrackLossRatePp": 3.44,
             "status": "EVIDENCE"
           }
         ],
@@ -5092,9 +5092,9 @@
           },
           {
             "tag": "MOVE_QUALITY",
-            "n": 94,
-            "winRate": 55.32,
-            "liftVsTrackWinRatePp": 4.86,
+            "n": 95,
+            "winRate": 55.79,
+            "liftVsTrackWinRatePp": 5.33,
             "status": "EVIDENCE"
           },
           {
@@ -5903,22 +5903,22 @@
     {
       "pair": "EURUSD",
       "horizon": 1,
-      "n": 641,
-      "wins": 315,
-      "losses": 326,
-      "accuracy": 49.14,
+      "n": 659,
+      "wins": 328,
+      "losses": 331,
+      "accuracy": 49.77,
       "maxLossStreak": 7,
       "lossRunCounts": {
-        "ge2": 81,
+        "ge2": 83,
         "ge3": 48,
         "ge4": 24,
         "ge5": 11
       },
       "directions": {
-        "BUY": 374,
-        "SELL": 267
+        "BUY": 385,
+        "SELL": 274
       },
-      "directionImbalancePct": 58.35,
+      "directionImbalancePct": 58.42,
       "sessions": {
         "NEW_YORK": {
           "n": 100,
@@ -5927,10 +5927,10 @@
           "accuracy": 53
         },
         "OTHER": {
-          "n": 266,
-          "w": 136,
-          "l": 130,
-          "accuracy": 51.13
+          "n": 284,
+          "w": 149,
+          "l": 135,
+          "accuracy": 52.46
         },
         "ASIAN_LATE": {
           "n": 55,
@@ -6061,16 +6061,16 @@
           "accuracy": 57.89
         },
         "01:00-02:00": {
-          "n": 11,
-          "w": 4,
+          "n": 12,
+          "w": 5,
           "l": 7,
-          "accuracy": 36.36
+          "accuracy": 41.67
         },
         "02:00-03:00": {
-          "n": 17,
-          "w": 6,
-          "l": 11,
-          "accuracy": 35.29
+          "n": 34,
+          "w": 18,
+          "l": 16,
+          "accuracy": 52.94
         },
         "07:00-08:00": {
           "n": 16,
@@ -6106,47 +6106,20 @@
       "highRiskTags": [
         {
           "tag": "FRESH_PROGRESS",
-          "n": 137,
-          "losses": 79,
-          "wins": 58,
-          "lossRate": 57.66,
-          "deltaVsTrackLossRatePp": 6.81,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 54,
-          "losses": 30,
-          "wins": 24,
-          "lossRate": 55.56,
-          "deltaVsTrackLossRatePp": 4.7,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "UNRESOLVED_FVG",
-          "n": 265,
-          "losses": 146,
-          "wins": 119,
-          "lossRate": 55.09,
-          "deltaVsTrackLossRatePp": 4.24,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "UNRESOLVED",
-          "n": 265,
-          "losses": 146,
-          "wins": 119,
-          "lossRate": 55.09,
-          "deltaVsTrackLossRatePp": 4.24,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "EXTENDED",
-          "n": 142,
-          "losses": 78,
+          "n": 145,
+          "losses": 81,
           "wins": 64,
-          "lossRate": 54.93,
-          "deltaVsTrackLossRatePp": 4.07,
+          "lossRate": 55.86,
+          "deltaVsTrackLossRatePp": 5.63,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "HIGH_CONFIDENCE_CONTRADICTION_GATE",
+          "n": 20,
+          "losses": 11,
+          "wins": 9,
+          "lossRate": 55,
+          "deltaVsTrackLossRatePp": 4.77,
           "status": "EVIDENCE"
         },
         {
@@ -6155,25 +6128,52 @@
           "losses": 14,
           "wins": 12,
           "lossRate": 53.85,
-          "deltaVsTrackLossRatePp": 2.99,
+          "deltaVsTrackLossRatePp": 3.62,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "UNRESOLVED_FVG",
+          "n": 279,
+          "losses": 150,
+          "wins": 129,
+          "lossRate": 53.76,
+          "deltaVsTrackLossRatePp": 3.54,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "UNRESOLVED",
+          "n": 279,
+          "losses": 150,
+          "wins": 129,
+          "lossRate": 53.76,
+          "deltaVsTrackLossRatePp": 3.54,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "EXTENDED",
+          "n": 154,
+          "losses": 81,
+          "wins": 73,
+          "lossRate": 52.6,
+          "deltaVsTrackLossRatePp": 2.37,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "CONTINUATION_RESET_GATE",
+          "n": 344,
+          "losses": 180,
+          "wins": 164,
+          "lossRate": 52.33,
+          "deltaVsTrackLossRatePp": 2.1,
           "status": "EVIDENCE"
         },
         {
           "tag": "REJECTION_PRESSURE",
-          "n": 182,
-          "losses": 97,
-          "wins": 85,
-          "lossRate": 53.3,
-          "deltaVsTrackLossRatePp": 2.44,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "BREAKOUT_PROGRESS",
-          "n": 130,
-          "losses": 69,
-          "wins": 61,
-          "lossRate": 53.08,
-          "deltaVsTrackLossRatePp": 2.22,
+          "n": 188,
+          "losses": 98,
+          "wins": 90,
+          "lossRate": 52.13,
+          "deltaVsTrackLossRatePp": 1.9,
           "status": "EVIDENCE"
         }
       ],
@@ -6182,42 +6182,42 @@
           "tag": "CONSENSUS_CONFLICT",
           "n": 15,
           "winRate": 60,
-          "liftVsTrackWinRatePp": 10.86,
+          "liftVsTrackWinRatePp": 10.23,
           "status": "EVIDENCE"
         },
         {
           "tag": "MOVE_QUALITY",
-          "n": 208,
-          "winRate": 55.77,
-          "liftVsTrackWinRatePp": 6.63,
+          "n": 217,
+          "winRate": 56.68,
+          "liftVsTrackWinRatePp": 6.91,
           "status": "EVIDENCE"
         },
         {
           "tag": "PROGRESS_FAILURE_GATE",
-          "n": 121,
-          "winRate": 54.55,
-          "liftVsTrackWinRatePp": 5.4,
+          "n": 126,
+          "winRate": 55.56,
+          "liftVsTrackWinRatePp": 5.78,
           "status": "EVIDENCE"
         },
         {
           "tag": "ONE_MINUTE_CHOP_GUARD",
-          "n": 36,
-          "winRate": 52.78,
-          "liftVsTrackWinRatePp": 3.64,
+          "n": 37,
+          "winRate": 54.05,
+          "liftVsTrackWinRatePp": 4.28,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "FVG_RESOLVED_CONFIRMED",
+          "n": 26,
+          "winRate": 53.85,
+          "liftVsTrackWinRatePp": 4.07,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION",
-          "n": 117,
-          "winRate": 52.14,
-          "liftVsTrackWinRatePp": 2.99,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "TRANSITION_GATE",
-          "n": 117,
-          "winRate": 52.14,
-          "liftVsTrackWinRatePp": 2.99,
+          "n": 119,
+          "winRate": 52.94,
+          "liftVsTrackWinRatePp": 3.17,
           "status": "EVIDENCE"
         }
       ],
@@ -6956,7 +6956,7 @@
             "tag": "CONSENSUS_CONFLICT",
             "n": 15,
             "winRate": 60,
-            "liftVsTrackWinRatePp": 10.86,
+            "liftVsTrackWinRatePp": 10.23,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -6978,7 +6978,7 @@
           "evidence": {
             "maxLossStreak": 7,
             "runCounts": {
-              "ge2": 81,
+              "ge2": 83,
               "ge3": 48,
               "ge4": 24,
               "ge5": 11
@@ -6992,22 +6992,22 @@
     {
       "pair": "EURUSD",
       "horizon": 2,
-      "n": 610,
-      "wins": 288,
-      "losses": 322,
-      "accuracy": 47.21,
+      "n": 617,
+      "wins": 292,
+      "losses": 325,
+      "accuracy": 47.33,
       "maxLossStreak": 12,
       "lossRunCounts": {
         "ge2": 75,
-        "ge3": 41,
+        "ge3": 42,
         "ge4": 22,
         "ge5": 15
       },
       "directions": {
-        "BUY": 295,
-        "SELL": 315
+        "BUY": 298,
+        "SELL": 319
       },
-      "directionImbalancePct": 51.64,
+      "directionImbalancePct": 51.7,
       "sessions": {
         "NEW_YORK": {
           "n": 96,
@@ -7016,10 +7016,10 @@
           "accuracy": 45.83
         },
         "OTHER": {
-          "n": 250,
-          "w": 130,
-          "l": 120,
-          "accuracy": 52
+          "n": 257,
+          "w": 134,
+          "l": 123,
+          "accuracy": 52.14
         },
         "ASIAN_LATE": {
           "n": 58,
@@ -7174,10 +7174,10 @@
           "accuracy": 48.15
         },
         "02:00-03:00": {
-          "n": 14,
-          "w": 4,
-          "l": 10,
-          "accuracy": 28.57
+          "n": 21,
+          "w": 8,
+          "l": 13,
+          "accuracy": 38.1
         },
         "13:00-14:00": {
           "n": 19,
@@ -7189,65 +7189,38 @@
       "highRiskTags": [
         {
           "tag": "PROGRESS_FAILURE_GATE",
-          "n": 59,
-          "losses": 35,
-          "wins": 24,
-          "lossRate": 59.32,
-          "deltaVsTrackLossRatePp": 6.54,
+          "n": 61,
+          "losses": 36,
+          "wins": 25,
+          "lossRate": 59.02,
+          "deltaVsTrackLossRatePp": 6.34,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION",
-          "n": 152,
-          "losses": 87,
+          "n": 154,
+          "losses": 89,
           "wins": 65,
-          "lossRate": 57.24,
-          "deltaVsTrackLossRatePp": 4.45,
+          "lossRate": 57.79,
+          "deltaVsTrackLossRatePp": 5.12,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION_GATE",
-          "n": 152,
-          "losses": 87,
+          "n": 154,
+          "losses": 89,
           "wins": 65,
-          "lossRate": 57.24,
-          "deltaVsTrackLossRatePp": 4.45,
+          "lossRate": 57.79,
+          "deltaVsTrackLossRatePp": 5.12,
           "status": "EVIDENCE"
         },
         {
           "tag": "REJECTION_PRESSURE",
-          "n": 190,
-          "losses": 105,
-          "wins": 85,
-          "lossRate": 55.26,
-          "deltaVsTrackLossRatePp": 2.48,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "ENTRY_LANE_GATE",
-          "n": 327,
-          "losses": 179,
-          "wins": 148,
-          "lossRate": 54.74,
-          "deltaVsTrackLossRatePp": 1.95,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "UNRESOLVED_FVG",
-          "n": 247,
-          "losses": 135,
-          "wins": 112,
-          "lossRate": 54.66,
-          "deltaVsTrackLossRatePp": 1.87,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "UNRESOLVED",
-          "n": 247,
-          "losses": 135,
-          "wins": 112,
-          "lossRate": 54.66,
-          "deltaVsTrackLossRatePp": 1.87,
+          "n": 193,
+          "losses": 107,
+          "wins": 86,
+          "lossRate": 55.44,
+          "deltaVsTrackLossRatePp": 2.77,
           "status": "EVIDENCE"
         },
         {
@@ -7256,7 +7229,34 @@
           "losses": 112,
           "wins": 93,
           "lossRate": 54.63,
-          "deltaVsTrackLossRatePp": 1.85,
+          "deltaVsTrackLossRatePp": 1.96,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "MTF",
+          "n": 205,
+          "losses": 112,
+          "wins": 93,
+          "lossRate": 54.63,
+          "deltaVsTrackLossRatePp": 1.96,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "ENTRY_LANE_GATE",
+          "n": 332,
+          "losses": 181,
+          "wins": 151,
+          "lossRate": 54.52,
+          "deltaVsTrackLossRatePp": 1.84,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "UNRESOLVED_FVG",
+          "n": 253,
+          "losses": 137,
+          "wins": 116,
+          "lossRate": 54.15,
+          "deltaVsTrackLossRatePp": 1.48,
           "status": "EVIDENCE"
         }
       ],
@@ -7265,42 +7265,42 @@
           "tag": "EVIDENCE_CONFLICT",
           "n": 19,
           "winRate": 57.89,
-          "liftVsTrackWinRatePp": 10.68,
+          "liftVsTrackWinRatePp": 10.57,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
           "n": 24,
           "winRate": 54.17,
-          "liftVsTrackWinRatePp": 6.95,
+          "liftVsTrackWinRatePp": 6.84,
           "status": "EVIDENCE"
         },
         {
           "tag": "VSA_SUPPORT",
-          "n": 113,
-          "winRate": 53.98,
-          "liftVsTrackWinRatePp": 6.77,
+          "n": 115,
+          "winRate": 53.04,
+          "liftVsTrackWinRatePp": 5.72,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS_CONFLICT",
           "n": 17,
           "winRate": 52.94,
-          "liftVsTrackWinRatePp": 5.73,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "FVG_RESOLVED",
-          "n": 191,
-          "winRate": 49.74,
-          "liftVsTrackWinRatePp": 2.53,
+          "liftVsTrackWinRatePp": 5.62,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_PROGRESS",
-          "n": 123,
-          "winRate": 49.59,
-          "liftVsTrackWinRatePp": 2.38,
+          "n": 125,
+          "winRate": 50.4,
+          "liftVsTrackWinRatePp": 3.07,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "BREAKOUT_MATURITY_GATE",
+          "n": 60,
+          "winRate": 50,
+          "liftVsTrackWinRatePp": 2.67,
           "status": "EVIDENCE"
         }
       ],
@@ -8047,7 +8047,7 @@
             "tag": "EVIDENCE_CONFLICT",
             "n": 19,
             "winRate": 57.89,
-            "liftVsTrackWinRatePp": 10.68,
+            "liftVsTrackWinRatePp": 10.57,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -8080,7 +8080,7 @@
             "maxLossStreak": 12,
             "runCounts": {
               "ge2": 75,
-              "ge3": 41,
+              "ge3": 42,
               "ge4": 22,
               "ge5": 15
             }
@@ -8093,22 +8093,22 @@
     {
       "pair": "EURUSD",
       "horizon": 3,
-      "n": 555,
-      "wins": 272,
-      "losses": 283,
-      "accuracy": 49.01,
+      "n": 560,
+      "wins": 274,
+      "losses": 286,
+      "accuracy": 48.93,
       "maxLossStreak": 9,
       "lossRunCounts": {
-        "ge2": 83,
-        "ge3": 29,
+        "ge2": 84,
+        "ge3": 30,
         "ge4": 13,
         "ge5": 6
       },
       "directions": {
-        "BUY": 316,
+        "BUY": 321,
         "SELL": 239
       },
-      "directionImbalancePct": 56.94,
+      "directionImbalancePct": 57.32,
       "sessions": {
         "NEW_YORK": {
           "n": 85,
@@ -8117,10 +8117,10 @@
           "accuracy": 51.76
         },
         "OTHER": {
-          "n": 222,
-          "w": 109,
-          "l": 113,
-          "accuracy": 49.1
+          "n": 227,
+          "w": 111,
+          "l": 116,
+          "accuracy": 48.9
         },
         "ASIAN_LATE": {
           "n": 57,
@@ -8287,10 +8287,10 @@
           "accuracy": 56.52
         },
         "02:00-03:00": {
-          "n": 14,
-          "w": 7,
-          "l": 7,
-          "accuracy": 50
+          "n": 19,
+          "w": 9,
+          "l": 10,
+          "accuracy": 47.37
         },
         "13:00-14:00": {
           "n": 20,
@@ -8306,7 +8306,25 @@
           "losses": 6,
           "wins": 4,
           "lossRate": 60,
-          "deltaVsTrackLossRatePp": 9.01,
+          "deltaVsTrackLossRatePp": 8.93,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "EXTENDED",
+          "n": 118,
+          "losses": 68,
+          "wins": 50,
+          "lossRate": 57.63,
+          "deltaVsTrackLossRatePp": 6.56,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "FRESH_PROGRESS",
+          "n": 136,
+          "losses": 78,
+          "wins": 58,
+          "lossRate": 57.35,
+          "deltaVsTrackLossRatePp": 6.28,
           "status": "EVIDENCE"
         },
         {
@@ -8315,105 +8333,87 @@
           "losses": 12,
           "wins": 9,
           "lossRate": 57.14,
-          "deltaVsTrackLossRatePp": 6.15,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "FRESH_PROGRESS",
-          "n": 135,
-          "losses": 77,
-          "wins": 58,
-          "lossRate": 57.04,
-          "deltaVsTrackLossRatePp": 6.05,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "EXTENDED",
-          "n": 116,
-          "losses": 66,
-          "wins": 50,
-          "lossRate": 56.9,
-          "deltaVsTrackLossRatePp": 5.91,
+          "deltaVsTrackLossRatePp": 6.07,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_PROGRESS",
-          "n": 104,
-          "losses": 57,
-          "wins": 47,
-          "lossRate": 54.81,
-          "deltaVsTrackLossRatePp": 3.82,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "CONSENSUS",
-          "n": 320,
-          "losses": 172,
-          "wins": 148,
-          "lossRate": 53.75,
-          "deltaVsTrackLossRatePp": 2.76,
+          "n": 106,
+          "losses": 58,
+          "wins": 48,
+          "lossRate": 54.72,
+          "deltaVsTrackLossRatePp": 3.65,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED_FVG",
-          "n": 222,
-          "losses": 118,
+          "n": 225,
+          "losses": 121,
           "wins": 104,
-          "lossRate": 53.15,
-          "deltaVsTrackLossRatePp": 2.16,
+          "lossRate": 53.78,
+          "deltaVsTrackLossRatePp": 2.71,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED",
-          "n": 222,
-          "losses": 118,
+          "n": 225,
+          "losses": 121,
           "wins": 104,
-          "lossRate": 53.15,
-          "deltaVsTrackLossRatePp": 2.16,
+          "lossRate": 53.78,
+          "deltaVsTrackLossRatePp": 2.71,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "CONSENSUS",
+          "n": 324,
+          "losses": 174,
+          "wins": 150,
+          "lossRate": 53.7,
+          "deltaVsTrackLossRatePp": 2.63,
           "status": "EVIDENCE"
         }
       ],
       "protectiveTags": [
         {
           "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 80,
-          "winRate": 55,
-          "liftVsTrackWinRatePp": 5.99,
+          "n": 81,
+          "winRate": 54.32,
+          "liftVsTrackWinRatePp": 5.39,
           "status": "EVIDENCE"
         },
         {
           "tag": "VSA_SUPPORT",
-          "n": 98,
-          "winRate": 52.04,
-          "liftVsTrackWinRatePp": 3.03,
+          "n": 99,
+          "winRate": 52.53,
+          "liftVsTrackWinRatePp": 3.6,
           "status": "EVIDENCE"
         },
         {
           "tag": "ENTRY_LANE_GATE",
-          "n": 274,
-          "winRate": 51.82,
-          "liftVsTrackWinRatePp": 2.82,
+          "n": 275,
+          "winRate": 51.64,
+          "liftVsTrackWinRatePp": 2.71,
           "status": "EVIDENCE"
         },
         {
           "tag": "BELOW_CONFIDENCE_THRESHOLD",
-          "n": 193,
-          "winRate": 51.81,
-          "liftVsTrackWinRatePp": 2.8,
+          "n": 194,
+          "winRate": 51.55,
+          "liftVsTrackWinRatePp": 2.62,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION",
-          "n": 163,
-          "winRate": 51.53,
-          "liftVsTrackWinRatePp": 2.52,
+          "n": 165,
+          "winRate": 51.52,
+          "liftVsTrackWinRatePp": 2.59,
           "status": "EVIDENCE"
         },
         {
-          "tag": "CONTINUATION_RESET_GATE",
-          "n": 290,
-          "winRate": 51.38,
-          "liftVsTrackWinRatePp": 2.37,
+          "tag": "TRANSITION_GATE",
+          "n": 164,
+          "winRate": 51.22,
+          "liftVsTrackWinRatePp": 2.29,
           "status": "EVIDENCE"
         }
       ],
@@ -9171,8 +9171,8 @@
           "evidence": {
             "maxLossStreak": 9,
             "runCounts": {
-              "ge2": 83,
-              "ge3": 29,
+              "ge2": 84,
+              "ge3": 30,
               "ge4": 13,
               "ge5": 6
             }
@@ -9185,22 +9185,22 @@
     {
       "pair": "EURUSD",
       "horizon": 5,
-      "n": 437,
+      "n": 439,
       "wins": 223,
-      "losses": 214,
-      "accuracy": 51.03,
+      "losses": 216,
+      "accuracy": 50.8,
       "maxLossStreak": 7,
       "lossRunCounts": {
         "ge2": 52,
         "ge3": 24,
-        "ge4": 9,
-        "ge5": 7
+        "ge4": 10,
+        "ge5": 8
       },
       "directions": {
-        "BUY": 243,
-        "SELL": 194
+        "BUY": 244,
+        "SELL": 195
       },
-      "directionImbalancePct": 55.61,
+      "directionImbalancePct": 55.58,
       "sessions": {
         "NEW_YORK": {
           "n": 65,
@@ -9209,10 +9209,10 @@
           "accuracy": 55.38
         },
         "OTHER": {
-          "n": 159,
+          "n": 161,
           "w": 84,
-          "l": 75,
-          "accuracy": 52.83
+          "l": 77,
+          "accuracy": 52.17
         },
         "ASIAN_LATE": {
           "n": 57,
@@ -9373,10 +9373,10 @@
           "accuracy": 57.14
         },
         "02:00-03:00": {
-          "n": 11,
+          "n": 13,
           "w": 6,
-          "l": 5,
-          "accuracy": 54.55
+          "l": 7,
+          "accuracy": 46.15
         },
         "13:00-14:00": {
           "n": 12,
@@ -9387,30 +9387,39 @@
       },
       "highRiskTags": [
         {
-          "tag": "EXTENDED",
-          "n": 91,
-          "losses": 51,
-          "wins": 40,
-          "lossRate": 56.04,
-          "deltaVsTrackLossRatePp": 7.07,
+          "tag": "FVG_RESOLVED_CONFIRMED",
+          "n": 19,
+          "losses": 11,
+          "wins": 8,
+          "lossRate": 57.89,
+          "deltaVsTrackLossRatePp": 8.69,
           "status": "EVIDENCE"
         },
         {
-          "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 18,
-          "losses": 10,
-          "wins": 8,
-          "lossRate": 55.56,
-          "deltaVsTrackLossRatePp": 6.59,
+          "tag": "EXTENDED",
+          "n": 93,
+          "losses": 53,
+          "wins": 40,
+          "lossRate": 56.99,
+          "deltaVsTrackLossRatePp": 7.79,
           "status": "EVIDENCE"
         },
         {
           "tag": "ENTRY_LANE_GATE",
-          "n": 160,
-          "losses": 88,
+          "n": 161,
+          "losses": 89,
           "wins": 72,
-          "lossRate": 55,
-          "deltaVsTrackLossRatePp": 6.03,
+          "lossRate": 55.28,
+          "deltaVsTrackLossRatePp": 6.08,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "BREAKOUT_PROGRESS",
+          "n": 73,
+          "losses": 39,
+          "wins": 34,
+          "lossRate": 53.42,
+          "deltaVsTrackLossRatePp": 4.22,
           "status": "EVIDENCE"
         },
         {
@@ -9419,7 +9428,7 @@
           "losses": 71,
           "wins": 62,
           "lossRate": 53.38,
-          "deltaVsTrackLossRatePp": 4.41,
+          "deltaVsTrackLossRatePp": 4.18,
           "status": "EVIDENCE"
         },
         {
@@ -9428,7 +9437,7 @@
           "losses": 149,
           "wins": 131,
           "lossRate": 53.21,
-          "deltaVsTrackLossRatePp": 4.24,
+          "deltaVsTrackLossRatePp": 4.01,
           "status": "EVIDENCE"
         },
         {
@@ -9437,16 +9446,7 @@
           "losses": 149,
           "wins": 131,
           "lossRate": 53.21,
-          "deltaVsTrackLossRatePp": 4.24,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "BREAKOUT_PROGRESS",
-          "n": 72,
-          "losses": 38,
-          "wins": 34,
-          "lossRate": 52.78,
-          "deltaVsTrackLossRatePp": 3.81,
+          "deltaVsTrackLossRatePp": 4.01,
           "status": "EVIDENCE"
         },
         {
@@ -9455,7 +9455,7 @@
           "losses": 141,
           "wins": 129,
           "lossRate": 52.22,
-          "deltaVsTrackLossRatePp": 3.25,
+          "deltaVsTrackLossRatePp": 3.02,
           "status": "EVIDENCE"
         }
       ],
@@ -9464,42 +9464,42 @@
           "tag": "BREAKOUT_MATURITY_GATE",
           "n": 47,
           "winRate": 61.7,
-          "liftVsTrackWinRatePp": 10.67,
+          "liftVsTrackWinRatePp": 10.9,
           "status": "EVIDENCE"
         },
         {
           "tag": "PROGRESS_FAILURE_GATE",
           "n": 27,
           "winRate": 59.26,
-          "liftVsTrackWinRatePp": 8.23,
+          "liftVsTrackWinRatePp": 8.46,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS_CONFLICT",
           "n": 21,
           "winRate": 57.14,
-          "liftVsTrackWinRatePp": 6.11,
+          "liftVsTrackWinRatePp": 6.35,
           "status": "EVIDENCE"
         },
         {
           "tag": "VSA_SUPPORT",
-          "n": 84,
-          "winRate": 55.95,
-          "liftVsTrackWinRatePp": 4.92,
+          "n": 85,
+          "winRate": 55.29,
+          "liftVsTrackWinRatePp": 4.5,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED_FVG",
           "n": 156,
           "winRate": 55.13,
-          "liftVsTrackWinRatePp": 4.1,
+          "liftVsTrackWinRatePp": 4.33,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED",
           "n": 156,
           "winRate": 55.13,
-          "liftVsTrackWinRatePp": 4.1,
+          "liftVsTrackWinRatePp": 4.33,
           "status": "EVIDENCE"
         }
       ],
@@ -9668,6 +9668,61 @@
               "tag": "ADVERSE",
               "count": 3,
               "share": 50
+            }
+          ]
+        },
+        {
+          "length": 5,
+          "start": 1788972600000,
+          "end": 1788988800000,
+          "directions": {
+            "BUY": 3,
+            "SELL": 2
+          },
+          "sessions": [
+            "NEW_YORK",
+            "OTHER"
+          ],
+          "hours": [
+            "21:00-22:00",
+            "22:00-23:00",
+            "02:00-03:00"
+          ],
+          "regimes": [
+            "CHOPPY",
+            "MIXED",
+            "TRENDING"
+          ],
+          "recurrentTags": [
+            {
+              "tag": "EXTENDED",
+              "count": 5,
+              "share": 100
+            },
+            {
+              "tag": "FAILURE_TO_PROGRESS",
+              "count": 5,
+              "share": 100
+            },
+            {
+              "tag": "ENTRY_LANE_GATE",
+              "count": 4,
+              "share": 80
+            },
+            {
+              "tag": "FRESH_PROGRESS",
+              "count": 3,
+              "share": 60
+            },
+            {
+              "tag": "CONSENSUS",
+              "count": 3,
+              "share": 60
+            },
+            {
+              "tag": "BREAKOUT_PROGRESS",
+              "count": 3,
+              "share": 60
             }
           ]
         },
@@ -10037,68 +10092,6 @@
         },
         {
           "length": 3,
-          "start": 1788972600000,
-          "end": 1788973200000,
-          "directions": {
-            "BUY": 2,
-            "SELL": 1
-          },
-          "sessions": [
-            "NEW_YORK"
-          ],
-          "hours": [
-            "21:00-22:00",
-            "22:00-23:00"
-          ],
-          "regimes": [
-            "CHOPPY",
-            "MIXED"
-          ],
-          "recurrentTags": [
-            {
-              "tag": "EXTENDED",
-              "count": 3,
-              "share": 100
-            },
-            {
-              "tag": "ENTRY_LANE_GATE",
-              "count": 3,
-              "share": 100
-            },
-            {
-              "tag": "FAILURE_TO_PROGRESS",
-              "count": 3,
-              "share": 100
-            },
-            {
-              "tag": "EVIDENCE_CONFLICT",
-              "count": 2,
-              "share": 66.67
-            },
-            {
-              "tag": "REJECTION_PRESSURE",
-              "count": 2,
-              "share": 66.67
-            },
-            {
-              "tag": "FRESH_PROGRESS",
-              "count": 2,
-              "share": 66.67
-            },
-            {
-              "tag": "CONSENSUS",
-              "count": 2,
-              "share": 66.67
-            },
-            {
-              "tag": "BREAKOUT_PROGRESS",
-              "count": 2,
-              "share": 66.67
-            }
-          ]
-        },
-        {
-          "length": 3,
           "start": 1788964800000,
           "end": 1788965400000,
           "directions": {
@@ -10228,7 +10221,7 @@
             "tag": "BREAKOUT_MATURITY_GATE",
             "n": 47,
             "winRate": 61.7,
-            "liftVsTrackWinRatePp": 10.67,
+            "liftVsTrackWinRatePp": 10.9,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -10262,8 +10255,8 @@
             "runCounts": {
               "ge2": 52,
               "ge3": 24,
-              "ge4": 9,
-              "ge5": 7
+              "ge4": 10,
+              "ge5": 8
             }
           },
           "status": "HIGH_PRIORITY_SHADOW_FIRST",
@@ -11359,22 +11352,22 @@
     {
       "pair": "GBPUSD",
       "horizon": 1,
-      "n": 645,
-      "wins": 299,
-      "losses": 346,
-      "accuracy": 46.36,
+      "n": 664,
+      "wins": 309,
+      "losses": 355,
+      "accuracy": 46.54,
       "maxLossStreak": 11,
       "lossRunCounts": {
-        "ge2": 76,
-        "ge3": 44,
-        "ge4": 29,
-        "ge5": 16
+        "ge2": 77,
+        "ge3": 45,
+        "ge4": 30,
+        "ge5": 17
       },
       "directions": {
-        "BUY": 359,
-        "SELL": 286
+        "BUY": 369,
+        "SELL": 295
       },
-      "directionImbalancePct": 55.66,
+      "directionImbalancePct": 55.57,
       "sessions": {
         "NEW_YORK": {
           "n": 104,
@@ -11383,10 +11376,10 @@
           "accuracy": 45.19
         },
         "OTHER": {
-          "n": 266,
-          "w": 126,
-          "l": 140,
-          "accuracy": 47.37
+          "n": 285,
+          "w": 136,
+          "l": 149,
+          "accuracy": 47.72
         },
         "ASIAN_LATE": {
           "n": 55,
@@ -11523,16 +11516,16 @@
           "accuracy": 44.44
         },
         "01:00-02:00": {
-          "n": 11,
-          "w": 4,
+          "n": 12,
+          "w": 5,
           "l": 7,
-          "accuracy": 36.36
+          "accuracy": 41.67
         },
         "02:00-03:00": {
-          "n": 20,
-          "w": 9,
-          "l": 11,
-          "accuracy": 45
+          "n": 38,
+          "w": 18,
+          "l": 20,
+          "accuracy": 47.37
         },
         "07:00-08:00": {
           "n": 13,
@@ -11566,114 +11559,114 @@
           "losses": 6,
           "wins": 3,
           "lossRate": 66.67,
-          "deltaVsTrackLossRatePp": 13.02,
+          "deltaVsTrackLossRatePp": 13.2,
           "status": "EVIDENCE"
         },
         {
           "tag": "FUSION_QUALITY_GATE",
-          "n": 154,
-          "losses": 89,
-          "wins": 65,
-          "lossRate": 57.79,
-          "deltaVsTrackLossRatePp": 4.15,
+          "n": 157,
+          "losses": 90,
+          "wins": 67,
+          "lossRate": 57.32,
+          "deltaVsTrackLossRatePp": 3.86,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 23,
-          "losses": 13,
-          "wins": 10,
-          "lossRate": 56.52,
-          "deltaVsTrackLossRatePp": 2.88,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "PROGRESS_FAILURE_GATE",
-          "n": 114,
-          "losses": 64,
-          "wins": 50,
-          "lossRate": 56.14,
-          "deltaVsTrackLossRatePp": 2.5,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "MOVE_QUALITY",
-          "n": 168,
-          "losses": 93,
-          "wins": 75,
-          "lossRate": 55.36,
-          "deltaVsTrackLossRatePp": 1.71,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 47,
-          "losses": 26,
-          "wins": 21,
-          "lossRate": 55.32,
-          "deltaVsTrackLossRatePp": 1.68,
+          "n": 25,
+          "losses": 14,
+          "wins": 11,
+          "lossRate": 56,
+          "deltaVsTrackLossRatePp": 2.54,
           "status": "EVIDENCE"
         },
         {
           "tag": "WEAK_MOVE_QUALITY",
-          "n": 304,
-          "losses": 168,
-          "wins": 136,
-          "lossRate": 55.26,
-          "deltaVsTrackLossRatePp": 1.62,
+          "n": 310,
+          "losses": 172,
+          "wins": 138,
+          "lossRate": 55.48,
+          "deltaVsTrackLossRatePp": 2.02,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "PROGRESS_FAILURE_GATE",
+          "n": 121,
+          "losses": 67,
+          "wins": 54,
+          "lossRate": 55.37,
+          "deltaVsTrackLossRatePp": 1.91,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "MOVE_QUALITY",
+          "n": 176,
+          "losses": 97,
+          "wins": 79,
+          "lossRate": 55.11,
+          "deltaVsTrackLossRatePp": 1.65,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_PROGRESS",
-          "n": 104,
-          "losses": 57,
-          "wins": 47,
-          "lossRate": 54.81,
-          "deltaVsTrackLossRatePp": 1.16,
+          "n": 106,
+          "losses": 58,
+          "wins": 48,
+          "lossRate": 54.72,
+          "deltaVsTrackLossRatePp": 1.25,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "BREAKOUT_MATURITY_GATE",
+          "n": 57,
+          "losses": 31,
+          "wins": 26,
+          "lossRate": 54.39,
+          "deltaVsTrackLossRatePp": 0.92,
           "status": "EVIDENCE"
         }
       ],
       "protectiveTags": [
         {
           "tag": "CONSENSUS_CONFLICT",
-          "n": 24,
-          "winRate": 66.67,
-          "liftVsTrackWinRatePp": 20.31,
+          "n": 25,
+          "winRate": 68,
+          "liftVsTrackWinRatePp": 21.46,
           "status": "EVIDENCE"
         },
         {
           "tag": "EVIDENCE_CONFLICT",
-          "n": 33,
-          "winRate": 63.64,
-          "liftVsTrackWinRatePp": 17.28,
+          "n": 34,
+          "winRate": 64.71,
+          "liftVsTrackWinRatePp": 18.17,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION",
-          "n": 196,
-          "winRate": 51.53,
-          "liftVsTrackWinRatePp": 5.17,
+          "n": 199,
+          "winRate": 51.76,
+          "liftVsTrackWinRatePp": 5.22,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION_GATE",
-          "n": 196,
-          "winRate": 51.53,
-          "liftVsTrackWinRatePp": 5.17,
+          "n": 199,
+          "winRate": 51.76,
+          "liftVsTrackWinRatePp": 5.22,
           "status": "EVIDENCE"
         },
         {
           "tag": "ONE_MINUTE_CHOP_GUARD",
           "n": 88,
           "winRate": 51.14,
-          "liftVsTrackWinRatePp": 4.78,
+          "liftVsTrackWinRatePp": 4.6,
           "status": "EVIDENCE"
         },
         {
           "tag": "MTF_CONFLICT",
           "n": 181,
           "winRate": 50.28,
-          "liftVsTrackWinRatePp": 3.92,
+          "liftVsTrackWinRatePp": 3.74,
           "status": "EVIDENCE"
         }
       ],
@@ -12035,6 +12028,67 @@
         },
         {
           "length": 6,
+          "start": 1788988620000,
+          "end": 1788988920000,
+          "directions": {
+            "BUY": 3,
+            "SELL": 3
+          },
+          "sessions": [
+            "OTHER"
+          ],
+          "hours": [
+            "02:00-03:00"
+          ],
+          "regimes": [
+            "TRENDING",
+            "MIXED"
+          ],
+          "recurrentTags": [
+            {
+              "tag": "DIRECTIONAL_EVIDENCE",
+              "count": 6,
+              "share": 100
+            },
+            {
+              "tag": "CONTINUATION_RESET_GATE",
+              "count": 6,
+              "share": 100
+            },
+            {
+              "tag": "FAILURE_TO_PROGRESS",
+              "count": 6,
+              "share": 100
+            },
+            {
+              "tag": "WEAKPROGRESS",
+              "count": 5,
+              "share": 83.33
+            },
+            {
+              "tag": "UNRESOLVED_FVG",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "UNRESOLVED",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "BELOW_CONFIDENCE_THRESHOLD",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "BREAKOUT_MATURITY_GATE",
+              "count": 4,
+              "share": 66.67
+            }
+          ]
+        },
+        {
+          "length": 6,
           "start": 1788937980000,
           "end": 1788938280000,
           "directions": {
@@ -12336,68 +12390,6 @@
               "share": 83.33
             }
           ]
-        },
-        {
-          "length": 5,
-          "start": 1788954180000,
-          "end": 1788954420000,
-          "directions": {
-            "BUY": 4,
-            "SELL": 1
-          },
-          "sessions": [
-            "LONDON_EARLY_MID"
-          ],
-          "hours": [
-            "16:00-17:00"
-          ],
-          "regimes": [
-            "MIXED",
-            "CHOPPY",
-            "TRENDING"
-          ],
-          "recurrentTags": [
-            {
-              "tag": "FAILURE_TO_PROGRESS",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "ADVERSE_LOCATION",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "WEAKPROGRESS",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "ADVERSE",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "BELOW_CONFIDENCE_THRESHOLD",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "ENTRY_LANE_GATE",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "DIRECTIONAL_EVIDENCE",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "LATE",
-              "count": 3,
-              "share": 60
-            }
-          ]
         }
       ],
       "solutions": [
@@ -12410,7 +12402,7 @@
             "losses": 6,
             "wins": 3,
             "lossRate": 66.67,
-            "deltaVsTrackLossRatePp": 13.02,
+            "deltaVsTrackLossRatePp": 13.2,
             "status": "EVIDENCE"
           },
           "status": "SHADOW_FIRST",
@@ -12421,9 +12413,9 @@
           "target": "CONSENSUS_CONFLICT",
           "evidence": {
             "tag": "CONSENSUS_CONFLICT",
-            "n": 24,
-            "winRate": 66.67,
-            "liftVsTrackWinRatePp": 20.31,
+            "n": 25,
+            "winRate": 68,
+            "liftVsTrackWinRatePp": 21.46,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -12434,9 +12426,9 @@
           "target": "EVIDENCE_CONFLICT",
           "evidence": {
             "tag": "EVIDENCE_CONFLICT",
-            "n": 33,
-            "winRate": 63.64,
-            "liftVsTrackWinRatePp": 17.28,
+            "n": 34,
+            "winRate": 64.71,
+            "liftVsTrackWinRatePp": 18.17,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -12468,10 +12460,10 @@
           "evidence": {
             "maxLossStreak": 11,
             "runCounts": {
-              "ge2": 76,
-              "ge3": 44,
-              "ge4": 29,
-              "ge5": 16
+              "ge2": 77,
+              "ge3": 45,
+              "ge4": 30,
+              "ge5": 17
             }
           },
           "status": "HIGH_PRIORITY_SHADOW_FIRST",
@@ -12482,10 +12474,10 @@
     {
       "pair": "GBPUSD",
       "horizon": 2,
-      "n": 607,
-      "wins": 281,
-      "losses": 326,
-      "accuracy": 46.29,
+      "n": 615,
+      "wins": 286,
+      "losses": 329,
+      "accuracy": 46.5,
       "maxLossStreak": 9,
       "lossRunCounts": {
         "ge2": 80,
@@ -12494,10 +12486,10 @@
         "ge5": 11
       },
       "directions": {
-        "BUY": 331,
-        "SELL": 276
+        "BUY": 336,
+        "SELL": 279
       },
-      "directionImbalancePct": 54.53,
+      "directionImbalancePct": 54.63,
       "sessions": {
         "NEW_YORK": {
           "n": 98,
@@ -12506,10 +12498,10 @@
           "accuracy": 46.94
         },
         "OTHER": {
-          "n": 246,
-          "w": 117,
-          "l": 129,
-          "accuracy": 47.56
+          "n": 254,
+          "w": 122,
+          "l": 132,
+          "accuracy": 48.03
         },
         "ASIAN_LATE": {
           "n": 56,
@@ -12670,10 +12662,10 @@
           "accuracy": 57.69
         },
         "02:00-03:00": {
-          "n": 16,
-          "w": 8,
-          "l": 8,
-          "accuracy": 50
+          "n": 24,
+          "w": 13,
+          "l": 11,
+          "accuracy": 54.17
         },
         "13:00-14:00": {
           "n": 20,
@@ -12685,11 +12677,11 @@
       "highRiskTags": [
         {
           "tag": "PROGRESS_FAILURE_GATE",
-          "n": 34,
+          "n": 35,
           "losses": 21,
-          "wins": 13,
-          "lossRate": 61.76,
-          "deltaVsTrackLossRatePp": 8.06,
+          "wins": 14,
+          "lossRate": 60,
+          "deltaVsTrackLossRatePp": 6.5,
           "status": "EVIDENCE"
         },
         {
@@ -12698,7 +12690,7 @@
           "losses": 99,
           "wins": 68,
           "lossRate": 59.28,
-          "deltaVsTrackLossRatePp": 5.57,
+          "deltaVsTrackLossRatePp": 5.79,
           "status": "EVIDENCE"
         },
         {
@@ -12707,96 +12699,96 @@
           "losses": 99,
           "wins": 68,
           "lossRate": 59.28,
-          "deltaVsTrackLossRatePp": 5.57,
+          "deltaVsTrackLossRatePp": 5.79,
           "status": "EVIDENCE"
         },
         {
           "tag": "FUSION_QUALITY_GATE",
-          "n": 121,
-          "losses": 71,
-          "wins": 50,
-          "lossRate": 58.68,
-          "deltaVsTrackLossRatePp": 4.97,
+          "n": 124,
+          "losses": 73,
+          "wins": 51,
+          "lossRate": 58.87,
+          "deltaVsTrackLossRatePp": 5.38,
           "status": "EVIDENCE"
         },
         {
           "tag": "ADVERSE_LOCATION",
-          "n": 350,
-          "losses": 198,
-          "wins": 152,
-          "lossRate": 56.57,
-          "deltaVsTrackLossRatePp": 2.86,
+          "n": 356,
+          "losses": 201,
+          "wins": 155,
+          "lossRate": 56.46,
+          "deltaVsTrackLossRatePp": 2.96,
           "status": "EVIDENCE"
         },
         {
           "tag": "ADVERSE",
-          "n": 350,
-          "losses": 198,
-          "wins": 152,
-          "lossRate": 56.57,
-          "deltaVsTrackLossRatePp": 2.86,
+          "n": 356,
+          "losses": 201,
+          "wins": 155,
+          "lossRate": 56.46,
+          "deltaVsTrackLossRatePp": 2.96,
           "status": "EVIDENCE"
         },
         {
           "tag": "REJECTION_PRESSURE",
-          "n": 165,
-          "losses": 92,
-          "wins": 73,
-          "lossRate": 55.76,
-          "deltaVsTrackLossRatePp": 2.05,
+          "n": 168,
+          "losses": 94,
+          "wins": 74,
+          "lossRate": 55.95,
+          "deltaVsTrackLossRatePp": 2.46,
           "status": "EVIDENCE"
         },
         {
-          "tag": "UNRESOLVED_FVG",
-          "n": 204,
-          "losses": 112,
-          "wins": 92,
-          "lossRate": 54.9,
-          "deltaVsTrackLossRatePp": 1.2,
+          "tag": "WEAK_MOVE_QUALITY",
+          "n": 266,
+          "losses": 145,
+          "wins": 121,
+          "lossRate": 54.51,
+          "deltaVsTrackLossRatePp": 1.02,
           "status": "EVIDENCE"
         }
       ],
       "protectiveTags": [
         {
-          "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 24,
-          "winRate": 62.5,
-          "liftVsTrackWinRatePp": 16.21,
-          "status": "EVIDENCE"
-        },
-        {
           "tag": "CONSENSUS_CONFLICT",
           "n": 13,
           "winRate": 61.54,
-          "liftVsTrackWinRatePp": 15.25,
+          "liftVsTrackWinRatePp": 15.03,
           "status": "EVIDENCE"
         },
         {
           "tag": "EVIDENCE_CONFLICT",
-          "n": 29,
-          "winRate": 58.62,
-          "liftVsTrackWinRatePp": 12.33,
+          "n": 31,
+          "winRate": 61.29,
+          "liftVsTrackWinRatePp": 14.79,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "FVG_RESOLVED_CONFIRMED",
+          "n": 25,
+          "winRate": 60,
+          "liftVsTrackWinRatePp": 13.5,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 68,
-          "winRate": 50,
-          "liftVsTrackWinRatePp": 3.71,
+          "n": 73,
+          "winRate": 50.68,
+          "liftVsTrackWinRatePp": 4.18,
           "status": "EVIDENCE"
         },
         {
           "tag": "MOVE_QUALITY",
-          "n": 161,
-          "winRate": 49.69,
-          "liftVsTrackWinRatePp": 3.4,
+          "n": 162,
+          "winRate": 49.38,
+          "liftVsTrackWinRatePp": 2.88,
           "status": "EVIDENCE"
         },
         {
-          "tag": "BREAKOUT_PROGRESS",
-          "n": 114,
-          "winRate": 49.12,
-          "liftVsTrackWinRatePp": 2.83,
+          "tag": "CONSENSUS",
+          "n": 331,
+          "winRate": 49.24,
+          "liftVsTrackWinRatePp": 2.74,
           "status": "EVIDENCE"
         }
       ],
@@ -13523,25 +13515,12 @@
       "solutions": [
         {
           "type": "PROTECT_OR_CREDIT",
-          "target": "FVG_RESOLVED_CONFIRMED",
-          "evidence": {
-            "tag": "FVG_RESOLVED_CONFIRMED",
-            "n": 24,
-            "winRate": 62.5,
-            "liftVsTrackWinRatePp": 16.21,
-            "status": "EVIDENCE"
-          },
-          "status": "FORWARD_VALIDATE",
-          "frequencyImpact": "NONE"
-        },
-        {
-          "type": "PROTECT_OR_CREDIT",
           "target": "CONSENSUS_CONFLICT",
           "evidence": {
             "tag": "CONSENSUS_CONFLICT",
             "n": 13,
             "winRate": 61.54,
-            "liftVsTrackWinRatePp": 15.25,
+            "liftVsTrackWinRatePp": 15.03,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -13552,9 +13531,22 @@
           "target": "EVIDENCE_CONFLICT",
           "evidence": {
             "tag": "EVIDENCE_CONFLICT",
-            "n": 29,
-            "winRate": 58.62,
-            "liftVsTrackWinRatePp": 12.33,
+            "n": 31,
+            "winRate": 61.29,
+            "liftVsTrackWinRatePp": 14.79,
+            "status": "EVIDENCE"
+          },
+          "status": "FORWARD_VALIDATE",
+          "frequencyImpact": "NONE"
+        },
+        {
+          "type": "PROTECT_OR_CREDIT",
+          "target": "FVG_RESOLVED_CONFIRMED",
+          "evidence": {
+            "tag": "FVG_RESOLVED_CONFIRMED",
+            "n": 25,
+            "winRate": 60,
+            "liftVsTrackWinRatePp": 13.5,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -13600,9 +13592,9 @@
     {
       "pair": "GBPUSD",
       "horizon": 3,
-      "n": 560,
-      "wins": 285,
-      "losses": 275,
+      "n": 564,
+      "wins": 287,
+      "losses": 277,
       "accuracy": 50.89,
       "maxLossStreak": 9,
       "lossRunCounts": {
@@ -13612,10 +13604,10 @@
         "ge5": 9
       },
       "directions": {
-        "BUY": 289,
-        "SELL": 271
+        "BUY": 291,
+        "SELL": 273
       },
-      "directionImbalancePct": 51.61,
+      "directionImbalancePct": 51.6,
       "sessions": {
         "NEW_YORK": {
           "n": 89,
@@ -13624,9 +13616,9 @@
           "accuracy": 56.18
         },
         "OTHER": {
-          "n": 222,
-          "w": 111,
-          "l": 111,
+          "n": 226,
+          "w": 113,
+          "l": 113,
           "accuracy": 50
         },
         "ASIAN_LATE": {
@@ -13794,10 +13786,10 @@
           "accuracy": 57.89
         },
         "02:00-03:00": {
-          "n": 17,
-          "w": 13,
-          "l": 4,
-          "accuracy": 76.47
+          "n": 21,
+          "w": 15,
+          "l": 6,
+          "accuracy": 71.43
         },
         "13:00-14:00": {
           "n": 20,
@@ -13840,25 +13832,25 @@
           "losses": 85,
           "wins": 71,
           "lossRate": 54.49,
-          "deltaVsTrackLossRatePp": 5.38,
+          "deltaVsTrackLossRatePp": 5.37,
           "status": "EVIDENCE"
         },
         {
           "tag": "EXTENDED",
-          "n": 105,
+          "n": 106,
           "losses": 56,
-          "wins": 49,
-          "lossRate": 53.33,
-          "deltaVsTrackLossRatePp": 4.23,
+          "wins": 50,
+          "lossRate": 52.83,
+          "deltaVsTrackLossRatePp": 3.72,
           "status": "EVIDENCE"
         },
         {
           "tag": "FRESH_PROGRESS",
-          "n": 131,
+          "n": 132,
           "losses": 69,
-          "wins": 62,
-          "lossRate": 52.67,
-          "deltaVsTrackLossRatePp": 3.56,
+          "wins": 63,
+          "lossRate": 52.27,
+          "deltaVsTrackLossRatePp": 3.16,
           "status": "EVIDENCE"
         },
         {
@@ -13867,60 +13859,60 @@
           "losses": 62,
           "wins": 58,
           "lossRate": 51.67,
-          "deltaVsTrackLossRatePp": 2.56,
+          "deltaVsTrackLossRatePp": 2.55,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS",
-          "n": 303,
-          "losses": 156,
-          "wins": 147,
-          "lossRate": 51.49,
-          "deltaVsTrackLossRatePp": 2.38,
+          "n": 306,
+          "losses": 157,
+          "wins": 149,
+          "lossRate": 51.31,
+          "deltaVsTrackLossRatePp": 2.19,
           "status": "EVIDENCE"
         }
       ],
       "protectiveTags": [
         {
           "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 65,
-          "winRate": 58.46,
-          "liftVsTrackWinRatePp": 7.57,
+          "n": 67,
+          "winRate": 58.21,
+          "liftVsTrackWinRatePp": 7.32,
           "status": "EVIDENCE"
         },
         {
           "tag": "VSA_SUPPORT",
-          "n": 91,
-          "winRate": 57.14,
-          "liftVsTrackWinRatePp": 6.25,
+          "n": 93,
+          "winRate": 56.99,
+          "liftVsTrackWinRatePp": 6.1,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED_FVG",
-          "n": 213,
-          "winRate": 54.46,
-          "liftVsTrackWinRatePp": 3.57,
+          "n": 215,
+          "winRate": 54.42,
+          "liftVsTrackWinRatePp": 3.53,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED",
-          "n": 213,
-          "winRate": 54.46,
-          "liftVsTrackWinRatePp": 3.57,
+          "n": 215,
+          "winRate": 54.42,
+          "liftVsTrackWinRatePp": 3.53,
           "status": "EVIDENCE"
         },
         {
           "tag": "ENTRY_LANE_GATE",
-          "n": 295,
-          "winRate": 53.22,
-          "liftVsTrackWinRatePp": 2.33,
+          "n": 298,
+          "winRate": 53.02,
+          "liftVsTrackWinRatePp": 2.13,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONTINUATION_RESET_GATE",
-          "n": 297,
-          "winRate": 53.2,
-          "liftVsTrackWinRatePp": 2.31,
+          "n": 300,
+          "winRate": 53,
+          "liftVsTrackWinRatePp": 2.11,
           "status": "EVIDENCE"
         }
       ],
@@ -14689,22 +14681,22 @@
     {
       "pair": "GBPUSD",
       "horizon": 5,
-      "n": 451,
+      "n": 453,
       "wins": 231,
-      "losses": 220,
-      "accuracy": 51.22,
+      "losses": 222,
+      "accuracy": 50.99,
       "maxLossStreak": 9,
       "lossRunCounts": {
-        "ge2": 52,
+        "ge2": 53,
         "ge3": 30,
         "ge4": 11,
         "ge5": 4
       },
       "directions": {
-        "BUY": 271,
+        "BUY": 273,
         "SELL": 180
       },
-      "directionImbalancePct": 60.09,
+      "directionImbalancePct": 60.26,
       "sessions": {
         "NEW_YORK": {
           "n": 65,
@@ -14713,10 +14705,10 @@
           "accuracy": 46.15
         },
         "OTHER": {
-          "n": 169,
+          "n": 171,
           "w": 86,
-          "l": 83,
-          "accuracy": 50.89
+          "l": 85,
+          "accuracy": 50.29
         },
         "ASIAN_LATE": {
           "n": 61,
@@ -14877,10 +14869,10 @@
           "accuracy": 52.38
         },
         "02:00-03:00": {
-          "n": 12,
+          "n": 14,
           "w": 8,
-          "l": 4,
-          "accuracy": 66.67
+          "l": 6,
+          "accuracy": 57.14
         },
         "13:00-14:00": {
           "n": 12,
@@ -14896,7 +14888,16 @@
           "losses": 11,
           "wins": 5,
           "lossRate": 68.75,
-          "deltaVsTrackLossRatePp": 19.97,
+          "deltaVsTrackLossRatePp": 19.74,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "VSA_SUPPORT",
+          "n": 84,
+          "losses": 48,
+          "wins": 36,
+          "lossRate": 57.14,
+          "deltaVsTrackLossRatePp": 8.14,
           "status": "EVIDENCE"
         },
         {
@@ -14905,7 +14906,7 @@
           "losses": 9,
           "wins": 7,
           "lossRate": 56.25,
-          "deltaVsTrackLossRatePp": 7.47,
+          "deltaVsTrackLossRatePp": 7.24,
           "status": "EVIDENCE"
         },
         {
@@ -14914,16 +14915,7 @@
           "losses": 9,
           "wins": 7,
           "lossRate": 56.25,
-          "deltaVsTrackLossRatePp": 7.47,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "VSA_SUPPORT",
-          "n": 82,
-          "losses": 46,
-          "wins": 36,
-          "lossRate": 56.1,
-          "deltaVsTrackLossRatePp": 7.32,
+          "deltaVsTrackLossRatePp": 7.24,
           "status": "EVIDENCE"
         },
         {
@@ -14932,7 +14924,16 @@
           "losses": 7,
           "wins": 6,
           "lossRate": 53.85,
-          "deltaVsTrackLossRatePp": 5.07,
+          "deltaVsTrackLossRatePp": 4.84,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "FRESH_PROGRESS",
+          "n": 112,
+          "losses": 60,
+          "wins": 52,
+          "lossRate": 53.57,
+          "deltaVsTrackLossRatePp": 4.56,
           "status": "EVIDENCE"
         },
         {
@@ -14941,16 +14942,7 @@
           "losses": 77,
           "wins": 67,
           "lossRate": 53.47,
-          "deltaVsTrackLossRatePp": 4.69,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "FRESH_PROGRESS",
-          "n": 111,
-          "losses": 59,
-          "wins": 52,
-          "lossRate": 53.15,
-          "deltaVsTrackLossRatePp": 4.37,
+          "deltaVsTrackLossRatePp": 4.47,
           "status": "EVIDENCE"
         },
         {
@@ -14959,51 +14951,51 @@
           "losses": 77,
           "wins": 68,
           "lossRate": 53.1,
-          "deltaVsTrackLossRatePp": 4.32,
+          "deltaVsTrackLossRatePp": 4.1,
           "status": "EVIDENCE"
         }
       ],
       "protectiveTags": [
         {
           "tag": "BREAKOUT_PROGRESS",
-          "n": 77,
-          "winRate": 58.44,
-          "liftVsTrackWinRatePp": 7.22,
+          "n": 78,
+          "winRate": 57.69,
+          "liftVsTrackWinRatePp": 6.7,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_MATURITY_GATE",
           "n": 60,
           "winRate": 56.67,
-          "liftVsTrackWinRatePp": 5.45,
+          "liftVsTrackWinRatePp": 5.67,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONTINUATION_RESET_GATE",
-          "n": 235,
-          "winRate": 55.32,
-          "liftVsTrackWinRatePp": 4.1,
+          "n": 236,
+          "winRate": 55.08,
+          "liftVsTrackWinRatePp": 4.09,
           "status": "EVIDENCE"
         },
         {
           "tag": "FUSION_QUALITY_GATE",
           "n": 102,
           "winRate": 54.9,
-          "liftVsTrackWinRatePp": 3.68,
+          "liftVsTrackWinRatePp": 3.91,
           "status": "EVIDENCE"
         },
         {
           "tag": "WEAK_MOVE_QUALITY",
           "n": 215,
           "winRate": 54.42,
-          "liftVsTrackWinRatePp": 3.2,
+          "liftVsTrackWinRatePp": 3.43,
           "status": "EVIDENCE"
         },
         {
           "tag": "ENTRY_LANE_GATE",
           "n": 174,
           "winRate": 54.02,
-          "liftVsTrackWinRatePp": 2.8,
+          "liftVsTrackWinRatePp": 3.03,
           "status": "EVIDENCE"
         }
       ],
@@ -15744,7 +15736,7 @@
             "losses": 11,
             "wins": 5,
             "lossRate": 68.75,
-            "deltaVsTrackLossRatePp": 19.97,
+            "deltaVsTrackLossRatePp": 19.74,
             "status": "EVIDENCE"
           },
           "status": "SHADOW_FIRST",
@@ -15766,7 +15758,7 @@
           "evidence": {
             "maxLossStreak": 9,
             "runCounts": {
-              "ge2": 52,
+              "ge2": 53,
               "ge3": 30,
               "ge4": 11,
               "ge5": 4
@@ -16941,22 +16933,22 @@
     {
       "pair": "EURJPY",
       "horizon": 1,
-      "n": 696,
-      "wins": 350,
-      "losses": 346,
-      "accuracy": 50.29,
+      "n": 715,
+      "wins": 360,
+      "losses": 355,
+      "accuracy": 50.35,
       "maxLossStreak": 9,
       "lossRunCounts": {
-        "ge2": 91,
-        "ge3": 42,
+        "ge2": 94,
+        "ge3": 43,
         "ge4": 19,
         "ge5": 7
       },
       "directions": {
-        "BUY": 358,
-        "SELL": 338
+        "BUY": 375,
+        "SELL": 340
       },
-      "directionImbalancePct": 51.44,
+      "directionImbalancePct": 52.45,
       "sessions": {
         "NEW_YORK": {
           "n": 110,
@@ -16965,10 +16957,10 @@
           "accuracy": 53.64
         },
         "OTHER": {
-          "n": 298,
-          "w": 144,
-          "l": 154,
-          "accuracy": 48.32
+          "n": 317,
+          "w": 154,
+          "l": 163,
+          "accuracy": 48.58
         },
         "ASIAN_LATE": {
           "n": 58,
@@ -17105,16 +17097,16 @@
           "accuracy": 60
         },
         "01:00-02:00": {
-          "n": 16,
-          "w": 6,
+          "n": 17,
+          "w": 7,
           "l": 10,
-          "accuracy": 37.5
+          "accuracy": 41.18
         },
         "02:00-03:00": {
-          "n": 17,
-          "w": 3,
-          "l": 14,
-          "accuracy": 17.65
+          "n": 35,
+          "w": 12,
+          "l": 23,
+          "accuracy": 34.29
         },
         "07:00-08:00": {
           "n": 17,
@@ -17148,7 +17140,7 @@
           "losses": 20,
           "wins": 9,
           "lossRate": 68.97,
-          "deltaVsTrackLossRatePp": 19.25,
+          "deltaVsTrackLossRatePp": 19.32,
           "status": "EVIDENCE"
         },
         {
@@ -17157,61 +17149,61 @@
           "losses": 56,
           "wins": 38,
           "lossRate": 59.57,
-          "deltaVsTrackLossRatePp": 9.86,
+          "deltaVsTrackLossRatePp": 9.92,
           "status": "EVIDENCE"
         },
         {
           "tag": "WEAK_MOVE_QUALITY",
-          "n": 232,
-          "losses": 128,
-          "wins": 104,
-          "lossRate": 55.17,
-          "deltaVsTrackLossRatePp": 5.46,
+          "n": 234,
+          "losses": 129,
+          "wins": 105,
+          "lossRate": 55.13,
+          "deltaVsTrackLossRatePp": 5.48,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE",
-          "n": 425,
-          "losses": 222,
-          "wins": 203,
-          "lossRate": 52.24,
-          "deltaVsTrackLossRatePp": 2.52,
+          "n": 434,
+          "losses": 226,
+          "wins": 208,
+          "lossRate": 52.07,
+          "deltaVsTrackLossRatePp": 2.42,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE_CONTINUATION",
-          "n": 425,
-          "losses": 222,
-          "wins": 203,
-          "lossRate": 52.24,
-          "deltaVsTrackLossRatePp": 2.52,
+          "n": 434,
+          "losses": 226,
+          "wins": 208,
+          "lossRate": 52.07,
+          "deltaVsTrackLossRatePp": 2.42,
           "status": "EVIDENCE"
         },
         {
           "tag": "ADVERSE_LOCATION",
-          "n": 382,
-          "losses": 196,
-          "wins": 186,
-          "lossRate": 51.31,
-          "deltaVsTrackLossRatePp": 1.6,
+          "n": 391,
+          "losses": 201,
+          "wins": 190,
+          "lossRate": 51.41,
+          "deltaVsTrackLossRatePp": 1.76,
           "status": "EVIDENCE"
         },
         {
           "tag": "ADVERSE",
-          "n": 382,
-          "losses": 196,
-          "wins": 186,
-          "lossRate": 51.31,
-          "deltaVsTrackLossRatePp": 1.6,
+          "n": 391,
+          "losses": 201,
+          "wins": 190,
+          "lossRate": 51.41,
+          "deltaVsTrackLossRatePp": 1.76,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE_CONTINUATION_GATE",
-          "n": 397,
-          "losses": 203,
-          "wins": 194,
-          "lossRate": 51.13,
-          "deltaVsTrackLossRatePp": 1.42,
+          "n": 406,
+          "losses": 207,
+          "wins": 199,
+          "lossRate": 50.99,
+          "deltaVsTrackLossRatePp": 1.33,
           "status": "EVIDENCE"
         }
       ],
@@ -17220,42 +17212,42 @@
           "tag": "HIGH_CONFIDENCE_CONTRADICTION_GATE",
           "n": 30,
           "winRate": 70,
-          "liftVsTrackWinRatePp": 19.71,
+          "liftVsTrackWinRatePp": 19.65,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "FVG_RESOLVED_CONFIRMED",
+          "n": 44,
+          "winRate": 59.09,
+          "liftVsTrackWinRatePp": 8.74,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS_CONFLICT",
           "n": 29,
           "winRate": 58.62,
-          "liftVsTrackWinRatePp": 8.33,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 41,
-          "winRate": 58.54,
-          "liftVsTrackWinRatePp": 8.25,
+          "liftVsTrackWinRatePp": 8.27,
           "status": "EVIDENCE"
         },
         {
           "tag": "PROGRESS_FAILURE_GATE",
-          "n": 158,
-          "winRate": 55.06,
-          "liftVsTrackWinRatePp": 4.78,
+          "n": 159,
+          "winRate": 55.35,
+          "liftVsTrackWinRatePp": 5,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 70,
-          "winRate": 54.29,
-          "liftVsTrackWinRatePp": 4,
+          "n": 73,
+          "winRate": 53.42,
+          "liftVsTrackWinRatePp": 3.08,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED",
           "n": 194,
           "winRate": 52.58,
-          "liftVsTrackWinRatePp": 2.29,
+          "liftVsTrackWinRatePp": 2.23,
           "status": "EVIDENCE"
         }
       ],
@@ -17998,7 +17990,7 @@
             "losses": 20,
             "wins": 9,
             "lossRate": 68.97,
-            "deltaVsTrackLossRatePp": 19.25,
+            "deltaVsTrackLossRatePp": 19.32,
             "status": "EVIDENCE"
           },
           "status": "SHADOW_FIRST",
@@ -18011,7 +18003,7 @@
             "tag": "HIGH_CONFIDENCE_CONTRADICTION_GATE",
             "n": 30,
             "winRate": 70,
-            "liftVsTrackWinRatePp": 19.71,
+            "liftVsTrackWinRatePp": 19.65,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -18043,8 +18035,8 @@
           "evidence": {
             "maxLossStreak": 9,
             "runCounts": {
-              "ge2": 91,
-              "ge3": 42,
+              "ge2": 94,
+              "ge3": 43,
               "ge4": 19,
               "ge5": 7
             }
@@ -18057,22 +18049,22 @@
     {
       "pair": "EURJPY",
       "horizon": 2,
-      "n": 634,
-      "wins": 302,
-      "losses": 332,
-      "accuracy": 47.63,
+      "n": 642,
+      "wins": 306,
+      "losses": 336,
+      "accuracy": 47.66,
       "maxLossStreak": 10,
       "lossRunCounts": {
-        "ge2": 76,
+        "ge2": 77,
         "ge3": 43,
         "ge4": 20,
-        "ge5": 9
+        "ge5": 10
       },
       "directions": {
-        "BUY": 315,
-        "SELL": 319
+        "BUY": 321,
+        "SELL": 321
       },
-      "directionImbalancePct": 50.32,
+      "directionImbalancePct": 50,
       "sessions": {
         "NEW_YORK": {
           "n": 100,
@@ -18081,10 +18073,10 @@
           "accuracy": 45
         },
         "OTHER": {
-          "n": 261,
-          "w": 129,
-          "l": 132,
-          "accuracy": 49.43
+          "n": 269,
+          "w": 133,
+          "l": 136,
+          "accuracy": 49.44
         },
         "ASIAN_LATE": {
           "n": 59,
@@ -18245,10 +18237,10 @@
           "accuracy": 33.33
         },
         "02:00-03:00": {
-          "n": 15,
-          "w": 4,
-          "l": 11,
-          "accuracy": 26.67
+          "n": 23,
+          "w": 8,
+          "l": 15,
+          "accuracy": 34.78
         },
         "13:00-14:00": {
           "n": 20,
@@ -18264,7 +18256,7 @@
           "losses": 12,
           "wins": 4,
           "lossRate": 75,
-          "deltaVsTrackLossRatePp": 22.63,
+          "deltaVsTrackLossRatePp": 22.66,
           "status": "EVIDENCE"
         },
         {
@@ -18273,105 +18265,105 @@
           "losses": 42,
           "wins": 31,
           "lossRate": 57.53,
-          "deltaVsTrackLossRatePp": 5.17,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 30,
-          "losses": 17,
-          "wins": 13,
-          "lossRate": 56.67,
-          "deltaVsTrackLossRatePp": 4.3,
+          "deltaVsTrackLossRatePp": 5.2,
           "status": "EVIDENCE"
         },
         {
           "tag": "FRESH_PROGRESS",
-          "n": 190,
-          "losses": 106,
-          "wins": 84,
-          "lossRate": 55.79,
-          "deltaVsTrackLossRatePp": 3.42,
+          "n": 193,
+          "losses": 107,
+          "wins": 86,
+          "lossRate": 55.44,
+          "deltaVsTrackLossRatePp": 3.1,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE_CONTINUATION_GATE",
-          "n": 386,
-          "losses": 214,
-          "wins": 172,
-          "lossRate": 55.44,
-          "deltaVsTrackLossRatePp": 3.07,
+          "n": 389,
+          "losses": 215,
+          "wins": 174,
+          "lossRate": 55.27,
+          "deltaVsTrackLossRatePp": 2.93,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE",
-          "n": 397,
-          "losses": 220,
-          "wins": 177,
-          "lossRate": 55.42,
-          "deltaVsTrackLossRatePp": 3.05,
+          "n": 400,
+          "losses": 221,
+          "wins": 179,
+          "lossRate": 55.25,
+          "deltaVsTrackLossRatePp": 2.91,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE_CONTINUATION",
-          "n": 397,
-          "losses": 220,
-          "wins": 177,
-          "lossRate": 55.42,
-          "deltaVsTrackLossRatePp": 3.05,
+          "n": 400,
+          "losses": 221,
+          "wins": 179,
+          "lossRate": 55.25,
+          "deltaVsTrackLossRatePp": 2.91,
           "status": "EVIDENCE"
         },
         {
           "tag": "MTF_CONFLICT",
-          "n": 215,
-          "losses": 118,
-          "wins": 97,
-          "lossRate": 54.88,
-          "deltaVsTrackLossRatePp": 2.52,
+          "n": 218,
+          "losses": 120,
+          "wins": 98,
+          "lossRate": 55.05,
+          "deltaVsTrackLossRatePp": 2.71,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "MTF",
+          "n": 218,
+          "losses": 120,
+          "wins": 98,
+          "lossRate": 55.05,
+          "deltaVsTrackLossRatePp": 2.71,
           "status": "EVIDENCE"
         }
       ],
       "protectiveTags": [
         {
           "tag": "PROGRESS_FAILURE_GATE",
-          "n": 50,
-          "winRate": 56,
-          "liftVsTrackWinRatePp": 8.37,
+          "n": 53,
+          "winRate": 58.49,
+          "liftVsTrackWinRatePp": 10.83,
           "status": "EVIDENCE"
         },
         {
           "tag": "REJECTION_PRESSURE",
-          "n": 176,
-          "winRate": 52.84,
-          "liftVsTrackWinRatePp": 5.21,
+          "n": 178,
+          "winRate": 53.37,
+          "liftVsTrackWinRatePp": 5.71,
           "status": "EVIDENCE"
         },
         {
           "tag": "EVIDENCE_CONFLICT",
           "n": 35,
           "winRate": 51.43,
-          "liftVsTrackWinRatePp": 3.79,
+          "liftVsTrackWinRatePp": 3.77,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS",
-          "n": 344,
-          "winRate": 51.16,
-          "liftVsTrackWinRatePp": 3.53,
+          "n": 351,
+          "winRate": 51.28,
+          "liftVsTrackWinRatePp": 3.62,
           "status": "EVIDENCE"
         },
         {
-          "tag": "MOVE_QUALITY",
-          "n": 210,
-          "winRate": 50.48,
-          "liftVsTrackWinRatePp": 2.84,
+          "tag": "EXTENDED",
+          "n": 194,
+          "winRate": 50.52,
+          "liftVsTrackWinRatePp": 2.85,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION",
           "n": 145,
           "winRate": 50.34,
-          "liftVsTrackWinRatePp": 2.71,
+          "liftVsTrackWinRatePp": 2.68,
           "status": "EVIDENCE"
         }
       ],
@@ -18752,6 +18744,70 @@
         },
         {
           "length": 5,
+          "start": 1788973200000,
+          "end": 1788988320000,
+          "directions": {
+            "BUY": 4,
+            "SELL": 1
+          },
+          "sessions": [
+            "NEW_YORK",
+            "OTHER"
+          ],
+          "hours": [
+            "22:00-23:00",
+            "02:00-03:00"
+          ],
+          "regimes": [
+            "MIXED",
+            "TRENDING",
+            "CHOPPY"
+          ],
+          "recurrentTags": [
+            {
+              "tag": "FAILURE_TO_PROGRESS",
+              "count": 5,
+              "share": 100
+            },
+            {
+              "tag": "DIRECTIONAL_EVIDENCE",
+              "count": 4,
+              "share": 80
+            },
+            {
+              "tag": "ADVERSE_LOCATION",
+              "count": 3,
+              "share": 60
+            },
+            {
+              "tag": "UNRESOLVED_FVG",
+              "count": 3,
+              "share": 60
+            },
+            {
+              "tag": "LATE",
+              "count": 3,
+              "share": 60
+            },
+            {
+              "tag": "WEAKPROGRESS",
+              "count": 3,
+              "share": 60
+            },
+            {
+              "tag": "ADVERSE",
+              "count": 3,
+              "share": 60
+            },
+            {
+              "tag": "UNRESOLVED",
+              "count": 3,
+              "share": 60
+            }
+          ]
+        },
+        {
+          "length": 5,
           "start": 1788966960000,
           "end": 1788967440000,
           "directions": {
@@ -18938,68 +18994,6 @@
         },
         {
           "length": 4,
-          "start": 1788973200000,
-          "end": 1788973560000,
-          "directions": {
-            "BUY": 3,
-            "SELL": 1
-          },
-          "sessions": [
-            "NEW_YORK"
-          ],
-          "hours": [
-            "22:00-23:00"
-          ],
-          "regimes": [
-            "MIXED",
-            "TRENDING",
-            "CHOPPY"
-          ],
-          "recurrentTags": [
-            {
-              "tag": "FAILURE_TO_PROGRESS",
-              "count": 4,
-              "share": 100
-            },
-            {
-              "tag": "ADVERSE_LOCATION",
-              "count": 3,
-              "share": 75
-            },
-            {
-              "tag": "WEAKPROGRESS",
-              "count": 3,
-              "share": 75
-            },
-            {
-              "tag": "ADVERSE",
-              "count": 3,
-              "share": 75
-            },
-            {
-              "tag": "DIRECTIONAL_EVIDENCE",
-              "count": 3,
-              "share": 75
-            },
-            {
-              "tag": "CONTINUATION_RESET_GATE",
-              "count": 3,
-              "share": 75
-            },
-            {
-              "tag": "UNRESOLVED_FVG",
-              "count": 2,
-              "share": 50
-            },
-            {
-              "tag": "LATE",
-              "count": 2,
-              "share": 50
-            }
-          ]
-        },
-        {
-          "length": 4,
           "start": 1788957120000,
           "end": 1788957480000,
           "directions": {
@@ -19133,10 +19127,23 @@
             "losses": 12,
             "wins": 4,
             "lossRate": 75,
-            "deltaVsTrackLossRatePp": 22.63,
+            "deltaVsTrackLossRatePp": 22.66,
             "status": "EVIDENCE"
           },
           "status": "SHADOW_FIRST",
+          "frequencyImpact": "NONE"
+        },
+        {
+          "type": "PROTECT_OR_CREDIT",
+          "target": "PROGRESS_FAILURE_GATE",
+          "evidence": {
+            "tag": "PROGRESS_FAILURE_GATE",
+            "n": 53,
+            "winRate": 58.49,
+            "liftVsTrackWinRatePp": 10.83,
+            "status": "EVIDENCE"
+          },
+          "status": "FORWARD_VALIDATE",
           "frequencyImpact": "NONE"
         },
         {
@@ -19165,10 +19172,10 @@
           "evidence": {
             "maxLossStreak": 10,
             "runCounts": {
-              "ge2": 76,
+              "ge2": 77,
               "ge3": 43,
               "ge4": 20,
-              "ge5": 9
+              "ge5": 10
             }
           },
           "status": "HIGH_PRIORITY_SHADOW_FIRST",
@@ -19179,22 +19186,22 @@
     {
       "pair": "EURJPY",
       "horizon": 3,
-      "n": 579,
-      "wins": 273,
-      "losses": 306,
-      "accuracy": 47.15,
+      "n": 584,
+      "wins": 275,
+      "losses": 309,
+      "accuracy": 47.09,
       "maxLossStreak": 8,
       "lossRunCounts": {
         "ge2": 82,
         "ge3": 39,
-        "ge4": 22,
-        "ge5": 13
+        "ge4": 23,
+        "ge5": 14
       },
       "directions": {
-        "BUY": 277,
-        "SELL": 302
+        "BUY": 279,
+        "SELL": 305
       },
-      "directionImbalancePct": 52.16,
+      "directionImbalancePct": 52.23,
       "sessions": {
         "NEW_YORK": {
           "n": 90,
@@ -19203,10 +19210,10 @@
           "accuracy": 47.78
         },
         "OTHER": {
-          "n": 233,
-          "w": 116,
-          "l": 117,
-          "accuracy": 49.79
+          "n": 238,
+          "w": 118,
+          "l": 120,
+          "accuracy": 49.58
         },
         "ASIAN_LATE": {
           "n": 61,
@@ -19373,10 +19380,10 @@
           "accuracy": 43.48
         },
         "02:00-03:00": {
-          "n": 17,
-          "w": 6,
-          "l": 11,
-          "accuracy": 35.29
+          "n": 22,
+          "w": 8,
+          "l": 14,
+          "accuracy": 36.36
         },
         "13:00-14:00": {
           "n": 20,
@@ -19388,20 +19395,20 @@
       "highRiskTags": [
         {
           "tag": "PROGRESS_FAILURE_GATE",
-          "n": 45,
-          "losses": 27,
+          "n": 46,
+          "losses": 28,
           "wins": 18,
-          "lossRate": 60,
-          "deltaVsTrackLossRatePp": 7.15,
+          "lossRate": 60.87,
+          "deltaVsTrackLossRatePp": 7.96,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONTINUATION_RESET_GATE",
-          "n": 313,
-          "losses": 179,
-          "wins": 134,
-          "lossRate": 57.19,
-          "deltaVsTrackLossRatePp": 4.34,
+          "n": 316,
+          "losses": 181,
+          "wins": 135,
+          "lossRate": 57.28,
+          "deltaVsTrackLossRatePp": 4.37,
           "status": "EVIDENCE"
         },
         {
@@ -19410,25 +19417,25 @@
           "losses": 48,
           "wins": 36,
           "lossRate": 57.14,
-          "deltaVsTrackLossRatePp": 4.29,
+          "deltaVsTrackLossRatePp": 4.23,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS",
-          "n": 325,
-          "losses": 179,
-          "wins": 146,
-          "lossRate": 55.08,
-          "deltaVsTrackLossRatePp": 2.23,
+          "n": 327,
+          "losses": 180,
+          "wins": 147,
+          "lossRate": 55.05,
+          "deltaVsTrackLossRatePp": 2.13,
           "status": "EVIDENCE"
         },
         {
           "tag": "FRESH_PROGRESS",
-          "n": 182,
-          "losses": 100,
-          "wins": 82,
-          "lossRate": 54.95,
-          "deltaVsTrackLossRatePp": 2.1,
+          "n": 184,
+          "losses": 101,
+          "wins": 83,
+          "lossRate": 54.89,
+          "deltaVsTrackLossRatePp": 1.98,
           "status": "EVIDENCE"
         },
         {
@@ -19437,7 +19444,7 @@
           "losses": 86,
           "wins": 71,
           "lossRate": 54.78,
-          "deltaVsTrackLossRatePp": 1.93,
+          "deltaVsTrackLossRatePp": 1.87,
           "status": "EVIDENCE"
         },
         {
@@ -19446,60 +19453,60 @@
           "losses": 86,
           "wins": 71,
           "lossRate": 54.78,
-          "deltaVsTrackLossRatePp": 1.93,
+          "deltaVsTrackLossRatePp": 1.87,
           "status": "EVIDENCE"
         },
         {
-          "tag": "EXTENDED",
-          "n": 158,
-          "losses": 86,
-          "wins": 72,
-          "lossRate": 54.43,
-          "deltaVsTrackLossRatePp": 1.58,
+          "tag": "UNRESOLVED_FVG",
+          "n": 254,
+          "losses": 139,
+          "wins": 115,
+          "lossRate": 54.72,
+          "deltaVsTrackLossRatePp": 1.81,
           "status": "EVIDENCE"
         }
       ],
       "protectiveTags": [
         {
-          "tag": "FUSION_QUALITY_GATE",
-          "n": 83,
-          "winRate": 55.42,
-          "liftVsTrackWinRatePp": 8.27,
+          "tag": "FVG_RESOLVED_CONFIRMED",
+          "n": 27,
+          "winRate": 55.56,
+          "liftVsTrackWinRatePp": 8.47,
           "status": "EVIDENCE"
         },
         {
-          "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 26,
-          "winRate": 53.85,
-          "liftVsTrackWinRatePp": 6.7,
+          "tag": "FUSION_QUALITY_GATE",
+          "n": 83,
+          "winRate": 55.42,
+          "liftVsTrackWinRatePp": 8.33,
           "status": "EVIDENCE"
         },
         {
           "tag": "MOVE_QUALITY",
-          "n": 186,
-          "winRate": 52.69,
-          "liftVsTrackWinRatePp": 5.54,
+          "n": 188,
+          "winRate": 52.66,
+          "liftVsTrackWinRatePp": 5.57,
           "status": "EVIDENCE"
         },
         {
           "tag": "EVIDENCE_CONFLICT",
           "n": 27,
           "winRate": 51.85,
-          "liftVsTrackWinRatePp": 4.7,
+          "liftVsTrackWinRatePp": 4.76,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED",
           "n": 146,
           "winRate": 50,
-          "liftVsTrackWinRatePp": 2.85,
+          "liftVsTrackWinRatePp": 2.91,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS_CONFLICT",
           "n": 16,
           "winRate": 50,
-          "liftVsTrackWinRatePp": 2.85,
+          "liftVsTrackWinRatePp": 2.91,
           "status": "EVIDENCE"
         }
       ],
@@ -19688,6 +19695,70 @@
               "tag": "MTF_CONFLICT",
               "count": 4,
               "share": 57.14
+            }
+          ]
+        },
+        {
+          "length": 6,
+          "start": 1788973200000,
+          "end": 1788988680000,
+          "directions": {
+            "BUY": 3,
+            "SELL": 3
+          },
+          "sessions": [
+            "NEW_YORK",
+            "OTHER"
+          ],
+          "hours": [
+            "22:00-23:00",
+            "02:00-03:00"
+          ],
+          "regimes": [
+            "MIXED",
+            "CHOPPY",
+            "TRENDING"
+          ],
+          "recurrentTags": [
+            {
+              "tag": "FAILURE_TO_PROGRESS",
+              "count": 6,
+              "share": 100
+            },
+            {
+              "tag": "EXTENDED",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "DIRECTIONAL_EVIDENCE",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "CONSENSUS",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "WEAKPROGRESS",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "CONTINUATION_RESET_GATE",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "UNRESOLVED_FVG",
+              "count": 4,
+              "share": 66.67
+            },
+            {
+              "tag": "UNRESOLVED",
+              "count": 4,
+              "share": 66.67
             }
           ]
         },
@@ -20177,66 +20248,6 @@
               "share": 60
             }
           ]
-        },
-        {
-          "length": 5,
-          "start": 1788781140000,
-          "end": 1788781860000,
-          "directions": {
-            "BUY": 1,
-            "SELL": 4
-          },
-          "sessions": [
-            "LONDON_EARLY_MID"
-          ],
-          "hours": [
-            "16:00-17:00"
-          ],
-          "regimes": [
-            "CHOPPY"
-          ],
-          "recurrentTags": [
-            {
-              "tag": "ADVERSE_LOCATION",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "ADVERSE",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "FAILURE_TO_PROGRESS",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "DIRECTIONAL_EVIDENCE",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "FVG_RESOLVED",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "WEAK_MOVE_QUALITY",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "LATE",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "LATE_CONTINUATION_GATE",
-              "count": 4,
-              "share": 80
-            }
-          ]
         }
       ],
       "solutions": [
@@ -20268,8 +20279,8 @@
             "runCounts": {
               "ge2": 82,
               "ge3": 39,
-              "ge4": 22,
-              "ge5": 13
+              "ge4": 23,
+              "ge5": 14
             }
           },
           "status": "HIGH_PRIORITY_SHADOW_FIRST",
@@ -20280,22 +20291,22 @@
     {
       "pair": "EURJPY",
       "horizon": 5,
-      "n": 455,
+      "n": 457,
       "wins": 216,
-      "losses": 239,
-      "accuracy": 47.47,
+      "losses": 241,
+      "accuracy": 47.26,
       "maxLossStreak": 10,
       "lossRunCounts": {
-        "ge2": 58,
-        "ge3": 35,
+        "ge2": 59,
+        "ge3": 36,
         "ge4": 17,
         "ge5": 8
       },
       "directions": {
         "BUY": 212,
-        "SELL": 243
+        "SELL": 245
       },
-      "directionImbalancePct": 53.41,
+      "directionImbalancePct": 53.61,
       "sessions": {
         "NEW_YORK": {
           "n": 67,
@@ -20304,10 +20315,10 @@
           "accuracy": 44.78
         },
         "OTHER": {
-          "n": 169,
+          "n": 171,
           "w": 90,
-          "l": 79,
-          "accuracy": 53.25
+          "l": 81,
+          "accuracy": 52.63
         },
         "ASIAN_LATE": {
           "n": 60,
@@ -20468,10 +20479,10 @@
           "accuracy": 38.1
         },
         "02:00-03:00": {
-          "n": 12,
+          "n": 14,
           "w": 9,
-          "l": 3,
-          "accuracy": 75
+          "l": 5,
+          "accuracy": 64.29
         },
         "13:00-14:00": {
           "n": 12,
@@ -20487,7 +20498,7 @@
           "losses": 4,
           "wins": 1,
           "lossRate": 80,
-          "deltaVsTrackLossRatePp": 27.47,
+          "deltaVsTrackLossRatePp": 27.26,
           "status": "PROVISIONAL"
         },
         {
@@ -20496,16 +20507,16 @@
           "losses": 83,
           "wins": 51,
           "lossRate": 61.94,
-          "deltaVsTrackLossRatePp": 9.41,
+          "deltaVsTrackLossRatePp": 9.21,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_PROGRESS",
-          "n": 98,
-          "losses": 59,
+          "n": 99,
+          "losses": 60,
           "wins": 39,
-          "lossRate": 60.2,
-          "deltaVsTrackLossRatePp": 7.68,
+          "lossRate": 60.61,
+          "deltaVsTrackLossRatePp": 7.87,
           "status": "EVIDENCE"
         },
         {
@@ -20514,7 +20525,16 @@
           "losses": 9,
           "wins": 6,
           "lossRate": 60,
-          "deltaVsTrackLossRatePp": 7.47,
+          "deltaVsTrackLossRatePp": 7.26,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "MOVE_QUALITY",
+          "n": 144,
+          "losses": 84,
+          "wins": 60,
+          "lossRate": 58.33,
+          "deltaVsTrackLossRatePp": 5.6,
           "status": "EVIDENCE"
         },
         {
@@ -20523,34 +20543,25 @@
           "losses": 81,
           "wins": 58,
           "lossRate": 58.27,
-          "deltaVsTrackLossRatePp": 5.75,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "MOVE_QUALITY",
-          "n": 142,
-          "losses": 82,
-          "wins": 60,
-          "lossRate": 57.75,
-          "deltaVsTrackLossRatePp": 5.22,
+          "deltaVsTrackLossRatePp": 5.54,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 59,
-          "losses": 33,
+          "n": 60,
+          "losses": 34,
           "wins": 26,
-          "lossRate": 55.93,
-          "deltaVsTrackLossRatePp": 3.4,
+          "lossRate": 56.67,
+          "deltaVsTrackLossRatePp": 3.93,
           "status": "EVIDENCE"
         },
         {
-          "tag": "PROGRESS_FAILURE_GATE",
-          "n": 34,
-          "losses": 19,
-          "wins": 15,
-          "lossRate": 55.88,
-          "deltaVsTrackLossRatePp": 3.35,
+          "tag": "MTF_CONFLICT",
+          "n": 84,
+          "losses": 47,
+          "wins": 37,
+          "lossRate": 55.95,
+          "deltaVsTrackLossRatePp": 3.22,
           "status": "EVIDENCE"
         }
       ],
@@ -20559,42 +20570,42 @@
           "tag": "TRANSITION",
           "n": 115,
           "winRate": 51.3,
-          "liftVsTrackWinRatePp": 3.83,
+          "liftVsTrackWinRatePp": 4.04,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION_GATE",
           "n": 115,
           "winRate": 51.3,
-          "liftVsTrackWinRatePp": 3.83,
+          "liftVsTrackWinRatePp": 4.04,
           "status": "EVIDENCE"
         },
         {
           "tag": "WEAK_MOVE_QUALITY",
           "n": 172,
           "winRate": 50.58,
-          "liftVsTrackWinRatePp": 3.11,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "UNRESOLVED_FVG",
-          "n": 186,
-          "winRate": 50.54,
-          "liftVsTrackWinRatePp": 3.07,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "UNRESOLVED",
-          "n": 186,
-          "winRate": 50.54,
-          "liftVsTrackWinRatePp": 3.07,
+          "liftVsTrackWinRatePp": 3.32,
           "status": "EVIDENCE"
         },
         {
           "tag": "REJECTION_PRESSURE",
           "n": 137,
           "winRate": 50.36,
-          "liftVsTrackWinRatePp": 2.89,
+          "liftVsTrackWinRatePp": 3.1,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "UNRESOLVED_FVG",
+          "n": 188,
+          "winRate": 50,
+          "liftVsTrackWinRatePp": 2.74,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "UNRESOLVED",
+          "n": 188,
+          "winRate": 50,
+          "liftVsTrackWinRatePp": 2.74,
           "status": "EVIDENCE"
         }
       ],
@@ -21345,7 +21356,7 @@
             "losses": 4,
             "wins": 1,
             "lossRate": 80,
-            "deltaVsTrackLossRatePp": 27.47,
+            "deltaVsTrackLossRatePp": 27.26,
             "status": "PROVISIONAL"
           },
           "status": "SHADOW_FIRST",
@@ -21377,8 +21388,8 @@
           "evidence": {
             "maxLossStreak": 10,
             "runCounts": {
-              "ge2": 58,
-              "ge3": 35,
+              "ge2": 59,
+              "ge3": 36,
               "ge4": 17,
               "ge5": 8
             }
@@ -22343,22 +22354,22 @@
     {
       "pair": "USDJPY",
       "horizon": 1,
-      "n": 691,
-      "wins": 346,
-      "losses": 345,
-      "accuracy": 50.07,
+      "n": 706,
+      "wins": 353,
+      "losses": 353,
+      "accuracy": 50,
       "maxLossStreak": 8,
       "lossRunCounts": {
-        "ge2": 83,
-        "ge3": 44,
-        "ge4": 21,
-        "ge5": 14
+        "ge2": 84,
+        "ge3": 45,
+        "ge4": 22,
+        "ge5": 15
       },
       "directions": {
-        "BUY": 338,
-        "SELL": 353
+        "BUY": 344,
+        "SELL": 362
       },
-      "directionImbalancePct": 51.09,
+      "directionImbalancePct": 51.27,
       "sessions": {
         "NEW_YORK": {
           "n": 109,
@@ -22367,10 +22378,10 @@
           "accuracy": 50.46
         },
         "OTHER": {
-          "n": 294,
-          "w": 145,
-          "l": 149,
-          "accuracy": 49.32
+          "n": 309,
+          "w": 152,
+          "l": 157,
+          "accuracy": 49.19
         },
         "ASIAN_LATE": {
           "n": 58,
@@ -22507,10 +22518,10 @@
           "accuracy": 73.68
         },
         "01:00-02:00": {
-          "n": 19,
-          "w": 4,
+          "n": 20,
+          "w": 5,
           "l": 15,
-          "accuracy": 21.05
+          "accuracy": 25
         },
         "07:00-08:00": {
           "n": 17,
@@ -22531,10 +22542,10 @@
           "accuracy": 38.24
         },
         "02:00-03:00": {
-          "n": 9,
-          "w": 3,
-          "l": 6,
-          "accuracy": 33.33
+          "n": 23,
+          "w": 9,
+          "l": 14,
+          "accuracy": 39.13
         },
         "13:00-14:00": {
           "n": 18,
@@ -22550,70 +22561,70 @@
           "losses": 10,
           "wins": 7,
           "lossRate": 58.82,
-          "deltaVsTrackLossRatePp": 8.9,
+          "deltaVsTrackLossRatePp": 8.82,
           "status": "EVIDENCE"
         },
         {
           "tag": "FUSION_QUALITY_GATE",
-          "n": 89,
-          "losses": 50,
+          "n": 92,
+          "losses": 53,
           "wins": 39,
-          "lossRate": 56.18,
-          "deltaVsTrackLossRatePp": 6.25,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "HIGH_CONFIDENCE_CONTRADICTION_GATE",
-          "n": 31,
-          "losses": 17,
-          "wins": 14,
-          "lossRate": 54.84,
-          "deltaVsTrackLossRatePp": 4.91,
+          "lossRate": 57.61,
+          "deltaVsTrackLossRatePp": 7.61,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_PROGRESS",
-          "n": 153,
-          "losses": 83,
-          "wins": 70,
-          "lossRate": 54.25,
-          "deltaVsTrackLossRatePp": 4.32,
+          "n": 156,
+          "losses": 85,
+          "wins": 71,
+          "lossRate": 54.49,
+          "deltaVsTrackLossRatePp": 4.49,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED_FVG",
-          "n": 273,
-          "losses": 146,
-          "wins": 127,
-          "lossRate": 53.48,
-          "deltaVsTrackLossRatePp": 3.55,
+          "n": 283,
+          "losses": 152,
+          "wins": 131,
+          "lossRate": 53.71,
+          "deltaVsTrackLossRatePp": 3.71,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED",
-          "n": 273,
-          "losses": 146,
-          "wins": 127,
-          "lossRate": 53.48,
-          "deltaVsTrackLossRatePp": 3.55,
+          "n": 283,
+          "losses": 152,
+          "wins": 131,
+          "lossRate": 53.71,
+          "deltaVsTrackLossRatePp": 3.71,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "HIGH_CONFIDENCE_CONTRADICTION_GATE",
+          "n": 32,
+          "losses": 17,
+          "wins": 15,
+          "lossRate": 53.13,
+          "deltaVsTrackLossRatePp": 3.13,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS",
-          "n": 385,
-          "losses": 203,
-          "wins": 182,
-          "lossRate": 52.73,
-          "deltaVsTrackLossRatePp": 2.8,
+          "n": 395,
+          "losses": 207,
+          "wins": 188,
+          "lossRate": 52.41,
+          "deltaVsTrackLossRatePp": 2.41,
           "status": "EVIDENCE"
         },
         {
-          "tag": "FRESH_PROGRESS",
-          "n": 189,
-          "losses": 97,
-          "wins": 92,
-          "lossRate": 51.32,
-          "deltaVsTrackLossRatePp": 1.4,
+          "tag": "WEAK_MOVE_QUALITY",
+          "n": 239,
+          "losses": 123,
+          "wins": 116,
+          "lossRate": 51.46,
+          "deltaVsTrackLossRatePp": 1.46,
           "status": "EVIDENCE"
         }
       ],
@@ -22622,42 +22633,42 @@
           "tag": "ONE_MINUTE_CHOP_GUARD",
           "n": 33,
           "winRate": 60.61,
-          "liftVsTrackWinRatePp": 10.53,
+          "liftVsTrackWinRatePp": 10.61,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 32,
-          "winRate": 59.38,
-          "liftVsTrackWinRatePp": 9.3,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 56,
-          "winRate": 55.36,
-          "liftVsTrackWinRatePp": 5.28,
+          "n": 33,
+          "winRate": 57.58,
+          "liftVsTrackWinRatePp": 7.58,
           "status": "EVIDENCE"
         },
         {
           "tag": "VSA_SUPPORT",
-          "n": 94,
-          "winRate": 55.32,
-          "liftVsTrackWinRatePp": 5.25,
+          "n": 98,
+          "winRate": 55.1,
+          "liftVsTrackWinRatePp": 5.1,
           "status": "EVIDENCE"
         },
         {
           "tag": "BELOW_CONFIDENCE_THRESHOLD",
-          "n": 328,
-          "winRate": 55.18,
-          "liftVsTrackWinRatePp": 5.11,
+          "n": 334,
+          "winRate": 55.09,
+          "liftVsTrackWinRatePp": 5.09,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "BREAKOUT_MATURITY_GATE",
+          "n": 57,
+          "winRate": 54.39,
+          "liftVsTrackWinRatePp": 4.39,
           "status": "EVIDENCE"
         },
         {
           "tag": "PROGRESS_FAILURE_GATE",
           "n": 157,
           "winRate": 54.14,
-          "liftVsTrackWinRatePp": 4.07,
+          "liftVsTrackWinRatePp": 4.14,
           "status": "EVIDENCE"
         }
       ],
@@ -23090,6 +23101,66 @@
         },
         {
           "length": 5,
+          "start": 1788988500000,
+          "end": 1788988740000,
+          "directions": {
+            "BUY": 0,
+            "SELL": 5
+          },
+          "sessions": [
+            "OTHER"
+          ],
+          "hours": [
+            "02:00-03:00"
+          ],
+          "regimes": [
+            "CHOPPY"
+          ],
+          "recurrentTags": [
+            {
+              "tag": "UNRESOLVED_FVG",
+              "count": 5,
+              "share": 100
+            },
+            {
+              "tag": "UNRESOLVED",
+              "count": 5,
+              "share": 100
+            },
+            {
+              "tag": "FAILURE_TO_PROGRESS",
+              "count": 5,
+              "share": 100
+            },
+            {
+              "tag": "WEAK_MOVE_QUALITY",
+              "count": 4,
+              "share": 80
+            },
+            {
+              "tag": "LATE",
+              "count": 4,
+              "share": 80
+            },
+            {
+              "tag": "WEAKPROGRESS",
+              "count": 4,
+              "share": 80
+            },
+            {
+              "tag": "LATE_CONTINUATION_GATE",
+              "count": 4,
+              "share": 80
+            },
+            {
+              "tag": "LATE_CONTINUATION",
+              "count": 4,
+              "share": 80
+            }
+          ]
+        },
+        {
+          "length": 5,
           "start": 1788973320000,
           "end": 1788973560000,
           "directions": {
@@ -23333,68 +23404,6 @@
               "share": 60
             }
           ]
-        },
-        {
-          "length": 5,
-          "start": 1788868980000,
-          "end": 1788869220000,
-          "directions": {
-            "BUY": 1,
-            "SELL": 4
-          },
-          "sessions": [
-            "LONDON_NY_OVERLAP"
-          ],
-          "hours": [
-            "17:00-18:00"
-          ],
-          "regimes": [
-            "CHOPPY",
-            "MIXED",
-            "TRENDING"
-          ],
-          "recurrentTags": [
-            {
-              "tag": "FAILURE_TO_PROGRESS",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "LATE",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "WEAKPROGRESS",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "LATE_CONTINUATION_GATE",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "CONTINUATION_RESET_GATE",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "LATE_CONTINUATION",
-              "count": 5,
-              "share": 100
-            },
-            {
-              "tag": "BELOW_CONFIDENCE_THRESHOLD",
-              "count": 4,
-              "share": 80
-            },
-            {
-              "tag": "ENTRY_LANE_GATE",
-              "count": 4,
-              "share": 80
-            }
-          ]
         }
       ],
       "solutions": [
@@ -23405,7 +23414,7 @@
             "tag": "ONE_MINUTE_CHOP_GUARD",
             "n": 33,
             "winRate": 60.61,
-            "liftVsTrackWinRatePp": 10.53,
+            "liftVsTrackWinRatePp": 10.61,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -23427,10 +23436,10 @@
           "evidence": {
             "maxLossStreak": 8,
             "runCounts": {
-              "ge2": 83,
-              "ge3": 44,
-              "ge4": 21,
-              "ge5": 14
+              "ge2": 84,
+              "ge3": 45,
+              "ge4": 22,
+              "ge5": 15
             }
           },
           "status": "HIGH_PRIORITY_SHADOW_FIRST",
@@ -23441,10 +23450,10 @@
     {
       "pair": "USDJPY",
       "horizon": 2,
-      "n": 632,
-      "wins": 296,
-      "losses": 336,
-      "accuracy": 46.84,
+      "n": 640,
+      "wins": 302,
+      "losses": 338,
+      "accuracy": 47.19,
       "maxLossStreak": 9,
       "lossRunCounts": {
         "ge2": 83,
@@ -23453,10 +23462,10 @@
         "ge5": 14
       },
       "directions": {
-        "BUY": 325,
-        "SELL": 307
+        "BUY": 330,
+        "SELL": 310
       },
-      "directionImbalancePct": 51.42,
+      "directionImbalancePct": 51.56,
       "sessions": {
         "NEW_YORK": {
           "n": 99,
@@ -23465,10 +23474,10 @@
           "accuracy": 50.51
         },
         "OTHER": {
-          "n": 260,
-          "w": 114,
-          "l": 146,
-          "accuracy": 43.85
+          "n": 268,
+          "w": 120,
+          "l": 148,
+          "accuracy": 44.78
         },
         "ASIAN_LATE": {
           "n": 58,
@@ -23629,10 +23638,10 @@
           "accuracy": 48.15
         },
         "02:00-03:00": {
-          "n": 10,
-          "w": 3,
-          "l": 7,
-          "accuracy": 30
+          "n": 18,
+          "w": 9,
+          "l": 9,
+          "accuracy": 50
         },
         "13:00-14:00": {
           "n": 19,
@@ -23644,74 +23653,74 @@
       "highRiskTags": [
         {
           "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 73,
-          "losses": 46,
-          "wins": 27,
-          "lossRate": 63.01,
-          "deltaVsTrackLossRatePp": 9.85,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "FUSION_QUALITY_GATE",
-          "n": 89,
-          "losses": 54,
-          "wins": 35,
-          "lossRate": 60.67,
-          "deltaVsTrackLossRatePp": 7.51,
+          "n": 76,
+          "losses": 47,
+          "wins": 29,
+          "lossRate": 61.84,
+          "deltaVsTrackLossRatePp": 9.03,
           "status": "EVIDENCE"
         },
         {
           "tag": "VSA_SUPPORT",
-          "n": 94,
-          "losses": 56,
+          "n": 95,
+          "losses": 57,
           "wins": 38,
-          "lossRate": 59.57,
-          "deltaVsTrackLossRatePp": 6.41,
+          "lossRate": 60,
+          "deltaVsTrackLossRatePp": 7.19,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "FUSION_QUALITY_GATE",
+          "n": 90,
+          "losses": 54,
+          "wins": 36,
+          "lossRate": 60,
+          "deltaVsTrackLossRatePp": 7.19,
           "status": "EVIDENCE"
         },
         {
           "tag": "WEAK_MOVE_QUALITY",
-          "n": 217,
+          "n": 218,
           "losses": 124,
-          "wins": 93,
-          "lossRate": 57.14,
-          "deltaVsTrackLossRatePp": 3.98,
+          "wins": 94,
+          "lossRate": 56.88,
+          "deltaVsTrackLossRatePp": 4.07,
           "status": "EVIDENCE"
         },
         {
           "tag": "ADVERSE_LOCATION",
-          "n": 345,
-          "losses": 193,
-          "wins": 152,
-          "lossRate": 55.94,
-          "deltaVsTrackLossRatePp": 2.78,
+          "n": 348,
+          "losses": 194,
+          "wins": 154,
+          "lossRate": 55.75,
+          "deltaVsTrackLossRatePp": 2.93,
           "status": "EVIDENCE"
         },
         {
           "tag": "ADVERSE",
-          "n": 345,
-          "losses": 193,
-          "wins": 152,
-          "lossRate": 55.94,
-          "deltaVsTrackLossRatePp": 2.78,
+          "n": 348,
+          "losses": 194,
+          "wins": 154,
+          "lossRate": 55.75,
+          "deltaVsTrackLossRatePp": 2.93,
           "status": "EVIDENCE"
         },
         {
-          "tag": "BELOW_CONFIDENCE_THRESHOLD",
-          "n": 267,
-          "losses": 145,
-          "wins": 122,
-          "lossRate": 54.31,
-          "deltaVsTrackLossRatePp": 1.14,
+          "tag": "REJECTION_PRESSURE",
+          "n": 186,
+          "losses": 100,
+          "wins": 86,
+          "lossRate": 53.76,
+          "deltaVsTrackLossRatePp": 0.95,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION",
-          "n": 146,
+          "n": 147,
           "losses": 79,
-          "wins": 67,
-          "lossRate": 54.11,
-          "deltaVsTrackLossRatePp": 0.95,
+          "wins": 68,
+          "lossRate": 53.74,
+          "deltaVsTrackLossRatePp": 0.93,
           "status": "EVIDENCE"
         }
       ],
@@ -23720,42 +23729,42 @@
           "tag": "EVIDENCE_CONFLICT",
           "n": 20,
           "winRate": 60,
-          "liftVsTrackWinRatePp": 13.16,
+          "liftVsTrackWinRatePp": 12.81,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONSENSUS_CONFLICT",
           "n": 19,
           "winRate": 57.89,
-          "liftVsTrackWinRatePp": 11.06,
+          "liftVsTrackWinRatePp": 10.71,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 37,
-          "winRate": 51.35,
-          "liftVsTrackWinRatePp": 4.52,
+          "n": 38,
+          "winRate": 52.63,
+          "liftVsTrackWinRatePp": 5.44,
           "status": "EVIDENCE"
         },
         {
           "tag": "PROGRESS_FAILURE_GATE",
-          "n": 52,
-          "winRate": 50,
-          "liftVsTrackWinRatePp": 3.16,
+          "n": 53,
+          "winRate": 50.94,
+          "liftVsTrackWinRatePp": 3.76,
           "status": "EVIDENCE"
         },
         {
           "tag": "EXTENDED",
-          "n": 198,
-          "winRate": 49.49,
-          "liftVsTrackWinRatePp": 2.66,
+          "n": 202,
+          "winRate": 50,
+          "liftVsTrackWinRatePp": 2.81,
           "status": "EVIDENCE"
         },
         {
           "tag": "MTF_CONFLICT",
-          "n": 206,
-          "winRate": 49.03,
-          "liftVsTrackWinRatePp": 2.19,
+          "n": 211,
+          "winRate": 49.29,
+          "liftVsTrackWinRatePp": 2.1,
           "status": "EVIDENCE"
         }
       ],
@@ -24503,7 +24512,7 @@
             "tag": "EVIDENCE_CONFLICT",
             "n": 20,
             "winRate": 60,
-            "liftVsTrackWinRatePp": 13.16,
+            "liftVsTrackWinRatePp": 12.81,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -24516,7 +24525,7 @@
             "tag": "CONSENSUS_CONFLICT",
             "n": 19,
             "winRate": 57.89,
-            "liftVsTrackWinRatePp": 11.06,
+            "liftVsTrackWinRatePp": 10.71,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -24536,8 +24545,8 @@
           "type": "SESSION_PROFILE_RECALIBRATION",
           "target": "OTHER",
           "evidence": {
-            "n": 260,
-            "accuracy": 43.85
+            "n": 268,
+            "accuracy": 44.78
           },
           "status": "FORWARD_VALIDATE",
           "frequencyImpact": "NONE"
@@ -24562,22 +24571,22 @@
     {
       "pair": "USDJPY",
       "horizon": 3,
-      "n": 581,
-      "wins": 289,
-      "losses": 292,
-      "accuracy": 49.74,
+      "n": 586,
+      "wins": 292,
+      "losses": 294,
+      "accuracy": 49.83,
       "maxLossStreak": 9,
       "lossRunCounts": {
-        "ge2": 73,
+        "ge2": 74,
         "ge3": 39,
         "ge4": 21,
         "ge5": 8
       },
       "directions": {
-        "BUY": 284,
-        "SELL": 297
+        "BUY": 285,
+        "SELL": 301
       },
-      "directionImbalancePct": 51.12,
+      "directionImbalancePct": 51.37,
       "sessions": {
         "NEW_YORK": {
           "n": 90,
@@ -24586,10 +24595,10 @@
           "accuracy": 47.78
         },
         "OTHER": {
-          "n": 231,
-          "w": 124,
-          "l": 107,
-          "accuracy": 53.68
+          "n": 236,
+          "w": 127,
+          "l": 109,
+          "accuracy": 53.81
         },
         "ASIAN_LATE": {
           "n": 60,
@@ -24756,10 +24765,10 @@
           "accuracy": 52.17
         },
         "02:00-03:00": {
-          "n": 14,
-          "w": 9,
-          "l": 5,
-          "accuracy": 64.29
+          "n": 19,
+          "w": 12,
+          "l": 7,
+          "accuracy": 63.16
         },
         "13:00-14:00": {
           "n": 20,
@@ -24775,7 +24784,7 @@
           "losses": 17,
           "wins": 10,
           "lossRate": 62.96,
-          "deltaVsTrackLossRatePp": 12.7,
+          "deltaVsTrackLossRatePp": 12.79,
           "status": "EVIDENCE"
         },
         {
@@ -24784,61 +24793,61 @@
           "losses": 90,
           "wins": 74,
           "lossRate": 54.88,
-          "deltaVsTrackLossRatePp": 4.62,
+          "deltaVsTrackLossRatePp": 4.71,
           "status": "EVIDENCE"
         },
         {
           "tag": "MTF_CONFLICT",
-          "n": 135,
+          "n": 136,
           "losses": 72,
-          "wins": 63,
-          "lossRate": 53.33,
-          "deltaVsTrackLossRatePp": 3.08,
+          "wins": 64,
+          "lossRate": 52.94,
+          "deltaVsTrackLossRatePp": 2.77,
           "status": "EVIDENCE"
         },
         {
           "tag": "MTF",
-          "n": 135,
+          "n": 136,
           "losses": 72,
-          "wins": 63,
-          "lossRate": 53.33,
-          "deltaVsTrackLossRatePp": 3.08,
+          "wins": 64,
+          "lossRate": 52.94,
+          "deltaVsTrackLossRatePp": 2.77,
           "status": "EVIDENCE"
         },
         {
           "tag": "EXTENDED",
-          "n": 142,
+          "n": 144,
           "losses": 75,
-          "wins": 67,
-          "lossRate": 52.82,
-          "deltaVsTrackLossRatePp": 2.56,
+          "wins": 69,
+          "lossRate": 52.08,
+          "deltaVsTrackLossRatePp": 1.91,
           "status": "EVIDENCE"
         },
         {
           "tag": "WEAKPROGRESS",
-          "n": 443,
-          "losses": 223,
-          "wins": 220,
-          "lossRate": 50.34,
-          "deltaVsTrackLossRatePp": 0.08,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "FRESH_PROGRESS",
-          "n": 169,
-          "losses": 85,
-          "wins": 84,
-          "lossRate": 50.3,
-          "deltaVsTrackLossRatePp": 0.04,
+          "n": 446,
+          "losses": 225,
+          "wins": 221,
+          "lossRate": 50.45,
+          "deltaVsTrackLossRatePp": 0.28,
           "status": "EVIDENCE"
         },
         {
           "tag": "FAILURE_TO_PROGRESS",
-          "n": 581,
-          "losses": 292,
-          "wins": 289,
-          "lossRate": 50.26,
+          "n": 586,
+          "losses": 294,
+          "wins": 292,
+          "lossRate": 50.17,
           "deltaVsTrackLossRatePp": 0,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "BREAKOUT_MATURITY_GATE",
+          "n": 92,
+          "losses": 46,
+          "wins": 46,
+          "lossRate": 50,
+          "deltaVsTrackLossRatePp": -0.17,
           "status": "EVIDENCE"
         }
       ],
@@ -24847,42 +24856,42 @@
           "tag": "FUSION_QUALITY_GATE",
           "n": 83,
           "winRate": 57.83,
-          "liftVsTrackWinRatePp": 8.09,
+          "liftVsTrackWinRatePp": 8,
           "status": "EVIDENCE"
         },
         {
           "tag": "REJECTION_PRESSURE",
           "n": 164,
           "winRate": 56.71,
-          "liftVsTrackWinRatePp": 6.97,
+          "liftVsTrackWinRatePp": 6.88,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
           "n": 30,
           "winRate": 56.67,
-          "liftVsTrackWinRatePp": 6.92,
+          "liftVsTrackWinRatePp": 6.84,
           "status": "EVIDENCE"
         },
         {
           "tag": "WEAK_MOVE_QUALITY",
           "n": 196,
           "winRate": 54.08,
-          "liftVsTrackWinRatePp": 4.34,
+          "liftVsTrackWinRatePp": 4.25,
           "status": "EVIDENCE"
         },
         {
           "tag": "BELOW_CONFIDENCE_THRESHOLD",
-          "n": 185,
-          "winRate": 53.51,
-          "liftVsTrackWinRatePp": 3.77,
+          "n": 186,
+          "winRate": 53.76,
+          "liftVsTrackWinRatePp": 3.93,
           "status": "EVIDENCE"
         },
         {
           "tag": "PROGRESS_FAILURE_GATE",
           "n": 43,
           "winRate": 53.49,
-          "liftVsTrackWinRatePp": 3.75,
+          "liftVsTrackWinRatePp": 3.66,
           "status": "EVIDENCE"
         }
       ],
@@ -25616,7 +25625,7 @@
             "losses": 17,
             "wins": 10,
             "lossRate": 62.96,
-            "deltaVsTrackLossRatePp": 12.7,
+            "deltaVsTrackLossRatePp": 12.79,
             "status": "EVIDENCE"
           },
           "status": "SHADOW_FIRST",
@@ -25638,7 +25647,7 @@
           "evidence": {
             "maxLossStreak": 9,
             "runCounts": {
-              "ge2": 73,
+              "ge2": 74,
               "ge3": 39,
               "ge4": 21,
               "ge5": 8
@@ -25652,22 +25661,22 @@
     {
       "pair": "USDJPY",
       "horizon": 5,
-      "n": 455,
+      "n": 457,
       "wins": 216,
-      "losses": 239,
-      "accuracy": 47.47,
+      "losses": 241,
+      "accuracy": 47.26,
       "maxLossStreak": 6,
       "lossRunCounts": {
         "ge2": 61,
-        "ge3": 32,
-        "ge4": 16,
+        "ge3": 33,
+        "ge4": 17,
         "ge5": 9
       },
       "directions": {
         "BUY": 215,
-        "SELL": 240
+        "SELL": 242
       },
-      "directionImbalancePct": 52.75,
+      "directionImbalancePct": 52.95,
       "sessions": {
         "NEW_YORK": {
           "n": 67,
@@ -25676,10 +25685,10 @@
           "accuracy": 46.27
         },
         "OTHER": {
-          "n": 168,
+          "n": 170,
           "w": 84,
-          "l": 84,
-          "accuracy": 50
+          "l": 86,
+          "accuracy": 49.41
         },
         "ASIAN_LATE": {
           "n": 61,
@@ -25840,10 +25849,10 @@
           "accuracy": 50
         },
         "02:00-03:00": {
-          "n": 10,
+          "n": 12,
           "w": 7,
-          "l": 3,
-          "accuracy": 70
+          "l": 5,
+          "accuracy": 58.33
         },
         "13:00-14:00": {
           "n": 12,
@@ -25855,11 +25864,11 @@
       "highRiskTags": [
         {
           "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 55,
-          "losses": 34,
+          "n": 56,
+          "losses": 35,
           "wins": 21,
-          "lossRate": 61.82,
-          "deltaVsTrackLossRatePp": 9.29,
+          "lossRate": 62.5,
+          "deltaVsTrackLossRatePp": 9.76,
           "status": "EVIDENCE"
         },
         {
@@ -25868,7 +25877,7 @@
           "losses": 8,
           "wins": 5,
           "lossRate": 61.54,
-          "deltaVsTrackLossRatePp": 9.01,
+          "deltaVsTrackLossRatePp": 8.8,
           "status": "EVIDENCE"
         },
         {
@@ -25877,7 +25886,7 @@
           "losses": 12,
           "wins": 8,
           "lossRate": 60,
-          "deltaVsTrackLossRatePp": 7.47,
+          "deltaVsTrackLossRatePp": 7.26,
           "status": "EVIDENCE"
         },
         {
@@ -25886,7 +25895,7 @@
           "losses": 39,
           "wins": 27,
           "lossRate": 59.09,
-          "deltaVsTrackLossRatePp": 6.56,
+          "deltaVsTrackLossRatePp": 6.36,
           "status": "EVIDENCE"
         },
         {
@@ -25895,34 +25904,34 @@
           "losses": 20,
           "wins": 14,
           "lossRate": 58.82,
-          "deltaVsTrackLossRatePp": 6.3,
+          "deltaVsTrackLossRatePp": 6.09,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED_FVG",
-          "n": 185,
-          "losses": 106,
+          "n": 187,
+          "losses": 108,
           "wins": 79,
-          "lossRate": 57.3,
-          "deltaVsTrackLossRatePp": 4.77,
+          "lossRate": 57.75,
+          "deltaVsTrackLossRatePp": 5.02,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED",
-          "n": 185,
-          "losses": 106,
+          "n": 187,
+          "losses": 108,
           "wins": 79,
-          "lossRate": 57.3,
-          "deltaVsTrackLossRatePp": 4.77,
+          "lossRate": 57.75,
+          "deltaVsTrackLossRatePp": 5.02,
           "status": "EVIDENCE"
         },
         {
           "tag": "EXTENDED",
-          "n": 125,
-          "losses": 70,
+          "n": 126,
+          "losses": 71,
           "wins": 55,
-          "lossRate": 56,
-          "deltaVsTrackLossRatePp": 3.47,
+          "lossRate": 56.35,
+          "deltaVsTrackLossRatePp": 3.61,
           "status": "EVIDENCE"
         }
       ],
@@ -25931,42 +25940,42 @@
           "tag": "FUSION_QUALITY_GATE",
           "n": 79,
           "winRate": 54.43,
-          "liftVsTrackWinRatePp": 6.96,
+          "liftVsTrackWinRatePp": 7.17,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
           "n": 19,
           "winRate": 52.63,
-          "liftVsTrackWinRatePp": 5.16,
+          "liftVsTrackWinRatePp": 5.37,
           "status": "EVIDENCE"
         },
         {
           "tag": "MTF_CONFLICT",
           "n": 71,
           "winRate": 49.3,
-          "liftVsTrackWinRatePp": 1.82,
+          "liftVsTrackWinRatePp": 2.03,
           "status": "EVIDENCE"
         },
         {
           "tag": "MTF",
           "n": 71,
           "winRate": 49.3,
-          "liftVsTrackWinRatePp": 1.82,
+          "liftVsTrackWinRatePp": 2.03,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE_CONTINUATION_GATE",
           "n": 235,
           "winRate": 48.94,
-          "liftVsTrackWinRatePp": 1.46,
+          "liftVsTrackWinRatePp": 1.67,
           "status": "EVIDENCE"
         },
         {
           "tag": "ADVERSE_LOCATION",
           "n": 239,
           "winRate": 48.54,
-          "liftVsTrackWinRatePp": 1.06,
+          "liftVsTrackWinRatePp": 1.27,
           "status": "EVIDENCE"
         }
       ],
@@ -26519,6 +26528,70 @@
         },
         {
           "length": 4,
+          "start": 1788972900000,
+          "end": 1788988800000,
+          "directions": {
+            "BUY": 1,
+            "SELL": 3
+          },
+          "sessions": [
+            "NEW_YORK",
+            "OTHER"
+          ],
+          "hours": [
+            "21:00-22:00",
+            "22:00-23:00",
+            "02:00-03:00"
+          ],
+          "regimes": [
+            "CHOPPY",
+            "TRENDING"
+          ],
+          "recurrentTags": [
+            {
+              "tag": "FAILURE_TO_PROGRESS",
+              "count": 4,
+              "share": 100
+            },
+            {
+              "tag": "WEAK_MOVE_QUALITY",
+              "count": 3,
+              "share": 75
+            },
+            {
+              "tag": "WEAKPROGRESS",
+              "count": 3,
+              "share": 75
+            },
+            {
+              "tag": "DIRECTIONAL_EVIDENCE",
+              "count": 3,
+              "share": 75
+            },
+            {
+              "tag": "CONTINUATION_RESET_GATE",
+              "count": 3,
+              "share": 75
+            },
+            {
+              "tag": "ADVERSE_LOCATION",
+              "count": 2,
+              "share": 50
+            },
+            {
+              "tag": "LATE",
+              "count": 2,
+              "share": 50
+            },
+            {
+              "tag": "EXTENDED",
+              "count": 2,
+              "share": 50
+            }
+          ]
+        },
+        {
+          "length": 4,
           "start": 1788950400000,
           "end": 1788951300000,
           "directions": {
@@ -26636,69 +26709,6 @@
               "share": 100
             }
           ]
-        },
-        {
-          "length": 4,
-          "start": 1788884400000,
-          "end": 1788891600000,
-          "directions": {
-            "BUY": 4,
-            "SELL": 0
-          },
-          "sessions": [
-            "NEW_YORK",
-            "OTHER"
-          ],
-          "hours": [
-            "21:00-22:00",
-            "23:00-00:00"
-          ],
-          "regimes": [
-            "MIXED",
-            "CHOPPY"
-          ],
-          "recurrentTags": [
-            {
-              "tag": "FAILURE_TO_PROGRESS",
-              "count": 4,
-              "share": 100
-            },
-            {
-              "tag": "DIRECTIONAL_EVIDENCE",
-              "count": 4,
-              "share": 100
-            },
-            {
-              "tag": "CONSENSUS",
-              "count": 4,
-              "share": 100
-            },
-            {
-              "tag": "FRESH_PROGRESS",
-              "count": 3,
-              "share": 75
-            },
-            {
-              "tag": "BREAKOUT_PROGRESS",
-              "count": 3,
-              "share": 75
-            },
-            {
-              "tag": "UNRESOLVED_FVG",
-              "count": 2,
-              "share": 50
-            },
-            {
-              "tag": "EXTENDED",
-              "count": 2,
-              "share": 50
-            },
-            {
-              "tag": "UNRESOLVED",
-              "count": 2,
-              "share": 50
-            }
-          ]
         }
       ],
       "solutions": [
@@ -26719,8 +26729,8 @@
             "maxLossStreak": 6,
             "runCounts": {
               "ge2": 61,
-              "ge3": 32,
-              "ge4": 16,
+              "ge3": 33,
+              "ge4": 17,
               "ge5": 9
             }
           },
@@ -27625,20 +27635,20 @@
     {
       "pair": "AUDUSD",
       "horizon": 1,
-      "n": 605,
-      "wins": 305,
-      "losses": 300,
-      "accuracy": 50.41,
+      "n": 620,
+      "wins": 312,
+      "losses": 308,
+      "accuracy": 50.32,
       "maxLossStreak": 9,
       "lossRunCounts": {
-        "ge2": 74,
-        "ge3": 33,
+        "ge2": 76,
+        "ge3": 34,
         "ge4": 19,
         "ge5": 7
       },
       "directions": {
-        "BUY": 363,
-        "SELL": 242
+        "BUY": 372,
+        "SELL": 248
       },
       "directionImbalancePct": 60,
       "sessions": {
@@ -27649,10 +27659,10 @@
           "accuracy": 45.16
         },
         "OTHER": {
-          "n": 246,
-          "w": 124,
-          "l": 122,
-          "accuracy": 50.41
+          "n": 261,
+          "w": 131,
+          "l": 130,
+          "accuracy": 50.19
         },
         "ASIAN_LATE": {
           "n": 53,
@@ -27789,10 +27799,10 @@
           "accuracy": 64.71
         },
         "01:00-02:00": {
-          "n": 9,
+          "n": 10,
           "w": 8,
-          "l": 1,
-          "accuracy": 88.89
+          "l": 2,
+          "accuracy": 80
         },
         "07:00-08:00": {
           "n": 16,
@@ -27813,10 +27823,10 @@
           "accuracy": 60.61
         },
         "02:00-03:00": {
-          "n": 16,
-          "w": 9,
-          "l": 7,
-          "accuracy": 56.25
+          "n": 30,
+          "w": 16,
+          "l": 14,
+          "accuracy": 53.33
         },
         "13:00-14:00": {
           "n": 17,
@@ -27828,38 +27838,38 @@
       "highRiskTags": [
         {
           "tag": "BREAKOUT_MATURITY_GATE",
-          "n": 49,
+          "n": 50,
           "losses": 31,
-          "wins": 18,
-          "lossRate": 63.27,
-          "deltaVsTrackLossRatePp": 13.68,
+          "wins": 19,
+          "lossRate": 62,
+          "deltaVsTrackLossRatePp": 12.32,
           "status": "EVIDENCE"
         },
         {
           "tag": "MOVE_QUALITY",
-          "n": 182,
-          "losses": 99,
-          "wins": 83,
-          "lossRate": 54.4,
-          "deltaVsTrackLossRatePp": 4.81,
+          "n": 187,
+          "losses": 101,
+          "wins": 86,
+          "lossRate": 54.01,
+          "deltaVsTrackLossRatePp": 4.33,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED_FVG",
-          "n": 251,
-          "losses": 135,
-          "wins": 116,
-          "lossRate": 53.78,
-          "deltaVsTrackLossRatePp": 4.2,
+          "n": 258,
+          "losses": 138,
+          "wins": 120,
+          "lossRate": 53.49,
+          "deltaVsTrackLossRatePp": 3.81,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED",
-          "n": 251,
-          "losses": 135,
-          "wins": 116,
-          "lossRate": 53.78,
-          "deltaVsTrackLossRatePp": 4.2,
+          "n": 258,
+          "losses": 138,
+          "wins": 120,
+          "lossRate": 53.49,
+          "deltaVsTrackLossRatePp": 3.81,
           "status": "EVIDENCE"
         },
         {
@@ -27868,7 +27878,7 @@
           "losses": 82,
           "wins": 72,
           "lossRate": 53.25,
-          "deltaVsTrackLossRatePp": 3.66,
+          "deltaVsTrackLossRatePp": 3.57,
           "status": "EVIDENCE"
         },
         {
@@ -27877,25 +27887,25 @@
           "losses": 74,
           "wins": 65,
           "lossRate": 53.24,
-          "deltaVsTrackLossRatePp": 3.65,
+          "deltaVsTrackLossRatePp": 3.56,
           "status": "EVIDENCE"
         },
         {
-          "tag": "REJECTION_PRESSURE",
-          "n": 116,
-          "losses": 61,
-          "wins": 55,
-          "lossRate": 52.59,
-          "deltaVsTrackLossRatePp": 3,
+          "tag": "CONSENSUS_CONFLICT",
+          "n": 17,
+          "losses": 9,
+          "wins": 8,
+          "lossRate": 52.94,
+          "deltaVsTrackLossRatePp": 3.26,
           "status": "EVIDENCE"
         },
         {
-          "tag": "PROGRESS_FAILURE_GATE",
-          "n": 114,
-          "losses": 59,
-          "wins": 55,
-          "lossRate": 51.75,
-          "deltaVsTrackLossRatePp": 2.17,
+          "tag": "ONE_MINUTE_CHOP_GUARD",
+          "n": 21,
+          "losses": 11,
+          "wins": 10,
+          "lossRate": 52.38,
+          "deltaVsTrackLossRatePp": 2.7,
           "status": "EVIDENCE"
         }
       ],
@@ -27904,42 +27914,42 @@
           "tag": "EVIDENCE_CONFLICT",
           "n": 32,
           "winRate": 56.25,
-          "liftVsTrackWinRatePp": 5.84,
+          "liftVsTrackWinRatePp": 5.93,
           "status": "EVIDENCE"
         },
         {
           "tag": "BELOW_CONFIDENCE_THRESHOLD",
-          "n": 264,
-          "winRate": 55.68,
-          "liftVsTrackWinRatePp": 5.27,
+          "n": 273,
+          "winRate": 55.31,
+          "liftVsTrackWinRatePp": 4.99,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
           "n": 22,
           "winRate": 54.55,
-          "liftVsTrackWinRatePp": 4.13,
+          "liftVsTrackWinRatePp": 4.22,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE",
-          "n": 369,
-          "winRate": 53.66,
-          "liftVsTrackWinRatePp": 3.25,
+          "n": 376,
+          "winRate": 53.46,
+          "liftVsTrackWinRatePp": 3.13,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE_CONTINUATION",
-          "n": 369,
-          "winRate": 53.66,
-          "liftVsTrackWinRatePp": 3.25,
+          "n": 376,
+          "winRate": 53.46,
+          "liftVsTrackWinRatePp": 3.13,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE_CONTINUATION_GATE",
-          "n": 352,
-          "winRate": 53.13,
-          "liftVsTrackWinRatePp": 2.71,
+          "n": 359,
+          "winRate": 52.92,
+          "liftVsTrackWinRatePp": 2.6,
           "status": "EVIDENCE"
         }
       ],
@@ -28649,11 +28659,11 @@
           "target": "BREAKOUT_MATURITY_GATE",
           "evidence": {
             "tag": "BREAKOUT_MATURITY_GATE",
-            "n": 49,
+            "n": 50,
             "losses": 31,
-            "wins": 18,
-            "lossRate": 63.27,
-            "deltaVsTrackLossRatePp": 13.68,
+            "wins": 19,
+            "lossRate": 62,
+            "deltaVsTrackLossRatePp": 12.32,
             "status": "EVIDENCE"
           },
           "status": "SHADOW_FIRST",
@@ -28665,8 +28675,8 @@
           "evidence": {
             "maxLossStreak": 9,
             "runCounts": {
-              "ge2": 74,
-              "ge3": 33,
+              "ge2": 76,
+              "ge3": 34,
               "ge4": 19,
               "ge5": 7
             }
@@ -28679,20 +28689,20 @@
     {
       "pair": "AUDUSD",
       "horizon": 2,
-      "n": 583,
-      "wins": 282,
-      "losses": 301,
-      "accuracy": 48.37,
+      "n": 590,
+      "wins": 285,
+      "losses": 305,
+      "accuracy": 48.31,
       "maxLossStreak": 8,
       "lossRunCounts": {
-        "ge2": 73,
-        "ge3": 35,
+        "ge2": 74,
+        "ge3": 36,
         "ge4": 22,
         "ge5": 14
       },
       "directions": {
-        "BUY": 335,
-        "SELL": 248
+        "BUY": 339,
+        "SELL": 251
       },
       "directionImbalancePct": 57.46,
       "sessions": {
@@ -28703,10 +28713,10 @@
           "accuracy": 50.55
         },
         "OTHER": {
-          "n": 229,
-          "w": 109,
-          "l": 120,
-          "accuracy": 47.6
+          "n": 236,
+          "w": 112,
+          "l": 124,
+          "accuracy": 47.46
         },
         "ASIAN_LATE": {
           "n": 57,
@@ -28867,10 +28877,10 @@
           "accuracy": 37.04
         },
         "02:00-03:00": {
-          "n": 15,
-          "w": 8,
-          "l": 7,
-          "accuracy": 53.33
+          "n": 22,
+          "w": 11,
+          "l": 11,
+          "accuracy": 50
         },
         "13:00-14:00": {
           "n": 16,
@@ -28882,29 +28892,29 @@
       "highRiskTags": [
         {
           "tag": "TRANSITION",
-          "n": 126,
-          "losses": 74,
-          "wins": 52,
-          "lossRate": 58.73,
-          "deltaVsTrackLossRatePp": 7.1,
+          "n": 128,
+          "losses": 75,
+          "wins": 53,
+          "lossRate": 58.59,
+          "deltaVsTrackLossRatePp": 6.9,
           "status": "EVIDENCE"
         },
         {
           "tag": "TRANSITION_GATE",
-          "n": 126,
-          "losses": 74,
-          "wins": 52,
-          "lossRate": 58.73,
-          "deltaVsTrackLossRatePp": 7.1,
+          "n": 128,
+          "losses": 75,
+          "wins": 53,
+          "lossRate": 58.59,
+          "deltaVsTrackLossRatePp": 6.9,
           "status": "EVIDENCE"
         },
         {
           "tag": "REJECTION_PRESSURE",
-          "n": 146,
-          "losses": 84,
-          "wins": 62,
-          "lossRate": 57.53,
-          "deltaVsTrackLossRatePp": 5.9,
+          "n": 148,
+          "losses": 85,
+          "wins": 63,
+          "lossRate": 57.43,
+          "deltaVsTrackLossRatePp": 5.74,
           "status": "EVIDENCE"
         },
         {
@@ -28913,25 +28923,16 @@
           "losses": 80,
           "wins": 61,
           "lossRate": 56.74,
-          "deltaVsTrackLossRatePp": 5.11,
+          "deltaVsTrackLossRatePp": 5.04,
           "status": "EVIDENCE"
         },
         {
           "tag": "VSA_SUPPORT",
-          "n": 100,
-          "losses": 55,
-          "wins": 45,
-          "lossRate": 55,
-          "deltaVsTrackLossRatePp": 3.37,
-          "status": "EVIDENCE"
-        },
-        {
-          "tag": "EXTENDED",
-          "n": 137,
-          "losses": 75,
-          "wins": 62,
-          "lossRate": 54.74,
-          "deltaVsTrackLossRatePp": 3.12,
+          "n": 102,
+          "losses": 56,
+          "wins": 46,
+          "lossRate": 54.9,
+          "deltaVsTrackLossRatePp": 3.21,
           "status": "EVIDENCE"
         },
         {
@@ -28940,7 +28941,7 @@
           "losses": 80,
           "wins": 67,
           "lossRate": 54.42,
-          "deltaVsTrackLossRatePp": 2.79,
+          "deltaVsTrackLossRatePp": 2.73,
           "status": "EVIDENCE"
         },
         {
@@ -28949,7 +28950,16 @@
           "losses": 80,
           "wins": 67,
           "lossRate": 54.42,
-          "deltaVsTrackLossRatePp": 2.79,
+          "deltaVsTrackLossRatePp": 2.73,
+          "status": "EVIDENCE"
+        },
+        {
+          "tag": "EXTENDED",
+          "n": 138,
+          "losses": 75,
+          "wins": 63,
+          "lossRate": 54.35,
+          "deltaVsTrackLossRatePp": 2.65,
           "status": "EVIDENCE"
         }
       ],
@@ -28958,42 +28968,42 @@
           "tag": "EVIDENCE_CONFLICT",
           "n": 24,
           "winRate": 58.33,
-          "liftVsTrackWinRatePp": 9.96,
+          "liftVsTrackWinRatePp": 10.03,
           "status": "EVIDENCE"
         },
         {
           "tag": "PROGRESS_FAILURE_GATE",
           "n": 55,
           "winRate": 52.73,
-          "liftVsTrackWinRatePp": 4.36,
+          "liftVsTrackWinRatePp": 4.42,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED_FVG",
-          "n": 253,
-          "winRate": 52.17,
-          "liftVsTrackWinRatePp": 3.8,
+          "n": 255,
+          "winRate": 52.16,
+          "liftVsTrackWinRatePp": 3.85,
           "status": "EVIDENCE"
         },
         {
           "tag": "UNRESOLVED",
-          "n": 253,
-          "winRate": 52.17,
-          "liftVsTrackWinRatePp": 3.8,
+          "n": 255,
+          "winRate": 52.16,
+          "liftVsTrackWinRatePp": 3.85,
           "status": "EVIDENCE"
         },
         {
           "tag": "WEAK_MOVE_QUALITY",
-          "n": 229,
-          "winRate": 50.66,
-          "liftVsTrackWinRatePp": 2.28,
+          "n": 233,
+          "winRate": 51.07,
+          "liftVsTrackWinRatePp": 2.77,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
           "n": 24,
           "winRate": 50,
-          "liftVsTrackWinRatePp": 1.63,
+          "liftVsTrackWinRatePp": 1.69,
           "status": "EVIDENCE"
         }
       ],
@@ -29734,6 +29744,19 @@
       ],
       "solutions": [
         {
+          "type": "PROTECT_OR_CREDIT",
+          "target": "EVIDENCE_CONFLICT",
+          "evidence": {
+            "tag": "EVIDENCE_CONFLICT",
+            "n": 24,
+            "winRate": 58.33,
+            "liftVsTrackWinRatePp": 10.03,
+            "status": "EVIDENCE"
+          },
+          "status": "FORWARD_VALIDATE",
+          "frequencyImpact": "NONE"
+        },
+        {
           "type": "SESSION_PROFILE_RECALIBRATION",
           "target": "LONDON_PREOPEN",
           "evidence": {
@@ -29749,8 +29772,8 @@
           "evidence": {
             "maxLossStreak": 8,
             "runCounts": {
-              "ge2": 73,
-              "ge3": 35,
+              "ge2": 74,
+              "ge3": 36,
               "ge4": 22,
               "ge5": 14
             }
@@ -29763,10 +29786,10 @@
     {
       "pair": "AUDUSD",
       "horizon": 3,
-      "n": 543,
-      "wins": 266,
-      "losses": 277,
-      "accuracy": 48.99,
+      "n": 548,
+      "wins": 270,
+      "losses": 278,
+      "accuracy": 49.27,
       "maxLossStreak": 8,
       "lossRunCounts": {
         "ge2": 72,
@@ -29775,10 +29798,10 @@
         "ge5": 5
       },
       "directions": {
-        "BUY": 305,
+        "BUY": 310,
         "SELL": 238
       },
-      "directionImbalancePct": 56.17,
+      "directionImbalancePct": 56.57,
       "sessions": {
         "NEW_YORK": {
           "n": 85,
@@ -29787,10 +29810,10 @@
           "accuracy": 48.24
         },
         "OTHER": {
-          "n": 206,
-          "w": 100,
-          "l": 106,
-          "accuracy": 48.54
+          "n": 211,
+          "w": 104,
+          "l": 107,
+          "accuracy": 49.29
         },
         "ASIAN_LATE": {
           "n": 56,
@@ -29957,10 +29980,10 @@
           "accuracy": 60.87
         },
         "02:00-03:00": {
-          "n": 16,
-          "w": 7,
-          "l": 9,
-          "accuracy": 43.75
+          "n": 21,
+          "w": 11,
+          "l": 10,
+          "accuracy": 52.38
         },
         "13:00-14:00": {
           "n": 20,
@@ -29976,7 +29999,7 @@
           "losses": 24,
           "wins": 11,
           "lossRate": 68.57,
-          "deltaVsTrackLossRatePp": 17.56,
+          "deltaVsTrackLossRatePp": 17.84,
           "status": "EVIDENCE"
         },
         {
@@ -29985,61 +30008,61 @@
           "losses": 12,
           "wins": 10,
           "lossRate": 54.55,
-          "deltaVsTrackLossRatePp": 3.53,
+          "deltaVsTrackLossRatePp": 3.82,
           "status": "EVIDENCE"
         },
         {
           "tag": "CONTINUATION_RESET_GATE",
-          "n": 321,
+          "n": 322,
           "losses": 172,
-          "wins": 149,
-          "lossRate": 53.58,
-          "deltaVsTrackLossRatePp": 2.57,
+          "wins": 150,
+          "lossRate": 53.42,
+          "deltaVsTrackLossRatePp": 2.69,
           "status": "EVIDENCE"
         },
         {
           "tag": "REJECTION_PRESSURE",
-          "n": 150,
+          "n": 151,
           "losses": 80,
-          "wins": 70,
-          "lossRate": 53.33,
-          "deltaVsTrackLossRatePp": 2.32,
+          "wins": 71,
+          "lossRate": 52.98,
+          "deltaVsTrackLossRatePp": 2.25,
           "status": "EVIDENCE"
         },
         {
           "tag": "ENTRY_LANE_GATE",
-          "n": 244,
+          "n": 246,
           "losses": 129,
-          "wins": 115,
-          "lossRate": 52.87,
-          "deltaVsTrackLossRatePp": 1.86,
+          "wins": 117,
+          "lossRate": 52.44,
+          "deltaVsTrackLossRatePp": 1.71,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE",
-          "n": 345,
-          "losses": 180,
-          "wins": 165,
-          "lossRate": 52.17,
-          "deltaVsTrackLossRatePp": 1.16,
+          "n": 348,
+          "losses": 181,
+          "wins": 167,
+          "lossRate": 52.01,
+          "deltaVsTrackLossRatePp": 1.28,
           "status": "EVIDENCE"
         },
         {
           "tag": "LATE_CONTINUATION",
-          "n": 345,
-          "losses": 180,
-          "wins": 165,
-          "lossRate": 52.17,
-          "deltaVsTrackLossRatePp": 1.16,
+          "n": 348,
+          "losses": 181,
+          "wins": 167,
+          "lossRate": 52.01,
+          "deltaVsTrackLossRatePp": 1.28,
           "status": "EVIDENCE"
         },
         {
-          "tag": "LATE_CONTINUATION_GATE",
-          "n": 335,
-          "losses": 174,
-          "wins": 161,
-          "lossRate": 51.94,
-          "deltaVsTrackLossRatePp": 0.93,
+          "tag": "WEAKPROGRESS",
+          "n": 429,
+          "losses": 222,
+          "wins": 207,
+          "lossRate": 51.75,
+          "deltaVsTrackLossRatePp": 1.02,
           "status": "EVIDENCE"
         }
       ],
@@ -30048,42 +30071,42 @@
           "tag": "CONSENSUS_CONFLICT",
           "n": 16,
           "winRate": 62.5,
-          "liftVsTrackWinRatePp": 13.51,
+          "liftVsTrackWinRatePp": 13.23,
           "status": "EVIDENCE"
         },
         {
           "tag": "FVG_RESOLVED_CONFIRMED",
-          "n": 20,
-          "winRate": 60,
-          "liftVsTrackWinRatePp": 11.01,
+          "n": 23,
+          "winRate": 60.87,
+          "liftVsTrackWinRatePp": 11.6,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_PROGRESS",
-          "n": 98,
-          "winRate": 58.16,
-          "liftVsTrackWinRatePp": 9.18,
+          "n": 100,
+          "winRate": 58,
+          "liftVsTrackWinRatePp": 8.73,
           "status": "EVIDENCE"
         },
         {
           "tag": "BREAKOUT_MATURITY_GATE",
           "n": 79,
           "winRate": 56.96,
-          "liftVsTrackWinRatePp": 7.97,
+          "liftVsTrackWinRatePp": 7.69,
           "status": "EVIDENCE"
         },
         {
           "tag": "MOVE_QUALITY",
-          "n": 132,
-          "winRate": 55.3,
-          "liftVsTrackWinRatePp": 6.32,
+          "n": 135,
+          "winRate": 55.56,
+          "liftVsTrackWinRatePp": 6.29,
           "status": "EVIDENCE"
         },
         {
           "tag": "FUSION_QUALITY_GATE",
           "n": 113,
           "winRate": 53.1,
-          "liftVsTrackWinRatePp": 4.11,
+          "liftVsTrackWinRatePp": 3.83,
           "status": "EVIDENCE"
         }
       ],
@@ -30830,7 +30853,7 @@
             "losses": 24,
             "wins": 11,
             "lossRate": 68.57,
-            "deltaVsTrackLossRatePp": 17.56,
+            "deltaVsTrackLossRatePp": 17.84,
             "status": "EVIDENCE"
           },
           "status": "SHADOW_FIRST",
@@ -30843,7 +30866,7 @@
             "tag": "CONSENSUS_CONFLICT",
             "n": 16,
             "winRate": 62.5,
-            "liftVsTrackWinRatePp": 13.51,
+            "liftVsTrackWinRatePp": 13.23,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -30854,9 +30877,9 @@
           "target": "FVG_RESOLVED_CONFIRMED",
           "evidence": {
             "tag": "FVG_RESOLVED_CONFIRMED",
-            "n": 20,
-            "winRate": 60,
-            "liftVsTrackWinRatePp": 11.01,
+            "n": 23,
+            "winRate": 60.87,
+            "liftVsTrackWinRatePp": 11.6,
             "status": "EVIDENCE"
           },
           "status": "FORWARD_VALIDATE",
@@ -30892,9 +30915,9 @@
     {
       "pair": "AUDUSD",
       "horizon": 5,
-      "n": 434,
-      "wins": 219,
-      "losses": 215,
+      "n": 436,
+      "wins": 220,
+      "losses": 216,
       "accuracy": 50.46,
       "maxLossStreak": 6,
       "lossRunCounts": {
@@ -30904,10 +30927,10 @@
         "ge5": 3
       },
       "directions": {
-        "BUY": 251,
+        "BUY": 253,
         "SELL": 183
       },
-      "directionImbalancePct": 57.83,
+      "directionImbalancePct": 58.03,
       "sessions": {
         "NEW_YORK": {
           "n": 64,
@@ -30916,9 +30939,9 @@
           "accuracy": 45.31
         },
         "OTHER": {
-          "n": 158,
-          "w": 80,
-          "l": 78,
+          "n": 160,
+          "w": 81,
+          "l": 79,
           "accuracy": 50.63
         },
         "ASIAN_LATE": {
@@ -31080,10 +31103,10 @@
           "accuracy": 57.14
         },
         "02:00-03:00": {
-          "n": 12,
-          "w": 5,
-          "l": 7,
-          "accuracy": 41.67
+          "n": 14,
+          "w": 6,
+          "l": 8,
+          "accuracy": 42.86
         },
         "13:00-14:00": {
           "n": 12,
@@ -31131,11 +31154,11 @@
         },
         {
           "tag": "CONTINUATION_RESET_GATE",
-          "n": 232,
-          "losses": 125,
-          "wins": 107,
-          "lossRate": 53.88,
-          "deltaVsTrackLossRatePp": 4.34,
+          "n": 234,
+          "losses": 126,
+          "wins": 108,
+          "lossRate": 53.85,
+          "deltaVsTrackLossRatePp": 4.3,
           "status": "EVIDENCE"
         },
         {
@@ -31158,11 +31181,11 @@
         },
         {
           "tag": "UNRESOLVED_FVG",
-          "n": 150,
+          "n": 151,
           "losses": 80,
-          "wins": 70,
-          "lossRate": 53.33,
-          "deltaVsTrackLossRatePp": 3.79,
+          "wins": 71,
+          "lossRate": 52.98,
+          "deltaVsTrackLossRatePp": 3.44,
           "status": "EVIDENCE"
         }
       ],
@@ -31190,9 +31213,9 @@
         },
         {
           "tag": "MOVE_QUALITY",
-          "n": 94,
-          "winRate": 55.32,
-          "liftVsTrackWinRatePp": 4.86,
+          "n": 95,
+          "winRate": 55.79,
+          "liftVsTrackWinRatePp": 5.33,
           "status": "EVIDENCE"
         },
         {
