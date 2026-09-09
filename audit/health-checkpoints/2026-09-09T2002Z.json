@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-09-09T20:02:07Z",
+  "stageZero": {
+    "status": "PASS",
+    "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+    "canonicalStatusCapturedAt": "2026-09-09T19:57:14Z",
+    "all25TracksAuthoritative": true,
+    "integrityTotals": {
+      "malformed": 0,
+      "duplicatePermanentIds": 0,
+      "duplicateBoundaries": 0,
+      "contradictions": 0
+    },
+    "capture": {
+      "capturedAt": "2026-09-09T18:52:44Z",
+      "canonicalSettledCount": 12943,
+      "storageMode": "bounded-recent+canonical-append-only-restart-safe",
+      "canonicalSource": "settled-result-permanent-id-sequence",
+      "minimumConfidence": 57
+    },
+    "learnerWatermarkMatchesCanonicalCompletedBatches": true,
+    "latestLearnerDecision": "NO_NEW_BATCH"
+  },
+  "railway": {
+    "project": "sublime-wisdom",
+    "coreService": "Forex-Falcon-candle-Analysis-",
+    "latestDeploymentId": "243596a7-2994-41ad-91d9-43dff83d7e4c",
+    "latestDeploymentStatusObserved": "BUILDING",
+    "classification": "TRANSIENT_DEPLOYMENT_STATE_NOT_A_DATA_INTEGRITY_FAILURE"
+  },
+  "stageOne": {
+    "newCompletedBatches": 0,
+    "action": "NO_LEARNING_REQUIRED"
+  },
+  "stageTwo": {
+    "modification": "NONE",
+    "reason": "No newly completed clean exact-20 batch beyond the synchronized canonical learner watermark; no forward evidence justifies another strategy change."
+  },
+  "shadow": {
+    "authority": "NON_AUTHORITATIVE",
+    "action": "UNCHANGED"
+  },
+  "forwardValidation": {
+    "v9_2_eurusd1m_london_preopen": "FORWARD_VALIDATION"
+  }
+}
