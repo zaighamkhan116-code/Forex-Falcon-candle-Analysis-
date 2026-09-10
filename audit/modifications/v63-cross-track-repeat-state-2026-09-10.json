@@ -1,0 +1,28 @@
+{
+  "version": "V6.3_CROSS_TRACK_REPEAT_STATE",
+  "status": "ACTIVE",
+  "supersedes": "V6.2_EURUSD_1M_STALE_CHOP_FV",
+  "freshEvidence": {
+    "completedExact20Batches": 36,
+    "signals": 720,
+    "wins": 359,
+    "losses": 340,
+    "ties": 21,
+    "accuracyExTies": 51.36,
+    "previousScoredBlockAccuracyExTies": 48.19
+  },
+  "decision": "RETIRE_PAIR_SPECIFIC_EXTRA_CALIBRATION",
+  "rationale": [
+    "The fresh block improved overall but remains heterogeneous by pair and timeframe, so no universal extra confidence penalty is justified.",
+    "V6.2 hard-coded EURUSD 1M, conflicting with the standing no-one-pair-curve-fitting rule.",
+    "EURUSD-1M-B43 began before the V6.2 commit, so B43 is not a clean post-change forward-validation batch.",
+    "Retain the existing generic repeated-loss tag/compound-state adjustment and V3.6 direction reranker while collecting clean unseen evidence."
+  ],
+  "safeguards": {
+    "minimumConfidence": 57,
+    "signalFrequencyReduced": false,
+    "boundaryCadenceChanged": false,
+    "lossStreakAutoReverse": false,
+    "shadowAuthority": "RESEARCH_ONLY"
+  }
+}
