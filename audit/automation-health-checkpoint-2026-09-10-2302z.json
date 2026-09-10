@@ -1,0 +1,41 @@
+{
+  "capturedAt": "2026-09-10T23:02:33Z",
+  "integrityStatus": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "minimumConfidence": 57,
+  "learnerCommit": "71564e888c8fec77cc957ae5f82e612d2fa58a7f",
+  "latestCanonicalCommit": "9905f743b30a91cd747a96410225d8b0b9563fe3",
+  "newBatchesProcessed": 12,
+  "reportedBatches": {
+    "EURUSD-1M": 49, "EURUSD-2M": 43, "EURUSD-3M": 39, "EURUSD-5M": 31, "EURUSD-15M": 12,
+    "GBPUSD-1M": 48, "GBPUSD-2M": 42, "GBPUSD-3M": 39, "GBPUSD-5M": 32, "GBPUSD-15M": 12,
+    "EURJPY-1M": 49, "EURJPY-2M": 42, "EURJPY-3M": 39, "EURJPY-5M": 31, "EURJPY-15M": 12,
+    "USDJPY-1M": 48, "USDJPY-2M": 42, "USDJPY-3M": 39, "USDJPY-5M": 31, "USDJPY-15M": 12,
+    "AUDUSD-1M": 48, "AUDUSD-2M": 42, "AUDUSD-3M": 39, "AUDUSD-5M": 31, "AUDUSD-15M": 12
+  },
+  "v64ForwardValidation": {
+    "status": "CONTINUE_FORWARD_VALIDATION",
+    "target": "GBPUSD-1M repeated HIGH_CONFIDENCE_CONTRADICTION state",
+    "currentAccumulatedRisk": {"n":16,"losses":11,"wins":5,"lossRate":68.75,"deltaVsTrackLossRatePp":16.06},
+    "priorEvidenceAtActivation": {"losses":11,"wins":4,"lossRate":73.33},
+    "interpretation": "No new contradiction loss was added while one additional contradiction-tag win entered accumulated evidence; direction is favorable but sample is still too small for REGIME_LOCK.",
+    "action": "NO_NEW_STRATEGY_CHANGE"
+  },
+  "notableFreshBatch": {
+    "track": "EURUSD-1M-B49",
+    "wins": 11,
+    "losses": 6,
+    "ties": 3,
+    "accuracyExTies": 64.71,
+    "maxLossStreak": 2,
+    "choppyAccuracyExTies": 70.0,
+    "mixedAccuracyExTies": 57.14,
+    "shadowReady": 20,
+    "shadowAgreements": 13,
+    "shadowDisagreements": 7
+  },
+  "stageTwoDecision": "HOLD_V6_4_AND_COLLECT_UNSEEN_EVIDENCE",
+  "frequencyPreserved": true,
+  "shadowAuthoritative": false,
+  "nextValidationObjective": "Require further unseen GBPUSD-1M batches to confirm contradiction-tag loss-rate and >=3 loss-run reduction before REGIME_LOCK; revert only V6.4 contradiction component if unseen evidence worsens."
+}
