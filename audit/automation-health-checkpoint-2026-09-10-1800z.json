@@ -1,0 +1,22 @@
+{
+  "capturedAt": "2026-09-10T18:00:38Z",
+  "status": "PASS",
+  "canonicalLineage": "CANONICAL_RECORDS_1_20_B1",
+  "canonicalWatermarkSynchronized": true,
+  "newCompletedBatches": 0,
+  "stageTwoModification": "NONE",
+  "minimumConfidence": 57,
+  "integritySummary": "All 25 active pair×timeframe tracks authoritative with zero malformed, duplicate permanent IDs, duplicate boundaries, or contradictions in the latest canonical status.",
+  "latestCanonicalCommit": "a95f27f96af6509d9579f2abc82d1603a818f70b",
+  "latestLearnerCommit": "68cb5ada8830e6d6808b420c37bb8090af0fa809",
+  "learnerState": "SYNCHRONIZED_WITH_CANONICAL",
+  "runtime": {
+    "mainService": "SUCCESS",
+    "otcCollector": "SUCCESS",
+    "quotexBridge": "SUCCESS",
+    "otcAudit": "SUCCESS",
+    "liveAudit": "SUCCESS"
+  },
+  "forwardValidation": "V6.3_CROSS_TRACK_REPEAT_STATE continues; no new exact-20 evidence this cycle.",
+  "nextObjective": "Process the next newly completed exact-20 generation and compare V6.3 unseen accuracy/streaks before any further targeted modification."
+}
