@@ -1,0 +1,11 @@
+{
+  "capturedAt":"2026-09-10T18:58:00Z",
+  "integrityStatus":"PASS",
+  "lineageRule":"CANONICAL_RECORDS_1_20_B1",
+  "activeTracks":25,
+  "canonicalVsLearner":"SYNCHRONIZED_THROUGH_LATEST_COMPLETED_BATCHES_AT_18:37Z",
+  "newBatchesProcessed":29,
+  "stageTwo":{"version":"V6.4_REPEAT_CONTRADICTION_STATE","status":"FORWARD_VALIDATION","codeCommit":"ba158711f7f76af617e6d4e95b425cb66b4118ac","testCommit":"aa52a7357fa21a3f6d9b521480fd502e8c28db07","auditCommit":"ce75a88372eb2baf29ca91328a663853fb5cbcd6"},
+  "constraints":{"minimumConfidence":57,"frequencyPreserved":true,"shadowAuthoritative":false,"moneyManagementChanged":false,"settlementChanged":false},
+  "nextValidation":"Compare post-V6.4 unseen exact-20 batches, especially GBPUSD-1M contradiction-tag outcomes, raw accuracy and >=3 loss-run severity; retain only on improvement without frequency degradation."
+}
