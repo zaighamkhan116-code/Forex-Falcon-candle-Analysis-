@@ -1,0 +1,15 @@
+{
+  "version": "V6.4_REPEAT_CONTRADICTION_STATE",
+  "status": "FORWARD_VALIDATION",
+  "sourceAudit": "audit/all-track-loss-streak-analysis-2026-09-07.json",
+  "evidence": {
+    "GBPUSD-1M": {"n":838,"accuracy":47.02,"maxLossStreak":11,"ge4":32,"tag":"HIGH_CONFIDENCE_CONTRADICTION_GATE","tagN":15,"tagLosses":11,"tagWins":4,"tagLossRate":73.33,"deltaVsTrackLossRatePp":20.35,"status":"EVIDENCE"},
+    "EURUSD-1M": {"n":838,"accuracy":49.16,"maxLossStreak":9,"ge4":30,"tag":"HIGH_CONFIDENCE_CONTRADICTION_GATE","tagN":27,"tagLosses":16,"tagWins":11,"tagLossRate":59.26,"deltaVsTrackLossRatePp":8.42,"status":"EVIDENCE"}
+  },
+  "change": "Add existing highConfidenceContradictionRisk telemetry to the generic exact pair×horizon repeat-state signature. It only contributes the existing -0.9 repeat-loss adjustment after same-track lossRun>=2 and when contradiction losses outnumber wins by more than one. No single-event penalty, no veto, no confidence-floor change, no cadence reduction and no direct direction flip.",
+  "scope": "All tracks may learn the existing contradiction tag, but activation is strictly exact pair×horizon and outcome-history dependent; there is no pair-specific hard-coded penalty.",
+  "expectedEffect": "Reduce confidence/ranking overstatement during repeated contradiction-driven loss states, especially GBPUSD 1M, while preserving frequency and allowing other regimes/tracks to remain unchanged.",
+  "validation": {"primary":"next unseen completed exact-20 batches after aa52a7357fa21a3f6d9b521480fd502e8c28db07","retainIf":"raw accuracy improves and/or >=3 loss-run severity falls without material frequency degradation","revertIf":"unseen evidence degrades affected contradiction states or causes harmful calibration/frequency side effects"},
+  "productionCodeCommit": "ba158711f7f76af617e6d4e95b425cb66b4118ac",
+  "testCommit": "aa52a7357fa21a3f6d9b521480fd502e8c28db07"
+}
