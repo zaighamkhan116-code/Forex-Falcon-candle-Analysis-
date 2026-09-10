@@ -1,0 +1,12 @@
+{
+  "version": "V6.2_EURUSD_1M_STALE_CHOP_FV",
+  "status": "FORWARD_VALIDATION",
+  "evidenceBatch": "EURUSD-1M-B42",
+  "evidence": {"wins":5,"losses":12,"ties":3,"accuracyExTies":29.41,"maxLossStreak":5,"choppyAccuracyExTies":22.22,"offSessionAccuracyExTies":16.67,"confidence57to59AccuracyExTies":23.08},
+  "scope": {"pair":"EURUSD","horizon":1,"regime":"CHOPPY","requires":["lateCounterTrendRisk","continuationResetRequired","continuationFreshEvidence=false","efficiency<0.22","same-track repeat loss run >=2"]},
+  "change": "Apply an additional -1.35 confidence calibration only inside the scoped repeated-loss state. Global minimum remains 57, qualification/cadence is unchanged, no signal is vetoed, and direction is not flipped by this rule.",
+  "rationale": "B42 showed a repeatable compound stale-continuation/chop failure family while EURUSD 2M remained materially healthier; fresh continuation evidence was positive but sparse. Therefore specialize rather than globally alter the strategy.",
+  "expectedEffect": "Reduce overstatement/ranking of repeated EURUSD 1M stale-chop setups while preserving signal frequency and protecting fresh continuation and other horizons.",
+  "nextUnseenTarget": "EURUSD-1M-B43",
+  "promotionRule": "Retain/regime-lock only if unseen chronological evidence improves raw accuracy and/or materially reduces >=3 loss runs without unacceptable frequency degradation; otherwise revert only this scoped calibration."
+}
