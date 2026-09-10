@@ -1,0 +1,20 @@
+{
+  "capturedAt": "2026-09-10T21:00:19Z",
+  "integrityStatus": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "activeTracks": 25,
+  "canonicalVsLearner": "SYNCHRONIZED",
+  "newCompletedBatches": 0,
+  "stageOneAction": "NO_NEW_BATCH",
+  "stageTwoAction": "NO_JUSTIFIED_CHANGE",
+  "minimumConfidence": 57,
+  "activeCalibration": "V6.4_REPEAT_CONTRADICTION_STATE_FORWARD_VALIDATION",
+  "shadowAuthority": "NON_AUTHORITATIVE",
+  "integritySummary": {
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "nextValidationObjective": "Wait for the next deterministic exact-20 batch and evaluate V6.4 on unseen chronological evidence, especially GBPUSD-1M contradiction-tag losses and >=3-loss streaks, without reducing frequency."
+}
