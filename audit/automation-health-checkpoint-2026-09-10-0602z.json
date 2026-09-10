@@ -1,0 +1,26 @@
+{
+  "capturedAt": "2026-09-10T06:02:29Z",
+  "status": "PASS_NO_NEW_BATCH",
+  "lineageVersion": "CANONICAL_RECORDS_1_20_B1_V1",
+  "minimumConfidence": 57,
+  "stageZero": {
+    "canonicalSource": "settled-result-permanent-id-sequence",
+    "storageMode": "bounded-recent+canonical-append-only-restart-safe",
+    "canonicalSettledCount": 14635,
+    "activeTracks": 25,
+    "integrity": "all authoritative; malformed=0; duplicateIds=0; duplicateBoundaries=0; contradictions=0",
+    "exact20StatusCapturedAt": "2026-09-10T04:34:10Z",
+    "learnerLastReportedAt": "2026-09-10T04:57:47.217226+00:00"
+  },
+  "stageOne": {
+    "newCompletedBatchesSinceWatermark": 0,
+    "action": "NO_LEARNING_REQUIRED"
+  },
+  "stageTwo": {
+    "modification": "NONE",
+    "reason": "No newly completed canonical exact-20 batch exists beyond the persisted learner watermark; evidence gate forbids tuning from partial remainders or observational runtime counters."
+  },
+  "shadow": "NO_AUTHORITY_CHANGE",
+  "pairSelection": "Latest selector candidate/runner-up capture present; no new settled exact-20 evidence justifies score-weight modification.",
+  "nextValidationTarget": "Next canonical exact-20 completion on any active pair×timeframe; continue EURUSD-1M confidence-monotonicity and loss-streak hypothesis validation on unseen chronological settlements."
+}
