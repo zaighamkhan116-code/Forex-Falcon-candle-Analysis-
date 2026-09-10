@@ -1,0 +1,35 @@
+{
+  "capturedAt": "2026-09-10T14:00:41Z",
+  "integrityStatus": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "canonicalWatermarkAligned": true,
+  "newCompletedExact20Batches": 0,
+  "minimumConfidence": 57,
+  "deployment": {
+    "service": "Forex-Falcon-candle-Analysis-",
+    "status": "SUCCESS",
+    "deploymentId": "7a8ec270-cba7-4810-9fb5-40af46c0f32b",
+    "deployedCommit": "2a7e0516a3dad3c78c72741e9356c8d872545d54",
+    "strategyVersion": "V6.3_CROSS_TRACK_REPEAT_STATE"
+  },
+  "canonicalCounts": {
+    "EURUSD": {"1M":44,"2M":39,"3M":35,"5M":28,"15M":11},
+    "GBPUSD": {"1M":44,"2M":38,"3M":35,"5M":28,"15M":11},
+    "EURJPY": {"1M":44,"2M":38,"3M":35,"5M":28,"15M":11},
+    "USDJPY": {"1M":44,"2M":38,"3M":35,"5M":28,"15M":11},
+    "AUDUSD": {"1M":43,"2M":38,"3M":35,"5M":28,"15M":11}
+  },
+  "integrityChecks": {
+    "malformed": 0,
+    "duplicatePermanentIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "shadowObservation": {
+    "status": "NON_AUTHORITATIVE",
+    "predictResponses": "mixed 200/422 observed during live runtime",
+    "disposition": "NON_BLOCKING_OBSERVATION; canonical settlement and learner lineage remain clean. No speculative strategy change without record-level attribution of 422 causes."
+  },
+  "stageTwoAction": "NONE",
+  "reason": "No newly completed exact-20 batch beyond the persistent learner watermark and no clean forward evidence justifying another strategy change."
+}
