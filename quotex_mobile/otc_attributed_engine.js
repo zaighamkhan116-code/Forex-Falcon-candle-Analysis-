@@ -14,6 +14,10 @@ function aggregate1m(state,nowMs){
   return[...map.values()].sort((a,b)=>a.sec-b.sec).slice(-80)
 }
 
+function auditDirection(v){return v==='UP'?'BUY':v==='DOWN'?'SELL':String(v||'UNKNOWN').toUpperCase()}
+function auditStrategy(v){return v?.primaryAnalysis?.name||v?.entryPattern||v?.engine||'UNKNOWN'}
+function auditRegime(v){return v?.features?.structureRegime||v?.structureContext?.structure?.regime||v?.attribution?.regime||'UNKNOWN'}
+
 export class OtcAttributedEngine extends OtcIndependentEngine{
   async onTick(tick){
     const event=await super.onTick(tick);
@@ -25,16 +29,19 @@ export class OtcAttributedEngine extends OtcIndependentEngine{
       const decision={primary:p.primaryAnalysis||null,validation:p.validation||null,agreementCount:p.agreementCount??null,strongest:p.primaryAnalysis?.strength??null};
       p.attribution=buildSignalAttribution({pair:p.pair||tick.pair,expiry:p.expirySeconds,direction:p.direction,decision,context,bb});
       p.attribution.bbPeriod=20;p.attribution.bbDeviation=2;
+      console.log(JSON.stringify({event:'otc-prediction-attributed',id:p.id,pair:p.pair||tick.pair,expirySeconds:p.expirySeconds,direction:auditDirection(p.direction),rawDirection:p.direction,confidence:p.confidence??null,engine:p.engine||null,strategy:auditStrategy(p),validation:p.validation||null,agreementCount:p.agreementCount??null,signalClass:p.signalClass||null,frequencyFloor:Boolean(p.frequencyFloor),regime:auditRegime(p),entryTimestampMs:p.entryTimestampMs,entryPrice:p.entryPrice,attribution:p.attribution||null}));
     }
     for(const s of event.settlements||[]){
-      if(s.attribution)continue;
-      const source=(state.recentSignals||[]).find(x=>x.id===s.id);
-      if(source?.attribution)s.attribution=source.attribution;
-      else{
-        const decision={primary:s.primaryAnalysis||null,validation:s.validation||null,agreementCount:s.agreementCount??null,strongest:s.primaryAnalysis?.strength??null};
-        s.attribution=buildSignalAttribution({pair:s.pair||tick.pair,expiry:s.expirySeconds,direction:s.direction,decision,context:s.structureContext||context,bb});
-        s.attribution.bbPeriod=20;s.attribution.bbDeviation=2;
+      if(!s.attribution){
+        const source=(state.recentSignals||[]).find(x=>x.id===s.id);
+        if(source?.attribution)s.attribution=source.attribution;
+        else{
+          const decision={primary:s.primaryAnalysis||null,validation:s.validation||null,agreementCount:s.agreementCount??null,strongest:s.primaryAnalysis?.strength??null};
+          s.attribution=buildSignalAttribution({pair:s.pair||tick.pair,expiry:s.expirySeconds,direction:s.direction,decision,context:s.structureContext||context,bb});
+          s.attribution.bbPeriod=20;s.attribution.bbDeviation=2;
+        }
       }
+      console.log(JSON.stringify({event:'otc-settlement-attributed',id:s.id,pair:s.pair||tick.pair,expirySeconds:s.expirySeconds,direction:auditDirection(s.direction),rawDirection:s.direction,outcome:s.outcome,confidence:s.confidence??null,engine:s.engine||null,strategy:auditStrategy(s),validation:s.validation||null,agreementCount:s.agreementCount??null,signalClass:s.signalClass||null,frequencyFloor:Boolean(s.frequencyFloor),regime:auditRegime(s),entryTimestampMs:s.entryTimestampMs,settlementTimestampMs:s.settlementTimestampMs,entryPrice:s.entryPrice,settlementPrice:s.settlementPrice,priceDelta:s.priceDelta??null,attribution:s.attribution||null}));
     }
     return event;
   }
