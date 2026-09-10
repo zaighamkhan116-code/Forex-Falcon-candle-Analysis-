@@ -62,10 +62,14 @@ def make_features(df: pd.DataFrame) -> pd.DataFrame:
         x[f"vol{n}"] = c.pct_change().rolling(n).std()
         hi, lo = h.rolling(n).max(), l.rolling(n).min()
         x[f"loc{n}"] = (c - lo) / (hi - lo).replace(0, np.nan)
-    rng = (h - l).replace(0, np.nan)
-    x["body"] = (c - o) / rng
-    x["uw"] = (h - np.maximum(o, c)) / rng
-    x["lw"] = (np.minimum(o, c) - l) / rng
+    raw_rng = h - l
+    rng = raw_rng.replace(0, np.nan)
+    # A completed flat candle has defined zero body/wicks, not missing history.
+    # Preserve NaN handling for genuinely unavailable inputs while preventing
+    # valid zero-range EURUSD candles from being misclassified as NOT_READY.
+    x["body"] = ((c - o) / rng).where(raw_rng.ne(0), 0.0)
+    x["uw"] = ((h - np.maximum(o, c)) / rng).where(raw_rng.ne(0), 0.0)
+    x["lw"] = ((np.minimum(o, c) - l) / rng).where(raw_rng.ne(0), 0.0)
     for n in [5, 8, 13, 20, 50]:
         ema = c.ewm(span=n, adjust=False).mean()
         x[f"ema{n}_sep"] = (c - ema) / c

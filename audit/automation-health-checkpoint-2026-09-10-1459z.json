@@ -1,0 +1,16 @@
+{
+  "capturedAt": "2026-09-10T14:59:12Z",
+  "integrityStatus": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "learnerDecision": "NO_NEW_BATCH",
+  "productionDeployment": "SUCCESS",
+  "repair": {
+    "component": "Shadow feature extraction",
+    "fault": "Valid zero-range EURUSD candle produced NaN body/uw/lw and HTTP 422 NOT_READY despite sufficient history",
+    "change": "Map body/upper-wick/lower-wick to 0.0 only when candle high-low is exactly zero",
+    "liveSignalImpact": "NONE",
+    "shadowAuthority": "NON_AUTHORITATIVE"
+  },
+  "strategyChange": "NONE",
+  "nextValidation": "Verify supported EURUSD Shadow requests no longer emit flat-candle feature-history 422; continue V6.3 unseen exact-20 validation."
+}
