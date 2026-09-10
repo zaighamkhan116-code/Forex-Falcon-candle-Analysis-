@@ -1,0 +1,38 @@
+{
+  "capturedAt": "2026-09-10T09:57:04Z",
+  "status": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "liveService": {
+    "railwayProject": "sublime-wisdom",
+    "service": "Forex-Falcon-candle-Analysis-",
+    "deploymentStatus": "SUCCESS",
+    "healthEndpointObserved200": true,
+    "researchEndpointsObserved200": ["EURUSD","GBPUSD","EURJPY","USDJPY","AUDUSD"]
+  },
+  "canonical": {
+    "latestAppendOnlyCaptureCommit": "d6000f8a0628373fcd25c39156731b6fdb0df57c",
+    "latestIntegrityStatus": "PASS",
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "learning": {
+    "latestAnalysisCommit": "04b4072c3997080cd1838bb57cf8a5916def7e79",
+    "newBatchCount": 0,
+    "decision": "NO_NEW_BATCH"
+  },
+  "forwardValidation": {
+    "candidate": "V6.2_EURUSD_1M_STALE_CHOP_FV",
+    "pr": 10,
+    "status": "ISOLATED_NOT_PRODUCTION",
+    "head": "ecb714d317b9705923bcb6b88c0f283525c83c98",
+    "nextUnseenTarget": "EURUSD-1M-B43",
+    "note": "No unseen B43 batch is learner-persisted yet; do not promote or revert from incomplete evidence."
+  },
+  "shadow": {
+    "authoritative": false,
+    "note": "Shadow /predict continues to return a mix of 200 and 422 responses; previously observed 422s include insufficient feature history, so no live authority change was made."
+  },
+  "modification": "NONE_THIS_RUN"
+}
