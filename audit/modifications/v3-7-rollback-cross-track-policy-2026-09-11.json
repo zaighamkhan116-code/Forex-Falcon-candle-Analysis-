@@ -1,0 +1,23 @@
+{
+  "createdAt": "2026-09-11T15:53:26Z",
+  "status": "ROLLED_BACK",
+  "rolledBackVersion": "V3_7_EURUSD1_LATE_CONTINUATION_FORWARD",
+  "reason": "Standing audit policy requires targeted corrections to be supported cross-track and explicitly avoids one-pair curve fitting. V3.7 was scoped only to EURUSD 1M from B51-B56 and therefore was narrower than authorized policy, despite preserving frequency and the 57 floor.",
+  "action": "Removed the EURUSD-1M-only late-continuation/progress override and restored the pre-V3.7 loss-learning implementation while retaining generic V3.6 cross-track transition reranking and all earlier safeguards.",
+  "preserved": {
+    "minimumConfidence": 57,
+    "requiredSignalFrequency": true,
+    "exactBoundaryCadence": true,
+    "lossStreakOnlyReversal": false,
+    "shadowResearchOnly": true,
+    "shadowLiveWeight": 0
+  },
+  "regression": {
+    "testFile": "test/lossLearning-v3-7-eurusd1-late-continuation.test.js",
+    "checks": [
+      "EURUSD 1M no longer receives a pair-specific V3.7 trigger",
+      "generic cross-track calibration continues to preserve frequency, 57 minimum, and Shadow independence"
+    ]
+  },
+  "forwardPolicy": "Any replacement must demonstrate the same compound late-continuation/progress failure mechanism across multiple independent pair/timeframe tracks before live promotion."
+}
