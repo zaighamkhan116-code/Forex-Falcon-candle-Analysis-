@@ -1,0 +1,83 @@
+{
+  "createdAt": "2026-09-11T14:01:00Z",
+  "status": "FORWARD_VALIDATION",
+  "version": "V3_7_EURUSD1_LATE_CONTINUATION_FORWARD",
+  "stageZero": {
+    "status": "PASS",
+    "canonicalCheckpoint": "2026-09-11T11:24:07Z",
+    "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+    "authoritativeTracks": 25,
+    "malformed": 0,
+    "duplicateIds": 0,
+    "duplicateBoundaries": 0,
+    "contradictions": 0
+  },
+  "learner": {
+    "generatedAt": "2026-09-11T13:04:27.869382+00:00",
+    "newExact20BatchesConsumed": 45,
+    "integrityStatus": "PASS"
+  },
+  "change": {
+    "pair": "EURUSD",
+    "horizon": 1,
+    "scope": "late-continuation + stale/failed-progress + multi-family opposition + runtime conflict + original score not supported",
+    "action": "RERANK_DIRECTION_ONLY",
+    "trigger": "EURUSD_1M_LATE_CONTINUATION_PROGRESS_RERANK",
+    "sourceCommit": "c8504740e1732e15ae38dd6db8e6cde831c2a10e",
+    "testCommit": "c27fcc9f18e47db60bcb1caf8c1017ecf2e52062",
+    "frequencyImpact": "NONE",
+    "globalConfidenceFloorChanged": false,
+    "minimumConfidence": 57,
+    "shadowInfluence": "NONE",
+    "moneyManagementChanged": false,
+    "settlementChanged": false
+  },
+  "evidence": {
+    "repeatFailure": "EURUSD 1M B51-B56 showed repeated degradation; B55 and B56 provided fresh unseen confirmation of the same continuation/progress failure family.",
+    "B55": {
+      "wins": 6,
+      "losses": 13,
+      "ties": 1,
+      "accuracyExTiesPct": 31.58,
+      "maxLossStreak": 4,
+      "lateContinuation": "4W/7L (36.36%) over 11 non-ties"
+    },
+    "B56": {
+      "wins": 4,
+      "losses": 14,
+      "ties": 2,
+      "accuracyExTiesPct": 22.22,
+      "maxLossStreak": 7,
+      "lateContinuation": "1W/11L (8.33%) over 12 non-ties",
+      "fivePlusLossRuns": 2
+    },
+    "whyNotGlobalThreshold": "High-confidence buckets also degraded, so raising the global confidence floor would not address the failure mechanism and would harm frequency.",
+    "whyTargeted": "The change requires simultaneous late-continuation risk, stale continuation, failed progress, at least two opposing evidence families, at least one runtime conflict, and lack of score support for the original direction."
+  },
+  "verification": {
+    "syntax": "PASS",
+    "targetedRegressionTests": {
+      "passed": 2,
+      "failed": 0,
+      "checks": [
+        "severe EURUSD 1M late-continuation/progress conflict reranks direction without changing frequency or threshold",
+        "fresh supported EURUSD 1M continuation remains unchanged"
+      ]
+    }
+  },
+  "rollback": {
+    "condition": "Revert only V3.7 if unseen trigger-eligible EURUSD 1M outcomes degrade versus the pre-change failure baseline or create worse loss-run severity without compensating raw-accuracy improvement.",
+    "scope": "EURUSD 1M V3.7 trigger only"
+  },
+  "nextValidation": {
+    "batches": [57, 58, 59],
+    "measure": [
+      "raw accuracy excluding ties",
+      "trigger-eligible original-vs-reranked outcome",
+      "max loss streak and 2+/3+/4+/5+ loss runs",
+      "London time bucket and regime",
+      "frequency preservation",
+      "Main/Shadow agreement/disagreement without Shadow authority"
+    ]
+  }
+}
