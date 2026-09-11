@@ -1,0 +1,25 @@
+{
+  "capturedAt": "2026-09-11T00:04:00Z",
+  "integrityStatus": "PASS",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "minimumConfidence": 57,
+  "latestCanonicalCommit": "82d23d4ae02eeccf2edffc32076eeedc53c9103b",
+  "previousLearnerCheckpointCommit": "27d3bf26e81b6cce954a277b9ca1fa13428fbd30",
+  "repairCommit": "6ed8b5bf3f28a4d6b0ecd5d319b97527e85cb78b",
+  "stageZeroRepair": "RETRIGGER_INTEGRITY_GATED_LEARNER",
+  "pendingNewExactBatches": 20,
+  "canonicalCompletedBatches": {
+    "EURUSD": {"1M":50,"2M":44,"3M":40,"5M":32,"15M":12},
+    "GBPUSD": {"1M":49,"2M":43,"3M":40,"5M":33,"15M":12},
+    "EURJPY": {"1M":50,"2M":43,"3M":40,"5M":32,"15M":12},
+    "USDJPY": {"1M":49,"2M":43,"3M":40,"5M":32,"15M":12},
+    "AUDUSD": {"1M":49,"2M":43,"3M":40,"5M":32,"15M":12}
+  },
+  "integrityCounts": {"malformed":0,"duplicateIds":0,"duplicateBoundaries":0,"contradictions":0},
+  "stageOneStatus": "PENDING_ATOMIC_LEARNER_CATCHUP",
+  "stageTwoDecision": "NO_TUNING_FROM_UNCONSUMED_CANONICAL_EVIDENCE",
+  "v64Status": "FORWARD_VALIDATION_CONTINUES",
+  "frequencyPreserved": true,
+  "shadowAuthoritative": false,
+  "nextValidationObjective": "After the learner atomically consumes the 20 pending exact batches, evaluate V6.4 GBPUSD-1M contradiction-tag loss/streak behavior and GBPUSD-3M recurrence before any strategy change."
+}
