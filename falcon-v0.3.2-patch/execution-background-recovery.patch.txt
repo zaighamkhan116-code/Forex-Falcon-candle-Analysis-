@@ -1,0 +1,52 @@
+Forex Falcon Bridge v1.8 recovery/short-expiry background patch
+===============================================================
+
+Base: execution_background.js from Falcon Bridge Lite FINAL v1.7.
+
+1) Preserve the configured recovery MTG step count on startup.
+
+REPLACE:
+state.settings.recoveryProfitTarget=Number(state.settings.recoveryProfitTarget??2);state.settings.recoveryMtgSteps=4;
+
+WITH:
+state.settings.recoveryProfitTarget=Number(state.settings.recoveryProfitTarget??2);
+state.settings.recoveryMtgSteps=Math.max(1,Math.min(20,Number(state.settings.recoveryMtgSteps??4)));
+
+2) Desktop sync must carry recoveryMtgSteps into the bridge.
+
+In DESKTOP_SYNC, add this property to merged:
+recoveryMtgSteps:Math.max(1,Math.min(20,Number(ctl.recoveryMtgSteps??state.settings.recoveryMtgSteps??4)))
+
+3) Recovery must not remain locked to the exhausted main-cycle pair/direction.
+
+In dispatch(), REPLACE:
+if(!recovery&&!C.eligible(signal,state.settings,now,state.enabledAt,state.cycle)){block('signal_not_eligible','Signal failed route, confidence, cycle, or timing eligibility.',signal);return;}
+
+WITH:
+const eligibilityCycle=(recovery||state.recovery?.active===true)?null:state.cycle;
+if(!C.eligible(signal,state.settings,now,state.enabledAt,eligibilityCycle)){block('signal_not_eligible','Signal failed route, confidence, or timing eligibility.',signal);return;}
+
+4) In acceptLocalSignal(), evaluate recovery candidates without the exhausted main cycle lock.
+
+REPLACE:
+if(!C.eligible(s,state.settings,now,state.enabledAt,state.cycle)){desktopEvent(`BLOCKED · eligibility · ${s.pair} ${s.expirySeconds}s ${s.confidence.toFixed(1)}%`,{stage:'BLOCKED'});return;}
+await dispatch(s);
+
+WITH:
+const recoveryCandidate=state.recovery?.active===true;
+const eligibilityCycle=recoveryCandidate?null:state.cycle;
+if(!C.eligible(s,state.settings,now,state.enabledAt,eligibilityCycle)){desktopEvent(`BLOCKED · eligibility · ${s.pair} ${s.expirySeconds}s ${s.confidence.toFixed(1)}%`,{stage:'BLOCKED'});return;}
+await dispatch(s,recoveryCandidate);
+
+This is the key anti-stall correction: once the full Main MTG ladder is exhausted and recovery.active=true, the next qualifying automatic-pair signal can be routed into Recovery instead of being rejected by the completed Main cycle constraints.
+
+5) Keep one-trade-at-a-time unchanged.
+Do not remove the activeTrade lock or broker reconciliation checks.
+
+6) Short-expiry preparation policy for 10s/15s.
+The bridge must use separate preparation and click-freshness windows. Pair/expiry/stake setup may continue within the preparation window, but PERMIT_CLICK must still reject stale signals whose maxClickAgeMs has passed.
+Suggested preparation ceilings:
+- 10s: 5.5s
+- 15s: 7.5s
+
+The content executor should treat a displayed 0s value as a transient UI state, re-read/reapply the requested expiry, and never accept 0s as the final configured expiry. After automatic pair switching, reapply the requested 10s/15s expiry because Quotex can reset the duration control.
