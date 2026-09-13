@@ -1,0 +1,42 @@
+{
+  "checkedAt":"2026-09-13T22:09:00Z",
+  "status":"REPAIR_DEPLOYING",
+  "stageZero":{
+    "canonicalIntegrity":"PASS",
+    "lineageRule":"CANONICAL_RECORDS_1_20_B1",
+    "all25TracksAuthoritative":true,
+    "malformedRecords":0,
+    "duplicatePermanentIds":0,
+    "duplicateBoundaries":0,
+    "contradictions":0,
+    "learnerWatermarkMatchesCanonical":true,
+    "newCompletedExact20Batches":0,
+    "liveServerFault":{
+      "service":"Forex-Falcon-candle-Analysis-",
+      "preRepairStatus":"CRASHED",
+      "cause":"Unhandled BOUNDARY_ON_DEMAND market-data rejection after Biquote failure and exhausted Twelve Data fallback quota",
+      "providerError":"Twelve Data daily API credits exhausted",
+      "canonicalHistoryAffected":false,
+      "learningQuarantined":true
+    },
+    "repair":{
+      "sourceCommit":"ccbe8b4d902174f72667a489461d23f1c270f5ba",
+      "testCommit":"2cf4a1107477c319fbbf1d9b5171e5d6a85da9e5",
+      "scope":"lib/backgroundResearch.js boundary-on-demand failure containment only",
+      "behavior":"Keep failed boundary retryable; record state error; prevent provider rejection from escaping the background timer",
+      "strategyLogicChanged":false,
+      "settlementLogicChanged":false,
+      "minimumConfidenceChanged":false,
+      "signalCadenceChanged":false,
+      "shadowAuthorityChanged":false,
+      "deploymentStatus":"BUILDING",
+      "validationWorkflowStatus":"IN_PROGRESS"
+    }
+  },
+  "stageOne":{"newBatches":0,"action":"NO_NEW_BATCH"},
+  "stageTwo":{"strategyModification":false,"reason":"No new verified exact-20 evidence; infrastructure repair only"},
+  "minimumConfidence":57,
+  "shadow":"NON_AUTHORITATIVE",
+  "pairSelectionScoreChange":false,
+  "nextValidationObjective":"Verify repaired Railway deployment reaches SUCCESS and remains alive when market-data fallback errors occur; then resume normal exact-20 learning without rewriting canonical history."
+}
