@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-09-14T14:46:30Z",
+  "capturedAt": "2026-09-14T14:49:00Z",
   "stageZero": "PASS",
   "canonicalLineage": "CANONICAL_RECORDS_1_20_B1",
   "canonicalIntegrity": {
@@ -19,14 +19,20 @@
     "consumedExact20Batches": 40
   },
   "evidenceReview": {
+    "AUDUSD-3M": "DEGRADED_FORWARD_EVIDENCE: B54=31.58% and B55=26.32%; CHOPPY/MIXED conditions are the repeatable concentration. B54 CHOPPY=40% and MIXED=0%; B55 CHOPPY=11.11% and MIXED=0%. Cumulative canonical analysis also shows AUDUSD-3M max loss streak 11 and the strongest progress-related loss concentration. Candidate response is pair-selection reranking, not a signal veto, pending verified live selector context plumbing.",
     "EURUSD-3M": "DEGRADED_FORWARD_EVIDENCE: B53=40%, B54=40%, B55=45%; loss causes are not stable enough across components to justify a production veto or global threshold change.",
     "EURUSD-2M": "PROVISIONAL_WEAKNESS: B59=55.56%, B60=47.37%; B60 overlap/late-continuation/continuation-freshness degraded, but B59 was materially healthier.",
     "EURUSD-1M": "MIXED_FORWARD_EVIDENCE: B66=72.22% with max loss streak 1; B67=47.37% with max loss streak 2, so no stable global penalty is justified.",
-    "shadow": "NON_AUTHORITATIVE; disagreement remains diagnostic only."
+    "shadow": "NON_AUTHORITATIVE; EURUSD disagreement remains diagnostic only, while unsupported tracks remain UNSUPPORTED rather than model failures."
+  },
+  "componentStatus": {
+    "AUDUSD-3M_CHOPPY_MIXED_ROUTING": "DEGRADED_CANDIDATE",
+    "EURUSD-3M_COMPONENTS": "DEGRADED_TRACK_CAUSE_UNRESOLVED",
+    "SHADOW_NON_EURUSD_TRACKS": "UNSUPPORTED"
   },
   "stageTwo": {
     "productionStrategyChange": false,
-    "reason": "Track-level weakness exists, especially EURUSD-3M, but the differentiating failure component is not stable across consecutive unseen batches. A production change now would overfit and could reduce frequency in regimes that are still working."
+    "reason": "AUDUSD-3M now justifies a condition-specific pair-ranking response in principle, but the repository's selector scoring module is currently confirmed in audit telemetry, not verified as the live displayed selector path. Applying an unverified production patch would create an ineffective or misleading modification. No signal suppression or threshold increase was substituted."
   },
   "auditInfrastructure": {
     "compactSummaryWorkflowCommit": "52c8c1eec7751c292df5094373e8ba24e497a119",
@@ -39,5 +45,5 @@
     "moneyManagement": "UNCHANGED",
     "exactBoundarySettlement": "UNCHANGED"
   },
-  "nextValidation": "Require the next unseen EURUSD-3M batch to identify whether weakness remains concentrated in MIXED/overlap, breakout-maturity, continuation-freshness, or confidence calibration before applying a condition-specific reversible scoring/routing adjustment. Continue EURUSD-2M overlap validation independently."
+  "nextValidation": "Verify the actual live displayed pair-selector call path/context, then apply the smallest reversible AUDUSD-3M CHOPPY/MIXED ranking penalty in FORWARD-VALIDATION status if pair+horizon+regime context is available. Independently continue EURUSD-3M and EURUSD-2M unseen validation."
 }
