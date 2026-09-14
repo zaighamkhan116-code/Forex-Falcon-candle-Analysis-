@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-09-14T14:49:00Z",
+  "capturedAt": "2026-09-14T14:58:29Z",
   "stageZero": "PASS",
   "canonicalLineage": "CANONICAL_RECORDS_1_20_B1",
   "canonicalIntegrity": {
@@ -16,7 +16,8 @@
     "workflowRunId": 34857577062,
     "statusAtCheckpoint": "SUCCESS",
     "atomicAnalysisCommit": "c8de08123fb0e06dd82f746f544f0338f8210897",
-    "consumedExact20Batches": 40
+    "consumedExact20Batches": 40,
+    "newCompletedExact20BatchesSincePreviousRun": 0
   },
   "evidenceReview": {
     "AUDUSD-3M": "DEGRADED_FORWARD_EVIDENCE: B54=31.58% and B55=26.32%; CHOPPY/MIXED conditions are the repeatable concentration. B54 CHOPPY=40% and MIXED=0%; B55 CHOPPY=11.11% and MIXED=0%. Cumulative canonical analysis also shows AUDUSD-3M max loss streak 11 and the strongest progress-related loss concentration. Candidate response is pair-selection reranking, not a signal veto, pending verified live selector context plumbing.",
@@ -32,7 +33,7 @@
   },
   "stageTwo": {
     "productionStrategyChange": false,
-    "reason": "AUDUSD-3M now justifies a condition-specific pair-ranking response in principle, but the repository's selector scoring module is currently confirmed in audit telemetry, not verified as the live displayed selector path. Applying an unverified production patch would create an ineffective or misleading modification. No signal suppression or threshold increase was substituted."
+    "reason": "No new completed exact-20 batch or new verified selector-plumbing evidence appeared since the previous cycle. Existing AUDUSD-3M reranking candidate remains pending verified live displayed selector context. No signal suppression, threshold increase, or unverified live patch was substituted."
   },
   "auditInfrastructure": {
     "compactSummaryWorkflowCommit": "52c8c1eec7751c292df5094373e8ba24e497a119",
