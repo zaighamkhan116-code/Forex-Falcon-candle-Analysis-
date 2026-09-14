@@ -1,181 +1,181 @@
 {
-  "capturedAt": "2026-09-14T23:19:27Z",
+  "capturedAt": "2026-09-14T23:53:01Z",
   "storageMode": "canonical-append-only-restart-safe",
   "tracks": {
     "EURUSD-1M": {
       "pair": "EURUSD",
       "horizon": 1,
-      "canonicalResolved": 1468,
-      "completed20Batches": 73,
+      "canonicalResolved": 1488,
+      "completed20Batches": 74,
       "remainder": 8
     },
     "EURUSD-2M": {
       "pair": "EURUSD",
       "horizon": 2,
-      "canonicalResolved": 1308,
-      "completed20Batches": 65,
-      "remainder": 8
+      "canonicalResolved": 1325,
+      "completed20Batches": 66,
+      "remainder": 5
     },
     "EURUSD-3M": {
       "pair": "EURUSD",
       "horizon": 3,
-      "canonicalResolved": 1194,
-      "completed20Batches": 59,
-      "remainder": 14
+      "canonicalResolved": 1205,
+      "completed20Batches": 60,
+      "remainder": 5
     },
     "EURUSD-5M": {
       "pair": "EURUSD",
       "horizon": 5,
-      "canonicalResolved": 989,
+      "canonicalResolved": 996,
       "completed20Batches": 49,
-      "remainder": 9
+      "remainder": 16
     },
     "EURUSD-15M": {
       "pair": "EURUSD",
-      "horizon": 15,
-      "canonicalResolved": 417,
-      "completed20Batches": 20,
-      "remainder": 17
-    },
-    "GBPUSD-1M": {
-      "pair": "GBPUSD",
-      "horizon": 1,
-      "canonicalResolved": 1467,
-      "completed20Batches": 73,
-      "remainder": 7
-    },
-    "GBPUSD-2M": {
-      "pair": "GBPUSD",
-      "horizon": 2,
-      "canonicalResolved": 1306,
-      "completed20Batches": 65,
-      "remainder": 6
-    },
-    "GBPUSD-3M": {
-      "pair": "GBPUSD",
-      "horizon": 3,
-      "canonicalResolved": 1194,
-      "completed20Batches": 59,
-      "remainder": 14
-    },
-    "GBPUSD-5M": {
-      "pair": "GBPUSD",
-      "horizon": 5,
-      "canonicalResolved": 992,
-      "completed20Batches": 49,
-      "remainder": 12
-    },
-    "GBPUSD-15M": {
-      "pair": "GBPUSD",
-      "horizon": 15,
-      "canonicalResolved": 417,
-      "completed20Batches": 20,
-      "remainder": 17
-    },
-    "EURJPY-1M": {
-      "pair": "EURJPY",
-      "horizon": 1,
-      "canonicalResolved": 1468,
-      "completed20Batches": 73,
-      "remainder": 8
-    },
-    "EURJPY-2M": {
-      "pair": "EURJPY",
-      "horizon": 2,
-      "canonicalResolved": 1306,
-      "completed20Batches": 65,
-      "remainder": 6
-    },
-    "EURJPY-3M": {
-      "pair": "EURJPY",
-      "horizon": 3,
-      "canonicalResolved": 1195,
-      "completed20Batches": 59,
-      "remainder": 15
-    },
-    "EURJPY-5M": {
-      "pair": "EURJPY",
-      "horizon": 5,
-      "canonicalResolved": 989,
-      "completed20Batches": 49,
-      "remainder": 9
-    },
-    "EURJPY-15M": {
-      "pair": "EURJPY",
       "horizon": 15,
       "canonicalResolved": 419,
       "completed20Batches": 20,
       "remainder": 19
     },
+    "GBPUSD-1M": {
+      "pair": "GBPUSD",
+      "horizon": 1,
+      "canonicalResolved": 1487,
+      "completed20Batches": 74,
+      "remainder": 7
+    },
+    "GBPUSD-2M": {
+      "pair": "GBPUSD",
+      "horizon": 2,
+      "canonicalResolved": 1323,
+      "completed20Batches": 66,
+      "remainder": 3
+    },
+    "GBPUSD-3M": {
+      "pair": "GBPUSD",
+      "horizon": 3,
+      "canonicalResolved": 1205,
+      "completed20Batches": 60,
+      "remainder": 5
+    },
+    "GBPUSD-5M": {
+      "pair": "GBPUSD",
+      "horizon": 5,
+      "canonicalResolved": 999,
+      "completed20Batches": 49,
+      "remainder": 19
+    },
+    "GBPUSD-15M": {
+      "pair": "GBPUSD",
+      "horizon": 15,
+      "canonicalResolved": 419,
+      "completed20Batches": 20,
+      "remainder": 19
+    },
+    "EURJPY-1M": {
+      "pair": "EURJPY",
+      "horizon": 1,
+      "canonicalResolved": 1488,
+      "completed20Batches": 74,
+      "remainder": 8
+    },
+    "EURJPY-2M": {
+      "pair": "EURJPY",
+      "horizon": 2,
+      "canonicalResolved": 1323,
+      "completed20Batches": 66,
+      "remainder": 3
+    },
+    "EURJPY-3M": {
+      "pair": "EURJPY",
+      "horizon": 3,
+      "canonicalResolved": 1206,
+      "completed20Batches": 60,
+      "remainder": 6
+    },
+    "EURJPY-5M": {
+      "pair": "EURJPY",
+      "horizon": 5,
+      "canonicalResolved": 996,
+      "completed20Batches": 49,
+      "remainder": 16
+    },
+    "EURJPY-15M": {
+      "pair": "EURJPY",
+      "horizon": 15,
+      "canonicalResolved": 421,
+      "completed20Batches": 21,
+      "remainder": 1
+    },
     "USDJPY-1M": {
       "pair": "USDJPY",
       "horizon": 1,
-      "canonicalResolved": 1467,
-      "completed20Batches": 73,
+      "canonicalResolved": 1487,
+      "completed20Batches": 74,
       "remainder": 7
     },
     "USDJPY-2M": {
       "pair": "USDJPY",
       "horizon": 2,
-      "canonicalResolved": 1306,
-      "completed20Batches": 65,
-      "remainder": 6
+      "canonicalResolved": 1323,
+      "completed20Batches": 66,
+      "remainder": 3
     },
     "USDJPY-3M": {
       "pair": "USDJPY",
       "horizon": 3,
-      "canonicalResolved": 1194,
-      "completed20Batches": 59,
-      "remainder": 14
+      "canonicalResolved": 1205,
+      "completed20Batches": 60,
+      "remainder": 5
     },
     "USDJPY-5M": {
       "pair": "USDJPY",
       "horizon": 5,
-      "canonicalResolved": 987,
+      "canonicalResolved": 994,
       "completed20Batches": 49,
-      "remainder": 7
+      "remainder": 14
     },
     "USDJPY-15M": {
       "pair": "USDJPY",
       "horizon": 15,
-      "canonicalResolved": 420,
+      "canonicalResolved": 422,
       "completed20Batches": 21,
-      "remainder": 0
+      "remainder": 2
     },
     "AUDUSD-1M": {
       "pair": "AUDUSD",
       "horizon": 1,
-      "canonicalResolved": 1452,
-      "completed20Batches": 72,
+      "canonicalResolved": 1472,
+      "completed20Batches": 73,
       "remainder": 12
     },
     "AUDUSD-2M": {
       "pair": "AUDUSD",
       "horizon": 2,
-      "canonicalResolved": 1304,
-      "completed20Batches": 65,
-      "remainder": 4
+      "canonicalResolved": 1321,
+      "completed20Batches": 66,
+      "remainder": 1
     },
     "AUDUSD-3M": {
       "pair": "AUDUSD",
       "horizon": 3,
-      "canonicalResolved": 1194,
-      "completed20Batches": 59,
-      "remainder": 14
+      "canonicalResolved": 1205,
+      "completed20Batches": 60,
+      "remainder": 5
     },
     "AUDUSD-5M": {
       "pair": "AUDUSD",
       "horizon": 5,
-      "canonicalResolved": 988,
+      "canonicalResolved": 995,
       "completed20Batches": 49,
-      "remainder": 8
+      "remainder": 15
     },
     "AUDUSD-15M": {
       "pair": "AUDUSD",
       "horizon": 15,
-      "canonicalResolved": 418,
-      "completed20Batches": 20,
-      "remainder": 18
+      "canonicalResolved": 420,
+      "completed20Batches": 21,
+      "remainder": 0
     }
   }
 }
