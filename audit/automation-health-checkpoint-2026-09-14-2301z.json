@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-09-14T23:01:00Z",
+  "integrityStatus": "PASS_PENDING_LEARNER_SYNC",
+  "lineageRule": "CANONICAL_RECORDS_1_20_B1",
+  "canonicalSourceCommit": "b7ef96d2036edf8d545a6528963601dda14dabff",
+  "canonicalCompletedBatches": {
+    "EURUSD": {"1M":72,"2M":64,"3M":59,"5M":49,"15M":20},
+    "GBPUSD": {"1M":72,"2M":64,"3M":59,"5M":49,"15M":20},
+    "EURJPY": {"1M":72,"2M":64,"3M":59,"5M":49,"15M":20},
+    "USDJPY": {"1M":72,"2M":64,"3M":59,"5M":49,"15M":20},
+    "AUDUSD": {"1M":71,"2M":64,"3M":59,"5M":49,"15M":20}
+  },
+  "latestPersistedLearnerGeneratedAt": "2026-09-14T21:00:41.615873+00:00",
+  "learnerRepairCommit": "b059b9cd148f80701882d1c5af99fb5dcc9706df",
+  "learnerRepair": "Retriggered integrity-gated canonical learner because canonical exact-20 status advanced beyond persisted learner watermark.",
+  "productionForwardValidation": {
+    "changeCommit": "a89da8458377a6706a8771f04d41cb8f6e6dccbd",
+    "testCommit": "b1a8fdcec22b48ca35cffce873843ad2e22f6e99",
+    "scope": "EURUSD-2M context router",
+    "status": "FORWARD_VALIDATION",
+    "railwayDeploymentId": "4dccd64a-51e5-4df9-a47d-24d88b625f35",
+    "railwayDeploymentStatus": "SUCCESS",
+    "frequencyImpact": "NONE",
+    "globalConfidenceFloorChanged": false,
+    "shadowInfluence": "NONE"
+  },
+  "stageTwoAction": "NONE_PENDING_ATOMIC_LEARNER_SYNC",
+  "nextValidationTarget": "Process all exact-20 batches beyond prior learner watermark, then evaluate EURUSD-2M context-router trigger counterfactuals on unseen settlements before retain/revert/regime-lock decision."
+}
