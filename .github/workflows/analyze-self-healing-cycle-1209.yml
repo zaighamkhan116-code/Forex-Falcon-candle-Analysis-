@@ -116,7 +116,7 @@ jobs:
 # automation self-heal retrigger: 2026-09-09T05:02+05:00 authoritative rebuild advanced 20 1M/2M/3M/5M tracks beyond learner watermark
 # automation self-heal retrigger: 2026-09-09T07:00+05:00 authoritative rebuild advanced multiple tracks beyond learner watermark
 # automation self-heal retrigger: 2026-09-09T12:04+05:00 authoritative rebuild advanced all 25 tracks beyond learner watermark
-# automation self-heal retrigger: 2026-09-09T17:00+05:00 authoritative rebuild advanced beyond learner watermark
+# automation self-heal retrigger: 2026-09-09T17:00+05:00 canonical generation advanced beyond learner watermark
 # automation self-heal retrigger: 2026-09-09T21:57+05:00 authoritative exact-20 rebuild advanced 25 tracks beyond learner watermark; scheduled learner had not consumed generation
 # automation self-heal retrigger: 2026-09-09T22:58+05:00 canonical generation B36/B32/B29/B23 pending learner watermark
 # automation self-heal retrigger: 2026-09-10T11:59+05:00 canonical generation advanced beyond learner watermark; integrity-gated learning retriggered
@@ -127,3 +127,4 @@ jobs:
 # automation self-heal retrigger: 2026-09-11T18:00+05:00 canonical generation advanced across all 25 tracks beyond learner watermark; integrity PASS
 # automation self-heal retrigger: 2026-09-11T21:00+05:00 canonical generation advanced by 24 exact batches beyond learner watermark; integrity PASS after V3.7 rollback review
 # automation self-heal retrigger: 2026-09-14T01:04+05:00 canonical generation advanced to B59/B53/B48/B40/B16 while learner watermark remained stale; integrity PASS
+# automation self-heal retrigger: 2026-09-14T12:03+05:00 authoritative canonical generation advanced 45 exact batches beyond learner watermark; integrity PASS
