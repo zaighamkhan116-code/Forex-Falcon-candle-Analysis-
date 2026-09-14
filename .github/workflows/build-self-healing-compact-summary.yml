@@ -1,0 +1,52 @@
+name: Build Self-Healing Compact Summary
+on:
+  push:
+    paths:
+      - '.github/workflows/build-self-healing-compact-summary.yml'
+      - 'audit/self-healing-latest.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: self-healing-compact-summary
+  cancel-in-progress: false
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Build compact batch summary
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, datetime, collections
+          root=pathlib.Path('.')
+          src=json.loads((root/'audit/self-healing-latest.json').read_text())
+          rows=[]
+          tracks=collections.defaultdict(lambda:{'batches':0,'wins':0,'losses':0,'ties':0,'maxLossStreak':0})
+          for b in src.get('batches',[]):
+            s=b.get('summary',{})
+            row={'pair':b.get('pair'),'horizon':b.get('horizon'),'batchNumber':b.get('batchNumber'),'wins':s.get('wins',0),'losses':s.get('losses',0),'ties':s.get('ties',0),'accuracyExTies':s.get('accuracyExTies'),'maxLossStreak':b.get('maxLossStreak',0),'shadowReady':(b.get('shadow') or {}).get('ready',0),'shadowAgreements':(b.get('shadow') or {}).get('agreements',0),'shadowDisagreements':(b.get('shadow') or {}).get('disagreements',0)}
+            rows.append(row)
+            key=f"{row['pair']}-{row['horizon']}M"; t=tracks[key]; t['batches']+=1; t['wins']+=row['wins']; t['losses']+=row['losses']; t['ties']+=row['ties']; t['maxLossStreak']=max(t['maxLossStreak'],row['maxLossStreak'])
+          for t in tracks.values():
+            d=t['wins']+t['losses']; t['accuracyExTies']=round(100*t['wins']/d,2) if d else None
+          out={'generatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'sourceGeneratedAt':src.get('generatedAt'),'integrityStatus':src.get('integrityStatus'),'lineageRule':src.get('lineageRule'),'newBatchCount':src.get('newBatchCount',len(rows)),'batches':rows,'trackAggregates':dict(sorted(tracks.items()))}
+          (root/'audit/self-healing-summary-latest.json').write_text(json.dumps(out,indent=2)+'\n')
+          PY
+      - name: Commit compact summary
+        run: |
+          git config user.name 'Forex Falcon Audit Bot'
+          git config user.email 'audit-bot@users.noreply.github.com'
+          git add audit/self-healing-summary-latest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'audit: compact self-healing batch summary'
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort || true; exit 1; }
+            sleep $((attempt * 2))
+          done
+          exit 1
