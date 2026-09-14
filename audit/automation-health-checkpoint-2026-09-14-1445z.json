@@ -1,6 +1,6 @@
 {
-  "capturedAt": "2026-09-14T14:45:00Z",
-  "stageZero": "PASS_WITH_LEARNER_SYNC_REPAIR_IN_PROGRESS",
+  "capturedAt": "2026-09-14T14:46:30Z",
+  "stageZero": "PASS",
   "canonicalLineage": "CANONICAL_RECORDS_1_20_B1",
   "canonicalIntegrity": {
     "authoritativeTracks": 25,
@@ -14,11 +14,23 @@
     "pendingExact20BatchesBeforeRepair": 40,
     "repairTriggerCommit": "51c648e7510156fdd64446c94bb62ddaee08f1a6",
     "workflowRunId": 34857577062,
-    "statusAtCheckpoint": "IN_PROGRESS"
+    "statusAtCheckpoint": "SUCCESS",
+    "atomicAnalysisCommit": "c8de08123fb0e06dd82f746f544f0338f8210897",
+    "consumedExact20Batches": 40
+  },
+  "evidenceReview": {
+    "EURUSD-3M": "DEGRADED_FORWARD_EVIDENCE: B53=40%, B54=40%, B55=45%; loss causes are not stable enough across components to justify a production veto or global threshold change.",
+    "EURUSD-2M": "PROVISIONAL_WEAKNESS: B59=55.56%, B60=47.37%; B60 overlap/late-continuation/continuation-freshness degraded, but B59 was materially healthier.",
+    "EURUSD-1M": "MIXED_FORWARD_EVIDENCE: B66=72.22% with max loss streak 1; B67=47.37% with max loss streak 2, so no stable global penalty is justified.",
+    "shadow": "NON_AUTHORITATIVE; disagreement remains diagnostic only."
   },
   "stageTwo": {
     "productionStrategyChange": false,
-    "reason": "Pending batches remain quarantined until the integrity-gated learner atomically commits analysis and watermark state."
+    "reason": "Track-level weakness exists, especially EURUSD-3M, but the differentiating failure component is not stable across consecutive unseen batches. A production change now would overfit and could reduce frequency in regimes that are still working."
+  },
+  "auditInfrastructure": {
+    "compactSummaryWorkflowCommit": "52c8c1eec7751c292df5094373e8ba24e497a119",
+    "purpose": "Persist compact per-batch and per-track summaries from canonical learner output without altering live prediction logic."
   },
   "protected": {
     "minimumConfidence": 57,
@@ -27,5 +39,5 @@
     "moneyManagement": "UNCHANGED",
     "exactBoundarySettlement": "UNCHANGED"
   },
-  "nextValidation": "Verify workflow run 34857577062 completes successfully, then review all 40 newly consumed batches for repeatable pair-timeframe-session-regime evidence before any Stage-Two modification."
+  "nextValidation": "Require the next unseen EURUSD-3M batch to identify whether weakness remains concentrated in MIXED/overlap, breakout-maturity, continuation-freshness, or confidence calibration before applying a condition-specific reversible scoring/routing adjustment. Continue EURUSD-2M overlap validation independently."
 }
