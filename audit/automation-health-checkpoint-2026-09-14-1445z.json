@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-09-14T14:58:29Z",
+  "capturedAt": "2026-09-14T16:02:42Z",
   "stageZero": "PASS",
   "canonicalLineage": "CANONICAL_RECORDS_1_20_B1",
   "canonicalIntegrity": {
@@ -33,7 +33,7 @@
   },
   "stageTwo": {
     "productionStrategyChange": false,
-    "reason": "No new completed exact-20 batch or new verified selector-plumbing evidence appeared since the previous cycle. Existing AUDUSD-3M reranking candidate remains pending verified live displayed selector context. No signal suppression, threshold increase, or unverified live patch was substituted."
+    "reason": "No new completed exact-20 batch or newly verified live selector-plumbing evidence appeared in this cycle. Existing AUDUSD-3M reranking candidate remains pending verified live displayed selector context. No signal suppression, threshold increase, Shadow promotion, or unverified live patch was substituted."
   },
   "auditInfrastructure": {
     "compactSummaryWorkflowCommit": "52c8c1eec7751c292df5094373e8ba24e497a119",
