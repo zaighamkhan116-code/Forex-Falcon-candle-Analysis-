@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-09-14T12:05:39Z",
+  "status": "PASS_NO_NEW_BATCH",
+  "lineageVersion": "CANONICAL_RECORDS_1_20_B1_V1",
+  "integrityStatus": "PASS",
+  "learnerLastReportedAt": "2026-09-14T10:51:07.079231+00:00",
+  "learnerCommit": "bfc6e5bcf78d263b7784e2572b7fd28c1182a629",
+  "lastAnalysisBatchCount": 24,
+  "minimumConfidence": 57,
+  "newCanonicalOrLearnerCommitSinceLastRun": false,
+  "strategyModification": false,
+  "shadowAuthorityChanged": false,
+  "moneyManagementChanged": false,
+  "note": "No newer repository commit exists after the completed canonical self-healing learner commit. Existing persistent watermarks remain authoritative for all 25 pair-timeframe tracks. No unverified evidence was used and no production calibration was changed."
+}
