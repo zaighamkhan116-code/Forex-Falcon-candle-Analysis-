@@ -1,13 +1,13 @@
 {
-  "capturedAt": "2026-09-15T10:02:04Z",
+  "capturedAt": "2026-09-15T12:16:33Z",
   "source": "audit/canonical",
   "lineageRule": "CANONICAL_RECORDS_1_20_B1",
   "tracks": {
     "EURUSD-1M": {
       "pair": "EURUSD",
       "horizon": 1,
-      "canonicalEligible": 1580,
-      "completed20Batches": 79,
+      "canonicalEligible": 1620,
+      "completed20Batches": 81,
       "remainder": 0,
       "authoritative": true,
       "integrity": {
@@ -20,8 +20,8 @@
     "EURUSD-2M": {
       "pair": "EURUSD",
       "horizon": 2,
-      "canonicalEligible": 1411,
-      "completed20Batches": 70,
+      "canonicalEligible": 1451,
+      "completed20Batches": 72,
       "remainder": 11,
       "authoritative": true,
       "integrity": {
@@ -34,8 +34,8 @@
     "EURUSD-3M": {
       "pair": "EURUSD",
       "horizon": 3,
-      "canonicalEligible": 1288,
-      "completed20Batches": 64,
+      "canonicalEligible": 1328,
+      "completed20Batches": 66,
       "remainder": 8,
       "authoritative": true,
       "integrity": {
@@ -48,8 +48,8 @@
     "EURUSD-5M": {
       "pair": "EURUSD",
       "horizon": 5,
-      "canonicalEligible": 1069,
-      "completed20Batches": 53,
+      "canonicalEligible": 1109,
+      "completed20Batches": 55,
       "remainder": 9,
       "authoritative": true,
       "integrity": {
@@ -62,9 +62,9 @@
     "EURUSD-15M": {
       "pair": "EURUSD",
       "horizon": 15,
-      "canonicalEligible": 450,
-      "completed20Batches": 22,
-      "remainder": 10,
+      "canonicalEligible": 468,
+      "completed20Batches": 23,
+      "remainder": 8,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -76,8 +76,8 @@
     "GBPUSD-1M": {
       "pair": "GBPUSD",
       "horizon": 1,
-      "canonicalEligible": 1578,
-      "completed20Batches": 78,
+      "canonicalEligible": 1618,
+      "completed20Batches": 80,
       "remainder": 18,
       "authoritative": true,
       "integrity": {
@@ -90,8 +90,8 @@
     "GBPUSD-2M": {
       "pair": "GBPUSD",
       "horizon": 2,
-      "canonicalEligible": 1408,
-      "completed20Batches": 70,
+      "canonicalEligible": 1448,
+      "completed20Batches": 72,
       "remainder": 8,
       "authoritative": true,
       "integrity": {
@@ -104,8 +104,8 @@
     "GBPUSD-3M": {
       "pair": "GBPUSD",
       "horizon": 3,
-      "canonicalEligible": 1288,
-      "completed20Batches": 64,
+      "canonicalEligible": 1328,
+      "completed20Batches": 66,
       "remainder": 8,
       "authoritative": true,
       "integrity": {
@@ -118,8 +118,8 @@
     "GBPUSD-5M": {
       "pair": "GBPUSD",
       "horizon": 5,
-      "canonicalEligible": 1072,
-      "completed20Batches": 53,
+      "canonicalEligible": 1112,
+      "completed20Batches": 55,
       "remainder": 12,
       "authoritative": true,
       "integrity": {
@@ -132,9 +132,9 @@
     "GBPUSD-15M": {
       "pair": "GBPUSD",
       "horizon": 15,
-      "canonicalEligible": 450,
-      "completed20Batches": 22,
-      "remainder": 10,
+      "canonicalEligible": 468,
+      "completed20Batches": 23,
+      "remainder": 8,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -146,8 +146,8 @@
     "EURJPY-1M": {
       "pair": "EURJPY",
       "horizon": 1,
-      "canonicalEligible": 1579,
-      "completed20Batches": 78,
+      "canonicalEligible": 1619,
+      "completed20Batches": 80,
       "remainder": 19,
       "authoritative": true,
       "integrity": {
@@ -160,8 +160,8 @@
     "EURJPY-2M": {
       "pair": "EURJPY",
       "horizon": 2,
-      "canonicalEligible": 1408,
-      "completed20Batches": 70,
+      "canonicalEligible": 1448,
+      "completed20Batches": 72,
       "remainder": 8,
       "authoritative": true,
       "integrity": {
@@ -174,8 +174,8 @@
     "EURJPY-3M": {
       "pair": "EURJPY",
       "horizon": 3,
-      "canonicalEligible": 1289,
-      "completed20Batches": 64,
+      "canonicalEligible": 1329,
+      "completed20Batches": 66,
       "remainder": 9,
       "authoritative": true,
       "integrity": {
@@ -188,8 +188,8 @@
     "EURJPY-5M": {
       "pair": "EURJPY",
       "horizon": 5,
-      "canonicalEligible": 1069,
-      "completed20Batches": 53,
+      "canonicalEligible": 1109,
+      "completed20Batches": 55,
       "remainder": 9,
       "authoritative": true,
       "integrity": {
@@ -202,9 +202,9 @@
     "EURJPY-15M": {
       "pair": "EURJPY",
       "horizon": 15,
-      "canonicalEligible": 452,
-      "completed20Batches": 22,
-      "remainder": 12,
+      "canonicalEligible": 470,
+      "completed20Batches": 23,
+      "remainder": 10,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -216,8 +216,8 @@
     "USDJPY-1M": {
       "pair": "USDJPY",
       "horizon": 1,
-      "canonicalEligible": 1578,
-      "completed20Batches": 78,
+      "canonicalEligible": 1618,
+      "completed20Batches": 80,
       "remainder": 18,
       "authoritative": true,
       "integrity": {
@@ -230,8 +230,8 @@
     "USDJPY-2M": {
       "pair": "USDJPY",
       "horizon": 2,
-      "canonicalEligible": 1408,
-      "completed20Batches": 70,
+      "canonicalEligible": 1448,
+      "completed20Batches": 72,
       "remainder": 8,
       "authoritative": true,
       "integrity": {
@@ -244,8 +244,8 @@
     "USDJPY-3M": {
       "pair": "USDJPY",
       "horizon": 3,
-      "canonicalEligible": 1288,
-      "completed20Batches": 64,
+      "canonicalEligible": 1328,
+      "completed20Batches": 66,
       "remainder": 8,
       "authoritative": true,
       "integrity": {
@@ -258,8 +258,8 @@
     "USDJPY-5M": {
       "pair": "USDJPY",
       "horizon": 5,
-      "canonicalEligible": 1067,
-      "completed20Batches": 53,
+      "canonicalEligible": 1107,
+      "completed20Batches": 55,
       "remainder": 7,
       "authoritative": true,
       "integrity": {
@@ -272,9 +272,9 @@
     "USDJPY-15M": {
       "pair": "USDJPY",
       "horizon": 15,
-      "canonicalEligible": 453,
-      "completed20Batches": 22,
-      "remainder": 13,
+      "canonicalEligible": 471,
+      "completed20Batches": 23,
+      "remainder": 11,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
@@ -286,8 +286,8 @@
     "AUDUSD-1M": {
       "pair": "AUDUSD",
       "horizon": 1,
-      "canonicalEligible": 1563,
-      "completed20Batches": 78,
+      "canonicalEligible": 1603,
+      "completed20Batches": 80,
       "remainder": 3,
       "authoritative": true,
       "integrity": {
@@ -300,8 +300,8 @@
     "AUDUSD-2M": {
       "pair": "AUDUSD",
       "horizon": 2,
-      "canonicalEligible": 1406,
-      "completed20Batches": 70,
+      "canonicalEligible": 1446,
+      "completed20Batches": 72,
       "remainder": 6,
       "authoritative": true,
       "integrity": {
@@ -314,8 +314,8 @@
     "AUDUSD-3M": {
       "pair": "AUDUSD",
       "horizon": 3,
-      "canonicalEligible": 1288,
-      "completed20Batches": 64,
+      "canonicalEligible": 1328,
+      "completed20Batches": 66,
       "remainder": 8,
       "authoritative": true,
       "integrity": {
@@ -328,8 +328,8 @@
     "AUDUSD-5M": {
       "pair": "AUDUSD",
       "horizon": 5,
-      "canonicalEligible": 1068,
-      "completed20Batches": 53,
+      "canonicalEligible": 1108,
+      "completed20Batches": 55,
       "remainder": 8,
       "authoritative": true,
       "integrity": {
@@ -342,9 +342,9 @@
     "AUDUSD-15M": {
       "pair": "AUDUSD",
       "horizon": 15,
-      "canonicalEligible": 451,
-      "completed20Batches": 22,
-      "remainder": 11,
+      "canonicalEligible": 469,
+      "completed20Batches": 23,
+      "remainder": 9,
       "authoritative": true,
       "integrity": {
         "malformed": 0,
