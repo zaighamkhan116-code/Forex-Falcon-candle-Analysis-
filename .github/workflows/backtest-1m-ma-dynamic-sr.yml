@@ -1,0 +1,92 @@
+name: Backtest 1m MA dynamic SR
+
+on:
+  push:
+    paths:
+      - '.github/workflows/backtest-1m-ma-dynamic-sr.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Backtest EMA 11 21 30 as dynamic support resistance
+        run: |
+          cat > /tmp/ma-test.js <<'NODE'
+          const fs=require('fs');
+          const pairs=['eurusd','gbpusd','eurjpy','usdjpy','audusd'];
+          const get=(o,keys)=>{for(const k of keys){if(o&&o[k]!=null&&Number.isFinite(+o[k]))return +o[k]}return null};
+          const dir=o=>String(o.direction||o.signal||o.prediction||'').toUpperCase();
+          const res=o=>String(o.result||o.outcome||o.settlementResult||'').toUpperCase();
+          const tf=o=>String(o.timeframe||o.tf||o.horizon||o.expiry||'').toLowerCase();
+          const ts=o=>Date.parse(o.signalBoundary||o.predictedAt||o.generatedAt||o.timestamp||o.createdAt||o.resolvedAt||0)||0;
+          function rows(x,out=[]){if(Array.isArray(x)){for(const z of x)rows(z,out)}else if(x&&typeof x==='object'){const r=res(x),d=dir(x);if((r==='WIN'||r==='LOSS'||r==='TIE'||r==='DRAW')&&(d==='BUY'||d==='SELL'))out.push(x);else for(const v of Object.values(x))if(v&&typeof v==='object')rows(v,out)}return out}
+          function emaSeries(a,n){let e=null,k=2/(n+1);return a.map(x=>e=e==null?x:e+k*(x-e))}
+          function metric(arr){
+            let w=0,l=0,t=0,max=0,cur=0,runs3=0,runs4=0,runs5=0;
+            for(const x of arr){if(x==='WIN'){w++;cur=0}else if(x==='LOSS'){l++;cur++;max=Math.max(max,cur);if(cur===3)runs3++;if(cur===4)runs4++;if(cur===5)runs5++}else t++}
+            return {wins:w,losses:l,ties:t,accuracy:+(100*w/Math.max(1,w+l)).toFixed(2),maxLossStreak:max,lossRuns3Plus:runs3,lossRuns4Plus:runs4,lossRuns5Plus:runs5};
+          }
+          const all=[];
+          for(const p of pairs){
+            const raw=JSON.parse(fs.readFileSync('audit/canonical/'+p+'.json','utf8'));
+            let a=rows(raw).filter(o=>{let z=tf(o);return z==='1'||z==='1m'||z==='60'||z==='60s'||z.includes('1m')}).sort((a,b)=>ts(a)-ts(b));
+            for(const o of a){o.__pair=p.toUpperCase();all.push(o)}
+          }
+          all.sort((a,b)=>ts(a)-ts(b));
+          // Use recorded candle/feature closes only. Skip rows lacking enough price history rather than infer/fabricate.
+          const byPair={}; for(const o of all)(byPair[o.__pair]??=[]).push(o);
+          const signals=[];
+          for(const [pair,a] of Object.entries(byPair)){
+            const closes=a.map(o=>get(o,['close','entry','entryPrice','signalPrice','price','closePrice']));
+            for(const n of [11,21,30]){
+              const em=emaSeries(closes,n);
+              for(let i=Math.max(n,3);i<a.length;i++){
+                const o=a[i], c=closes[i], prev=closes[i-1], e=em[i], ep=em[i-1];
+                if(c==null||prev==null||e==null||ep==null)continue;
+                const atr=get(o,['atr','atr14','ATR','volatilityAtr']);
+                const high=get(o,['high','candleHigh','signalHigh']), low=get(o,['low','candleLow','signalLow']);
+                const slope=e-ep;
+                // trend requires MA slope plus price on trend side. Touch/rejection zone uses ATR when stored; fallback relative 0.05%.
+                const zone=atr&&atr>0?0.20*atr:Math.max(Math.abs(c)*0.0005,1e-9);
+                const bull=slope>0&&c>=e, bear=slope<0&&c<=e;
+                const touch=high!=null&&low!=null?(low<=e+zone&&high>=e-zone):Math.abs(c-e)<=zone;
+                if(!touch||(!bull&&!bear))continue;
+                // continuation rejection: in uptrend BUY after holding/reclaiming EMA; in downtrend SELL after rejection below EMA.
+                const pred=bull?'BUY':'SELL';
+                const actual=res(o)==='DRAW'?'TIE':res(o);
+                const base=dir(o);
+                signals.push({pair,n,t:ts(o),pred,actual,base,atrUsed:!!(atr&&atr>0)});
+              }
+            }
+          }
+          function evalSet(s){
+            const outcomes=s.map(x=>x.actual);
+            const m=metric(outcomes);
+            const per={}; for(const p of [...new Set(s.map(x=>x.pair))])per[p]=metric(s.filter(x=>x.pair===p).map(x=>x.actual));
+            return {...m,signals:s.length,byPair:per,atrNormalizedCount:s.filter(x=>x.atrUsed).length};
+          }
+          const out={generatedAt:new Date().toISOString(),scope:'1m; EURUSD GBPUSD EURJPY USDJPY AUDUSD',method:'EMA 11/21/30 dynamic S/R continuation screening in trending state; chronological 70/30 split; recorded canonical fields only; no live strategy change',rules:{trend:'EMA slope + price on trend side',entry:'touch/rejection near EMA; BUY rising support, SELL falling resistance',zone:'0.20 ATR when ATR stored; otherwise 0.05% price fallback',warning:'screening test, not full candle replay'},counts:{canonical1m:all.length,qualified:signals.length},variants:{}};
+          for(const n of [11,21,30]){
+            const s=signals.filter(x=>x.n===n).sort((a,b)=>a.t-b.t), cut=Math.floor(s.length*.7);
+            out.variants['EMA'+n]={development:evalSet(s.slice(0,cut)),validation:evalSet(s.slice(cut))};
+          }
+          fs.writeFileSync('audit/backtest-1m-ma-dynamic-sr.json',JSON.stringify(out,null,2));
+          console.log(JSON.stringify(out,null,2));
+          NODE
+          node /tmp/ma-test.js
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit/backtest-1m-ma-dynamic-sr.json
+          git diff --cached --quiet || (git commit -m "audit: backtest 1m EMA dynamic support resistance" && git push)
