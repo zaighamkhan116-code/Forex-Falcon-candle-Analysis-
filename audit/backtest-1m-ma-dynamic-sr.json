@@ -1,0 +1,287 @@
+{
+  "generatedAt": "2026-09-20T20:44:36.862Z",
+  "scope": "1m; EURUSD GBPUSD EURJPY USDJPY AUDUSD",
+  "method": "EMA 11/21/30 dynamic S/R continuation screening in trending state; chronological 70/30 split; recorded canonical fields only; no live strategy change",
+  "rules": {
+    "trend": "EMA slope + price on trend side",
+    "entry": "touch/rejection near EMA; BUY rising support, SELL falling resistance",
+    "zone": "0.20 ATR when ATR stored; otherwise 0.05% price fallback",
+    "warning": "screening test, not full candle replay"
+  },
+  "counts": {
+    "canonical1m": 9331,
+    "qualified": 22345
+  },
+  "variants": {
+    "EMA11": {
+      "development": {
+        "wins": 2692,
+        "losses": 2693,
+        "ties": 481,
+        "accuracy": 49.99,
+        "maxLossStreak": 11,
+        "lossRuns3Plus": 343,
+        "lossRuns4Plus": 183,
+        "lossRuns5Plus": 94,
+        "signals": 5866,
+        "byPair": {
+          "EURUSD": {
+            "wins": 778,
+            "losses": 798,
+            "ties": 186,
+            "accuracy": 49.37,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 98,
+            "lossRuns4Plus": 55,
+            "lossRuns5Plus": 24
+          },
+          "GBPUSD": {
+            "wins": 785,
+            "losses": 794,
+            "ties": 188,
+            "accuracy": 49.72,
+            "maxLossStreak": 11,
+            "lossRuns3Plus": 101,
+            "lossRuns4Plus": 58,
+            "lossRuns5Plus": 32
+          },
+          "EURJPY": {
+            "wins": 794,
+            "losses": 750,
+            "ties": 61,
+            "accuracy": 51.42,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 98,
+            "lossRuns4Plus": 46,
+            "lossRuns5Plus": 23
+          },
+          "USDJPY": {
+            "wins": 335,
+            "losses": 351,
+            "ties": 46,
+            "accuracy": 48.83,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 46,
+            "lossRuns4Plus": 24,
+            "lossRuns5Plus": 15
+          }
+        },
+        "atrNormalizedCount": 0
+      },
+      "validation": {
+        "wins": 1135,
+        "losses": 1100,
+        "ties": 279,
+        "accuracy": 50.78,
+        "maxLossStreak": 10,
+        "lossRuns3Plus": 137,
+        "lossRuns4Plus": 64,
+        "lossRuns5Plus": 27,
+        "signals": 2514,
+        "byPair": {
+          "USDJPY": {
+            "wins": 391,
+            "losses": 384,
+            "ties": 41,
+            "accuracy": 50.45,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 47,
+            "lossRuns4Plus": 22,
+            "lossRuns5Plus": 6
+          },
+          "AUDUSD": {
+            "wins": 744,
+            "losses": 716,
+            "ties": 238,
+            "accuracy": 50.96,
+            "maxLossStreak": 10,
+            "lossRuns3Plus": 90,
+            "lossRuns4Plus": 42,
+            "lossRuns5Plus": 21
+          }
+        },
+        "atrNormalizedCount": 0
+      }
+    },
+    "EMA21": {
+      "development": {
+        "wins": 2364,
+        "losses": 2340,
+        "ties": 455,
+        "accuracy": 50.26,
+        "maxLossStreak": 11,
+        "lossRuns3Plus": 304,
+        "lossRuns4Plus": 154,
+        "lossRuns5Plus": 79,
+        "signals": 5159,
+        "byPair": {
+          "EURUSD": {
+            "wins": 722,
+            "losses": 741,
+            "ties": 176,
+            "accuracy": 49.35,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 90,
+            "lossRuns4Plus": 53,
+            "lossRuns5Plus": 22
+          },
+          "GBPUSD": {
+            "wins": 734,
+            "losses": 736,
+            "ties": 182,
+            "accuracy": 49.93,
+            "maxLossStreak": 11,
+            "lossRuns3Plus": 93,
+            "lossRuns4Plus": 50,
+            "lossRuns5Plus": 30
+          },
+          "EURJPY": {
+            "wins": 666,
+            "losses": 613,
+            "ties": 54,
+            "accuracy": 52.07,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 85,
+            "lossRuns4Plus": 36,
+            "lossRuns5Plus": 18
+          },
+          "USDJPY": {
+            "wins": 242,
+            "losses": 250,
+            "ties": 43,
+            "accuracy": 49.19,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 36,
+            "lossRuns4Plus": 15,
+            "lossRuns5Plus": 9
+          }
+        },
+        "atrNormalizedCount": 0
+      },
+      "validation": {
+        "wins": 997,
+        "losses": 957,
+        "ties": 258,
+        "accuracy": 51.02,
+        "maxLossStreak": 10,
+        "lossRuns3Plus": 116,
+        "lossRuns4Plus": 52,
+        "lossRuns5Plus": 22,
+        "signals": 2212,
+        "byPair": {
+          "USDJPY": {
+            "wins": 326,
+            "losses": 326,
+            "ties": 34,
+            "accuracy": 50,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 39,
+            "lossRuns4Plus": 18,
+            "lossRuns5Plus": 7
+          },
+          "AUDUSD": {
+            "wins": 671,
+            "losses": 631,
+            "ties": 224,
+            "accuracy": 51.54,
+            "maxLossStreak": 10,
+            "lossRuns3Plus": 77,
+            "lossRuns4Plus": 34,
+            "lossRuns5Plus": 15
+          }
+        },
+        "atrNormalizedCount": 0
+      }
+    },
+    "EMA30": {
+      "development": {
+        "wins": 2081,
+        "losses": 2095,
+        "ties": 439,
+        "accuracy": 49.83,
+        "maxLossStreak": 11,
+        "lossRuns3Plus": 267,
+        "lossRuns4Plus": 138,
+        "lossRuns5Plus": 73,
+        "signals": 4615,
+        "byPair": {
+          "EURUSD": {
+            "wins": 667,
+            "losses": 699,
+            "ties": 172,
+            "accuracy": 48.83,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 89,
+            "lossRuns4Plus": 52,
+            "lossRuns5Plus": 23
+          },
+          "GBPUSD": {
+            "wins": 679,
+            "losses": 683,
+            "ties": 176,
+            "accuracy": 49.85,
+            "maxLossStreak": 11,
+            "lossRuns3Plus": 83,
+            "lossRuns4Plus": 41,
+            "lossRuns5Plus": 27
+          },
+          "EURJPY": {
+            "wins": 566,
+            "losses": 515,
+            "ties": 53,
+            "accuracy": 52.36,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 67,
+            "lossRuns4Plus": 30,
+            "lossRuns5Plus": 14
+          },
+          "USDJPY": {
+            "wins": 169,
+            "losses": 198,
+            "ties": 38,
+            "accuracy": 46.05,
+            "maxLossStreak": 10,
+            "lossRuns3Plus": 28,
+            "lossRuns4Plus": 15,
+            "lossRuns5Plus": 9
+          }
+        },
+        "atrNormalizedCount": 0
+      },
+      "validation": {
+        "wins": 876,
+        "losses": 860,
+        "ties": 243,
+        "accuracy": 50.46,
+        "maxLossStreak": 10,
+        "lossRuns3Plus": 101,
+        "lossRuns4Plus": 48,
+        "lossRuns5Plus": 20,
+        "signals": 1979,
+        "byPair": {
+          "USDJPY": {
+            "wins": 268,
+            "losses": 275,
+            "ties": 33,
+            "accuracy": 49.36,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 34,
+            "lossRuns4Plus": 16,
+            "lossRuns5Plus": 6
+          },
+          "AUDUSD": {
+            "wins": 608,
+            "losses": 585,
+            "ties": 210,
+            "accuracy": 50.96,
+            "maxLossStreak": 10,
+            "lossRuns3Plus": 67,
+            "lossRuns4Plus": 32,
+            "lossRuns5Plus": 14
+          }
+        },
+        "atrNormalizedCount": 0
+      }
+    }
+  }
+}
