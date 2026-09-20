@@ -1,0 +1,468 @@
+{
+  "generatedAt": "2026-09-20T20:57:07.251Z",
+  "scope": "1m five canonical pairs",
+  "method": "per-pair chronological 70/30 split, then aggregate untouched validation",
+  "rules": {
+    "ma": "EMA 11/21/30 dynamic S/R",
+    "trend": "EMA slope + price on trend side",
+    "location": "touch/rejection zone",
+    "confirmation": "rejection anatomy + momentum/progress agreement when stored; no fabricated fields",
+    "atr": "use recorded ATR for 0.20 ATR zone when available; otherwise report fallback separately",
+    "liveStrategyChanged": false
+  },
+  "variants": {
+    "EMA11": {
+      "development": {
+        "signals": 5863,
+        "wins": 2639,
+        "losses": 2690,
+        "ties": 534,
+        "accuracy": 49.52,
+        "maxLossStreak": 11,
+        "lossRuns3Plus": 342,
+        "lossRuns4Plus": 176,
+        "lossRuns5Plus": 92
+      },
+      "validation": {
+        "signals": 2517,
+        "wins": 1188,
+        "losses": 1103,
+        "ties": 226,
+        "accuracy": 51.86,
+        "maxLossStreak": 10,
+        "lossRuns3Plus": 137,
+        "lossRuns4Plus": 71,
+        "lossRuns5Plus": 29
+      },
+      "byPair": {
+        "EURUSD": {
+          "development": {
+            "signals": 1233,
+            "wins": 542,
+            "losses": 569,
+            "ties": 122,
+            "accuracy": 48.78,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 75,
+            "lossRuns4Plus": 41,
+            "lossRuns5Plus": 19
+          },
+          "validation": {
+            "signals": 529,
+            "wins": 236,
+            "losses": 229,
+            "ties": 64,
+            "accuracy": 50.75,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 23,
+            "lossRuns4Plus": 14,
+            "lossRuns5Plus": 5
+          }
+        },
+        "GBPUSD": {
+          "development": {
+            "signals": 1236,
+            "wins": 534,
+            "losses": 569,
+            "ties": 133,
+            "accuracy": 48.41,
+            "maxLossStreak": 11,
+            "lossRuns3Plus": 72,
+            "lossRuns4Plus": 41,
+            "lossRuns5Plus": 24
+          },
+          "validation": {
+            "signals": 531,
+            "wins": 251,
+            "losses": 225,
+            "ties": 55,
+            "accuracy": 52.73,
+            "maxLossStreak": 6,
+            "lossRuns3Plus": 29,
+            "lossRuns4Plus": 17,
+            "lossRuns5Plus": 8
+          }
+        },
+        "EURJPY": {
+          "development": {
+            "signals": 1123,
+            "wins": 540,
+            "losses": 542,
+            "ties": 41,
+            "accuracy": 49.91,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 72,
+            "lossRuns4Plus": 34,
+            "lossRuns5Plus": 17
+          },
+          "validation": {
+            "signals": 482,
+            "wins": 254,
+            "losses": 208,
+            "ties": 20,
+            "accuracy": 54.98,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 25,
+            "lossRuns4Plus": 12,
+            "lossRuns5Plus": 6
+          }
+        },
+        "USDJPY": {
+          "development": {
+            "signals": 1083,
+            "wins": 499,
+            "losses": 516,
+            "ties": 68,
+            "accuracy": 49.16,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 67,
+            "lossRuns4Plus": 32,
+            "lossRuns5Plus": 18
+          },
+          "validation": {
+            "signals": 465,
+            "wins": 227,
+            "losses": 219,
+            "ties": 19,
+            "accuracy": 50.9,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 25,
+            "lossRuns4Plus": 14,
+            "lossRuns5Plus": 3
+          }
+        },
+        "AUDUSD": {
+          "development": {
+            "signals": 1188,
+            "wins": 524,
+            "losses": 494,
+            "ties": 170,
+            "accuracy": 51.47,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 55,
+            "lossRuns4Plus": 28,
+            "lossRuns5Plus": 14
+          },
+          "validation": {
+            "signals": 510,
+            "wins": 220,
+            "losses": 222,
+            "ties": 68,
+            "accuracy": 49.77,
+            "maxLossStreak": 10,
+            "lossRuns3Plus": 35,
+            "lossRuns4Plus": 14,
+            "lossRuns5Plus": 7
+          }
+        }
+      },
+      "fieldCoverage": {
+        "atr": 0,
+        "momentum": 0,
+        "anatomy": 0
+      }
+    },
+    "EMA21": {
+      "development": {
+        "signals": 5158,
+        "wins": 2322,
+        "losses": 2335,
+        "ties": 501,
+        "accuracy": 49.86,
+        "maxLossStreak": 11,
+        "lossRuns3Plus": 306,
+        "lossRuns4Plus": 147,
+        "lossRuns5Plus": 75
+      },
+      "validation": {
+        "signals": 2213,
+        "wins": 1039,
+        "losses": 962,
+        "ties": 212,
+        "accuracy": 51.92,
+        "maxLossStreak": 10,
+        "lossRuns3Plus": 114,
+        "lossRuns4Plus": 58,
+        "lossRuns5Plus": 26
+      },
+      "byPair": {
+        "EURUSD": {
+          "development": {
+            "signals": 1147,
+            "wins": 504,
+            "losses": 527,
+            "ties": 116,
+            "accuracy": 48.88,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 70,
+            "lossRuns4Plus": 40,
+            "lossRuns5Plus": 17
+          },
+          "validation": {
+            "signals": 492,
+            "wins": 218,
+            "losses": 214,
+            "ties": 60,
+            "accuracy": 50.46,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 20,
+            "lossRuns4Plus": 13,
+            "lossRuns5Plus": 5
+          }
+        },
+        "GBPUSD": {
+          "development": {
+            "signals": 1156,
+            "wins": 502,
+            "losses": 526,
+            "ties": 128,
+            "accuracy": 48.83,
+            "maxLossStreak": 11,
+            "lossRuns3Plus": 67,
+            "lossRuns4Plus": 36,
+            "lossRuns5Plus": 22
+          },
+          "validation": {
+            "signals": 496,
+            "wins": 232,
+            "losses": 210,
+            "ties": 54,
+            "accuracy": 52.49,
+            "maxLossStreak": 7,
+            "lossRuns3Plus": 26,
+            "lossRuns4Plus": 13,
+            "lossRuns5Plus": 8
+          }
+        },
+        "EURJPY": {
+          "development": {
+            "signals": 933,
+            "wins": 447,
+            "losses": 449,
+            "ties": 37,
+            "accuracy": 49.89,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 65,
+            "lossRuns4Plus": 28,
+            "lossRuns5Plus": 15
+          },
+          "validation": {
+            "signals": 400,
+            "wins": 219,
+            "losses": 164,
+            "ties": 17,
+            "accuracy": 57.18,
+            "maxLossStreak": 6,
+            "lossRuns3Plus": 20,
+            "lossRuns4Plus": 8,
+            "lossRuns5Plus": 3
+          }
+        },
+        "USDJPY": {
+          "development": {
+            "signals": 854,
+            "wins": 389,
+            "losses": 403,
+            "ties": 62,
+            "accuracy": 49.12,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 59,
+            "lossRuns4Plus": 22,
+            "lossRuns5Plus": 12
+          },
+          "validation": {
+            "signals": 367,
+            "wins": 179,
+            "losses": 173,
+            "ties": 15,
+            "accuracy": 50.85,
+            "maxLossStreak": 7,
+            "lossRuns3Plus": 16,
+            "lossRuns4Plus": 11,
+            "lossRuns5Plus": 4
+          }
+        },
+        "AUDUSD": {
+          "development": {
+            "signals": 1068,
+            "wins": 480,
+            "losses": 430,
+            "ties": 158,
+            "accuracy": 52.75,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 45,
+            "lossRuns4Plus": 21,
+            "lossRuns5Plus": 9
+          },
+          "validation": {
+            "signals": 458,
+            "wins": 191,
+            "losses": 201,
+            "ties": 66,
+            "accuracy": 48.72,
+            "maxLossStreak": 10,
+            "lossRuns3Plus": 32,
+            "lossRuns4Plus": 13,
+            "lossRuns5Plus": 6
+          }
+        }
+      },
+      "fieldCoverage": {
+        "atr": 0,
+        "momentum": 0,
+        "anatomy": 0
+      }
+    },
+    "EMA30": {
+      "development": {
+        "signals": 4613,
+        "wins": 2042,
+        "losses": 2093,
+        "ties": 478,
+        "accuracy": 49.38,
+        "maxLossStreak": 11,
+        "lossRuns3Plus": 268,
+        "lossRuns4Plus": 131,
+        "lossRuns5Plus": 68
+      },
+      "validation": {
+        "signals": 1981,
+        "wins": 915,
+        "losses": 862,
+        "ties": 204,
+        "accuracy": 51.49,
+        "maxLossStreak": 10,
+        "lossRuns3Plus": 99,
+        "lossRuns4Plus": 55,
+        "lossRuns5Plus": 25
+      },
+      "byPair": {
+        "EURUSD": {
+          "development": {
+            "signals": 1076,
+            "wins": 468,
+            "losses": 497,
+            "ties": 111,
+            "accuracy": 48.5,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 67,
+            "lossRuns4Plus": 38,
+            "lossRuns5Plus": 18
+          },
+          "validation": {
+            "signals": 462,
+            "wins": 199,
+            "losses": 202,
+            "ties": 61,
+            "accuracy": 49.63,
+            "maxLossStreak": 8,
+            "lossRuns3Plus": 22,
+            "lossRuns4Plus": 14,
+            "lossRuns5Plus": 5
+          }
+        },
+        "GBPUSD": {
+          "development": {
+            "signals": 1076,
+            "wins": 467,
+            "losses": 486,
+            "ties": 123,
+            "accuracy": 49,
+            "maxLossStreak": 11,
+            "lossRuns3Plus": 61,
+            "lossRuns4Plus": 29,
+            "lossRuns5Plus": 19
+          },
+          "validation": {
+            "signals": 462,
+            "wins": 212,
+            "losses": 197,
+            "ties": 53,
+            "accuracy": 51.83,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 22,
+            "lossRuns4Plus": 12,
+            "lossRuns5Plus": 8
+          }
+        },
+        "EURJPY": {
+          "development": {
+            "signals": 793,
+            "wins": 377,
+            "losses": 376,
+            "ties": 40,
+            "accuracy": 50.07,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 53,
+            "lossRuns4Plus": 22,
+            "lossRuns5Plus": 11
+          },
+          "validation": {
+            "signals": 341,
+            "wins": 189,
+            "losses": 139,
+            "ties": 13,
+            "accuracy": 57.62,
+            "maxLossStreak": 6,
+            "lossRuns3Plus": 14,
+            "lossRuns4Plus": 8,
+            "lossRuns5Plus": 3
+          }
+        },
+        "USDJPY": {
+          "development": {
+            "signals": 686,
+            "wins": 297,
+            "losses": 332,
+            "ties": 57,
+            "accuracy": 47.22,
+            "maxLossStreak": 10,
+            "lossRuns3Plus": 47,
+            "lossRuns4Plus": 21,
+            "lossRuns5Plus": 12
+          },
+          "validation": {
+            "signals": 295,
+            "wins": 140,
+            "losses": 141,
+            "ties": 14,
+            "accuracy": 49.82,
+            "maxLossStreak": 7,
+            "lossRuns3Plus": 15,
+            "lossRuns4Plus": 10,
+            "lossRuns5Plus": 3
+          }
+        },
+        "AUDUSD": {
+          "development": {
+            "signals": 982,
+            "wins": 433,
+            "losses": 402,
+            "ties": 147,
+            "accuracy": 51.86,
+            "maxLossStreak": 9,
+            "lossRuns3Plus": 40,
+            "lossRuns4Plus": 21,
+            "lossRuns5Plus": 8
+          },
+          "validation": {
+            "signals": 421,
+            "wins": 175,
+            "losses": 183,
+            "ties": 63,
+            "accuracy": 48.88,
+            "maxLossStreak": 10,
+            "lossRuns3Plus": 26,
+            "lossRuns4Plus": 11,
+            "lossRuns5Plus": 6
+          }
+        }
+      },
+      "fieldCoverage": {
+        "atr": 0,
+        "momentum": 0,
+        "anatomy": 0
+      }
+    }
+  }
+}
