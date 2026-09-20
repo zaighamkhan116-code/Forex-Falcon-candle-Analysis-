@@ -1,0 +1,73 @@
+name: Backtest 1m MA confirmed V2
+
+on:
+  push:
+    paths: ['.github/workflows/backtest-1m-ma-confirmed-v2.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - name: Run pair-stratified confirmed MA test
+        run: |
+          cat > /tmp/test.js <<'NODE'
+          const fs=require('fs');
+          const pairs=['eurusd','gbpusd','eurjpy','usdjpy','audusd'];
+          const num=(o,ks)=>{for(const k of ks){if(o&&o[k]!=null&&Number.isFinite(+o[k]))return +o[k]}return null};
+          const str=(o,ks)=>{for(const k of ks){if(o&&o[k]!=null)return String(o[k])}return ''};
+          const result=o=>str(o,['result','outcome','settlementResult']).toUpperCase().replace('DRAW','TIE');
+          const direction=o=>str(o,['direction','signal','prediction']).toUpperCase();
+          const tf=o=>str(o,['timeframe','tf','horizon','expiry']).toLowerCase();
+          const ts=o=>Date.parse(str(o,['signalBoundary','predictedAt','generatedAt','timestamp','createdAt','resolvedAt']))||0;
+          function rows(x,out=[]){if(Array.isArray(x))for(const z of x)rows(z,out);else if(x&&typeof x==='object'){let r=result(x),d=direction(x);if(['WIN','LOSS','TIE'].includes(r)&&['BUY','SELL'].includes(d))out.push(x);else for(const v of Object.values(x))if(v&&typeof v==='object')rows(v,out)}return out}
+          function ema(a,n){let e=null,k=2/(n+1);return a.map(v=>v==null?e:(e=e==null?v:e+k*(v-e)))}
+          function metrics(a){let w=0,l=0,t=0,cur=0,max=0,l3=0,l4=0,l5=0;for(const r of a){if(r==='WIN'){w++;cur=0}else if(r==='LOSS'){l++;cur++;max=Math.max(max,cur);if(cur===3)l3++;if(cur===4)l4++;if(cur===5)l5++}else t++}return{signals:a.length,wins:w,losses:l,ties:t,accuracy:+(100*w/Math.max(1,w+l)).toFixed(2),maxLossStreak:max,lossRuns3Plus:l3,lossRuns4Plus:l4,lossRuns5Plus:l5}}
+          const sets={};
+          for(const p of pairs){
+            let a=rows(JSON.parse(fs.readFileSync('audit/canonical/'+p+'.json','utf8'))).filter(o=>{let z=tf(o);return z==='1'||z==='1m'||z==='60'||z==='60s'||z.includes('1m')}).sort((a,b)=>ts(a)-ts(b));
+            sets[p.toUpperCase()]=a;
+          }
+          const out={generatedAt:new Date().toISOString(),scope:'1m five canonical pairs',method:'per-pair chronological 70/30 split, then aggregate untouched validation',rules:{ma:'EMA 11/21/30 dynamic S/R',trend:'EMA slope + price on trend side',location:'touch/rejection zone',confirmation:'rejection anatomy + momentum/progress agreement when stored; no fabricated fields',atr:'use recorded ATR for 0.20 ATR zone when available; otherwise report fallback separately',liveStrategyChanged:false},variants:{}};
+          for(const n of [11,21,30]){
+            let dev=[],val=[],coverage={atr:0,momentum:0,anatomy:0},byPair={};
+            for(const [pair,a] of Object.entries(sets)){
+              const closes=a.map(o=>num(o,['close','entry','entryPrice','signalPrice','price','closePrice']));
+              const es=ema(closes,n); const cand=[];
+              for(let i=Math.max(n,3);i<a.length;i++){
+                const o=a[i],c=closes[i],e=es[i],ep=es[i-1]; if(c==null||e==null||ep==null)continue;
+                const atr=num(o,['atr','atr14','ATR','volatilityAtr']); if(atr>0)coverage.atr++;
+                const hi=num(o,['high','candleHigh','signalHigh']),lo=num(o,['low','candleLow','signalLow']),op=num(o,['open','candleOpen','signalOpen']);
+                const slope=e-ep,bull=slope>0&&c>=e,bear=slope<0&&c<=e;if(!bull&&!bear)continue;
+                const zone=atr>0?.20*atr:Math.max(Math.abs(c)*.0005,1e-9);
+                const touch=hi!=null&&lo!=null?(lo<=e+zone&&hi>=e-zone):Math.abs(c-e)<=zone;if(!touch)continue;
+                let anatomy=true;
+                if(hi!=null&&lo!=null&&op!=null&&hi>lo){coverage.anatomy++;const range=hi-lo,body=Math.abs(c-op),uw=hi-Math.max(op,c),lw=Math.min(op,c)-lo;anatomy=bull?(c>=op||lw/range>=.25):(c<=op||uw/range>=.25)}
+                if(!anatomy)continue;
+                const mom=num(o,['momentum','momentumScore','advancedMomentumScore','sequencePressure','directionScore']);
+                let momOK=true;if(mom!=null){coverage.momentum++;momOK=bull?mom>=0:mom<=0}
+                const fail=o.failureToProgress===true||o.continuationFreshEvidence===false;
+                if(!momOK||fail)continue;
+                cand.push({r:result(o),t:ts(o)});
+              }
+              cand.sort((a,b)=>a.t-b.t);const cut=Math.floor(cand.length*.7),d=cand.slice(0,cut),v=cand.slice(cut);
+              dev.push(...d);val.push(...v);byPair[pair]={development:metrics(d.map(x=>x.r)),validation:metrics(v.map(x=>x.r))};
+            }
+            dev.sort((a,b)=>a.t-b.t);val.sort((a,b)=>a.t-b.t);
+            out.variants['EMA'+n]={development:metrics(dev.map(x=>x.r)),validation:metrics(val.map(x=>x.r)),byPair,fieldCoverage:coverage};
+          }
+          fs.writeFileSync('audit/backtest-1m-ma-confirmed-v2.json',JSON.stringify(out,null,2));console.log(JSON.stringify(out,null,2));
+          NODE
+          node /tmp/test.js
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit/backtest-1m-ma-confirmed-v2.json
+          git diff --cached --quiet || (git commit -m "audit: backtest confirmed 1m EMA dynamic S/R" && git push)
