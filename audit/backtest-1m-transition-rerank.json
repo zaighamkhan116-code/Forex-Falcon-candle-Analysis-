@@ -1,0 +1,514 @@
+{
+  "generatedAt": "2026-09-20T20:33:08.561Z",
+  "scope": "1m only; five canonical pairs",
+  "method": "chronological 70/30 development-validation split; no random shuffle; counterfactual direction flip maps WIN<->LOSS and preserves ties",
+  "constraints": {
+    "signalCountPreserved": true,
+    "minimumConfidence": 57,
+    "shadowInfluence": "NONE",
+    "liveStrategyChanged": false
+  },
+  "counts": {
+    "all": 9331,
+    "development": 6531,
+    "validation": 2800
+  },
+  "baseline": {
+    "development": {
+      "wins": 2945,
+      "losses": 3024,
+      "ties": 562,
+      "accuracy": 49.34,
+      "reranked": 0,
+      "repaired": 0,
+      "damaged": 0,
+      "netRepaired": 0,
+      "maxLossStreak": 12,
+      "lossRuns3Plus": 426,
+      "lossRuns4Plus": 251,
+      "lossRuns5Plus": 145,
+      "byPair": {
+        "EURUSD": {
+          "w": 573,
+          "l": 611,
+          "t": 127,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 48.4
+        },
+        "GBPUSD": {
+          "w": 568,
+          "l": 606,
+          "t": 134,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 48.38
+        },
+        "EURJPY": {
+          "w": 627,
+          "l": 634,
+          "t": 48,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 49.72
+        },
+        "USDJPY": {
+          "w": 612,
+          "l": 624,
+          "t": 72,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 49.51
+        },
+        "AUDUSD": {
+          "w": 565,
+          "l": 549,
+          "t": 181,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 50.72
+        }
+      }
+    },
+    "validation": {
+      "wins": 1317,
+      "losses": 1247,
+      "ties": 236,
+      "accuracy": 51.37,
+      "reranked": 0,
+      "repaired": 0,
+      "damaged": 0,
+      "netRepaired": 0,
+      "maxLossStreak": 11,
+      "lossRuns3Plus": 163,
+      "lossRuns4Plus": 77,
+      "lossRuns5Plus": 49,
+      "byPair": {
+        "GBPUSD": {
+          "w": 266,
+          "l": 237,
+          "t": 58,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 52.88
+        },
+        "EURJPY": {
+          "w": 295,
+          "l": 246,
+          "t": 20,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 54.53
+        },
+        "USDJPY": {
+          "w": 264,
+          "l": 273,
+          "t": 23,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 49.16
+        },
+        "AUDUSD": {
+          "w": 242,
+          "l": 248,
+          "t": 68,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 49.39
+        },
+        "EURUSD": {
+          "w": 250,
+          "l": 243,
+          "t": 67,
+          "reranked": 0,
+          "repaired": 0,
+          "damaged": 0,
+          "accuracy": 50.71
+        }
+      }
+    }
+  },
+  "variants": {
+    "2F": {
+      "development": {
+        "wins": 3006,
+        "losses": 2963,
+        "ties": 562,
+        "accuracy": 50.36,
+        "reranked": 5564,
+        "repaired": 2575,
+        "damaged": 2514,
+        "netRepaired": 61,
+        "maxLossStreak": 12,
+        "lossRuns3Plus": 387,
+        "lossRuns4Plus": 204,
+        "lossRuns5Plus": 113,
+        "byPair": {
+          "EURUSD": {
+            "w": 598,
+            "l": 586,
+            "t": 127,
+            "reranked": 1134,
+            "repaired": 524,
+            "damaged": 499,
+            "accuracy": 50.51
+          },
+          "GBPUSD": {
+            "w": 598,
+            "l": 576,
+            "t": 134,
+            "reranked": 1164,
+            "repaired": 538,
+            "damaged": 508,
+            "accuracy": 50.94
+          },
+          "EURJPY": {
+            "w": 639,
+            "l": 622,
+            "t": 48,
+            "reranked": 1100,
+            "repaired": 537,
+            "damaged": 525,
+            "accuracy": 50.67
+          },
+          "USDJPY": {
+            "w": 631,
+            "l": 605,
+            "t": 72,
+            "reranked": 1092,
+            "repaired": 525,
+            "damaged": 506,
+            "accuracy": 51.05
+          },
+          "AUDUSD": {
+            "w": 540,
+            "l": 574,
+            "t": 181,
+            "reranked": 1074,
+            "repaired": 451,
+            "damaged": 476,
+            "accuracy": 48.47
+          }
+        }
+      },
+      "validation": {
+        "wins": 1270,
+        "losses": 1294,
+        "ties": 236,
+        "accuracy": 49.53,
+        "reranked": 2370,
+        "repaired": 1063,
+        "damaged": 1110,
+        "netRepaired": -47,
+        "maxLossStreak": 11,
+        "lossRuns3Plus": 165,
+        "lossRuns4Plus": 82,
+        "lossRuns5Plus": 45,
+        "byPair": {
+          "GBPUSD": {
+            "w": 242,
+            "l": 261,
+            "t": 58,
+            "reranked": 479,
+            "repaired": 204,
+            "damaged": 228,
+            "accuracy": 48.11
+          },
+          "EURJPY": {
+            "w": 273,
+            "l": 268,
+            "t": 20,
+            "reranked": 464,
+            "repaired": 212,
+            "damaged": 234,
+            "accuracy": 50.46
+          },
+          "USDJPY": {
+            "w": 274,
+            "l": 263,
+            "t": 23,
+            "reranked": 468,
+            "repaired": 229,
+            "damaged": 219,
+            "accuracy": 51.02
+          },
+          "AUDUSD": {
+            "w": 242,
+            "l": 248,
+            "t": 68,
+            "reranked": 466,
+            "repaired": 205,
+            "damaged": 205,
+            "accuracy": 49.39
+          },
+          "EURUSD": {
+            "w": 239,
+            "l": 254,
+            "t": 67,
+            "reranked": 493,
+            "repaired": 213,
+            "damaged": 224,
+            "accuracy": 48.48
+          }
+        }
+      }
+    },
+    "3F": {
+      "development": {
+        "wins": 2914,
+        "losses": 3055,
+        "ties": 562,
+        "accuracy": 48.82,
+        "reranked": 3996,
+        "repaired": 1808,
+        "damaged": 1839,
+        "netRepaired": -31,
+        "maxLossStreak": 12,
+        "lossRuns3Plus": 406,
+        "lossRuns4Plus": 218,
+        "lossRuns5Plus": 119,
+        "byPair": {
+          "EURUSD": {
+            "w": 565,
+            "l": 619,
+            "t": 127,
+            "reranked": 859,
+            "repaired": 380,
+            "damaged": 388,
+            "accuracy": 47.72
+          },
+          "GBPUSD": {
+            "w": 603,
+            "l": 571,
+            "t": 134,
+            "reranked": 846,
+            "repaired": 399,
+            "damaged": 364,
+            "accuracy": 51.36
+          },
+          "EURJPY": {
+            "w": 622,
+            "l": 639,
+            "t": 48,
+            "reranked": 766,
+            "repaired": 366,
+            "damaged": 371,
+            "accuracy": 49.33
+          },
+          "USDJPY": {
+            "w": 607,
+            "l": 629,
+            "t": 72,
+            "reranked": 791,
+            "repaired": 368,
+            "damaged": 373,
+            "accuracy": 49.11
+          },
+          "AUDUSD": {
+            "w": 517,
+            "l": 597,
+            "t": 181,
+            "reranked": 734,
+            "repaired": 295,
+            "damaged": 343,
+            "accuracy": 46.41
+          }
+        }
+      },
+      "validation": {
+        "wins": 1303,
+        "losses": 1261,
+        "ties": 236,
+        "accuracy": 50.82,
+        "reranked": 1673,
+        "repaired": 760,
+        "damaged": 774,
+        "netRepaired": -14,
+        "maxLossStreak": 10,
+        "lossRuns3Plus": 167,
+        "lossRuns4Plus": 83,
+        "lossRuns5Plus": 36,
+        "byPair": {
+          "GBPUSD": {
+            "w": 263,
+            "l": 240,
+            "t": 58,
+            "reranked": 346,
+            "repaired": 155,
+            "damaged": 158,
+            "accuracy": 52.29
+          },
+          "EURJPY": {
+            "w": 277,
+            "l": 264,
+            "t": 20,
+            "reranked": 326,
+            "repaired": 148,
+            "damaged": 166,
+            "accuracy": 51.2
+          },
+          "USDJPY": {
+            "w": 275,
+            "l": 262,
+            "t": 23,
+            "reranked": 303,
+            "repaired": 150,
+            "damaged": 139,
+            "accuracy": 51.21
+          },
+          "AUDUSD": {
+            "w": 248,
+            "l": 242,
+            "t": 68,
+            "reranked": 346,
+            "repaired": 157,
+            "damaged": 151,
+            "accuracy": 50.61
+          },
+          "EURUSD": {
+            "w": 240,
+            "l": 253,
+            "t": 67,
+            "reranked": 352,
+            "repaired": 150,
+            "damaged": 160,
+            "accuracy": 48.68
+          }
+        }
+      }
+    },
+    "4F": {
+      "development": {
+        "wins": 2963,
+        "losses": 3006,
+        "ties": 562,
+        "accuracy": 49.64,
+        "reranked": 1715,
+        "repaired": 799,
+        "damaged": 781,
+        "netRepaired": 18,
+        "maxLossStreak": 16,
+        "lossRuns3Plus": 402,
+        "lossRuns4Plus": 253,
+        "lossRuns5Plus": 138,
+        "byPair": {
+          "EURUSD": {
+            "w": 571,
+            "l": 613,
+            "t": 127,
+            "reranked": 360,
+            "repaired": 161,
+            "damaged": 163,
+            "accuracy": 48.23
+          },
+          "GBPUSD": {
+            "w": 591,
+            "l": 583,
+            "t": 134,
+            "reranked": 413,
+            "repaired": 198,
+            "damaged": 175,
+            "accuracy": 50.34
+          },
+          "EURJPY": {
+            "w": 638,
+            "l": 623,
+            "t": 48,
+            "reranked": 308,
+            "repaired": 154,
+            "damaged": 143,
+            "accuracy": 50.59
+          },
+          "USDJPY": {
+            "w": 616,
+            "l": 620,
+            "t": 72,
+            "reranked": 327,
+            "repaired": 158,
+            "damaged": 154,
+            "accuracy": 49.84
+          },
+          "AUDUSD": {
+            "w": 547,
+            "l": 567,
+            "t": 181,
+            "reranked": 307,
+            "repaired": 128,
+            "damaged": 146,
+            "accuracy": 49.1
+          }
+        }
+      },
+      "validation": {
+        "wins": 1339,
+        "losses": 1225,
+        "ties": 236,
+        "accuracy": 52.22,
+        "reranked": 712,
+        "repaired": 337,
+        "damaged": 315,
+        "netRepaired": 22,
+        "maxLossStreak": 12,
+        "lossRuns3Plus": 166,
+        "lossRuns4Plus": 89,
+        "lossRuns5Plus": 56,
+        "byPair": {
+          "GBPUSD": {
+            "w": 263,
+            "l": 240,
+            "t": 58,
+            "reranked": 165,
+            "repaired": 73,
+            "damaged": 76,
+            "accuracy": 52.29
+          },
+          "EURJPY": {
+            "w": 298,
+            "l": 243,
+            "t": 20,
+            "reranked": 137,
+            "repaired": 67,
+            "damaged": 64,
+            "accuracy": 55.08
+          },
+          "USDJPY": {
+            "w": 281,
+            "l": 256,
+            "t": 23,
+            "reranked": 121,
+            "repaired": 66,
+            "damaged": 49,
+            "accuracy": 52.33
+          },
+          "AUDUSD": {
+            "w": 250,
+            "l": 240,
+            "t": 68,
+            "reranked": 132,
+            "repaired": 64,
+            "damaged": 56,
+            "accuracy": 51.02
+          },
+          "EURUSD": {
+            "w": 247,
+            "l": 246,
+            "t": 67,
+            "reranked": 157,
+            "repaired": 67,
+            "damaged": 70,
+            "accuracy": 50.1
+          }
+        }
+      }
+    }
+  }
+}
