@@ -1,0 +1,105 @@
+name: Backtest 1m transition rerank
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/backtest-1m-transition-rerank.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run chronological 1m rerank backtest
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'fs';
+          const PAIRS=['EURUSD','GBPUSD','EURJPY','USDJPY','AUDUSD'];
+          const upper=v=>String(v??'').toUpperCase();
+          const num=v=>{const x=Number(v);return Number.isFinite(x)?x:0};
+          const ts=x=>num(x.signalBoundary||x.predictedAt||x.generatedAt||x.resolvedAt||x.expiry);
+          const horizon=x=>num(x.horizon||x.features?.horizon||String(x.analysisTimeframe||'').replace(/\D/g,''));
+          const dirSign=d=>upper(d)==='BUY'?1:-1;
+          const opposite=d=>upper(d)==='BUY'?'SELL':'BUY';
+
+          function families(x){
+            const f=x.features||{},dir=upper(x.direction),out=[];
+            if(!['BUY','SELL'].includes(dir))return {families:[],stale:false,strongFresh:false};
+            const structural=Array.isArray(f.frequencyStructuralTags)?f.frequencyStructuralTags.map(upper):[];
+            const penalties=upper(f.scoreRedistributionPenaltyTags);
+            const stale=f.continuationFreshEvidence===false||f.continuationResetRequired===true||f.continuationResetGate===false;
+            const weak=f.failureToProgress===true||f.progressFailureRisk===true||structural.includes('WEAKPROGRESS')||penalties.includes('FAILURE_TO_PROGRESS')||penalties.includes('NEGATIVE_PROGRESS');
+            if(stale&&weak)out.push('PROGRESS');
+            const sr=upper(f.sr||f.dynamicZoneSide),liq=upper(f.liquidity),pattern=upper(f.pattern),bo=upper(f.breakout);
+            const adverse=(dir==='BUY'&&(sr.includes('RESISTANCE')||liq==='BUY-SIDE SWEEP'))||(dir==='SELL'&&(sr.includes('SUPPORT')||liq==='SELL-SIDE SWEEP'));
+            const hostile=(dir==='BUY'&&(pattern.includes('BEAR')||bo.includes('FAILED BULL')))||(dir==='SELL'&&(pattern.includes('BULL')||bo.includes('FAILED BEAR')));
+            if(penalties.includes('REJECTION_PRESSURE')||adverse||hostile)out.push('LOCATION_REJECTION');
+            const ft=upper(f.activeFvgType||f.fvg||'NONE'),fsx=upper(f.activeFvgState||'NONE'),fb=Number(f.activeFvgBias);
+            const unresolved=['APPROACHING','MITIGATING'].includes(fsx)||penalties.includes('UNRESOLVED_FVG');
+            if(unresolved&&((dir==='BUY'&&ft.includes('BEAR'))||(dir==='SELL'&&ft.includes('BULL'))||(Number.isFinite(fb)&&dirSign(dir)*fb<-.18)))out.push('FVG');
+            const mtf=[f.m5Context,f.m15Context,f.h1Context].map(Number).filter(Number.isFinite);
+            if(num(f.mtfOppositionCount)>=2||mtf.filter(v=>dirSign(dir)*v<-.12).length>=2)out.push('MTF');
+            const q=[Number.isFinite(Number(f.efficiency))&&Number(f.efficiency)<.22,Number.isFinite(Number(f.moveQualityScore))&&Number(f.moveQualityScore)<5.5,Number.isFinite(Number(f.adx))&&Number(f.adx)<18,f.transitionCompression===true||f.microRangeChop===true||upper(x.regime)==='CHOPPY'||penalties.includes('EMA_COMPRESSION')||penalties.includes('BB_CONTRACTION')].filter(Boolean).length;
+            if(q>=2)out.push('COMPRESSION_QUALITY');
+            const votes=[];
+            const add=(v,t=.08)=>{const n=Number(v);if(Number.isFinite(n)&&dirSign(dir)*n<-t)votes.push(1)};
+            add(f.sequencePressure??f.sequence);add(f.momentum);add(f.advancedMomentumScore,.12);
+            const structure=upper(f.structure);if((dir==='BUY'&&structure.includes('BEAR'))||(dir==='SELL'&&structure.includes('BULL')))votes.push(1);
+            if(votes.length>=2)out.push('PRICE_ACTION_MOMENTUM');
+            const td=upper(f.forexTickDirection),tr=Number(f.tickFeedReliabilityScore??Number(f.forexTickFeedReliability||0)*10),tq=Number(f.tickDirectionQualityScore??Number(f.forexTickDirectionQuality||0)*10);
+            if(tr>=7&&tq>=4.5&&((dir==='BUY'&&td==='SELL')||(dir==='SELL'&&td==='BUY')))out.push('TICKS');
+            const strongFresh=f.continuationFreshEvidence===true&&f.breakoutAccepted===true&&f.failureToProgress!==true&&num(f.moveQualityScore)>=6.5&&num(f.confirmationV2Opposed)<=1;
+            return {families:[...new Set(out)],stale,strongFresh};
+          }
+
+          function metrics(rows,threshold){
+            let w=0,l=0,t=0,reranked=0,repaired=0,damaged=0,cur=0,max=0,l3=0,l4=0,l5=0;
+            const byPair={};
+            for(const x of rows){
+              const base=upper(x.result); const z=families(x);
+              const flip=z.stale&&!z.strongFresh&&z.families.length>=threshold;
+              let res=base;
+              if(flip&&base==='WIN'){res='LOSS';reranked++;damaged++}
+              else if(flip&&base==='LOSS'){res='WIN';reranked++;repaired++}
+              else if(flip){reranked++}
+              if(res==='WIN'){w++; if(cur>=3)l3++;if(cur>=4)l4++;if(cur>=5)l5++;cur=0}
+              else if(res==='LOSS'){l++;cur++;max=Math.max(max,cur)}
+              else t++;
+              const p=upper(x.pair); const b=byPair[p]||{w:0,l:0,t:0,reranked:0,repaired:0,damaged:0};b.w+=res==='WIN';b.l+=res==='LOSS';b.t+=res!=='WIN'&&res!=='LOSS';b.reranked+=flip;b.repaired+=flip&&base==='LOSS';b.damaged+=flip&&base==='WIN';byPair[p]=b;
+            }
+            if(cur>=3)l3++;if(cur>=4)l4++;if(cur>=5)l5++;
+            for(const b of Object.values(byPair))b.accuracy=Number((100*b.w/Math.max(1,b.w+b.l)).toFixed(2));
+            return {wins:w,losses:l,ties:t,accuracy:Number((100*w/Math.max(1,w+l)).toFixed(2)),reranked,repaired,damaged,netRepaired:repaired-damaged,maxLossStreak:max,lossRuns3Plus:l3,lossRuns4Plus:l4,lossRuns5Plus:l5,byPair};
+          }
+
+          let rows=[];
+          for(const pair of PAIRS){
+            const a=JSON.parse(fs.readFileSync('audit/canonical/'+pair.toLowerCase()+'.json','utf8'));
+            rows.push(...a.filter(x=>horizon(x)===1&&['WIN','LOSS','TIE','DRAW'].includes(upper(x.result))).map(x=>({...x,pair:upper(x.pair||pair)})));
+          }
+          rows.sort((a,b)=>ts(a)-ts(b));
+          const cut=Math.floor(rows.length*.70),dev=rows.slice(0,cut),validation=rows.slice(cut);
+          const report={generatedAt:new Date().toISOString(),scope:'1m only; five canonical pairs',method:'chronological 70/30 development-validation split; no random shuffle; counterfactual direction flip maps WIN<->LOSS and preserves ties',constraints:{signalCountPreserved:true,minimumConfidence:57,shadowInfluence:'NONE',liveStrategyChanged:false},counts:{all:rows.length,development:dev.length,validation:validation.length},baseline:{development:metrics(dev,99),validation:metrics(validation,99)},variants:{}};
+          for(const k of [2,3,4])report.variants[k+'F']={development:metrics(dev,k),validation:metrics(validation,k)};
+          fs.writeFileSync('audit/backtest-1m-transition-rerank.json',JSON.stringify(report,null,2)+'\n');
+          console.log(JSON.stringify(report,null,2));
+          NODE
+      - name: Commit backtest report
+        run: |
+          git config user.name 'Forex Falcon Audit Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add audit/backtest-1m-transition-rerank.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'audit: backtest 1m transition rerank thresholds'
+          git pull --rebase origin main
+          git push origin HEAD:main
