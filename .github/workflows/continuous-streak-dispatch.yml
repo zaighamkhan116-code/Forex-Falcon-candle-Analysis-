@@ -1,8 +1,6 @@
 name: Continuous loss-streak audit dispatch
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '23 * * * *'
   workflow_run:
     workflows: ['Capture Live Core FX Audit']
     types: [completed]
