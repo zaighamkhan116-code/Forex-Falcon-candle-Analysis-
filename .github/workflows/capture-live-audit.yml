@@ -6,8 +6,6 @@ on:
   push:
     paths:
       - '.github/workflows/capture-live-audit.yml'
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
