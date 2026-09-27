@@ -1,8 +1,6 @@
 name: Prune backup snapshots to 3 days
 
 on:
-  schedule:
-    - cron: '25 0 * * *'
   workflow_dispatch:
   push:
     branches: [main]
