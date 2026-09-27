@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - '.github/workflows/self-heal-capture-dispatch.yml'
-  schedule:
-    - cron: '7 * * * 1-5'
   workflow_dispatch:
 
 permissions:
