@@ -10,8 +10,6 @@ on:
   push:
     paths:
       - '.github/workflows/ensure-live-audit.yml'
-  schedule:
-    - cron: '7 * * * *'
   workflow_dispatch:
 
 permissions:
