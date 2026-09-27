@@ -10,8 +10,6 @@ on:
   workflow_run:
     workflows: ['Capture Live Core FX Audit']
     types: [completed]
-  schedule:
-    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 permissions:
