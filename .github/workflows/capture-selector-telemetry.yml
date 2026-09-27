@@ -1,8 +1,6 @@
 name: Capture selector telemetry
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '*/5 * * * *'
   push:
     paths:
       - '.github/workflows/capture-selector-telemetry.yml'
