@@ -5,8 +5,6 @@ on:
       - '.github/workflows/analyze-self-healing-cycle-1209.yml'
       - 'audit/exact-20-batch-status.json'
   workflow_dispatch:
-  schedule:
-    - cron: '25 * * * 1-5'
 permissions:
   contents: write
 concurrency:
